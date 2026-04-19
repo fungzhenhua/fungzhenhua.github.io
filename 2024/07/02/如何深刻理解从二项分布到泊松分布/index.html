@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/","path":"2024/07/02/如何深刻理解从二项分布到泊松分布/","title":"如何深刻理解从二项分布到泊松分布"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>如何深刻理解从二项分布到泊松分布 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%92%8C%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">二项分布和泊松分布的表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%8E%B0%E5%AE%9E%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">一个现实生活中的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E5%81%87%E8%AE%BE%E6%88%91%E4%BB%AC%E5%8F%AA%E7%9F%A5%E9%81%93%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E8%80%8C%E5%AF%B9%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E4%B8%80%E6%97%A0%E6%89%80%E7%9F%A5%E6%88%91%E4%BB%AC%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E6%9E%84%E5%BB%BA%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B%E6%9D%A5%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%91%A2"><span class="nav-number">2.1.</span> <span class="nav-text">现在，假设我们只知道二项分布而对泊松分布一无所知，我们如何通过构建二项分布的数学模型来解决这个问题呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E4%BB%A5%E6%97%B6%E9%97%B4%E4%B8%BA%E7%BB%B4%E5%BA%A6%E6%9D%A5%E8%80%83%E9%87%8F%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%B0%B1%E4%BC%9A%E5%87%BA%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.</span> <span class="nav-text">如果以时间为维度来考量，二项分布就会出问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E6%B3%8A%E6%9D%BE%E5%85%AC%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">从二项式公式推导泊松公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E6%9D%A5%E5%AF%B9%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E8%BF%9B%E8%A1%8C%E9%A2%84%E6%B5%8B"><span class="nav-number">2.4.</span> <span class="nav-text">通过泊松分布来对这个问题进行预测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.5.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">声明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="如何深刻理解从二项分布到泊松分布 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何深刻理解从二项分布到泊松分布
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-02 15:57:50" itemprop="dateCreated datePublished" datetime="2024-07-02T15:57:50+08:00">2024-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="二项分布和泊松分布的表达式">二项分布和泊松分布的表达式</h2>
+<ul>
+<li><p>二项分布： <span class="math display">\[
+P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p></li>
+<li><p>泊松分布： <span
+class="math display">\[P(x=k)=\frac{\lambda^k}{k!}e^{-\lambda}\]</span></p></li>
+</ul>
+<h2 id="一个现实生活中的例子">一个现实生活中的例子</h2>
+<p>一条汽车单向行驶的公路边有个便利店，店家经过一周的统计，得到数据：上个周一共有100辆次的车从这个便利店通过，其中有5辆次的车来买了东西。那么，店家现在想用这个数据来推测，下周，有6辆次的车会在这个便利店买东西的概率是多少？</p>
+<h3
+id="现在假设我们只知道二项分布而对泊松分布一无所知我们如何通过构建二项分布的数学模型来解决这个问题呢">现在，假设我们只知道二项分布而对泊松分布一无所知，我们如何通过构建二项分布的数学模型来解决这个问题呢？</h3>
+<p>这是二项分布的经典场景。对于通过的每一辆车，它只有两种可能的观测结果，那就是买东西和不买东西。这是一个
+<code>0-1</code>
+分布。现在我们做一个假设，假设每辆车通过时停下来买东西的概率是一样的（这样做假设不会影响整体的推测，因为做统计时，我们只统计了通过的车的总辆次和停下来买东西的车的总次数，也就是说做统计时每辆车是没有区别的）。通过买东西的车的总辆次
+<code>/</code> 通过的车的总辆次，我们能得到每一辆车的 <code>0-1</code>
+分布，任意一辆车停下来买东西的概率 <code>P</code> 为： <span
+class="math inline">\(\frac{5}{100}=0.05\)</span></p>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th>买东西</th>
+<th>不买东西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td>0.05</td>
+<td>0.95</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们已经通过对之前统计的数据的分析，知道了任意一辆车通过时停下来买东西的概率。如何通过这个<code>0-1</code>分布来做预测？那就做独立重复实验（也就是伯努利试验），假设有
+<code>n</code> 辆车在下个周通过该路口，每辆车停下来买东西的概率都是
+<code>p</code>，则有 <code>k</code> 辆车到商店买东西的概率为：</p>
+<p><span class="math display">\[P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p>
+<p>为此，我们必须颇为无奈地对下个周通过这条路的车的总辆次做个假设，那就是也通过<code>100</code>辆。现在我们就能做预测啦！</p>
+<p><span
+class="math display">\[P(x=6)=C_{100}^{6}\times-.005^6\times(1-0.05)^{100-6}\approx0.15\]</span></p>
+<h3
+id="如果以时间为维度来考量二项分布就会出问题">如果以时间为维度来考量，二项分布就会出问题</h3>
+<p>上一种通过二项分布来做预测的方法，依赖于我们需要做一个假设，即下一个周通过这条路的车的总辆次是<code>100</code>辆。现在我们想绕过需要对总辆次做假设这一障碍，用时间来作为观察的基准。但是因为二项分布所对应的伯努利实验的每一次实验是零散的，所以不得不将连续的时间进行分割。这就要涉及到单位时间，我们不妨把单位时间设置成小时，<span
+class="math inline">\(1周=7\times24=168小时\)</span>。根据之前的观察，一共有
+<code>5</code>
+辆车次的车去到商店买东西，也就是说，每小时有车进商店买东西的概率为 <span
+class="math inline">\(P=\frac{5}{168}\approx
+0.02976\)</span>。好像，我们又可以像上面那样去建立一个关于单位时间的<code>0-1</code>分布了。但是其实这个模型缺陷就出来了，由于考察的对象是单位时间，它的结果不再只有两个，即该时间段进入商店买东西的车的数量除了<code>0</code>、<code>1</code>，还可能是<code>2、3、4、…</code>，所以其实用<code>0-1</code>分布来对单位时间进入商店的车的数量进行模拟是不太科学的。</p>
+<p>那怎么办呢？自然而然，会想到将单位时间继续分割为更小的单位时间，如果把小时分割为分钟，那每小时就可以做<code>60</code>次独立重复实验，也就是说这下每小时最多可以有<code>60</code>辆车进入商店买东西了。但是这样仍然不满足时间这个连续的度量，要是出现极端情况，每小时有<code>70</code>辆车进入商店呢，这个模型又没法满足了。自然而然，我们想到将时间无限的分割下去。在非常非常小的一段时间里，我们就能做<code>0-1</code>分布的假设了，即在这段时间里只有
+<code>0</code> 或 <code>1</code>
+辆车进入商店买东西。但是无限的分割时间之后，我们还怎么计算这个无穷小的单位时间里车进入商店的概率呢？答案是，根本就不用去计算。因为我们的观测量是一个周汽车进入商店的辆次的总数，不妨把它记为
+<span class="math inline">\(\lambda\)</span>，它满足下面的等式：</p>
+<p><span class="math display">\[ \lambda = np \]</span></p>
+<p>其中 <code>n</code>
+为将一周的时间无限分割成的无穷小的单位时间的总份数，而 <code>p</code>
+是分割成这么多份数之后，根据观测值 <span
+class="math inline">\(\lambda\)</span>
+所计算出来的该单位时间里有车辆进入商店的概率。</p>
+<h3 id="从二项式公式推导泊松公式">从二项式公式推导泊松公式</h3>
+<p><span class="math display">\[\begin{equation}\label{eq:poisson}
+\begin{aligned}
+P(X=k)&amp;=\lim_{n\to\infty} C_n^kp^k(1-p)^{n-k} \\
+    &amp;= \lim_{n\to\infty}
+C_n^k(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
+    &amp;=\lim_{n\to\infty}
+\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^n(1-\frac{\lambda}{n})^{-k}\\
+    &amp;=\lim_{n\to\infty}
+\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}\frac{\lambda^k}{n^k}(1-\frac{\lambda}{n})^{-k}(1-\frac{\lambda}{n})^{n}\\
+    &amp;=1\times\frac{\lambda^k}{k!}\times 1\times e^{-\lambda}\\
+    &amp;=\frac{\lambda^k}{k!}e^{-\lambda}
+\end{aligned}
+\end{equation}\]</span></p>
+<p>推导之后我们发现，其实根本不需要用到 <code>n</code> 和 <code>p</code>
+这两个数据，而只有观测值 <span
+class="math inline">\(\lambda\)</span>。到这里是不是觉得泊松大大干了一件非常有价值的事情！</p>
+<h3
+id="通过泊松分布来对这个问题进行预测">通过泊松分布来对这个问题进行预测</h3>
+<p>根据之前的统计， <span class="math inline">\(\lambda = 5\)</span>
+<span class="math display">\[P(X=6) = \frac{5^6}{6!}e^{-5} \approx
+0.1462\]</span></p>
+<h3 id="总结">总结</h3>
+<p>根据二项分布推导出了泊松分布，并不代表二项分布就没有泊松分布先进，只是对于解决连续时间的这种问题，显然泊松分布更好用。但是有些情况下，二项分布会更好用。</p>
+<h2 id="声明">声明</h2>
+<p>本文引用自：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40064300/article/details/134628610">如何深刻理解从二项式分布到泊松分布</a>,
+只是对数学公式部分重新编写以适应<code>Next</code>主题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/02/Nvidia-ArchLinux-Wayland%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="prev" title="Nvidia-ArchLinux-Wayland安装教程">
+                  <i class="fa fa-angle-left"></i> Nvidia-ArchLinux-Wayland安装教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/02/Hexo%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" rel="next" title="Hexo中输入数学公式">
+                  Hexo中输入数学公式 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

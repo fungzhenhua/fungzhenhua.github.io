@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2024/10/07/Neovim%E5%AE%9E%E7%8E%B0%E5%AE%8C%E5%85%A8lua%E9%85%8D%E7%BD%AE/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/10/07/Neovim%E5%AE%9E%E7%8E%B0%E5%AE%8C%E5%85%A8lua%E9%85%8D%E7%BD%AE/","path":"2024/10/07/Neovim实现完全lua配置/","title":"Neovim实现完全lua配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Neovim实现完全lua配置 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E5%90%AF%E5%8A%A8%E6%97%B6%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">关闭启动时的介绍信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fcitx5%E7%9A%84%E4%B8%AD%E8%8B%B1%E6%96%87%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2"><span class="nav-number">2.</span> <span class="nav-text">Fcitx5的中英文自动切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua-%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">Lua 的版本问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">关键配置文件</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/07/Neovim%E5%AE%9E%E7%8E%B0%E5%AE%8C%E5%85%A8lua%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Neovim实现完全lua配置 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Neovim实现完全lua配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-07 19:41:42" itemprop="dateCreated datePublished" datetime="2024-10-07T19:41:42+08:00">2024-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>使用<code>Neovim</code>近三年了，最初对于<code>lua</code>并不是很熟悉，同时插件管理器也从<code>packer</code>到<code>lazy.nvim</code>切换了一次，这两者的配置也不是完全相同，所以适应了一段时间。今天将我自己的主机搬到办公室后决定再次研究一下这个完全配置，完全实现<code>lua</code>配置，进一步提升性能。</p>
+<h2 id="关闭启动时的介绍信息">关闭启动时的介绍信息</h2>
+<p>在使用<code>vimscript</code>配置<code>init.vim</code>文件中使用的命令为：
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> shortmess+=I</span><br></pre></td></tr></table></figure></p>
+<p>切换为<code>lua</code>配置<code>init.lua</code>文件后，使用命令配置选项(<a
+target="_blank" rel="noopener" href="https://neovim.io/doc/user/quickref.html#option-list">Options</a>)为：
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim.opt.shortmess:append(&#123; I = <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="fcitx5的中英文自动切换">Fcitx5的中英文自动切换</h2>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Fcitx5#:~:text=Fcitx5%20is%20an%20input%20method%20framework%20with%20a%20lightweight%20core,">Fcitx5-Arch
+Wiki</a>, 使用<code>vimscript</code>配置为</p>
+<figure class="highlight vim"><figcaption><span>~/.config/nvim/init.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line"><span class="keyword">autocmd</span> InsertLeave * :<span class="keyword">silent</span> <span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)[<span class="number">0</span>] | <span class="keyword">silent</span> !fcitx5-remote -<span class="keyword">c</span> <span class="comment">&quot; Disable the input method when exiting insert mode and save the state</span></span><br><span class="line"><span class="keyword">autocmd</span> InsertEnter * :<span class="keyword">silent</span> <span class="keyword">if</span> fcitx5state == <span class="number">2</span> | <span class="keyword">call</span> <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -o&quot;</span>) | <span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>但是在<code>Neovim</code>中更推荐强大的插件<a
+target="_blank" rel="noopener" href="https://github.com/h-hg/fcitx.nvim">fcitx.nvim</a>或者参考<a
+target="_blank" rel="noopener" href="https://neovimcraft.com/plugin/h-hg/fcitx.nvim/index.html#:~:text=A%20Neovim%20plugin%20writing%20in%20Lua%20to%20switch%20and%20restore">neovimcraft-Fcitx.nvim</a></p>
+<p>使用<code>fcitx.nvim</code>后，输入法自动切换的问题以纯<code>lua</code>更加高效强大的实现。</p>
+<h2 id="lua-的版本问题">Lua 的版本问题</h2>
+<p><code>Neovim</code>的插件依赖<code>lua5.1</code>版本，以前没有去关注这个信息，现在予以处理。<code>Archlinux</code>系统中<code>lua</code>有<code>4</code>个版本：<code>lua</code>(Lua5.4),
+<code>lua53</code>(Lua 5.3), <code>lua52</code>(Lua
+5.2)和<code>lua51</code>(Lua5.1), 因此直接安装<code>lua51</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S lua51</span><br></pre></td></tr></table></figure>
+<h2 id="关键配置文件">关键配置文件</h2>
+<div class="tabs" id="config"><ul class="nav-tabs"><li class="tab active"><a href="#config-1">init.lua</a></li><li class="tab"><a href="#config-2">base.lua</a></li><li class="tab"><a href="#config-3">lazy-init.lua</a></li><li class="tab"><a href="#config-4">vim-latex</a></li><li class="tab"><a href="#config-5">vista.nvim</a></li><li class="tab"><a href="#config-6">vim-template</a></li></ul><div class="tab-content"><div class="tab-pane active" id="config-1"><figure class="highlight lua"><figcaption><span>~/.config/nvim/init.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;lazy-init&quot;</span>)</span><br><span class="line"><span class="comment">-- 基础设置</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lsp/base&#x27;</span>)</span><br><span class="line"><span class="comment">-- 配置主题</span></span><br><span class="line"><span class="comment">-- require(&#x27;theme/catppuccin&#x27;)</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;theme/tokyonight&#x27;</span>)</span><br><span class="line"><span class="comment">-- 状态栏主题</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;theme/lualine&#x27;</span>)</span><br><span class="line"><span class="comment">-- require(&#x27;theme/evil_lualine&#x27;)</span></span><br><span class="line"><span class="comment">-- require(&#x27;theme/bubbles_lualine&#x27;)</span></span><br><span class="line"><span class="comment">-- require(&#x27;theme/slanted-gaps_lualine&#x27;)</span></span><br><span class="line"><span class="comment">-- require(&#x27;lsp/keybindings&#x27;)</span></span><br><span class="line"><span class="comment">-- 编程语言配置</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lsp/python&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lsp/mason&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lsp/shell&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lsp/texlab&#x27;</span>)</span><br><span class="line"><span class="comment">-- Packer 插件管理</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/cmp&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/vim-latex&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/vim-template&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/nvim-comment&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/nvim-tree&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/lspkind&#x27;</span>)</span><br><span class="line"><span class="comment">-- require(&#x27;plg/indent-blankline&#x27;)</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/hlchunk&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/rainbow-delimiters&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/vista&#x27;</span>)</span><br><span class="line"><span class="comment">-- require(&#x27;plg/telescope&#x27;)</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/treesitter&#x27;</span>)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;plg/gitsigns&#x27;</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="config-2"><figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/lsp/base.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">-- 设置文件编码格式为 utf-8</span></span><br><span class="line">vim.g.encoding = <span class="string">&quot;utf-8&quot;</span></span><br><span class="line"><span class="comment">-- 设置文件格式转换</span></span><br><span class="line">vim.o.fileencodings = <span class="string">&quot;utf-8,gbk,big5,cp936,gb18030,euc-jp,euc-kr,latin1,ucs-bom,ucs &quot;</span></span><br><span class="line"><span class="comment">-- 设置终端编码格式为 utf-8, neovim 已经移除，不再开启</span></span><br><span class="line"><span class="comment">-- vim.o.termencoding = &quot;utf-8&quot;</span></span><br><span class="line"><span class="comment">-- 开启语法高亮</span></span><br><span class="line">vim.o.syntax = <span class="string">&quot;enable&quot;</span></span><br><span class="line"><span class="comment">-- 显示相对行号</span></span><br><span class="line">vim.o.relativenumber = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 显示行号</span></span><br><span class="line">vim.o.number = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 高亮所在行</span></span><br><span class="line">vim.o.cursorline = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 自动换行</span></span><br><span class="line">vim.o.<span class="built_in">wrap</span> = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 显示光标位置</span></span><br><span class="line">vim.o.ruler = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 边输入边搜索</span></span><br><span class="line">vim.o.incsearch = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 开启搜索匹配高亮</span></span><br><span class="line">vim.o.hlsearch = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 搜索时自行判断是否需要忽略大小写</span></span><br><span class="line">vim.o.smartcase = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- tab键转换为 4 个空格</span></span><br><span class="line">vim.o.tabstop = <span class="number">4</span></span><br><span class="line">vim.o.softtabstop = <span class="number">4</span></span><br><span class="line">vim.o.shiftwidth = <span class="number">4</span></span><br><span class="line"><span class="comment">-- 新行对齐当前行，tab转换为空格</span></span><br><span class="line">vim.o.expandtab = <span class="literal">true</span></span><br><span class="line">vim.bo.expandtab = <span class="literal">true</span></span><br><span class="line">vim.o.autoindent = <span class="literal">true</span></span><br><span class="line">vim.bo.autoindent = <span class="literal">true</span></span><br><span class="line">vim.o.smartindent = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- &lt;&lt; &gt;&gt; 缩进时移动的长度</span></span><br><span class="line">vim.o.shiftwidth = <span class="number">4</span></span><br><span class="line">vim.bo.shiftwidth = <span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用jk移动光标时，上下方保留8行</span></span><br><span class="line">vim.o.scrolloff = <span class="number">8</span></span><br><span class="line">vim.o.sidescrolloff = <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 设置自动折叠</span></span><br><span class="line">vim.o.smartindent = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 历史命令最多保存1000条</span></span><br><span class="line">vim.o.history = <span class="number">1000</span></span><br><span class="line"><span class="comment">-- 显示空白字符</span></span><br><span class="line">vim.o.list = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 样式</span></span><br><span class="line">vim.o.background = <span class="string">&quot;dark&quot;</span></span><br><span class="line">vim.o.termguicolors = <span class="literal">true</span></span><br><span class="line">vim.opt.termguicolors = <span class="literal">true</span></span><br><span class="line"><span class="comment">-- 关闭错误提示,参考：https://neovim.io/doc/user/diagnostic.html</span></span><br><span class="line">vim.diagnostic.<span class="built_in">config</span>(&#123; virtual_text = <span class="literal">false</span> &#125;)</span><br><span class="line">vim.g.loaded_ruby_provider = <span class="number">0</span></span><br><span class="line">vim.opt.shortmess:append(&#123; I = <span class="literal">true</span> &#125;)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="config-3"><figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/lazy-init.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">local</span> lazypath = vim.fn.stdpath(<span class="string">&quot;data&quot;</span>) .. <span class="string">&quot;/lazy/lazy.nvim&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> vim.loop.fs_stat(lazypath) <span class="keyword">then</span></span><br><span class="line">  vim.fn.system(&#123;</span><br><span class="line">    <span class="string">&quot;git&quot;</span>,</span><br><span class="line">    <span class="string">&quot;clone&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--filter=blob:none&quot;</span>,</span><br><span class="line">    <span class="string">&quot;https://github.com/folke/lazy.nvim.git&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--branch=stable&quot;</span>, <span class="comment">-- latest stable release</span></span><br><span class="line">    lazypath,</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">vim.opt.rtp:prepend(lazypath)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;lazy&quot;</span>).setup(&#123;</span><br><span class="line">    git = &#123;</span><br><span class="line">        <span class="comment">-- defaults for the `Lazy log` command</span></span><br><span class="line">        <span class="comment">-- log = &#123; &quot;-10&quot; &#125;, -- show the last 10 commits</span></span><br><span class="line">        <span class="built_in">log</span> = &#123; <span class="string">&quot;-8&quot;</span> &#125;, <span class="comment">-- show commits from the last 3 days</span></span><br><span class="line">        timeout = <span class="number">120</span>, <span class="comment">-- kill processes that take more than 2 minutes</span></span><br><span class="line">        url_format = <span class="string">&quot;https://github.com/%s.git&quot;</span>,</span><br><span class="line">        <span class="comment">-- lazy.nvim requires git &gt;=2.19.0. If you really want to use lazy with an older version,</span></span><br><span class="line">        <span class="comment">-- then set the below to false. This should work, but is NOT supported and will</span></span><br><span class="line">        <span class="comment">-- increase downloads a lot.</span></span><br><span class="line">        filter = <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;neovim/nvim-lspconfig&quot;</span>,</span><br><span class="line">    <span class="string">&quot;williamboman/mason.nvim&quot;</span>,</span><br><span class="line">    <span class="string">&quot;williamboman/mason-lspconfig.nvim&quot;</span>,</span><br><span class="line">    <span class="comment">-- 借用了vim插件，因为二者是兼容的，速度上vim-latex更快</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;vim-latex/vim-latex&quot;</span>,</span><br><span class="line">        lazy = <span class="literal">false</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">-- &#123;  &quot;jbyuki/nabla.nvim&quot;  &#125;,</span></span><br><span class="line">    &#123;  <span class="string">&quot;agate/vim-align&quot;</span>  &#125;,</span><br><span class="line">    <span class="comment">-- 添加latex插件vimtex</span></span><br><span class="line">    <span class="comment">-- &#123;</span></span><br><span class="line">    <span class="comment">--     &quot;lervag/vimtex&quot;,</span></span><br><span class="line">    <span class="comment">--     lazy = false,</span></span><br><span class="line">    <span class="comment">-- &#125;,</span></span><br><span class="line">    <span class="comment">-- &#123; &quot;mhinz/neovim-remote&quot; &#125;,</span></span><br><span class="line">    <span class="comment">-- 添加neovim主题</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;folke/tokyonight.nvim&quot;</span>,</span><br><span class="line">        <span class="string">&quot;catppuccin/nvim&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">-- 代码高亮</span></span><br><span class="line">    &#123; <span class="string">&quot;nvim-treesitter/nvim-treesitter&quot;</span>, build =<span class="string">&quot;:TSUpdate&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 状态栏主题</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;nvim-lualine/lualine.nvim&quot;</span>,</span><br><span class="line">        dependencies = &#123; <span class="string">&quot;nvim-tree/nvim-web-devicons&quot;</span>, lazy = <span class="literal">true</span> &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">--	-- nvim-cmp</span></span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-nvim-lsp&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-buffer&#x27;</span>  ,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-path&#x27;</span>    ,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-cmdline&#x27;</span> ,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/nvim-cmp&#x27;</span>,</span><br><span class="line">    <span class="comment">-- vsnip</span></span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-vsnip&#x27;</span> ,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/vim-vsnip&#x27;</span> ,</span><br><span class="line">    <span class="string">&#x27;rafamadriz/friendly-snippets&#x27;</span> ,</span><br><span class="line">    <span class="comment">-- lspkind</span></span><br><span class="line">    &#123; <span class="string">&quot;onsails/lspkind.nvim&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 自动插入模板</span></span><br><span class="line">    &#123; <span class="string">&quot;aperezdc/vim-template&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 旧式片段插入程序</span></span><br><span class="line">    &#123; <span class="string">&quot;SirVer/ultisnips&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;honza/vim-snippets&quot;</span> &#125;,</span><br><span class="line">    &#123;<span class="string">&quot;tpope/vim-speeddating&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;tpope/vim-repeat&quot;</span>&#125;,</span><br><span class="line">    <span class="comment">-- 注释插件</span></span><br><span class="line">    &#123; <span class="string">&quot;terrortylor/nvim-comment&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;nvim-tree/nvim-web-devicons&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 目录树插件</span></span><br><span class="line">    &#123; <span class="string">&quot;nvim-tree/nvim-tree.lua&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- This plugin adds indentation guides to all lines (including empty lines).</span></span><br><span class="line">    <span class="comment">-- &#123; &quot;lukas-reineke/indent-blankline.nvim&quot; &#125;,</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;shellRaining/hlchunk.nvim&quot;</span>,</span><br><span class="line">        event = &#123; <span class="string">&quot;BufReadPre&quot;</span>, <span class="string">&quot;BufNewFile&quot;</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">-- 彩虹括号</span></span><br><span class="line">    &#123; <span class="string">&quot;hiphish/rainbow-delimiters.nvim&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 用来显示文件结构的插件，对于编写程序查看各定义时很有帮助</span></span><br><span class="line">    &#123; <span class="string">&quot;liuchengxu/vista.vim&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- 模糊查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;nvim-telescope/telescope.nvim&quot;</span>, tag = <span class="string">&quot;0.1.4&quot;</span>,</span><br><span class="line">        <span class="comment">-- or                            , branch = &#x27;0.1.x&#x27;,</span></span><br><span class="line">        dependencies = &#123; <span class="string">&quot;nvim-lua/plenary.nvim&quot;</span> &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">-- 2023-12-28 02:09 新增加的插件，有待学习应用</span></span><br><span class="line">    <span class="comment">-- &#123;</span></span><br><span class="line">    <span class="comment">--     &quot;ibhagwan/fzf-lua&quot;,</span></span><br><span class="line">    <span class="comment">--     -- optional for icon support</span></span><br><span class="line">    <span class="comment">--     dependencies = &#123; &quot;nvim-tree/nvim-web-devicons&quot; &#125;,</span></span><br><span class="line">    <span class="comment">--     config = function()</span></span><br><span class="line">    <span class="comment">--         -- calling `setup` is optional for customization</span></span><br><span class="line">    <span class="comment">--         require(&quot;fzf-lua&quot;).setup(&#123;&#125;)</span></span><br><span class="line">    <span class="comment">--     end</span></span><br><span class="line">    <span class="comment">-- &#125;,</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;folke/todo-comments.nvim&quot;</span>,</span><br><span class="line">        dependencies = &#123; <span class="string">&quot;nvim-lua/plenary.nvim&quot;</span> &#125;,</span><br><span class="line">        opts = &#123;</span><br><span class="line">            <span class="comment">-- your configuration comes here</span></span><br><span class="line">            <span class="comment">-- or leave it empty to use the default settings</span></span><br><span class="line">            <span class="comment">-- refer to the configuration section below</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;kylechui/nvim-surround&quot;</span>,</span><br><span class="line">        version = <span class="string">&quot;*&quot;</span>, <span class="comment">-- Use for stability; omit to use `main` branch for the latest features</span></span><br><span class="line">        event = <span class="string">&quot;VeryLazy&quot;</span>,</span><br><span class="line">        <span class="built_in">config</span> = <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">            <span class="built_in">require</span>(<span class="string">&quot;nvim-surround&quot;</span>).setup(&#123;</span><br><span class="line">                <span class="comment">-- Configuration here, or leave empty to use defaults</span></span><br><span class="line">            &#125;)</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;lewis6991/gitsigns.nvim&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;NvChad/nvim-colorizer.lua&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;micangl/cmp-vimtex&quot;</span> &#125;,</span><br><span class="line">    &#123; <span class="string">&quot;SirVer/ultisnips&quot;</span> &#125;,</span><br><span class="line">    <span class="comment">-- fcitx5 自动切换，这也是Archlinux wiki上推荐的方法</span></span><br><span class="line">    &#123; <span class="string">&quot;h-hg/fcitx.nvim&quot;</span> &#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="config-4"><figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/plg/vim-latex.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#! /usr/bin/env lua</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- vim-latex.lua</span></span><br><span class="line"><span class="comment">-- Copyright (C) 2023 feng &lt;feng@arch&gt;</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- vim-latex默认的局势键</span></span><br><span class="line"><span class="comment">--  F1 帮助菜单</span></span><br><span class="line"><span class="comment">--  F5 插入环境选择对话框,若在导言区将弹出插入宏包对话框</span></span><br><span class="line"><span class="comment">--  &lt;S-F5&gt; 修改环境</span></span><br><span class="line"><span class="comment">--  F7 插入引用选择对话框</span></span><br><span class="line"><span class="comment">--  &lt;S-F7&gt; 修改命令</span></span><br><span class="line"><span class="comment">--绑定快捷键</span></span><br><span class="line">vim.api.nvim_create_autocmd(<span class="string">&quot;FileType&quot;</span>,&#123;</span><br><span class="line">    pattern = <span class="string">&quot;tex&quot;</span>,</span><br><span class="line">    callback = <span class="function"><span class="keyword">function</span><span class="params">()</span></span></span><br><span class="line">        <span class="comment">-- 配置F4打开模板</span></span><br><span class="line">        vim.api.nvim_set_keymap(<span class="string">&quot;n&quot;</span>, <span class="string">&quot;&lt;F4&gt;&quot;</span>, <span class="string">&quot;:TTemplate&lt;CR&gt;&quot;</span>, &#123;noremap = <span class="literal">true</span>, silent = <span class="literal">true</span>&#125;)</span><br><span class="line">        <span class="comment">-- 配置pdflatex编译，原vim-latex中使用\ll 默认 xelatex 编译</span></span><br><span class="line">        vim.api.nvim_set_keymap(<span class="string">&quot;n&quot;</span>, <span class="string">&quot;&lt;F6&gt;&quot;</span>, <span class="string">[[&lt;cmd&gt;!pdflatex % ; bibtex %:t:r.aux ; pdflatex % ; pdflatex % &lt;CR&gt;]]</span>, &#123;noremap = <span class="literal">true</span>, silent = <span class="literal">true</span>&#125;)</span><br><span class="line">        <span class="comment">-- 配置F8编译 aux辅助文件，直接根据数据库生成文献引用, 注意使用%:t:r 截取文件名</span></span><br><span class="line">        vim.api.nvim_set_keymap(<span class="string">&quot;n&quot;</span>, <span class="string">&quot;&lt;F8&gt;&quot;</span>, <span class="string">[[&lt;cmd&gt;!bibtex %:t:r.aux &lt;CR&gt;]]</span>, &#123;noremap = <span class="literal">true</span>, silent = <span class="literal">true</span>&#125;)</span><br><span class="line">        <span class="comment">-- 配置F10编译多合一文件时，以当前目录名为主文件，以节省时间</span></span><br><span class="line">        vim.api.nvim_set_keymap(<span class="string">&quot;n&quot;</span>, <span class="string">&quot;&lt;F10&gt;&quot;</span>, <span class="string">[[&lt;cmd&gt;!xelatex $(echo $PWD|awk -F&quot;/&quot; &#x27;&#123;print $NF&#125;&#x27;).tex &lt;CR&gt;]]</span>, &#123;noremap = <span class="literal">true</span>, silent = <span class="literal">true</span>&#125;)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">-- 开启treesitter提供的语法高亮</span></span><br><span class="line">vim.api.nvim_create_autocmd( <span class="string">&#x27;FileType&#x27;</span>, &#123; pattern = <span class="string">&#x27;tex&#x27;</span>,</span><br><span class="line">    callback = <span class="function"><span class="keyword">function</span><span class="params">(args)</span></span></span><br><span class="line">        vim.treesitter.start(args.buf, <span class="string">&#x27;latex&#x27;</span>)</span><br><span class="line">        vim.bo[args.buf].syntax = <span class="string">&#x27;on&#x27;</span>  <span class="comment">-- only if additional legacy syntax is needed</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">-- neovim将Shift+F5映射为F17,Shift+F7 映射为F19</span></span><br><span class="line">vim.api.nvim_set_keymap(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;F17&gt;&#x27;</span> , <span class="string">&#x27;&lt;S-F5&gt;&#x27;</span>, &#123; &#125;)</span><br><span class="line">vim.api.nvim_set_keymap(<span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;&lt;F17&gt;&#x27;</span> , <span class="string">&#x27;&lt;S-F5&gt;&#x27;</span>, &#123; &#125;)</span><br><span class="line">vim.api.nvim_set_keymap(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;&lt;F19&gt;&#x27;</span> , <span class="string">&#x27;&lt;S-F7&gt;&#x27;</span>, &#123; &#125;)</span><br><span class="line">vim.api.nvim_set_keymap(<span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;&lt;F19&gt;&#x27;</span> , <span class="string">&#x27;&lt;S-F7&gt;&#x27;</span>, &#123; &#125;)</span><br><span class="line"><span class="comment">-- set for vim-latex/latex-suit:winaltkeys</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_Menus&#x27;</span>] = <span class="number">0</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_Flavor&#x27;</span>] = <span class="string">&#x27;latex&#x27;</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_IgnoreLevel&#x27;</span>] = <span class="number">8</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_GotoError&#x27;</span>] = <span class="number">0</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_DefaultTargetFormat&#x27;</span>] = <span class="string">&#x27;pdf&#x27;</span></span><br><span class="line"><span class="comment">-- 配置默认编译引擎为 xelatex</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_CompileRule_pdf&#x27;</span>] = <span class="string">&#x27;xelatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*&#x27;</span></span><br><span class="line"><span class="comment">-- 获取桌面环境，并根据桌面环境选择默认的PDF阅读器</span></span><br><span class="line"><span class="keyword">if</span>  <span class="built_in">os</span>.<span class="built_in">getenv</span>(<span class="string">&quot;DESKTOP_SESSION&quot;</span>) == <span class="string">&quot;plasma&quot;</span>  <span class="keyword">then</span></span><br><span class="line">    vim.g[<span class="string">&#x27;Tex_ViewRule_pdf&#x27;</span>] = <span class="string">&#x27;okular&#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    vim.g[<span class="string">&#x27;Tex_ViewRule_pdf&#x27;</span>] = <span class="string">&#x27;evince&#x27;</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 控制统计过程中的警告信息</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_IgnoredWarnings&#x27;</span>] = &#123;&#125;</span><br><span class="line"><span class="comment">-- 配置自定义模板路径</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_CustomTemplateDirectory&#x27;</span>] = <span class="string">&quot;~/.latex-templates/&quot;</span></span><br><span class="line"><span class="comment">-- 取消自动缩进</span></span><br><span class="line">vim.g[<span class="string">&#x27;tex_indent_items&#x27;</span>] = <span class="number">0</span></span><br><span class="line"><span class="comment">-- 开启Alt键</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_AdvancedMath&#x27;</span>] = <span class="number">1</span></span><br><span class="line">vim.api.nvim_set_option(<span class="string">&#x27;winaltkeys&#x27;</span>,<span class="string">&#x27;no&#x27;</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="config-5"><figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/plg/vista.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#! /usr/bin/env lua</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- vista.lua</span></span><br><span class="line"><span class="comment">-- Copyright (C) 2023 feng &lt;feng@archlinux&gt;</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">--绑定快捷键</span></span><br><span class="line">vim.api.nvim_set_keymap(<span class="string">&quot;n&quot;</span>, <span class="string">&quot;&lt;F3&gt;&quot;</span>, <span class="string">&quot;:Vista!!&lt;CR&gt;&quot;</span>, &#123;noremap = <span class="literal">true</span>, silent = <span class="literal">true</span>&#125;)</span><br><span class="line">vim.g[<span class="string">&#x27;vista_icon_indent&#x27;</span>] = &#123;<span class="string">&quot;╰─▸ &quot;</span>,<span class="string">&quot;├─▸ &quot;</span>&#125;</span><br><span class="line"><span class="comment">-- vista_default_executive 可选项：ale, cod, ctags, lcn, nvim_lsp, vim_lsc, vim_lsp</span></span><br><span class="line">vim.api.nvim_set_var(<span class="string">&#x27;vista_default_executive&#x27;</span>, <span class="string">&#x27;nvim_lsp&#x27;</span>)</span><br><span class="line">vim.g[<span class="string">&#x27;vista_fzf_preview&#x27;</span>] = <span class="string">&#x27;right:50%&#x27;</span></span><br><span class="line">vim.api.nvim_set_var(<span class="string">&#x27;vista#renderer#enable_icon&#x27;</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="config-6"><figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/plg/vim-template.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#! /usr/bin/env lua</span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- vim-template.lua</span></span><br><span class="line"><span class="comment">-- Copyright (C) 2023 feng &lt;feng@arch&gt;</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="comment">-- Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">-- 设置自定义模板目录</span></span><br><span class="line">vim.g[<span class="string">&#x27;templates_directory&#x27;</span>] = &#123;<span class="string">&#x27;~/.vim_templates&#x27;</span>&#125;</span><br><span class="line">vim.g[<span class="string">&#x27;email&#x27;</span>] = <span class="string">&#x27;fengzhenhua@outlook.com&#x27;</span></span><br><span class="line">vim.g[<span class="string">&#x27;username&#x27;</span>] = <span class="string">&#x27;Zhen-hua Feng&#x27;</span></span><br><span class="line">vim.g[<span class="string">&#x27;license&#x27;</span>] = <span class="string">&#x27;MIT&#x27;</span></span><br></pre></td></tr></table></figure>
+<div class="note primary">
+<p>
+注意：<code>github</code>上有两个相当类似的插件<a
+target="_blank" rel="noopener" href="https://github.com/aperezdc/vim-template">aperezdc/vim-template</a>和<a
+target="_blank" rel="noopener" href="https://git.homegu.com/tibabit/vim-templates"><del>tibabit/vim-templates</del></a>,
+而前者才是我们需要的，记住千万不要下错。同时，在编写脚本时，如果需要输入作者，直接使用变量<code>%USER%</code>而不要使用函数自定义<code>%AUTHOR%</code>,仅仅一个变量，自定义太过麻烦，不提倡。
+在配置变量时，可以打开<code>nvim</code>然后在命令行模式输入<code>:help
+vim-template</code>就可以获得全部可配置变量，在此不再记录。
+</p>
+</div></div></div></div>
+<p>除了上述列出的几个关键修改为适配<code>lua</code>配置的插件外，还有其他的配置，不再一一列出。如您需要其他配置，请发邮件联系本人索取。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/10/06/MatheMatica%E7%9A%84%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" rel="prev" title="MatheMatica_V14.1.0的安装教程">
+                  <i class="fa fa-angle-left"></i> MatheMatica_V14.1.0的安装教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/10/08/Neovim%E5%AF%B9%E9%BD%90%E6%8F%92%E4%BB%B6/" rel="next" title="Neovim对齐插件mini.align">
+                  Neovim对齐插件mini.align <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

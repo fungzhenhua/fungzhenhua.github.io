@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/","path":"2024/05/28/LaTeX中插入图片/","title":"LaTeX中插入图片"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>LaTeX中插入图片 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">1.</span> <span class="nav-text">图片的路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E5%9B%BE%E7%89%87%E7%9A%84%E5%A4%A7%E5%B0%8F%E6%97%8B%E8%BD%AC%E5%9B%BE%E7%89%87"><span class="nav-number">2.</span> <span class="nav-text">改变图片的大小、旋转图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">图片的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E9%A2%98%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">图题、标签、引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">图题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E7%AD%BE%E5%92%8C%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">标签和交叉引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E9%AB%98%E5%88%86%E8%BE%A8%E7%8E%87%E7%9A%84%E5%92%8C%E4%BD%8E%E5%88%86%E8%BE%A8%E7%8E%87%E7%9A%84%E5%9B%BE%E7%89%87"><span class="nav-number">5.</span> <span class="nav-text">生成高分辨率的和低分辨率的图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%8C%87%E5%8D%97"><span class="nav-number">6.</span> <span class="nav-text">参考指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AF%B4%E6%98%8E"><span class="nav-number">7.</span> <span class="nav-text">引用说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LaTeX中插入图片 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LaTeX中插入图片
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-28 00:54:48" itemprop="dateCreated datePublished" datetime="2024-05-28T00:54:48+08:00">2024-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在科研论文中，图片是一个非常重要的组成部分。LaTeX
+提供了许多定制化图片的功能。这篇文章将会介绍如何用最常见的格式插入图片、缩放图片、旋转图片，以及如何在文档中引用这些图片。实现插入图片的功能需要在导言引用<code>graphics</code>或<code>graphicx</code>,
+下面就一些重要的点展开讨论。</p>
+<h2 id="图片的路径">图片的路径</h2>
+<p>当你的文档拥有很多个图片的时候，创建多个文件夹来存储图片是一个规划项目的好办法。</p>
+<p>命令<code>\graphicspath&#123; &#123;images/&#125; &#125;</code>告诉 LaTeX
+在_images_文件夹中寻找图片。这个路径是当前工作文件夹的<strong>相对</strong>路径，所以，编译器会在当前文档所在的目录中开始寻找文件。文件夹的路径默认情况下是相对路径，如果没有一个初始的目录被指定，例如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path relative to the .tex file containing the \includegraphics command</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;images/&#125; &#125;</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>这是一个非常直接的方法来指定图片所存储的路径，不过有时候会使情况变得复杂，从而导致编译器找不到图片所在的目录。所以，<strong>你最好手动指定一个对于主
+.tex 文件来说相对的图片路径</strong>，将主 .tex 文件夹表示为
+./，例如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path relative to the main .tex file </span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;./images/&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>路径也可以是绝对路径。例如，如果你在一个本地 LaTeX
+环境中进行工作，你可以：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path in Windows format:</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;c:/user/images/&#125; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">%Path in Unix-like (Linux, Mac OS) format</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;/home/user/images/&#125; &#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，目录的结尾也需要一个斜杠，并且路径是被包含在双大括号之间。</p>
+<p>你还可以设置多个路径，如果文档的图片被存储在多个文件夹中。例如，如果有两个文件夹_images1_和_images2_，使用下面的命令：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;./images1/&#125;&#123;./images2/&#125; &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="改变图片的大小旋转图片">改变图片的大小、旋转图片</h2>
+<p>如果我们想额外地编辑图片的属性（长、宽等），我们可以使用下面的设定：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Overleaf is a great professional tool to edit online, </span><br><span class="line">share and backup your <span class="keyword">\LaTeX</span>&#123;&#125; projects. Also offers a </span><br><span class="line">rather large help documentation.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[scale=1.5]&#123;lion-logo&#125;</span><br></pre></td></tr></table></figure>
+<p>命令<code>\includegraphics[scale=1.5]&#123;lion-logo&#125;</code>会把图片
+<em>lion-logo</em>
+插入到文档中，额外的参数<code>scale=1.5</code>会把图片的大小变为原本的1.5倍。你也可以指定图片的长宽：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Overleaf is a great professional tool to edit online, </span><br><span class="line">share and backup your <span class="keyword">\LaTeX</span>&#123;&#125; projects. Also offers a </span><br><span class="line">rather large help documentation.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=3cm, height=4cm]&#123;lion-logo&#125;</span><br></pre></td></tr></table></figure>
+<p>如聪明的你所想的，方括号里的参数<code>[width=3cm, height=4cm]</code>定义了图片的宽度和高度。你还可以使用<a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Inserting_Images#Reference_guide">不同的单位</a>来定义这些参数。如果只有宽度_width_被指定了，那么高度会被自动调整到图片原始的比例。</p>
+<p>长度单位也可以被设置为文档中某些属性的相对值。例如，你可以将图片的宽度设置为文档中一行文本所占的宽度：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">The universe is immense and it seems to be homogeneous, </span><br><span class="line">in a large scale, everywhere we look at.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;universe&#125;</span><br></pre></td></tr></table></figure>
+<p>除了<code>\textwidth</code>，你还可以使用其他的 LaTeX
+默认长度，例如<code>\columnsep</code>、<code>linewidth</code>、<code>\textheight</code>、<code>\paperheight</code>等。更多有关单位的信息请见<a
+target="_blank" rel="noopener" href="https://www.overleaf.com/learn/latex/Inserting_Images#Reference_guide">这篇文章</a>。</p>
+<p>LaTeX 中还有一种常见的改变图片的方法，即旋转图片：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Overleaf is a great professional tool to edit online, </span><br><span class="line">share and backup your <span class="keyword">\LaTeX</span>&#123;&#125; projects. Also offers a </span><br><span class="line">rather large help documentation.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\includegraphics</span>[scale=1.2, angle=45]&#123;lion-logo&#125;</span><br></pre></td></tr></table></figure>
+<p>参数<code>angle=45</code>会将图片逆时针旋转45度。顺时针旋转的话你可以使用负数。</p>
+<h2 id="图片的位置">图片的位置</h2>
+<p>在上一个章节中，我们介绍了如何在文档中插入图片，但是文字和图片的结合可能并不是我们想要的样子。所以我们接下来介绍一种新的环境。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In the next example the figure will be positioned </span><br><span class="line">right below this sentence.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=8cm]&#123;Plot&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<p><code>figure</code>环境的作用是在文档中将图片展示为浮动元素。这意味着你可以把图片放置在<code>figure</code>环境之中，不需要再去关注图片的位置，LaTeX
+会自动把图片放置在文档中的合适位置。</p>
+<p>当然，有些时候我们需要更细致地控制图片的位置。我们可以使用一种额外的参数来控制图片的位置。在这个例子中，<code>begin&#123;figure&#125;[h]</code>，方括号中的参数<code>h</code>意味着
+<strong>here</strong>。下面的表格中列出了参数的可选值。</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">将浮动元素的位置设定为
+here（这里），也就是说，<em>大约_位于其在文档中出现位置（是_大约</em>，而不是完全精确）</td>
+</tr>
+<tr>
+<td style="text-align: left;">t</td>
+<td
+style="text-align: left;">将浮动元素的位置设定为页面的上方（top）</td>
+</tr>
+<tr>
+<td style="text-align: left;">b</td>
+<td
+style="text-align: left;">将浮动元素的位置设定为页面的底部（bottom）</td>
+</tr>
+<tr>
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">将浮动元素仅放置在一个特殊的页面</td>
+</tr>
+<tr>
+<td style="text-align: left;">!</td>
+<td
+style="text-align: left;">重新设置LaTeX的一个内部参数，这个参数决定了LaTeX如何判断一个浮动元素的位置够不够“好”</td>
+</tr>
+<tr>
+<td style="text-align: left;">H</td>
+<td
+style="text-align: left;">将浮动元素<strong>精确</strong>地放置在它在文本中所出现的位置。这个参数需要引入<code>float</code>包，它有可能会造成一些错误。这个参数有时候等价于<code>h!</code></td>
+</tr>
+</tbody>
+</table>
+<p>在下面的例子中，你可以看到，尽管图片定义在文字之后，但是图片依旧出现在了页面的顶部。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">In this picture you can see a bar graph that shows</span><br><span class="line">the results of a survey which involved some important</span><br><span class="line">data studied as time passed.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[t]</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=8cm]&#123;Plot&#125;</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<p>命令<code>\centering</code>会将图片居中显示。默认的对齐选项是向左对齐。</p>
+<h2 id="图题标签引用">图题、标签、引用</h2>
+<p>给图片添加标题和标签是两个非常重要的工具。</p>
+<h3 id="图题">图题</h3>
+<p>让我们从一个例子开始。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line"><span class="keyword">\caption</span>&#123;Example of a parametric plot (<span class="built_in">$</span><span class="keyword">\sin</span> (x), <span class="keyword">\cos</span>(x), x<span class="built_in">$</span>)&#125;</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=0.5<span class="keyword">\textwidth</span>]&#123;spiral&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<p>非常简单，对吧？只需要添加<code>\caption&#123;Some caption&#125;</code>命令，在大括号内输入你要添加的文字就可以了。命令的位置决定着图题会出现在图片的上方或者下方。</p>
+<p>图题也可以放置在图片的侧方。引入<code>sidecap</code>包即可。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[rightcaption]&#123;sidecap&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125; <span class="comment">%package to manage images</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;images/&#125; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;SCfigure&#125;[0.5][h]</span><br><span class="line"><span class="keyword">\caption</span>&#123;Using again the picture of the universe.</span><br><span class="line">This caption will be on the right&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=0.6<span class="keyword">\textwidth</span>]&#123;universe&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;SCfigure&#125;</span><br></pre></td></tr></table></figure>
+<p>它有两个新的命令。</p>
+<p><strong>\usepackage[rightcaption]{sidecap}</strong><br />
+如你所想，这个命令会引入<code>sidecap</code>包，并且方括号中的参数会将文档中的图片的图题设置在图片的右方。你也可以使用<code>leftcaption</code>参数。对于<code>book</code>类型的文档，你还可以使用<code>outercaption</code>或者<code>innercaption</code>。</p>
+<p><strong>\begin{SCfigure}[0.5][h] \end{SCfigure}</strong><br />
+这个命令定义了一个类似于<code>figure</code>的环境。第一个参数定义了图题相对于图片的宽度。第二个参数<code>h</code>与<code>figure</code>环境中的<code>h</code>作用相同。</p>
+<p>LaTeX中还有更多的命令来对图片进行定制化，你可以在本文的末尾找到更多信息。</p>
+<h3 id="标签和交叉引用">标签和交叉引用</h3>
+<p>与LaTeX文档中的许多其他元素相同（例如公式、表格等），图片也可以在文本中被引用。你只需要简单地对其添加一个标签就可以了，然后使用这个标签来在文本中引用这个图片。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.25<span class="keyword">\textwidth</span>]&#123;mesh&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;a nice plot&#125;</span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:mesh1&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br><span class="line"></span><br><span class="line">As you can see in the figure <span class="keyword">\ref</span>&#123;fig:mesh1&#125;, the </span><br><span class="line">function grows near 0. Also, in the page <span class="keyword">\pageref</span>&#123;fig:mesh1&#125; </span><br><span class="line">is the same example.</span><br></pre></td></tr></table></figure>
+<p>下面我们介绍三种生成交叉引用的命令。</p>
+<ul>
+<li><p><strong>\label{fig:mesh1}</strong><br />
+这个命令设置了图片的标签。对标签添加一个前缀是一个很好的习惯，例如对图片添加<code>fig</code>，对表格添加<code>tab</code>等。</p></li>
+<li><p><strong>\ref{fig:mesh1}</strong><br />
+这个命令在文本中添加一个数字，数字对应着这个图片。这个数字会自动生成，并且当你插入其他图片的时候，它会自动更新。</p></li>
+<li><p><strong>\pageref{fig:mesh1}</strong><br />
+这个命令会输出图片所在的页数。</p></li>
+</ul>
+<p>如果你想要引用一个图片，那么<code>\caption</code>命令是强制的。</p>
+<p>LaTeX 另外一个强大的功能是，你可以自动生成文档中图片的列表：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\listoffigures</span></span><br></pre></td></tr></table></figure>
+<p>这个命令仅对有标签的图片有效。重要提示：<em>你必须编译LaTeX文档两次来使交叉引用等功能正常显示。</em></p>
+<h2
+id="生成高分辨率的和低分辨率的图片">生成高分辨率的和低分辨率的图片</h2>
+<p>我们在<code>\includegraphics</code>命令中输入图片的文件名的时候，我们忽略了图片文件的后缀。事实上，添加后缀并不是强制的，尽管很多时候添加后缀是很有用的。如果文件名的后缀没有被输入，那么LaTeX会在当前文件夹中自动搜索所有支持的文件格式，并且会用默认的顺序来搜索各种后缀（这个顺序可以自定义）。</p>
+<p>如果你需要经常在开发模式和生产模式之间切换，那么这个功能会很有用。在开发模式中（当文档还没有完成的时候），你可能想去使用低分辨率的图片（一般来说是png格式的）来加速编译。在生产模式中（生成文档的最终版本），你可能想要使用高分辨率的图片。</p>
+<p>你可以这样做：</p>
+<ul>
+<li>不要在<code>\includegraphics</code>命令中输入文件名的后缀</li>
+<li>在文档的序言中设定你想要的后缀</li>
+</ul>
+<p>这样，我们可以在图片的两种格式之间灵活切换，例如<code>venndiagram.pdf</code>（高分辨率）和<code>venndiagram.png</code>（低分辨率）。然后我们可以在序言中使用下面的命令：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\DeclareGraphicsExtensions</span>&#123;.png,.pdf&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的命令的作用是，如果在同一位置中，两个拥有相同文件名，但是后缀不同的文件（例如<code>venndiagram.pdf</code>和<code>venndiagram.png</code>），那么位置在前的版本将会被使用（这个例子中的png）。如果没有png文件，那么pdf文件会被使用。</p>
+<p>当文档完成之后，为了使用高分辨率的pdf图片，我们可以更换后缀的顺序：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\DeclareGraphicsExtensions</span>&#123;.pdf,.png&#125;</span><br></pre></td></tr></table></figure>
+<p>如果pdf图片还没有转换为png格式，我们可以在LaTeX中直接生成低分辨率的png图片。我们首先在序言中引入下面的命令（在<code>\usepackage&#123;graphicx&#125;</code>命令之后）：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;epstopdf&#125;</span><br><span class="line"><span class="keyword">\epstopdfDeclareGraphicsRule</span>&#123;.pdf&#125;&#123;png&#125;&#123;.png&#125;&#123;convert <span class="params">#1</span> <span class="keyword">\OutputFile</span>&#125;</span><br><span class="line"><span class="keyword">\DeclareGraphicsExtensions</span>&#123;.png,.pdf&#125;</span><br></pre></td></tr></table></figure>
+<p>如果<code>venndiagram2.pdf</code>存在，但是<code>venndiagram2.png</code>不存在，那么<code>venndiagram2-pdf-converted-to.png</code>文件将会被创建。命令<code>convert #1</code>用来执行转换操作，你也可以对它添加额外的参数，例如<code>convert -density 100 #1</code>。</p>
+<p>这里还有一些重要的事情需要注意：</p>
+<ul>
+<li>为了让自动转换正常工作，我们在执行<code>pdflatex</code>命令的时候，需要添加<code>--shell-escape</code>参数</li>
+<li>对于最终的_生产_版本，我们必须把<code>\epstopdfDeclareGraphicsRule</code>命令注释掉。这样只有高分辨率的图片会被加载。我们还需要改变顺序的优先级。</li>
+</ul>
+<h2 id="参考指南">参考指南</h2>
+<p><strong>LaTeX 单位和长度</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">缩写</th>
+<th style="text-align: left;">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">pt</td>
+<td
+style="text-align: left;">一个点，默认的长度单位。大约相当于0.3515mm</td>
+</tr>
+<tr>
+<td style="text-align: left;">mm</td>
+<td style="text-align: left;">毫米</td>
+</tr>
+<tr>
+<td style="text-align: left;">cm</td>
+<td style="text-align: left;">厘米</td>
+</tr>
+<tr>
+<td style="text-align: left;">in</td>
+<td style="text-align: left;">英寸</td>
+</tr>
+<tr>
+<td style="text-align: left;">ex</td>
+<td
+style="text-align: left;">在当前字体大小的情况下字母<strong>x</strong>的高度</td>
+</tr>
+<tr>
+<td style="text-align: left;">em</td>
+<td
+style="text-align: left;">在当前字体大小的情况下字母<strong>m</strong>的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\columnsep</td>
+<td style="text-align: left;">列之间的距离</td>
+</tr>
+<tr>
+<td style="text-align: left;">\columnwidth</td>
+<td style="text-align: left;">列的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\linewidth</td>
+<td style="text-align: left;">当前环境下行的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\paperwidth</td>
+<td style="text-align: left;">页面的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\paperheight</td>
+<td style="text-align: left;">页面的高</td>
+</tr>
+<tr>
+<td style="text-align: left;">\textwidth</td>
+<td style="text-align: left;">文本的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\textheight</td>
+<td style="text-align: left;">文本的高度</td>
+</tr>
+<tr>
+<td style="text-align: left;">\unitlength</td>
+<td
+style="text-align: left;">在<code>picture</code>环境下units的长度</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LaTeX中图片的类型</strong></p>
+<p><strong>latex</strong><br />
+如果你使用<code>latex</code>来编译，我们只可以使用EPS格式的图片，这种格式是矢量格式。</p>
+<p><strong>pdflatex</strong><br />
+如果你使用<code>pdflatex</code>来生成pdf文档，我们可以使用下面格式的图片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JPG: Best choice if we want to insert photos</span><br><span class="line">PNG: Best choice if we want to insert diagrams (if a vector version could not be generated) and screenshots</span><br><span class="line">PDF: Even though we are used to seeing PDF documents, a PDF can also store images </span><br><span class="line">EPS: EPS images can be included using the epstopdf package (we just need to install the package, we </span><br><span class="line">     don&#x27;t need to use \usepackage&#123;&#125; to include it in our document.)</span><br></pre></td></tr></table></figure>
+<p><strong>矢量图片或者位图？</strong></p>
+<p>图片可以是矢量的，或者是位图（bit-map）。一般来说，我们并不需要关心图片的格式。不过如果我们知道图片格式之间的差异，我们就可以选择一种合适的图片格式来使用。如果我们的图片是矢量的，那么它应该是PDF或者EPS。如果我们的图片是位图，那么它应该是JPG或者PNG。在PDF或者EPS中存储bit-map会消耗大量的存储空间。</p>
+<h2 id="引用说明">引用说明</h2>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/xovee/article/details/108660814">在LaTeX中插入图片</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/27/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" rel="prev" title="LaTeX中插入网络图片">
+                  <i class="fa fa-angle-left"></i> LaTeX中插入网络图片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/28/Neovim%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%89%AA%E5%88%87%E6%9D%BF/" rel="next" title="Neovim使用系统的剪切板">
+                  Neovim使用系统的剪切板 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
