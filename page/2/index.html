@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,220 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/" class="post-title-link" itemprop="url">Thunderbird配置Outlook邮箱</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-23 10:50:04 / 修改时间：10:56:49" itemprop="dateCreated datePublished" datetime="2025-11-23T10:50:04+08:00">2025-11-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在一台新电脑上使用Thunderbird配置Outlook邮箱，明明密码都是正确的，但是就无法登录成功。因为
+Thunderbird 自动设置 Outlook 邮箱时尝试使用 Exchange 或应用程序密码登录,
+而Microsoft 阻止 Exchange 的基本身份验证和应用程序密码，Thunderbird 的
+Exchange 选项对于 Outlook 来说并不可靠。修复方法是使用 OAuth2 在
+Thunderbird 中使用 IMAP 和 SMTP 设置帐户，以便 Microsoft 登录页面在
+Thunderbird 中打开。</p>
+<p>删除 Thunderbird 中配置失败的帐户。添加新的邮件帐户并输入您的 Outlook
+地址。当 Thunderbird 提供设置时，打开手动设置配置并确保：</p>
+<ul>
+<li>传入是<code>IMAP</code>，服务器<code>outlook.office365.com</code>、端口<code>993</code>、<code>SSL/TLS</code>身份验证设置为
+OAuth2，用户名是您的完整电子邮件。</li>
+<li>传出是带有服务器<code>smtp.office365.com</code>、端口<code>587</code>、
+<code>STARTTLS</code> 身份验证<code>OAuth2</code>、用户名的
+<code>SMTP</code> 是您的完整电子邮件。</li>
+</ul>
+<p>此时应该会出现一个 Microsoft 登录窗口。登录并完成 MFA。接受
+Thunderbird 的权限。邮件将开始同步。</p>
+<p>如果 Thunderbird 仍然要求输入密码而不是显示 Microsoft Web
+登录，请打开帐户设置&gt;服务器设置和传出服务器。将两者的身份验证方法更改为
+OAuth2
+。然后前往<strong>“设置”&gt;“隐私和安全”&gt;“已保存的密码”</strong>并删除
+或 的所有存储条目 outlook.office365.com
+smtp.office365.com，关闭对话框，然后重试，以便出现 OAuth 窗口。</p>
+<p>如果你的帐户是工作或学校 Microsoft 365 邮箱，并且显示 OAuth
+窗口，但登录被拒绝，请要求租户管理员为邮箱启用 IMAP 和 SMTP
+身份验证，然后重复这些步骤。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/" class="post-title-link" itemprop="url">LaTeX中的硬空格</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-19 09:24:13 / 修改时间：09:30:59" itemprop="dateCreated datePublished" datetime="2025-11-19T09:24:13+08:00">2025-11-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="latex-中-符号的含义">LaTeX 中 <code>~</code> 符号的含义</h2>
+<p>在 LaTeX 中，<strong><code>~</code></strong>
+符号表示一个<strong>不可断行的空格</strong>（non-breaking
+space），也称为硬空格。</p>
+<h2 id="主要功能">主要功能</h2>
+<h3 id="禁止换行">1. 禁止换行</h3>
+<ul>
+<li>使用 <code>~</code>
+连接的两个单词或元素<strong>不会被分开在两行</strong></li>
+<li>示例：<code>Prof.~Smith</code> 会确保 "Prof." 和 "Smith"
+始终在同一行显示</li>
+</ul>
+<h3 id="与普通空格的区别">2. 与普通空格的区别</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>是否可断行</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通空格</td>
+<td>可断行</td>
+<td><code>Mr. Smith</code> 可能换行为 "Mr." 和 "Smith"</td>
+</tr>
+<tr>
+<td><code>~</code> 空格</td>
+<td>不可断行</td>
+<td><code>Mr.~Smith</code> 强制 "Mr. Smith" 在同一行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常见使用场景">常见使用场景</h2>
+<h3 id="人名与头衔">人名与头衔</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dr.~White, Prof.~Anderson </span><br></pre></td></tr></table></figure>
+<h3 id="图表编号引用">图表编号引用</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fig.~<span class="keyword">\ref</span>&#123;fig:example&#125;, Table~<span class="keyword">\ref</span>&#123;tab:data&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="章节和公式的引用">章节和公式的引用</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chapter~<span class="keyword">\ref</span>&#123;chap:intro&#125;, Section~<span class="keyword">\ref</span>&#123;sec:method&#125;, Eq.~(<span class="keyword">\ref</span>&#123;eq:1&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="固定搭配单词">固定搭配单词</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pH~value, Apple~Inc., 100~km/h</span><br></pre></td></tr></table></figure>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>在 LaTeX
+源码中，<code>~</code>会渲染为一人空格，但禁止在此处换行</li>
+<li>数学模式中<code>$a~b$</code>也会产生空格，但是要注意与相似符号<code>$\sim$</code>的区别</li>
+<li><code>~</code>是LaTeX中用于保持内容连贯、防止意外换行我重要符号。同时，<code>expl3</code>会自动去除代码中的空格，但是这导致了在<code>expl3</code>中使用<code>source2e</code>中的代码时，如果其中含有空格，就需要使用<code>~</code>取代，这样可以保证代码正常运行。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1045,220 +1259,6 @@ target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1
 <h2 id="实例">实例</h2>
 <figure class="highlight sh"><figcaption><span>错误的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个命令会解析错误，很可能认证失败</span></span><br><span class="line">curlftpfs user:p@ssw@rd@ftp.example.com /mnt/ftp_mount</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><figcaption><span>正确的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将密码中的 ‘@’ 替换为 ‘%40’</span></span><br><span class="line">curlftpfs user:p%40ssw%40rd@ftp.example.com /mnt/ftp_mount</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/26/Neovim%E4%B8%AD%E7%9A%84lspconfig%E5%8D%87%E7%BA%A7%E4%BF%AE%E5%A4%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/26/Neovim%E4%B8%AD%E7%9A%84lspconfig%E5%8D%87%E7%BA%A7%E4%BF%AE%E5%A4%8D/" class="post-title-link" itemprop="url">Neovim中的lspconfig升级修复</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-26 15:16:34 / 修改时间：15:28:19" itemprop="dateCreated datePublished" datetime="2025-09-26T15:16:34+08:00">2025-09-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2025-09-26 15:16
-在更新<code>ArchLinux</code>后，再打开<code>Neovim</code>后提示</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The `require(<span class="string">&#x27;lspconfig&#x27;</span>)` <span class="string">&quot;framework&quot;</span> is deprecated, use vim.lsp.config (see :<span class="built_in">help</span> lspconfig-nvim-0.11) instead.</span><br><span class="line">Feature will be removed <span class="keyword">in</span> nvim-lspconfig v3.0.0</span><br></pre></td></tr></table></figure>
-<h1 id="问题解读">问题解读</h1>
-<p>你遇到的这个提示意味着你正在使用的 <code>nvim-lspconfig</code>
-插件版本已经弃用了旧的配置方式，需要迁移到新的 <code>Neovim</code>
-内置接口。新旧语法对照如下：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">配置方面</th>
-<th style="text-align: left;">旧语法（己弃用)</th>
-<th style="text-align: left;">新语法(Neovim 0.11+)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">基本服务器配置</td>
-<td
-style="text-align: left;">require('lspconfig').pyright.setup({...})</td>
-<td style="text-align: left;">vim.lsp.config('pyright',{...})</td>
-</tr>
-<tr>
-<td style="text-align: left;">启用服务器</td>
-<td style="text-align: left;">在setup后自动或通过其他机制</td>
-<td style="text-align: left;">调用vim.lsp.enable('server_name')</td>
-</tr>
-<tr>
-<td style="text-align: left;">通用配置(如按键映射)</td>
-<td style="text-align: left;">在单个服务器的setup的on_attach中定义</td>
-<td
-style="text-align: left;">使用vim.api.nvim_create_autocmd监听"LspAttach"事件</td>
-</tr>
-</tbody>
-</table>
-<h1 id="迁移步骤与示例">迁移步骤与示例</h1>
-<ol type="1">
-<li><p>更新Neovim和插件: 确保你的 Neovim 版本在 0.11.0 或以上，因为新的
-vim.lsp.config API 是从这个版本开始引入的。同时，将你的 nvim-lspconfig
-插件更新到最新版本。</p></li>
-<li><p>重写配置语法：找到你配置文件中所有使用
-require('lspconfig').XX.setup({...}) 的地方，将其改为新的格式。</p></li>
-<li><p>迁移实例：</p></li>
-</ol>
-<figure class="highlight lua"><figcaption><span>旧配置示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 这是已弃用的旧写法</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lspconfig&#x27;</span>).pyright.setup(&#123;</span><br><span class="line">  settings = &#123;</span><br><span class="line">    python = &#123;</span><br><span class="line">      analysis = &#123;</span><br><span class="line">        typeCheckingMode = <span class="string">&quot;strict&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  on_attach = <span class="function"><span class="keyword">function</span><span class="params">(client, bufnr)</span></span></span><br><span class="line">    <span class="comment">-- 一些按键映射...</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight lua"><figcaption><span>新配置示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用新的 API 进行配置</span></span><br><span class="line">vim.lsp.<span class="built_in">config</span>(<span class="string">&#x27;pyright&#x27;</span>, &#123;</span><br><span class="line">  settings = &#123;</span><br><span class="line">    python = &#123;</span><br><span class="line">      analysis = &#123;</span><br><span class="line">        typeCheckingMode = <span class="string">&quot;strict&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">-- 启用这个服务器</span></span><br><span class="line">vim.lsp.enable(<span class="string">&#x27;pyright&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>处理全局设置（如按键映射) :
-在新的模式中，建议将通用的、不针对特定语言服务器的设置（如按键映射）通过全局的
-LspAttach 自动命令来设置。这可以避免为每个服务器重复编写 on_attach
-函数。</li>
-</ol>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 定义一个通用的附加回调函数</span></span><br><span class="line"><span class="keyword">local</span> my_on_attach = <span class="function"><span class="keyword">function</span><span class="params">(client, bufnr)</span></span></span><br><span class="line">  <span class="comment">-- 在这里设置你的按键映射等通用配置</span></span><br><span class="line">  vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;gd&#x27;</span>, vim.lsp.buf.definition, &#123; buffer = bufnr, desc = <span class="string">&#x27;Goto Definition&#x27;</span> &#125;)</span><br><span class="line">  vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;K&#x27;</span>, vim.lsp.buf.hover, &#123; buffer = bufnr, desc = <span class="string">&#x27;Hover Documentation&#x27;</span> &#125;)</span><br><span class="line">  <span class="comment">-- ... 其他映射</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用自动命令在LSP客户端附加到缓冲区时应用这个函数</span></span><br><span class="line">vim.api.nvim_create_autocmd(<span class="string">&quot;LspAttach&quot;</span>, &#123;</span><br><span class="line">  callback = <span class="function"><span class="keyword">function</span><span class="params">(args)</span></span></span><br><span class="line">    <span class="keyword">local</span> client = vim.lsp.get_client_by_id(args.data.client_id)</span><br><span class="line">    <span class="keyword">local</span> bufnr = args.buf</span><br><span class="line">    my_on_attach(client, bufnr)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="验证与排查">验证与排查</h1>
-<p>完成修改后，你可以通过以下方式验证配置是否正确：</p>
-<ul>
-<li><p>重新加载你的配置文件（例如执行 :source $MYVIMRC）。</p></li>
-<li><p>打开一个相关类型的文件（如 .lua 文件），使用 :LspInfo
-命令查看对应的语言服务器（如 lua_ls）是否正常启动。</p></li>
-<li><p>如果服务器没有启动，检查 Neovim 的 :messages 或 LSP 日志（通过
-:LspLog）来排查错误。</p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/31/%E5%90%8E%E5%87%BA%E5%B8%88%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/31/%E5%90%8E%E5%87%BA%E5%B8%88%E8%A1%A8/" class="post-title-link" itemprop="url">后出师表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-31 14:22:53 / 修改时间：14:23:38" itemprop="dateCreated datePublished" datetime="2025-08-31T14:22:53+08:00">2025-08-31</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>先帝深虑汉、贼不两立，王业不偏安，故托臣以讨贼也。以先帝之明，量臣之才，固知臣伐贼，才弱敌强也。然不伐贼，王业亦亡。惟坐而待亡，孰与伐之？是故托臣而弗疑也。</p>
-<p>臣受命之日，寝不安席，食不甘味。思惟北征。宜先入南。故五月渡泸，深入不毛，并日而食；臣非不自惜也，顾王业不可得偏安于蜀都，故冒危难，以奉先帝之遗意也，而议者谓为非计。今贼适疲于西，又务于东，兵法乘劳，此进趋之时也。谨陈其事如左：</p>
-<p>高帝明并日月，谋臣渊深，然涉险被创，危然后安。今陛下未及高帝，谋臣不如良、平，而欲以长策取胜，坐定天下，此臣之未解一也。</p>
-<p>刘繇、王朗各据州郡，论安言计，动引圣人，群疑满腹，众难塞胸，今岁不战，明年不征，使孙策坐大，遂并江东，此臣之未解二也。</p>
-<p>曹操智计，殊绝于人，其用兵也，仿佛孙、吴，然困于南阳，险于乌巢，危于祁连，逼于黎阳，几败北山，殆死潼关，然后伪定一时耳。况臣才弱，而欲以不危而定之，此臣之未解三也。</p>
-<p>曹操五攻昌霸不下，四越巢湖不成，任用李服而李服图之，委任夏侯而夏侯败亡，先帝每称操为能，犹有此失，况臣驽下，何能必胜？此臣之未解四也。</p>
-<p>自臣到汉中，中间期年耳，然丧赵云、阳群、马玉、阎芝、丁立、白寿、刘郃、邓铜等及曲长、屯将七十余人，突将、无前、賨叟、青羌、散骑、武骑一千余人。此皆数十年之内所纠合四方之精锐，非一州之所有；若复数年，则损三分之二也，当何以图敌？此臣之未解五也。</p>
-<p>今民穷兵疲，而事不可息；事不可息，则住与行劳费正等。而不及今图之，欲以一州之地，与贼持久，此臣之未解六也。</p>
-<p>夫难平者，事也。昔先帝败军于楚，当此时，曹操拊手，谓天下已定。然后先帝东连吴越，西取巴蜀，举兵北征，夏侯授首，此操之失计，而汉事将成也。然后吴更违盟，关羽毁败，秭归蹉跌，曹丕称帝。凡事如是，难可逆见。臣鞠躬尽瘁，死而后已。至于成败利钝，非臣之明所能逆睹也。</p>
 
       
     </div>

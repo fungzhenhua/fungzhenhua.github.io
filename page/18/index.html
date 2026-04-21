@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,202 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/30/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/30/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">Linux下批量替换字符串</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-30 14:50:21" itemprop="dateCreated datePublished" datetime="2024-09-30T14:50:21+08:00">2024-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述">问题描述</h2>
+<p>平时的工作中离不开编写脚本，<code>LaTeX</code>等纯文本文件。然而，有时候我们会遇到多个文件中存在某一个字符串，但是时间久了我们记不请哪个文件中有这个字符串.
+由于技术的更新我们需要把这个字符串替换为新的字符串,
+而一个文件一个文件的去人工查找，然后即使使用<code>vim</code>来替换也是一个相当大的工作量，同时也容易遗漏。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本文介绍一条命令即可搞定这个操作：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/原字符串/新字符串/g&quot;</span> `grep 原字符串 -rl 所在目录`</span><br></pre></td></tr></table></figure>
+<h2 id="命令解释">命令解释</h2>
+<ul>
+<li>命令行中的<code>反单引号</code>(和左上角<code>~</code>在同一个键上),
+表示执行这条命令，并将其输出作为其他命令的参数。</li>
+<li>命令<code>grep 原字符串 -rl 所在目录</code>,
+使用<code>grep</code>查找当前目录中含有<code>原字符串</code>的文件，并带有路径表示。</li>
+<li><code>sed -i \"s/原字符串/新字符串/g\" 目标文件</code>
+表示使用<code>sed</code>将目标文件中的<code>原字符串</code>替换为<code>新字符串</code>。</li>
+</ul>
+<h2 id="参考命令">参考命令</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/linux-findtoreplace.html">Linux
+批量查找与替换</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sed.html">Linux
+sed命令</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-grep.html">Linux
+grep命令</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/29/Next%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8%E7%95%85%E8%A8%80%E4%BA%91%E8%AF%84%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/29/Next%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8%E7%95%85%E8%A8%80%E4%BA%91%E8%AF%84%E8%AE%BA/" class="post-title-link" itemprop="url">Next主题启用畅言云评论</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-29 00:12:06" itemprop="dateCreated datePublished" datetime="2024-09-29T00:12:06+08:00">2024-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="设置畅言云评">设置畅言云评</h2>
+<p>畅言是业界领先的社交评论系统，同时支持 PC
+端和移动端的访问方式，提供了一种全新的网站评论方式。畅言拥有多种常用账号登录、三重过滤机制、实时数据统计、数据快速导出、全面支持移动端等领先功能。完全满足各大网站的用户登录、评论、分享、审核需求。</p>
+<ol type="1">
+<li><p>创建账号或登录<a
+target="_blank" rel="noopener" href="https://changyan.kuaizhan.com/">畅言</a>，然后添加站点以获取
+<code>APP ID</code> 和 <code>APP SECRET</code>。</p></li>
+<li><p>将 <code>enable</code> 设置为 <code>true</code>，并将获取到的
+<code>APP ID（appid）</code>和 <code>APP SECRET（appkey）</code>添加到
+<code>NexT</code> 配置文件的畅言部分，如下所示： <figure class="highlight sh"><figcaption><span>NexT config file</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># changyan</span></span><br><span class="line">changyan:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  appid:</span><br><span class="line">  appkey:</span><br><span class="line">  count: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：评论后，您需要一些时间才能看到评论数量的增加。</p>
+</div></p></li>
+</ol>
+<h2 id="next-comment-systems">Next Comment Systems</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/comments">Comment
+Systems</a></li>
+<li><a target="_blank" rel="noopener" href="https://changyan.kuaizhan.com/">畅言云评</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1563,250 +1759,6 @@ spiral
 target="_blank" rel="noopener" href="https://ask.paperpass.com/xsbk/3594.html">摘要和引言有什么区别：如何正确理解学术写作中的两个概念</a>,
 版权归原作者所有。</p>
 </div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/18/%E4%BD%BF%E7%94%A8Yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/18/%E4%BD%BF%E7%94%A8Yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">使用Yadm管理并同步配置文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-18 00:11:20" itemprop="dateCreated datePublished" datetime="2024-09-18T00:11:20+08:00">2024-09-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-19 15:20:43" itemprop="dateModified" datetime="2025-04-19T15:20:43+08:00">2025-04-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>Dotfiles</code>
-是我们在使用软件的时候，软件为了存储我们个人偏好设置而建立的一个以
-<code>.</code> 开头的文件。例如，<code>vim</code> 的配置文件就是
-<code>.vimrc</code>，<code>zsh</code> 的配置文件就是
-<code>.zshrc</code>。这些文件通常存储在用户的 <code>home</code>
-目录中。但是，在不同的电脑上工作时，如果需要使用相同的配置，我们可以考虑使用版本控制工具来管理这些文件。或者在一台新电脑上想快速配置好环境，也可以使用版本控制工具来管理这些文件。<code>Yadm</code>
-就可以帮助我们完成这些需求。</p>
-<h1 id="安装">安装</h1>
-<p>安装 <code>yadm</code> 非常简单，只需在终端输入以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S yadm</span><br></pre></td></tr></table></figure>
-<h1 id="首次使用">首次使用</h1>
-<h2 id="初始化-yadm-仓库">初始化 yadm 仓库</h2>
-<p>创建一个新的 <code>yadm</code> 仓库很容易，只需在 <code>home</code>
-目录中运行以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm init</span><br></pre></td></tr></table></figure>
-<p>现在，<code>yadm</code> 已经创建了一个空白的 <code>git</code>
-仓库。存储库位置<code>/home/nic/.local/share/yadm/</code></p>
-<h2 id="添加-dotfile-文件">添加 dotfile 文件</h2>
-<p>要将现有的 <code>dotfile</code> 添加到 <code>yadm</code>
-仓库中，请使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm add ~/.zshrc</span><br></pre></td></tr></table></figure>
-<p>一旦您完成了对要添加的文件的更改并将它们添加到 <code>yadm</code>
-仓库中，您需要提交它们。可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm commit -m <span class="string">&quot;Add .zshrc file to yadm repository&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="建立远程仓库">建立远程仓库</h2>
-<p>使用 <code>yadm</code> 还可以将 <code>dotfile</code> 文件同步到
-<code>GitLab</code> 等 <code>Git</code> 托管服务中。登录
-<code>GitLab</code>，创建一个新的仓库。例如，您可以创建一个名为
-<code>dotfile</code>
-的仓库。现在，您需要将本地仓库与远程仓库连接起来。要将本地仓库连接到远程仓库，请使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote add origin git@gitlab.com:[用户名]/dotfile.git</span><br></pre></td></tr></table></figure>
-<p>现在 <code>yadm</code> 已经连接到您在 <code>GitLab</code>
-上创建的仓库。要将本地代码上传到远程仓库，请使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm push -u orgin main</span><br></pre></td></tr></table></figure>
-<h1 id="已经建立远程仓库的前提">已经建立远程仓库的前提</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm <span class="built_in">clone</span> git@gitlab.com:[用户名]/dotfile.git</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：由于远程仓库和本地仓库有可能分支名称不同，所以在建立的时候按照前述方式建立有可能会报错。为了防止错误，可以在远程先建立仓库<code>dotfile</code>，
-然后再使用<code>yadm clone</code>命令克隆下来，这样可以避免很多麻烦。</p>
-</div>
-<h1 id="仓库的修改">仓库的修改</h1>
-<h2 id="查看当前的远程仓库地址">查看当前的远程仓库地址</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote -v</span><br></pre></td></tr></table></figure>
-<p>输出显示:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  git@github.com:username/dotfiles.git (fetch)</span><br><span class="line">origin  git@github.com:username/dotfiles.git (push)</span><br></pre></td></tr></table></figure>
-<h2 id="更改远程仓库地址">更改远程仓库地址</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote set-url origin &lt;新的仓库地址&gt;</span><br></pre></td></tr></table></figure>
-<p>假设你要将仓库迁移到 GitLab，新的地址为
-<code>git@gitlab.com:username/dotfiles.git</code>，则运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote set-url origin git@gitlab.com:username/dotfiles.git</span><br></pre></td></tr></table></figure>
-<h2 id="推送更改到新仓库">推送更改到新仓库</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm push -u origin master</span><br></pre></td></tr></table></figure>
-<h2 id="克隆到其他机器">克隆到其他机器</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm <span class="built_in">clone</span> git@gitlab.com:username/dotfiles.git</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://lifeislife.cn/posts/%E4%BD%BF%E7%94%A8yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6dotfile/">使用
-Yadm 管理并同步配置文件 Dotfile</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/easylife206/article/details/118036119">如何使用
-Yadm 优雅管理你的应用配置和数据</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://kongjun18.github.io/archives/manage-dotfiles-with-yadm.pdf">使用
-yadm 管理点文件</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1840623">如何使用 Yadm
-优雅管理你的应用配置和数据</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/takinoy/yadm.nvim">yadm.nvim</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/seanbreckenridge/gitsigns-yadm.nvim">gitsigns-yadm.nvim</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/gitblog_01044/article/details/141248813">GitSigns.nvim
-使用教程</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39255905/article/details/127211172">GitLab
-不允许将代码推送到该项目上受保护的分支</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">LaTeX输入带圈的数字</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-16 22:44:50" itemprop="dateCreated datePublished" datetime="2024-09-16T22:44:50+08:00">2024-09-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>LaTeX</code>自带了可以为文字外围加圆圈的命令<code>\textcircled&#123;&#125;</code>,
-但是其显示效果并不好，所以本文解决这一问题。</p>
-<h2 id="重定义textcircled">重定义<code>\textcircled</code></h2>
-<p>借用<code>tikz</code>宏包重新定义一下这个命令：</p>
-<figure class="highlight tex"><figcaption><span>重定义\textcircled</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;tikz&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>*&#123;<span class="keyword">\circled</span>&#125;[1]&#123;<span class="keyword">\lower</span>.7ex<span class="keyword">\hbox</span>&#123;<span class="keyword">\tikz</span><span class="keyword">\draw</span> (0pt, 0pt)<span class="comment">%</span></span><br><span class="line">    circle (.5em) node &#123;<span class="keyword">\makebox</span>[1em][c]&#123;<span class="keyword">\small</span> <span class="params">#1</span>&#125;&#125;;&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="调用pifont宏包">调用<code>pifont</code>宏包</h2>
-<p>带圈的序号从<code>1</code>到<code>10</code>依次为</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\ding</span>&#123;172&#125;<span class="keyword">\ding</span>&#123;173&#125;<span class="keyword">\ding</span>&#123;174&#125;<span class="keyword">\ding</span>&#123;175&#125;<span class="keyword">\ding</span>&#123;176&#125;<span class="keyword">\ding</span>&#123;177&#125;<span class="keyword">\ding</span>&#123;178&#125;<span class="keyword">\ding</span>&#123;179&#125;<span class="keyword">\ding</span>&#123;180&#125;<span class="keyword">\ding</span>&#123;181&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.jianshu.com/p/f9ce0367a1dd">LaTeX输入带圈数字</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/615066252">Latex如何输入圆圈1（圆圈数字，圆圈序号）？如何解决圆圈序号不美观的问题？</a></li>
-</ul>
 
       
     </div>

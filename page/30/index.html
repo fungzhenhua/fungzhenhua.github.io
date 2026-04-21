@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,310 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/16/Latex-Suite%E4%B8%AD%E7%9A%84Alt%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/16/Latex-Suite%E4%B8%AD%E7%9A%84Alt%E9%94%AE/" class="post-title-link" itemprop="url">Latex-Suite中的Alt键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-16 20:22:17" itemprop="dateCreated datePublished" datetime="2024-05-16T20:22:17+08:00">2024-05-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一直使用<a
+target="_blank" rel="noopener" href="https://github.com/vim-latex/vim-latex">vim-latex</a>
+作为编写<code>LaTeX</code>文件的主力，但是虽然之前设置好了<code>Alt</code>键，但是一直用的较少，今天试用了一下<code>Alt</code>相关智能键，特别好用，查阅手册后将这部分使用规则记录下来。</p>
+<h2 id="开启alt键">开启Alt键</h2>
+<figure class="highlight vim"><figcaption><span>~/.local/share/nvim/lazy/vim-latex/ftplugin/tex.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">g:Tex_AdvancedMath</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> winaltkeys=<span class="keyword">no</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>由于我使用的是<code>neovim</code>，
+所以设置了上述路径，如果您使用<code>vim</code>请找到对应路径设置即可。缺省时，如果某菜单对应了热键<code>&lt;key&gt;</code>，那么在
+<code>Vim</code> 中按<code>Alt-&lt;key&gt;</code>
+将使得屏幕焦点转移到菜单栏（<code>menu bar</code>）上。如果因此而产生了冲突，那么需要在<code>$VIM/ftplugin/tex.vim</code>
+文件中设置<code>set winaltkeys=no</code>，以使用这些<code>Alt</code>
+键相关的宏映射。<label style="color:red">某些欧洲用户需使用<code>Alt</code>键输入标点符号</label>
+，而我们一般没有这个需要，所以放心开启<code>Alt</code>键即可。</p>
+</div>
+<h2 id="alt键映射">Alt键映射</h2>
+<h3 id="alt-l">Alt-L</h3>
+<p>这是一个多态的、插入模式下的宏映射，根据处于光标之前的字符展开为下列形式之一。光标之前的字符
+展开</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">光标前的字符</th>
+<th style="text-align: center;">替换为相应字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">( 或 )</td>
+<td style="text-align: center;">\left(&lt;++&gt;\right)</td>
+</tr>
+<tr>
+<td style="text-align: center;">[ 或 ]</td>
+<td style="text-align: center;">\left[&lt;++&gt;\right]</td>
+</tr>
+<tr>
+<td style="text-align: center;">|</td>
+<td style="text-align: center;">\left|&lt;++&gt;\right|</td>
+</tr>
+<tr>
+<td style="text-align: center;">{</td>
+<td style="text-align: center;">\left{&lt;++&gt;\right}</td>
+</tr>
+<tr>
+<td style="text-align: center;">&lt; 或 &gt;</td>
+<td style="text-align: center;">\langle&lt;++&gt;\rangle</td>
+</tr>
+<tr>
+<td style="text-align: center;">q</td>
+<td style="text-align: center;">\lefteqn{&lt;++&gt;}&lt;++&gt;</td>
+</tr>
+<tr>
+<td style="text-align: center;">其他</td>
+<td style="text-align: center;">\label{&lt;++&gt;}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alt-b">Alt-B</h3>
+<p>此插入模式宏映射将前一个字符包括进<code>\mathbf&#123;&#125;</code>中。</p>
+<h3 id="alt-c">Alt-C</h3>
+<p>插入模式下，该键的多态性如下所示：</p>
+<ol type="1">
+<li>如果前一个字符是一个字母或数字，那么将它转为大写并将其包括进<code>\mathcal&#123;&#125;</code>。</li>
+<li>否则插入<code>\cite&#123;&#125;</code>。</li>
+</ol>
+<p>在可视模式下，它简单地将所选部分包括进<code>\mathcal&#123;&#125;</code>。</p>
+<h3 id="alt-i">Alt-I</h3>
+<p>此宏映射根据光标包括在哪个环境中在光标处插入<code>\item</code>
+命令。<code>\item</code>
+命令的风格（style）取决于包括它的环境。缺省时，<code>Alt-I</code>
+为下列环境定义了风格：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Environment</th>
+<th style="text-align: center;">Stle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">itemize</td>
+<td style="text-align: center;">\item</td>
+</tr>
+<tr>
+<td style="text-align: center;">enumerate</td>
+<td style="text-align: center;">\item</td>
+</tr>
+<tr>
+<td style="text-align: center;">theindex</td>
+<td style="text-align: center;">\item</td>
+</tr>
+<tr>
+<td style="text-align: center;">thebibliography</td>
+<td
+style="text-align: center;">\item[&lt;+biblabel+&gt;]{&lt;+bibkey+&gt;}
+&lt;++&gt;</td>
+</tr>
+<tr>
+<td style="text-align: center;">description</td>
+<td style="text-align: center;">\item[&lt;+label+&gt;] &lt;++&gt;</td>
+</tr>
+</tbody>
+</table>
+<div class="note primary"><p><code>Alt-I</code>拥有智能处理嵌套环境的能力。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/" class="post-title-link" itemprop="url">微软激活工具HEU KMS Activator</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-13 13:55:56" itemprop="dateCreated datePublished" datetime="2024-05-13T13:55:56+08:00">2024-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>HEU KMS
+Activator是知彼而知己开发的KMS激活工具，最新版增加了OEM激活功能，支持Vista/Win7/Server
+2008/2012等系统的永久激活，无需联网即可一键激活Windows和Office
+VL版本。新增Win10数字许可证激活，可用于系统封装后完美激活。此工具无广告、无捆绑、无后门，完全出自“知彼而知己”的正版，适合系统封装爱好者使用。</p>
+<figure>
+<img
+src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/657af6a5c10c47c888550a851f5d1d7b"
+alt="HEU KMS Activator" />
+<figcaption aria-hidden="true">HEU KMS Activator</figcaption>
+</figure>
+<div class="note primary"><p>注意：高级功能的按钮以“灰色”图标显示，建议详细阅读<a
+target="_blank" rel="noopener" href="https://github.hscsec.cn/zbezj/HEU_KMS_Activator">《用户使用手册》</a>后再行使用。</p>
+</div>
+<h3 id="数字许可证激活简介"><strong>数字许可证激活简介</strong></h3>
+<ol type="1">
+<li><p>Windows10可以通过Windows 7 /
+8.1升级、购买的零售版、或OEM等的方式激活，微软会收集计算机的硬件信息并上传到服务器，将其转化为数字许可证，下次重装系统时，联网后微软服务器将重新比对硬件信息，若主要硬件信息不变，系统就会自动予以激活。</p></li>
+<li><p>例如已永久激活的Windows7升级到Windows10后，会自动永久激活，基于这种思路，通过从微软服务器获取数字门票(GenuineTicket.xml)，完成数字许可证激活(又名数字权利激活)。</p></li>
+<li><p>综上，数字许可证激活的方式必须连接到互联网，一旦激活成功，以后重装系统联网后即自动永久激活。</p></li>
+</ol>
+<div class="note primary"><p>假如使用软件永久激活了Windows7，目前来看，升级到Windows10后会自动激活。此时这台计算机就已经获取到了“数字许可证”，不需要任何其他软件，也不需要安装密钥，只要以后在这台计算机上安装Windows10，联网自动激活。数字许可证激活方式，微软只需一个系统更新即可轻易封杀，然而为了扩大Windows10的市场占有率，此方式被默许。</p>
+</div>
+<h3 id="kms-激活简介"><strong>KMS 激活简介</strong></h3>
+<ol type="1">
+<li><p>通常企业、学校等拥有多台计算机，设想如果安装了
+Windows，然后管理员一台一台的去激活，管理起来十分不方便。为了解决这种问题，微软定制了一种
+批量授权（Volume）的方法：局域网内的一台计算机作为服务器首先连接到微软的服务器进行激活，然后局域网内的其他计算机向局域网内的这台服务器请求激
+活。这种方法即为 Key Management Service，简称 KMS，是微软定制的一种正规
+激活方式，下面简要介绍一下激活流程。</p></li>
+<li><p>大客户首先购买微软正版“CSVLK”密钥，然后将一台计算机永久激活（联网
+或者拨打微软客服电话），这台计算机即可作为服务器（KMS Host），始终保持
+开机联网（局域网连接通畅即可）的状态。局域网内的其他计算机（KMS
+Client）向服务器请求激活，当达到一定数量（激活 Windows 需要 25
+台计算机、激活 Office 需要 5
+台计算机）的客户端计算机请求激活后，服务器就向客户端注入激
+活信息。</p></li>
+<li><p>KMS 激活后有效期 180 天。默认设置下 KMS Client 会自动向可用的 KMS
+Host 请求激活（未激活的客户端尝试连接 KMS 的时间间隔为 2 小时，已激活的
+客户端尝试连接 KMS 的续订时间间隔为 7 天）。即 KMS Client 激活有效期会始
+终保持 173 天以上，前提是 KMS Host 是可用的。</p></li>
+</ol>
+<h3 id="下载地址"><strong>下载地址</strong></h3>
+<ul>
+<li><p><a
+target="_blank" rel="noopener" href="https://github.com/zbezj/HEU_KMS_Activator/releases/">HEU KMS
+Activator(GitHub)</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://url84.ctfile.com/d/12480284-33192731-fe6932">HEU
+KMS Activator(城通网盘 访问密码：wrfou)</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1a2dqow1c7GuZkIKYwCGgpg">HEU KMS
+Activator(百度网盘 提取码: nizy)</a></p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1186,376 +1490,6 @@ alt="merge和rebase的区别" />
 然后在弹出的提示中，输入任意内容内执行完毕。</p></li>
 <li><p>使用教程参考<a
 target="_blank" rel="noopener" href="https://rmlint.readthedocs.io/en/master/">rmlint doc</a></p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E5%9C%A8Linux%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/07/%E5%9C%A8Linux%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">在Linux中查找并删除重复文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-07 02:06:56" itemprop="dateCreated datePublished" datetime="2024-05-07T02:06:56+08:00">2024-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在编辑或修改配置文件或旧文件前，我经常会把它们备份到硬盘的某个地方，因此我如果意外地改错了这些文件，我可以从备份中恢复它们。但问题是如果我忘记清理备份文件，一段时间之后，我的磁盘会被这些大量重复文件填满
-——
-我觉得要么是懒得清理这些旧文件，要么是担心可能会删掉重要文件。如果你们像我一样，在类
-Unix
-操作系统中，大量多版本的相同文件放在不同的备份目录，你可以使用下面的工具找到并删除重复文件。</p>
-<p><strong>提醒一句：</strong></p>
-<p>在删除重复文件的时请尽量小心。如果你不小心，也许会导致<a
-target="_blank" rel="noopener" href="https://www.ostechnix.com/prevent-files-folders-accidental-deletion-modification-linux/">意外丢失数据</a>。我建议你在使用这些工具的时候要特别注意。</p>
-<p>出于本指南的目的，我将讨论下面的三个工具：</p>
-<ol type="1">
-<li>Rdfind</li>
-<li>Fdupes</li>
-<li>FSlint</li>
-</ol>
-<p>这三个工具是自由开源的，且运行在大多数类 Unix 系统中。</p>
-<h2 id="rdfind"><code>1. Rdfind</code></h2>
-<p><strong>Rdfind</strong> 意即 <strong>r</strong>edundant
-<strong>d</strong>ata
-<strong>find</strong>（冗余数据查找），是一个通过访问目录和子目录来找出重复文件的自由开源的工具。它是基于文件内容而不是文件名来比较。Rdfind
-使用<strong>排序</strong>算法来区分原始文件和重复文件。如果你有两个或者更多的相同文件，Rdfind
-会很智能的找到原始文件并认定剩下的文件为重复文件。一旦找到副本文件，它会向你报告。你可以决定是删除还是使用<a
-target="_blank" rel="noopener" href="https://www.ostechnix.com/explaining-soft-link-and-hard-link-in-linux-with-examples/">硬链接或者符号（软）链接</a>代替它们。</p>
-<p><strong>安装 Rdfind</strong></p>
-<p>Rdfind 存在于 <a
-target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/rdfind/">AUR</a>
-中。因此，在基于 Arch 的系统中，你可以像下面一样使用任一如 <a
-target="_blank" rel="noopener" href="https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/">Yay</a>
-AUR 程序助手安装它。</p>
-<p>在 Debian、Ubuntu、Linux Mint 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install rdfind</span><br></pre></td></tr></table></figure>
-<p>在 Fedora 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install rdfind</span><br></pre></td></tr></table></figure>
-<p>在 RHEL、CentOS 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install rdfind</span><br></pre></td></tr></table></figure>
-<p><strong>用法</strong></p>
-<p>一旦安装完成，仅带上目录路径运行 Rdfind 命令就可以扫描重复文件。</p>
-<p><img
-src="https://pic3.zhimg.com/v2-e5512cb39e96206caec66a9fc221d90e_b.jpg" /></p>
-<p>正如你看到上面的截屏，Rdfind 命令将扫描 <code>~/Downloads</code>
-目录，并将结果存储到当前工作目录下一个名为 <code>results.txt</code>
-的文件中。你可以在 <code>results.txt</code>
-文件中看到可能是重复文件的名字。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> results.txt <span class="comment"># Automatically generated # duptype id depth size device inode priority name DUPTYPE_FIRST_OCCURRENCE 1469 8 9 2050 15864884 1 /home/sk/Downloads/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/fte/tests/dfas/test5.regex DUPTYPE_WITHIN_SAME_TREE -1469 8 9 2050 15864886 1 /home/sk/Downloads/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/fte/tests/dfas/test6.regex [...] DUPTYPE_FIRST_OCCURRENCE 13 0 403635 2050 15740257 1 /home/sk/Downloads/Hyperledger(1).pdf DUPTYPE_WITHIN_SAME_TREE -13 0 403635 2050 15741071 1 /home/sk/Downloads/Hyperledger.pdf # end of file</span></span><br></pre></td></tr></table></figure>
-<p>通过检查 <code>results.txt</code>
-文件，你可以很容易的找到那些重复文件。如果愿意你可以手动的删除它们。</p>
-<p>此外，你可在不修改其他事情情况下使用 <code>-dryrun</code>
-选项找出所有重复文件，并在终端上输出汇总信息。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -dryrun <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>一旦找到重复文件，你可以使用硬链接或符号链接代替他们。</p>
-<p>使用硬链接代替所有重复文件，运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -makehardlinks <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>使用符号链接/软链接代替所有重复文件，运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -makesymlinks <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>目录中有一些空文件，也许你想忽略他们，你可以像下面一样使用
-<code>-ignoreempty</code> 选项：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -ignoreempty <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>如果你不再想要这些旧文件，删除重复文件，而不是使用硬链接或软链接代替它们。</p>
-<p>删除重复文件，就运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -deleteduplicates <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>如果你不想忽略空文件，并且和所哟重复文件一起删除。运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -deleteduplicates <span class="literal">true</span> -ignoreempty <span class="literal">false</span> ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>更多细节，参照帮助部分：</p>
-<p>手册页：</p>
-<h2 id="fdupes"><code>2. Fdupes</code></h2>
-<p><strong>Fdupes</strong>
-是另一个在指定目录以及子目录中识别和移除重复文件的命令行工具。这是一个使用
-C 语言编写的自由开源工具。Fdupes 通过对比文件大小、部分 MD5 签名、全部
-MD5 签名，最后执行逐个字节对比校验来识别重复文件。</p>
-<p>与 Rdfind 工具类似，Fdupes 附带非常少的选项来执行操作，如：</p>
-<ul>
-<li>在目录和子目录中递归的搜索重复文件</li>
-<li>从计算中排除空文件和隐藏文件</li>
-<li>显示重复文件大小</li>
-<li>出现重复文件时立即删除</li>
-<li>使用不同的拥有者/组或权限位来排除重复文件</li>
-<li>更多</li>
-</ul>
-<p><strong>安装 Fdupes</strong></p>
-<p>Fdupes 存在于大多数 Linux 发行版的默认仓库中。</p>
-<p>在 Arch Linux 和它的变种如 Antergos、Manjaro Linux 上，如下使用
-Pacman 安装它。</p>
-<p>在 Debian、Ubuntu、Linux Mint 上:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install fdupes</span><br></pre></td></tr></table></figure>
-<p>在 Fedora 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install fdupes</span><br></pre></td></tr></table></figure>
-<p>在 RHEL、CentOS 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install fdupes</span><br></pre></td></tr></table></figure>
-<p><strong>用法</strong></p>
-<p>Fdupes
-用法非常简单。仅运行下面的命令就可以在目录中找到重复文件，如：<code>~/Downloads</code>。</p>
-<p>我系统中的样例输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/sk/Downloads/Hyperledger.pdf /home/sk/Downloads/Hyperledger(1).pdf</span><br></pre></td></tr></table></figure>
-<p>你可以看到，在 <code>/home/sk/Downloads/</code>
-目录下有一个重复文件。它仅显示了父级目录中的重复文件。如何显示子目录中的重复文件？像下面一样，使用
-<code>-r</code> 选项。</p>
-<p>现在你将看到 <code>/home/sk/Downloads/</code>
-目录以及子目录中的重复文件。</p>
-<p>Fdupes 也可用来从多个目录中迅速查找重复文件。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes ~/Downloads ~/Documents/ostechnix</span><br></pre></td></tr></table></figure>
-<p>你甚至可以搜索多个目录，递归搜索其中一个目录，如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes ~/Downloads -r ~/Documents/ostechnix</span><br></pre></td></tr></table></figure>
-<p>上面的命令将搜索 <code>~/Downloads</code>
-目录，<code>~/Documents/ostechnix</code>
-目录和它的子目录中的重复文件。</p>
-<p>有时，你可能想要知道一个目录中重复文件的大小。你可以使用
-<code>-S</code> 选项，如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -S ~/Downloads 403635 bytes each: /home/sk/Downloads/Hyperledger.pdf /home/sk/Downloads/Hyperledger(1).pdf</span><br></pre></td></tr></table></figure>
-<p>类似的，为了显示父目录和子目录中重复文件的大小，使用 <code>-Sr</code>
-选项。</p>
-<p>我们可以在计算时分别使用 <code>-n</code> 和 <code>-A</code>
-选项排除空白文件以及排除隐藏文件。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -n ~/Downloads $ fdupes -A ~/Downloads</span><br></pre></td></tr></table></figure>
-<p>在搜索指定目录的重复文件时，第一个命令将排除零长度文件，后面的命令将排除隐藏文件。</p>
-<p>汇总重复文件信息，使用 <code>-m</code> 选项。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -m ~/Downloads 1 duplicate files (<span class="keyword">in</span> 1 sets), occupying 403.6 kilobytes</span><br></pre></td></tr></table></figure>
-<p>删除所有重复文件，使用 <code>-d</code> 选项。</p>
-<p>样例输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1] /home/sk/Downloads/Hyperledger Fabric Installation.pdf [2] /home/sk/Downloads/Hyperledger Fabric Installation(1).pdf Set 1 of 1, preserve files [1 - 2, all]:</span><br></pre></td></tr></table></figure>
-<p>这个命令将提示你保留还是删除所有其他重复文件。输入任一号码保留相应的文件，并删除剩下的文件。当使用这个选项的时候需要更加注意。如果不小心，你可能会删除原文件。</p>
-<p>如果你想要每次保留每个重复文件集合的第一个文件，且无提示的删除其他文件，使用
-<code>-dN</code> 选项（不推荐）。</p>
-<p>当遇到重复文件时删除它们，使用 <code>-I</code> 标志。</p>
-<p>关于 Fdupes 的更多细节，查看帮助部分和 man 页面。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes --<span class="built_in">help</span> $ man fdupes</span><br></pre></td></tr></table></figure>
-<h2 id="fslint"><code>3. FSlint</code></h2>
-<p><strong>FSlint</strong> 是另外一个查找重复文件的工具，有时我用它去掉
-Linux 系统中不需要的重复文件并释放磁盘空间。不像另外两个工具，FSlint 有
-GUI 和 CLI 两种模式。因此对于新手来说它更友好。FSlint
-不仅仅找出重复文件，也找出坏符号链接、坏名字文件、临时文件、坏的用户
-ID、空目录和非精简的二进制文件等等。</p>
-<p><strong>安装 FSlint</strong></p>
-<p>FSlint 存在于 <a
-target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/fslint/">AUR</a>，因此你可以使用任一
-AUR 助手安装它。</p>
-<p>在 Debian、Ubuntu、Linux Mint 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install fslint</span><br></pre></td></tr></table></figure>
-<p>在 Fedora 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install fslint</span><br></pre></td></tr></table></figure>
-<p>在 RHEL，CentOS 上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install fslint</span><br></pre></td></tr></table></figure>
-<p>一旦安装完成，从菜单或者应用程序启动器启动它。</p>
-<p>FSlint GUI 展示如下：</p>
-<p><img
-src="https://pic1.zhimg.com/v2-1c7ef167aa2f198aa2dabec51f8da6a8_b.jpg" /></p>
-<p>如你所见，FSlint 界面友好、一目了然。在 “Search path”
-栏，添加你要扫描的目录路径，点击左下角 “Find”
-按钮查找重复文件。验证递归选项可以在目录和子目录中递归的搜索重复文件。FSlint
-将快速的扫描给定的目录并列出重复文件。</p>
-<p><img
-src="https://pic1.zhimg.com/v2-08c323750aa1822386ceddf57e853e1c_b.jpg" /></p>
-<p>从列表中选择那些要清理的重复文件，也可以选择
-“Save”、“Delete”、“Merge” 和 “Symlink” 操作他们。</p>
-<p>在 “Advanced search parameters”
-栏，你可以在搜索重复文件的时候指定排除的路径。</p>
-<p><img
-src="https://pic3.zhimg.com/v2-bcede67996d2819c65bf4757cf8067b2_b.jpg" /></p>
-<p><strong>FSlint 命令行选项</strong></p>
-<p>FSlint 提供下面的 CLI 工具集在你的文件系统中查找重复文件。</p>
-<ul>
-<li><code>findup</code> — 查找重复文件</li>
-<li><code>findnl</code> — 查找名称规范（有问题的文件名）</li>
-<li><code>findu8</code> — 查找非法的 utf8 编码的文件名</li>
-<li><code>findbl</code> — 查找坏链接（有问题的符号链接）</li>
-<li><code>findsn</code> — 查找同名文件（可能有冲突的文件名）</li>
-<li><code>finded</code> — 查找空目录</li>
-<li><code>findid</code> — 查找死用户的文件</li>
-<li><code>findns</code> — 查找非精简的可执行文件</li>
-<li><code>findrs</code> — 查找文件名中多余的空白</li>
-<li><code>findtf</code> — 查找临时文件</li>
-<li><code>findul</code> — 查找可能未使用的库</li>
-<li><code>zipdir</code> — 回收 ext2 目录项下浪费的空间</li>
-</ul>
-<p>所有这些工具位于 <code>/usr/share/fslint/fslint/fslint</code>
-下面。</p>
-<p>例如，在给定的目录中查找重复文件，运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/findup ~/Downloads/</span><br></pre></td></tr></table></figure>
-<p>类似的，找出空目录命令是：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/finded ~/Downloads/</span><br></pre></td></tr></table></figure>
-<p>获取每个工具更多细节，例如：<code>findup</code>，运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/findup --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p>关于 FSlint 的更多细节，参照帮助部分和 man 页。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/fslint --<span class="built_in">help</span> $ man fslint</span><br></pre></td></tr></table></figure>
-<p><strong>总结</strong></p>
-<p>现在你知道在 Linux
-中，使用三个工具来查找和删除不需要的重复文件。这三个工具中，我经常使用
-Rdfind。这并不意味着其他的两个工具效率低下，因为到目前为止我更喜欢
-Rdfind。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E4%BD%BF%E7%94%A8LaTeX%E7%BC%96%E5%86%99%E7%89%A9%E7%90%86%E6%96%87%E7%AB%A0%E6%97%B6%E6%A0%87%E5%87%86%E5%AE%8F%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/07/%E4%BD%BF%E7%94%A8LaTeX%E7%BC%96%E5%86%99%E7%89%A9%E7%90%86%E6%96%87%E7%AB%A0%E6%97%B6%E6%A0%87%E5%87%86%E5%AE%8F%E5%8C%85/" class="post-title-link" itemprop="url">使用LaTeX编写物理文章时标准宏包</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-07 00:14:21" itemprop="dateCreated datePublished" datetime="2024-05-07T00:14:21+08:00">2024-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>作为一名物理学工作者，输入大量的<code>LaTeX</code>公式不可避免，然后为了节省输入时间，以及输入的规范化，本文介绍三个标准的宏包，希望能够为您的工作增效。
-具体使用说明，安装<code>Texlive</code>后，请执行：<code>texdoc physics</code>
-等。</p>
-<ul>
-<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physics">physics</a> The goal of
-this package is to make typesetting equations for physics simpler,
-faster, and more human readable. To that end, the commands included in
-this package have names that make the purpose of each command
-immediately obvious and remove any ambiguity while reading and editing
-physics code. From a practical standpoint, it is handy to have a
-well-defined set of shortcuts for accessing the long-form of each of
-these commands. The commands listed below are therefore defined in terms
-of their long-form names and then shown explicitly in terms of the
-default shorthand command sequences. These shorthand commands are meant
-make it easy to remember both the shorthand names and what each one
-represents.</p></li>
-<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physconst">physconst</a> This
-package consists of several macros that are shorthand for a variety of
-physical constants, e.g. the speed of light. The package developed out
-of physics and astronomy classes that I have taught and wanted to ensure
-that I had correct values for each constant and did not wish to retype
-them every time I use them. The constants can be used in two forms, the
-most accurate available values, or versions that are rounded to 3
-significant digits for use in typical classroom settings, homework
-assignments, etc.</p></li>
-<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physunits">physunits</a> This
-package consists of several macros that are shorthand for a variety of
-physical units that are commonly used in introductory level physics and
-astronomy classes. At present, this package provides some similar units
-to those in siunitx, but is uses slightly different macro names for
-each. This package also provides a number of non-SI units (e.g. erg, cm,
-BTU).</p></li>
 </ul>
 
       

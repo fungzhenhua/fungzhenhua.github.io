@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,234 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/16/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/16/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">电脑安装双系统注意事项</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-16 03:28:35" itemprop="dateCreated datePublished" datetime="2024-10-16T03:28:35+08:00">2024-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>科研工作中，安装<code>Linux</code>+<code>Windows</code>双系统是一个比较好的选择，这样即可以兼顾专有软件的使用也可以发挥硬件的最大效能。但是，在安装双系统的过程中却有很多注意事项，不注意就会带来好多问题。本文从单硬盘双系统和双硬盘双系统来记录安装过程。</p>
+<h2 id="单硬盘双系统">单硬盘双系统</h2>
+<p>对于单硬盘，最好先使用<code>windows11</code>的原版镜像安装<code>windows11</code>,
+这样它在安装的过程中就会自动建立一个<code>300M</code>的<code>EFI</code>分区、<code>16M</code>的<code>Microsoft 保留</code>分区、<code>704M</code>的<code>Windows 恢复环境</code>分区和一个<code>Microsoft 基本数据</code>分区.
+这四个分区是必不可少的。其中<code>16M</code>和<code>704M</code>的分区是隐藏分区，而操作系统就安装在<code>Microsoft 基本数据</code>分区,
+<code>300M</code>的<code>EFI</code>分区则存储了引导程序，用以启动时引导系统加载运行。</p>
+<p>为了方便安装<code>windows11</code>，建议使用<a
+target="_blank" rel="noopener" href="http://rufus.ie/zh/">rufus</a>,
+因为它可以禁用<code>tpm</code>验证、绕过微软帐户登录等，功能十分强大。安装完成后，再使用<a
+target="_blank" rel="noopener" href="https://www.ventoy.net/cn/download.html">Ventory</a>制成的<code>Archlinux</code>系统盘启动安装<code>Linux</code>,
+参考<a href="/2022/03/01/ArchLinux安装指南/">Archlinux 安装指南</a>
+安装完成操作系统，则<code>Grub</code>会自动搜索<code>windows11</code>引导程序，进而建立多系统启动菜单，这正是教程中记录的方式。若先安装了<code>Archlinux</code>再安装<code>windows11</code>,
+也可以按照<a href="/2022/03/01/ArchLinux安装指南/">Archlinux
+安装指南</a>恢复<code>Grub</code>，所以单硬盘安装双系统的问题彻底解决。</p>
+<h2 id="双硬盘双系统">双硬盘双系统</h2>
+<p>所谓双硬盘双系统是指，电脑具备两个硬盘<code>A</code>和<code>B</code>,
+计划在<code>A</code>上安装<code>Archlinux</code>，
+在<code>B</code>上安装<code>windows11</code>.
+此时应当先安装<code>Archlinux</code>，此时在<code>A</code>盘上已经创建了<code>EFI</code>分区，安装完成时它记录了<code>Grub</code>引导程序。然后再安装<code>windows11</code>,
+<code>windows</code>的机制是安装时先探测所有硬盘中是否存在<code>EFI</code>分区，若检测到<code>EFI</code>分区，将不自动创建该分区。因此<code>B</code>上将会建立除<code>EFI</code>之外的三个分区，即</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">设备            起点      末尾      扇区   大小 类型</span><br><span class="line">/dev/sdb1       2048     34815     32768    16M Microsoft 保留</span><br><span class="line">/dev/sdb2      34816 498673663 498638848 237.8G Microsoft 基本数据</span><br><span class="line">/dev/sdb3  498673664 500115455   1441792   704M Windows 恢复环境</span><br></pre></td></tr></table></figure>
+<p>而系统的引导程序自动安装到了<code>A</code>的<code>EFI</code>分区上。如果<code>Grub</code>被覆盖，请按<a
+href="/2022/03/01/ArchLinux安装指南/">Archlinux
+安装指南</a>中记录的方法恢复即可。如果<code>A</code>之前就安装了<code>Archlinux</code>和<code>Windows11</code>两个系统，则安装<code>Windows11</code>后发现重启电脑并不能进入到新系统的安装程序中，这是因为<code>windows</code>自动识别了两个<code>Windows</code>的引导程序，同时默认第一个<code>Windows</code>的引导优先启动，因此新系统不能继续安装。此时，有两个方法处理：</p>
+<ul>
+<li>通过系统属性设置：
+<ul>
+<li>右击<code>此电脑</code>（或<code>计算机</code>）图标，选择<code>属性</code>。</li>
+<li>在弹出的系统窗口中，点击左侧的<code>高级系统设置</code>。</li>
+<li>进入<code>系统属性</code>界面，切换到<code>高级</code>选项卡，点击<code>启动和故障恢复</code>下的<code>设置</code>按钮。</li>
+<li>在<code>启动和故障恢复</code>窗口中，找到<code>默认操作系统</code>一栏，通过下拉列表选择第二个系统作为默认启动项。</li>
+<li>确认设置无误后，点击<code>确定</code>保存更改。</li>
+</ul></li>
+<li>通过系统配置工具设置:
+<ul>
+<li>按下<code>Win+R</code>键打开运行对话框，输入<code>msconfig</code>并回车。</li>
+<li>进入系统配置窗口，切换到<code>引导</code>选项卡。</li>
+<li>在引导选项中，找到并选中需要设置为默认启动项的第二系统，然后点击<code>设为默认值</code>。</li>
+<li>确认设置后，点击<code>确定</code>并重启电脑，第二系统将成为默认启动项。</li>
+</ul></li>
+</ul>
+<p>经过上述设置后，重启系统则安装程序继续，之后和普通安装流程一样，完成安装即可。同时，如果你计划删除<code>A</code>中的<code>Windows11</code>,
+那在<code>引导</code>选项卡中，也可以选择删除其引导项，这样就只有第二个新的<code>Windows11</code>了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/14/2024%E7%89%88IDM%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/14/2024%E7%89%88IDM%E6%B0%B8%E4%B9%85%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">2024版IDM永久激活教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-14 16:48:17" itemprop="dateCreated datePublished" datetime="2024-10-14T16:48:17+08:00">2024-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>互联网下载管理器(<code>Internet download manager</code>)将加快下载高达5倍，由于其智能动态文件分割技术。与其他下载管理器和加速器，互联网下载管理段下载的文件在下载过程中动态，
+并且它重用可用的连接而无需附加的连接和登录阶段，以实现最佳的可能加速性能。</p>
+<p><code>IDM</code>无缝集成到<code>Microsoft Edge</code>、<code>Google Chrome</code>、<code>Mozilla Firefox</code>、<code>Opera</code>、<code>Internet Explorer</code>、<code>Safari</code>、<code>MSN Explorer</code>、<code>AOL</code>、<code>Mozilla Firebird</code>、<code>Avant Browser</code>、<code>傲游</code>和所有其他流行的浏览器中，以自动处理您的下载。</p>
+<p>当您在浏览器中单击下载链接时，<code>IDM</code>将接管下载并加速它。你不需要做任何特别的事情，只要像平时一样浏览互联网就行了。
+<code>IDM</code>将捕获您的下载并加速它们。<code>IDM</code>支持<code>HTTP</code>、<code>FTP</code>、<code>HTTPS</code>和<code>MMS</code>协议。</p>
+<p>由于迅雷广告太多且各种会员提示，相比而言<code>IDM</code>更加纯净高效，因此本文推荐<code>IDM</code>的破解试用安装，测试完后请购买正版软件。</p>
+<h2 id="idm-官网下载">IDM 官网下载</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.internetdownloadmanager.com/download.html">Download
+Internet Download Manager</a></li>
+</ul>
+<h2 id="软件安装">软件安装</h2>
+<ul>
+<li><p>安装前准备，请先卸载老版本的<code>idm</code>安装程序，卸载时选择完全卸载.重启后清理浏览器中<code>idm</code>插件，并运行<code>IDM</code>卸载后执行<code>.bat</code>。</p></li>
+<li><p>安装<code>IDM</code>，安装完可能会提示需要输入序列号之类的问题，直接取消就行</p></li>
+<li><p>完全退出<code>IDM</code>（查看<code>windows</code>任务管理器有没有<code>IDM</code>进程在后台运行，如有请结束<code>IDM</code>后台进程）</p></li>
+<li><p>执行
+<code>IDM_6.4x_Crack_v19.7.exe</code>，选择<code>crack</code>
+即可激活</p></li>
+</ul>
+<h2 id="crack下载">Crack下载</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.123pan.com/s/7dj0Vv-s0MNh.html">123网盘-IDM_6.4x_Crack_v19.7</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://pan.baidu.com/s/1bMHXCxPli8GvFVlT_sbx_Q?pwd=9wph">百度网盘-IDM_6.4x_Crack_v19.7</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://pan.quark.cn/s/9d073a53e230">夸克网盘-IDM_6.4x_Crack_v19.7</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://mrdadong.lanzoub.com/iKN2Z22vw3vc">蓝奏云-IDM_6.4x_Crack_v19.7</a></li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a target="_blank" rel="noopener" href="https://www.mrdadong.com/archives/1719231117164">2024
+IDM终生激活版教程（解决弹窗）</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1223,202 +1451,6 @@ PS，然后再转换回来，从而有效地压缩它。它可能并不总是有
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.freeconvert.com/zh/compress-pdf">Free
 Convert</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/30/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/30/Linux%E4%B8%8B%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="post-title-link" itemprop="url">Linux下批量替换字符串</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-30 14:50:21" itemprop="dateCreated datePublished" datetime="2024-09-30T14:50:21+08:00">2024-09-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p>平时的工作中离不开编写脚本，<code>LaTeX</code>等纯文本文件。然而，有时候我们会遇到多个文件中存在某一个字符串，但是时间久了我们记不请哪个文件中有这个字符串.
-由于技术的更新我们需要把这个字符串替换为新的字符串,
-而一个文件一个文件的去人工查找，然后即使使用<code>vim</code>来替换也是一个相当大的工作量，同时也容易遗漏。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本文介绍一条命令即可搞定这个操作：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/原字符串/新字符串/g&quot;</span> `grep 原字符串 -rl 所在目录`</span><br></pre></td></tr></table></figure>
-<h2 id="命令解释">命令解释</h2>
-<ul>
-<li>命令行中的<code>反单引号</code>(和左上角<code>~</code>在同一个键上),
-表示执行这条命令，并将其输出作为其他命令的参数。</li>
-<li>命令<code>grep 原字符串 -rl 所在目录</code>,
-使用<code>grep</code>查找当前目录中含有<code>原字符串</code>的文件，并带有路径表示。</li>
-<li><code>sed -i \"s/原字符串/新字符串/g\" 目标文件</code>
-表示使用<code>sed</code>将目标文件中的<code>原字符串</code>替换为<code>新字符串</code>。</li>
-</ul>
-<h2 id="参考命令">参考命令</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/linux-findtoreplace.html">Linux
-批量查找与替换</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sed.html">Linux
-sed命令</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-grep.html">Linux
-grep命令</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/29/Next%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8%E7%95%85%E8%A8%80%E4%BA%91%E8%AF%84%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/29/Next%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8%E7%95%85%E8%A8%80%E4%BA%91%E8%AF%84%E8%AE%BA/" class="post-title-link" itemprop="url">Next主题启用畅言云评论</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-29 00:12:06" itemprop="dateCreated datePublished" datetime="2024-09-29T00:12:06+08:00">2024-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="设置畅言云评">设置畅言云评</h2>
-<p>畅言是业界领先的社交评论系统，同时支持 PC
-端和移动端的访问方式，提供了一种全新的网站评论方式。畅言拥有多种常用账号登录、三重过滤机制、实时数据统计、数据快速导出、全面支持移动端等领先功能。完全满足各大网站的用户登录、评论、分享、审核需求。</p>
-<ol type="1">
-<li><p>创建账号或登录<a
-target="_blank" rel="noopener" href="https://changyan.kuaizhan.com/">畅言</a>，然后添加站点以获取
-<code>APP ID</code> 和 <code>APP SECRET</code>。</p></li>
-<li><p>将 <code>enable</code> 设置为 <code>true</code>，并将获取到的
-<code>APP ID（appid）</code>和 <code>APP SECRET（appkey）</code>添加到
-<code>NexT</code> 配置文件的畅言部分，如下所示： <figure class="highlight sh"><figcaption><span>NexT config file</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># changyan</span></span><br><span class="line">changyan:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br><span class="line">  appid:</span><br><span class="line">  appkey:</span><br><span class="line">  count: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：评论后，您需要一些时间才能看到评论数量的增加。</p>
-</div></p></li>
-</ol>
-<h2 id="next-comment-systems">Next Comment Systems</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/comments">Comment
-Systems</a></li>
-<li><a target="_blank" rel="noopener" href="https://changyan.kuaizhan.com/">畅言云评</a></li>
 </ul>
 
       

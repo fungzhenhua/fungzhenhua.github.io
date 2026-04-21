@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,197 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/Python%E7%BB%98%E5%88%B6%E5%88%86%E5%8F%89%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/08/Python%E7%BB%98%E5%88%B6%E5%88%86%E5%8F%89%E5%9B%BE/" class="post-title-link" itemprop="url">Python绘制分叉图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-08 21:59:06" itemprop="dateCreated datePublished" datetime="2024-11-08T21:59:06+08:00">2024-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="程序源代码">程序源代码</h1>
+<p>由于毕业论文要切换成非线性的缘故，需要我拿出一些时间来研究绘制各种分叉图。下面举一个例子来说明绘图的思路：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">fig=plt.figure(figsize=(<span class="number">10</span>,<span class="number">8</span>),dpi=<span class="number">100</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">LogisticMap</span>():</span><br><span class="line">    mu = np.arange(<span class="number">0</span>, <span class="number">4</span>, <span class="number">0.01</span>)</span><br><span class="line">    x = <span class="number">0.1</span>       <span class="comment"># 初值</span></span><br><span class="line">    iters = <span class="number">1000</span>  <span class="comment"># 不进行输出的迭代次数</span></span><br><span class="line">    last = <span class="number">200</span>    <span class="comment"># 最后画出结果的迭代次数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(iters+last)):</span><br><span class="line">        x = mu * x * (<span class="number">1</span> - x)</span><br><span class="line">        <span class="keyword">if</span> i &gt;= iters:</span><br><span class="line">            plt.plot(mu, x, alpha=<span class="number">0.5</span>)  <span class="comment"># </span></span><br><span class="line">            plt.ylim(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">            plt.xlim(<span class="number">0</span>, <span class="number">4</span>)</span><br><span class="line">            plt.title(<span class="string">r&#x27; $x_&#123;n+1&#125; = \mu x_&#123;n&#125; (1-x_&#123;n&#125;).$  n = &#x27;</span>+ <span class="built_in">str</span>(i+<span class="number">1</span>) )</span><br><span class="line">            plt.ylabel(<span class="string">&#x27;x-Random number&#x27;</span>)</span><br><span class="line">            plt.xlabel(<span class="string">&#x27;r-Rate&#x27;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">LogisticMap()</span><br></pre></td></tr></table></figure>
+<h1 id="绘图分析">绘图分析</h1>
+<ol type="1">
+<li><p>绘图的叠代公式 <span
+class="math display">\[\begin{equation}\label{eq:diedai}
+x_{n+1}=\mu x_n(1-x_n)
+\qquad
+0\leq \mu\leq 4, 0&lt;x&lt;1
+\end{equation}\]</span></p></li>
+<li><p>将参数<span class="math inline">\(\mu\)</span>从<span
+class="math inline">\(0\)</span>到<span
+class="math inline">\(4\)</span>均分成<span
+class="math inline">\(100\)</span>份，然后将其作为自变量，遍历区间取值。</p></li>
+<li><p>对于任意一个<span class="math inline">\(\mu\)</span>值，选择初值
+<span class="math inline">\(x_0=0.1\)</span>, 使用式<span
+class="math inline">\(\eqref{eq:diedai}\)</span>叠代<span
+class="math inline">\(1000\)</span>次, 但是这些叠代值并不输出,
+然后输出<span class="math inline">\(1001\)</span>次到<span
+class="math inline">\(1200\)</span>次的叠代结果。
+其原理为：如果参数<span
+class="math inline">\(\mu\)</span>在某个值时，无数次叠代后它会收敛到某个值附近，那这样的点就是一个嘛吸引点。但是，有的点以无数次叠代后仍然不收敛，所以在固定一个较大的次数<span
+class="math inline">\(1000\)</span>后，再叠代<span
+class="math inline">\(100\)</span>次, 将这<span
+class="math inline">\(100\)</span>次的结果输出，就能判断这<span
+class="math inline">\(100\)</span>个点的分布情况。</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/%E5%B8%83%E9%87%8C%E6%B8%8A%E6%95%A3%E5%B0%84%EF%BC%8C%E6%8B%89%E6%9B%BC%E6%95%A3%E5%B0%84%EF%BC%8C%E7%91%9E%E5%88%A9%E6%95%A3%E5%B0%84%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/08/%E5%B8%83%E9%87%8C%E6%B8%8A%E6%95%A3%E5%B0%84%EF%BC%8C%E6%8B%89%E6%9B%BC%E6%95%A3%E5%B0%84%EF%BC%8C%E7%91%9E%E5%88%A9%E6%95%A3%E5%B0%84%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">布里渊散射，拉曼散射，瑞利散射的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-08 09:38:47" itemprop="dateCreated datePublished" datetime="2024-11-08T09:38:47+08:00">2024-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当光入射到样品上，入射光子与样品中的分子或原子发生碰撞散射改变运动方向。根据光子能量是否发生变化分为<code>弹性散射</code>和<code>非弹性散射</code>。</p>
+<h2 id="弹性散射">弹性散射</h2>
+<p>光子能量没有发生变化的散射叫弹性散射。弹射散射有<label style="color:blue">瑞利散射</label>（<code>Rayleigh scattering</code>）和<label style="color:blue">米氏散射</label>（<code>Mie scattering</code>）。当散射微粒的直径远小于入射光波长时，一般小于波长<span
+class="math inline">\(1/10\)</span>，发生瑞利散射，强度与波长四次方成反比。当微粒尺寸增大到与波长相当时，发生米氏散射，强度与波长二次方成反比，且随着微粒增大，散射强度变弱。半导体中的弹性散射多为瑞利散射。</p>
+<h2 id="非弹性散射">非弹性散射</h2>
+<p>光子能量<label style="color:blue">发生变化</label>的散射叫非弹性散射。非弹性散射中，散射光子能量减小的散射称为斯托克斯散射（<code>Stokes</code>），散射光子能量增加的散射称为反斯托克斯散射（<code>Anti-Stokes</code>）。散射光能量的改变与半导体中的声子有关，光学声子（<code>Optical photon，OP</code>）参与的称拉曼散射（<code>Raman scattering</code>），声学声子（<code>Acoustic photon，AP</code>）参与的称布里渊散射（<code>Brillouin scattering</code>）。声学声子能量较低，因此布里渊散射频移较小。光学声子能量略高，拉曼散射频移略大。拉曼散射和布里渊散射都有斯托克斯线和非斯托克斯线。</p>
+<h2 id="特性分析">特性分析</h2>
+<p>在散射光中，绝大部分光都是瑞利散射，拉曼散射和布里渊散射都非常弱。</p>
+<p>对于拉曼散射，一般情况下，反斯托克斯线比斯托克斯线低，因为处于振动基态能级的粒子数远大于振动激发态的粒子数，粒子吸收能量的比例远大于释放能量的比例。所以在拉曼光谱测试中，常测试的是斯托克斯线。晶格中的的光学声子对应有横光学声子（<code>TO</code>）和纵光学声子（<code>LO</code>），因此拉曼散射光具有偏振性，偏振与晶体的结构对称性有关。</p>
+<p>拉曼散射实验中的两个难点，一是散射光强度很低，需要高精度的探测器，二是散射光谱线距离入射激光很近，需要排除入射激光的影响。拉曼散射的谱线仅与晶体结构有关，与振动和转动能级有关，与入射光频率无关，因此可以使用拉曼散射进行物质的鉴定和分析。</p>
+<div class="note primary"><p>本文略调整了一下排版，全文引用自：<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/374299351">布里渊散射，拉曼散射，瑞利散射的区别</a></p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1131,227 +1322,6 @@ Tor 浏览器会在每次浏览会话后删除所有 cookie
 <li>参考文章：<a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12991">如何在
 Linux 上安装 Tor 浏览器</a></li>
 </ul>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/30/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/30/%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">电脑安装Linux与Windows双系统的关键配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-30 12:46:26" itemprop="dateCreated datePublished" datetime="2024-10-30T12:46:26+08:00">2024-10-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="问题描述">问题描述</h1>
-<p>2024年10月20日, 获取了微软的最新版 <code>Windows 11 LTSC</code>版本，
-于是将台式机上的<code>Windows 10 LTSC</code>
-升级为<code>Windows 11 LTSC</code>.
-在之前的双系统配置中，我们使用相同的<code>UEFI</code>分区，这样即可以减少对固态硬盘的分区，设置起来也方便。但是，在安装完成<code>Windows 11</code>后，
-发现每次启动到<code>Windows 11</code>
-后再重启，则<code>UEFI</code>分区将会被重写，这导致了<code>GRUB</code>被覆盖掉了，于是无法进行<code>Linux</code>的引导！此问题虽然可以挂载<code>ArchLinux</code>安装盘后重新挂载分区修复，但是再次使用<code>Windows 11</code>后，问题再次出现。相较而言，我的笔记本上仍然是<code>Win10</code>
-+
-<code>ArchLinux</code>的配置，它却没有出现此问题。根据上述情况可以得出结论，微软想独占硬盘，进而阻止<code>Linux</code>启动，这无形中增加了<code>Linux</code>用户的使用门槛，导致一此人不敢轻易换到<code>Linux</code>系统下工作。</p>
-<p>通过上述分析，<code>Win11</code>的流氓行为恰恰反映了微软感受到了<code>Linux</code>的压力，这可以证明<code>Linux</code>越来越受到重视。为了实现同一电脑上自由的切换操作系统，且用上最新的<code>Windows</code>，本文在实践的前提下，记录下此可行方案。</p>
-<h1 id="解决方案">解决方案</h1>
-<h2 id="设置-windows-11独占一块硬盘">设置 Windows 11独占一块硬盘</h2>
-<p>由于我的台式机有多块硬盘，所以单独拿出一块<code>256G</code>的<code>SSD</code>安装<code>Windows 11 LTSC</code>,
-同时在安装过程中要删除已经存在于另一块<code>512G</code>的<code>Nvme</code>固态硬盘上的<code>UEFI</code>分区和<code>16M</code>的<code>Windows</code>预留分区。这样操作下来，在新的<code>256</code>硬盘上安装<code>Windows</code>时，它就会自动创建<code>EFI</code>分区在<code>256</code>硬盘上，也就相当于<code>Windows</code>独占了这块<code>256</code>固态硬盘。当使用完<code>Windows</code>后，再重启时它虽然会检查并重写<code>EFI</code>分区，但是也只是写这个<code>256G</code>硬盘,所以也就不会影响<code>512G</code>硬盘上的<code>GRUB</code>了。</p>
-<h2 id="恢复-grub-分区">恢复 GRUB 分区</h2>
-<p>在安装<code>Windows 11</code>的过程中删除了<code>512G</code>硬盘上的<code>UEFI</code>分区，这是为了防止<code>Windows</code>自动将其设置为自己的<code>UEFI</code>。此时，<code>Linux</code>是无法引导的，因为它的<code>UEFI</code>分区已经被删除了。所以，我们现在要重建这个分区。由于使用了<code>Manjaro</code>的<code>Live</code>镜像启动后，再用<code>Gparted</code>软件同时删除了之前的<code>UEFI</code>和<code>16M</code>预留分区，所以硬盘分区表就发生了变化，所以重新安装<code>GRUB</code>后，要修改<code>/etc/fstab</code>文件，确保原来硬盘的<code>/</code>、
-<code>/home</code>和<code>/boot/efi</code>分区正确挂载。插入<code>Ventoy</code>启动<code>U盘</code>,
-选择<code>ArchLinux</code>，成功启动后依次执行下述命令。</p>
-<h3 id="重建-grub">重建 GRUB</h3>
-<p>在重建<code>GRUB</code>前使用<code>lsblk</code>查看硬盘分区，记住<code>512G</code>硬盘的新分区，对应挂载到相应的挂载点。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p1  /mnt/</span><br><span class="line">mount /dev/nvme0n1p3 /mnt/home</span><br><span class="line">mount /dev/nvme0n1p4 /mnt/boot/efi</span><br><span class="line">arch-chroot /mnt</span><br><span class="line">pacman -S os-prober</span><br><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-<p>重建<code>GRUB</code>配置时，命令<code>grub-mkconfig</code>会自动搜索电脑所有的硬盘，并将找到的操作系统启动项加载到<code>GRUB</code>菜单中，在启动时可以随时选择。接下来的重点工作是修改<code>Linux</code>的分区表,
-下面仅列出需要修改的部分。</p>
-<figure class="highlight sh"><figcaption><span>vim</span><a href="/etc/fstab">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /dev/nvme0n1p1</span></span><br><span class="line">UUID=b4f5ab83-c06d-4f09-86b9-af00fa6acfeb	/         	ext4      	rw,relatime	0 1</span><br><span class="line"></span><br><span class="line"><span class="comment"># /dev/nvme0n1p4</span></span><br><span class="line">UUID=8641-51F6    	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2</span><br><span class="line"></span><br><span class="line"><span class="comment"># /dev/nvme0n1p3</span></span><br><span class="line">UUID=99c16664-0d77-4911-bfe1-d08a14d5db9e	/home     	ext4      	rw,relatime	0 2</span><br></pre></td></tr></table></figure>
-<p>重新启动系统</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">reboot -h now</span><br></pre></td></tr></table></figure>
-<h2 id="设置双系统的时间同步">设置双系统的时间同步</h2>
-<p>为了避免主力系统<code>ArchLinux</code>出现问题，切换到<code>Windows11</code>后，右键开始菜单，选择<code>以管理员身份打开 「PowerShell」</code>，输入以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1</span><br></pre></td></tr></table></figure>
-<h1 id="解释">解释</h1>
-<p>支持<code>UEFI</code>的主板，对于每一个<code>UEFI</code>分区，在启动时<code>BIOS</code>菜单中就会有一个启动项。<code>Window 11</code>流氓的地方就是安装时它自动探测所有硬盘中的<code>UEFI</code>分区，并占据第一个默认启动的<code>UEFI</code>分区，而切换到<code>Windows11</code>后它就会重写这个分区，覆盖其他的操作系统引导。所以在双系统的配置中，应当先确保无其他<code>UEFI</code>分区的前提下，单独安装<code>Windows 11</code>,
-然后在<code>Linux</code>的安装盘上单独划分一个<code>UEFI</code>分区，再安装<code>Linux</code>或恢复<code>GRUB</code>.
-安装<code>Linux</code>或恢复<code>GRUB</code>后，启动<code>Linux</code>,
-再执行一遍<code>grub-mkconfig</code>以搜索添加<code>Windows 11</code>的启动项.
-虽然<code>BIOS</code>中存在了两个启动项，但是每次切换系统都按<code>F8</code>或其他按键来切换系统不是太方便，于是才有在<code>GRUB</code>中添加<code>Windows11</code>的操作，这样想的切换操作系统时一个上下移动菜单就方便解决了。</p>
-<p>对于只有一块硬盘的电脑，要么建立两个<code>UEFI</code>分区然后再安装<code>Windows11</code>和<code>Linux</code>.
-要么直接使用一个<code>UEFI</code>分区，然后安装<code>Windows 10</code>和<code>Linux</code>,
-既然<code>Windows</code>是作为一个备用系统处理那些不得不在<code>Windows</code>处理的文件，所以也没必要追求最新，因此我的笔记本上仍然使用<code>Windows10</code>+<code>ArchLinux</code>方案。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/23/Linux%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/23/Linux%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" class="post-title-link" itemprop="url">Linux不同发行版的包管理器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-23 15:42:43" itemprop="dateCreated datePublished" datetime="2024-10-23T15:42:43+08:00">2024-10-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Linux系统下的软件包管理器主要包括<strong>APT、YUM、DNF、Zypper和Pacman等</strong>。本文对不同发行版的包管理器进行简要介绍如下：</p>
-<ol type="1">
-<li><p><strong>APT (Advanced Packaging Tool)</strong></p>
-<ul>
-<li><strong>功能描述</strong>：APT是Debian及其衍生发行版（如Ubuntu）中的高级软件包管理工具。它提供了一个方便的接口来处理软件包的安装、更新和移除，同时自动处理依赖关系.</li>
-<li><strong>常用命令</strong>：<code>apt update</code>用于更新软件包列表，<code>apt upgrade</code>用于升级所有可升级的软件包，<code>apt install package_name</code>用于安装指定的软件包，<code>apt remove package_name</code>用于卸载软件包.</li>
-</ul></li>
-<li><p><strong>YUM (Yellowdog Updater, Modified)</strong></p>
-<ul>
-<li><strong>功能描述</strong>：YUM是基于RPM的前端软件包管理工具，主要用于Red
-Hat Enterprise Linux (RHEL)
-和CentOS等发行版。它能够从指定的服务器自动下载RPM包并且安装，可以自动处理软件包的依赖关系。</li>
-<li><strong>常用命令</strong>：<code>yum install package_name</code>用于安装软件包，<code>yum update</code>用于更新所有软件包，<code>yum remove package_name</code>用于卸载软件包。</li>
-</ul></li>
-<li><p><strong>DNF (Dandified Yum)</strong></p>
-<ul>
-<li><strong>功能描述</strong>：DNF是一个现代化的软件包管理工具，它是YUM的替代品，提供了更高的性能和更好的依赖解析算法。DNF在Fedora和其他一些基于RPM的系统中广泛使用。</li>
-<li><strong>常用命令</strong>：<code>dnf install package_name</code>用于安装软件包，<code>dnf update</code>用于更新所有软件包，<code>dnf remove package_name</code>用于卸载软件包。</li>
-</ul></li>
-<li><p><strong>Zypper</strong></p>
-<ul>
-<li><strong>功能描述</strong>：Zypper是openSUSE系统中的软件包管理工具，提供了一系列命令来处理软件包的安装、更新和移除。Zypper也支持模式匹配查询和解决复杂的软件依赖问题。</li>
-<li><strong>常用命令</strong>：<code>zypper install package_name</code>用于安装软件包，<code>zypper update</code>用于更新所有软件包，<code>zypper remove package_name</code>用于卸载软件包。</li>
-</ul></li>
-<li><p><strong>Pacman</strong></p>
-<ul>
-<li><strong>功能描述</strong>：Pacman是Arch
-Linux系统中的主要软件包管理工具。它提供了一种简单的方式来安装、更新、移除和管理软件包及其依赖项。</li>
-<li><strong>常用命令</strong>：<code>pacman -S package_name</code>用于安装软件包，<code>pacman -Syu</code>用于同步软件包数据库并升级所有软件包，<code>pacman -R package_name</code>用于卸载软件包。</li>
-</ul></li>
-</ol>
-<div class="note primary"><p>总的来说，这些软件包管理工具不仅帮助用户高效地管理软件包，还确保了系统的稳定和安全。通过掌握这些工具的使用，用户可以更加自如地进行系统维护和软件部署。</p>
 </div>
 
       

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,351 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/27/Python%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85%E4%B8%AD%E7%9A%84%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/27/Python%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85%E4%B8%AD%E7%9A%84%E5%85%A5%E5%8F%A3%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Python模块和包中的入口文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-27 00:11:23 / 修改时间：10:37:22" itemprop="dateCreated datePublished" datetime="2025-03-27T00:11:23+08:00">2025-03-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>__init__.py</code> 是 Python
+中一个特殊的文件命名规则，它的存在和作用与 Python 的模块和包（module and
+package）系统密切相关。以下是关于 <code>__init__.py</code>
+命名规则及其作用的详细说明：</p>
+<hr />
+<h2 id="命名规则">1. 命名规则</h2>
+<ul>
+<li>文件名必须是 <code>__init__.py</code>。</li>
+<li>它是一种特殊命名约定，Python
+解释器会将其视为一个标志，用于标识某个目录是一个
+<strong>包（package）</strong>。</li>
+</ul>
+<hr />
+<h2 id="作用">2. 作用</h2>
+<h3 id="标识包">（1）标识包</h3>
+<p>在 Python 3.3 之前，如果一个目录中没有 <code>__init__.py</code>
+文件，Python 不会将其识别为一个包。换句话说，<code>__init__.py</code>
+是一个包的“入口标志”。</p>
+<p>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_package/</span><br><span class="line">    init.py</span><br><span class="line">    module1.py</span><br><span class="line">    module2.py</span><br></pre></td></tr></table></figure>
+<p>在上述结构中，<code>my_package</code> 被视为一个包，可以通过
+<code>import my_package</code> 或
+<code>from my_package import module1</code> 来使用。</p>
+<h3 id="初始化代码">（2）初始化代码</h3>
+<p><code>__init__.py</code>
+文件可以包含代码，这些代码会在包被导入时自动执行。通常用于： -
+初始化包的状态。 - 设置包级别的变量。 - 控制包的导出内容（通过
+<code>__all__</code> 变量）。</p>
+<p>示例： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_package/__init__.py</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Initializing my_package...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入子模块</span></span><br><span class="line"><span class="keyword">from</span> .module1 <span class="keyword">import</span> MyClass</span><br><span class="line"><span class="keyword">from</span> .module2 <span class="keyword">import</span> my_function</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义包级别的变量</span></span><br><span class="line">version = <span class="string">&quot;1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义默认导出内容</span></span><br><span class="line">__all__ = [<span class="string">&quot;MyClass&quot;</span>, <span class="string">&quot;my_function&quot;</span>]</span><br></pre></td></tr></table></figure></p>
+<p>当导入 <code>my_package</code> 时，<code>__init__.py</code>
+中的代码会被执行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> my_package</span><br><span class="line"><span class="comment"># 输出: Initializing my_package...</span></span><br></pre></td></tr></table></figure>
+<h3 id="控制导入行为">（3）控制导入行为</h3>
+<p><code>__init__.py</code> 文件可以通过定义 <code>__all__</code>
+列表来控制 <code>from package import *</code> 行为。<code>__all__</code>
+指定了哪些模块或对象可以被 <code>*</code> 导入。</p>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># my_package/__init__.py</span></span><br><span class="line">__all__ = [<span class="string">&quot;module1&quot;</span>, <span class="string">&quot;my_function&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> my_package <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># 只会导入 module1 和 my_function</span></span><br></pre></td></tr></table></figure>
+<h2 id="python-3.3-的变化">3. Python 3.3+ 的变化</h2>
+<p>从 Python 3.3 开始，引入了隐式命名空间包（Implicit Namespace
+Packages），即使目录中没有 <code>__init__.py</code> 文件，Python
+也可以将其识别为包。这种特性主要用于支持跨多个项目的大型命名空间包。</p>
+<p>例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">namespace_package/</span><br><span class="line">    subpackage1/</span><br><span class="line">    module1.py</span><br><span class="line">    subpackage2/</span><br><span class="line">    module2.py</span><br></pre></td></tr></table></figure>
+<p>在这种情况下，即使没有
+<code>__init__.py</code>，<code>namespace_package.subpackage1</code> 和
+<code>namespace_package.subpackage2</code> 仍然可以被正确导入。</p>
+<p>然而，为了兼容性和明确性，许多开发者仍然选择显式地添加
+<code>__init__.py</code> 文件。</p>
+<h2 id="最佳实践">4. 最佳实践</h2>
+<ul>
+<li><strong>显式优于隐式</strong>：尽管 Python 3.3+
+支持隐式命名空间包，但显式地添加 <code>__init__.py</code>
+文件可以让代码更具可读性和兼容性。</li>
+<li><strong>保持简洁</strong>：<code>__init__.py</code>
+文件应尽量简单，避免包含复杂的逻辑。</li>
+<li><strong>定义导出内容</strong>：通过 <code>__all__</code>
+明确指定包的公共接口。</li>
+</ul>
+<hr />
+<h2 id="总结">总结</h2>
+<p><code>__init__.py</code> 的命名规则是 Python
+的约定，用于标识一个目录为包，并提供初始化代码和控制导入行为的功能。虽然在
+Python 3.3+
+中不再是强制要求，但它仍然是组织代码和提升可维护性的良好实践。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/26/%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86:%E5%BA%93%E4%B8%8E%E8%B7%A8%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/26/%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86:%E5%BA%93%E4%B8%8E%E8%B7%A8%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">编程的基本原理：库与跨程序调用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-26 10:38:20 / 修改时间：18:21:20" itemprop="dateCreated datePublished" datetime="2025-03-26T10:38:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在现代软件开发中，代码复用是提高效率和减少重复劳动的关键。无论是通过内置的库文件还是自定义的通用模块，开发者都可以利用这些资源来加速开发过程。本文将探讨编程语言中的库使用机制，以及如何实现跨语言的功能共享。</p>
+<h1 id="内置库与自定义库">内置库与自定义库</h1>
+<h2 id="内置库">内置库</h2>
+<p>大多数编程语言都提供了丰富的标准库，这些库包含了预先编写好的功能模块，可以直接在写程序时使用，并且在运行或编辑时自动调用。例如，Python的标准库提供了大量的模块用于处理文件、网络通信等常见任务；Shell脚本则可以通过系统命令快速完成自动化任务。</p>
+<h2 id="自定义库">自定义库</h2>
+<p>对于自己编写的用于多个程序的通用模块，通常需要以库的形式保存。这样做的好处是显而易见的：一旦某个库更新了，所有依赖它的程序只需重新加载或编译即可享受到最新的改进。这大大简化了代码维护工作。</p>
+<ul>
+<li><strong>脚本语言</strong>：如Python、Shell等，可以通过简单的导入语句（如<code>import</code>或<code>source</code>）直接加载并使用自定义库。</li>
+<li><strong>编辑型语言</strong>：如Rust等，会将库加载到源文件中，在编译时封存进目标文件，避免了对自定义特定程序的过多依赖。</li>
+</ul>
+<h1 id="跨语言调用的挑战与解决方案">跨语言调用的挑战与解决方案</h1>
+<p>尽管在同一语言内使用库非常方便，但在不同语言之间直接调用库通常是不可能的，因为每种语言都有其独特的语法和运行时环境。然而，通过一些策略可以实现跨语言的功能共享。</p>
+<h2 id="将特殊功能封装成函数">将特殊功能封装成函数</h2>
+<p>一种常见的做法是将特殊功能封装成独立的函数或服务，然后在其他程序中直接调用这些函数或服务来获取相关值。这种方法不仅适用于脚本语言，也可以应用于编辑型语言。</p>
+<h2 id="示例场景">示例场景</h2>
+<ul>
+<li><strong>网络服务</strong>：将某些计算密集型任务封装为RESTful
+API服务，任何支持HTTP请求的语言都可以轻松调用。</li>
+<li><strong>CLI工具</strong>：将功能封装为命令行工具，其他语言可以通过子进程调用来执行该工具并捕获输出结果。</li>
+</ul>
+<h2 id="动态链接库">动态链接库</h2>
+<p>另一种方法是创建动态链接库（如<code>.so</code>或<code>.dll</code>文件），这些库通常用C或C++编写，因为它们具有较低级别的ABI（应用二进制接口）。许多编程语言都支持加载这类动态库，从而实现一定程度上的跨语言调用。</p>
+<h2 id="文件或消息队列">文件或消息队列</h2>
+<p>此外，还可以通过文件交换或消息队列进行数据传递。比如，一个程序生成JSON格式的数据文件，另一个程序读取并处理这些文件；或者使用RabbitMQ、Kafka等消息队列系统实现异步消息传递。</p>
+<h1
+id="不同语言使用共同程序片段的方法举例-python-和-shell">不同语言使用共同程序片段的方法举例:
+Python 和 Shell</h1>
+<p>本节探讨<code>Python</code>和<code>Shell</code>语言通过模块化设计来实现共同程序片段的使用具体方法。</p>
+<h2 id="python模块与包">Python：模块与包</h2>
+<p>在 Python
+中，代码复用是通过模块化设计实现的。通过将常用的代码片段封装到模块或包中，开发者可以在不同的程序中轻松地复用这些功能。本节将详细介绍
+Python
+中使用共同程序片段的方法，包括模块、包以及跨项目复用的最佳实践。</p>
+<h2 id="模块module">1. 模块（Module）</h2>
+<h3 id="什么是模块"><strong>什么是模块？</strong></h3>
+<p>模块是一个包含 Python 代码的文件，通常以 <code>.py</code>
+为扩展名。模块可以定义函数、类和变量，并且可以通过 <code>import</code>
+语句导入到其他脚本中。</p>
+<h3 id="创建模块"><strong>创建模块</strong></h3>
+<p>假设我们有一个常用的功能，比如打印问候语。可以将其封装到一个模块中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># utils.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_numbers</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br></pre></td></tr></table></figure>
+<h3 id="使用模块"><strong>使用模块</strong></h3>
+<p>在另一个脚本中，可以通过 import 或 from ... import
+引入模块并调用其中的功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> say_hello, add_numbers</span><br><span class="line"></span><br><span class="line">say_hello(<span class="string">&quot;Alice&quot;</span>)  <span class="comment"># 输出: Hello, Alice!</span></span><br><span class="line">result = add_numbers(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;5 + 3 = <span class="subst">&#123;result&#125;</span>&quot;</span>)  <span class="comment"># 输出: 5 + 3 = 8</span></span><br></pre></td></tr></table></figure>
+<h2 id="包package">2. 包（Package）</h2>
+<p>包是一种组织模块的方式，用于管理大型项目中的代码。包是一个包含多个模块的目录，并且必须包含一个名为
+<code>__init__.py</code> 的文件（Python 3.3 及以上版本中可省略）。</p>
+<h3 id="创建包">创建包</h3>
+<p>假设我们有多个模块，可以将它们组织成一个包。例如：</p>
+<figure class="highlight python"><figcaption><span>Python包的组织</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_package/</span><br><span class="line">    __init__.py</span><br><span class="line">    utils.py</span><br><span class="line">    math_ops.py</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>utils.py</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>math_ops.py</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a * b</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h3 id="使用包"><strong>使用包</strong></h3>
+<p>在脚本中可以通过包路径导入模块中的功能： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> my_package.utils <span class="keyword">import</span> say_hello</span><br><span class="line"><span class="keyword">from</span> my_package.math_ops <span class="keyword">import</span> multiply</span><br><span class="line"></span><br><span class="line">say_hello(<span class="string">&quot;Bob&quot;</span>)  <span class="comment"># 输出: Hello, Bob!</span></span><br><span class="line">result = multiply(<span class="number">4</span>, <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;4 * 6 = <span class="subst">&#123;result&#125;</span>&quot;</span>)  <span class="comment"># 输出: 4 * 6 = 24</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="跨项目复用发布到pypi">3. 跨项目复用：发布到PyPI</h2>
+<p>如果需要在多个项目之间共享代码，可以将模块或包打包为一个 Python
+包并发布到 PyPI（Python Package Index）。</p>
+<ul>
+<li><p>创建包结构, 创建一个符合 Python 包规范的目录结构。例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_library/</span><br><span class="line">    setup.py</span><br><span class="line">    my_library/</span><br><span class="line">        __init__.py</span><br><span class="line">        utils.py</span><br></pre></td></tr></table></figure></p></li>
+<li><p>编写<code>setup.py</code>, 在根目录下创建 setup.py
+文件，用于描述包信息： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&quot;my_library&quot;</span>,</span><br><span class="line">    version=<span class="string">&quot;0.1&quot;</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>发布到<code>PyPI</code>, 使用以下命令将包发布到 PyPI：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist bdist_wheel</span><br><span class="line">twine upload dist/*</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装并使用，在其他项目中通过 <code>pip</code> 安装并使用该包：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install my_library</span><br></pre></td></tr></table></figure> 然后在代码中导入： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_library.utils <span class="keyword">import</span> say_hello</span><br><span class="line">say_hello(<span class="string">&quot;Charlie&quot;</span>)  <span class="comment"># 输出: Hello, Charlie!</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="其他方法">4. 其他方法</h2>
+<h3 id="动态加载模块">4.1 动态加载模块</h3>
+<p>如果需要动态加载模块，可以使用 <code>importlib</code> 库。例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line">module_name = <span class="string">&quot;utils&quot;</span></span><br><span class="line">module = importlib.import_module(module_name)</span><br><span class="line">module.say_hello(<span class="string">&quot;Dynamic User&quot;</span>)  <span class="comment"># 输出: Hello, Dynamic User!</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="配置文件与环境变量">4.2 配置文件与环境变量</h3>
+<p>对于一些配置相关的代码片段，可以使用配置文件（如
+JSON、YAML）或环境变量来实现复用。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;config.json&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    config = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">&quot;greeting&quot;</span>])  <span class="comment"># 输出: Hello, World!</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>Python
+提供了多种灵活的方式来复用代码片段，从简单的模块到复杂的包管理，再到跨项目的
+PyPI
+发布。通过合理地组织代码，开发者可以显著提高开发效率，并确保代码的可维护性和扩展性。</p>
+</div>
+<h2 id="shell-使用共同程序片段的方法">Shell 使用共同程序片段的方法</h2>
+<p>在 Shell
+脚本编程中，复用代码片段是提高效率和减少重复劳动的重要手段。通过将常用的功能封装到函数库文件中，开发者可以在多个脚本中轻松地共享这些功能。本文将详细介绍
+Shell
+中使用共同程序片段的方法，包括函数库的创建、加载以及全局配置的最佳实践。</p>
+<h2 id="函数库的基本概念">1. 函数库的基本概念</h2>
+<h3 id="什么是函数库"><strong>什么是函数库？</strong></h3>
+<p>函数库是一个包含一组 Shell 函数的文件，通常以 <code>.sh</code>
+为扩展名。通过将常用的功能封装成函数并存储在单独的文件中，开发者可以在多个脚本中复用这些功能。</p>
+<h2 id="创建函数库">2. 创建函数库</h2>
+<h3 id="定义函数库"><strong>定义函数库</strong></h3>
+<p>创建一个包含常用函数的文件，例如 <code>functions.sh</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># functions.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印问候语</span></span><br><span class="line"><span class="function"><span class="title">say_hello</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Hello, <span class="variable">$1</span>!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算两个数的和</span></span><br><span class="line"><span class="function"><span class="title">add_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> $(( &quot;<span class="variable">$1</span>&quot; + &quot;<span class="variable">$2</span>&quot; ))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加载函数库">3. 加载函数库</h2>
+<p>在其他脚本中可以通过 source 或 . 命令加载函数库，并调用其中的函数。
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载函数库</span></span><br><span class="line"><span class="built_in">source</span> ./functions.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">say_hello <span class="string">&quot;Alice&quot;</span>       <span class="comment"># 输出: Hello, Alice!</span></span><br><span class="line">result=$(add_numbers 5 3)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;5 + 3 = <span class="variable">$result</span>&quot;</span>  <span class="comment"># 输出: 5 + 3 = 8</span></span><br></pre></td></tr></table></figure></p>
+<div class="note primary"><ul>
+<li><code>source</code> 和 <code>.</code>
+是等价的，选择其中之一即可。</li>
+<li>如果函数库文件不在当前目录下，请使用绝对路径或相对路径来指定文件位置。</li>
+</ul>
+</div>
+<h2 id="全局函数库">4. 全局函数库</h2>
+<p>如果希望某些函数在整个系统中都可以使用，可以将函数库文件放到一个通用目录（如
+<code>/usr/local/lib</code>），然后在用户的 <code>.bashrc</code> 或
+<code>.bash_profile</code> 中加载。操作步骤：</p>
+<ul>
+<li><p>将函数库文件放到通用目录: 假设你将 <code>functions.sh</code>
+放到了 <code>/usr/local/lib/functions.sh</code>。</p></li>
+<li><p>在<code>.bashrc</code>中加载函数库：编辑用户的<code>.bashrc</code>文件，添加以下内容：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /usr/local/lib/functions.sh ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> /usr/local/lib/functions.sh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>使更改生效： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p></li>
+<li><p>直接在终端或脚本中使用函数：现在，你可以在任何地方直接调用这些函数，而无需显式加载函数库。</p></li>
+</ul>
+<h2 id="动态加载函数库">5. 动态加载函数库</h2>
+<p>如果需要根据需求动态加载不同的函数库，可以使用环境变量来指定函数库的路径。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> FUNCTION_LIB_PATH=<span class="string">&quot;/path/to/functions.sh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在脚本中动态加载</span></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$FUNCTION_LIB_PATH</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$FUNCTION_LIB_PATH</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="将功能封装为独立脚本">6. 将功能封装为独立脚本</h2>
+<p>除了函数库，还可以将某些功能封装为独立的脚本文件，并通过子进程调用来获取结果。例如：</p>
+<ul>
+<li><p>创建一个名为<code>greet.sh</code>的脚本： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello, <span class="variable">$1</span>!&quot;</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>确保脚本具有执行权限： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x greet.sh</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在其他脚本中调用：通过子进程调用该脚本并捕获输出
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">result=$(./greet.sh <span class="string">&quot;Alice&quot;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$result</span>&quot;</span>  <span class="comment"># 输出: Hello, Alice!</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="注意事项">7. 注意事项</h2>
+<ul>
+<li>避免命名冲突：函数名应尽量具有唯一性，以免与其他脚本或系统命令发生冲突。</li>
+<li>检查文件是否存在：在加载函数库时，建议先检查文件是否存在，以避免出错。例如
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;./functions.sh&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> ./functions.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Function library not found!&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+<li>权限问题：如果函数库文件位于系统目录（如
+<code>/usr/local/lib</code>），确保文件具有适当的权限。</li>
+</ul>
+<div class="note primary"><p>Shell
+提供了多种灵活的方式来复用代码片段，从简单的函数库到独立的脚本文件，开发者可以根据需求选择合适的方式。通过合理地组织代码，不仅可以显著提高开发效率，还能确保代码的可维护性和扩展性。</p>
+</div>
+<h1 id="总结">总结</h1>
+<p>无论是通过内置库还是自定义库，编程语言都提供了一套机制来促进代码复用。对于同一语言内的库调用相对简单，但对于跨语言调用，则需要借助标准化的接口或协议。理解这些基本原理有助于我们更好地设计和组织代码，同时也能在面对复杂系统时找到合适的解决方案。</p>
+<p>掌握如何有效地使用库以及如何跨越语言障碍实现功能共享，是每个程序员应当具备的核心技能之一。希望本文能为您提供有价值的见解，并帮助您更高效地进行软件开发。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1923,192 +2268,6 @@ class="math inline">\(x \to 1\)</span>
 <li><strong>计算效率</strong>：在相同采样次数下，公式2的估计误差显著低于公式1，且计算过程更稳定。</li>
 </ol>
 <p>选择积分公式时，应优先考虑被积函数的<strong>有界性</strong>和<strong>光滑性</strong>，以降低蒙特卡洛方法的方差，从而提升计算效率。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/17/%E4%BF%AE%E5%A4%8Dtexstudio%E6%89%93%E5%BC%80%E9%97%AA%E9%80%80%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/17/%E4%BF%AE%E5%A4%8Dtexstudio%E6%89%93%E5%BC%80%E9%97%AA%E9%80%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">修复texstudio打开闪退的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-17 20:26:40" itemprop="dateCreated datePublished" datetime="2025-03-17T20:26:40+08:00">2025-03-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果 TeXstudio
-出现问题无法打开或闪退，你可以尝试恢复其默认设置。TeXstudio
-将其设置存储在一个名为 <code>texstudio.ini</code>
-的配置文件中。要恢复默认设置，你需要删除或重命名这个文件，这样 TeXstudio
-在下次启动时会生成一个新的默认配置文件。</p>
-<h2 id="操作步骤">操作步骤</h2>
-<h3 id="关闭-texstudio">1. 关闭 TeXstudio</h3>
-<p>确保 TeXstudio
-已经完全关闭。如果它因为错误而无法正常关闭，请通过任务管理器强制结束它的进程。</p>
-<h3 id="找到配置文件">2. 找到配置文件</h3>
-<ul>
-<li><strong>Windows</strong>: 通常位于用户目录下的
-<code>AppData\Roaming\texstudio\texstudio.ini</code>。注意
-<code>AppData</code>
-文件夹是隐藏的，你可能需要在资源管理器中显示隐藏的文件和文件夹才能看到它。</li>
-<li><strong>macOS</strong>: 配置文件一般位于
-<code>~/Library/Preferences/texstudio.ini</code>。</li>
-<li><strong>Linux</strong>: 对于大多数发行版来说，配置文件可以在
-<code>~/.config/texstudio/texstudio.ini</code> 找到。</li>
-</ul>
-<h3 id="删除或重命名配置文件">3. 删除或重命名配置文件</h3>
-<p>为了安全起见，你可以先尝试重命名该文件（例如，添加 <code>.bak</code>
-后缀），而不是直接删除它。这样，如果你发现新的默认设置有问题，还可以恢复原来的配置。</p>
-<h3 id="重新启动-texstudio">4. 重新启动 TeXstudio</h3>
-<p>现在再次启动 TeXstudio，程序将会使用默认设置启动。</p>
-<h3 id="验证更改">5. 验证更改</h3>
-<p>检查是否所有的问题都得到了解决，并根据需要重新配置你的偏好设置。</p>
-<div class="note primary"><p>注意：此过程将删除所有自定义设置，包括快捷键、语法高亮设置等。如果你有重要的自定义设置，建议在执行上述步骤前备份相关的配置信息。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/14/libreoffice%E5%9B%BE%E6%A0%87%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/14/libreoffice%E5%9B%BE%E6%A0%87%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">libreoffice图标模糊的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-14 13:09:16" itemprop="dateCreated datePublished" datetime="2025-03-14T13:09:16+08:00">2025-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>LibreOffice是一款开源的办公软件套件，能够提供文字处理、电子表格、演示文稿、绘图、数据库等多种功能，适用于Windows、MacOS以及Linux等多种操作系统。然而我在ArchLinux使用LibreOffice时遇到一些问题，本文记录这些问题的解决方案。</p>
-<h2 id="取消表格选中时高对比度">取消表格选中时高对比度</h2>
-<p>2025年03月14日星期五阴北京市, 当安装好<code>LibreOffice</code>,
-默认开启了高对比度，这导致每次选中表格的单元格时都是<code>黑色</code>的，相当不雅观。解决方法为：<code>工具</code>→<code>选项</code>→<code>LibreOffice</code>→<code>无障碍辅助</code>→<code>高对比度</code>→<code>禁用</code>.</p>
-<h2 id="工具栏图标模糊的解决方法">工具栏图标模糊的解决方法</h2>
-<p>2025年03月14日星期五阴北京市,
-在<code>4k</code>显示器使用<code>ArchLinux</code>系统，<code>LibreOffice</code>默认开启的工具栏图标不是<code>svg</code>格式，这导致了工具栏图标模糊，解决方法为：<code>工具</code>→<code>选项</code>→<code>LibreOffice</code>→<code>视图</code>→<code>主题</code>→<code>选择任何一款svg图标</code>.</p>
 
       
     </div>

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,250 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/18/%E4%BD%BF%E7%94%A8Yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/18/%E4%BD%BF%E7%94%A8Yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">使用Yadm管理并同步配置文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-18 00:11:20" itemprop="dateCreated datePublished" datetime="2024-09-18T00:11:20+08:00">2024-09-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-04-19 15:20:43" itemprop="dateModified" datetime="2025-04-19T15:20:43+08:00">2025-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Dotfiles</code>
+是我们在使用软件的时候，软件为了存储我们个人偏好设置而建立的一个以
+<code>.</code> 开头的文件。例如，<code>vim</code> 的配置文件就是
+<code>.vimrc</code>，<code>zsh</code> 的配置文件就是
+<code>.zshrc</code>。这些文件通常存储在用户的 <code>home</code>
+目录中。但是，在不同的电脑上工作时，如果需要使用相同的配置，我们可以考虑使用版本控制工具来管理这些文件。或者在一台新电脑上想快速配置好环境，也可以使用版本控制工具来管理这些文件。<code>Yadm</code>
+就可以帮助我们完成这些需求。</p>
+<h1 id="安装">安装</h1>
+<p>安装 <code>yadm</code> 非常简单，只需在终端输入以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S yadm</span><br></pre></td></tr></table></figure>
+<h1 id="首次使用">首次使用</h1>
+<h2 id="初始化-yadm-仓库">初始化 yadm 仓库</h2>
+<p>创建一个新的 <code>yadm</code> 仓库很容易，只需在 <code>home</code>
+目录中运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm init</span><br></pre></td></tr></table></figure>
+<p>现在，<code>yadm</code> 已经创建了一个空白的 <code>git</code>
+仓库。存储库位置<code>/home/nic/.local/share/yadm/</code></p>
+<h2 id="添加-dotfile-文件">添加 dotfile 文件</h2>
+<p>要将现有的 <code>dotfile</code> 添加到 <code>yadm</code>
+仓库中，请使用以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm add ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>一旦您完成了对要添加的文件的更改并将它们添加到 <code>yadm</code>
+仓库中，您需要提交它们。可以使用以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm commit -m <span class="string">&quot;Add .zshrc file to yadm repository&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="建立远程仓库">建立远程仓库</h2>
+<p>使用 <code>yadm</code> 还可以将 <code>dotfile</code> 文件同步到
+<code>GitLab</code> 等 <code>Git</code> 托管服务中。登录
+<code>GitLab</code>，创建一个新的仓库。例如，您可以创建一个名为
+<code>dotfile</code>
+的仓库。现在，您需要将本地仓库与远程仓库连接起来。要将本地仓库连接到远程仓库，请使用以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote add origin git@gitlab.com:[用户名]/dotfile.git</span><br></pre></td></tr></table></figure>
+<p>现在 <code>yadm</code> 已经连接到您在 <code>GitLab</code>
+上创建的仓库。要将本地代码上传到远程仓库，请使用以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm push -u orgin main</span><br></pre></td></tr></table></figure>
+<h1 id="已经建立远程仓库的前提">已经建立远程仓库的前提</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm <span class="built_in">clone</span> git@gitlab.com:[用户名]/dotfile.git</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：由于远程仓库和本地仓库有可能分支名称不同，所以在建立的时候按照前述方式建立有可能会报错。为了防止错误，可以在远程先建立仓库<code>dotfile</code>，
+然后再使用<code>yadm clone</code>命令克隆下来，这样可以避免很多麻烦。</p>
+</div>
+<h1 id="仓库的修改">仓库的修改</h1>
+<h2 id="查看当前的远程仓库地址">查看当前的远程仓库地址</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote -v</span><br></pre></td></tr></table></figure>
+<p>输出显示:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  git@github.com:username/dotfiles.git (fetch)</span><br><span class="line">origin  git@github.com:username/dotfiles.git (push)</span><br></pre></td></tr></table></figure>
+<h2 id="更改远程仓库地址">更改远程仓库地址</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote set-url origin &lt;新的仓库地址&gt;</span><br></pre></td></tr></table></figure>
+<p>假设你要将仓库迁移到 GitLab，新的地址为
+<code>git@gitlab.com:username/dotfiles.git</code>，则运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm remote set-url origin git@gitlab.com:username/dotfiles.git</span><br></pre></td></tr></table></figure>
+<h2 id="推送更改到新仓库">推送更改到新仓库</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm push -u origin master</span><br></pre></td></tr></table></figure>
+<h2 id="克隆到其他机器">克隆到其他机器</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yadm <span class="built_in">clone</span> git@gitlab.com:username/dotfiles.git</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://lifeislife.cn/posts/%E4%BD%BF%E7%94%A8yadm%E7%AE%A1%E7%90%86%E5%B9%B6%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6dotfile/">使用
+Yadm 管理并同步配置文件 Dotfile</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/easylife206/article/details/118036119">如何使用
+Yadm 优雅管理你的应用配置和数据</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://kongjun18.github.io/archives/manage-dotfiles-with-yadm.pdf">使用
+yadm 管理点文件</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1840623">如何使用 Yadm
+优雅管理你的应用配置和数据</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/takinoy/yadm.nvim">yadm.nvim</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/seanbreckenridge/gitsigns-yadm.nvim">gitsigns-yadm.nvim</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/gitblog_01044/article/details/141248813">GitSigns.nvim
+使用教程</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39255905/article/details/127211172">GitLab
+不允许将代码推送到该项目上受保护的分支</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">LaTeX输入带圈的数字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-16 22:44:50" itemprop="dateCreated datePublished" datetime="2024-09-16T22:44:50+08:00">2024-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>LaTeX</code>自带了可以为文字外围加圆圈的命令<code>\textcircled&#123;&#125;</code>,
+但是其显示效果并不好，所以本文解决这一问题。</p>
+<h2 id="重定义textcircled">重定义<code>\textcircled</code></h2>
+<p>借用<code>tikz</code>宏包重新定义一下这个命令：</p>
+<figure class="highlight tex"><figcaption><span>重定义\textcircled</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;tikz&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>*&#123;<span class="keyword">\circled</span>&#125;[1]&#123;<span class="keyword">\lower</span>.7ex<span class="keyword">\hbox</span>&#123;<span class="keyword">\tikz</span><span class="keyword">\draw</span> (0pt, 0pt)<span class="comment">%</span></span><br><span class="line">    circle (.5em) node &#123;<span class="keyword">\makebox</span>[1em][c]&#123;<span class="keyword">\small</span> <span class="params">#1</span>&#125;&#125;;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调用pifont宏包">调用<code>pifont</code>宏包</h2>
+<p>带圈的序号从<code>1</code>到<code>10</code>依次为</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\ding</span>&#123;172&#125;<span class="keyword">\ding</span>&#123;173&#125;<span class="keyword">\ding</span>&#123;174&#125;<span class="keyword">\ding</span>&#123;175&#125;<span class="keyword">\ding</span>&#123;176&#125;<span class="keyword">\ding</span>&#123;177&#125;<span class="keyword">\ding</span>&#123;178&#125;<span class="keyword">\ding</span>&#123;179&#125;<span class="keyword">\ding</span>&#123;180&#125;<span class="keyword">\ding</span>&#123;181&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/f9ce0367a1dd">LaTeX输入带圈数字</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/615066252">Latex如何输入圆圈1（圆圈数字，圆圈序号）？如何解决圆圈序号不美观的问题？</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1268,253 +1512,6 @@ target="_blank" rel="noopener" href="https://help.gnome.org/users/evince/stable/
 <h2 id="说明书">说明书</h2>
 <p><a
 target="_blank" rel="noopener" href="https://en.akkogear.com/wp-content/uploads/2020/07/3108_3087usermanualV1.0.pdf">akk03108说明书</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/03/windows10%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8%E5%95%86%E5%BA%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/03/windows10%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8%E5%95%86%E5%BA%97/" class="post-title-link" itemprop="url">windows10卸载应用商店</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-03 23:31:24" itemprop="dateCreated datePublished" datetime="2024-09-03T23:31:24+08:00">2024-09-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>Window10如何彻底卸载应用商店？</strong>Window10应用商店就是一个应用下载平台，我们可以在应用商店中下载各种应用，但是很多用户并不喜欢在Window10应用商店中下载应用，觉得应用商店浪费内存，因此想将应用商店卸载掉，那么该如何操作呢？</p>
-<ol type="1">
-<li>在开始菜单中找到<code>PowerShell</code>（或搜索框搜索），右键点击，选择“以管理员身份运行”，然后输入卸载应用商店命令即可。</li>
-</ol>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/170718/56-1FGQ35946-water.jpg"
-alt="Window10如何彻底卸载应用商店？" />
-<figcaption
-aria-hidden="true">Window10如何彻底卸载应用商店？</figcaption>
-</figure>
-<ol start="2" type="1">
-<li>复制以下命令并执行：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-AppxPackage *WindowsStore* | Remove-AppxPackage</span><br></pre></td></tr></table></figure>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/170718/56-1FGQ35946-50-water.jpg"
-alt="Window10如何彻底卸载应用商店？" />
-<figcaption
-aria-hidden="true">Window10如何彻底卸载应用商店？</figcaption>
-</figure>
-<ol start="3" type="1">
-<li>操作完成后应用商店就被彻底删除了！</li>
-</ol>
-<p>上述便是Window10彻底卸载应用商店的操作方法，万一大家后悔了，可以采用如下方法进行恢复：<a
-target="_blank" rel="noopener" href="https://www.xitongzhijia.net/xtjc/20150930/58923.html">《Win10卸载应用商店后怎么恢复？》</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/" class="post-title-link" itemprop="url">windows关闭ms-gamingoverlay</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-01 09:59:31" itemprop="dateCreated datePublished" datetime="2024-09-01T09:59:31+08:00">2024-09-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>ms-gamingoverlay</code>是系统中的一项游戏叠加功能，且系统默认启用了此功能，这会导致电脑老是弹出关于<code>ms-gamingoverlay</code>的提示窗,
-于是本文提供关闭<code>ms-gamingoverlay</code>弹窗的提示。</p>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-water.jpg"
-alt="msgamingoverlay一直跳出来的解决方法" />
-<figcaption
-aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
-</figure>
-<h2 id="windows10-关闭弹窗">Windows10 关闭弹窗</h2>
-<ol type="1">
-<li>首先点击开始菜单，进入系统设置。</li>
-</ol>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-50-water.jpg"
-alt="msgamingoverlay一直跳出来的解决方法" />
-<figcaption
-aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
-</figure>
-<ol start="2" type="1">
-<li>然后在设置中进入“游戏设置”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-51_water.jpg?time=1667870521" /></p>
-<ol start="3" type="1">
-<li>然后在游戏栏中将“使用游戏栏录制游戏剪辑.
-屏幕截图和广播”关闭即可。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152_water.jpg?time=1667870526" /></p>
-<h2 id="windows11-关闭弹窗">Windows11 关闭弹窗</h2>
-<h3 id="方法一">方法一</h3>
-<ol type="1">
-<li>打开运行（<code>Win+R</code>），并输入<code>regedit</code>命令，按确定或回车。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411-50_water.png?time=1663653859" /></p>
-<ol start="2" type="1">
-<li>定位如下位置：<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR</code></li>
-</ol>
-<p>找到<code>AppCaptureEnabled</code>这个键值，把值改为<code>0</code>。</p>
-<ol start="3" type="1">
-<li>定位如下位置：<code>HKEY_CURRENT_USER\System\GameConfigStore</code></li>
-</ol>
-<p>找到<code>GameDVR_Enabled</code>这个键值，把值改为<code>0</code>。</p>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411_water.png?time=1663653875" /></p>
-<p>之后打开任意游戏应该就不会弹窗了，如果还弹窗就看看你在设置里有没有关闭<code>xbox</code>相关设置。</p>
-<h3 id="方法二">方法二</h3>
-<ol type="1">
-<li>首先同样是进入系统“设置”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-50_water.jpg?time=1667870532" /></p>
-<ol start="2" type="1">
-<li>然后进入左侧的“游戏”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-51_water.jpg?time=1667870539" /></p>
-<ol start="3" type="1">
-<li>再进入右侧的“屏幕截图”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-52_water.jpg?time=1667870545" /></p>
-<ol start="4" type="1">
-<li>接着在录制偏好设置中关闭“录制游戏过程”就可以了。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-53_water.jpg?time=1667870552" /></p>
 
       
     </div>

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,211 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/Neovim%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%89%AA%E5%88%87%E6%9D%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/28/Neovim%E4%BD%BF%E7%94%A8%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%89%AA%E5%88%87%E6%9D%BF/" class="post-title-link" itemprop="url">Neovim使用系统的剪切板</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-28 12:31:40" itemprop="dateCreated datePublished" datetime="2024-05-28T12:31:40+08:00">2024-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>一直使用<code>Neovim</code>作为日常办公的主力，偶尔也使用一下系统的剪切板从外部粘贴文本，在<code>X11</code>时直接使用鼠标就能直接粘贴到<code>Neovim</code>中，但是系统升级到<code>wayland</code>之后，每次点鼠标粘贴时都会弹出一个确认的对话框，点击之后才粘贴上！这很影响办公效率，于是今天决定认真对待一下这个问题。启动<code>Neovim</code>，然后输出命令<code>:h clipboard</code>就可以看到全部详细信息了，为了提高效率，此处记录关键内容。</p>
+<h2
+id="vim与neovim使用系统剪切板的不同">Vim与Neovim使用系统剪切板的不同</h2>
+<p>Nvim has no direct connection to the system clipboard. Instead it
+depends on a |provider| which transparently uses shell commands to
+communicate with the system clipboard or any other clipboard
+"backend".</p>
+<h2 id="设置neovim所有操作使用剪切板">设置Neovim所有操作使用剪切板</h2>
+<p>要始终将剪贴板用于所有操作（而不是显式地与“+”和/或“*”寄存器交互,
+需要设置<code>init.vim</code>中加入：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> clipboard+=unnamedplus</span><br></pre></td></tr></table></figure>
+<h2 id="安装剪切板依赖">安装剪切板依赖</h2>
+<p>The presence of a working clipboard tool implicitly enables the '+'
+and "*" registers. Nvim looks for these clipboard tools, in order of
+priority:</p>
+<ul>
+<li>|g:clipboard| (unless unset or <code>false</code>)</li>
+<li>pbcopy, pbpaste (macOS)</li>
+<li>wl-copy, wl-paste (if $WAYLAND_DISPLAY is set)</li>
+<li>waycopy, waypaste (if $WAYLAND_DISPLAY is set)</li>
+<li>xsel (if $DISPLAY is set)</li>
+<li>xclip (if $DISPLAY is set)</li>
+<li>lemonade (for SSH) https://github.com/pocke/lemonade</li>
+<li>doitclient (for SSH)
+https://www.chiark.greenend.org.uk/~sgtatham/doit/</li>
+<li>win32yank (Windows)</li>
+<li>termux (via termux-clipboard-set, termux-clipboard-set)</li>
+<li>tmux (if $TMUX is set)</li>
+</ul>
+<p>由于我的电脑同时支持<code>wayland</code>和<code>x11</code>,
+所以我直接安装了<code>wl-clipboard</code>和<code>xclip</code>,
+其中<code>wl-clipboard</code>提供命令<code>wl-copy</code>和<code>wl-paste</code></p>
+<h2 id="在neovim的粘贴快捷键">在Neovim的粘贴快捷键</h2>
+<p>"Paste" is a separate concept from |clipboard|: paste means "dump a
+bunch of text to the editor", whereas clipboard provides features like
+|quote+| to get and set the OS clipboard directly. For example,
+middle-click or CTRL-SHIFT-v (macOS: CMD-v) in your terminal is "paste",
+not "clipboard": the terminal application (Nvim) just gets a stream of
+text, it does not interact with the clipboard directly.</p>
+<p>能过这段话我们可知，在Linux下，使用命令<code>CTRL-SHIFT-v</code>就可以直接将剪切板中的内容粘贴到<code>Neovim</code>中了，在macOS中使用命令<code>CMD-v</code>.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">LaTeX中插入图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-28 00:54:48" itemprop="dateCreated datePublished" datetime="2024-05-28T00:54:48+08:00">2024-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在科研论文中，图片是一个非常重要的组成部分。LaTeX
+提供了许多定制化图片的功能。这篇文章将会介绍如何用最常见的格式插入图片、缩放图片、旋转图片，以及如何在文档中引用这些图片。实现插入图片的功能需要在导言引用<code>graphics</code>或<code>graphicx</code>,
+下面就一些重要的点展开讨论。</p>
+<h2 id="图片的路径">图片的路径</h2>
+<p>当你的文档拥有很多个图片的时候，创建多个文件夹来存储图片是一个规划项目的好办法。</p>
+<p>命令<code>\graphicspath&#123; &#123;images/&#125; &#125;</code>告诉 LaTeX
+在_images_文件夹中寻找图片。这个路径是当前工作文件夹的<strong>相对</strong>路径，所以，编译器会在当前文档所在的目录中开始寻找文件。文件夹的路径默认情况下是相对路径，如果没有一个初始的目录被指定，例如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path relative to the .tex file containing the \includegraphics command</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;images/&#125; &#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1429,310 +1634,6 @@ chunk，偏好高亮行号的形式，因此有了这个 mod</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">line_num = &#123;</span><br><span class="line">    style = <span class="string">&quot;#806d9c&quot;</span>,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 未来还会添加更多有意思的样式…… 如果你有好的想法，非常欢迎来提建议 😊
 </details>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/16/Latex-Suite%E4%B8%AD%E7%9A%84Alt%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/16/Latex-Suite%E4%B8%AD%E7%9A%84Alt%E9%94%AE/" class="post-title-link" itemprop="url">Latex-Suite中的Alt键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-16 20:22:17" itemprop="dateCreated datePublished" datetime="2024-05-16T20:22:17+08:00">2024-05-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一直使用<a
-target="_blank" rel="noopener" href="https://github.com/vim-latex/vim-latex">vim-latex</a>
-作为编写<code>LaTeX</code>文件的主力，但是虽然之前设置好了<code>Alt</code>键，但是一直用的较少，今天试用了一下<code>Alt</code>相关智能键，特别好用，查阅手册后将这部分使用规则记录下来。</p>
-<h2 id="开启alt键">开启Alt键</h2>
-<figure class="highlight vim"><figcaption><span>~/.local/share/nvim/lazy/vim-latex/ftplugin/tex.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">g:Tex_AdvancedMath</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> winaltkeys=<span class="keyword">no</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>由于我使用的是<code>neovim</code>，
-所以设置了上述路径，如果您使用<code>vim</code>请找到对应路径设置即可。缺省时，如果某菜单对应了热键<code>&lt;key&gt;</code>，那么在
-<code>Vim</code> 中按<code>Alt-&lt;key&gt;</code>
-将使得屏幕焦点转移到菜单栏（<code>menu bar</code>）上。如果因此而产生了冲突，那么需要在<code>$VIM/ftplugin/tex.vim</code>
-文件中设置<code>set winaltkeys=no</code>，以使用这些<code>Alt</code>
-键相关的宏映射。<label style="color:red">某些欧洲用户需使用<code>Alt</code>键输入标点符号</label>
-，而我们一般没有这个需要，所以放心开启<code>Alt</code>键即可。</p>
-</div>
-<h2 id="alt键映射">Alt键映射</h2>
-<h3 id="alt-l">Alt-L</h3>
-<p>这是一个多态的、插入模式下的宏映射，根据处于光标之前的字符展开为下列形式之一。光标之前的字符
-展开</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">光标前的字符</th>
-<th style="text-align: center;">替换为相应字符</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">( 或 )</td>
-<td style="text-align: center;">\left(&lt;++&gt;\right)</td>
-</tr>
-<tr>
-<td style="text-align: center;">[ 或 ]</td>
-<td style="text-align: center;">\left[&lt;++&gt;\right]</td>
-</tr>
-<tr>
-<td style="text-align: center;">|</td>
-<td style="text-align: center;">\left|&lt;++&gt;\right|</td>
-</tr>
-<tr>
-<td style="text-align: center;">{</td>
-<td style="text-align: center;">\left{&lt;++&gt;\right}</td>
-</tr>
-<tr>
-<td style="text-align: center;">&lt; 或 &gt;</td>
-<td style="text-align: center;">\langle&lt;++&gt;\rangle</td>
-</tr>
-<tr>
-<td style="text-align: center;">q</td>
-<td style="text-align: center;">\lefteqn{&lt;++&gt;}&lt;++&gt;</td>
-</tr>
-<tr>
-<td style="text-align: center;">其他</td>
-<td style="text-align: center;">\label{&lt;++&gt;}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="alt-b">Alt-B</h3>
-<p>此插入模式宏映射将前一个字符包括进<code>\mathbf&#123;&#125;</code>中。</p>
-<h3 id="alt-c">Alt-C</h3>
-<p>插入模式下，该键的多态性如下所示：</p>
-<ol type="1">
-<li>如果前一个字符是一个字母或数字，那么将它转为大写并将其包括进<code>\mathcal&#123;&#125;</code>。</li>
-<li>否则插入<code>\cite&#123;&#125;</code>。</li>
-</ol>
-<p>在可视模式下，它简单地将所选部分包括进<code>\mathcal&#123;&#125;</code>。</p>
-<h3 id="alt-i">Alt-I</h3>
-<p>此宏映射根据光标包括在哪个环境中在光标处插入<code>\item</code>
-命令。<code>\item</code>
-命令的风格（style）取决于包括它的环境。缺省时，<code>Alt-I</code>
-为下列环境定义了风格：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">Environment</th>
-<th style="text-align: center;">Stle</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">itemize</td>
-<td style="text-align: center;">\item</td>
-</tr>
-<tr>
-<td style="text-align: center;">enumerate</td>
-<td style="text-align: center;">\item</td>
-</tr>
-<tr>
-<td style="text-align: center;">theindex</td>
-<td style="text-align: center;">\item</td>
-</tr>
-<tr>
-<td style="text-align: center;">thebibliography</td>
-<td
-style="text-align: center;">\item[&lt;+biblabel+&gt;]{&lt;+bibkey+&gt;}
-&lt;++&gt;</td>
-</tr>
-<tr>
-<td style="text-align: center;">description</td>
-<td style="text-align: center;">\item[&lt;+label+&gt;] &lt;++&gt;</td>
-</tr>
-</tbody>
-</table>
-<div class="note primary"><p><code>Alt-I</code>拥有智能处理嵌套环境的能力。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/" class="post-title-link" itemprop="url">微软激活工具HEU KMS Activator</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-13 13:55:56" itemprop="dateCreated datePublished" datetime="2024-05-13T13:55:56+08:00">2024-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>HEU KMS
-Activator是知彼而知己开发的KMS激活工具，最新版增加了OEM激活功能，支持Vista/Win7/Server
-2008/2012等系统的永久激活，无需联网即可一键激活Windows和Office
-VL版本。新增Win10数字许可证激活，可用于系统封装后完美激活。此工具无广告、无捆绑、无后门，完全出自“知彼而知己”的正版，适合系统封装爱好者使用。</p>
-<figure>
-<img
-src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/657af6a5c10c47c888550a851f5d1d7b"
-alt="HEU KMS Activator" />
-<figcaption aria-hidden="true">HEU KMS Activator</figcaption>
-</figure>
-<div class="note primary"><p>注意：高级功能的按钮以“灰色”图标显示，建议详细阅读<a
-target="_blank" rel="noopener" href="https://github.hscsec.cn/zbezj/HEU_KMS_Activator">《用户使用手册》</a>后再行使用。</p>
-</div>
-<h3 id="数字许可证激活简介"><strong>数字许可证激活简介</strong></h3>
-<ol type="1">
-<li><p>Windows10可以通过Windows 7 /
-8.1升级、购买的零售版、或OEM等的方式激活，微软会收集计算机的硬件信息并上传到服务器，将其转化为数字许可证，下次重装系统时，联网后微软服务器将重新比对硬件信息，若主要硬件信息不变，系统就会自动予以激活。</p></li>
-<li><p>例如已永久激活的Windows7升级到Windows10后，会自动永久激活，基于这种思路，通过从微软服务器获取数字门票(GenuineTicket.xml)，完成数字许可证激活(又名数字权利激活)。</p></li>
-<li><p>综上，数字许可证激活的方式必须连接到互联网，一旦激活成功，以后重装系统联网后即自动永久激活。</p></li>
-</ol>
-<div class="note primary"><p>假如使用软件永久激活了Windows7，目前来看，升级到Windows10后会自动激活。此时这台计算机就已经获取到了“数字许可证”，不需要任何其他软件，也不需要安装密钥，只要以后在这台计算机上安装Windows10，联网自动激活。数字许可证激活方式，微软只需一个系统更新即可轻易封杀，然而为了扩大Windows10的市场占有率，此方式被默许。</p>
-</div>
-<h3 id="kms-激活简介"><strong>KMS 激活简介</strong></h3>
-<ol type="1">
-<li><p>通常企业、学校等拥有多台计算机，设想如果安装了
-Windows，然后管理员一台一台的去激活，管理起来十分不方便。为了解决这种问题，微软定制了一种
-批量授权（Volume）的方法：局域网内的一台计算机作为服务器首先连接到微软的服务器进行激活，然后局域网内的其他计算机向局域网内的这台服务器请求激
-活。这种方法即为 Key Management Service，简称 KMS，是微软定制的一种正规
-激活方式，下面简要介绍一下激活流程。</p></li>
-<li><p>大客户首先购买微软正版“CSVLK”密钥，然后将一台计算机永久激活（联网
-或者拨打微软客服电话），这台计算机即可作为服务器（KMS Host），始终保持
-开机联网（局域网连接通畅即可）的状态。局域网内的其他计算机（KMS
-Client）向服务器请求激活，当达到一定数量（激活 Windows 需要 25
-台计算机、激活 Office 需要 5
-台计算机）的客户端计算机请求激活后，服务器就向客户端注入激
-活信息。</p></li>
-<li><p>KMS 激活后有效期 180 天。默认设置下 KMS Client 会自动向可用的 KMS
-Host 请求激活（未激活的客户端尝试连接 KMS 的时间间隔为 2 小时，已激活的
-客户端尝试连接 KMS 的续订时间间隔为 7 天）。即 KMS Client 激活有效期会始
-终保持 173 天以上，前提是 KMS Host 是可用的。</p></li>
-</ol>
-<h3 id="下载地址"><strong>下载地址</strong></h3>
-<ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://github.com/zbezj/HEU_KMS_Activator/releases/">HEU KMS
-Activator(GitHub)</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://url84.ctfile.com/d/12480284-33192731-fe6932">HEU
-KMS Activator(城通网盘 访问密码：wrfou)</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1a2dqow1c7GuZkIKYwCGgpg">HEU KMS
-Activator(百度网盘 提取码: nizy)</a></p></li>
-</ul>
 
       
     </div>

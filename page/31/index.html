@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,376 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E5%9C%A8Linux%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/07/%E5%9C%A8Linux%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%B9%B6%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">在Linux中查找并删除重复文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-07 02:06:56" itemprop="dateCreated datePublished" datetime="2024-05-07T02:06:56+08:00">2024-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在编辑或修改配置文件或旧文件前，我经常会把它们备份到硬盘的某个地方，因此我如果意外地改错了这些文件，我可以从备份中恢复它们。但问题是如果我忘记清理备份文件，一段时间之后，我的磁盘会被这些大量重复文件填满
+——
+我觉得要么是懒得清理这些旧文件，要么是担心可能会删掉重要文件。如果你们像我一样，在类
+Unix
+操作系统中，大量多版本的相同文件放在不同的备份目录，你可以使用下面的工具找到并删除重复文件。</p>
+<p><strong>提醒一句：</strong></p>
+<p>在删除重复文件的时请尽量小心。如果你不小心，也许会导致<a
+target="_blank" rel="noopener" href="https://www.ostechnix.com/prevent-files-folders-accidental-deletion-modification-linux/">意外丢失数据</a>。我建议你在使用这些工具的时候要特别注意。</p>
+<p>出于本指南的目的，我将讨论下面的三个工具：</p>
+<ol type="1">
+<li>Rdfind</li>
+<li>Fdupes</li>
+<li>FSlint</li>
+</ol>
+<p>这三个工具是自由开源的，且运行在大多数类 Unix 系统中。</p>
+<h2 id="rdfind"><code>1. Rdfind</code></h2>
+<p><strong>Rdfind</strong> 意即 <strong>r</strong>edundant
+<strong>d</strong>ata
+<strong>find</strong>（冗余数据查找），是一个通过访问目录和子目录来找出重复文件的自由开源的工具。它是基于文件内容而不是文件名来比较。Rdfind
+使用<strong>排序</strong>算法来区分原始文件和重复文件。如果你有两个或者更多的相同文件，Rdfind
+会很智能的找到原始文件并认定剩下的文件为重复文件。一旦找到副本文件，它会向你报告。你可以决定是删除还是使用<a
+target="_blank" rel="noopener" href="https://www.ostechnix.com/explaining-soft-link-and-hard-link-in-linux-with-examples/">硬链接或者符号（软）链接</a>代替它们。</p>
+<p><strong>安装 Rdfind</strong></p>
+<p>Rdfind 存在于 <a
+target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/rdfind/">AUR</a>
+中。因此，在基于 Arch 的系统中，你可以像下面一样使用任一如 <a
+target="_blank" rel="noopener" href="https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/">Yay</a>
+AUR 程序助手安装它。</p>
+<p>在 Debian、Ubuntu、Linux Mint 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install rdfind</span><br></pre></td></tr></table></figure>
+<p>在 Fedora 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install rdfind</span><br></pre></td></tr></table></figure>
+<p>在 RHEL、CentOS 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install rdfind</span><br></pre></td></tr></table></figure>
+<p><strong>用法</strong></p>
+<p>一旦安装完成，仅带上目录路径运行 Rdfind 命令就可以扫描重复文件。</p>
+<p><img
+src="https://pic3.zhimg.com/v2-e5512cb39e96206caec66a9fc221d90e_b.jpg" /></p>
+<p>正如你看到上面的截屏，Rdfind 命令将扫描 <code>~/Downloads</code>
+目录，并将结果存储到当前工作目录下一个名为 <code>results.txt</code>
+的文件中。你可以在 <code>results.txt</code>
+文件中看到可能是重复文件的名字。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cat</span> results.txt <span class="comment"># Automatically generated # duptype id depth size device inode priority name DUPTYPE_FIRST_OCCURRENCE 1469 8 9 2050 15864884 1 /home/sk/Downloads/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/fte/tests/dfas/test5.regex DUPTYPE_WITHIN_SAME_TREE -1469 8 9 2050 15864886 1 /home/sk/Downloads/tor-browser_en-US/Browser/TorBrowser/Tor/PluggableTransports/fte/tests/dfas/test6.regex [...] DUPTYPE_FIRST_OCCURRENCE 13 0 403635 2050 15740257 1 /home/sk/Downloads/Hyperledger(1).pdf DUPTYPE_WITHIN_SAME_TREE -13 0 403635 2050 15741071 1 /home/sk/Downloads/Hyperledger.pdf # end of file</span></span><br></pre></td></tr></table></figure>
+<p>通过检查 <code>results.txt</code>
+文件，你可以很容易的找到那些重复文件。如果愿意你可以手动的删除它们。</p>
+<p>此外，你可在不修改其他事情情况下使用 <code>-dryrun</code>
+选项找出所有重复文件，并在终端上输出汇总信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -dryrun <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>一旦找到重复文件，你可以使用硬链接或符号链接代替他们。</p>
+<p>使用硬链接代替所有重复文件，运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -makehardlinks <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>使用符号链接/软链接代替所有重复文件，运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -makesymlinks <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>目录中有一些空文件，也许你想忽略他们，你可以像下面一样使用
+<code>-ignoreempty</code> 选项：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -ignoreempty <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>如果你不再想要这些旧文件，删除重复文件，而不是使用硬链接或软链接代替它们。</p>
+<p>删除重复文件，就运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -deleteduplicates <span class="literal">true</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>如果你不想忽略空文件，并且和所哟重复文件一起删除。运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rdfind -deleteduplicates <span class="literal">true</span> -ignoreempty <span class="literal">false</span> ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>更多细节，参照帮助部分：</p>
+<p>手册页：</p>
+<h2 id="fdupes"><code>2. Fdupes</code></h2>
+<p><strong>Fdupes</strong>
+是另一个在指定目录以及子目录中识别和移除重复文件的命令行工具。这是一个使用
+C 语言编写的自由开源工具。Fdupes 通过对比文件大小、部分 MD5 签名、全部
+MD5 签名，最后执行逐个字节对比校验来识别重复文件。</p>
+<p>与 Rdfind 工具类似，Fdupes 附带非常少的选项来执行操作，如：</p>
+<ul>
+<li>在目录和子目录中递归的搜索重复文件</li>
+<li>从计算中排除空文件和隐藏文件</li>
+<li>显示重复文件大小</li>
+<li>出现重复文件时立即删除</li>
+<li>使用不同的拥有者/组或权限位来排除重复文件</li>
+<li>更多</li>
+</ul>
+<p><strong>安装 Fdupes</strong></p>
+<p>Fdupes 存在于大多数 Linux 发行版的默认仓库中。</p>
+<p>在 Arch Linux 和它的变种如 Antergos、Manjaro Linux 上，如下使用
+Pacman 安装它。</p>
+<p>在 Debian、Ubuntu、Linux Mint 上:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install fdupes</span><br></pre></td></tr></table></figure>
+<p>在 Fedora 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install fdupes</span><br></pre></td></tr></table></figure>
+<p>在 RHEL、CentOS 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install fdupes</span><br></pre></td></tr></table></figure>
+<p><strong>用法</strong></p>
+<p>Fdupes
+用法非常简单。仅运行下面的命令就可以在目录中找到重复文件，如：<code>~/Downloads</code>。</p>
+<p>我系统中的样例输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/sk/Downloads/Hyperledger.pdf /home/sk/Downloads/Hyperledger(1).pdf</span><br></pre></td></tr></table></figure>
+<p>你可以看到，在 <code>/home/sk/Downloads/</code>
+目录下有一个重复文件。它仅显示了父级目录中的重复文件。如何显示子目录中的重复文件？像下面一样，使用
+<code>-r</code> 选项。</p>
+<p>现在你将看到 <code>/home/sk/Downloads/</code>
+目录以及子目录中的重复文件。</p>
+<p>Fdupes 也可用来从多个目录中迅速查找重复文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes ~/Downloads ~/Documents/ostechnix</span><br></pre></td></tr></table></figure>
+<p>你甚至可以搜索多个目录，递归搜索其中一个目录，如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes ~/Downloads -r ~/Documents/ostechnix</span><br></pre></td></tr></table></figure>
+<p>上面的命令将搜索 <code>~/Downloads</code>
+目录，<code>~/Documents/ostechnix</code>
+目录和它的子目录中的重复文件。</p>
+<p>有时，你可能想要知道一个目录中重复文件的大小。你可以使用
+<code>-S</code> 选项，如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -S ~/Downloads 403635 bytes each: /home/sk/Downloads/Hyperledger.pdf /home/sk/Downloads/Hyperledger(1).pdf</span><br></pre></td></tr></table></figure>
+<p>类似的，为了显示父目录和子目录中重复文件的大小，使用 <code>-Sr</code>
+选项。</p>
+<p>我们可以在计算时分别使用 <code>-n</code> 和 <code>-A</code>
+选项排除空白文件以及排除隐藏文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -n ~/Downloads $ fdupes -A ~/Downloads</span><br></pre></td></tr></table></figure>
+<p>在搜索指定目录的重复文件时，第一个命令将排除零长度文件，后面的命令将排除隐藏文件。</p>
+<p>汇总重复文件信息，使用 <code>-m</code> 选项。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes -m ~/Downloads 1 duplicate files (<span class="keyword">in</span> 1 sets), occupying 403.6 kilobytes</span><br></pre></td></tr></table></figure>
+<p>删除所有重复文件，使用 <code>-d</code> 选项。</p>
+<p>样例输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1] /home/sk/Downloads/Hyperledger Fabric Installation.pdf [2] /home/sk/Downloads/Hyperledger Fabric Installation(1).pdf Set 1 of 1, preserve files [1 - 2, all]:</span><br></pre></td></tr></table></figure>
+<p>这个命令将提示你保留还是删除所有其他重复文件。输入任一号码保留相应的文件，并删除剩下的文件。当使用这个选项的时候需要更加注意。如果不小心，你可能会删除原文件。</p>
+<p>如果你想要每次保留每个重复文件集合的第一个文件，且无提示的删除其他文件，使用
+<code>-dN</code> 选项（不推荐）。</p>
+<p>当遇到重复文件时删除它们，使用 <code>-I</code> 标志。</p>
+<p>关于 Fdupes 的更多细节，查看帮助部分和 man 页面。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fdupes --<span class="built_in">help</span> $ man fdupes</span><br></pre></td></tr></table></figure>
+<h2 id="fslint"><code>3. FSlint</code></h2>
+<p><strong>FSlint</strong> 是另外一个查找重复文件的工具，有时我用它去掉
+Linux 系统中不需要的重复文件并释放磁盘空间。不像另外两个工具，FSlint 有
+GUI 和 CLI 两种模式。因此对于新手来说它更友好。FSlint
+不仅仅找出重复文件，也找出坏符号链接、坏名字文件、临时文件、坏的用户
+ID、空目录和非精简的二进制文件等等。</p>
+<p><strong>安装 FSlint</strong></p>
+<p>FSlint 存在于 <a
+target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/fslint/">AUR</a>，因此你可以使用任一
+AUR 助手安装它。</p>
+<p>在 Debian、Ubuntu、Linux Mint 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install fslint</span><br></pre></td></tr></table></figure>
+<p>在 Fedora 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> dnf install fslint</span><br></pre></td></tr></table></figure>
+<p>在 RHEL，CentOS 上：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> yum install epel-release $ <span class="built_in">sudo</span> yum install fslint</span><br></pre></td></tr></table></figure>
+<p>一旦安装完成，从菜单或者应用程序启动器启动它。</p>
+<p>FSlint GUI 展示如下：</p>
+<p><img
+src="https://pic1.zhimg.com/v2-1c7ef167aa2f198aa2dabec51f8da6a8_b.jpg" /></p>
+<p>如你所见，FSlint 界面友好、一目了然。在 “Search path”
+栏，添加你要扫描的目录路径，点击左下角 “Find”
+按钮查找重复文件。验证递归选项可以在目录和子目录中递归的搜索重复文件。FSlint
+将快速的扫描给定的目录并列出重复文件。</p>
+<p><img
+src="https://pic1.zhimg.com/v2-08c323750aa1822386ceddf57e853e1c_b.jpg" /></p>
+<p>从列表中选择那些要清理的重复文件，也可以选择
+“Save”、“Delete”、“Merge” 和 “Symlink” 操作他们。</p>
+<p>在 “Advanced search parameters”
+栏，你可以在搜索重复文件的时候指定排除的路径。</p>
+<p><img
+src="https://pic3.zhimg.com/v2-bcede67996d2819c65bf4757cf8067b2_b.jpg" /></p>
+<p><strong>FSlint 命令行选项</strong></p>
+<p>FSlint 提供下面的 CLI 工具集在你的文件系统中查找重复文件。</p>
+<ul>
+<li><code>findup</code> — 查找重复文件</li>
+<li><code>findnl</code> — 查找名称规范（有问题的文件名）</li>
+<li><code>findu8</code> — 查找非法的 utf8 编码的文件名</li>
+<li><code>findbl</code> — 查找坏链接（有问题的符号链接）</li>
+<li><code>findsn</code> — 查找同名文件（可能有冲突的文件名）</li>
+<li><code>finded</code> — 查找空目录</li>
+<li><code>findid</code> — 查找死用户的文件</li>
+<li><code>findns</code> — 查找非精简的可执行文件</li>
+<li><code>findrs</code> — 查找文件名中多余的空白</li>
+<li><code>findtf</code> — 查找临时文件</li>
+<li><code>findul</code> — 查找可能未使用的库</li>
+<li><code>zipdir</code> — 回收 ext2 目录项下浪费的空间</li>
+</ul>
+<p>所有这些工具位于 <code>/usr/share/fslint/fslint/fslint</code>
+下面。</p>
+<p>例如，在给定的目录中查找重复文件，运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/findup ~/Downloads/</span><br></pre></td></tr></table></figure>
+<p>类似的，找出空目录命令是：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/finded ~/Downloads/</span><br></pre></td></tr></table></figure>
+<p>获取每个工具更多细节，例如：<code>findup</code>，运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/findup --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>关于 FSlint 的更多细节，参照帮助部分和 man 页。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/share/fslint/fslint/fslint --<span class="built_in">help</span> $ man fslint</span><br></pre></td></tr></table></figure>
+<p><strong>总结</strong></p>
+<p>现在你知道在 Linux
+中，使用三个工具来查找和删除不需要的重复文件。这三个工具中，我经常使用
+Rdfind。这并不意味着其他的两个工具效率低下，因为到目前为止我更喜欢
+Rdfind。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E4%BD%BF%E7%94%A8LaTeX%E7%BC%96%E5%86%99%E7%89%A9%E7%90%86%E6%96%87%E7%AB%A0%E6%97%B6%E6%A0%87%E5%87%86%E5%AE%8F%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/07/%E4%BD%BF%E7%94%A8LaTeX%E7%BC%96%E5%86%99%E7%89%A9%E7%90%86%E6%96%87%E7%AB%A0%E6%97%B6%E6%A0%87%E5%87%86%E5%AE%8F%E5%8C%85/" class="post-title-link" itemprop="url">使用LaTeX编写物理文章时标准宏包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-07 00:14:21" itemprop="dateCreated datePublished" datetime="2024-05-07T00:14:21+08:00">2024-05-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>作为一名物理学工作者，输入大量的<code>LaTeX</code>公式不可避免，然后为了节省输入时间，以及输入的规范化，本文介绍三个标准的宏包，希望能够为您的工作增效。
+具体使用说明，安装<code>Texlive</code>后，请执行：<code>texdoc physics</code>
+等。</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physics">physics</a> The goal of
+this package is to make typesetting equations for physics simpler,
+faster, and more human readable. To that end, the commands included in
+this package have names that make the purpose of each command
+immediately obvious and remove any ambiguity while reading and editing
+physics code. From a practical standpoint, it is handy to have a
+well-defined set of shortcuts for accessing the long-form of each of
+these commands. The commands listed below are therefore defined in terms
+of their long-form names and then shown explicitly in terms of the
+default shorthand command sequences. These shorthand commands are meant
+make it easy to remember both the shorthand names and what each one
+represents.</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physconst">physconst</a> This
+package consists of several macros that are shorthand for a variety of
+physical constants, e.g. the speed of light. The package developed out
+of physics and astronomy classes that I have taught and wanted to ensure
+that I had correct values for each constant and did not wish to retype
+them every time I use them. The constants can be used in two forms, the
+most accurate available values, or versions that are rounded to 3
+significant digits for use in typical classroom settings, homework
+assignments, etc.</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://ctan.org/pkg/physunits">physunits</a> This
+package consists of several macros that are shorthand for a variety of
+physical units that are commonly used in introductory level physics and
+astronomy classes. At present, this package provides some similar units
+to those in siunitx, but is uses slightly different macro names for
+each. This package also provides a number of non-SI units (e.g. erg, cm,
+BTU).</p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1294,342 +1664,6 @@ sync）的意思。与其他文件传输工具（如 FTP 或 scp）不同，rsyn
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/16/Git%E4%BD%BF%E7%94%A8U%E7%9B%98%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/16/Git%E4%BD%BF%E7%94%A8U%E7%9B%98%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">Git使用U盘作为远程仓库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-16 14:18:03" itemprop="dateCreated datePublished" datetime="2024-04-16T14:18:03+08:00">2024-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最初只是想用U盘作为远程仓库，解决现存托管平台的若干问题。但是，随着近两天的考虑，逐步实现了本地<code>U盘</code>仓库及时同步+联网同步（可选择仓库，用来发布软件）的功能，这种做法的优点是：</p>
-<ul>
-<li>所有仓库在本地<code>U盘</code>,
-可以解决网络托管平台访问速度慢、容量有限、费用高、隐私保护等问题。</li>
-<li>对于不能联网的电脑，可以使用<code>U盘</code>仓库随时随地编辑代码，离线同步。</li>
-<li>对于开源代码，可以设置网络，一条命令实现本地+U盘+网络托管平台同步功能，及时发布最新软件。</li>
-<li>配置文件：
-网络托管平台<code>githab</code>、<code>gitlab</code>和<code>gitee</code>等已经配置了<code>ssh</code>或公开的仓库。
-<figure class="highlight plaintext"><figcaption><span>~/.ugitrcf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">example:</span><br><span class="line">gitee  https://github.com/project.git </span><br><span class="line">gitee  git@gitee_fengzhenhua:fengzhenhua</span><br><span class="line">gitlab  git@gitlab_fengzhenhua:fengzhenhua</span><br></pre></td></tr></table></figure></li>
-</ul>
-<div class="note primary"><p>配置文件设置后，脚本自动启用网络同步功能。<code>~/.ugitrcf</code>前2行格式范例，不起作用，<label style="color:red">且不能删除</label>，您的有效配置应当<label style="color:red">从第3行开始</label>。</p>
-</div>
-<h2 id="ugit-项目">ugit 项目</h2>
-<h3 id="安装脚本">安装脚本</h3>
-<ul>
-<li><p>安装<label style="color:red">单U盘</label>版本 <figure class="highlight sh"><figcaption><span>Install ugit.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -o /usr/local/bin/ugit https://gitlab.com/fengzhenhua/script/-/raw/usbmain/ugit.sh\?inline\=<span class="literal">false</span> </span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/local/bin/ugit</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：单U盘版是第一代试验性的方案，目前已经实现多U盘版，且功能更加实用，所以单U盘版不再维护。其存在的问题主要是根据U盘名称识别U盘仓库，如果用户修改了U盘名称或使用了同名的其他U盘，则会出现问题，所以不建议大家使用单U盘版。</p>
-</div></p></li>
-<li><p>安装<label style="color:red">多U盘</label>版本
-<figure class="highlight sh"><figcaption><span>Install neougit.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -o /usr/local/bin/ugit https://gitlab.com/fengzhenhua/script/-/raw/usbmain/neogit.sh\?inline\=<span class="literal">false</span> </span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/local/bin/ugit</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<h3 id="选项及功能">选项及功能</h3>
-<p>各项操作前，先将<code>U盘</code>插入到Linux电脑的USB接口,
-如果没有<code>U盘</code>连接电脑则会出现提示。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">命令</th>
-<th style="text-align: left;">功能</th>
-<th style="text-align: left;">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>ugit -a</code></td>
-<td
-style="text-align: left;">克隆全部<code>U盘</code>仓库到本地仓库</td>
-<td style="text-align: left;">2024年04月17日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -ad</code></td>
-<td style="text-align: left;">关联远程网络仓库</td>
-<td
-style="text-align: left;">2024年04月19日,需设置<code>~/.ugitrcf</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -b</code></td>
-<td
-style="text-align: left;">上传全部本地仓库到<code>U盘</code>仓库和网络仓库</td>
-<td style="text-align: left;">2024年04月19日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -c</code></td>
-<td style="text-align: left;">克隆<code>U盘</code>中已经建立的仓库</td>
-<td style="text-align: left;">2024年04月16日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -h</code></td>
-<td style="text-align: left;">显示帮助</td>
-<td style="text-align: left;">2024年04月19日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -l</code></td>
-<td style="text-align: left;">列出<code>U盘</code>仓库</td>
-<td style="text-align: left;">2024年04月18日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -ll</code></td>
-<td style="text-align: left;">列出本地仓库</td>
-<td style="text-align: left;">仅适用多U盘版2024-04-22</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -lr</code></td>
-<td style="text-align: left;">列出<code>U盘</code>仓库</td>
-<td style="text-align: left;">仅适用多U盘版2024-04-22</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -n</code></td>
-<td style="text-align: left;">新建<code>U盘</code>仓库并克隆到本地</td>
-<td style="text-align: left;">2024年04月16日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -p</code></td>
-<td style="text-align: left;">上传全部本地仓库到网络仓库</td>
-<td style="text-align: left;">2024年04月18日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -r</code></td>
-<td style="text-align: left;">删除<code>U盘</code>中已经建立的仓库</td>
-<td style="text-align: left;">2024年04月16日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -s</code></td>
-<td style="text-align: left;">同步本地、U盘、网络</td>
-<td style="text-align: left;">2024年04月23日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -u</code></td>
-<td style="text-align: left;">联网升级</td>
-<td style="text-align: left;">2024年04月18日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit -v</code></td>
-<td style="text-align: left;">显示版本</td>
-<td style="text-align: left;">2024年04月19日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit</code></td>
-<td
-style="text-align: left;">自动更新本机克隆自<code>U盘</code>的仓库</td>
-<td style="text-align: left;">2024年04月17日</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>ugit.sh -i</code></td>
-<td
-style="text-align: left;">安装脚本到<code>/usr/local/bin/ugit</code></td>
-<td style="text-align: left;">2024年04月16日</td>
-</tr>
-</tbody>
-</table>
-<div class="note primary"><ul>
-<li>2024年04月16日,
-获得使用<code>U盘</code>作为<code>Git</code>仓库的方法后，为了尽快投入工作，连夜编写了自动化脚本<code>ugit.sh</code>，直接使用<code>curl</code>命令安装可以保证始终使用的是最新版。</li>
-<li>2024年04月19日,
-<code>ugit.sh</code>目前仅支持<code>Linux</code>系统，欢迎您移植到<code>Windows</code>平台。</li>
-<li>2024年04月22日,
-<code>neougit.sh</code>发布，版本号<code>V3.1</code>,
-支持多<code>U盘</code>。</li>
-<li>2024年04月22日, 修复关联远程仓库bug,
-升级版本号<code>V3.3</code></li>
-<li>2024年04月23日,
-增加<code>-s</code>同步选项，升级版本号<code>V3.5</code>,
-对于<code>U盘</code>中已经删除的仓库，但是另一台电脑上尚没有删除的，此选项将其移除到回收站</li>
-</ul>
-</div>
-<h2 id="技术细节">技术细节</h2>
-<ol type="1">
-<li><p>插入电脑<code>U盘</code>,
-假设您的<code>U盘</code>名字为<code>159xxxxxxxx</code>,
-您的<code>Linux</code>用户名为<code>wheel</code>,
-则在<code>ArchLinux</code>下<code>U盘</code>的地址为
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/run/media/wheel/159xxxxxxxx</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在<code>U盘</code>创建空仓库<code>test</code>,
-实际就是建立一个文件夹作为<code>git</code>的远程仓库 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /run/media/wheel/159xxxxxxxx</span><br><span class="line"><span class="built_in">mkdir</span> <span class="built_in">test</span></span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">test</span></span><br><span class="line">git init --bare</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：选项<code>--bare</code>必须有,
-如果git仓库创建成功，则提示消息为 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Initialized empty Git repository <span class="keyword">in</span> /run/media/wheel/150xxxxxxxx/test/</span><br></pre></td></tr></table></figure></p>
-</div></p></li>
-<li><p><label style="color:red">切换到电脑中您的项目目录</label>，初始化本地仓库
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/test-your</span><br><span class="line">git init</span><br></pre></td></tr></table></figure></p></li>
-<li><p>建立远程仓库连接,编辑本地<code>git</code>配置文件，写入如下内容，关联仓库及其分支
-<figure class="highlight sh"><figcaption><span>~/test-your/.git/config</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">    repositoryformatversion = 0</span><br><span class="line">    filemode = <span class="literal">true</span></span><br><span class="line">    bare = <span class="literal">false</span></span><br><span class="line">    logallrefupdates = <span class="literal">true</span></span><br><span class="line">[remote <span class="string">&quot;usb&quot;</span>]</span><br><span class="line">    url = /run/media/wheel/159xxxxxxxx/test/</span><br><span class="line">    fetch = +refs/heads/*:refs/remotes/usb/*</span><br><span class="line">[branch <span class="string">&quot;master&quot;</span>]</span><br><span class="line">    remote = usb</span><br><span class="line">    merge = refs/heads/master</span><br></pre></td></tr></table></figure> <div class="note primary"><p>注意：文件<code>~/test-your/.git/config</code>,
-中的<code>usb</code>是您对远程仓库的别名，可以任意取定。</p>
-</div></p></li>
-<li><p>创建<code>README.md</code>文件，同第一次推送文件，注意<label style="color:red">此时仍然在您的项目目录</label>中。
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line"><span class="built_in">touch</span> README.md </span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;first push&quot;</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p></li>
-<li><p>拉取文件,
-注意<label style="color:red">此时仍然在您的项目目录</label>中。
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在新电脑上克隆项目 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> /run/media/wheel/159xxxxxxxx/test</span><br></pre></td></tr></table></figure> <div class="note primary"><p>注意：对于<code>clone</code>下来的项目，<code>push</code>和<code>pull</code>和普通的<code>git</code>操作没有区别。如果不像上面这样编辑默认的默认的仓库及分支，则网络上的教程<a
-target="_blank" rel="noopener" href="https://chuyao.github.io/2017/11/17/git-usb/">在U盘上建立git仓库，移动的“私有云”</a>完成的配置的话应当使用命令<code>pull usb master</code>拉取，使用<code>push usb master</code>推送，其显然不如此处的配置便捷。</p>
-</div></p></li>
-</ol>
-<details>
-<summary>
-实现此脚本的最初说明
-</summary>
-常用的代码托管平台有：<code>github</code>、<code>gitlab</code>和<code>gitee</code>.
-<code>github</code>访问不是很稳定，同时只有付费版的才可以建立私有仓库，否则就是开放的。<code>gitlab</code>支持私有仓库的建立，但是注册<code>gitlab</code>需要<code>google</code>接收验证码，这在国内不容易做到，再者仓库容量<code>5G</code>,
-有些不够用.
-<code>gitee</code>是国内的，优点是速度快，缺点容量也是<code>5G</code>，还有一些其他因素导致也不适合存放隐私文件。上述这些都是自己准备一个<code>U盘</code>建立自己的<code>远程</code>仓库的理由，优点无非是容量大，成本低，速度快，但也不是没有缺点，如果使用的<code>U盘</code>质量不过关那就面临资料损失的风险，所以<label style="color:red">需要使用一个稳定的大品牌<code>U盘</code>同时及时备份到第二块<code>U盘</code></label>.
-</details>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/16/LaTeX%E9%9A%90%E8%97%8F%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%9B%E5%91%A8%E7%9A%84%E7%BA%A2%E8%89%B2%E8%BE%B9%E6%A1%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/16/LaTeX%E9%9A%90%E8%97%8F%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%9B%E5%91%A8%E7%9A%84%E7%BA%A2%E8%89%B2%E8%BE%B9%E6%A1%86/" class="post-title-link" itemprop="url">LaTeX隐藏超链接四周的红色边框</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-16 12:22:30" itemprop="dateCreated datePublished" datetime="2024-04-16T12:22:30+08:00">2024-04-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用LaTeX生成目录超链接时，默认超链接的样式为带红色边框，这被多数人认为不美观，所以本文给出去掉边框的方法。</p>
-<ul>
-<li><p>在引用<code>hyperref</code>宏包时，应当把它放在最后一个位置，因为它修改了若干命令，如果有其他的宏包也修改了常规命令，则编译文件时会出错。</p></li>
-<li><p>宏包调用时的设置</p>
-<ul>
-<li><p>使用<code>pdfborder</code>选项 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[colorlinks=false, pdfborder=&#123;0 0 0&#125;]&#123;hyperref&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>使用<code>hidelinks</code>选项 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[hidelinks]&#123;hyperref&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>修改链接颜色 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[</span><br><span class="line">    colorlinks=true,</span><br><span class="line">    linkcolor=black</span><br><span class="line">]&#123;hyperref&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-<li><p>使用<code>hyperref</code>的配置选项</p>
-<ul>
-<li><p>使用<code>hidelinks</code>隐藏链接 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\hypersetup</span>&#123;hidelinks&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>修改链接颜色 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\hypersetup</span>&#123;</span><br><span class="line">    colorlinks=true,</span><br><span class="line">    linkcolor=black</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul>
-
       
     </div>
 

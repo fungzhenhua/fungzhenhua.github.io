@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -390,6 +390,219 @@ target="_blank" rel="noopener" href="https://endeavouros.com">Endeavour</a>
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/21/ArchLinux%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%A0%87%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/21/ArchLinux%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%A0%87%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">ArchLinux网络图标问题的解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-21 18:27:37 / 修改时间：18:50:29" itemprop="dateCreated datePublished" datetime="2026-04-21T18:27:37+08:00">2026-04-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我的主力办公系统是 <code>ArchLinux</code>
+，最近由于无法访问外网，<code>Gnome</code>
+任务栏上的网络小图标显示为一个小问号，虽然可以访问内网，但这个问号总是让人看着不爽。这通常是
+<code>NetworkManager</code> 的连接性检查（
+<code>Connectivity Check</code> ）功能无法成功访问其验证服务器导致的,
+所以将检查服务器更换为一个在自己网络下总是能访问的地址将是最优雅的解决办法。解决方法为：</p>
+<h2
+id="方案一修改连通性检查的服务器地址推荐">方案一：修改连通性检查的服务器地址（推荐）</h2>
+<ul>
+<li>创建或编辑配置文件</li>
+</ul>
+<figure class="highlight sh"><figcaption><span>需使用sudo权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nvim /etc/NetworkManager/conf.d/20-connectivity.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加或修改为以下内容</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[connectivity]</span><br><span class="line">enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment"># uri=http://connectivitycheck.platform.hicloud.com/generate_204</span></span><br><span class="line"><span class="comment"># uri=http://connect.rom.miui.com/generate_204</span></span><br><span class="line"><span class="comment"># uri=http://wifi.vivo.com.cn/generate_204</span></span><br><span class="line">uri=http://www.qualcomm.cn/generate_204</span><br><span class="line">response=</span><br><span class="line">interval=300</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>uri</code> 指向连通性检查的地址</p></li>
+<li><p><code>response</code> 留空，<code>NetworkManager</code>
+将只检查<code>HTTP</code>状态码(<code>204</code>表示成功),
+这很适合此处使用</p></li>
+<li><p><code>interval</code>是检查间隔(秒)</p></li>
+<li><p>重启<code>NetworkManager</code>服务使配置生效</p></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+<h2 id="方案二完全禁用连通性检查">方案二：完全禁用连通性检查</h2>
+<ul>
+<li>创建或编辑配置文件</li>
+</ul>
+<figure class="highlight sh"><figcaption><span>需使用sudo权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nvim /etc/NetworkManager/conf.d/20-connectivity.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加或修改为以下内容</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[connectivity]</span><br><span class="line">enabled=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启<code>NetworkManager</code>服务使配置生效</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/20/%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/20/%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D/" class="post-title-link" itemprop="url">使用Caddy反向代理本地域名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-20 14:59:36" itemprop="dateCreated datePublished" datetime="2026-04-20T14:59:36+08:00">2026-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-04-21 08:38:52" itemprop="dateModified" datetime="2026-04-21T08:38:52+08:00">2026-04-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于网络限制，升级了脚本<code>diary.sh</code>,
+从而实现了无法上<code>github</code>的电脑上本地托管博客的功能，这样在办公环境中可以使用高度自定义的博客，进而提高办公规范和效率。然而，借助<code>python3</code>实现的博客工作于本地域名<code>127.0.0:4000</code>或<code>http://localhost:4000</code>,
+虽然实现了功能，但是还需要修改<code>firefox</code>的主而为<code>http://localhost:400</code>,
+在地址栏中看起来不爽，所以本节是锦上添的技术：使用<code>Caddy</code>反向代理，生成自签名证书，从而实现访问<code>https://fungzhenhua.github.io</code>时实际上是访问<code>http://localhost:4000</code>效果。</p>
+<h2 id="配置caddy">配置Caddy</h2>
+<h3 id="安装caddy">安装Caddy</h3>
+<figure class="highlight sh"><figcaption><span>Install Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S caddy</span><br></pre></td></tr></table></figure>
+<h3 id="配置caddy-使用自签名证书">配置Caddy, 使用自签名证书</h3>
+<figure class="highlight sh"><figcaption><span>/etc/caddy/conf.d/fungzhenhua.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fungzhenhua.github.io &#123;</span><br><span class="line">    tls internal</span><br><span class="line">    reverse_proxy localhost:4000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="测试配置是否正确">测试配置是否正确</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> caddy validate --config /etc/caddy/Caddyfile</span><br></pre></td></tr></table></figure>
+<p>如果看到<code>Valid configuration</code>字样，说明配置正确，字样通常在最后一行。</p>
+<h3 id="启动caddy">启动Caddy</h3>
+<figure class="highlight sh"><figcaption><span>启动Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> caddy</span><br><span class="line"><span class="built_in">sudo</span> systemctl start caddy</span><br></pre></td></tr></table></figure>
+<h3 id="重启caddy">重启Caddy</h3>
+<figure class="highlight sh"><figcaption><span>重启Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart caddy</span><br></pre></td></tr></table></figure>
+<h2 id="firefox导入证书">Firefox导入证书</h2>
+<p>在完成上述Caddy设置后，发现每次打开Firefox后总是有风险提示，为了应对这个麻烦需要使用Firefox导入由Caddy生成的证书。由于使用<code>tls internal</code>方式，则Caddy默认生成的证书存放于<code>/var/lib/caddy/pki/authorities/local/root.crt</code>,
+访问它需要<code>root</code>权限，于是解决方案是将其复制到家目录，然后赋于读写权限，再导入到<code>Firefox</code>的<code>证书分布机构</code>则问题可解决。</p>
+<h3 id="具体操作">具体操作</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制到当前目录</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /var/lib/caddy/pki/authorities/local/root.crt ~/caddy-root.crt</span><br><span class="line"><span class="comment"># 修改权限</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> ~/caddy-root.crt</span><br></pre></td></tr></table></figure>
+<p>如果是其他的<code>Linux</code>发行版，则需确认具体<code>root.crt</code>的路径。</p>
+<h3 id="在firefox中导入">在Firefox中导入</h3>
+<ul>
+<li>打开<code>about:preferences#privacy</code></li>
+<li>点击<code>查看证书...</code></li>
+<li>切换到<code>证书颁发机构</code>标签页（注意：不是<code>您的证书</code>标签页）</li>
+<li>点击<code>导入</code></li>
+<li>选择<code>~/caddy-root.crt</code></li>
+<li>勾选三个信任 → 确定</li>
+</ul>
+
       
     </div>
 
@@ -1082,220 +1295,6 @@ Linux无法正确识别或重置无线网卡.</p>
 <h1 id="说明">说明</h1>
 <p>两种语法都可以有效处理宏包选项，选择哪种取决于项目需求和个人偏好。LaTeX3
 语法提供了更现代、更安全的编程范式，特别适合复杂的配置系统。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/" class="post-title-link" itemprop="url">Thunderbird配置Outlook邮箱</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-23 10:50:04 / 修改时间：10:56:49" itemprop="dateCreated datePublished" datetime="2025-11-23T10:50:04+08:00">2025-11-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近在一台新电脑上使用Thunderbird配置Outlook邮箱，明明密码都是正确的，但是就无法登录成功。因为
-Thunderbird 自动设置 Outlook 邮箱时尝试使用 Exchange 或应用程序密码登录,
-而Microsoft 阻止 Exchange 的基本身份验证和应用程序密码，Thunderbird 的
-Exchange 选项对于 Outlook 来说并不可靠。修复方法是使用 OAuth2 在
-Thunderbird 中使用 IMAP 和 SMTP 设置帐户，以便 Microsoft 登录页面在
-Thunderbird 中打开。</p>
-<p>删除 Thunderbird 中配置失败的帐户。添加新的邮件帐户并输入您的 Outlook
-地址。当 Thunderbird 提供设置时，打开手动设置配置并确保：</p>
-<ul>
-<li>传入是<code>IMAP</code>，服务器<code>outlook.office365.com</code>、端口<code>993</code>、<code>SSL/TLS</code>身份验证设置为
-OAuth2，用户名是您的完整电子邮件。</li>
-<li>传出是带有服务器<code>smtp.office365.com</code>、端口<code>587</code>、
-<code>STARTTLS</code> 身份验证<code>OAuth2</code>、用户名的
-<code>SMTP</code> 是您的完整电子邮件。</li>
-</ul>
-<p>此时应该会出现一个 Microsoft 登录窗口。登录并完成 MFA。接受
-Thunderbird 的权限。邮件将开始同步。</p>
-<p>如果 Thunderbird 仍然要求输入密码而不是显示 Microsoft Web
-登录，请打开帐户设置&gt;服务器设置和传出服务器。将两者的身份验证方法更改为
-OAuth2
-。然后前往<strong>“设置”&gt;“隐私和安全”&gt;“已保存的密码”</strong>并删除
-或 的所有存储条目 outlook.office365.com
-smtp.office365.com，关闭对话框，然后重试，以便出现 OAuth 窗口。</p>
-<p>如果你的帐户是工作或学校 Microsoft 365 邮箱，并且显示 OAuth
-窗口，但登录被拒绝，请要求租户管理员为邮箱启用 IMAP 和 SMTP
-身份验证，然后重复这些步骤。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/" class="post-title-link" itemprop="url">LaTeX中的硬空格</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-19 09:24:13 / 修改时间：09:30:59" itemprop="dateCreated datePublished" datetime="2025-11-19T09:24:13+08:00">2025-11-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="latex-中-符号的含义">LaTeX 中 <code>~</code> 符号的含义</h2>
-<p>在 LaTeX 中，<strong><code>~</code></strong>
-符号表示一个<strong>不可断行的空格</strong>（non-breaking
-space），也称为硬空格。</p>
-<h2 id="主要功能">主要功能</h2>
-<h3 id="禁止换行">1. 禁止换行</h3>
-<ul>
-<li>使用 <code>~</code>
-连接的两个单词或元素<strong>不会被分开在两行</strong></li>
-<li>示例：<code>Prof.~Smith</code> 会确保 "Prof." 和 "Smith"
-始终在同一行显示</li>
-</ul>
-<h3 id="与普通空格的区别">2. 与普通空格的区别</h3>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>是否可断行</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通空格</td>
-<td>可断行</td>
-<td><code>Mr. Smith</code> 可能换行为 "Mr." 和 "Smith"</td>
-</tr>
-<tr>
-<td><code>~</code> 空格</td>
-<td>不可断行</td>
-<td><code>Mr.~Smith</code> 强制 "Mr. Smith" 在同一行</td>
-</tr>
-</tbody>
-</table>
-<h2 id="常见使用场景">常见使用场景</h2>
-<h3 id="人名与头衔">人名与头衔</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dr.~White, Prof.~Anderson </span><br></pre></td></tr></table></figure>
-<h3 id="图表编号引用">图表编号引用</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fig.~<span class="keyword">\ref</span>&#123;fig:example&#125;, Table~<span class="keyword">\ref</span>&#123;tab:data&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="章节和公式的引用">章节和公式的引用</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chapter~<span class="keyword">\ref</span>&#123;chap:intro&#125;, Section~<span class="keyword">\ref</span>&#123;sec:method&#125;, Eq.~(<span class="keyword">\ref</span>&#123;eq:1&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="固定搭配单词">固定搭配单词</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pH~value, Apple~Inc., 100~km/h</span><br></pre></td></tr></table></figure>
-<h2 id="注意事项">注意事项</h2>
-<ul>
-<li>在 LaTeX
-源码中，<code>~</code>会渲染为一人空格，但禁止在此处换行</li>
-<li>数学模式中<code>$a~b$</code>也会产生空格，但是要注意与相似符号<code>$\sim$</code>的区别</li>
-<li><code>~</code>是LaTeX中用于保持内容连贯、防止意外换行我重要符号。同时，<code>expl3</code>会自动去除代码中的空格，但是这导致了在<code>expl3</code>中使用<code>source2e</code>中的代码时，如果其中含有空格，就需要使用<code>~</code>取代，这样可以保证代码正常运行。</li>
-</ul>
 
       
     </div>

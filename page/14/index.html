@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,351 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E4%BF%AE%E5%A4%8D%E5%90%AF%E5%8A%A8%E5%99%A8%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87%E6%98%BE%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/28/Linux%E4%BF%AE%E5%A4%8D%E5%90%AF%E5%8A%A8%E5%99%A8%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87%E6%98%BE%E7%A4%BA/" class="post-title-link" itemprop="url">Linux修复启动器中的图标显示</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-28 10:18:17" itemprop="dateCreated datePublished" datetime="2024-11-28T10:18:17+08:00">2024-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Linux 是开源系统，所以无法指望它能像 Windows 或 Mac
+系统一样面面俱到。在使用过程中，自定义一些配置也是经常遇到的。本文记录:
+如何修复 Gnome 菜单中有的启动器对应的图标无法正常显示的问题。</p>
+<h1 id="系统中存在相关图标的情况">系统中存在相关图标的情况</h1>
+<p>图标的默认安装位置为<code>/usr/share/icons/</code>, 例如 ArchLinux
+(2024-11-28)系统中，<code>Open JDK java</code>的图标就无法正常显示，查询启动器文件
+<figure class="highlight sh"><figcaption><span>/usr/share/applications/java-java-openjdk.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=OpenJDK Java 23 Runtime</span><br><span class="line">Name[<span class="keyword">fi</span>]=OpenJDK Java 23 - ajonaikainen ympäristö</span><br><span class="line">Comment=OpenJDK Java 23 Runtime</span><br><span class="line">Comment[<span class="keyword">fi</span>]=OpenJDK Java 23 - ajonaikainen ympäristö</span><br><span class="line">Keywords=java;runtime</span><br><span class="line">Exec=/usr/lib/jvm/java-23-openjdk/bin/java -jar</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Type=Application</span><br><span class="line">Icon=java23-openjdk</span><br><span class="line">MimeType=application/x-java-archive;application/java-archive;application/x-jar;</span><br><span class="line">NoDisplay=<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>既然其图标无法正常显示，则表明系统中并没有安装<code>java23-openjdk</code>图标。于是查询系统中安装的相关图标：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -R /usr/share/icons/ |grep java</span><br><span class="line">&gt;</span><br><span class="line">java-openjdk</span><br><span class="line">java-openjdk</span><br><span class="line">java-openjdk</span><br></pre></td></tr></table></figure></p>
+<p>这表明系统中安装的图标为<code>java-openjdk</code>,
+因此修改<code>java-java-openjdk.desktop</code>文件中的<code>Icon</code>为
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Icon=java-openjdk</span><br></pre></td></tr></table></figure></p>
+<h1 id="如何指定图标路径">如何指定图标路径</h1>
+<p>默认情况下，应用程序应该按照以下顺序查找：<code>$HOME/.icons</code>（为了向后兼容性），<code>$XDG_DATA_DIRS/icons</code>和<code>/usr/share/pixmaps</code>。应用程序可以进一步将自己的图标目录添加到此列表中，用户可以以应用程序/桌面特定的方式扩展或更改列表。在这些目录中，每个主题都存储为子目录。通过具有相同名称的子目录，可以将主题分布在多个基本目录中。这样，用户可以扩展和覆盖系统主题。
+为了给第三方应用程序提供安装其图标的位置，始终应存在一个名为<code>hicolor</code>的主题。<code>hicolor</code>主题的数据可在以下网址下载：<a
+target="_blank" rel="noopener" href="http://www.freedesktop.org/software/icon-theme/">http://www.freedesktop.org/software/icon-theme</a>。实现必须在当前主题中找不到图标时查找<code>hicolor</code>主题。
+每个主题都存储为基本目录的子目录。主题的内部名称是子目录的名称，尽管由主题指定的用户可见名称可能不同。因此，主题名称区分大小写，并且仅限于<code>ASCII</code>字符。主题名称也不能包含逗号或空格。
+在至少一个主题目录中，必须存在一个名为<code>index.theme</code>的文件，描述主题的属性。按顺序搜索基本目录时，使用找到的第一个<code>index.theme</code>文件。该文件描述了主题的一般属性。
+在主题目录中还有一组包含图像文件的子目录。每个目录包含为特定名义图标大小设计的图标，如<code>index.theme</code>文件所述。子目录允许多级深入，例如主题<code>hicolor</code>中的子目录<code>48x48/apps</code>将位于<code>$basedir/hicolor/48x48/apps</code>。
+图像文件必须是以下类型之一：<code>PNG</code>、<code>XPM</code>或<code>SVG</code>，并且扩展名必须为<code>.png</code>、<code>.xpm</code>或<code>.svg</code>（小写）。对于<code>SVG</code>文件的支持是可选的。不支持<code>SVG</code>的实现应该忽略任何<code>.svg</code>文件。除此之外，对于每个文件可能还有一个包含额外图标数据的附加文件。它的基本名称应与图像文件相同，扩展名为<code>.icon</code>。例如，如果图标文件名为<code>mime_source_c.png</code>，则相应的文件名将为<code>mime_source_c.icon</code>。
+完整的规格比这个要详尽得多，但关键是：有一些设定的目录，你只需将图标放入其中，桌面就能找到它们。哪种最适合你取决于你的问题和耐心.</p>
+<div class="note primary"><p>注意：有的文章中说“如果你把图标放在<code>/usr/share/icons/</code>（系统范围）或者你的个人目录<code>~/.icons</code>中，那么在<code>.desktop</code>文件中只需要使用图标文件名而不需要扩展名”。而我的系统中有一个应用<code>Singular</code>,
+系统默认将其图标放置在了<code>/usr/share/icons/Singular.png</code>,
+但是在文件<code>/usr/share/applications/Singular.desktop</code>中直接写为<code>Icon=Singular</code>，而系统并没有识别出来，于是修改为绝对路径<code>Icon=/usr/share/icons/Singular.png</code>后成功识别。修改完图标后，运行
+<code>gtk-update-icon-cache -f -t &lt;图标主题路径&gt;</code>，系统会立刻检测到该图标。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="http://standards.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html">freedesktop图标规范</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://dev59.com/askubuntu/iUPXs4cB2Jgan1znl_8m">.desktop文件：如何指定图标路径</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/SCI%E6%8A%95%E7%A8%BF7%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/28/SCI%E6%8A%95%E7%A8%BF7%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF/" class="post-title-link" itemprop="url">SCI投稿7个阶段的邮件模板</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-28 00:19:59" itemprop="dateCreated datePublished" datetime="2024-11-28T00:19:59+08:00">2024-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="最初投稿coverletter">1.最初投稿Coverletter</h2>
+<p>DearEditors:<br />
+We would like to submit the enclosed manuscript entitled“Paper Title”,
+which we wish to be considered forpublication in “Journal Name”. No
+conflict of interestexits in the submission of this manuscript, and
+manuscript isapproved by all authors for publication. I would like to
+declare onbehalf of my co-authors that the work described was original
+researchthat has not been published previously, and not under
+considerationfor publication elsewhere, in whole or in part. All the
+authorslisted have approved the manuscript that is enclosed.</p>
+<p>In thiswork, we evaluated …… (简要介绍一下论文的创新性).I hope this
+paper is suitable for “Journal Name”.</p>
+<p>Thefollowing is a list of possible reviewers for your
+consideration:</p>
+<p>1)Name A E-mail: ××××@××××</p>
+<p>2)Name B E-mail: ××××@××××</p>
+<p>Wedeeply appreciate your consideration of our manuscript, and we
+lookforward to receiving comments from the reviewers. If you have
+anyqueries, please don’t hesitate to contact me at the addressbelow.</p>
+<p>Thank you and best regards.</p>
+<p>Yourssincerely,<br />
+××××××<br />
+Correspondingauthor: <br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2 id="催稿信">2.催稿信</h2>
+<p>DearProf. ×××:</p>
+<p>Sorry for disturbing you. I am notsure if it is the right time to
+contact you to inquire about thestatus of my submitted manuscript titled
+“Paper Title”.(ID: 文章稿号),although the status of “With Editor” has
+been lasting formore than two months, since submitted to journal three
+months ago. Iam just wondering that my manuscript has been sent to
+reviewers ornot?</p>
+<p>I would be greatly appreciated if you could spend some ofyour time
+check the status for us. I am very pleased to hear from youon the
+reviewer’s comments.</p>
+<p>Thank you very much for yourconsideration.</p>
+<p>Best regards! <br />
+Yourssincerely,<br />
+××××××<br />
+Correspondingauthor: <br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2 id="修改稿coverletter">3.修改稿Coverletter</h2>
+<p>DearDr/
+Prof..（写上负责你文章编辑的姓名，显得尊重，因为第一次的投稿不知道具体负责的编辑，只能用通用的Editors）:</p>
+<p>Onbehalf of my co-authors, we thank you very much for giving us
+anopportunity to revise our manuscript, we appreciate editor
+andreviewers very much for their positive and constructive comments
+andsuggestions on our manuscript entitled “Paper
+Title”.(ID: 文章稿号).</p>
+<p>Wehave studied reviewer’s comments carefully and have maderevision
+which marked in red in the paper. We have tried our best torevise our
+manuscript according to the comments. Attached please findthe revised
+version, which we would like to submit for your kindconsideration.</p>
+<p>We would like to express our great appreciation toyou and reviewers
+for comments on our paper. Looking forward tohearing from you.<br />
+Thank you and best regards.</p>
+<p>Yourssincerely,<br />
+××××××<br />
+Correspondingauthor:<br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2
+id="修改稿回答审稿人意见最重要的部分">4.修改稿回答审稿人意见（最重要的部分）</h2>
+<p>Listof Responses<br />
+Dear Editors and Reviewers:<br />
+Thank you for yourletter and for the reviewers’ comments concerning
+ourmanuscript entitled “Paper Title” (ID: 文章稿号).Those comments are
+all valuable and very helpful for revising andimproving our paper, as
+well as the important guiding significance toour researches. We have
+studied comments carefully and have madecorrection which we hope meet
+with approval. Revised portion aremarked in red in the paper. The main
+corrections in the paper and theresponds to the reviewer’s comments are
+as flowing:</p>
+<p>Respondsto the reviewer’s comments:</p>
+<p>Reviewer #1: <br />
+1. Response tocomment: (……简要列出意见……)<br />
+Response:××××××<br />
+2. Response to comment:(……简要列出意见……)<br />
+Response:××××××<br />
+。。。。。。逐条意见回答，切忌一定不能有遗漏</p>
+<p>针对不同的问题有下列几个礼貌术语可适当用用：<br />
+Weare very sorry for our negligence of ……...<br />
+We arevery sorry for our incorrect writing ……...<br />
+It isreally true as Reviewer suggested that……<br />
+We havemade correction according to the Reviewer’s comments.<br />
+Wehave re-written this part according to the Reviewer’ssuggestion<br />
+As Reviewer suggested that……<br />
+Consideringthe Reviewer’s suggestion, we have ……</p>
+<p>最后特意感谢一下这个审稿人的意见：<br />
+Specialthanks to you for your good comments. </p>
+<p>Reviewer #2:</p>
+<p>同上述</p>
+<p>Reviewer#3:<br />
+××××××<br />
+Other changes:<br />
+1. Line 60-61, the statements of “……”were corrected as “…………”<br />
+2.Line 107, “……” was added <br />
+3. Line 129,“……” was deleted<br />
+××××××</p>
+<p>Wetried our best to improve the manuscript and made some changes in
+themanuscript. These changes will not influence the content andframework
+of the paper. And here we did not list the changes butmarked in red in
+revised paper.</p>
+<p>We appreciate forEditors/Reviewers’ warm work earnestly, and hope
+that thecorrection will meet with approval.</p>
+<p>Once again, thank you verymuch for your comments and suggestions.</p>
+<h2
+id="文章接收后感谢信根据需要感谢负责文章的编辑或主编">5.文章接收后感谢信（根据需要感谢负责文章的编辑或主编）</h2>
+<p>DearProf. ××××××:</p>
+<p>Thanks very muchfor your kind work and consideration on publication
+of our paper. Onbehalf of my co-authors, we would like to express our
+greatappreciation to editor and reviewers.</p>
+<p>Thank you and bestregards.</p>
+<p>Yours sincerely,<br />
+××××××<br />
+Correspondingauthor:<br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2 id="询问校稿信件">6.询问校稿信件</h2>
+<p>Dear×××:</p>
+<p>Sorry for disturbing you. I am not sure ifit is the right time to
+contact you to inquire about the status ofour accepted manuscript titled
+“Paper Title” (ID: 文章稿号),since the copyright agreement for
+publication has been sent to youtwo months ago. I am just wondering that
+how long I can receive theproof of our manuscript from you?<br />
+I would be greatly appreciatedif you could spend some of your time for a
+reply. I am very pleasedto hear from you.</p>
+<p>Thank you very much for yourconsideration.</p>
+<p>Yours sincerely,<br />
+××××××<br />
+Correspondingauthor:<br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2 id="文章校稿信件">7.文章校稿信件</h2>
+<p>DearMr. ×××:</p>
+<p>Thanks very much for your kind letterabout the proof of our paper
+titled “Paper Title” (ID:文章稿号)for publication in “Journal Name”. We
+have finished theproof reading and checking carefully, and some
+corrections about theproof and the answers to the queries are provided
+below.</p>
+<p>Corrections:<br />
+1. In ****** should be **** (Page ***, Rightcolumn, line***)<br />
+2. In **** the “*****” should be“****” (Page ****, Right column,
+line****)</p>
+<p>Answers for“author queries”:<br />
+1. *********************.<br />
+2.**********************<br />
+3. **********************</p>
+<p>We greatlyappreciate the efficient, professional and rapid processing
+of ourpaper by your team. If there is anything else we should do, please
+donot hesitate to let us know.</p>
+<p>Thank you and best regards.<br />
+Yourssincerely,<br />
+××××××<br />
+Correspondingauthor:<br />
+Name: ×××<br />
+E-mail: ××××@××××</p>
+<h2 id="引用">引用</h2>
+<p>全文引用自：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/Angelina_Jolie/article/details/131838025">SCI投稿7个阶段的邮件模板</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1363,197 +1708,6 @@ rEFInd instead of GRUB as Boot Manager</a></li>
 target="_blank" rel="noopener" href="https://www.slant.co/topics/2239/~best-boot-loaders-managers">What
 are the best boot loaders/managers?</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/Python%E7%BB%98%E5%88%B6%E5%88%86%E5%8F%89%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/08/Python%E7%BB%98%E5%88%B6%E5%88%86%E5%8F%89%E5%9B%BE/" class="post-title-link" itemprop="url">Python绘制分叉图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-08 21:59:06" itemprop="dateCreated datePublished" datetime="2024-11-08T21:59:06+08:00">2024-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="程序源代码">程序源代码</h1>
-<p>由于毕业论文要切换成非线性的缘故，需要我拿出一些时间来研究绘制各种分叉图。下面举一个例子来说明绘图的思路：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">fig=plt.figure(figsize=(<span class="number">10</span>,<span class="number">8</span>),dpi=<span class="number">100</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">LogisticMap</span>():</span><br><span class="line">    mu = np.arange(<span class="number">0</span>, <span class="number">4</span>, <span class="number">0.01</span>)</span><br><span class="line">    x = <span class="number">0.1</span>       <span class="comment"># 初值</span></span><br><span class="line">    iters = <span class="number">1000</span>  <span class="comment"># 不进行输出的迭代次数</span></span><br><span class="line">    last = <span class="number">200</span>    <span class="comment"># 最后画出结果的迭代次数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(iters+last)):</span><br><span class="line">        x = mu * x * (<span class="number">1</span> - x)</span><br><span class="line">        <span class="keyword">if</span> i &gt;= iters:</span><br><span class="line">            plt.plot(mu, x, alpha=<span class="number">0.5</span>)  <span class="comment"># </span></span><br><span class="line">            plt.ylim(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">            plt.xlim(<span class="number">0</span>, <span class="number">4</span>)</span><br><span class="line">            plt.title(<span class="string">r&#x27; $x_&#123;n+1&#125; = \mu x_&#123;n&#125; (1-x_&#123;n&#125;).$  n = &#x27;</span>+ <span class="built_in">str</span>(i+<span class="number">1</span>) )</span><br><span class="line">            plt.ylabel(<span class="string">&#x27;x-Random number&#x27;</span>)</span><br><span class="line">            plt.xlabel(<span class="string">&#x27;r-Rate&#x27;</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">LogisticMap()</span><br></pre></td></tr></table></figure>
-<h1 id="绘图分析">绘图分析</h1>
-<ol type="1">
-<li><p>绘图的叠代公式 <span
-class="math display">\[\begin{equation}\label{eq:diedai}
-x_{n+1}=\mu x_n(1-x_n)
-\qquad
-0\leq \mu\leq 4, 0&lt;x&lt;1
-\end{equation}\]</span></p></li>
-<li><p>将参数<span class="math inline">\(\mu\)</span>从<span
-class="math inline">\(0\)</span>到<span
-class="math inline">\(4\)</span>均分成<span
-class="math inline">\(100\)</span>份，然后将其作为自变量，遍历区间取值。</p></li>
-<li><p>对于任意一个<span class="math inline">\(\mu\)</span>值，选择初值
-<span class="math inline">\(x_0=0.1\)</span>, 使用式<span
-class="math inline">\(\eqref{eq:diedai}\)</span>叠代<span
-class="math inline">\(1000\)</span>次, 但是这些叠代值并不输出,
-然后输出<span class="math inline">\(1001\)</span>次到<span
-class="math inline">\(1200\)</span>次的叠代结果。
-其原理为：如果参数<span
-class="math inline">\(\mu\)</span>在某个值时，无数次叠代后它会收敛到某个值附近，那这样的点就是一个嘛吸引点。但是，有的点以无数次叠代后仍然不收敛，所以在固定一个较大的次数<span
-class="math inline">\(1000\)</span>后，再叠代<span
-class="math inline">\(100\)</span>次, 将这<span
-class="math inline">\(100\)</span>次的结果输出，就能判断这<span
-class="math inline">\(100\)</span>个点的分布情况。</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/%E5%B8%83%E9%87%8C%E6%B8%8A%E6%95%A3%E5%B0%84%EF%BC%8C%E6%8B%89%E6%9B%BC%E6%95%A3%E5%B0%84%EF%BC%8C%E7%91%9E%E5%88%A9%E6%95%A3%E5%B0%84%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/08/%E5%B8%83%E9%87%8C%E6%B8%8A%E6%95%A3%E5%B0%84%EF%BC%8C%E6%8B%89%E6%9B%BC%E6%95%A3%E5%B0%84%EF%BC%8C%E7%91%9E%E5%88%A9%E6%95%A3%E5%B0%84%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">布里渊散射，拉曼散射，瑞利散射的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-08 09:38:47" itemprop="dateCreated datePublished" datetime="2024-11-08T09:38:47+08:00">2024-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当光入射到样品上，入射光子与样品中的分子或原子发生碰撞散射改变运动方向。根据光子能量是否发生变化分为<code>弹性散射</code>和<code>非弹性散射</code>。</p>
-<h2 id="弹性散射">弹性散射</h2>
-<p>光子能量没有发生变化的散射叫弹性散射。弹射散射有<label style="color:blue">瑞利散射</label>（<code>Rayleigh scattering</code>）和<label style="color:blue">米氏散射</label>（<code>Mie scattering</code>）。当散射微粒的直径远小于入射光波长时，一般小于波长<span
-class="math inline">\(1/10\)</span>，发生瑞利散射，强度与波长四次方成反比。当微粒尺寸增大到与波长相当时，发生米氏散射，强度与波长二次方成反比，且随着微粒增大，散射强度变弱。半导体中的弹性散射多为瑞利散射。</p>
-<h2 id="非弹性散射">非弹性散射</h2>
-<p>光子能量<label style="color:blue">发生变化</label>的散射叫非弹性散射。非弹性散射中，散射光子能量减小的散射称为斯托克斯散射（<code>Stokes</code>），散射光子能量增加的散射称为反斯托克斯散射（<code>Anti-Stokes</code>）。散射光能量的改变与半导体中的声子有关，光学声子（<code>Optical photon，OP</code>）参与的称拉曼散射（<code>Raman scattering</code>），声学声子（<code>Acoustic photon，AP</code>）参与的称布里渊散射（<code>Brillouin scattering</code>）。声学声子能量较低，因此布里渊散射频移较小。光学声子能量略高，拉曼散射频移略大。拉曼散射和布里渊散射都有斯托克斯线和非斯托克斯线。</p>
-<h2 id="特性分析">特性分析</h2>
-<p>在散射光中，绝大部分光都是瑞利散射，拉曼散射和布里渊散射都非常弱。</p>
-<p>对于拉曼散射，一般情况下，反斯托克斯线比斯托克斯线低，因为处于振动基态能级的粒子数远大于振动激发态的粒子数，粒子吸收能量的比例远大于释放能量的比例。所以在拉曼光谱测试中，常测试的是斯托克斯线。晶格中的的光学声子对应有横光学声子（<code>TO</code>）和纵光学声子（<code>LO</code>），因此拉曼散射光具有偏振性，偏振与晶体的结构对称性有关。</p>
-<p>拉曼散射实验中的两个难点，一是散射光强度很低，需要高精度的探测器，二是散射光谱线距离入射激光很近，需要排除入射激光的影响。拉曼散射的谱线仅与晶体结构有关，与振动和转动能级有关，与入射光频率无关，因此可以使用拉曼散射进行物质的鉴定和分析。</p>
-<div class="note primary"><p>本文略调整了一下排版，全文引用自：<a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/374299351">布里渊散射，拉曼散射，瑞利散射的区别</a></p>
-</div>
 
       
     </div>

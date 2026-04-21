@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,205 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Linux%E4%B8%8B%E4%BF%AE%E6%94%B9U%E7%9B%98%E5%90%8D%E7%A7%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/01/Linux%E4%B8%8B%E4%BF%AE%E6%94%B9U%E7%9B%98%E5%90%8D%E7%A7%B0/" class="post-title-link" itemprop="url">Linux下修改U盘名称</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-01 21:06:01" itemprop="dateCreated datePublished" datetime="2024-08-01T21:06:01+08:00">2024-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>众所周知在<code>Windows</code>下修改<code>U盘</code>的名称是相当简单的，但是查询<code>Linux</code>下修改<code>U盘</code>名称，搜到的教程都十分麻烦。本文给出一个比较简单的方法，就是借助磁盘工具<code>Gparted</code>修改，因为修改<code>U盘</code>名称毕竟是小概率事件，所以此操作简单易行。</p>
+<ul>
+<li><p>若<code>Gnarted</code>没有安装，则先安装命令：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S gparted</span><br></pre></td></tr></table></figure></p></li>
+<li><p>插入待修改名称的<code>U盘</code></p></li>
+<li><p>点击右上角，选中待修改名称的<code>U盘</code></p></li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/01/66ab893939f8c.png"
+alt="选中待修改名称的U盘" />
+<figcaption aria-hidden="true">选中待修改名称的U盘</figcaption>
+</figure>
+<ul>
+<li>右键，选择<code>卸载(U)</code></li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/01/66ab893925fbd.png"
+alt="卸载挂载的U盘" />
+<figcaption aria-hidden="true">卸载挂载的U盘</figcaption>
+</figure>
+<ul>
+<li>右键,选择<code>文件系统卷标(L)</code></li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/01/66ab89394ceef.png"
+alt="选中文件系统卷标" />
+<figcaption aria-hidden="true">选中文件系统卷标</figcaption>
+</figure>
+<ul>
+<li>在弹出的对话框输入新的<code>U盘名称</code>,
+然后点上面的符号√<code>应用全部操作</code>, 修改名称完毕</li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/01/66ab89393514d.png"
+alt="应用修改" />
+<figcaption aria-hidden="true">应用修改</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Gitee%E4%B9%8BPermission-0644-for-are-too-open%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/01/Gitee%E4%B9%8BPermission-0644-for-are-too-open%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Gitee之Permission-0644-for-are-too-open错误解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-01 01:37:49" itemprop="dateCreated datePublished" datetime="2024-08-01T01:37:49+08:00">2024-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近期由于我的U盘仓库<code>BNU-FZH</code>的<code>U盘</code>损坏，所以不得不升级<code>zugit.sh</code>脚本,
+添加一键搬家功能，这可以方便的将仓库同步到新的<code>U盘</code>.
+然而在更新后将新版本的<code>zugit.sh</code>推送到<code>gitee</code>时，发现报错：</p>
+<figure>
+<img src="http://imgos.cn/2024/08/01/66aa7642afbca.jpeg"
+alt="推送至Gitee报错" />
+<figcaption aria-hidden="true">推送至Gitee报错</figcaption>
+</figure>
+<p>看日志报出的错误，<code>It is required that your private key files are NOT accessible by others</code>，翻译就是需要私钥文件不能被其他人所访问。私钥是访问linux服务器的凭证，如果被别人获取到，就可能对服务器安全造成影响，这可能也就是这个问题的初衷吧。</p>
+<p>按照错误提示，该文件不能被其他人访问，只要将所属组和其他人的read权限取消即可.
+于是将<code>Gitee</code>对使用的<code>ssh</code>密钥<code>~/.ssh/id_ed25519_1</code>更改权限为<code>600</code>，即</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/id_ed25519_1</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1313,381 +1512,6 @@ slash”；</p></li>
 <p>LaTeX 中有许多字符都有特殊的意义， LaTeX 中的保留字符有
 <code>\#</code>,<code>\$</code>,<code>\%</code>,<code>\&amp;</code>,<code>\_</code>,<code>&#123; &#125;</code>,
 <code>\</code>，这些在正文中都不能直接呈现,需借助<code>反斜杠</code>转义。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/24/%E5%9C%A8ArchLinux%E4%B8%8A%E9%83%A8%E7%BD%B2SFTP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/24/%E5%9C%A8ArchLinux%E4%B8%8A%E9%83%A8%E7%BD%B2SFTP/" class="post-title-link" itemprop="url">在ArchLinux上部署SFTP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-24 15:49:10" itemprop="dateCreated datePublished" datetime="2024-07-24T15:49:10+08:00">2024-07-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div class="note primary"><p>为了实现远程文件访问，决定在ArchLinux上部署SFTP,
-虽然技术上仍然没有测试成功，但是先记录下参考的主要文档<a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/">How
-to set up an SFTP server on Arch Linux</a>，以期日后解决。</p>
-</div>
-<p>In this guide we are going to set up an sftp server on an Arch Linux
-system. We will also set up a form of chroot where users can only access
-sftp with the shared credentials.</p>
-<p>The File Transfer Protocol is a standard communication protocol used
-for the transfer of computer files from a server to a client on a
-computer network.</p>
-<p>FTP isn’t popular today because it Lacks Security. When a file is
-sent using this protocol, the data, username, and password are all
-shared in plain text, which means a hacker can access this information
-with little to no effort. For data to be secure, you need to use an
-upgraded version of FTP like SFTP.</p>
-<p>SFTP Secure File Transfer Protocol is a file transfer protocol that
-provide secure access to a remote computer to deliver secure
-communications. It leverages SSH – Secure Socket Shell and is frequently
-also referred to as ‘Secure Shell File Transfer Protocol’.</p>
-<h4 id="related-content"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#related-content">Related
-Content</a></h4>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-work-with-sftp-client-in-linux-10-sftp-commands/">How
-to work with SFTP client in Linux – 10 sftp commands</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-debian-11-server/">How
-to set up an SFTP server on Debian 11 Server</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/download-files-from-sftp-server-using-a-python-script/">Download
-Files from SFTP server Using a python script</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/list-upload-and-download-files-from-an-sftp-server-using-golang/">List,
-Upload and Download files from an SFTP Server using golang</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-opensuse-leap-15-3-server/">How
-to set up an SFTP server on OpenSUSE Leap 15.3 Server</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.citizix.com/how-to-install-and-set-up-sftp-server-in-ubuntu-20-04/">How
-to install and set up sftp server in Ubuntu 20.04</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-centos-8-rhel-8-server/">How
-to set up an SFTP server on CentOS 8 /RHEL 8 Server</a></li>
-</ul>
-<h2 id="prerequisites"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#prerequisites">Prerequisites</a></h2>
-<p>To follow along this guide ensure you have the following:</p>
-<ol type="1">
-<li>Arch Linux machine</li>
-<li>Root access to the server or a user with root access</li>
-<li>Internet access from the server</li>
-</ol>
-<h2 id="table-of-content"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#table-of-content">Table
-of Content</a></h2>
-<ol type="1">
-<li>Ensuring that the server is up to date</li>
-<li>Ensuring that the SSH service is installed</li>
-<li>Creating users and groups and adding the necessary directories</li>
-<li>Configuring the ssh service</li>
-<li>Verifying that the set up is working as expected</li>
-</ol>
-<h3 id="ensuring-that-the-server-is-up-to-date"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#1-ensuring-that-the-server-is-up-to-date">1.
-Ensuring that the server is up to date</a></h3>
-<p>Before proceeding, ensure your system is up to date. Use this command
-to refresh the system packages and update them.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syyu</span><br></pre></td></tr></table></figure>
-<h3 id="ensuring-that-the-ssh-service-is-installed"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#2-ensuring-that-the-ssh-service-is-installed">2.
-Ensuring that the SSH service is installed</a></h3>
-<p>Verify that the ssh is installed:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -Qi openssh</span><br><span class="line">Name            : openssh</span><br><span class="line">Version         : 8.6p1-1</span><br><span class="line">Description     : Premier connectivity tool for remote login with the SSH protocol</span><br><span class="line">Architecture    : x86_64</span><br><span class="line">URL             : https://www.openssh.com/portable.html</span><br><span class="line">Licenses        : custom:BSD</span><br><span class="line">Groups          : None</span><br><span class="line">Provides        : None</span><br><span class="line">Depends On      : glibc  krb5  openssl  libedit  ldns  libxcrypt  libcrypt.so=2-64  zlib  pam</span><br><span class="line">Optional Deps   : xorg-xauth: X11 forwarding</span><br><span class="line">                  x11-ssh-askpass: input passphrase in X</span><br><span class="line">                  libfido2: FIDO/U2F support</span><br><span class="line">Required By     : None</span><br><span class="line">Optional For    : None</span><br><span class="line">Conflicts With  : None</span><br><span class="line">Replaces        : None</span><br><span class="line">Installed Size  : 5.79 MiB</span><br><span class="line">Packager        : Giancarlo Razzolini &amp;lt;grazzolini@archlinux.org&amp;gt;</span><br><span class="line">Build Date      : Mon 19 Apr 2021 11:32:46 AM UTC</span><br><span class="line">Install Date    : Thu 03 Jun 2021 03:23:32 AM UTC</span><br><span class="line">Install Reason  : Explicitly installed</span><br><span class="line">Install Script  : Yes</span><br><span class="line">Validated By    : Signature</span><br></pre></td></tr></table></figure>
-<p>If ssh is not installed, install with this command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S openssh</span><br></pre></td></tr></table></figure>
-<p>Now that it is installed, start the service</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
-<p>Confirm its status</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl status sshd</span><br><span class="line">● sshd.service - OpenSSH Daemon</span><br><span class="line">     Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: disabled)</span><br><span class="line">     Active: active (running) since Fri 2021-12-03 10:19:02 UTC; 17min ago</span><br><span class="line">   Main PID: 467 (sshd)</span><br><span class="line">      Tasks: 1 (limit: 4606)</span><br><span class="line">     Memory: 5.0M</span><br><span class="line">     CGroup: /system.slice/sshd.service</span><br><span class="line">             └─467 sshd: /usr/bin/sshd -D [listener] 0 of 10-100 startups</span><br><span class="line"></span><br><span class="line">Dec 04 14:53:30 ip-10-2-40-103 sshd[13109]: Unable to negotiate with 141.98.10.246 port 34078: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:53:42 ip-10-2-40-103 sshd[13111]: Unable to negotiate with 141.98.10.246 port 38674: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:53:53 ip-10-2-40-103 sshd[13115]: Unable to negotiate with 141.98.10.246 port 43268: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:54:05 ip-10-2-40-103 sshd[13117]: Unable to negotiate with 141.98.10.246 port 47864: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:54:17 ip-10-2-40-103 sshd[13119]: Unable to negotiate with 141.98.10.246 port 52460: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:54:41 ip-10-2-40-103 sshd[13123]: Unable to negotiate with 141.98.10.246 port 33418: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:54:53 ip-10-2-40-103 sshd[13127]: Unable to negotiate with 141.98.10.246 port 38014: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 14:55:05 ip-10-2-40-103 sshd[13129]: Unable to negotiate with 141.98.10.246 port 42614: no matching key exchange method found. Their offer: diffie-hellman-group14-sha1,diffie-hellman-group-exc&amp;gt;</span><br><span class="line">Dec 04 15:16:10 ip-10-2-40-103 sshd[13191]: Received disconnect from 61.177.173.21 port 60983:11:  [preauth]</span><br><span class="line">Dec 04 15:16:10 ip-10-2-40-103 sshd[13191]: Disconnected from authenticating user root 61.177.173.21 port 60983 [preauth]</span><br></pre></td></tr></table></figure>
-<h3
-id="creating-users-and-groups-and-adding-the-necessary-directories"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#3-creating-users-and-groups-and-adding-the-necessary-directories">3.
-Creating users and groups and adding the necessary directories</a></h3>
-<p>Next we will ensure that the necessary users are present in the
-system. In my case, I would like to have the sftp users home
-as <code>/srv/sftp</code></p>
-<p>Let us create the home <code>/srv/sftp</code> with this command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /srv/sftp</span><br></pre></td></tr></table></figure>
-<p>Then let us create an umbrella group for SFTP only</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd sftpusers</span><br></pre></td></tr></table></figure>
-<p>Then create an sftp only user called citizix:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -G sftpusers -d /srv/sftp/citizix -s /sbin/nologin citizix</span><br></pre></td></tr></table></figure>
-<p>The above options do the following:</p>
-<ul>
-<li><code>-G sftpusers</code>: Create user, append
-to <code>sftpusers</code> group</li>
-<li><code>-d /srv/sftp/citizix</code>: Set home dir
-as <code>/srv/sftp/citizix</code></li>
-<li><code>-s /sbin/nologin</code>: We do not want the user to login, so
-no ssh login shell</li>
-<li>Finally, username as <code>citizix</code></li>
-</ul>
-<p>Then add password to the created user using this command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo passwd citizix</span><br><span class="line">Changing password for user citizix.</span><br><span class="line">New password:</span><br><span class="line">Retype new password:</span><br><span class="line">passwd: all authentication tokens updated successfully.</span><br></pre></td></tr></table></figure>
-<h2 id="configuring-the-ssh-service"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#3-configuring-the-ssh-service">3.
-Configuring the ssh service</a></h2>
-<p>Now that we have installed the necessary software and created the
-users and groups, let us configure ssh.</p>
-<p>Ensure password authentication is enabled for ssh. Edit the config
-file here <code>/etc/ssh/sshd_config</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<p>Then ensure this line is not commented:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure>
-<p>Next, we need to add rules for the users in
-the <code>sftpusers</code> group to be considered as sftp. Edit the
-config file:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<p>Add this content at the bottom of the file:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Match Group sftpusers  </span><br><span class="line">    X11Forwarding no  </span><br><span class="line">    AllowTcpForwarding no  </span><br><span class="line">    ChrootDirectory /srv/sftp</span><br><span class="line">    ForceCommand internal-sftp</span><br></pre></td></tr></table></figure>
-<p>Then restart sshd to reload the config:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
-<p>Verify that <code>sshd</code> is running as expected:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl status sshd</span><br><span class="line">● sshd.service - OpenSSH Daemon</span><br><span class="line">     Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: disabled)</span><br><span class="line">     Active: active (running) since Sat 2021-12-04 15:48:19 UTC; 18s ago</span><br><span class="line">   Main PID: 14269 (sshd)</span><br><span class="line">      Tasks: 1 (limit: 4606)</span><br><span class="line">     Memory: 892.0K</span><br><span class="line">     CGroup: /system.slice/sshd.service</span><br><span class="line">             └─14269 sshd: /usr/bin/sshd -D [listener] 0 of 10-100 startups</span><br><span class="line"></span><br><span class="line">Dec 04 15:48:19 ip-10-2-40-103 systemd[1]: Started OpenSSH Daemon.</span><br><span class="line">Dec 04 15:48:19 ip-10-2-40-103 sshd[14269]: Server listening on 0.0.0.0 port 22.</span><br><span class="line">Dec 04 15:48:19 ip-10-2-40-103 sshd[14269]: Server listening on :: port 22.</span><br></pre></td></tr></table></figure>
-<h2 id="verifying-that-the-set-up-is-working-as-expected"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#4-verifying-that-the-set-up-is-working-as-expected">4.
-Verifying that the set up is working as expected</a></h2>
-<p>After successfully creating the user and adding sftp configurations,
-let is test the set up using the command:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">❯ sftp citizix@10.2.11.8</span><br><span class="line">citizix@&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;10.2.11.8&#x27;s password:</span><br><span class="line">Connected to &amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;10.2.11.8.</span><br><span class="line">sftp&amp;gt;</span><br></pre></td></tr></table></figure>
-<p>Now we have sftp server up and running with a user configured!</p>
-<p>The users will be able to login to the server and access files and
-directories located in their home directory. If you want to give the
-user to other directories outside their own directory, just make sure
-the user has enough rights to access. These directories and files have
-to be within the sftp directory – <code>/srv/sftp</code>.</p>
-<p>Example: if i want user to access the
-directory <code>/srv/sftp/paymentfiles</code>, do the following:</p>
-<p>Create the directory</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /srv/sftp/paymentfiles</span><br></pre></td></tr></table></figure>
-<p>Then assign the user(<code>citizix</code>) access by making them own
-the directory:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown citizix:sftpusers /srv/sftp/paymentfiles</span><br></pre></td></tr></table></figure>
-<p>That is it. Users should now have access.</p>
-<h4 id="conclusion"><a
-target="_blank" rel="noopener" href="https://citizix.com/how-to-set-up-an-sftp-server-on-arch-linux/#conclusion">Conclusion</a></h4>
-<p>We managed to set up sftp server in an Archlinux Server in this
-guide.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/23/%E9%80%9A%E8%BF%87%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E7%BB%84%E6%88%90%E5%B1%80%E5%9F%9F%E7%BD%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/23/%E9%80%9A%E8%BF%87%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E4%B8%A4%E5%8F%B0%E7%94%B5%E8%84%91%E7%BB%84%E6%88%90%E5%B1%80%E5%9F%9F%E7%BD%91/" class="post-title-link" itemprop="url">通过网线连接两台电脑组成局域网</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-23 15:22:21" itemprop="dateCreated datePublished" datetime="2024-07-23T15:22:21+08:00">2024-07-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="为什么需要局域网">为什么需要局域网</h2>
-<p>一般工作过程中会有一个台式机电脑和一个笔记本电脑，为了提高效率两台电脑均安装了固态硬盘.
-但是我们还会遇到了文件传输的问题,
-比如在台式机上的文件需要传输到笔记本电脑上，我们可以借助<code>U盘</code>、<code>移动硬盘</code>、<code>网盘</code>（百度网盘、阿里网盘等），
-它们各有优点和不足：</p>
-<ul>
-<li><code>U盘</code>在转移资料时最方便，但是仅限于对于小文件，如果文件体积过大，那从台式机传输到<code>U盘</code>需要大量的时间，同时从<code>U盘</code>再到笔记本又需要再消耗几乎相同的时间，而且<code>U盘</code>的传输速度一般比较慢，但是它的最大的优点是一旦资料存储在<code>U盘</code>上，那可以方便的携带到其他电脑，实现多次传输。</li>
-<li><code>移动硬盘</code>容量比较大，性能要远优于<code>U盘</code>,
-一些重要的资料可以保存的上面，但是对于那些需要经常读取和编辑的资料就不适合存放在上面，因为<code>移动硬盘</code>经常随身携带也远不如<code>U盘</code>小巧。但是其传输速度非常快，特别是使用固态硬盘组装的移动硬盘，但是移动硬盘的最大作用应当是备份，备份资料就要求存储介质足够稳定，而目前就价格和稳定性上讲，机械硬盘仍是不二选择，相同价格机械硬盘的容量要远大于固态硬盘，机械硬盘的缺点是在工作时不能随便移动。</li>
-<li><code>网盘</code>兴起有好多年了，目前比较有名的有：百度网盘、阿里云盘、坚果云盘、123网盘和中国移动网盘等.
-平时可以把资料存在网盘上，但是你不能保证上传和下载速度，同时还有各种广告，各种限制，以及有些涉及隐私的资料都不适合存储在网盘，所以就当前来看这是一个不太明智的作法。</li>
-</ul>
-<p>综上，在工作中对于那些需要经常访问的资料应当保存的电脑上，同时为了方便在不同电脑中传输，本文提供一个新的方法：使用网线组成局域网，借助<code>samba</code>在局域网中分享文件，分享方法参考：<a
-href="/2024/07/23/ArchLinux局域网共享文件">ArchLinux
-局域网共享文件</a>.</p>
-<div class="note primary"><p>使用移动硬盘等中间媒介时，其传输速度要高于局域网。在测试时，我发现使用局域网传输时速度稳定在<code>60M</code>左右，但是局域网的总速度是<code>1000M</code>，这就意味着可以同时传输多个文件夹，每个传输速度都会在<code>60M</code>左右，显然多线程可以弥补移动硬盘单一高速的优势，但是局域网的点对点的直达优势却是移动硬盘所不具备的.
-如果两台电脑处于同一个局域网，或两台电脑就在身边且有一根网线，则推荐使用局域网.
-如果两电脑距离较远，且所需资料是不经常编辑的，则推荐使用移动硬盘。</p>
-</div>
-<h2 id="设置局域网的方法">设置局域网的方法</h2>
-<h3 id="准备工作">1. 准备工作</h3>
-<p>在开始之前，请准备好：</p>
-<ul>
-<li>两台运行Ubuntu操作系统的电脑。</li>
-<li>一根网线(建议不要超过80米，否则信号会衰减)。</li>
-</ul>
-<h3 id="连接网线">2. 连接网线</h3>
-<p>将网线一端插入第一台电脑的网口，将另一端插入另一电脑的网口。确保网线插紧并且连接稳固。</p>
-<h3 id="配置网络">3. 配置网络</h3>
-<ul>
-<li>打开第一台Ubuntu电脑的系统设置（Settings）。<br />
-</li>
-<li>选择“网络”（Network）选项。<br />
-</li>
-<li>在网络设置中，点击“有线连接”（Wired Connection）。<br />
-</li>
-<li>确保“有线连接”开关处于打开状态。<br />
-</li>
-<li>选择需要修改的以太网设置，点击右侧的“选项”（Options）按钮（齿轮形的按钮），进入高级网络设置。<br />
-</li>
-<li>在IPv4设置中，选择“手动”（Manual）。<br />
-</li>
-<li>点击“添加”按钮，添加一个新的IP地址。<br />
-</li>
-<li>在“地址”（Address）字段中输入IP地址，例如：<code>192.168.189.13</code>。子网掩码通常为<code>255.255.255.0</code>。<br />
-</li>
-<li>在“网关”（Gateway）字段中输入网关地址，例如：<code>192.168.189.1</code>。设置完毕的窗口如下图所示：<br />
-<img src="https://thumbsnap.com/i/hGjJthMV.png"
-alt="置局域网网关" /></li>
-<li>点击“应用”并关闭网络设置窗口。</li>
-</ul>
-<h4 id="解释">解释：</h4>
-<p><strong>（1）为什么要设置成<code>192.168.189.13</code>？其他可以吗？</strong><br />
-IP地址是<a
-target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B1%80%E5%9F%9F%E7%BD%91&amp;spm=1001.2101.3001.7020">局域网</a>中用来标识设备的地址，而<code>192.168.189.13</code>是IPv4地址中的一个私有地址段，通常用于局域网中。在一个子网内，每台设备的IP地址应该是唯一的，因此我们选择一个未被占用的地址，以便在同一网络中找到对应的设备。其他私有地址段，如<code>192.168.0.0</code>、<code>192.168.1.0</code>等也可以使用，只要保证两台电脑在同一个子网内，并且IP地址唯一。</p>
-<p><strong>（2）网关怎么设置？</strong><br />
-本教程选择了<code>192.168.189.1</code>这个地址作为网关，是因为它处于私有IP地址范围内（私有IP地址范围是指专门供局域网使用的IP地址范围，不会在全球互联网上被路由器转发），并且与我们选择的IP地址<code>192.168.189.x</code>在同一个子网中。只需要<strong>保证两台电脑上的网关相同</strong>即可。</p>
-<p><strong>（3）子网掩码为什么是<code>255.255.255.0</code>？</strong><br />
-子网掩码用于定义哪些部分是网络地址，哪些部分是主机地址。在一个局域网中，通常使用的子网掩码是<code>255.255.255.0</code>，这意味着前三个字节是网络地址，最后一个字节是主机地址。这样，同一子网内的设备可以相互通信，而不同子网的设备则需要通过路由器进行通信。</p>
-<h3 id="配置第二台电脑">4. 配置第二台电脑</h3>
-<p>重复步骤三，但在IPv4设置中将IP地址更改为另一个可用的地址，例如：<code>192.168.189.8</code>。子网掩码为<code>255.255.255.0</code>，网关字段中输入相同的网关地址：<code>192.168.189.1</code>。<br />
-<img src="https://thumbsnap.com/i/kYJxZRsK.png"
-alt="第二台电脑网关设置" /></p>
-<h3 id="测试连接">5. 测试连接</h3>
-<p>打开终端，使用ping命令测试两台电脑之间的连接。在第一台电脑上输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.189.8</span><br></pre></td></tr></table></figure>
-<p>如果一切正常，你应该会收到类似以下的回复：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">64</span> <span class="built_in">bytes</span> <span class="keyword">from</span> <span class="number">192.168</span><span class="number">.189</span><span class="number">.8</span>: icmp_seq=<span class="number">1</span> ttl=<span class="number">64</span> time=<span class="number">0.504</span> ms</span><br></pre></td></tr></table></figure>
-<p>在第二台电脑上输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 192.168.189.13</span><br></pre></td></tr></table></figure>
-<p>如果一切正常，你应该会收到类似以下的回复：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">64</span> <span class="built_in">bytes</span> <span class="keyword">from</span> <span class="number">192.168</span><span class="number">.189</span><span class="number">.13</span>: icmp_seq=<span class="number">1</span> ttl=<span class="number">64</span> time=<span class="number">0.425</span> ms</span><br></pre></td></tr></table></figure>
-<p>这意味着两台电脑之间的网络连接已经建立并且正常工作。</p>
-<div class="note primary"><p>macOS和Windows用户，可以按照类似的步骤进行网线连接和网络配置。在macOS上，你可以打开“系统偏好设置”，选择“网络”，然后配置IP地址、子网掩码和网关等参数。而在Windows操作系统上，可以通过“控制面板”中的“网络和共享中心”来进行相似的设置。（如果无法A可以ping通B，B无法ping通A，请检查A的防火墙设置）</p>
-</div>
 
       
     </div>

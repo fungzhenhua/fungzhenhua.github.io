@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">562</span>
+          <span class="site-state-item-count">565</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,300 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/22/vim%E5%92%8Cneovim%E4%B8%AD%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/22/vim%E5%92%8Cneovim%E4%B8%AD%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2Fcitx5%E8%BE%93%E5%85%A5%E6%B3%95/" class="post-title-link" itemprop="url">vim和neovim中自动切换Fcitx5输入法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-22 12:30:43" itemprop="dateCreated datePublished" datetime="2023-12-22T12:30:43+08:00">2023-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在使用vim或neovim编辑文件时，需要经常在插入模式和编辑模式来回切换，之前已经记录了方法，但本文作为一个正式的版本记录一下，并随ArchLinux的更新相应改变。</p>
+<h2 id="源自fcitx5-archwiki的方法">源自Fcitx5-ArchWiki的方法</h2>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)</span><br><span class="line"><span class="keyword">autocmd</span> InsertLeave * :<span class="keyword">silent</span> <span class="keyword">let</span> fcitx5state=<span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote&quot;</span>)[<span class="number">0</span>] | <span class="keyword">silent</span> !fcitx5-remote -<span class="keyword">c</span></span><br><span class="line"><span class="keyword">autocmd</span> InsertEnter * :<span class="keyword">silent</span> <span class="keyword">if</span> fcitx5state == <span class="number">2</span> | <span class="keyword">call</span> <span class="built_in">system</span>(<span class="string">&quot;fcitx5-remote -o&quot;</span>) | <span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<div class="note info"><p>注意：vim将上述代码添加到<code>~/.vimrc</code>,
+neovim将上述代码添加到<code>~/.config/nvim/init.vim</code></p>
+</div>
+<h2 id="使用插件fcitx.vim">使用插件<code>fcitx.vim</code></h2>
+<p>由于不同的插件管理器多少有差异，此处不记录详细配置，请将<code>lilydjwg/fcitx.vim</code>放入到配置文件对应位置即可。插件和官方的脚本区别在于：</p>
+<p><code>ArchLinux</code>官方脚本可以实现在一个文件中输入法的切换，即按<code>Esc</code>后切换为英文输入法，再切换到插入模式后<code>Fcitx5</code>自动切换为刚才输入时的输入法。这个功能基本满足大家的要求。插件<code>fcitx.vim</code>的优势在于可以记录不同文件的输入法状态，例如有两个文件A和B,
+编辑文件A时插入模式使用中文输入，编辑文件B时插入模式使用英文输入，在A或B按<code>Esc</code>后统一转换成了英文输入法，但是在A文件中插入时<code>Fcitx5</code>就切换到中文输入法，在B文件中插入时<code>Fcitx5</code>就切换到英文输入法。</p>
+<p>由于<code>ArchLinux</code>脚本仅是一段简单代码，基本上不占用启动时间，所以vim或nvim都启动的很快，而插件<code>fcitx.vim</code>虽然功能强大，但是需要借助于<code>python3</code>和<code>python-dbus</code>,所以启动会慢一些，使用<code>Lazy</code>插件管理器，在<code>nvim</code>启动时发现插件<code>fcitx.vim</code>占用了<code>90ms</code>左右的时间，它是所有插件中占用时间最多的，其他的插件最多也就几秒.</p>
+<p>由于同时编辑两种文本一个为中文另一个为英文的概率很小，从性能和实现简易程度上讲优先考虑使用<code>Fcitx5-ArchWiki</code>所提供的脚本，如果您在工作中经常处理多个文件，且这多个文件分别使用不同语言，需要分别记录不同的输入状态，那请使用插件<code>fcitx.vim</code>.</p>
+<details>
+<summary>
+<label style="color:blue">fcitx.vim官方READM.md文件</label>
+</summary>
+<p>Keep and restore fcitx state for each buffer separately when
+leaving/re-entering insert mode or search mode. Like always typing
+English in normal mode, but Chinese in insert mode.</p>
+<p>D-Bus only works with the same user so this won't work with
+<code>sudo vim</code>. See the <code>fcitx5-server</code> branch for an
+experimental implementation that supports <code>sudo vim</code>.</p>
+<p>By default, it use python3 and D-Bus to toggle IME state. If you set
+<code>g:fcitx5_remote</code> to the executable path of
+<code>fcitx5-remote</code> <strong>BEFORE</strong> loading the plugin,
+it will use <code>fcitx5-remote</code> instead of python and D-Bus. In
+this case, python3 support is optional.</p>
+<p>Usually <code>fcitx5-remote</code> mode is way faster to start up
+since Python script need quite some time for the initial load if you
+don't use any other plugins that load Python. The Python version will be
+faster while switching.</p>
+<p>Base requirements:</p>
+<ul>
+<li>fcitx 5</li>
+</ul>
+<p>Requirements for Python mode (<code>g:fcitx5_remote</code> is not
+set):</p>
+<ul>
+<li>Vim with Python 3 compiled in</li>
+<li>The python-dbus package</li>
+</ul>
+<p>Requirements for <code>fcitx5-remote</code> mode
+(<code>g:fcitx5_remote</code> is set):</p>
+<ul>
+<li>fcitx5-remote</li>
+</ul>
+<p>If you are using <code>fcitx5-rime</code> (which has its own state),
+<code>let g:fcitx5_rime = 1</code> in your <code>.vimrc</code>.</p>
+<p>The <code>FcitxCurrentIM()</code> function can be used to get current
+IM's name.</p>
+<p>Links:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/lilydjwg/fcitx.vim">git repo</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.vim.org/scripts/script.php?script_id=3764">www.vim.org</a></li>
+</ul>
+<p>Warning:</p>
+<ol type="1">
+<li>If you use Vim in terminal, to avoid the Esc delay, please set
+<code>'ttimeoutlen'</code> to 100 or some other value. And check
+screen's <code>maptimeout</code> or tmux's <code>escape-time</code>
+option if you use it too.</li>
+</ol>
+<hr />
+<p>在离开或重新进入插入模式或搜索模式时自动记录和恢复每个缓冲区各自的输入法状态，以便在普通模式下始终是英文输入模式，切换回插入模式时恢复离开前的输入法输入模式。</p>
+<p>D-Bus 只在同一用户时有效，所以使用 <code>sudo vim</code>
+时本代码就失效了。在 <code>fcitx5-server</code>
+分支有一个实验性的版本支持 <code>sudo vim</code> 的用法。</p>
+<p>本插件默认会使用 Python 3 并通过 D-Bus 来切换输入法状态。
+但如果你在加载插件<strong>之前</strong>设置了
+<code>g:fcitx5_remote</code> 为你已安装的 <code>fcitx5-remote</code>
+可执行文件的路径，那么本插件会使用它来切换输入法状态；此模式下本插件并不需要
+Python。</p>
+<p>如果你没有其他使用 Python 的 Vim 插件，本插件的 Python
+模式初始化可能会显著拖慢启动时间；而 <code>fcitx5-remote</code>
+模式则没有这个问题。Python 模式会在切换时更快。</p>
+<p>基本要求：</p>
+<ul>
+<li>fcitx 5</li>
+</ul>
+<p>使用 Python 模式的要求（未设置 <code>g:fcitx5_remote</code>）：</p>
+<ul>
+<li>带有 Python 3 支持的 Vim</li>
+<li>python-dbus 包</li>
+</ul>
+<p>使用 <code>fcitx5-remote</code> 模式的要求（需设置
+<code>g:fcitx5_remote</code>）：</p>
+<ul>
+<li>fcitx5-remote</li>
+</ul>
+<p>如果使用 <code>fcitx5-rime</code>（它自己有输入状态），在
+<code>.vimrc</code> 中设置 <code>let g:fcitx5_rime = 1</code>。</p>
+<p><code>FcitxCurrentIM()</code> 函数可以用于获取当前输入法的名字。</p>
+<p>链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/lilydjwg/fcitx.vim">git 仓库</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.vim.org/scripts/script.php?script_id=3764">www.vim.org</a></li>
+</ul>
+<p>注意事项:</p>
+<ol type="1">
+<li>终端下请设置 Vim <code>'ttimeoutlen'</code>
+选项为较小值（如100），否则退出插入模式时会有较严重的延迟。同样会造成延迟的还有
+screen 的 <code>maptimeout</code> 选项以及 tmux 的
+<code>escape-time</code> 选项。</li>
+<li>请在 fcitx5-configtool
+中确认英语是第一个输入法，中文是第二个输入法，rime 用户可能需要设置
+<code>g:fcitx5_rime = 1</code>。</li>
+</ol>
+</details>
+<h2 id="其他插件替代方案">其他插件替代方案</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://hub.yzuu.cf/alohaia/fcitx.nvim">alohaia/Fcitx.nvim</a> :
+纯<code>Lua</code>编写的插件</li>
+<li><a target="_blank" rel="noopener" href="https://hub.yzuu.cf/h-hg/fcitx.nvim">h-hg/fcitx.nvim</a>:
+纯<code>Lua</code>编写的插件</li>
+<li><a
+target="_blank" rel="noopener" href="https://hub.yzuu.cf/rlue/vim-barbaric">rlue/vim-brabraic</a>:
+纯<code>vim script</code>编写的插件</li>
+</ul>
+<div class="note warning"><p>注意：由于这些插件我并没有一一测试，所以请大家自行决定如何选择使用。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/21/Neovim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Packer%E5%88%87%E6%8D%A2%E4%B8%BALazy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/21/Neovim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Packer%E5%88%87%E6%8D%A2%E4%B8%BALazy/" class="post-title-link" itemprop="url">Neovim插件管理Packer切换为Lazy</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-21 19:39:29" itemprop="dateCreated datePublished" datetime="2023-12-21T19:39:29+08:00">2023-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天本想解决<code>Neovim</code>自动化配置脚本编写问题，意外得知<code>Packer</code>已经不再维护，其官方仓库<a
+target="_blank" rel="noopener" href="https://github.com/wbthomason/packer.nvim">packer.nvim</a>
+写到：</p>
+<div class="note info"><p>This repository is currently unmaintained. For the time being (as of
+August, 2023), it is recommended to use one of the following plugin
+managers instead:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/folke/lazy.nvim">lazy.nvim</a>: Most
+stable and maintained plugin manager for Nvim.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lewis6991/pckr.nvim">pckr.nvim</a>:
+Spiritual successor of packer.nvim. Functional but not as stable as
+lazy.nvim.</li>
+</ul>
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/12/21/Neovim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86Packer%E5%88%87%E6%8D%A2%E4%B8%BALazy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1003,175 +1297,6 @@ target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Mkinitcpio
 </ul>
 </div>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/12/KDE%E4%B8%8B%E8%AE%BE%E7%BD%AEFcitx5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/12/KDE%E4%B8%8B%E8%AE%BE%E7%BD%AEFcitx5/" class="post-title-link" itemprop="url">KDE下设置Fcitxe5</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-12 21:53:00" itemprop="dateCreated datePublished" datetime="2023-12-12T21:53:00+08:00">2023-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在文章<a
-href="/2023/12/01/Fcitxe5与Calibre的兼容">Fcitxe5与Calibre的兼容</a>中介绍了与<code>Calibre</code>兼容的要求安装了那些带<code>git</code>的<code>cn</code>库里的<code>Fcitxe5</code>版本，同时同于其更新较频繁所以用这个版本比较好。但是在我的笔记本<code>Thinkpad-T490</code>由于升级硬件重新安装系统后，发现<code>Fcit5</code>不能使用自己的皮肤，而只是显示了默认与<code>Plasma</code>相对应的皮肤。经过长时间的百度也没有解决问题，不过参考<a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Fcitxe5">Fcitxe5-Archwiki</a>
-中的一个<code>Note</code>,
-同时也是我的使用<code>Gnome3</code>的时候就知道的地方，如果安装了插件<code>gnome-shell-extension-kimpanel-git</code>则会显示一个借鉴了<code>kde</code>输入法状态栏的<code>kimpanel</code>,
-此时<code>Fcitxe5</code>的皮肤将会失效。在<code>KDE</code>中本身就存在这个挂件，如果启用了挂件<label style="color:red">通用输入法面板</label>,虽然在状态栏上看起来也能显示输入法，但是<code>Fcitxe5</code>却因为这个挂件而不能使用自己的皮肤。正确的做法应当是添加挂件<label style="color:red">系统托盘</label>,
-同时去掉<label style="color:red">通用输入法面板</label>,这样即可以显示输入法面板又不启用<code>kimpanel</code>,
-于是<code>Fcitxe5</code>就可以正常使用自己的皮肤了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/11/Paru%E9%BB%98%E8%AE%A4%E5%85%B3%E9%97%AD%E5%AE%A1%E9%98%85%E6%B5%81%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/11/Paru%E9%BB%98%E8%AE%A4%E5%85%B3%E9%97%AD%E5%AE%A1%E9%98%85%E6%B5%81%E7%A8%8B/" class="post-title-link" itemprop="url">Paru默认关闭审阅流程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-11 01:29:48" itemprop="dateCreated datePublished" datetime="2023-12-11T01:29:48+08:00">2023-12-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用<code>Paru</code>安装软件时，会默认开启审阅流程，这时会输出一大堆信息让你审阅，按下<code>yes</code>才能继续，为了管理<code>aur</code>方便，在
-<a
-target="_blank" rel="noopener" href="https://github.com/Morganamilo/paru/issues/180">https://github.com/Morganamilo/paru/issues/180</a>
-找到关闭默认审阅流程的方法，即在配置文件<code>/etc/paru.conf</code>内增加<code>SkipReview</code>。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/12/11/Paru%E9%BB%98%E8%AE%A4%E5%85%B3%E9%97%AD%E5%AE%A1%E9%98%85%E6%B5%81%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
