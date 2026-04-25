@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,111 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90/" class="post-title-link" itemprop="url">Linux用户程序提升权限</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-28 15:05:52" itemprop="dateCreated datePublished" datetime="2024-11-28T15:05:52+08:00">2024-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当设计的脚本需要调用某系统命令时，使用<code>sudo</code>后会提示输入密码，在自己明确自己在干什么时，这很不方便，会极大的降低效率。为解决这一问题，本文给出提升普通用户权限的方法。</p>
+<h1 id="sudo-的权限控制">sudo 的权限控制</h1>
+<p><code>sudo</code>的权限控制位于配置文件<code>/etc/sudoers</code>中，如果想要控制某个用户(或某个组用户)只能执行<code>root</code>权限中的一部分命令,
+或者允许某些用户使用<code>sudo</code>时不需要输入密码.</p>
+<h1 id="配置文件设置格式">配置文件设置格式</h1>
+<h2 id="一般格式-root-allall-all">一般格式 root ALL=(ALL) ALL</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">授权用户/组 主机  =[(切换到哪些用户或组)] [是否需要输入密码验证] 命令1,命令2,...</span><br><span class="line">字段1      字段2  =[(字段3)] [字段4] 字段5</span><br><span class="line"> </span><br><span class="line">注意：凡是[ ]中的内容, 都能省略; 命令和命令之间用,号分隔;</span><br><span class="line"> </span><br><span class="line">字段1：</span><br><span class="line">不以%号开头的表示<span class="string">&quot;将要授权的用户&quot;</span> root</span><br><span class="line">以%号开头的表示<span class="string">&quot;将要授权的组&quot;</span> %wheel</span><br><span class="line"> </span><br><span class="line">字段2:表示允许登录的主机</span><br><span class="line">ALL表示所有; 如果该字段不为ALL,表示授权用户只能在某些机器上登录本服务器来执行<span class="built_in">sudo</span>命令</span><br><span class="line">eg:jack mycomputer=/usr/sbin/reboot,/usr/sbin/shutdown</span><br><span class="line">表示: 普通用户jack在主机(或主机组)mycomputer上, 可以通过<span class="built_in">sudo</span>执行reboot和shutdown两个命令</span><br><span class="line"> </span><br><span class="line">字段3:</span><br><span class="line">如果省略, 相当于(root:root)，表示可以通过<span class="built_in">sudo</span>提权到root; 如果为(ALL)或者(ALL:ALL), 表示能够提权到(任意用户:任意用户组)。</span><br><span class="line">注意：如果没省略,必须使用( )双括号包含起来</span><br><span class="line"> </span><br><span class="line">字段4：</span><br><span class="line">可能取值是NOPASSWD:。请注意NOPASSWD后面带有冒号:。表示执行<span class="built_in">sudo</span>时可以不需要输入密码</span><br><span class="line">eg:lucy ALL=(ALL) NOPASSWD: /bin/useradd</span><br><span class="line">表示: 普通用户lucy可以在任何主机上, 通过<span class="built_in">sudo</span>执行/bin/useradd命令, 并且不需要输入密码</span><br><span class="line"> 比如：hyc ALL=(ALL:ALL) NOPASSWD:ALL</span><br><span class="line">字段5:授权给用户的操作</span><br><span class="line">逗号分开一系列命令或者ALL表示允许所有操作</span><br></pre></td></tr></table></figure>
+<h2 id="高阶用法">高阶用法</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">如果写成这样：</span><br><span class="line">papi ALL=(root) NOPASSWD: /bin/chown,/usr/sbin/useradd</span><br><span class="line">表示: 用户papi能在所有可能出现的主机上, 提权到root下执行/bin/chown, 不必输入密码; 但运行/usr/sbin/useradd 命令时需要密码.</span><br><span class="line"> </span><br><span class="line">注意：因为NOPASSWD:只影响了其后的第一个命令: 命令1.</span><br><span class="line">在具有<span class="built_in">sudo</span>操作的用户下, 执行<span class="built_in">sudo</span> -l可以查看到该用户被允许和被禁止运行的命令</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">通配符和取消命令</span><br><span class="line">eg:papi ALL=/usr/sbin/*,/sbin/*,!/usr/sbin/fdisk</span><br><span class="line">命令前面加上!号表示取消该命令</span><br><span class="line">表示意思：用户papi在所有可能出现的主机上, 能够运行目录/usr/sbin和/sbin下所有的程序, 但fdisk除外.</span><br></pre></td></tr></table></figure>
+<p>系统文档推荐的做法是，修改<code>/etc/sudoers.d</code>
+目录下的文件通过此方法修改<code>sudoers</code>
+，需要在<code>/etc/sudoers</code>文件的最后行，加上 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@includedir /etc/sudoers.d</span><br></pre></td></tr></table></figure></p>
+<div class="note primary"><p>注意: 这里的指令<code>@includedir</code>是一个整体, 具体参考 <a
+target="_blank" rel="noopener" href="https://man.archlinux.org/man/sudoers.5#Including_other_files_from_within_sudoers">sudoers.5</a></p>
+<p>任何在<code>/etc/sudoers.d/</code>目录下，不以<code>~</code>号结尾的文件和不包含<code>.</code>号的文件，都会被解析成<code>/etc/sudoers</code>的内容。
+比如我新创建的用户 <code>hyc</code>
+想要实现<code>root</code>权限，可在<code>/etc/sudoers.d/</code>下新建一个文件<code>01_hyc</code>
+文件，输入以下语句<code>hyc ALL=(ALL:ALL) NOPASSWD:ALL</code> 。
+此时新建的用户就能获取<code>root</code>权限。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com.cn/developer/article/2372335">Linux -
+非root用户使用systemctl管理服务</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Sudo">Sudo-ArchWiki</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://man.archlinux.org/man/sudoers.5#Including_other_files_from_within_sudoers">sudoers.5</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1585,128 +1690,6 @@ Python 保存函数图象为 <code>csv</code>文件的操作流程。</p>
 target="_blank" rel="noopener" href="https://pythonjishu.com/pandas-dataframe/">详解pandas.DataFrame()（创建二维表格）函数使用方法</a></li>
 <li><a
 target="_blank" rel="noopener" href="https://blog.csdn.net/TeFuirnever/article/details/93708964">pd.DataFrame()函数解析（最清晰的解释）</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/09/%E5%BC%95%E5%AF%BC%E5%8A%A0%E8%BD%BD%E7%A8%8B%E5%BA%8FReFind/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/09/%E5%BC%95%E5%AF%BC%E5%8A%A0%E8%BD%BD%E7%A8%8B%E5%BA%8FReFind/" class="post-title-link" itemprop="url">引导加载程序ReFind</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-09 13:05:09" itemprop="dateCreated datePublished" datetime="2024-11-09T13:05:09+08:00">2024-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>原本使用 Linux 和 Windows11
-双系统电脑工作的非常好，直到有一天我更换了 4k 显示器，这时 Grub
-尽管可以配置成 WhiteSur 主题，也相当美观，但是每次开机时显示这个 4k
-的背景图片都相当慢。如果不使用主题，命令行的启动方式有些不友好，于是决定尝试安装另一个引导加载程序
-<a target="_blank" rel="noopener" href="http://www.rodsbooks.com/refind/">refind</a>,
-因为它默认的配置下启动采用图形模式，同时也要注意它只支持
-<strong>uefi</strong>.</p>
-<h1 id="安装">安装</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S refind</span><br><span class="line"><span class="built_in">sudo</span> refind-install</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：不必担心引导多系统的问题，它也能像<code>grub</code>一样自动检测电脑各硬盘中安装的操作系统，并自动添加到启动菜单中。</p>
-</div>
-<h1 id="安装主题">安装主题</h1>
-<h2 id="下载安装主题">下载安装主题</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:lukechilds/refind-ambience.git</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /boot/efi/EFI/refind/themes</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r refind-ambience  /boot/efi/EFI/refind/themes/</span><br></pre></td></tr></table></figure>
-<h2 id="启用主题">启用主题</h2>
-<p>在文件<code>/boot/efi/EFI/refind/refind.conf</code>的最后添加上如下启用主题配置</p>
-<figure class="highlight sh"><figcaption><span>/boot/efi/EFI/refind/refind.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include themes/refind-ambience/theme.conf</span><br></pre></td></tr></table></figure>
-<h1 id="卸载-grub">卸载 Grub</h1>
-<p>Before removing grub, make sure that some other boot loader is
-installed and configured to take over.</p>
-<figure class="highlight sh"><figcaption><span>$ efibootmgr</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Boot0000* Windows Boot Manager  HD(2,GPT,4dabbedf-191b-4432-bc09-8bcbd1d7dabf,0x109000,0x32000)/File(\EFI\Microsoft\Boot\bootmgfw.efi)</span><br><span class="line">Boot0001* GRUB  HD(2,GPT,4dabbedf-191b-4432-bc09-8bcbd1d7dabf,0x109000,0x32000)/File(\EFI\GRUB\grubx64.efi)</span><br><span class="line">Boot0002* Linux-Firmware-Updater        HD(2,GPT,5dabbedf-191b-4432-bc09-8bcbd1d7dabf,0x109000,0x32000)/File(\EFI\<span class="built_in">arch</span>\fwupdx64.efi)</span><br><span class="line">Boot0003* Linux Boot Manager    HD(2,GPT,4dabbedf-191b-4432-bc09-8bcbd1d7dabf,0x109000,0x32000)/File(\EFI\systemd\systemd-bootx64.efi)</span><br></pre></td></tr></table></figure>
-<p>If <code>BootOrder</code> has grub as the first entry, install
-another bootloader to put it in front, such as <code>systemd-boot</code>
-above. <code>grub</code> can then be removed using its
-<code>bootnum</code>.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> efibootmgr --delete-bootnum -b 1</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：如果您不想删除<code>Grub</code>，那也可以在<code>/boot/efi/EFI/refind/refind.conf</code>
-查找<code>dont_scan_dirs</code>,
-然后把不想显示的<code>Grub</code>菜单启动项添加在这里。由于<code>EFI</code>分区空间只有<code>500M</code>,
-所以在使用熟练后还是建议只保留一个引导程序。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/techysy/rEFInd">rEFind</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://bbs.deepin.org/zh/post/221068">一个好用又好看的UEFI启动管理器rEFInd</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://refind-themes-collection.netlify.app/">refind-themes-collection</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GRUB">Grub-ArchWiki</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://piotrnowicki.com/posts/2024-06-17/using-refind-instead-of-grub-as-boot-manager/">Using
-rEFInd instead of GRUB as Boot Manager</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.slant.co/topics/2239/~best-boot-loaders-managers">What
-are the best boot loaders/managers?</a></li>
 </ul>
 
       

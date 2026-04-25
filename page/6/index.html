@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,194 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/27/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8Hugo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/27/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8Hugo/" class="post-title-link" itemprop="url">静态网站生成器Hugo</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-27 11:29:09 / 修改时间：11:41:22" itemprop="dateCreated datePublished" datetime="2025-03-27T11:29:09+08:00">2025-03-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="hugo-介绍">Hugo 介绍</h1>
+<p>Hugo 是一个用 Go
+语言编写的开源静态网站生成器，因其卓越的性能和易用性而受到广泛欢迎。它允许用户通过简单的命令行操作快速构建、部署个人博客、文档站点或其他类型的静态内容网站。Hugo
+支持无限的内容类型、自定义分类法以及多种内置的短代码（shortcodes），使得内容创建变得异常简单。此外，它还拥有强大的主题系统，用户可以从丰富的官方及社区贡献的主题中选择适合自己的风格进行定制。</p>
+<ul>
+<li><p><strong>官方网站</strong>: <a
+target="_blank" rel="noopener" href="https://gohugo.io/">https://gohugo.io/</a><br />
+在这里你可以找到详细的文档、教程和支持论坛，帮助你从初学者成长为专家。</p></li>
+<li><p><strong>源码仓库</strong>: <a
+target="_blank" rel="noopener" href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo</a><br />
+Hugo 的源码托管在 GitHub 上，任何人都可以参与贡献或提出问题。</p></li>
+<li><p><strong>快速入门</strong>: <a
+target="_blank" rel="noopener" href="https://gohugo.com.cn/getting-started/quick-start/">https://gohugo.com.cn/getting-started/quick-start/</a><br />
+学习在几分钟内创建一个 Hugo 站点。</p></li>
+<li><p><strong>Hugo-Next主题</strong>: <a
+target="_blank" rel="noopener" href="https://themes.gohugo.io/themes/hugo-theme-next/#-live-preview">https://themes.gohugo.io/themes/hugo-theme-next</a><br />
+Easily &amp; powerful theme for Hugo engine.</p></li>
+<li><p><strong>Hugo-Next-Gitee</strong>: <a
+target="_blank" rel="noopener" href="https://gitee.com/hugo-next/hugo-theme-next/">https://gitee.com/hugo-next/hugo-theme-next/</a><br />
+«Hugo NexT» 是一款高质量且优雅的 Hugo 主题，从原来 Hexo 引擎的 NexT
+主题中移植过来，继续保留其经典的设计和 4 种不同页面布局模式，一切因
+重新出发愿你也能喜欢。</p></li>
+</ul>
+<hr />
+<h2 id="hexo-和-hugo-的对比">Hexo 和 Hugo 的对比</h2>
+<p>以下是 Hexo 和 Hugo 的主要功能和特性对比：</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 40%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>特性/工具</th>
+<th>Hexo</th>
+<th>Hugo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>开发语言</strong></td>
+<td>Node.js</td>
+<td>Go</td>
+</tr>
+<tr>
+<td><strong>运行速度</strong></td>
+<td>较慢，尤其在大型项目中</td>
+<td>极快，毫秒级生成</td>
+</tr>
+<tr>
+<td><strong>安装依赖</strong></td>
+<td>需要 Node.js 和 npm</td>
+<td>单一二进制文件，无需额外依赖</td>
+</tr>
+<tr>
+<td><strong>主题生态</strong></td>
+<td>主题丰富，社区活跃</td>
+<td>主题丰富，社区活跃</td>
+</tr>
+<tr>
+<td><strong>插件支持</strong></td>
+<td>插件多，但需要单独安装</td>
+<td>内置大量功能，无需额外插件</td>
+</tr>
+<tr>
+<td><strong>配置复杂度</strong></td>
+<td>配置文件较为复杂，需熟悉 YAML 或 JSON</td>
+<td>配置文件简洁，支持 TOML、YAML 和 JSON</td>
+</tr>
+<tr>
+<td><strong>国际化支持</strong></td>
+<td>支持，但需要额外插件</td>
+<td>内置国际化支持</td>
+</tr>
+<tr>
+<td><strong>模板引擎</strong></td>
+<td>EJS、Pug 等</td>
+<td>Go Template</td>
+</tr>
+<tr>
+<td><strong>社区规模</strong></td>
+<td>社区成熟，文档较完善</td>
+<td>社区快速增长，文档详细</td>
+</tr>
+<tr>
+<td><strong>学习曲线</strong></td>
+<td>中等，需要了解 Node.js 生态</td>
+<td>较低，开箱即用</td>
+</tr>
+<tr>
+<td><strong>扩展性</strong></td>
+<td>依赖插件，扩展性较强</td>
+<td>内置功能强大，扩展性稍弱</td>
+</tr>
+<tr>
+<td><strong>跨平台支持</strong></td>
+<td>需要 Node.js 环境</td>
+<td>原生支持跨平台</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="计划将-hexo-转换为-hugo">计划：将 Hexo 转换为 Hugo</h2>
+<p>考虑到当前时间限制（2025年3月27日星期四11时27分），暂时记录下将 Hexo
+转换为 Hugo 的计划。待有更充裕的时间时，我们可以开始这个转换过程。</p>
+<p>Hexo 是另一个流行的静态网站生成器，但 Hugo
+因其更快的速度和更大的灵活性可能更适合我们的需求。在转换过程中，我们需要注意以下几点：</p>
+<ol type="1">
+<li><p><strong>保持现有内容的完整性</strong><br />
+确保所有文章、页面和媒体文件都完整迁移到 Hugo。</p></li>
+<li><p><strong>调整主题和样式</strong><br />
+根据 Hugo 的主题系统重新适配或选择新的主题。</p></li>
+<li><p><strong>插件和功能迁移</strong><br />
+将 Hexo 中使用的插件功能替换为 Hugo 的等效实现。</p></li>
+<li><p><strong>测试与优化</strong><br />
+完成迁移后，进行全面的测试，确保网站运行正常，并根据需要进行优化。</p></li>
+</ol>
+<p>待方便时再执行具体步骤。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2108,166 +2296,6 @@ class="math inline">\(\frac{1}{2^{12}}\)</span>,
 <code>3.1415926538918395</code>,
 这个精度已经相当高了，计算量也急剧下降。所以对比之前的文章我们通过半角公式降低的计算量的同时，有效提高了计算精度。这个例子说明，对于同一个物理或数学问题，设计不同的算法，给出不同的公式是相当重要的事情。</p>
 </div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%EF%BC%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E9%80%89%E6%8B%A9%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%EF%BC%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E9%80%89%E6%8B%A9%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">蒙特卡洛方法计算圆周率：积分公式选择的方差分析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-18 00:22:27" itemprop="dateCreated datePublished" datetime="2025-03-18T00:22:27+08:00">2025-03-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用蒙特卡洛方法计算圆周率时，选择积分公式的关键在于<strong>方差的大小</strong>和<strong>实现的效率</strong>。本文通过数学推导和实验验证，对比两种常见积分公式的优劣。</p>
-<hr />
-<h2 id="积分公式的数学等价性">1. 积分公式的数学等价性</h2>
-<p>两个积分的数学结果均为π，但被积函数特性不同：</p>
-<ul>
-<li><p><strong>公式1</strong>：<br />
-<span class="math display">\[
-2 \int_0^1 \frac{1}{\sqrt{1 - x^2}} \, dx = \pi
-\]</span><br />
-被积函数 <span class="math inline">\(f_1(x) = \frac{1}{\sqrt{1 -
-x^2}}\)</span> 在 <span class="math inline">\(x \to 1\)</span>
-时发散，导致数值计算的不稳定性。</p></li>
-<li><p><strong>公式2</strong>：<br />
-<span class="math display">\[
-2 \int_{-1}^1 \sqrt{1 - x^2} \, dx = \pi
-\]</span><br />
-被积函数 <span class="math inline">\(f_2(x) = \sqrt{1 - x^2}\)</span>
-在区间 <span class="math inline">\([-1, 1]\)</span>
-上有界且连续，方差更小。</p></li>
-</ul>
-<hr />
-<h2 id="蒙特卡洛方法的方差分析">2. 蒙特卡洛方法的方差分析</h2>
-<h3 id="公式1的方差问题">2.1 公式1的方差问题</h3>
-<ul>
-<li><p><strong>发散特性</strong>：<br />
-<span class="math inline">\(f_1(x)\)</span> 在 <span
-class="math inline">\(x \to 1\)</span>
-处趋向无穷大，导致蒙特卡洛采样时方差显著增大。例如，当 <span
-class="math inline">\(x = 0.99\)</span> 时，<span
-class="math inline">\(f_1(x) \approx 7\)</span>，远高于平均值 <span
-class="math inline">\(\pi/2 \approx
-1.57\)</span>，极端值会严重干扰估计结果。</p></li>
-<li><p><strong>实现挑战</strong>：<br />
-需要均匀采样 <span class="math inline">\(x \in [0, 1]\)</span>，但靠近
-<span class="math inline">\(x = 1\)</span>
-的点对结果贡献极大，易引入噪声。</p></li>
-</ul>
-<h3 id="公式2的方差优势">2.2 公式2的方差优势</h3>
-<ul>
-<li><p><strong>有界性</strong>：<br />
-<span class="math inline">\(f_2(x)\)</span> 的值域为 <span
-class="math inline">\([0, 1]\)</span>，方差远小于公式1。例如，<span
-class="math inline">\(N=10^6\)</span>
-次采样时，公式2的估计误差通常比公式1低一个数量级。</p></li>
-<li><p><strong>数值稳定性</strong>：<br />
-无需处理函数发散问题，所有采样点的贡献均在可控范围内。</p></li>
-</ul>
-<hr />
-<h2 id="实验验证方差的量化对比">3. 实验验证：方差的量化对比</h2>
-<p>假设使用 <span class="math inline">\(N\)</span> 次采样：</p>
-<ul>
-<li><p><strong>公式1</strong>：<br />
-由于 <span class="math inline">\(f_1(x)\)</span> 的发散性，方差 <span
-class="math inline">\(D_1 \propto \int_0^1 \left( \frac{1}{\sqrt{1-x^2}}
-\right)^2 dx = \infty\)</span>（发散）。</p></li>
-<li><p><strong>公式2</strong>：<br />
-方差 <span class="math inline">\(D_2 = \int_{-1}^1 \left( \sqrt{1-x^2}
-\right)^2 dx - \left( \frac{\pi}{2} \right)^2 = \frac{\pi}{2} -
-\frac{\pi^2}{4} \approx 0.43\)</span>，远小于公式1。</p></li>
-</ul>
-<hr />
-<h2 id="代码实现对比">4. 代码实现对比</h2>
-<h3 id="公式2的c实现高效且低方差">4.1
-公式2的C++实现（高效且低方差）</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">estimate_pi</span>(<span class="params">n</span>):</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(-<span class="number">1</span>, <span class="number">1</span>)       <span class="comment"># 生成x ∈ [-1, 1]</span></span><br><span class="line">        y = random.uniform(<span class="number">0</span>, <span class="number">1</span>)        <span class="comment"># 生成y ∈ [0, 1]</span></span><br><span class="line">        <span class="keyword">if</span> y &lt;= math.sqrt(<span class="number">1</span> - x**<span class="number">2</span>):    <span class="comment"># 判断是否在半圆内</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 计算公式：2 * (积分值) = 2 * (count/N * 矩形面积)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.0</span> * (count * <span class="number">2.0</span> / n)      <span class="comment"># 矩形面积为2（宽2×高1）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：使用100万个样本</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Estimated π: <span class="subst">&#123;estimate_pi(<span class="number">1000000</span>)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="公式1的python实现高方差问题">4.2
-公式1的Python实现（高方差问题）</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_formula1</span>(<span class="params">n</span>):</span><br><span class="line">    x = np.random.uniform(<span class="number">0</span>, <span class="number">1</span>, n)</span><br><span class="line">    f = <span class="number">1</span> / np.sqrt(<span class="number">1</span> - x**<span class="number">2</span>)</span><br><span class="line">    integral = np.mean(f)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * integral</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试示例（方差极大）</span></span><br><span class="line"><span class="built_in">print</span>(monte_carlo_formula1(<span class="number">1000000</span>))  <span class="comment"># 结果可能波动明显</span></span><br></pre></td></tr></table></figure>
-<h2 id="结论">5. 结论</h2>
-<p>公式2（<span class="math inline">\(2\int_{-1}^{1} \sqrt{1 - x^2} \,
-dx\)</span>）是更优选择，原因如下：</p>
-<ol type="1">
-<li><strong>方差更小</strong>：被积函数 <span
-class="math inline">\(\sqrt{1 - x^2}\)</span> 在区间 <span
-class="math inline">\([-1, 1]\)</span>
-上有界且连续，使得蒙特卡洛方法的收敛速度更快。<br />
-</li>
-<li><strong>数值稳定性</strong>：无需处理函数发散问题（如公式1中 <span
-class="math inline">\(\frac{1}{\sqrt{1-x^2}}\)</span> 在 <span
-class="math inline">\(x \to 1\)</span>
-处的发散），避免极端值对估计结果的干扰。<br />
-</li>
-<li><strong>计算效率</strong>：在相同采样次数下，公式2的估计误差显著低于公式1，且计算过程更稳定。</li>
-</ol>
-<p>选择积分公式时，应优先考虑被积函数的<strong>有界性</strong>和<strong>光滑性</strong>，以降低蒙特卡洛方法的方差，从而提升计算效率。</p>
 
       
     </div>

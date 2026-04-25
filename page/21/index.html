@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,117 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/06/Veusz%E6%95%99%E7%A8%8B%E4%B9%8BColorbar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/06/Veusz%E6%95%99%E7%A8%8B%E4%B9%8BColorbar/" class="post-title-link" itemprop="url">Veusz教程之Colorbar</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-06 16:22:23" itemprop="dateCreated datePublished" datetime="2024-08-06T16:22:23+08:00">2024-08-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="控件简介">控件简介</h2>
+<p><code>Veusz</code>绘图，其将图像的各个部分称为<code>widget</code>（控件），对于每一个控件又分为<code>Properties</code>（属性）和<code>Formatting</code>（格式）在左侧边栏显示。如下图所示：</p>
+<figure>
+<img src="http://imgos.cn/2024/08/06/66b1dd4278864.png"
+alt="Widget、Properties and Formatting" />
+<figcaption aria-hidden="true">Widget、Properties and
+Formatting</figcaption>
+</figure>
+<p>在上图中，可以看到有<code>page</code>、<code>graph1</code>、<code>axis</code>(x
+和 y 轴各一个)、<code>colorbar</code>、<code>image</code>一共六个组件.
+它就像<code>PhotoShop</code>一样，将不同的组件放置于不同的<code>层</code>,
+当它们之前相互无遮挡时就可以从图上同时看到了。如果某一控件被遮蔽，则按住左边对应的控件，上下移动可以调整其层次，也可以通过右键来设置。</p>
+<h2 id="colorbar-控件设置">Colorbar 控件设置</h2>
+<ul>
+<li>点击工具栏中的<code>Colorbar</code>按扭添加<code>Colorbar</code>控件：</li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/06/66b1dec970a65.png"
+alt="添加Colorbar控件" />
+<figcaption aria-hidden="true">添加Colorbar控件</figcaption>
+</figure>
+<ul>
+<li>点击左侧<code>Colorbar</code>控件→<code>Properties</code>对话框，在<code>Widget</code>右侧的小箭头选择<code>image1</code>,
+如果有多个图片则可以选择某一个<code>image</code>然后此<code>Colorbar</code>就对应显示该图片的<code>Colorbar</code>.</li>
+<li>在<code>Properties</code>中选择<code>Direction</code>可以设置<code>Colorbar</code>方向为水平<code>horizontal</code>还是垂直<code>vertical</code>方向，其中<code>Axis</code>设置数值标尺相对于<code>Colorbar</code>的位置。其中<code>0</code>对应于<code>Colorbar</code>的左侧，<code>1</code>对应于<code>Colorbar</code>的右侧，<code>0.5</code>就位于中央。</li>
+<li>在<code>Formatting</code>对话框中，选中<code>Reflect</code>则数值标尺变成在坚线的左侧，不选中默认在坚线的右侧。</li>
+<li>在<code>Formatting</code>对话框中，可以设置<code>Horz posn</code>
+（水平位置）和 <code>Vert posn</code>（垂直位置）,
+由于一般默认情况<code>left</code>，<code>center</code>,<code>right</code>会覆盖于图片上，所以选择<code>manual</code>手工设置，然后在对话框最下面找到<code>Horz manual</code>设置为<code>1.05</code>就会在图片的右侧呈现<code>Colorbar</code>.</li>
+<li>按上述设置，配置好<code>Colorbar</code>后，最终得到下图</li>
+</ul>
+<figure>
+<img src="http://imgos.cn/2024/08/06/66b1e4ffe359a.png"
+alt="Mandelbrot集" />
+<figcaption aria-hidden="true">Mandelbrot集</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1360,130 +1471,6 @@ Linux 内核有更新。使用本方法仍然解决问题。</li>
 alt="蓝牙启动成功" />
 <figcaption aria-hidden="true">蓝牙启动成功</figcaption>
 </figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Linux%E4%B8%8B%E5%9C%A8%E7%BA%BF%E5%B9%BF%E6%92%AD%E8%BD%AF%E4%BB%B6Shortwave/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/01/Linux%E4%B8%8B%E5%9C%A8%E7%BA%BF%E5%B9%BF%E6%92%AD%E8%BD%AF%E4%BB%B6Shortwave/" class="post-title-link" itemprop="url">Linux下在线广播软件Shortwave</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-01 23:40:29" itemprop="dateCreated datePublished" datetime="2024-08-01T23:40:29+08:00">2024-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>收音机并未随着互联网时代的到来而消失，而是以互联网广播的形式继续存在，并且变得更加丰富。互联网广播除了传统的直播电台内容外，还有大量的自制节目，可供听众随意的点播、订阅，比如蜻蜓
-FM、喜马拉雅等。</p>
-<p>今天要介绍的是 Linux 下最优秀的在线广播收音机软件 Shortwave。使用
-Shortwave
-可以无限制收听世界各地的高品质广播电台，尤其是大量的音乐台、外语广播。</p>
-<figure>
-<img
-src="https://www.shortwave.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fhero.39f0dbf4.png&amp;w=1920&amp;q=75"
-alt="Shortwave" />
-<figcaption aria-hidden="true">Shortwave</figcaption>
-</figure>
-<p>Shortwave 官方网站：<a
-target="_blank" rel="noopener" href="https://www.shortwave.com">https://www.shortwave.com</a>,
-<code>Windows</code>、<code>IOS</code>
-和<code>Android</code>用户请前往官方网站下载安装包安装。</p>
-<p>ArchLinux
-并没有将<code>shortwave</code>收录到官方仓库，用户可以使用<code>paru</code>或<code>yay</code>安装</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S --noconfirm shortwave</span><br></pre></td></tr></table></figure>
-<p>LinuxMint 用户可以在软件中心（软件管理器）中搜索安装即可。 <img
-src="http://www.mintos.org/wp-content/uploads/2024/07/01-shortwave-radio.jpg" /></p>
-<p>启动
-Shortwave，界面简洁，没有任何复杂的设置，甚至可以说，没有设置。主界面罗列了各种流行电台，顶部一个搜索栏。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/02-shortwave-radio.jpg" /></p>
-<p>随便点击一个电台，即可播放。虽然是国外电台，但相应速度不错，也不会卡顿。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/03-shortwave-radio.jpg" /></p>
-<p>对于喜欢的电台可以点击电台详情，然后“添加到库”进行收藏。这个 Dance
-Wave 是以 DJ 动感舞曲为主的电台。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/04-shortwave-radio.jpg" /></p>
-<p>Music Lake 以纯净、轻音乐为主；Radio Paradise
-则是320k高品质的音乐节目，音质很棒。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/05-shortwave-radio.jpg" /></p>
-<p>Shortwave
-除了罗列各种流行电台，也可以搜索。如图所示，搜索美国知音的电台结果。想
-1990 年代末、2000
-年代初，薄荷君在高中、大学时期，经常用那嘈杂不堪、信号不稳的收音机，左右摇摆天线，收听
-VOA Special English 慢速英语。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/06-shortwave-radio.jpg" /></p>
-<p>Shortwave 还可以缩小成 Mini 播放器模式。<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/07-shortwave-radio.jpg" /></p>
-<p>如前所述，Shortwave
-没有什么设置选项，只有一个关闭/打开消息通知。够简单易用吧？<br />
-<img
-src="http://www.mintos.org/wp-content/uploads/2024/07/08-shortwave-radio.jpg" /></p>
 
       
     </div>

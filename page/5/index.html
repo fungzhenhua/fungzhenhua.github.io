@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,116 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/12/%E5%86%85%E7%A7%AF%E7%9A%84%E4%B8%89%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/12/%E5%86%85%E7%A7%AF%E7%9A%84%E4%B8%89%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">内积的三种表示方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-12 11:49:43 / 修改时间：12:20:17" itemprop="dateCreated datePublished" datetime="2025-04-12T11:49:43+08:00">2025-04-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在不同的物理学研究领域中，往往使用的符号不太一致，这对于理解某一项技术有些困难。因此，本文总结三种内积的表示方法：标准矢量分析、矩阵转置和狄拉克符号法。</p>
+<h2 id="标准矢量分析">标准矢量分析</h2>
+<p>在经典矢量分析、物理学、理论物理中使用标准矢量分析表示内积：</p>
+<p><span class="math display">\[\begin{equation}\label{eq:dianji}
+A\cdot{}B=\sum_{i}A_iB_i
+\end{equation}\]</span></p>
+<p>此公式明确表示了两个向量的投影关系。</p>
+<h2 id="矩阵转置">矩阵转置</h2>
+<p>此法一般在线性代数和数值计算中采用矩阵形式，其特点是：将向量视为列矩阵，通过转置(T),将其变为行矩阵，然后利用矩阵乘法的实现点积的表达,
+但是在解析推导中较少使用，而在代码中更直观.</p>
+<p><span class="math display">\[\begin{equation}\label{eq:jvzhen}
+A^TB
+=
+\begin{bmatrix}
+A_1 , A_2, \cdots , A_n
+\end{bmatrix}
+\begin{bmatrix}
+B_1 \\ B_2 \\ \vdots \\ B_n
+\end{bmatrix}
+=\sum_{i}A_iB_i
+\end{equation}\]</span></p>
+<h2 id="狄拉克符号法">狄拉克符号法</h2>
+<p>狄拉克符号法主要使用在量子力学、泛函分析等领域。一般情况下，它和点积是等价的，即</p>
+<p><span class="math display">\[\begin{equation}\label{eq:dirac}
+&lt;A,B&gt;=\sum_iA_iB_i
+\end{equation}\]</span></p>
+<p>但是如果向量是复数，则稍有不同，即</p>
+<p><span class="math display">\[\begin{equation}\label{eq:dirac0}
+&lt;A,B&gt;=\sum_iA_i^{*}B_i
+\end{equation}\]</span></p>
+<p>注意：在严格的标准矢量分析时应当优先使用<span
+class="math inline">\(A\cdot{}B\)</span>的形式，而其他形式需结合上下文明确含义。</p>
+<h2 id="爱因斯坦约定">爱因斯坦约定</h2>
+<p>爱因斯坦提出了一种上下标相同表示对全部指标求和的方法，我们补充在最后。其定义为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:einstein}
+A^iB_i=\sum_i A^iB_i
+\end{equation}\]</span></p>
+<p>这里的自动求各指标<span
+class="math inline">\(i\)</span>称为哑标。矢量的分<span
+class="math inline">\(B_i\)</span>表示协变分量，<span
+class="math inline">\(A^i\)</span>表示逆变分量。协变分量和逆变分量是对偶基底下的两个表示，这是最大程度的普遍形式，它在相对论中使用广泛。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1690,194 +1800,6 @@ Pages设置中添加自定义域名，并配置DNS解析。</p>
 <h2 id="总结">总结</h2>
 <p>无论是通过静态网站生成器还是手动生成HTML文件，只要最终能获得一个完整的静态网站目录，就可以通过GitHub
 Pages发布为网页。这种方法简单、免费且高效，非常适合个人博客、项目展示等场景。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/27/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8Hugo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/27/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8Hugo/" class="post-title-link" itemprop="url">静态网站生成器Hugo</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-27 11:29:09 / 修改时间：11:41:22" itemprop="dateCreated datePublished" datetime="2025-03-27T11:29:09+08:00">2025-03-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="hugo-介绍">Hugo 介绍</h1>
-<p>Hugo 是一个用 Go
-语言编写的开源静态网站生成器，因其卓越的性能和易用性而受到广泛欢迎。它允许用户通过简单的命令行操作快速构建、部署个人博客、文档站点或其他类型的静态内容网站。Hugo
-支持无限的内容类型、自定义分类法以及多种内置的短代码（shortcodes），使得内容创建变得异常简单。此外，它还拥有强大的主题系统，用户可以从丰富的官方及社区贡献的主题中选择适合自己的风格进行定制。</p>
-<ul>
-<li><p><strong>官方网站</strong>: <a
-target="_blank" rel="noopener" href="https://gohugo.io/">https://gohugo.io/</a><br />
-在这里你可以找到详细的文档、教程和支持论坛，帮助你从初学者成长为专家。</p></li>
-<li><p><strong>源码仓库</strong>: <a
-target="_blank" rel="noopener" href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo</a><br />
-Hugo 的源码托管在 GitHub 上，任何人都可以参与贡献或提出问题。</p></li>
-<li><p><strong>快速入门</strong>: <a
-target="_blank" rel="noopener" href="https://gohugo.com.cn/getting-started/quick-start/">https://gohugo.com.cn/getting-started/quick-start/</a><br />
-学习在几分钟内创建一个 Hugo 站点。</p></li>
-<li><p><strong>Hugo-Next主题</strong>: <a
-target="_blank" rel="noopener" href="https://themes.gohugo.io/themes/hugo-theme-next/#-live-preview">https://themes.gohugo.io/themes/hugo-theme-next</a><br />
-Easily &amp; powerful theme for Hugo engine.</p></li>
-<li><p><strong>Hugo-Next-Gitee</strong>: <a
-target="_blank" rel="noopener" href="https://gitee.com/hugo-next/hugo-theme-next/">https://gitee.com/hugo-next/hugo-theme-next/</a><br />
-«Hugo NexT» 是一款高质量且优雅的 Hugo 主题，从原来 Hexo 引擎的 NexT
-主题中移植过来，继续保留其经典的设计和 4 种不同页面布局模式，一切因
-重新出发愿你也能喜欢。</p></li>
-</ul>
-<hr />
-<h2 id="hexo-和-hugo-的对比">Hexo 和 Hugo 的对比</h2>
-<p>以下是 Hexo 和 Hugo 的主要功能和特性对比：</p>
-<table>
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 40%" />
-<col style="width: 39%" />
-</colgroup>
-<thead>
-<tr>
-<th>特性/工具</th>
-<th>Hexo</th>
-<th>Hugo</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>开发语言</strong></td>
-<td>Node.js</td>
-<td>Go</td>
-</tr>
-<tr>
-<td><strong>运行速度</strong></td>
-<td>较慢，尤其在大型项目中</td>
-<td>极快，毫秒级生成</td>
-</tr>
-<tr>
-<td><strong>安装依赖</strong></td>
-<td>需要 Node.js 和 npm</td>
-<td>单一二进制文件，无需额外依赖</td>
-</tr>
-<tr>
-<td><strong>主题生态</strong></td>
-<td>主题丰富，社区活跃</td>
-<td>主题丰富，社区活跃</td>
-</tr>
-<tr>
-<td><strong>插件支持</strong></td>
-<td>插件多，但需要单独安装</td>
-<td>内置大量功能，无需额外插件</td>
-</tr>
-<tr>
-<td><strong>配置复杂度</strong></td>
-<td>配置文件较为复杂，需熟悉 YAML 或 JSON</td>
-<td>配置文件简洁，支持 TOML、YAML 和 JSON</td>
-</tr>
-<tr>
-<td><strong>国际化支持</strong></td>
-<td>支持，但需要额外插件</td>
-<td>内置国际化支持</td>
-</tr>
-<tr>
-<td><strong>模板引擎</strong></td>
-<td>EJS、Pug 等</td>
-<td>Go Template</td>
-</tr>
-<tr>
-<td><strong>社区规模</strong></td>
-<td>社区成熟，文档较完善</td>
-<td>社区快速增长，文档详细</td>
-</tr>
-<tr>
-<td><strong>学习曲线</strong></td>
-<td>中等，需要了解 Node.js 生态</td>
-<td>较低，开箱即用</td>
-</tr>
-<tr>
-<td><strong>扩展性</strong></td>
-<td>依赖插件，扩展性较强</td>
-<td>内置功能强大，扩展性稍弱</td>
-</tr>
-<tr>
-<td><strong>跨平台支持</strong></td>
-<td>需要 Node.js 环境</td>
-<td>原生支持跨平台</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="计划将-hexo-转换为-hugo">计划：将 Hexo 转换为 Hugo</h2>
-<p>考虑到当前时间限制（2025年3月27日星期四11时27分），暂时记录下将 Hexo
-转换为 Hugo 的计划。待有更充裕的时间时，我们可以开始这个转换过程。</p>
-<p>Hexo 是另一个流行的静态网站生成器，但 Hugo
-因其更快的速度和更大的灵活性可能更适合我们的需求。在转换过程中，我们需要注意以下几点：</p>
-<ol type="1">
-<li><p><strong>保持现有内容的完整性</strong><br />
-确保所有文章、页面和媒体文件都完整迁移到 Hugo。</p></li>
-<li><p><strong>调整主题和样式</strong><br />
-根据 Hugo 的主题系统重新适配或选择新的主题。</p></li>
-<li><p><strong>插件和功能迁移</strong><br />
-将 Hexo 中使用的插件功能替换为 Hugo 的等效实现。</p></li>
-<li><p><strong>测试与优化</strong><br />
-完成迁移后，进行全面的测试，确保网站运行正常，并根据需要进行优化。</p></li>
-</ol>
-<p>待方便时再执行具体步骤。</p>
 
       
     </div>

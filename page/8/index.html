@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,104 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/%E5%9C%A8LaTeX%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAPDF%E6%96%87%E4%BB%B6%E5%B9%B6%E6%B7%BB%E5%8A%A0%E8%B6%85%E9%93%BE%E6%8E%A5%E5%BC%95%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/05/%E5%9C%A8LaTeX%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAPDF%E6%96%87%E4%BB%B6%E5%B9%B6%E6%B7%BB%E5%8A%A0%E8%B6%85%E9%93%BE%E6%8E%A5%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">在LaTeX中合并多个PDF文件并添加超链接引用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-05 18:01:25" itemprop="dateCreated datePublished" datetime="2025-03-05T18:01:25+08:00">2025-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>如果你正在寻找一种方法来将多个PDF文件整合到一个LaTeX文档中，并且希望在这个过程中添加超链接引用，那么这篇文章正好适合你。我们将介绍如何使用<code>pdfpages</code>宏包来插入外部PDF文件，以及如何通过<code>hyperref</code>宏包添加内部和外部的超链接，包括利用<code>\phantomsection</code>命令为非结构化元素创建锚点。</p>
+<h2
+id="使用pdfpages宏包合并pdf文件">使用<code>pdfpages</code>宏包合并PDF文件</h2>
+<p>首先，在LaTeX文档的导言区引入<code>pdfpages</code>宏包：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;pdfpages&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，你可以使用<code>\includepdf[选项]&#123;文件名&#125;</code>命令来插入PDF文件。例如，插入整个PDF文件：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includepdf</span>[pages=-]&#123;filename1.pdf&#125;</span><br></pre></td></tr></table></figure>
+<p>或选择特定页面插入：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includepdf</span>[pages=2,5-7]&#123;filename1.pdf&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="添加超链接引用">添加超链接引用</h2>
+<p>为了添加超链接功能，需要引入hyperref宏包：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[hidelinks]&#123;hyperref&#125;</span><br></pre></td></tr></table></figure>
+<p><code>hidelinks</code>选项去掉了超链接周围的彩色边框，使文档看起来更整洁。接下来，可以使用以下命令添加不同类型的超链接：</p>
+<ul>
+<li><p>内部链接： <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\hyperref</span>[sec:intro]&#123;introduction section&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>网页链接：直接生成网址 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Visit <span class="keyword">\url</span>&#123;<span class="link">https://www.example.com</span>&#125; for additional information.</span><br></pre></td></tr></table></figure></p></li>
+<li><p>网页链接：隐藏链接网址 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also visit <span class="keyword">\href</span>&#123;<span class="link">https://www.example.com</span>&#125;&#123;this website&#125; for more details.</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="隐形定位点">隐形定位点</h2>
+<p>时候你需要为非结构化的元素（如未编号的章节标题）创建一个目标位置。这时可以使用<code>\phantomsection</code>命令：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\clearpage</span></span><br><span class="line"><span class="keyword">\phantomsection</span></span><br><span class="line"><span class="keyword">\label</span>&#123;sec:important<span class="built_in">_</span>note&#125;</span><br><span class="line"><span class="keyword">\noindent</span>&#123;<span class="keyword">\Large</span> <span class="keyword">\textbf</span>&#123;Important Note&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>这会在“Important
+Note”部分创建一个可供<code>\ref&#123;&#125;</code>引用的标签，并允许读者通过点击超链接跳转到该部分。通过设置隐形定位点，你可以在LaTeX文档中高效地整合多个PDF文件，同时添加各种形式的超链接引用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1223,137 +1321,6 @@ target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1785808633
 <li><a
 target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/9faa72318667aa473c28cbe6.html">Windows10系统启用和关闭快速启动的两种方法</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/10/Mandelbrot%E9%9B%86%E7%94%9F%E6%88%90%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/02/10/Mandelbrot%E9%9B%86%E7%94%9F%E6%88%90%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Mandelbrot集生成的两种方式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-02-10 16:22:12" itemprop="dateCreated datePublished" datetime="2025-02-10T16:22:12+08:00">2025-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="mandelbrot-集简介">Mandelbrot 集简介</h1>
-<p>Mandelbrot
-集是数学中一个非常著名的分形集合，它以法国数学家本华·曼德勃罗的名字命名。分形是一种具有自相似性质的几何形状，意味着无论放大多少倍，其部分看起来与整体相似。
-Mandelbrot
-集正是这种特性的典型代表，并且因其复杂而美丽的图形成为了计算机图形学、艺术以及数学研究中的重要主题。</p>
-<p>Mandelbrot 集定义于复数平面上，由所有不使序列 $ z_{n+1} = z_n^2 + c $
-发散至无穷大的点 $ c $ 组成，其中 $ z_0 = 0
-$。换句话说，对于每一个位于复数平面上的点 $ c $，从 $ z=0 $
-开始应用上述迭代公式，如果该序列保持有界，则点 $ c $ 属于 Mandelbrot
-集；反之，如果序列趋向于无穷大，则该点不属于此集合。通常情况下，为了判断一个点是否属于
-Mandelbrot
-集，会设定一个最大迭代次数和逃逸半径（通常是2），如果在达到最大迭代次数前，序列的模超过了逃逸半径，则认为该点发散。</p>
-<h1 id="直接实现方式">直接实现方式</h1>
-<figure class="highlight python"><figcaption><span>直接保存为csv文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># Mandelbrot Set参数</span></span><br><span class="line">picname = <span class="string">&quot;Mandelbrot&quot;</span></span><br><span class="line">file_name = <span class="string">f&quot;<span class="subst">&#123;picname&#125;</span>.csv&quot;</span></span><br><span class="line">width, height = <span class="number">1000</span>, <span class="number">1000</span>  <span class="comment"># 图像的宽度和高度</span></span><br><span class="line">max_iter = <span class="number">100</span>  <span class="comment"># 最大迭代次数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mandelbrot_set</span>(<span class="params">width, height, max_iter</span>):</span><br><span class="line">    x = np.linspace(-<span class="number">2.5</span>, <span class="number">1.5</span>, width)</span><br><span class="line">    y = np.linspace(-<span class="number">2</span>, <span class="number">2</span>, height)</span><br><span class="line">    escape_time = np.zeros((height, width))  <span class="comment"># 注意这里的维度顺序</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            c = <span class="built_in">complex</span>(x[i], y[j])</span><br><span class="line">            z = <span class="number">0</span></span><br><span class="line">            n = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">abs</span>(z) &lt;= <span class="number">2</span> <span class="keyword">and</span> n &lt; max_iter:</span><br><span class="line">                z = z*z + c</span><br><span class="line">                n += <span class="number">1</span></span><br><span class="line">            escape_time[j, i] = n  <span class="comment"># 根据像素位置更新逃逸时间</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> x, y, escape_time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算Mandelbrot集</span></span><br><span class="line">x_coords, y_coords, escape_time = mandelbrot_set(width, height, max_iter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将结果保存为适合Veusz导入的格式</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="comment"># 写入X坐标行</span></span><br><span class="line">    file.write(<span class="string">&#x27;,&#x27;</span> + <span class="string">&#x27;,&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, x_coords)) + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(escape_time.shape[<span class="number">0</span>]):</span><br><span class="line">        <span class="comment"># 写入每行的数据，先写Y坐标，然后是该行的逃逸时间值</span></span><br><span class="line">        file.write(<span class="built_in">str</span>(y_coords[j]) + <span class="string">&#x27;,&#x27;</span> + <span class="string">&#x27;,&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, escape_time[j])) + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Mandelbrot集已成功保存到<span class="subst">&#123;file_name&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="使用-pandas-库保存数据">使用 Pandas 库保存数据</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mandelbrot</span>(<span class="params">c, max_iter</span>):</span><br><span class="line">    z = <span class="number">0</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">abs</span>(z) &lt;= <span class="number">2</span> <span class="keyword">and</span> n &lt; max_iter:</span><br><span class="line">        z = z*z + c</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mandelbrot_set</span>(<span class="params">xmin, xmax, ymin, ymax, width, height, max_iter</span>):</span><br><span class="line">    r1 = np.linspace(xmin, xmax, width)</span><br><span class="line">    r2 = np.linspace(ymin, ymax, height)</span><br><span class="line">    m = np.empty((width,height))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">            m[i,j] = mandelbrot(r1[i] + <span class="number">1j</span>*r2[j], max_iter)</span><br><span class="line">    <span class="keyword">return</span> m, r1, r2  <span class="comment"># 返回m以及对应的x和y坐标值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置参数并生成Mandelbrot集合</span></span><br><span class="line">xmin, xmax, ymin, ymax = -<span class="number">2.0</span>, <span class="number">1.0</span>, -<span class="number">1.5</span>, <span class="number">1.5</span></span><br><span class="line">width, height = <span class="number">800</span>, <span class="number">800</span></span><br><span class="line">max_iter = <span class="number">256</span></span><br><span class="line"></span><br><span class="line">m, r1, r2 = mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图像（可选）</span></span><br><span class="line"><span class="comment"># plt.imshow(m.T, extent=[xmin, xmax, ymin, ymax], cmap=&#x27;hot&#x27;, interpolation=&#x27;bilinear&#x27;)</span></span><br><span class="line"><span class="comment"># plt.colorbar()</span></span><br><span class="line"><span class="comment"># plt.title(&quot;Mandelbrot Set&quot;)</span></span><br><span class="line"><span class="comment"># plt.show()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将结果保存为CSV文件</span></span><br><span class="line"><span class="comment"># 创建一个列表来保存数据点</span></span><br><span class="line">data_points = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(width):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(height):</span><br><span class="line">        data_points.append([r1[i], r2[j], m[i, j]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用pandas DataFrame保存数据</span></span><br><span class="line">df = pd.DataFrame(data_points, columns=[<span class="string">&#x27;Re&#x27;</span>, <span class="string">&#x27;Im&#x27;</span>, <span class="string">&#x27;Iteration&#x27;</span>])</span><br><span class="line">df.to_csv(<span class="string">&#x27;mandelbrot_set.csv&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Mandelbrot集合已成功保存至mandelbrot_set.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h1 id="pandas-保存数据与直接保存数据的不同">Pandas
-保存数据与直接保存数据的不同</h1>
-<p>在处理和存储数据时，使用Pandas的<code>DataFrame</code>来保存数据与直接保存数据（例如将数据保存为纯文本、CSV文件等）有着显著的区别。以下是这两种方法的主要不同点：</p>
-<h2 id="使用-pandas-dataframe保存数据">使用 Pandas
-<code>DataFrame</code>保存数据</h2>
-<h3 id="结构化存储">结构化存储</h3>
-<ul>
-<li><strong>表格形式</strong>：<code>DataFrame</code>提供了一个二维表格结构，支持行和列标签，并允许每列有不同的数据类型。</li>
-<li><strong>强大的数据操作能力</strong>：内置了丰富的函数用于数据清洗、转换、筛选、聚合等高级功能。</li>
-</ul>
-<h3 id="索引和标签支持">索引和标签支持</h3>
-<ul>
-<li><strong>灵活访问</strong>：可以通过列名、行位置或布尔索引来选取子集，便于快速定位所需信息。</li>
-<li><strong>多级索引</strong>：支持复杂的索引机制，使得数据管理和查询更加灵活。</li>
-</ul>
-<h3 id="缺失值处理">缺失值处理</h3>
-<ul>
-<li><strong>自动管理缺失数据</strong>：通过<code>NaN</code>表示缺失值，并提供了多种方法来清理或填补这些缺失值。</li>
-</ul>
-<h3 id="数据可视化和分析集成">数据可视化和分析集成</h3>
-<ul>
-<li><strong>与其他库的良好集成</strong>：可以方便地与NumPy、Matplotlib、Seaborn等科学计算和可视化库结合使用，增强数据分析能力。</li>
-</ul>
-<h2 id="直接保存数据">直接保存数据</h2>
-<h3 id="简单的数据格式">简单的数据格式</h3>
-<ul>
-<li><strong>通用性高</strong>：直接存储的数据通常保存为原始格式，如CSV、TXT、JSON等，适合于结构相对简单、规模较小的数据集。</li>
-<li><strong>轻量级</strong>：这种保存方式不依赖于外部库，适合需要跨平台使用的场景。</li>
-</ul>
-<h3 id="有限的数据处理能力">有限的数据处理能力</h3>
-<ul>
-<li><strong>缺乏高级特性</strong>：直接存储的数据没有内置的数据处理功能，如果需要进行数据处理，则需编写额外的代码或使用其他工具。</li>
-<li><strong>基础操作</strong>：虽然可以直接读写数据，但复杂的数据操作如过滤、分组、聚合等需要额外的努力来实现。</li>
-</ul>
-<h3 id="通用性和可移植性">通用性和可移植性</h3>
-<ul>
-<li><strong>易于分享</strong>：由于直接存储的数据格式通常是通用的，因此可以在不同的编程语言和环境中读取和写入，增加了跨平台使用的便利性。</li>
-</ul>
-<p>总的来说，选择哪种方式取决于具体的应用需求和数据特点。<code>DataFrame</code>
-提供了一种更为强大和灵活的方式来存储和处理数据，特别适用于复杂的数据分析任务；而直接保存数据更适合于简单场景，或者当你需要一种轻量级、跨平台的数据交换方式时。</p>
 
       
     </div>

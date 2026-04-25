@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,118 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/%E6%96%9C%E6%9D%A0%E4%B8%8E%E5%8F%8D%E6%96%9C%E6%9D%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/25/%E6%96%9C%E6%9D%A0%E4%B8%8E%E5%8F%8D%E6%96%9C%E6%9D%A0/" class="post-title-link" itemprop="url">斜杠与反斜杠</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-25 14:31:46" itemprop="dateCreated datePublished" datetime="2024-07-25T14:31:46+08:00">2024-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在许多编程语言和日常工作中都会遇到斜杠和反斜杠。它们的具体解释为：</p>
+<ul>
+<li><p>斜杠(slash): “ /
+”是斜杠，因为它的顶端是向前面倾斜的，英文中有时候也叫做“forward
+slash”；</p></li>
+<li><p>反斜杠(backslash)：“\”是反斜杠，注意，它的顶端是向后倾斜的。要将它和普通的斜杠（“/”）区分开来。</p></li>
+</ul>
+<p><code>斜杠</code>经常会用来在诸如<code>Unix的文件系统</code>中和<code>万维网网址</code>中表示目录和子目录路径等。很遗憾的是，很多人都把反斜杠（“\”）当做是普通斜杠（“/”）的某种技术用语，错误的使用术语，混淆斜杠和反斜杠的风险让那些足够了解他们的人可以区分他们，但是了解仍不够他们意识到万维网的地址中很少会包含反斜杠（“\”）的。</p>
+<h2 id="windows-和-linux-的路径区别">Windows 和 Linux 的路径区别</h2>
+<ul>
+<li>路径分隔符不同：Windows使用<code>反斜杠</code>“\”，而Linux使用<code>正斜杠</code>“/”。</li>
+<li>文件名大小写敏感：Windows不区分大小写，Linux区分大小写。</li>
+<li>文件系统根目录不同：Windows的根目录是盘符（如C:\），Linux的根目录是“/”。</li>
+<li>文件权限不同：Linux采用基于权限的访问控制，Windows采用基于用户的访问控制。</li>
+<li>文件扩展名不同：Windows的文件扩展名以“.”作为分隔符，Linux通常没有特定的分隔符</li>
+</ul>
+<h2 id="linux-shell-参数续行">Linux Shell 参数续行</h2>
+<p><code>Shell</code>命令行下反斜线"\"有两种含义:</p>
+<h3 id="对有特殊含义的字符进行转义">对有特殊含义的字符进行转义</h3>
+<p>例如 echo "123\ \$"，结果是"123$"</p>
+<h3 id="enter-反斜杠后面紧跟回车表示下一行是当前行的续航">\Enter,
+反斜杠后面紧跟回车，表示下一行是当前行的续航</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./configure --sbin-path=/usr/local/nginx/nginx \</span><br><span class="line">     --conf-path=/usr/local/nginx/nginx.conf \</span><br><span class="line">     --pid-path=/usr/local/nginx/nginx.pid \</span><br><span class="line">     --with-http\_ssl\_module \</span><br><span class="line">     --with-pcre=/usr/local/src/pcre-8.21 \</span><br><span class="line">     --with-zlib=/usr/local/src/zlib-1.2.8 \</span><br><span class="line">     --with-openssl=/usr/local/src/openssl-1.0.1c</span><br></pre></td></tr></table></figure>
+<h2 id="python-多行语句">Python 多行语句</h2>
+<p>Python 通常是一行写完一条语句，但如果语句很长，我们可以使用反斜杠
+<code>\\</code> 来实现多行语句，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">total = item_one + \</span><br><span class="line">        item_two + \</span><br><span class="line">        item_three</span><br></pre></td></tr></table></figure>
+<p>在 <code>[]</code>, <code>&#123;&#125;</code>, 或 <code>()</code>
+中的多行语句，不需要使用反斜杠 <code>\\</code>，例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">total = [<span class="string">&#x27;item_one&#x27;</span>, <span class="string">&#x27;item_two&#x27;</span>, <span class="string">&#x27;item_three&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;item_four&#x27;</span>, <span class="string">&#x27;item_five&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="latex-中的反斜杠">LaTeX 中的反斜杠</h2>
+<p>LaTeX
+中的命令通常是由一个反斜杠加上命令名称，再加上花括号内的参数构成的。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;ctexart&#125;</span><br></pre></td></tr></table></figure>
+<p>LaTeX 中有许多字符都有特殊的意义， LaTeX 中的保留字符有
+<code>\#</code>,<code>\$</code>,<code>\%</code>,<code>\&amp;</code>,<code>\_</code>,<code>&#123; &#125;</code>,
+<code>\</code>，这些在正文中都不能直接呈现,需借助<code>反斜杠</code>转义。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1756,137 +1868,6 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_21946723/articl
 Linux上简单地创建wifi热点（只用一块无线网卡）</a>,
 共享wifi需要安装<code>linux-wifi-hotspot</code>,
 但是按其配置好我的电脑并不能通过<code>linux-wifi-hotspot</code>共享网络，或许在其文章底部的<del>当然不是用来共享校园网</del>说明了问题。于是果断删除此软件,在安装好<code>dnsmasq</code>之后，使用<code>Gnome</code>自带的创建<code>wifi</code>共享网络成功。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/16/%E4%B8%BA%E4%BD%95%E6%9C%89%E4%BA%9BM-2%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E4%BC%9A%E6%9C%89%E4%B8%A4%E4%B8%AA%E7%BC%BA%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/16/%E4%B8%BA%E4%BD%95%E6%9C%89%E4%BA%9BM-2%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E4%BC%9A%E6%9C%89%E4%B8%A4%E4%B8%AA%E7%BC%BA%E5%8F%A3/" class="post-title-link" itemprop="url">为何有些M-2固态硬盘会有两个缺口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-16 12:11:38" itemprop="dateCreated datePublished" datetime="2024-07-16T12:11:38+08:00">2024-07-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>提到M.2，大家都知道它是固态硬盘接口，不过并不是所有M.2接口都能安装各种类型的固态硬盘。为什么有些M.2固态硬盘接口上会有两个缺口，而有些则只有一个？其中的诸多的讲究，让我们一起了解下。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/d48c2d735ea8489e805ff6433994a1d6.jpeg" /></p>
-<p>我们平时看到的M.2模块大多是M.2 2242或M.2
-2280规格，除此之外M.2还提供了多种标准规格。一个基本的原则是小体积可以安装到大体积插槽内，M.2
-2242就比M.2 2280更灵活。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/f6ca44cd79b74cb5b9bad2cc320defe1.jpeg" /></p>
-<p>并不是所有的M.2接口都是给固态硬盘使用的，比如下图中的M.2 E
-Key插槽就是留给无线网卡专用。仔细观察你会发现E
-Key的缺口位置和普通固态硬盘上的B
-Key有所不同，M.2插槽就是通过缺口的位置来表达自己能够支持的M.2设备类型。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/4b9e377e236f49e6bf7c328ae8a2c99c.jpeg" /></p>
-<p>常见的M.2固态硬盘分为一个缺口（M Key）和两个缺口（B
-Key）两种类型。下图中从上到下分别是东芝饥饿鲨RD400
-NVMe固态硬盘、东芝Q200 240G M.2固态硬盘和东芝RC100
-NVMe固态硬盘，分别对应PCIE NVMe、SATA AHCI、PCIE
-NVMe接口。也就是说，两个缺口的M.2固态硬盘既有可能是NVMe协议，也有可能为SATA协议，而只有一个缺口（M
-Key）的通常只有NVMe协议一种可能。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/61e9e97cf0c2470da243eefa6e28b949.jpeg" /></p>
-<p>与固态硬盘相对应的是，M.2插槽上的卡口位置也有一些不同。下图比较了Socket
-2和Socket 3两种最常见M.2插槽。Socket 2插槽支持PCIe
-x2或SATA通道，而Socket 3插槽则支持PCIe x4或SATA通道。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/f7f3c2a4266b410084bdbed766bcdaa3.jpeg" /></p>
-<p>现在结论就比较明朗了，由于插槽卡口的限制，两个缺口（B+M
-Key）的固态硬盘可以安装到Socket 2或Socket
-3两种形式的M.2插槽中，而一个缺口（M Key）的固态硬盘只能安装到Socket
-3插槽。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/9e245dacf2c04eea8e6def22f2c9a2e9.jpeg" /></p>
-<p>两个缺口的固态硬盘只能支持PCIe
-x2通道，在持续读写带宽上会有所限制，但决定日常使用性能的4K随机读写效能却不受影响。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/02050a1c83d84da1b17526b043207fbb.png" /></p>
-<p>虽说x2通道对性能会有所限制，但也不乏优秀产品。譬如东芝的迷你NVMe
-SSD——RC100 就使用了B+M
-Key规格，在保持优良的兼容性的同时，4K随机读取速度达到58.55MB/s，基本和高端的旗舰级NVMe固态硬盘保持一致。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/4e22eac7e70944ab8cab008517114f31.png" /></p>
-<p>受益于B+M Key的双卡口特点，RC100甚至能够安装到为4GB上网卡（B
-Key接口）预留的M.2 2242插槽中并正常工作，已有玩家在Thinkpad
-T470p等机型中验证了这个特殊用法。</p>
-<p><img
-src="http://5b0988e595225.cdn.sohucs.com/images/20181126/dbd19b101c1b4d0f854eb6c6435c30b6.jpeg" /></p>
-<div class="note primary"><p>总结来说:</p>
-<ul>
-<li>从极致性能出发，一个缺口（M Key）的M.2
-NVMe固态硬盘最强（不是100%一定，具体还要看主控规格）；</li>
-<li>从兼容性出发，两个缺口的M.2 SATA固态硬盘更好（如Q200 M.2版）；</li>
-<li>要兼顾性能和兼容性，两个缺口的M.2
-NVMe固态硬盘（如RC100）比较理想。</li>
-</ul>
 </div>
 
       

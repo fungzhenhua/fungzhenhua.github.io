@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,141 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/02/syndns%E8%84%9A%E6%9C%AC%E8%AE%A9%E6%82%A8%E7%9A%84%E7%BD%91%E9%80%9F%E9%A3%9E%E8%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/02/syndns%E8%84%9A%E6%9C%AC%E8%AE%A9%E6%82%A8%E7%9A%84%E7%BD%91%E9%80%9F%E9%A3%9E%E8%B5%B7/" class="post-title-link" itemprop="url">syndns脚本让您的网速飞起</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-02 11:32:57" itemprop="dateCreated datePublished" datetime="2024-12-02T11:32:57+08:00">2024-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>作为一名科研人员，从一些知名期刊下载论文是一个重要的工作。然而，有些网站要么打不开，要么特别慢，然后这些科研网站又都是正规的网站。本文发布一款<a
+target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell.html">shell</a>脚本来彻底解决这一痛点。</p>
+<div class="note primary"><p>注意：本文发布有脚本目前仅支持<code>Arch Linux</code>，主要是安装依赖关系，其他<code>Linux</code>发行版可以自行修改。暂无发布<code>Windows</code>版的计划，如果您可以用<code>Python</code>实现对<code>Windows</code>的支持，欢迎联系本人共同拓展<code>syndns.sh</code>.</p>
+</div>
+<h1 id="脚本编写思路">脚本编写思路</h1>
+<p>当前的网络设备已经完全可以满足大众上网的需求，一些网站为了增加功能等，会默认调用大量的<code>js</code>脚本等，因此打开这个网站时就会附加后台打开若干网站。通过后台链接传输的数据不是很大，现行的网速完全可以几乎瞬时完成，造成访问不畅通的瓶颈在于<code>DNS</code>，因为<code>DNS</code>不断的去解析这些网站包括的所有域名，在来来回回的解析过程中耽误了大量的时间，所以本脚本的核心思路在于解决<code>DNS</code>解析痛点。
+整体方法包括：</p>
+<ul>
+<li>针对大众:
+根据大家常用的网站，把这些网站的<code>IP</code>和域名统一写入本地<code>/etc/hosts</code>,
+这样每次访问这些高频网站，系统就会从本地寻址，加快了解析速度。</li>
+<li>针对个人:
+从<code>firefox</code>导出近几个月的历史记录<code>~/bookmarks-2024-12-02.json</code>,
+然后执行<code>syndns</code>,
+脚本自动从历史记录中把您自己常用的网站通过谷歌的<code>8.8.8.8</code>解析出可靠的<code>IP</code>列表，并写入到本地文件<code>~/.host_dns_autoadd.txt</code>,
+然后<code>syndns</code>会把它载入到内存供<code>dnsmasq</code>调用。</li>
+<li>安装 <code>dnsmasq</code> 并启用，实现本地作为 <code>DNS</code>
+服务器的功能，同时把 <code>/etc/hosts</code> 和
+<code>~/.host_dns_autoadd.txt</code> 中的映射关系统一放入内存
+<code>/dev/shm/dnsrecord.txt</code> 文件中, 之后 <code>dnsmasq</code>
+每次查询<code>IP</code>就会读取一次文件
+<code>/dev/shm/dnsrecord.txt</code> ,
+而这成为最快的方式。如果不调入内存，那每次查询 <code>IP</code> ,
+系统都会去读取 <code>/etc/hosts</code>,
+这个文件位于硬盘上，所以它的读取速度不是最快的，相对而言固态硬盘要比机械硬盘好很多，但是仍然远不如内存快,
+所以调入内存是终极大招。</li>
+</ul>
+<h1 id="脚本源码">脚本源码</h1>
+<p>本文发布之时(2024年12月02日) <code>syndns.sh</code> 版本为
+<code>V1.5</code> , 最新脚本请前往:</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://gitlab.com/fengzhenhua/script">https://gitlab.com/fengzhenhua/script/syndns.sh</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script">https://gitee.com/fengzhenhua/script</a></li>
+</ul>
+<figure class="highlight sh"><figcaption><span>syndns.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : syndns.sh</span></span><br><span class="line"><span class="comment"># Version  : v1.5</span></span><br><span class="line"><span class="comment"># Date     : 2024-12-02 11:20</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 检测软件依懒, 若未检测到，则自动安装</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_DEPEND</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span> VAR <span class="keyword">in</span> <span class="variable">$1</span> ;<span class="keyword">do</span></span><br><span class="line">        pacman -Qq <span class="variable">$VAR</span> &amp;&gt; /dev/null</span><br><span class="line">        <span class="keyword">if</span> [[ $? != 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">sudo</span> pacman -S <span class="variable">$VAR</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 变量</span></span><br><span class="line">SYN_EXE=<span class="string">&quot;/usr/local/bin/<span class="variable">$&#123;0%.sh&#125;</span>&quot;</span></span><br><span class="line">SYN_AUTO=<span class="string">&quot;<span class="variable">$HOME</span>/.config/autostart/<span class="variable">$&#123;0%.sh&#125;</span>.desktop&quot;</span></span><br><span class="line">SYN_SUDO=<span class="string">&quot;/etc/sudoers.d/01_<span class="variable">$USER</span>&quot;</span></span><br><span class="line">SYN_HOS=<span class="string">&quot;/etc/hosts&quot;</span></span><br><span class="line">SYN_REC=$(grep <span class="string">&quot;addn-hosts&quot;</span> /etc/dnsmasq.conf |grep <span class="string">&quot;/dev/shm/&quot;</span>)</span><br><span class="line">SYN_REC=<span class="variable">$&#123;SYN_REC#*=&#125;</span></span><br><span class="line">SYN_ADD=<span class="string">&quot;<span class="variable">$HOME</span>/.host_dns_autoadd.txt&quot;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 主程序</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_PROCESS</span></span>()&#123;</span><br><span class="line">    <span class="built_in">cat</span> <span class="variable">$SYN_HOS</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> -u  &gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    <span class="keyword">if</span> [ -e <span class="variable">$SYN_ADD</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cat</span> <span class="variable">$SYN_ADD</span> |grep <span class="string">&#x27;^[0-9]&#x27;</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> -u  &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(hostname -i)</span>                 localhost:&quot;</span> &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    systemctl is-active --quiet dnsmasq</span><br><span class="line">    <span class="keyword">if</span> [[ $? == 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">sudo</span> systemctl restart dnsmasq.service</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 安装和更新</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$1</span> == <span class="string">&quot;-i&quot;</span> -o <span class="variable">$1</span> == <span class="string">&quot;-I&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        SYNDNS_DEPEND <span class="string">&quot;dnsutils inetutils dnsmasq jq&quot;</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">cp</span> -f <span class="variable">$0</span> <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">chmod</span> +x <span class="variable">$SYN_EXE</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_AUTO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_AUTO</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="variable">$SYN_AUTO</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Desktop Entry]</span></span><br><span class="line"><span class="string">Name=SynDns</span></span><br><span class="line"><span class="string">TryExec=syndns</span></span><br><span class="line"><span class="string">Exec=$SYN_EXE</span></span><br><span class="line"><span class="string">Type=Application</span></span><br><span class="line"><span class="string">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span></span><br><span class="line"><span class="string">StartupNotify=true</span></span><br><span class="line"><span class="string">X-Desktop-File-Install-Version=0.22</span></span><br><span class="line"><span class="string">X-GNOME-Autostart-enabled=true</span></span><br><span class="line"><span class="string">Hidden=false</span></span><br><span class="line"><span class="string">NoDisplay=false</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; /etc/dnsmasq.conf&quot;</span> &lt;&lt;<span class="string">EOA</span></span><br><span class="line"><span class="string">domain-needed</span></span><br><span class="line"><span class="string">bogus-priv</span></span><br><span class="line"><span class="string">resolv-file=/etc/resolv.conf</span></span><br><span class="line"><span class="string">no-poll</span></span><br><span class="line"><span class="string">interface=lo</span></span><br><span class="line"><span class="string">listen-address=127.0.0.1</span></span><br><span class="line"><span class="string">bind-interfaces</span></span><br><span class="line"><span class="string">no-hosts</span></span><br><span class="line"><span class="string">addn-hosts=/dev/shm/dnsrecord.txt</span></span><br><span class="line"><span class="string">cache-size=9999</span></span><br><span class="line"><span class="string">port=53</span></span><br><span class="line"><span class="string">EOA</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_SUDO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_SUDO</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; <span class="variable">$SYN_SUDO</span>&quot;</span> &lt;&lt;<span class="string">EOB</span></span><br><span class="line"><span class="string">$USER ALL=(ALL) NOPASSWD: /bin/systemctl start stirling-pdf.service, /bin/systemctl stop stirling-pdf.service, /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span></span><br><span class="line"><span class="string">EOB</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">elif</span> [[ <span class="variable">$1</span> =~ <span class="string">&quot;.json&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        Address=($(<span class="built_in">cat</span> <span class="variable">$1</span>|jq -r <span class="string">&#x27;.children[]&#x27;</span> |grep <span class="string">&quot;\&quot;uri\&quot;:&quot;</span>))</span><br><span class="line">        Address=(<span class="variable">$&#123;Address[*]#*//&#125;</span>)</span><br><span class="line">        Address=(<span class="variable">$&#123;Address[*]/\&quot;uri\&quot;:&#125;</span>)</span><br><span class="line">        Address=(<span class="variable">$&#123;Address[*]%%/*&#125;</span>)</span><br><span class="line">        Address=(<span class="variable">$&#123;Address[*]%%\&quot;*&#125;</span>)</span><br><span class="line">        Address=(<span class="variable">$&#123;Address[*]%%*[0-9]&#125;</span>)  <span class="comment"># 去除非域名</span></span><br><span class="line">        Address=(`<span class="built_in">echo</span> <span class="variable">$&#123;Address[@]&#125;</span>|sed -e <span class="string">&#x27;s/ /\n/g&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span>`)</span><br><span class="line">        <span class="keyword">if</span> [ -e <span class="variable">$SYN_ADD</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">rm</span> <span class="variable">$SYN_ADD</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">touch</span> <span class="variable">$SYN_ADD</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$&#123;Address[*]&#125;</span> ; <span class="keyword">do</span></span><br><span class="line">            <span class="built_in">unset</span> SYN_IP</span><br><span class="line">            SYN_IP=($(dig @8.8.8.8 +short <span class="variable">$i</span>))  <span class="comment"># 默认从Google Public DNS 解析历史IP</span></span><br><span class="line">            SYN_IP=(<span class="variable">$&#123;SYN_IP[*]%%*\.&#125;</span>)</span><br><span class="line">            <span class="keyword">for</span> ipc <span class="keyword">in</span> <span class="variable">$&#123;SYN_IP[*]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$ipc</span>    <span class="variable">$i</span>&quot;</span> &gt;&gt; <span class="variable">$SYN_ADD</span></span><br><span class="line">                <span class="built_in">let</span> j+=1</span><br><span class="line">            <span class="keyword">done</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        SYNDNS_PROCESS</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 默认执行主程序</span></span><br><span class="line">SYNDNS_PROCESS</span><br></pre></td></tr></table></figure>
+<h1 id="使用方法">使用方法</h1>
+<ol type="1">
+<li>将上述脚本 <code>syndns.sh</code> 保存到本地，并赋于执行权限
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span>+x syndns.sh</span><br></pre></td></tr></table></figure></li>
+<li>安装脚本 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syndns.sh -i</span><br></pre></td></tr></table></figure></li>
+<li>导入由<code>firefox</code>生成的历史记录文件： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syndns ~/bookmarks-2024-12-02.json</span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="note primary"><p>注意：Firefox 生成历史记录文件方法，<code>历史</code> →
+<code>管理历史</code> → <code>导入和备份</code> →
+<code>备份...</code></p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+href="/2024/11/30/ArchLinux安装后没有dig命令">ArchLinux安装后没有dig命令</a></li>
+<li><a
+href="/2024/11/29/Linux使用dnsmasq开启本地dns缓存">Linux使用dnsmasq开启本地dns缓存</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/cheyunhua/p/16558435.html">如何选择适合的公共
+DNS</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1174717">DNSmasq详细解析及详细配置</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1453,111 +1588,6 @@ ID（PPID）。在此例中，apache2 启动于
 <ul>
 <li><a target="_blank" rel="noopener" href="https://linux.cn/article-9344-1.html">Linux 中 4
 个简单的找出进程 ID（PID）的方法</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F%E6%8F%90%E5%8D%87%E6%9D%83%E9%99%90/" class="post-title-link" itemprop="url">Linux用户程序提升权限</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-28 15:05:52" itemprop="dateCreated datePublished" datetime="2024-11-28T15:05:52+08:00">2024-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当设计的脚本需要调用某系统命令时，使用<code>sudo</code>后会提示输入密码，在自己明确自己在干什么时，这很不方便，会极大的降低效率。为解决这一问题，本文给出提升普通用户权限的方法。</p>
-<h1 id="sudo-的权限控制">sudo 的权限控制</h1>
-<p><code>sudo</code>的权限控制位于配置文件<code>/etc/sudoers</code>中，如果想要控制某个用户(或某个组用户)只能执行<code>root</code>权限中的一部分命令,
-或者允许某些用户使用<code>sudo</code>时不需要输入密码.</p>
-<h1 id="配置文件设置格式">配置文件设置格式</h1>
-<h2 id="一般格式-root-allall-all">一般格式 root ALL=(ALL) ALL</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">授权用户/组 主机  =[(切换到哪些用户或组)] [是否需要输入密码验证] 命令1,命令2,...</span><br><span class="line">字段1      字段2  =[(字段3)] [字段4] 字段5</span><br><span class="line"> </span><br><span class="line">注意：凡是[ ]中的内容, 都能省略; 命令和命令之间用,号分隔;</span><br><span class="line"> </span><br><span class="line">字段1：</span><br><span class="line">不以%号开头的表示<span class="string">&quot;将要授权的用户&quot;</span> root</span><br><span class="line">以%号开头的表示<span class="string">&quot;将要授权的组&quot;</span> %wheel</span><br><span class="line"> </span><br><span class="line">字段2:表示允许登录的主机</span><br><span class="line">ALL表示所有; 如果该字段不为ALL,表示授权用户只能在某些机器上登录本服务器来执行<span class="built_in">sudo</span>命令</span><br><span class="line">eg:jack mycomputer=/usr/sbin/reboot,/usr/sbin/shutdown</span><br><span class="line">表示: 普通用户jack在主机(或主机组)mycomputer上, 可以通过<span class="built_in">sudo</span>执行reboot和shutdown两个命令</span><br><span class="line"> </span><br><span class="line">字段3:</span><br><span class="line">如果省略, 相当于(root:root)，表示可以通过<span class="built_in">sudo</span>提权到root; 如果为(ALL)或者(ALL:ALL), 表示能够提权到(任意用户:任意用户组)。</span><br><span class="line">注意：如果没省略,必须使用( )双括号包含起来</span><br><span class="line"> </span><br><span class="line">字段4：</span><br><span class="line">可能取值是NOPASSWD:。请注意NOPASSWD后面带有冒号:。表示执行<span class="built_in">sudo</span>时可以不需要输入密码</span><br><span class="line">eg:lucy ALL=(ALL) NOPASSWD: /bin/useradd</span><br><span class="line">表示: 普通用户lucy可以在任何主机上, 通过<span class="built_in">sudo</span>执行/bin/useradd命令, 并且不需要输入密码</span><br><span class="line"> 比如：hyc ALL=(ALL:ALL) NOPASSWD:ALL</span><br><span class="line">字段5:授权给用户的操作</span><br><span class="line">逗号分开一系列命令或者ALL表示允许所有操作</span><br></pre></td></tr></table></figure>
-<h2 id="高阶用法">高阶用法</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">如果写成这样：</span><br><span class="line">papi ALL=(root) NOPASSWD: /bin/chown,/usr/sbin/useradd</span><br><span class="line">表示: 用户papi能在所有可能出现的主机上, 提权到root下执行/bin/chown, 不必输入密码; 但运行/usr/sbin/useradd 命令时需要密码.</span><br><span class="line"> </span><br><span class="line">注意：因为NOPASSWD:只影响了其后的第一个命令: 命令1.</span><br><span class="line">在具有<span class="built_in">sudo</span>操作的用户下, 执行<span class="built_in">sudo</span> -l可以查看到该用户被允许和被禁止运行的命令</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">通配符和取消命令</span><br><span class="line">eg:papi ALL=/usr/sbin/*,/sbin/*,!/usr/sbin/fdisk</span><br><span class="line">命令前面加上!号表示取消该命令</span><br><span class="line">表示意思：用户papi在所有可能出现的主机上, 能够运行目录/usr/sbin和/sbin下所有的程序, 但fdisk除外.</span><br></pre></td></tr></table></figure>
-<p>系统文档推荐的做法是，修改<code>/etc/sudoers.d</code>
-目录下的文件通过此方法修改<code>sudoers</code>
-，需要在<code>/etc/sudoers</code>文件的最后行，加上 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@includedir /etc/sudoers.d</span><br></pre></td></tr></table></figure></p>
-<div class="note primary"><p>注意: 这里的指令<code>@includedir</code>是一个整体, 具体参考 <a
-target="_blank" rel="noopener" href="https://man.archlinux.org/man/sudoers.5#Including_other_files_from_within_sudoers">sudoers.5</a></p>
-<p>任何在<code>/etc/sudoers.d/</code>目录下，不以<code>~</code>号结尾的文件和不包含<code>.</code>号的文件，都会被解析成<code>/etc/sudoers</code>的内容。
-比如我新创建的用户 <code>hyc</code>
-想要实现<code>root</code>权限，可在<code>/etc/sudoers.d/</code>下新建一个文件<code>01_hyc</code>
-文件，输入以下语句<code>hyc ALL=(ALL:ALL) NOPASSWD:ALL</code> 。
-此时新建的用户就能获取<code>root</code>权限。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com.cn/developer/article/2372335">Linux -
-非root用户使用systemctl管理服务</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Sudo">Sudo-ArchWiki</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://man.archlinux.org/man/sudoers.5#Including_other_files_from_within_sudoers">sudoers.5</a></li>
 </ul>
 
       

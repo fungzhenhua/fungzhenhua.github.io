@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,156 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/22/%E8%A7%A3%E5%86%B3%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%A3%8E%E6%89%87%E4%B8%80%E7%9B%B4%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/22/%E8%A7%A3%E5%86%B3%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%A3%8E%E6%89%87%E4%B8%80%E7%9B%B4%E8%BD%AC%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决笔记本风扇一直转的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-22 21:26:14" itemprop="dateCreated datePublished" datetime="2023-12-22T21:26:14+08:00">2023-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>正确的解决方法：</p>
+<h2 id="关闭kde-plasma5-文件索引">关闭<code>KDE Plasma5</code>
+文件索引！</h2>
+<ul>
+<li>使用命令关闭 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">balooctl <span class="built_in">disable</span></span><br><span class="line">balooctl <span class="built_in">suspend</span></span><br><span class="line">balooctl status</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>第一条命令是<label style="color:red">禁用索引框架</label>，第二条命令是<label style="color:red">立刻停止索引</label>，
+而我在<code>ArchLinux</code>中直接<code>sudo kill</code>掉进程也是立杆见影！第三条命令是<label style="color:red">查看索引状态</label>。</p>
+<ul>
+<li><p>通过点击<code>系统设置</code>→<code>搜索</code>→<code>文件搜索</code>→<code>去掉启用文件索引</code>前的对号→右下角<code>应用</code></p></li>
+<li><p>如果不想停用，可以编辑 <code>~/.config/baloofilerc</code>
+，在里面添加<code>exclude folders</code>一项来忽略某些目录，加速<code>baloo index</code>速度。</p></li>
+</ul>
+<h2 id="关闭gnome3文件索引">关闭<code>Gnome3</code>文件索引</h2>
+<ul>
+<li><p>使用<code>gsettings</code>禁用<code>tracker-miner</code>应用
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2</span><br><span class="line">gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false</span><br></pre></td></tr></table></figure> 同时删除旧数据<code>tracker reset --hard</code></p></li>
+<li><p>或者禁止<code>tracker-*</code>软件启动 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i &quot;s/X-GNOME-Autostart-enabled=true/X-GNOME-Autostart-enabled=false/g&quot; /etc/xdg/autostart/tracker-*.desktop</span><br><span class="line">tracker reset --hard</span><br><span class="line">tracker reset --hard</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="问题分析说明">问题分析说明</h2>
+<p>通过命令<code>ps aux</code>查看了一下系统进程情况，发现是一个叫<code>baloo_file_extractor</code>
+的进程占用了<label style="color:red">84%</label>以上的CPU资源，怪不得<code>CPU</code>一直产热，风扇一直转个不停呢，然后<code>sudko kill</code>它，大约2秒钟系统就安静了。这是一个什么东西？
+参看<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Baloo">Baloo-ArchWiki</a>,
+原来这是一个索引程序，它一直在扫描文件建立索引，所以即使等它运行完，如果再有文件变化，那它照样会消耗掉大量资源！
+这让我想起来，原来使用<code>Gnome3</code>的时候，也遇到类似的问题，我知道刚装好的系统要索引，所以就一直等他索引完成，尽管后面的使用过程中会有风扇转，我一直误以为是驱动不兼容导致的！但是当前的Linux版本足够新根本不存在兼容问题。在使用过程中，大家都知道自己的文件放在哪里，很少使用搜索功能，所以直接关闭就是最佳的解决方案。</p>
+<hr />
+<p>我的电脑Thinkpad T490,
+当配置完<code>ArchLinux</code>后，发现系统确实足够流畅，但是发现只使用电池的情况下电脑很安静，只要接能电源风扇就会一直转个不停，噪音很大，不能让人静下心来工作。排查问题时，发现一般笔记本电脑默认开启了<code>睿频加速技术（Turbo Boost）</code>,
+也就是说CPU本身是有一个基准频率的，但是开启睿频后会提高CPU的速度，但是带来的问题却是风扇一直不停的转，产生了噪音，现在的笔记本基准频率已经够用了，所以默认的开启睿频反倒不是一个最佳的选择。于是打开高级电源管理工具<code>TLP-UI</code>,
+左侧选中<code>处理器</code>, 然后在右侧找到<code>CPU_BOOST</code>,
+选中两项<code>CPU_BOOST_ON_AC</code>和<code>CPU_BOOST_ON_BAT</code>并关闭，然后输入<code>root</code>密码就可以了。同时对比其他的项，将<code>AC</code>电源的项改成与<code>BAT</code>一样的设置，这样电脑就足够安静了。这里我修改的项还有：<code>CPU_ENGERGY_PERF_POLICY_ON_AC</code>
+→<code>balance_power</code> , <code>CPU_MAX_PERF_ON_AC</code>→
+<code>99</code>, <code>CPU_MAX_PERF_ON_BAT</code>→<code>30</code>,
+关闭<code>CPU_HWP_DYN_BOOST_ON_AC_ID_TITLE</code>,
+<code>PLATFORM_PROFILE_ON_AC_ID_TITLE</code>→<code>low-power</code>,
+于是基本和电源模式和电池模式就一样了，实际测试电脑也确实安静的工作了。</p>
+<div class="note info"><p>注意：最初在BIOS中关闭了超线程<code>Hyper-Threading Technology</code>,
+这实际上就是虚拟内核，关闭后硬件显示4核，打开后发现是8核，其与电脑发热量没有最直接关系，同时也尝试关闭了动态节能技术<code>Intel SpeedStep</code>,
+但是都没有解决因发热风扇一直转的问题。最终确定，这个睿频才是导致发热的元凶，关闭之后对于平时的工作也没有什么影响。</p>
+</div>
+<details>
+<summary>
+<label style="color:blue">什么是英特尔® 睿频加速技术？</label>
+</summary>
+<p>英特尔® 睿频加速技术的工作原理是什么？</p>
+<p>CPU
+并不总是需要以最大频率运行。有些程序更依赖内存来平稳运行，而另一些则属于
+CPU 密集型。英特尔®
+睿频加速技术就是用来解决这种不平衡问题的节能方案：它允许 CPU
+在处理轻负载时以基本时钟速度运行，而在处理高负载时提升至更高的时钟速度。</p>
+<p>以低时钟速率（处理器每秒执行的周期数）运行可以让处理器的功耗更低，从而减少热量，并对笔记本电脑的电池寿命产生积极影响。但是当需要更高的速度时，英特尔®
+睿频加速技术会动态地提高时钟速率来进行补偿。这有时称为“算法超频”。</p>
+<p>英特尔® 睿频加速技术可以在安全温度和功率限制内，将 CPU
+速度提升到最高睿频。这样就可以提升单线程和多线程应用程序（利用多个处理器内核的程序）的性能。</p>
+<p>如果您想知道如何启用睿频技术，不要担心 ——
+它被设置为默认启用。您无需下载或配置任何东西。</p>
+<p>什么是最大睿频？</p>
+<p>处理轻负荷时，CPU
+以其规格中列出的基本频率运行。（在使用节能英特尔SpeedStep® 技术调节 CPU
+速度时，频率会更低。） 在处理标记为高性能的硬件线程时，英特尔®
+睿频加速技术可将时钟速度提高到最大睿频。</p>
+<p>例如，英特尔® 酷睿™ i9-9900K 处理器的基本频率为 3.60 GHz，最大睿频为
+5.00
+GHz。需要注意的是，根据所处情况，特定的CPU可能不会总是达到其最大睿频。速度的动态提升会根据工作负载和可用的热余量而变化。</p>
+在比较 CPU
+时钟速度时，最大睿频是通常要记住的关键数字。它反映了处理器在超频前的峰值性能。1除了内核数和高级功能外，这也是选购
+CPU 时要考虑的重点因素之一。
+</details>
+<p><code>Windows</code>用户关闭睿频请参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/503821003">Windows11
+高级电源管理: 调节CPU和风扇</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv12372895/">通过对win10注册表修改来关闭睿频(高性能/已禁用来回切换)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1203,98 +1353,6 @@ Plasma 则删除<label style="color:red">~/.config/plasma-localerc</label>
 <div class="note info"><p>注意：按<code>ArchLinux</code>的<code>Wiki</code><a
 target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/简体中文本地化">简体中文本地化</a>,不推荐在<code>/etc/locale.conf</code>里把全局的<code>LANG locale</code>设置成中文<code>LANG=zh_CN.UTF-8</code>，因为<code>TTY</code>下没有<code>CJK</code>字体，这样设置会导致<code>TTY</code>中显示豆腐块（除非你使用的内核打了<code>cjktty</code>补丁能绘制中文字体，比如<a
 target="_blank" rel="noopener" href="https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/linux-lily">linux-lily</a><sup>CNRepo</sup>）。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/13/%E6%B6%88%E9%99%A4ArchLinux%E6%9B%B4%E6%96%B0%E6%97%B6%E7%9A%84%E5%9B%BA%E4%BB%B6%E7%BC%BA%E5%A4%B1%E8%AD%A6%E5%91%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/13/%E6%B6%88%E9%99%A4ArchLinux%E6%9B%B4%E6%96%B0%E6%97%B6%E7%9A%84%E5%9B%BA%E4%BB%B6%E7%BC%BA%E5%A4%B1%E8%AD%A6%E5%91%8A/" class="post-title-link" itemprop="url">消除ArchLinux更新时的固件缺失警告</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-13 00:32:58" itemprop="dateCreated datePublished" datetime="2023-12-13T00:32:58+08:00">2023-12-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在<code>ArchLinux</code>执行更新时，如果内核有更新则会出现如下警告：</p>
-<figure class="highlight sh"><figcaption><span>While doing a 'sudo pacman -Syu' pacman warns</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">==&gt; WARNING: Possibly missing firmware <span class="keyword">for</span> module: wd719x</span><br><span class="line">==&gt; WARNING: Possibly missing firmware <span class="keyword">for</span> module: aic94xx</span><br><span class="line">==&gt; WARNING: Possibly missing firmware <span class="keyword">for</span> module: xhci_pci</span><br></pre></td></tr></table></figure>
-<p>解决方法安装<code>mkinitcpio-firmware</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S mkinitcpio-firmware</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview -S wd719x-firmware aic94xx-firmware upd72020x-fw</span><br></pre></td></tr></table></figure>
-<p>查看警告是否消失</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mkinitcpio -p linux</span><br></pre></td></tr></table></figure>
-<div class="note info"><p>还有一个warning是关于consolefont的，根据arch社区的回答，把/etc/mkinitcpio.conf文件中的HOOKS中的consolefont删掉就行。
-参考文章：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340918736">Arch Linux
-更新出现模块固件缺失的警告</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Mkinitcpio">mkinitcpio-ArchWiki</a></li>
-</ul>
 </div>
 
       

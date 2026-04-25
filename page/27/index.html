@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,88 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/21/zsh%E5%90%AF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/21/zsh%E5%90%AF%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">zsh启用命令历史记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-21 21:32:31" itemprop="dateCreated datePublished" datetime="2024-06-21T21:32:31+08:00">2024-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Zsh</code>（<code>Z-shell</code>）是一款用于交互式使用的<code>shell</code>，也可以作为脚本解释器来使用。其包含了
+<code>bash</code>，<code>ksh</code>，<code>tcsh</code>
+等其他<code>shell</code>中许多优秀功能，也拥有诸多自身特色。<code>Zsh</code>拥有许多功能强大的插件，其中<a
+target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>可以根据历史记录自动补全命令，但是在使用过程中每次重启终端后<code>zsh-autosuggestions</code>总是<code>清空</code>历史记录，这导致了每次补全都会以当前的输入为基础,
+这极大的影响了工作效率。经过研究，原来是我的<code>zsh</code>没有配置历史文件，这导致了输入过的命令没有被记录存储下来，所以就出现了<code>清空</code>历史记录的假象！解决方法是在<code>.zshrc</code>文件中加入历史文件配置，具体如下：</p>
+<figure class="highlight sh"><figcaption><span>~/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># History file for zsh</span></span><br><span class="line">HISTFILE=~/.zsh_history</span><br><span class="line"><span class="comment"># How many commands to store in history</span></span><br><span class="line">HISTSIZE=10000</span><br><span class="line">SAVEHIST=10000</span><br><span class="line"><span class="comment"># Share history in every terminal session</span></span><br><span class="line"><span class="built_in">setopt</span> SHARE_HISTORY</span><br></pre></td></tr></table></figure>
+<p>配置好<code>.zshrc</code>后，再使用<code>zsh</code>时它就会自动记录历史命令了，所以<code>zsh-autosuggestions</code>就可以完美的工作了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1688,121 +1770,6 @@ f参数，则搜索普通文件+特殊文件+目录。</p>
 <h2 id="关联数组的特殊值">关联数组的特殊值</h2>
 <figure class="highlight sh"><figcaption><span>关联数组的特殊值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A site</span><br><span class="line">site[<span class="string">&quot;google&quot;</span>]=<span class="string">&quot;www.google.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;runoob&quot;</span>]=<span class="string">&quot;www.runoob.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;taobao&quot;</span>]=<span class="string">&quot;www.taobao.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#site[*]&#125;</span>  <span class="comment">#输出数组的元的个数(大小)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!site[*]&#125;</span>  <span class="comment">#输出全部的键名</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;site[*]&#125;</span>   <span class="comment">#输出全部的值</span></span><br></pre></td></tr></table></figure>
 <p>注意：上述<code>echo</code>中的<code>*</code>可以替换成<code>@</code>,效果等价。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/11/EOF%E5%9C%A8Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/11/EOF%E5%9C%A8Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">EOF在Shell脚本中的应用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-11 00:17:30" itemprop="dateCreated datePublished" datetime="2024-06-11T00:17:30+08:00">2024-06-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="前言"><strong>前言：</strong></h3>
-<p><code>EOF</code>是<code>End Of File</code>的缩写，表示自定义终止符。既然自定义，那么<code>EOF</code>就不是固定的，可以随意设置别名，意思是把内容当作标准输入传给程序，<code>Linux</code>中按<code>Ctrl-d</code>就代表<code>EOF</code>。</p>
-<p>在<code>Shell</code>中我们通常将<code>EOF</code>与
-<code>&lt;&lt;</code>
-结合使用，表示后续的输入作为子命令或子<code>Shell</code>的输入，直到遇到<code>EOF</code>为止，再返回到主调<code>Shell</code>。回顾一下<code>&lt;&lt;</code>的用法，当<code>Shell</code>看到<code>&lt;&lt;</code>的时候，它就会知道下一个词是一个分界符。在该分界符以后的内容都被当作输入，直到<code>Shell</code>又看到该分界符(位于单独的一行)。这个分界符可以是你所定义的任何字符串。</p>
-<h3 id="用法"><strong>用法：</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;<span class="string">EOF        //开始</span></span><br><span class="line"><span class="string">....</span></span><br><span class="line"><span class="string">EOF</span>          //结束</span><br></pre></td></tr></table></figure>
-<p><strong>也可以自定义，如：</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;<span class="string">FFF        //开始</span></span><br><span class="line"><span class="string">....</span></span><br><span class="line"><span class="string">FFF</span>         //结束</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><strong>注意：</strong></h3>
-<div class="note primary"><p>第一个<code>EOF</code>必须以重定向字符<code>&lt;&lt;</code>开始，第二个<code>EOF</code>必须顶格写，否则会报错。如果将开始处的<code>&lt;&lt;</code>切换为<code>&lt;&lt;-</code>,
-则结束分界符<code>EOF</code>前有制表符或者空格，则<code>EOF</code>此时仍然被当做结束分界符，此时<code>EOF</code>不必顶格写。</p>
-</div>
-<p><strong>EOF配合cat能够进行多行文本输出。</strong></p>
-<p>通过cat配合重定向能够生成文件并追加操作，在它之前先回顾几个特殊符号：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;   :输入重定向</span><br><span class="line">&gt;   :输出重定向</span><br><span class="line">&gt;&gt;  :输出重定向,进行追加,不会覆盖之前内容</span><br><span class="line">&lt;&lt;  :标准输入来自命令行的一对分隔号的中间内容</span><br></pre></td></tr></table></figure>
-<h3 id="例"><strong>例：</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# <span class="built_in">cat</span> &lt;&lt;<span class="string">EOF   //运行后会出现输入提示符&quot;&gt;&quot;</span></span><br><span class="line"><span class="string">&gt; Hello</span></span><br><span class="line"><span class="string">&gt; wolrd</span></span><br><span class="line"><span class="string">&gt; EOF</span></span><br><span class="line">输入结束后，在终端显示以下内容：</span><br><span class="line">Hello</span><br><span class="line">wolrd</span><br></pre></td></tr></table></figure>
-<p><strong>1. 向文件file1.txt中输入内容</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# <span class="built_in">cat</span> &gt;file1.txt &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&gt; aaa</span></span><br><span class="line"><span class="string">&gt; bbb</span></span><br><span class="line"><span class="string">&gt; ccc</span></span><br><span class="line"><span class="string">&gt; EOF</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]# <span class="built_in">cat</span> file1.txt </span><br><span class="line">aaa</span><br><span class="line">bbb</span><br><span class="line">ccc</span><br></pre></td></tr></table></figure>
-<p>追加内容至<code>file1.txt</code>中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# <span class="built_in">cat</span> &gt;&gt;file1.txt &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&gt; 111</span></span><br><span class="line"><span class="string">&gt; 222</span></span><br><span class="line"><span class="string">&gt; 333</span></span><br><span class="line"><span class="string">&gt; EOF</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]# <span class="built_in">cat</span> file1.txt </span><br><span class="line">aaa</span><br><span class="line">bbb</span><br><span class="line">ccc</span><br><span class="line">111</span><br><span class="line">222</span><br><span class="line">333</span><br></pre></td></tr></table></figure>
-<p>覆盖<code>file1.txt</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# <span class="built_in">cat</span> &gt;file1.txt &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">&gt; Hello wolrd</span></span><br><span class="line"><span class="string">&gt; EOF</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]# <span class="built_in">cat</span> file1.txt </span><br><span class="line">Hello wolrd</span><br></pre></td></tr></table></figure>
-<p><strong>2. 自定义EOF</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# <span class="built_in">cat</span> &gt;file1.txt &lt;&lt;<span class="string">FFF</span></span><br><span class="line"><span class="string">&gt; test</span></span><br><span class="line"><span class="string">&gt; hello</span></span><br><span class="line"><span class="string">&gt; FFF</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]# <span class="built_in">cat</span> file1.txt </span><br><span class="line"><span class="built_in">test</span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
-<p><strong>3. 编写一个脚本，生成mysql配置文件</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim /root/test.sh</span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">cat</span> &gt;/root/EOF/my.cnf &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[client]</span></span><br><span class="line"><span class="string">port=3306</span></span><br><span class="line"><span class="string">socket=/usr/local/mysql/var/mysql.sock</span></span><br><span class="line"><span class="string">basedir=/usr/local/msyql/</span></span><br><span class="line"><span class="string">datadir=/data/mysql/data</span></span><br><span class="line"><span class="string">pid-file=/data/mysql/data/mysql.pid</span></span><br><span class="line"><span class="string">user=mysql</span></span><br><span class="line"><span class="string">server-id=1</span></span><br><span class="line"><span class="string">log_bin=mysql-bin</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">[root@localhost ~]# <span class="built_in">cat</span> /root/EOF/my.cnf    //查看生成的mysql配置文件</span><br><span class="line">[client]</span><br><span class="line">port=3306</span><br><span class="line">socket=/usr/local/mysql/var/mysql.sock</span><br><span class="line">basedir=/usr/local/msyql/</span><br><span class="line">datadir=/data/mysql/data</span><br><span class="line">pid-file=/data/mysql/data/mysql.pid</span><br><span class="line">user=mysql</span><br><span class="line">server-id=1</span><br><span class="line">log_bin=mysql-bin</span><br></pre></td></tr></table></figure>
-<p><strong>4. 编写脚本向mysql</strong><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/solution/database?from_column=20065&amp;from=20065"><strong>数据库</strong></a><strong>建表、赋值并查询</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# vim eof.sh</span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line">mysql -uroot -p123456 &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">use test;</span></span><br><span class="line"><span class="string">create table data(name varchar(15),age int,address varchar(25));</span></span><br><span class="line"><span class="string">desc test.data;</span></span><br><span class="line"><span class="string">insert into data values(&quot;tom&quot;,23,&quot;china&quot;);</span></span><br><span class="line"><span class="string">select * from data;</span></span><br><span class="line"><span class="string">exit</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<p><strong>4.1 运行脚本查看执行结果</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# bash eof.sh    //运行脚本，查看数据库中信息</span><br><span class="line">mysql: [Warning] Using a password on the <span class="built_in">command</span> line interface can be insecure.</span><br><span class="line">Field    Type    Null    Key Default Extra</span><br><span class="line">name    varchar(15) YES     NULL    </span><br><span class="line">age    int(11) YES     NULL    </span><br><span class="line">address    varchar(25) YES     NULL    </span><br><span class="line"></span><br><span class="line">name    age address</span><br><span class="line">tom    23  china</span><br></pre></td></tr></table></figure>
-<p><strong>4.2 在数据库中查看新增的数据：</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# mysql -uroot -p123456</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">| <span class="built_in">test</span>               |</span><br><span class="line">+--------------------+</span><br><span class="line"></span><br><span class="line">mysql&gt; use <span class="built_in">test</span>;</span><br><span class="line"></span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------+</span><br><span class="line">| Tables_in_test |</span><br><span class="line">+----------------+</span><br><span class="line">| data           |</span><br><span class="line">+----------------+</span><br><span class="line"></span><br><span class="line">mysql&gt; desc test.data;</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field   | Type        | Null | Key | Default | Extra |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| name    | varchar(15) | YES  |     | NULL    |       |</span><br><span class="line">| age     | int(11)     | YES  |     | NULL    |       |</span><br><span class="line">| address | varchar(25) | YES  |     | NULL    |       |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="keyword">select</span> * from data;</span><br><span class="line">+------+------+---------+</span><br><span class="line">| name | age  | address |</span><br><span class="line">+------+------+---------+</span><br><span class="line">| tom  |   23 | china   |</span><br><span class="line">+------+------+---------+</span><br></pre></td></tr></table></figure>
-<p><strong>5. EOF中的变量处理</strong></p>
-<p>在使用<code>cat EOF</code>中出现<code>$</code>变量通常会直接被执行，显示执行的结果。若想保持<code>$</code>变量不变需要使用
-<code>\</code> 符进行注释 .
-当存在<code>$</code>变量过多，或存在赋值命令的时候可直接在<code>EOF</code>上加上双引号就行。</p>
-<figure class="highlight sh"><figcaption><span>EOF处理变量</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt; <span class="string">&quot;EOF&quot;</span> &gt; ~/.gitconfig</span><br><span class="line"><span class="comment"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.</span></span><br><span class="line"><span class="comment"># Initialization code that may require console input (password prompts, [y/n]</span></span><br><span class="line"><span class="comment"># confirmations, etc.) must go above this block; everything else may go below.</span></span><br><span class="line"><span class="keyword">if</span> [[ -r <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 
       
     </div>

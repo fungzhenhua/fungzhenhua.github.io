@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,166 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%EF%BC%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E9%80%89%E6%8B%A9%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%EF%BC%9A%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E9%80%89%E6%8B%A9%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">蒙特卡洛方法计算圆周率：积分公式选择的方差分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-18 00:22:27" itemprop="dateCreated datePublished" datetime="2025-03-18T00:22:27+08:00">2025-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在使用蒙特卡洛方法计算圆周率时，选择积分公式的关键在于<strong>方差的大小</strong>和<strong>实现的效率</strong>。本文通过数学推导和实验验证，对比两种常见积分公式的优劣。</p>
+<hr />
+<h2 id="积分公式的数学等价性">1. 积分公式的数学等价性</h2>
+<p>两个积分的数学结果均为π，但被积函数特性不同：</p>
+<ul>
+<li><p><strong>公式1</strong>：<br />
+<span class="math display">\[
+2 \int_0^1 \frac{1}{\sqrt{1 - x^2}} \, dx = \pi
+\]</span><br />
+被积函数 <span class="math inline">\(f_1(x) = \frac{1}{\sqrt{1 -
+x^2}}\)</span> 在 <span class="math inline">\(x \to 1\)</span>
+时发散，导致数值计算的不稳定性。</p></li>
+<li><p><strong>公式2</strong>：<br />
+<span class="math display">\[
+2 \int_{-1}^1 \sqrt{1 - x^2} \, dx = \pi
+\]</span><br />
+被积函数 <span class="math inline">\(f_2(x) = \sqrt{1 - x^2}\)</span>
+在区间 <span class="math inline">\([-1, 1]\)</span>
+上有界且连续，方差更小。</p></li>
+</ul>
+<hr />
+<h2 id="蒙特卡洛方法的方差分析">2. 蒙特卡洛方法的方差分析</h2>
+<h3 id="公式1的方差问题">2.1 公式1的方差问题</h3>
+<ul>
+<li><p><strong>发散特性</strong>：<br />
+<span class="math inline">\(f_1(x)\)</span> 在 <span
+class="math inline">\(x \to 1\)</span>
+处趋向无穷大，导致蒙特卡洛采样时方差显著增大。例如，当 <span
+class="math inline">\(x = 0.99\)</span> 时，<span
+class="math inline">\(f_1(x) \approx 7\)</span>，远高于平均值 <span
+class="math inline">\(\pi/2 \approx
+1.57\)</span>，极端值会严重干扰估计结果。</p></li>
+<li><p><strong>实现挑战</strong>：<br />
+需要均匀采样 <span class="math inline">\(x \in [0, 1]\)</span>，但靠近
+<span class="math inline">\(x = 1\)</span>
+的点对结果贡献极大，易引入噪声。</p></li>
+</ul>
+<h3 id="公式2的方差优势">2.2 公式2的方差优势</h3>
+<ul>
+<li><p><strong>有界性</strong>：<br />
+<span class="math inline">\(f_2(x)\)</span> 的值域为 <span
+class="math inline">\([0, 1]\)</span>，方差远小于公式1。例如，<span
+class="math inline">\(N=10^6\)</span>
+次采样时，公式2的估计误差通常比公式1低一个数量级。</p></li>
+<li><p><strong>数值稳定性</strong>：<br />
+无需处理函数发散问题，所有采样点的贡献均在可控范围内。</p></li>
+</ul>
+<hr />
+<h2 id="实验验证方差的量化对比">3. 实验验证：方差的量化对比</h2>
+<p>假设使用 <span class="math inline">\(N\)</span> 次采样：</p>
+<ul>
+<li><p><strong>公式1</strong>：<br />
+由于 <span class="math inline">\(f_1(x)\)</span> 的发散性，方差 <span
+class="math inline">\(D_1 \propto \int_0^1 \left( \frac{1}{\sqrt{1-x^2}}
+\right)^2 dx = \infty\)</span>（发散）。</p></li>
+<li><p><strong>公式2</strong>：<br />
+方差 <span class="math inline">\(D_2 = \int_{-1}^1 \left( \sqrt{1-x^2}
+\right)^2 dx - \left( \frac{\pi}{2} \right)^2 = \frac{\pi}{2} -
+\frac{\pi^2}{4} \approx 0.43\)</span>，远小于公式1。</p></li>
+</ul>
+<hr />
+<h2 id="代码实现对比">4. 代码实现对比</h2>
+<h3 id="公式2的c实现高效且低方差">4.1
+公式2的C++实现（高效且低方差）</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">estimate_pi</span>(<span class="params">n</span>):</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        x = random.uniform(-<span class="number">1</span>, <span class="number">1</span>)       <span class="comment"># 生成x ∈ [-1, 1]</span></span><br><span class="line">        y = random.uniform(<span class="number">0</span>, <span class="number">1</span>)        <span class="comment"># 生成y ∈ [0, 1]</span></span><br><span class="line">        <span class="keyword">if</span> y &lt;= math.sqrt(<span class="number">1</span> - x**<span class="number">2</span>):    <span class="comment"># 判断是否在半圆内</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 计算公式：2 * (积分值) = 2 * (count/N * 矩形面积)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.0</span> * (count * <span class="number">2.0</span> / n)      <span class="comment"># 矩形面积为2（宽2×高1）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例：使用100万个样本</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Estimated π: <span class="subst">&#123;estimate_pi(<span class="number">1000000</span>)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="公式1的python实现高方差问题">4.2
+公式1的Python实现（高方差问题）</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_formula1</span>(<span class="params">n</span>):</span><br><span class="line">    x = np.random.uniform(<span class="number">0</span>, <span class="number">1</span>, n)</span><br><span class="line">    f = <span class="number">1</span> / np.sqrt(<span class="number">1</span> - x**<span class="number">2</span>)</span><br><span class="line">    integral = np.mean(f)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * integral</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试示例（方差极大）</span></span><br><span class="line"><span class="built_in">print</span>(monte_carlo_formula1(<span class="number">1000000</span>))  <span class="comment"># 结果可能波动明显</span></span><br></pre></td></tr></table></figure>
+<h2 id="结论">5. 结论</h2>
+<p>公式2（<span class="math inline">\(2\int_{-1}^{1} \sqrt{1 - x^2} \,
+dx\)</span>）是更优选择，原因如下：</p>
+<ol type="1">
+<li><strong>方差更小</strong>：被积函数 <span
+class="math inline">\(\sqrt{1 - x^2}\)</span> 在区间 <span
+class="math inline">\([-1, 1]\)</span>
+上有界且连续，使得蒙特卡洛方法的收敛速度更快。<br />
+</li>
+<li><strong>数值稳定性</strong>：无需处理函数发散问题（如公式1中 <span
+class="math inline">\(\frac{1}{\sqrt{1-x^2}}\)</span> 在 <span
+class="math inline">\(x \to 1\)</span>
+处的发散），避免极端值对估计结果的干扰。<br />
+</li>
+<li><strong>计算效率</strong>：在相同采样次数下，公式2的估计误差显著低于公式1，且计算过程更稳定。</li>
+</ol>
+<p>选择积分公式时，应优先考虑被积函数的<strong>有界性</strong>和<strong>光滑性</strong>，以降低蒙特卡洛方法的方差，从而提升计算效率。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1288,104 +1448,6 @@ target="_blank" rel="noopener" href="https://www.rust-lang.org/?spm=5176.2810346
 class="math inline">\(y=x^2\)</span>在某个区间上的积分，并基于此结果绘制出其积分函数的图像。
 为了验证蒙卡的计算效果，我们在同一张图中给制出蒙卡积分结果和解析解析的结果，对比结果可以证实蒙特卡洛方法的可行性。代码如下：</p>
 <figure class="highlight python"><figcaption><span>Comparison between Monte Carlo Integration and Analytical Solutions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义蒙特卡洛积分函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integration</span>(<span class="params">func, a, b, n=<span class="number">1000</span></span>):</span><br><span class="line">    x_samples = np.random.uniform(a, b, n)</span><br><span class="line">    y_samples = func(x_samples)</span><br><span class="line">    <span class="comment"># 计算平均高度</span></span><br><span class="line">    average_height = np.mean(y_samples)</span><br><span class="line">    <span class="comment"># 计算积分值</span></span><br><span class="line">    integral = average_height * (b - a)</span><br><span class="line">    <span class="keyword">return</span> integral</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义被积函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析解计算积分函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">analytic_integral_f</span>(<span class="params">x,a</span>):</span><br><span class="line">    <span class="keyword">return</span> (x**<span class="number">3</span>)/<span class="number">3</span>-(a**<span class="number">3</span>)/<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用蒙特卡洛方法求解积分</span></span><br><span class="line">a, b = -<span class="number">5</span>, <span class="number">5</span>  <span class="comment"># 积分区间</span></span><br><span class="line">x_points = np.linspace(a, b, <span class="number">100</span>)  <span class="comment"># 用于绘图的x点</span></span><br><span class="line">monte_carlo_values = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x_points)):</span><br><span class="line">    <span class="comment"># 对每个x点计算从a到该点的积分</span></span><br><span class="line">    integral_value = monte_carlo_integration(f, a, x_points[i], n=<span class="number">20000</span>)</span><br><span class="line">    monte_carlo_values.append(integral_value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算解析解</span></span><br><span class="line">analytic_values = analytic_integral_f(x_points,a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制积分后的函数图像</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line">plt.plot(x_points, monte_carlo_values, label=<span class="string">&#x27;Monte Carlo Integral of $x^2$&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">plt.plot(x_points, analytic_values, label=<span class="string">&#x27;Analytical Integral of $x^2$&#x27;</span>, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加标题和标签</span></span><br><span class="line">plt.title(<span class="string">&#x27;Comparison between Monte Carlo and Analytical Integration of $x^2$&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Integral Value&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图例</span></span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示网格</span></span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图像</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/%E5%9C%A8LaTeX%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAPDF%E6%96%87%E4%BB%B6%E5%B9%B6%E6%B7%BB%E5%8A%A0%E8%B6%85%E9%93%BE%E6%8E%A5%E5%BC%95%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/05/%E5%9C%A8LaTeX%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAPDF%E6%96%87%E4%BB%B6%E5%B9%B6%E6%B7%BB%E5%8A%A0%E8%B6%85%E9%93%BE%E6%8E%A5%E5%BC%95%E7%94%A8/" class="post-title-link" itemprop="url">在LaTeX中合并多个PDF文件并添加超链接引用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-05 18:01:25" itemprop="dateCreated datePublished" datetime="2025-03-05T18:01:25+08:00">2025-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>如果你正在寻找一种方法来将多个PDF文件整合到一个LaTeX文档中，并且希望在这个过程中添加超链接引用，那么这篇文章正好适合你。我们将介绍如何使用<code>pdfpages</code>宏包来插入外部PDF文件，以及如何通过<code>hyperref</code>宏包添加内部和外部的超链接，包括利用<code>\phantomsection</code>命令为非结构化元素创建锚点。</p>
-<h2
-id="使用pdfpages宏包合并pdf文件">使用<code>pdfpages</code>宏包合并PDF文件</h2>
-<p>首先，在LaTeX文档的导言区引入<code>pdfpages</code>宏包：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;pdfpages&#125;</span><br></pre></td></tr></table></figure>
-<p>然后，你可以使用<code>\includepdf[选项]&#123;文件名&#125;</code>命令来插入PDF文件。例如，插入整个PDF文件：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includepdf</span>[pages=-]&#123;filename1.pdf&#125;</span><br></pre></td></tr></table></figure>
-<p>或选择特定页面插入：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\includepdf</span>[pages=2,5-7]&#123;filename1.pdf&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="添加超链接引用">添加超链接引用</h2>
-<p>为了添加超链接功能，需要引入hyperref宏包：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[hidelinks]&#123;hyperref&#125;</span><br></pre></td></tr></table></figure>
-<p><code>hidelinks</code>选项去掉了超链接周围的彩色边框，使文档看起来更整洁。接下来，可以使用以下命令添加不同类型的超链接：</p>
-<ul>
-<li><p>内部链接： <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\hyperref</span>[sec:intro]&#123;introduction section&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>网页链接：直接生成网址 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Visit <span class="keyword">\url</span>&#123;<span class="link">https://www.example.com</span>&#125; for additional information.</span><br></pre></td></tr></table></figure></p></li>
-<li><p>网页链接：隐藏链接网址 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You can also visit <span class="keyword">\href</span>&#123;<span class="link">https://www.example.com</span>&#125;&#123;this website&#125; for more details.</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<h2 id="隐形定位点">隐形定位点</h2>
-<p>时候你需要为非结构化的元素（如未编号的章节标题）创建一个目标位置。这时可以使用<code>\phantomsection</code>命令：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\clearpage</span></span><br><span class="line"><span class="keyword">\phantomsection</span></span><br><span class="line"><span class="keyword">\label</span>&#123;sec:important<span class="built_in">_</span>note&#125;</span><br><span class="line"><span class="keyword">\noindent</span>&#123;<span class="keyword">\Large</span> <span class="keyword">\textbf</span>&#123;Important Note&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>这会在“Important
-Note”部分创建一个可供<code>\ref&#123;&#125;</code>引用的标签，并允许读者通过点击超链接跳转到该部分。通过设置隐形定位点，你可以在LaTeX文档中高效地整合多个PDF文件，同时添加各种形式的超链接引用。</p>
 
       
     </div>

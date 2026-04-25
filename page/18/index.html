@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,134 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/30/%E5%8E%8B%E7%BC%A9PDF%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/30/%E5%8E%8B%E7%BC%A9PDF%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">压缩PDF文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-30 16:13:45" itemprop="dateCreated datePublished" datetime="2024-09-30T16:13:45+08:00">2024-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>有时候遇到一个较大的PDF文件，但是我们想得到一份压缩版的小文件，本文介绍几种方法。</p>
+<h2 id="linux-中的命令-gostscript">Linux 中的命令 gostscript</h2>
+<h3 id="安装gostscript工具">安装<code>gostscript</code>工具</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S gostscript</span><br></pre></td></tr></table></figure>
+<h3 id="压缩到可读的质量">压缩到可读的质量</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf</span><br></pre></td></tr></table></figure>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>-dPDFSETTINGS Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-dPDFSETTINGS=/screen</code></td>
+<td>Has a lower quality and smaller size. (72 dpi)</td>
+</tr>
+<tr>
+<td><code>-dPDFSETTINGS=/ebook</code></td>
+<td>Has a better quality, but has a slightly larger size (150 dpi)</td>
+</tr>
+<tr>
+<td><code>-dPDFSETTINGS=/prepress</code></td>
+<td>Output is of a higher size and quality (300 dpi)</td>
+</tr>
+<tr>
+<td><code>-dPDFSETTINGS=/printer</code></td>
+<td>Output is of a printer type quality (300 dpi)</td>
+</tr>
+<tr>
+<td><code>-dPDFSETTINGS=/default</code></td>
+<td>Selects the output which is useful for multiple purposes. Can cause
+large PDFS.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linux-使用ps2pdf命令">Linux 使用<code>ps2pdf</code>命令</h2>
+<p>此命令 ps2pdf 将 PDF 转换为
+PS，然后再转换回来，从而有效地压缩它。它可能并不总是有效，但它可以提供非常好的结果。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps2pdf input.pdf output.pdf</span><br></pre></td></tr></table></figure>
+<p>建议您使用 <code>-dPDFSETTINGS=/ebooks</code>
+设置以获得最佳性能，因为电子书的可读性最好，而且尺寸足够小。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps2pdf -dPDFSETTINGS=/ebook input.pdf output.pdf</span><br></pre></td></tr></table></figure>
+<h2 id="在线工具">在线工具</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.freeconvert.com/zh/compress-pdf">Free
+Convert</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1644,120 +1772,6 @@ target="_blank" rel="noopener" href="https://www.baidu.com/search/rss.html">http
 是一种物理现象，涉及到流体或粒子围绕中心旋转，通常伴随着向心或离心的力量；而
 spiral
 则是一个几何概念，描述的是沿着螺旋形路径的运动或形状。两者之间的联系在于，当流体形成涡流时，其流动路径可能呈现出螺旋形。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/19/%E6%91%98%E8%A6%81%E5%92%8C%E5%BC%95%E8%A8%80%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/19/%E6%91%98%E8%A6%81%E5%92%8C%E5%BC%95%E8%A8%80%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">摘要和引言有什么区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-19 12:01:04" itemprop="dateCreated datePublished" datetime="2024-09-19T12:01:04+08:00">2024-09-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="摘要和引言的定义">摘要和引言的定义</h2>
-<ul>
-<li>摘要：是一篇论文或报告的简短概括，通常包括研究的目的、方法、结果和结论等，具有独立性和代表性。</li>
-<li>引言：是一篇论文或报告的开头部分，介绍研究的背景、意义、目的和范围等，同时也是引导读者进入正文的桥梁。</li>
-</ul>
-<h2 id="摘要和引言的区别">摘要和引言的区别</h2>
-<h3 id="定位和功能不同">1. 定位和功能不同</h3>
-<p>摘要和引言在整篇文章中的位置和作用不同。摘要位于正文之前，是文章的开头，在整篇文章中起到概括和提醒的作用，是读者获取文章信息的重要途径。引言则贴近正文，是文章的起点，在整篇文章中起到引入和铺垫的作用，是文章主体和结论的前奏。</p>
-<h3 id="内容和方式不同">2. 内容和方式不同</h3>
-<p>摘要和引言在内容和表达方式上也有所差别。摘要的内容是全文的提炼和概括，通常会包括研究的背景、目的、方法、结果和结论等，其表达方式一般为客观陈述、无主观色彩。引言虽然也要介绍文章的研究背景和目的等信息，但更强调个人思考和观点，往往包含作者的主观判断和看法。</p>
-<h3 id="长度和字数不同">3. 长度和字数不同</h3>
-<p>摘要和引言的长度和字数有一定区别。摘要以简洁为宜，一般不超过300字，甚至可以缩减到一两句话，目的是使读者能够快速地了解全文；而引言则可以更加详细，一般在1000字左右，或者根据论文篇幅的不同而不同。引言的目的不仅仅是引导读者进入正文，更要对整个研究做总体的概括和阐述。</p>
-<h2 id="如何正确写作摘要和引言">如何正确写作摘要和引言</h2>
-<p>正确写作摘要和引言是学术写作中必要的技能之一，下面简单介绍一些写作方法和技巧。</p>
-<h3 id="摘要的写作方法">1. 摘要的写作方法</h3>
-<ul>
-<li>精简必要信息：在摘要中只提取最核心的研究内容，不必涉及太多细节。</li>
-<li>确保逻辑连贯：不要出现排比句和逗号长句，保持摘要逻辑清晰。</li>
-<li>突出方法和结果：摘要应该突出论文的研究方法和结果，读者可以通过摘要快速获得研究重点。</li>
-</ul>
-<h3 id="引言的写作方法">2. 引言的写作方法</h3>
-<ul>
-<li>明确研究背景和问题：引言应该明确研究所面临的背景和问题，概述当前研究的现状和不足。</li>
-<li>突出创新性：引言应该突出本次研究的创新性和价值，在阅读引言后，读者能够明白本次研究的意义和重要性。</li>
-<li>确定研究目的和范围：引言应该清晰地说明研究的目的和范围，便于读者理解整个研究的脉络。</li>
-</ul>
-<h2 id="摘要和引言faqs">摘要和引言FAQs</h2>
-<h3 id="能否将摘要和引言放在一起">1. 能否将摘要和引言放在一起？</h3>
-<p>在一些专业性较弱的文章和报告中，可以将摘要和引言放在一起，但是在学术论文和专业技术类文章中，摘要和引言应该严格分开，各自起到应有的作用和功能，以便更好地表现全文的质量和价值。</p>
-<h3 id="引言应该写多长">2. 引言应该写多长？</h3>
-<p>引言的长度没有严格的规定，一般根据文章的篇幅和复杂程度而不同。但是，引言不应该过于冗长，应该以简洁明了、内容充实为标准。</p>
-<h3 id="摘要应该写在前面还是后面">3. 摘要应该写在前面还是后面？</h3>
-<p>摘要应该写在正文之前，让读者在开始阅读前就能够获得全文的概括和核心信息。一些期刊和学术出版物中，还会在正文之前附上关键词，以便读者更好地了解全文主题和范围。</p>
-<h2 id="结论">结论</h2>
-<p>摘要和引言是学术写作中非常重要的概念和组成部分，能够帮助文章更好地表达思想和观点，增强文章的逻辑性和可读性。正确地理解它们的区别和使用方法，是学术写作者不可或缺的写作技能。我们希望本文的解读，能够对广大读者和学者在写作过程中有所启示和帮助。</p>
-<div class="note primary"><p>本文引用自：<a
-target="_blank" rel="noopener" href="https://ask.paperpass.com/xsbk/3594.html">摘要和引言有什么区别：如何正确理解学术写作中的两个概念</a>,
-版权归原作者所有。</p>
 </div>
 
       

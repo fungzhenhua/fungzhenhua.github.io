@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">565</span>
+          <span class="site-state-item-count">566</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,99 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/16/Nvim%E5%92%8CVim%E4%B8%BB%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/16/Nvim%E5%92%8CVim%E4%B8%BB%E9%A2%98/" class="post-title-link" itemprop="url">Nvim和Vim主题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-16 15:21:36" itemprop="dateCreated datePublished" datetime="2023-07-16T15:21:36+08:00">2023-07-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>世界上最好的编辑器之一是 Vim 它的升级版本为 Neovim
+，在终端中打开的命令分别是 vim 和 nvim ,
+一款漂亮的主题可以使工作变的更加愉悦，但是众的主题又不好选择。还好我们有一个网站
+<a target="_blank" rel="noopener" href="https://vimcolorschemes.com">https://vimcolorschemes.com</a>
+，可以直观的看到这些主题 ，但是该如何选择呢？
+当然可以直接安装选中的主题，但是本文推荐一劳永逸的主题：vim 安装主题
+<code>base16-vim</code> , neovim 安装主题 <code>nvim-base16</code> ,
+这两个主题也可以认为是多个主题的集合，可以自由选择主题。</p>
+<h3 id="nvim安装nvim-base16">nvim安装nvim-base16</h3>
+<p>在 neovim 中使用当前流行的 packer 插件管理器，配置如下</p>
+<figure class="highlight bash"><figcaption><span>~/.config/nvim/lua/plg/plugins.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">use &#123;</span><br><span class="line">    <span class="string">&#x27;git@github.com:folke/tokyonight.nvim&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:tomasr/molokai&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:catppuccin/nvim&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:jaredgorski/SpaceCamp&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:morhetz/gruvbox&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:nelstrom/vim-mac-classic-theme&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;git@github.com:RRethy/nvim-base16&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/16/Nvim%E5%92%8CVim%E4%B8%BB%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1091,84 +1184,6 @@ target="_blank" rel="noopener" href="https://gitlab.com/fengzhenhua/epoch">https
           <p>将shell命令赋值给变量有两种不同的方法，这对于shell脚本编程特别有用，这两种形式为：
 <figure class="highlight bash"><figcaption><span>linux命令输出赋值给变量</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">变量名=$(命令)</span><br><span class="line">变量名=$(命令 [命令选项...] 参数1 参数2)</span><br><span class="line">或者</span><br><span class="line">变量名=`命令`</span><br><span class="line">变量名=`命令 [命令选项...] 参数1 参数2`</span><br></pre></td></tr></table></figure> <div class="note warning"><p>第二种方法中使用的是键盘左上角<code>Esc</code>键下面的反引号,多数键盘上和符号<code>～</code>在同一个键上，并不是键盘右侧的单引号，这一点特别注意。</p>
 </div></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/22/%E5%BC%95%E5%8A%9B%E7%90%86%E8%AE%BA%E4%B8%93%E9%A2%98%E6%B1%87%E6%8A%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/06/22/%E5%BC%95%E5%8A%9B%E7%90%86%E8%AE%BA%E4%B8%93%E9%A2%98%E6%B1%87%E6%8A%A5/" class="post-title-link" itemprop="url">引力理论专题汇报</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-06-22 19:03:37" itemprop="dateCreated datePublished" datetime="2023-06-22T19:03:37+08:00">2023-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天完成了引力理论专题的大作业，以朗道书中的一个复杂的计算的详细推导作为汇报内容。已经将作业发送给了高思杰老师(sijie@bnu.edu.cn),
-同时将作业同步展示于此：</p>
-<div class="pdf-container" data-target="/PDF/引力理论专题汇报.pdf" data-height="500px"></div>
 
       
     </div>
