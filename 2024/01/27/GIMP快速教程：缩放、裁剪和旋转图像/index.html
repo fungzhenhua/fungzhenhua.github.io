@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2024/01/27/GIMP%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BC%A9%E6%94%BE%E3%80%81%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/01/27/GIMP%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BC%A9%E6%94%BE%E3%80%81%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/","path":"2024/01/27/GIMP快速教程：缩放、裁剪和旋转图像/","title":"GIMP快速教程：缩放、裁剪和旋转图像"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>GIMP快速教程：缩放、裁剪和旋转图像 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">软件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E5%9B%BE%E5%83%8F%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%B0%BA%E5%AF%B8%E5%8D%B3%E7%BC%A9%E6%94%BE"><span class="nav-number">3.</span> <span class="nav-text">调整图像的大小（尺寸），即缩放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-jpeg-%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">4.</span> <span class="nav-text">修改 JPEG 文件的大小</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%81%E5%89%AA%E5%9B%BE%E5%83%8F"><span class="nav-number">5.</span> <span class="nav-text">裁剪图像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="nav-number">5.1.</span> <span class="nav-text">另一种方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E6%88%96%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="nav-number">6.</span> <span class="nav-text">旋转或翻转图像</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BF%BB%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="nav-number">6.1.</span> <span class="nav-text">翻转图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F"><span class="nav-number">6.2.</span> <span class="nav-text">旋转图像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/27/GIMP%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%EF%BC%9A%E7%BC%A9%E6%94%BE%E3%80%81%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="GIMP快速教程：缩放、裁剪和旋转图像 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GIMP快速教程：缩放、裁剪和旋转图像
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-27 00:34:52" itemprop="dateCreated datePublished" datetime="2024-01-27T00:34:52+08:00">2024-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><div class="note info"><p>本文翻译自 GIMP 官网，是 GIMP 教程的一部分。</p>
+</div>
+<h3 id="软件安装">软件安装</h3>
+<ol type="1">
+<li>Windows：
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.gimp.org/downloads/">GIMP官网下载</a></li>
+<li>双击<code>exe</code>文件安装</li>
+</ul></li>
+<li>Linux:
+<ul>
+<li>Archlinux 或 Endeavor: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S gimp </span><br></pre></td></tr></table></figure></li>
+<li>Debian 或 ubuntu: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install gimp</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ol>
+<h3 id="目的">目的</h3>
+<p>恭喜你！你在电脑上安装了 GIMP！GIMP
+是一个非常强大的图像处理软件，但是不要被它吓到。即使你没有时间学习高级的电脑图形处理技能，GIMP
+仍然可以是一个非常有用和方便的快速修改图像的工具。</p>
+<p>我希望这些例子能帮助你解决那些需要对图像应用进行快速修改的小需求。希望这也能让你学习到
+GIMP 更强大的图像编辑能力。</p>
+<p>为了便于快速查看，我将在这篇快速教程中涵盖以下四个要点：</p>
+<ul>
+<li>更改图像的大小（尺寸），即缩放</li>
+<li>更改 JPEG 的大小（文件大小）</li>
+<li>剪裁图像</li>
+<li>旋转或翻转图像</li>
+</ul>
+<span id="more"></span>
+<p>为了与这个页面之前的版本保持保持一致，我将使用 NASA
+提供的天文学家每日图像（APOD）中的一张图片。</p>
+<p>为了跟随这些快速示例，你只需要知道如何找到你的图片并打开它：“文件File → 打开Open”。</p>
+<h3 id="调整图像的大小尺寸即缩放">调整图像的大小（尺寸），即缩放</h3>
+<p>你可能会遇到一个图像太大，不适合特定用途的问题（例如，嵌入网页、在线发布或包含在电子邮件中）。在这种情况下，你通常会希望将图像缩小到更小的尺寸，以便更好地满足你的需求。</p>
+<p>在 GIMP 中轻松完成这个任务非常简单。</p>
+<p>我们使用的图片是哈勃望远镜拍摄的马头星云红外成像图。</p>
+<p>当你第一次在 GIMP
+中打开图像时，很可能会发现图像被缩放，以便整个图像都能适合你的画布。对于这个示例，需要注意的是，GIMP
+窗口顶部的窗口装饰会显示一些关于图像的信息。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095131t04z3ohb2nj3hkao.png"
+alt="GIMP画布的视图，顶部显示窗口信息" />
+<figcaption
+aria-hidden="true">GIMP画布的视图，顶部显示窗口信息</figcaption>
+</figure>
+<p><em>GIMP画布的视图，顶部显示窗口信息</em></p>
+<p>请注意，窗口顶部的信息显示了当前图像的像素尺寸（在这个例子中，像素尺寸为
+1225×1280）。</p>
+<p>要调整图像的大小到新的尺寸，我们只需要调用“缩放图像Scale
+Image”对话框：“图像Image → 缩放图像...Scale Image ...”。</p>
+<p>这将打开“缩放图像”对话框：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095132apzapdqq4qdezqpe.png"
+alt="“缩放图像”对话框" />
+<figcaption aria-hidden="true">“缩放图像”对话框</figcaption>
+</figure>
+<p><em>“缩放图像”对话框</em></p>
+<p>在“缩放图像”对话框中，你会发现一个_可以输入新宽度和高度的地方_。如果你知道所需图的新尺寸，可以在这里填写相应的值。</p>
+<p>“宽度Width”和“高度Height”输入框右侧，你也会<strong>注意到一个小链</strong>。这个图标显示了宽度和高度值被相互锁定，这意味着改变一个值会导致另一个值的变化，以保持相同的宽高比（图像中不会出现奇怪的压缩或拉伸）。</p>
+<p>例如，如果你想要将图像宽度调整到 600
+像素，你可以在这个宽度输入框中输入这个值，高度将自动更改以保持图像的宽高比：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095132mj3qqadc03d000cl.png"
+alt="调整大小到 600 像素" />
+<figcaption aria-hidden="true">调整大小到 600 像素</figcaption>
+</figure>
+<p><em>调整大小到 600 像素</em></p>
+<p>如你所见，在宽度一栏输入 600 像素后会自动将高度更改为 627 像素。</p>
+<p>此外，我还展示了 “质量Quality”
+选项下的不同选项。默认值是“立方Cubic”，但为了保持最佳质量，最好使用
+“Sinc（Lanczos3）”。</p>
+<p>如果你想使用不同类型的值（而不是像素大小）指定一个新的尺寸，可以通过点击“px”下拉菜单来更改输入值的类型：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095133rpho5p3i57ipv772.png"
+alt="更改输入值类型" />
+<figcaption aria-hidden="true">更改输入值类型</figcaption>
+</figure>
+<p><em>更改输入值类型</em></p>
+<p>这种情况的一个常见用途是，如果你想要以原始尺寸的百分比指定一个新的尺寸。在这种情况下，你可以更改为“百分比percent”，然后在任何字段中输入
+50 来将图像缩小一半。</p>
+<p>一旦你缩放了图像，别忘了保存你所做的更改：选中
+“文件File → 导出...Exprert ...” 以新的文件名导出，或者 “文件File → 覆盖
+{文件名}Overwrite {FILENAME}” 覆盖原始文件（谨慎使用）。</p>
+<p>有关使用缩放图像的更多信息，你可以查看文档。</p>
+<h3 id="修改-jpeg-文件的大小">修改 JPEG 文件的大小</h3>
+<p>你也可以在导出为 JPEG 等格式时修改图像的文件大小。JPEG
+是一种<strong>有损</strong>压缩算法，这意味着在将图像保存为 JPEG
+格式时，你将牺牲一些图像质量来获得较小的文件大小。</p>
+<p>我使用已经将其调整为 200
+像素宽（请参见上方）的“马头星云”图像，并使用不同级别的 JPEG
+压缩将其导出，以比较 JPEG 压缩的效果：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095134ojh4wxcw4x76ro9c.png"
+alt="比较不同级别的 JPEG 压缩" />
+<figcaption aria-hidden="true">比较不同级别的 JPEG 压缩</figcaption>
+</figure>
+<p><em>比较不同级别的 JPEG 压缩</em></p>
+<p>如你所见，即使在质量设置为 80 的情况下，图像的文件大小显著减少了
+77％，而图像质量仍然相当合理。</p>
+<p>当你完成任何正在进行的图像修改，并准备导出时，只需通过以下方式调用导出对话框：“文件
+→ 导出 …” 这将调用“导出图像Export Image”对话框：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095134xg2nff7df7wwdfnf.png"
+alt="导出图像对话框" />
+<figcaption aria-hidden="true">导出图像对话框</figcaption>
+</figure>
+<p><em>导出图像对话框</em></p>
+<p>你可以在此_输入新的文件名_。如果文件名里包含扩展名（此时为
+“.jpg”），GIMP 会尝试为你导出对应的文件格式。此处将图像导出为 JPEG
+格式。</p>
+<p>如果你需要将文件导出到不同的位置，也可以通过位置窗格导航到计算机上的新位置。当你准备好导出图像时，只需按“导出Expert”按钮。</p>
+<p>这将调用“导出图像为 JPEGExport Image as
+JPEG”对话框，你可以在其中更改导出的质量：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095135x49x21090291dldl.png"
+alt="从“导出为JPG”对话框中更改导出的质量" />
+<figcaption
+aria-hidden="true">从“导出为JPG”对话框中更改导出的质量</figcaption>
+</figure>
+<p><em>从“导出为JPG”对话框中更改导出的质量</em></p>
+<p>现在你可以在此对话框中更改导出质量。如果你还勾选了“在图像窗口中显示预览Show
+preview in image
+window”选项，画布上的图像将更新以反映你输入的质量值。这也将启用“文件大小：File
+size:”信息，告诉你导出后的文件大小。你可能需要移动一些窗口才能在背景中查看画布上的预览。</p>
+<p>当你对结果满意时，按“导出”按钮进行导出。</p>
+<p>要查看有关导出不同图像格式的更多详细信息，请参阅手册中的“从 GIMP
+中获取图像”。</p>
+<h3 id="裁剪图像">裁剪图像</h3>
+<p>有很多原因可能会使你想要裁剪图像。你可能想要删除无用的边框或信息，或者你可能希望最终图像的焦点集中在某些特定的细节上。</p>
+<p>简而言之，裁剪就是一个将图像缩小到比你开始时小的操作：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095136xe1neeb1m85fei1o.png"
+alt="原始图像（左），裁剪图像（右）" />
+<figcaption
+aria-hidden="true">原始图像（左），裁剪图像（右）</figcaption>
+</figure>
+<p><em>原始图像（左），裁剪图像（右）</em></p>
+<p>裁剪图像的步骤非常简单。你可以通过工具面板使用裁剪工具：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095136avg0cgnzg4gzj93i.png"
+alt="工具面板上的裁剪工具" />
+<figcaption aria-hidden="true">工具面板上的裁剪工具</figcaption>
+</figure>
+<p><em>工具面板上的裁剪工具</em></p>
+<p>或者通过菜单访问裁剪工具：“工具Tools → 变换工具Transform
+Tools → 裁剪Crop”。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095136y7igdtvv2t21b1ti.png"
+alt="GIMP裁剪工具光标" />
+<figcaption aria-hidden="true">GIMP裁剪工具光标</figcaption>
+</figure>
+<p><em>GIMP裁剪工具光标</em></p>
+<p>一旦激活该工具，画布上的鼠标光标会改变,以表示正在使用裁剪工具。</p>
+<p>现在你可以在画布上的任何位置单击鼠标，然后拖动鼠标到新位置以高亮显示初始选择区域以进行裁剪。在这个阶段，你不必担心精确度，因为在实际裁剪之前，你可以修改最终选区。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095659hzzn5c51cc6hq3ju.png"
+alt="使用裁剪工具的第一步" />
+<figcaption aria-hidden="true">使用裁剪工具的第一步</figcaption>
+</figure>
+<p><em>使用裁剪工具的第一步</em></p>
+<p>在选择要裁剪的区域后，你会发现选区仍然处于活动状态。在这一点上，将鼠标光标悬停在选区的任何四个角或边缘上都会改变鼠标光标，并高亮显示该区域，以对裁剪进行精调。</p>
+<p>你可以点击并拖动任何一侧或一角来移动该部分的选区。</p>
+<p>一旦你对裁剪区域满意，只需按键盘上的回车键即可提交裁剪。在你想从头开始或决定不裁剪时，可以按键盘上的 <code>Esc</code> 键退出操作。</p>
+<p>有关在GIMP中裁剪的更多信息，请参阅文档。</p>
+<h4 id="另一种方法">另一种方法</h4>
+<p>另一种裁剪图像的方法是首先使用矩形选择工具进行选择：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095136vfkuhca2tmh9hmfc.png"
+alt="裁剪选区 矩形选择工具" />
+<figcaption aria-hidden="true">裁剪选区 矩形选择工具</figcaption>
+</figure>
+<p><em>裁剪选区 矩形选择工具</em></p>
+<p>或者通过菜单：“工具Tools → 选择工具Selection
+Tools → 矩形选择Rectangle
+Select”，然后你可以以与裁剪工具相同的方式高亮显示选区，并调整选区。一旦你有一个喜欢的选区，你就可以通过以下方式将图像裁剪到该选区的大小：“图像Image → 裁剪到选区Crop
+to Selection”。</p>
+<h3 id="旋转或翻转图像">旋转或翻转图像</h3>
+<p>可能有时你需要旋转图像。例如，你可能使用相机在垂直方向拍摄了图像，但是
+GIMP 并没有自动旋转（GIMP 通常会为你自动处理，但并非总是如此）。</p>
+<p>有时你也可能想翻转图像。这些命令都位于同一个菜单项下：“图像Image → 变换Transform”。</p>
+<h4 id="翻转图像">翻转图像</h4>
+<p>如果你想翻转你的图像，变换菜单提供了两种选项：水平翻转或垂直翻转。此操作将沿着指定的轴翻转（镜像）图像。例如，这里显示了在单个图像上应用的所有翻转操作：</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095137khhh5zu8sn0t0xtu.jpg"
+alt="应用到基图像（左上角）的所有翻转" />
+<figcaption
+aria-hidden="true">应用到基图像（左上角）的所有翻转</figcaption>
+</figure>
+<p><em>应用到基图像（左上角）的所有翻转</em></p>
+<h4 id="旋转图像">旋转图像</h4>
+<p>变换菜单中的图像旋转限制为 90° 顺时针/逆时针或 180°。
+不要误解这意味著 GIMP
+不能执行任意角度旋转。任意旋转是针对每个图层进行处理的，而这里的图像旋转适用于整个图像。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202311/10/095138bx9xfe10orf8l1g9.jpg"
+alt="旋转示例：原始（左上角），顺时针旋转90°（右上角），逆时针旋转90°（左下角），180°（右下角）。" />
+<figcaption
+aria-hidden="true">旋转示例：原始（左上角），顺时针旋转90°（右上角），逆时针旋转90°（左下角），180°（右下角）。</figcaption>
+</figure>
+<p><em>旋转示例：原始（左上角），顺时针旋转90°（右上角），逆时针旋转90°（左下角），180°（右下角）。</em></p>
+<h3 id="总结">总结</h3>
+<p>这里展示的简单示例只是冰山一角。然而，这些是许多没有学习太多图像处理知识的人经常进行的常见修改。希望这个教程对你有所帮助。
+我鼓励你阅读其他教程，了解更高级的图像处理方法！</p>
+<p><em>（题图：MJ/9bbe01ba-7cc1-49b1-91a6-2b3d13594503）</em></p>
+<hr />
+<p>via: <a
+target="_blank" rel="noopener" href="https://www.gimp.org/tutorials/GIMP_Quickies/">https://www.gimp.org/tutorials/GIMP_Quickies/</a></p>
+<p>作者：Pat David 译者：<a
+target="_blank" rel="noopener" href="https://github.com/TimXiedada">TimXiedada</a> 编辑：<a
+target="_blank" rel="noopener" href="https://github.com/wxy">wxy</a></p>
+<p>本文由贡献者投稿至 <a target="_blank" rel="noopener" href="https://github.com/LCTT/Articles/">Linux
+中国公开投稿计划</a>，采用 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC-BY-SA
+协议</a> 发布，<a
+target="_blank" rel="noopener" href="https://linux.cn/article-16365-1.html">Linux中国</a> 荣誉推出</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/27/U%E7%9B%98%E5%90%AF%E5%8A%A8BIOS%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/" rel="prev" title="U盘启动BIOS设置教程">
+                  <i class="fa fa-angle-left"></i> U盘启动BIOS设置教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/27/Windows%E4%B8%8B%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85Linux/" rel="next" title="微软出品：《如何下载和安装 Linux》">
+                  微软出品：《如何下载和安装 Linux》 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

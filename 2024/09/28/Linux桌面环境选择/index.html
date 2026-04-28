@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2024/09/28/Linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E9%80%89%E6%8B%A9/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/09/28/Linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E9%80%89%E6%8B%A9/","path":"2024/09/28/Linux桌面环境选择/","title":"Linux桌面环境选择"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux桌面环境选择 | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kde-plasma"><span class="nav-number">1.</span> <span class="nav-text">1. KDE Plasma</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mate"><span class="nav-number">2.</span> <span class="nav-text">2. MATE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-1"><span class="nav-number">2.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gnome"><span class="nav-number">3.</span> <span class="nav-text">3. GNOME</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-2"><span class="nav-number">3.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cinnamon"><span class="nav-number">4.</span> <span class="nav-text">4. Cinnamon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-3"><span class="nav-number">4.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#budgie"><span class="nav-number">5.</span> <span class="nav-text">5. Budgie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-4"><span class="nav-number">5.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lxqt"><span class="nav-number">6.</span> <span class="nav-text">6. LXQt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-5"><span class="nav-number">6.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xfce"><span class="nav-number">7.</span> <span class="nav-text">7. Xfce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-6"><span class="nav-number">7.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepin"><span class="nav-number">8.</span> <span class="nav-text">8. Deepin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%AE%E7%82%B9-7"><span class="nav-number">8.1.</span> <span class="nav-text">优势亮点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%BC%95%E7%94%A8"><span class="nav-number">9.</span> <span class="nav-text">文章引用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/28/Linux%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E9%80%89%E6%8B%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux桌面环境选择 | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux桌面环境选择
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-28 09:41:35" itemprop="dateCreated datePublished" datetime="2024-09-28T09:41:35+08:00">2024-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>为了让您更好地选择适合自己的桌面环境，本文精选了当前最受欢迎的 8
+大主流 Linux
+桌面环境。接下来，我们将逐一分析它们的长处和短板，希望能为你的选择提供参考。</p>
+<h2 id="kde-plasma">1. KDE Plasma</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/kde-plasma-desktop.jpeg"
+alt="KDE Plasma 桌面环境" />
+<figcaption aria-hidden="true">KDE Plasma 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://kde.org/zh-cn/plasma-desktop/">KDE Plasma
+桌面环境</a>因其卓越的可定制性和对资源的高效利用而闻名。多项基准测试表明，KDE
+在轻量级桌面环境中的表现甚至超越了 XFCE。</p>
+<p>借助 <a target="_blank" rel="noopener" href="https://kdeconnect.kde.org/">KDE Connect</a> 功能，KDE
+极大地简化了手机与 Linux 系统之间的连接过程。Plasma
+的浏览器集成功能，进一步实现了手机与浏览器之间的无缝连接，实现了信息的快速交互。</p>
+<p>默认搭载 KDE 的 Linux 发行版有 openSUSE、Kubuntu 和 KDE Neon
+等。如果你考虑<a
+target="_blank" rel="noopener" href="https://www.sysgeek.cn/ubuntu-install-kde-plasma/">在 Ubuntu
+上安装 KDE</a>，可以参考我们之前的教程。</p>
+<h3 id="优势亮点">优势亮点</h3>
+<ul>
+<li>界面设计现代且精致，提供卓越的视觉体验。</li>
+<li>高度可定制，操作体验灵活多变。</li>
+<li>内置多种实用工具，有效提升工作效率。</li>
+<li>资源占用低，系统运行流畅。</li>
+</ul>
+<p>对于初学者来说，KDE 丰富的定制选项可能需要一段时间来适应和学习。</p>
+<h2 id="mate">2. MATE</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/mate-desktop.jpeg"
+alt="MATE 桌面环境" />
+<figcaption aria-hidden="true">MATE 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://mate-desktop.org/">MATE 桌面环境</a>是 <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/GNOME#GNOME_2">GNOME 2</a>
+的继承者，保留了其经典设计，为不习惯 GNOME
+最新变革的用户提供了一个舒适的选择。</p>
+<p>在坚守传统的基础上，MATE 团队也在推陈出新，推出了一系列的新功能。以
+Ubuntu MATE 22.04 为例，它引入了多项值得关注的新特性。</p>
+<p>作为轻量级桌面环境，MATE
+对硬件要求不高，非常适合配置较低的设备。它还提供了一整套基本应用程序和多种提高效率的工具。</p>
+<p><a target="_blank" rel="noopener" href="https://ubuntu-mate.org/">Ubuntu MATE</a> 作为 Ubuntu
+官方支持的版本之一，默认采用了 MATE 桌面。Linux Mint 和 Manjaro
+等其他受欢迎的 Linux 发行版也提供了基于 MATE 的版本。</p>
+<h3 id="优势亮点-1">优势亮点</h3>
+<ul>
+<li>继承 GNOME 2 的稳定性，带来熟悉且舒适的用户体验。</li>
+<li>作为轻量级桌面环境，对系统资源的占用很小。</li>
+<li>界面简洁，提供丰富的自定义选项，满足个性化需求。</li>
+</ul>
+<p>MATE 力求简洁，但对于习惯直观操作的用户，可能需要一段时间来熟悉。</p>
+<h2 id="gnome">3. GNOME</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/gnome-desktop.jpeg"
+alt="GNOME 桌面环境" />
+<figcaption aria-hidden="true">GNOME 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://www.gnome.org/">GNOME 桌面环境</a>在 Linux
+领域享有盛誉，多数著名 Linux
+发行版都将其作为默认界面。它的设计哲学专注于易用性和可定制性，致力于提供一种既适合移动设备又适用于桌面电脑的独特体验。</p>
+<p>尽管 GNOME
+不属于轻量级桌面环境，对于配置较低的老旧电脑可能不是最佳选择，但 GNOME
+团队在最新的 GNOME 44 版本中已经开始着重优化性能。</p>
+<p>如果你追求卓越的用户体验，并且想要一种与传统 Windows
+界面完全不同的新体验，GNOME 无疑是一个不错的选择。</p>
+<p>GNOME 被 Debian、Fedora、openSUSE 和 Ubuntu
+等主流发行版采用为首选桌面环境。</p>
+<h3 id="优势亮点-2">优势亮点</h3>
+<ul>
+<li>提供现代化且对触摸屏友好的用户界面。</li>
+<li>通过 GNOME Shell 扩展，用户能够进一步增强桌面功能。</li>
+<li>支持深度定制，用户可以根据个人喜好调整桌面环境。</li>
+</ul>
+<p>由于 GNOME 不是轻量级桌面，对于老旧或配置较低的电脑可能不太合适。</p>
+<h2 id="cinnamon">4. Cinnamon</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/cinnamon-desktop.jpeg"
+alt="Cinnamon 桌面环境" />
+<figcaption aria-hidden="true">Cinnamon 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://projects.linuxmint.com/cinnamon/">Cinnamon
+桌面环境</a>源自 GNOME 3，已经成为 <a
+target="_blank" rel="noopener" href="https://linuxmint.com/">Linux Mint</a> 的标志性界面。它与 Windows
+界面有着诸多相似之处，极大地降低了 Linux 新手的入门门槛。</p>
+<p>Cinnamon
+的设计理念是将现代风格与传统元素相结合，为用户提供一个既熟悉又具有现代感的操作体验。它对系统资源的要求相对较低，非常适合寻求平衡使用体验的用户。</p>
+<h3 id="优势亮点-3">优势亮点</h3>
+<ul>
+<li>界面美观，视觉效果令人愉悦。</li>
+<li>为 Windows 用户提供了一个易于过渡的操作环境。</li>
+<li>允许用户根据个人喜好进行高度定制，满足不同的使用需求。</li>
+</ul>
+<p>虽然 Cinnamon
+界面友好，但对于习惯于直观操作的用户，可能需要一段时间来适应。</p>
+<h2 id="budgie">5. Budgie</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/budgie-desktop.jpeg"
+alt="Budgie 桌面环境" />
+<figcaption aria-hidden="true">Budgie 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://buddiesofbudgie.org/">Budgie 桌面环境</a>由 Solus
+项目团队精心打造，Solus 是一个独立开发的 Linux 发行版。团队利用 GNOME
+技术栈中的 GTK 等工具，打造出了这款具有独特风格的桌面环境。</p>
+<p>Budgie 桌面环境融合了现代 UI
+设计的美感和传统用户界面的实用性。它资源消耗适中，不完全属于轻量级，而是巧妙地在两者之间找到了平衡。</p>
+<p>Ubuntu Budgie 作为 Ubuntu 的官方版本之一，采用了 Budgie
+作为其默认桌面环境，提供了一个既现代又直观的用户体验。虽然 Budgie
+不是所有主流 Linux 发行版的首选，但在 Solus 和 Ubuntu Budgie
+中的出色表现，已经足以让用户耳目一新。</p>
+<h3 id="优势亮点-4">优势亮点</h3>
+<ul>
+<li>界面直观，上手容易。</li>
+<li>UI 设计现代而优雅，视觉效果吸引人。</li>
+<li>桌面操作流畅快速，确保了愉悦的用户体验。</li>
+</ul>
+<p>虽然 Budgie 并非所有发行版的默认选择，但大多数 Linux
+发行版都支持手动安装 Budgie 桌面环境。</p>
+<h2 id="lxqt">6. LXQt</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/lxqt20-desktop.jpeg"
+alt="LXQt 桌面环境" />
+<figcaption aria-hidden="true">LXQt 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://lxqt-project.org/">LXQt</a> 是一款基于 Qt
+的轻量级桌面环境，它在低资源消耗的同时，提供了比 LXDE
+更为现代和美观的用户界面。LXQt
+的设计哲学在于简洁高效，尤其适合那些老旧或配置较低的电脑。</p>
+<p>在实际使用中，LXQt 是 LXDE 在 Lubuntu
+等发行版上的完美替代，它在保证性能的同时，提供了更加愉悦的视觉体验。</p>
+<h3 id="优势亮点-5">优势亮点</h3>
+<ul>
+<li>作为极轻量级的桌面环境，LXQt 提供了迅速的响应和流畅的操作体验。</li>
+<li>LXQt 的用户界面设计依然保持了现代感，提供了良好的视觉体验。</li>
+</ul>
+<p>LXQt 的用户界面不够引人注目，可定制性相对一般。虽然只在少数 Linux
+发行版上默认提供，但大多数发行版都支持手动安装 LXQt。</p>
+<h2 id="xfce">7. Xfce</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/xfce-desktop.jpeg"
+alt="Xfce 桌面环境" />
+<figcaption aria-hidden="true">Xfce 桌面环境</figcaption>
+</figure>
+<p><a target="_blank" rel="noopener" href="https://xfce.org/">Xfce
+桌面环境</a>是众多桌面环境中的佼佼者，主打一个轻量级。与 LXQt 相比，Xfce
+得到了更多主流 Linux
+发行版的支持，并在资源消耗与功能性之间达到了平衡。</p>
+<p>Xfce
+以低资源消耗而广受赞誉，同时提供了功能完备且用户友好的体验。对于那些注重性能且不追求复杂定制的用户来说，Xfce
+是一个理想的选择。</p>
+<p>Zorin OS Lite 默认采用了 Xfce 桌面环境，此外，像 Manjaro
+Linux、Xubuntu、MX Linux 等主要 Linux 发行版也都将 Xfce
+作为默认桌面环境，这进一步证明了它的普及度。</p>
+<h3 id="优势亮点-6">优势亮点</h3>
+<ul>
+<li>对老旧硬件友好，即使在配置较低的电脑上也能流畅运行。</li>
+<li>提供现代化且视觉吸引力强的用户界面。</li>
+<li>提供类似 Windows 的熟悉操作环境，易于用户过渡。</li>
+</ul>
+<p>Xfce 不支持某些高级定制功能，限制了一些深度个性化的需求。</p>
+<h2 id="deepin">8. Deepin</h2>
+<figure>
+<img src="https://img.sysgeek.cn/img/2024/04/ubuntudde-desktop.jpeg"
+alt="Deepin 桌面环境" />
+<figcaption aria-hidden="true">Deepin 桌面环境</figcaption>
+</figure>
+<p>在选择 Linux
+桌面环境时，除了定制性和资源消耗，用户界面的美观度也是一个不可忽视的因素。Deepin
+桌面环境正是凭借其卓越的美学设计和用户体验，在众多桌面环境中崭露头角。</p>
+<p>Deepin 提供了一个类似于 macOS
+的优雅界面，再结合流畅的动画效果和精心设计的布局，打造出了一个既美观又实用的操作环境。这种设计理念吸引了许多愿意为了更好的视觉体验而接受一些性能折中的用户。</p>
+<p>起初，<a target="_blank" rel="noopener" href="https://www.deepin.org/en/dde/">Deepin 桌面环境</a>是
+Deepin OS 的独有特色，但随着其受欢迎程度的提升，其他 Linux
+发行版也开始采用 Deepin 桌面。例如，通过 <a
+target="_blank" rel="noopener" href="https://ubuntudde.com/">UbuntuDDE 项目</a>，可以<a
+target="_blank" rel="noopener" href="https://www.sysgeek.cn/ubuntu-use-deepin-desktop/">将 Deepin
+桌面环境成功集成到 Ubuntu</a>，这标志着 Deepin
+正在赢得更广泛的认可。</p>
+<h3 id="优势亮点-7">优势亮点</h3>
+<ul>
+<li>提供了极具美感的用户界面，视觉吸引力十足。</li>
+<li>平滑的动画效果提升了整体的交互体验。</li>
+</ul>
+<p>Deepin
+桌面环境对资源的需求较高，在一些老旧硬件上可能出现反应迟缓的情况。</p>
+<hr />
+<p>从 KDE Plasma 的高度可定制性，到 Xfce 的轻量级效率，再到 Deepin
+的精美设计，每种 Linux
+桌面环境都力求在功能、美观和性能之间找到完美的平衡点。希望本文能为你提供有价值的信息，帮助你做出明智的决策。</p>
+<h2 id="文章引用">文章引用</h2>
+<p><a target="_blank" rel="noopener" href="https://www.sysgeek.cn/best-linux-desktop-environments/">8
+款最佳 Linux 桌面环境推荐（2024）</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/27/MSOffice%E9%80%9A%E7%94%A8%E6%89%B9%E9%87%8F%E8%AE%B8%E5%8F%AF%E8%AF%81%E5%AF%86%E9%92%A5/" rel="prev" title="MSOffice通用批量许可证密钥">
+                  <i class="fa fa-angle-left"></i> MSOffice通用批量许可证密钥
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/09/29/Next%E4%B8%BB%E9%A2%98%E5%90%AF%E7%94%A8%E7%95%85%E8%A8%80%E4%BA%91%E8%AF%84%E8%AE%BA/" rel="next" title="Next主题启用畅言云评论">
+                  Next主题启用畅言云评论 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#9400D3"><meta name="generator" content="Hexo 5.4.2">
+<link rel="preconnect" href="https://s4.zstatic.net" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#9400D3">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"default"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#9400D3","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":false,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2023/07/17/vim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8vim-plug/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/07/17/vim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8vim-plug/","path":"2023/07/17/vim插件管理器vim-plug/","title":"vim插件管理器vim-plug"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>vim插件管理器vim-plug | BNU-FZH</title>
+  
+
+
+
+
+
+
+
+<script async src="/lib/fireworks.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">BNU-FZH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">fengzhenhua@outlook.com</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-导航"><a href="/%E5%AF%BC%E8%88%AA/" rel="section"><i class="fa fa-paper-plane fa-fw"></i>导航</a></li><li class="menu-item menu-item-软件"><a href="/%E8%BD%AF%E4%BB%B6/" rel="section"><i class="fa fa-briefcase fa-fw"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href="/%E6%94%B6%E8%97%8F/" rel="section"><i class="fa fa-folder fa-fw"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href="/%E5%B7%A5%E4%BD%9C/" rel="section"><i class="fa fa-folder fa-fw"></i>工作</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#pros."><span class="nav-number">1.</span> <span class="nav-text">Pros.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#installation"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vim"><span class="nav-number">2.1.</span> <span class="nav-text">Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#unix"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Unix</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#windows-powershell"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Windows (PowerShell)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#neovim"><span class="nav-number">2.2.</span> <span class="nav-text">Neovim</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#unix-linux"><span class="nav-number">2.2.0.1.</span> <span class="nav-text">Unix, Linux</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#linux-flatpak"><span class="nav-number">2.2.0.2.</span> <span class="nav-text">Linux (Flatpak)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#windows-powershell-1"><span class="nav-number">2.2.0.3.</span> <span class="nav-text">Windows (PowerShell)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getting-help"><span class="nav-number">3.</span> <span class="nav-text">Getting Help</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#usage"><span class="nav-number">4.</span> <span class="nav-text">Usage</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#example"><span class="nav-number">4.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commands"><span class="nav-number">5.</span> <span class="nav-text">Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plug-options"><span class="nav-number">6.</span> <span class="nav-text">Plug options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#global-options"><span class="nav-number">7.</span> <span class="nav-text">Global options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keybindings"><span class="nav-number">8.</span> <span class="nav-text">Keybindings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-a-small-sensible-vim-configuration"><span class="nav-number">9.</span> <span class="nav-text">Example: A small sensible Vim
+configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-demand-loading-of-plugins"><span class="nav-number">10.</span> <span class="nav-text">On-demand loading of plugins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-update-hooks"><span class="nav-number">11.</span> <span class="nav-text">Post-update hooks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pluginstall-and-plugupdate"><span class="nav-number">12.</span> <span class="nav-text">PlugInstall! and
+PlugUpdate!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#articles"><span class="nav-number">13.</span> <span class="nav-text">Articles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#collaborators"><span class="nav-number">14.</span> <span class="nav-text">Collaborators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#license"><span class="nav-number">15.</span> <span class="nav-text">License</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://www.zxxk.com/" title="学科资源 → https:&#x2F;&#x2F;www.zxxk.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>学科资源</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://zujuan.xkw.com/" title="组卷题库 → https:&#x2F;&#x2F;zujuan.xkw.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>组卷题库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://192.168.1.14/" title="实验信息 → http:&#x2F;&#x2F;192.168.1.14&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>实验信息</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhixue.com/" title="智学阅卷 → https:&#x2F;&#x2F;www.zhixue.com" rel="noopener me" target="_blank"><i class="fa-solid fa-cloud fa-fw"></i>智学阅卷</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://chat.deepseek.com/" title="深度求索 → https:&#x2F;&#x2F;chat.deepseek.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>深度求索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tongyi.com/" title="通义千问 → https:&#x2F;&#x2F;www.tongyi.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>通义千问</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.scnet.cn/ui/chatbot/" title="国家超算 → https:&#x2F;&#x2F;www.scnet.cn&#x2F;ui&#x2F;chatbot&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>国家超算</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yuanbao.tencent.com/chat" title="腾讯元宝 → https:&#x2F;&#x2F;yuanbao.tencent.com&#x2F;chat" rel="noopener me" target="_blank"><i class="fa-solid fa-brain fa-fw"></i>腾讯元宝</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="必应搜索 → https:&#x2F;&#x2F;cn.bing.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>必应搜索</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.hao268.com/" title="网址之家 → https:&#x2F;&#x2F;www.hao268.com" rel="noopener me" target="_blank"><i class="fa fa-search fa-fw"></i>网址之家</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://meeting.163.com/" title="网易会议 → https:&#x2F;&#x2F;meeting.163.com" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>网易会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mixlink.com/zh-cn" title="觅讯会议 → https:&#x2F;&#x2F;www.mixlink.com&#x2F;zh-cn" rel="noopener me" target="_blank"><i class="fa fa-phone fa-fw"></i>觅讯会议</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ac.scmor.com/" title="思谋学术 → https:&#x2F;&#x2F;ac.scmor.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>思谋学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://search.essclick.com/" title="爱思学术 → https:&#x2F;&#x2F;search.essclick.com" rel="noopener me" target="_blank"><i class="fa fa-graduation-cap fa-fw"></i>爱思学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.lanfanshu.cn/" title="番薯学术 → https:&#x2F;&#x2F;scholar.lanfanshu.cn&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>番薯学术</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://xmsoushu.com/" title="熊猫搜书 → https:&#x2F;&#x2F;xmsoushu.com&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>熊猫搜书</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/translator" title="必应翻译 → https:&#x2F;&#x2F;cn.bing.com&#x2F;translator" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>必应翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.baidu.com/#zh/en" title="百度翻译 → https:&#x2F;&#x2F;fanyi.baidu.com&#x2F;#zh&#x2F;en" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>百度翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https:&#x2F;&#x2F;fanyi.youdao.com&#x2F;?keyfrom&#x3D;fanyi.logo" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>有道翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.oxfordlearnersdictionaries.com/definition/english/" title="牛津翻译 → https:&#x2F;&#x2F;www.oxfordlearnersdictionaries.com&#x2F;definition&#x2F;english&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-language fa-fw"></i>牛津翻译</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://wx.qq.com/" title="网页微信 → https:&#x2F;&#x2F;wx.qq.com" rel="noopener me" target="_blank"><i class="fab fa-weixin fa-fw"></i>网页微信</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://login.partner.microsoftonline.cn/" title="微软办公 → https:&#x2F;&#x2F;login.partner.microsoftonline.cn" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软办公</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mathsolver.microsoft.com/" title="微软数学 → https:&#x2F;&#x2F;mathsolver.microsoft.com" rel="noopener me" target="_blank"><i class="fas fa-file fa-fw"></i>微软数学</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.mail.bnu.edu.cn/" title="师大邮箱 → https:&#x2F;&#x2F;www.mail.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>师大邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://mail.sina.com.cn/" title="新浪邮箱 → https:&#x2F;&#x2F;mail.sina.com.cn" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>新浪邮箱</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.aliyundrive.com/sign/in" title="阿里云盘 → https:&#x2F;&#x2F;www.aliyundrive.com&#x2F;sign&#x2F;in" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>阿里云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://yun.139.com/w/#/" title="移动云盘 → https:&#x2F;&#x2F;yun.139.com&#x2F;w&#x2F;#&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>移动云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jianguoyun.com/d/login" title="坚果网盘 → https:&#x2F;&#x2F;www.jianguoyun.com&#x2F;d&#x2F;login" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>坚果网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https:&#x2F;&#x2F;efss.qloud.my&#x2F;index.php&#x2F;login?clear&#x3D;1" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>Next云盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.123pan.com/" title="123 网盘 → https:&#x2F;&#x2F;www.123pan.com&#x2F;" rel="noopener me" target="_blank"><i class="fa fa-hdd fa-fw"></i>123 网盘</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://annas-archive.org/" title="安娜档案 → https:&#x2F;&#x2F;annas-archive.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>安娜档案</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://book.sciencereading.cn/" title="科学文库 → https:&#x2F;&#x2F;book.sciencereading.cn" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>科学文库</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://ylibrary.org/" title="Ylibrary → https:&#x2F;&#x2F;ylibrary.org&#x2F;" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Ylibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.tboxn.com/sites/320.html" title="Zlibrary → https:&#x2F;&#x2F;www.tboxn.com&#x2F;sites&#x2F;320.html" rel="noopener me" target="_blank"><i class="fas fa-book fa-fw"></i>Zlibrary</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.koushare.com/" title="蔻享官网 → https:&#x2F;&#x2F;www.koushare.com" rel="noopener me" target="_blank"><i class="fas fa-globe-asia fa-fw"></i>蔻享官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.duolingo.cn/" title="多邻国官 → https:&#x2F;&#x2F;www.duolingo.cn" rel="noopener me" target="_blank"><i class="fas fa-school fa-fw"></i>多邻国官</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.bnu.edu.cn/" title="师大官网 → https:&#x2F;&#x2F;www.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>师大官网</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://one.bnu.edu.cn/" title="数字京师 → https:&#x2F;&#x2F;one.bnu.edu.cn" rel="noopener me" target="_blank"><i class="fas fa-university fa-fw"></i>数字京师</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" title="图站图标 → https:&#x2F;&#x2F;www.runoob.com&#x2F;font-awesome&#x2F;fontawesome-icons-brand.html" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>图站图标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://shields.io/badges" title="项目微标 → https:&#x2F;&#x2F;shields.io&#x2F;badges" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>项目微标</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.jd.com/" title="京东购物 → https:&#x2F;&#x2F;www.jd.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>京东购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.taobao.com/" title="淘宝购物 → https:&#x2F;&#x2F;www.taobao.com&#x2F;" rel="noopener me" target="_blank"><i class="fa-solid fa-cart-shopping fa-fw"></i>淘宝购物</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/" title="LaTeXLiv → https:&#x2F;&#x2F;www.latexlive.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXLiv</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.latexlive.com/help" title="LaTeXHel → https:&#x2F;&#x2F;www.latexlive.com&#x2F;help" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>LaTeXHel</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://p2t.breezedeus.com/" title="Pix2Text → https:&#x2F;&#x2F;p2t.breezedeus.com" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Pix2Text</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://simpletex.cn/" title="Simplete → https:&#x2F;&#x2F;simpletex.cn" rel="noopener me" target="_blank"><i class="fas fa-globe fa-fw"></i>Simplete</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/17/vim%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8vim-plug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="vim插件管理器vim-plug | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vim插件管理器vim-plug
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-17 01:15:37" itemprop="dateCreated datePublished" datetime="2023-07-17T01:15:37+08:00">2023-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>虽然配置好了 Neovim ,并且工作良好，但是对于 Vim
+也不想停留在过去的水平，所以同样升级了 Vim 的配置，首先将插件管理器由
+Vundle 切换为 vim-plug ,其安装及使用方法请参考官方 README.md
+文件内容。</p>
+<p>由于网络问题，访问<code>github</code>并不稳定，在配置插件时已经使用<code>git@github.com:</code>
+全面取代了<code>https://github.com/</code> ,
+但是对于插件<code>vim-pug</code>自己升级的问题并没有很好的解决，因为其默认是从<code>https://github.com/</code>下载自己的，相比较而言，<code>neovim</code>下的<code>packer</code>就要好的多，因为它可以自己管理自己。解决此问题的方法，暂时定为：</p>
+<ol type="1">
+<li><p>找到<code>plug.vim</code>第95行 <figure class="highlight sh"><figcaption><span>~/.vim/autoload/plug.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> s:plug_src = <span class="string">&#x27;https://github.com/junegunn/vim-plug.git&#x27;</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>修改为 <figure class="highlight sh"><figcaption><span>~/.vim/autoload/plug.vim</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> s:plug_src = <span class="string">&#x27;git@github.com:junegunn/vim-plug.git&#x27;</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>升级后，此地址再次变回<code>https://github.com</code>,
+所以每次升级时都要执行上述操作。如果官方改良了这个升级地址，则不需要自己修改了，但是貌似这个更改有点难度。</p></li>
+</ol>
+<span id="more"></span>
+<h3 id="pros.">Pros.</h3>
+<ul>
+<li>Easy to set up: Single file. No boilerplate code required.</li>
+<li>Easy to use: Concise, intuitive syntax</li>
+<li><a
+target="_blank" rel="noopener" href="https://raw.githubusercontent.com/junegunn/i/master/vim-plug/40-in-4.gif">Super-fast</a>
+parallel installation/update (with any of <code>+job</code>,
+<code>+python</code>, <code>+python3</code>, <code>+ruby</code>, or <a
+target="_blank" rel="noopener" href="http://neovim.org/">Neovim</a>)</li>
+<li>Creates shallow clones to minimize disk space usage and download
+time</li>
+<li>On-demand loading for <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-startuptime-benchmark#result">faster
+startup time</a></li>
+<li>Can review and rollback updates</li>
+<li>Branch/tag/commit support</li>
+<li>Post-update hooks</li>
+<li>Support for externally managed plugins</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<p><a
+target="_blank" rel="noopener" href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim">Download
+plug.vim</a> and put it in the "autoload" directory.</p>
+<h4 id="vim">Vim</h4>
+<h6 id="unix">Unix</h6>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<p>You can automate the process by putting the command in your Vim
+configuration file as suggested <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation">here</a>.</p>
+<h6 id="windows-powershell">Windows (PowerShell)</h6>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> https://raw.githubusercontent.com/junegunn/vim<span class="literal">-plug</span>/master/plug.vim |`</span><br><span class="line">    <span class="built_in">ni</span> <span class="variable">$HOME</span>/vimfiles/autoload/plug.vim <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+<h4 id="neovim">Neovim</h4>
+<h6 id="unix-linux">Unix, Linux</h6>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">&#x27;curl -fLo &quot;$&#123;XDG_DATA_HOME:-$HOME/.local/share&#125;&quot;/nvim/site/autoload/plug.vim --create-dirs \</span></span><br><span class="line"><span class="string">       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#x27;</span></span><br></pre></td></tr></table></figure>
+<h6 id="linux-flatpak">Linux (Flatpak)</h6>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+<h6 id="windows-powershell-1">Windows (PowerShell)</h6>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iwr</span> <span class="literal">-useb</span> https://raw.githubusercontent.com/junegunn/vim<span class="literal">-plug</span>/master/plug.vim |`</span><br><span class="line">    <span class="built_in">ni</span> <span class="string">&quot;<span class="variable">$</span>(@(<span class="variable">$env:XDG_DATA_HOME</span>, <span class="variable">$env:LOCALAPPDATA</span>)[<span class="variable">$null</span> -eq <span class="variable">$env:XDG_DATA_HOME</span>])/nvim-data/site/autoload/plug.vim&quot;</span> <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+<h3 id="getting-help">Getting Help</h3>
+<ul>
+<li>See <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/wiki/tutorial">tutorial</a>
+page to learn the basics of vim-plug</li>
+<li>See <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/wiki/tips">tips</a> and <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/wiki/faq">FAQ</a> pages for
+common problems and questions</li>
+<li>See <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/wiki/requirements">requirements</a>
+page for debugging information &amp; tested configurations</li>
+<li>Create an <a
+target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug/issues/new">issue</a></li>
+</ul>
+<h3 id="usage">Usage</h3>
+<p>Add a vim-plug section to your <code>~/.vimrc</code> (or
+<code>stdpath('config') . '/init.vim'</code> for Neovim)</p>
+<ol type="1">
+<li>Begin the section with
+<code>call plug#begin([PLUGIN_DIR])</code></li>
+<li>List the plugins with <code>Plug</code> commands</li>
+<li><code>call plug#end()</code> to update <code>&amp;runtimepath</code>
+and initialize plugin system
+<ul>
+<li>Automatically executes <code>filetype plugin indent on</code> and
+<code>syntax enable</code>. You can revert the settings after the call.
+e.g. <code>filetype indent off</code>, <code>syntax off</code>,
+etc.</li>
+</ul></li>
+</ol>
+<h4 id="example">Example</h4>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line"><span class="comment">&quot; The default plugin directory will be as follows:</span></span><br><span class="line"><span class="comment">&quot;   - Vim (Linux/macOS): &#x27;~/.vim/plugged&#x27;</span></span><br><span class="line"><span class="comment">&quot;   - Vim (Windows): &#x27;~/vimfiles/plugged&#x27;</span></span><br><span class="line"><span class="comment">&quot;   - Neovim (Linux/macOS/Windows): stdpath(&#x27;data&#x27;) . &#x27;/plugged&#x27;</span></span><br><span class="line"><span class="comment">&quot; You can specify a custom plugin directory by passing it as the argument</span></span><br><span class="line"><span class="comment">&quot;   - e.g. `call plug#begin(&#x27;~/.vim/plugged&#x27;)`</span></span><br><span class="line"><span class="comment">&quot;   - Avoid using standard Vim directory names like &#x27;plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Make sure you use single quotes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Shorthand notation; fetches https://github.com/junegunn/vim-easy-align</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/vim-easy-align&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Any valid git URL is allowed</span></span><br><span class="line">Plug <span class="string">&#x27;https://github.com/junegunn/vim-github-dashboard.git&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Multiple Plug commands can be written in a single line using | separators</span></span><br><span class="line">Plug <span class="string">&#x27;SirVer/ultisnips&#x27;</span> | Plug <span class="string">&#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; On-demand loading</span></span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>: <span class="string">&#x27;NERDTreeToggle&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;tpope/vim-fireplace&#x27;</span>, &#123; <span class="string">&#x27;for&#x27;</span>: <span class="string">&#x27;clojure&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Using a non-default branch</span></span><br><span class="line">Plug <span class="string">&#x27;rdnetto/YCM-Generator&#x27;</span>, &#123; <span class="string">&#x27;branch&#x27;</span>: <span class="string">&#x27;stable&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Using a tagged release; wildcard allowed (requires git 1.9.2 or above)</span></span><br><span class="line">Plug <span class="string">&#x27;fatih/vim-go&#x27;</span>, &#123; <span class="string">&#x27;tag&#x27;</span>: <span class="string">&#x27;*&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Plugin options</span></span><br><span class="line">Plug <span class="string">&#x27;nsf/gocode&#x27;</span>, &#123; <span class="string">&#x27;tag&#x27;</span>: <span class="string">&#x27;v.20150303&#x27;</span>, <span class="string">&#x27;rtp&#x27;</span>: <span class="string">&#x27;vim&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Plugin outside ~/.vim/plugged with post-update hook</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;dir&#x27;</span>: <span class="string">&#x27;~/.fzf&#x27;</span>, <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install --all&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Unmanaged plugin (manually installed and updated)</span></span><br><span class="line">Plug <span class="string">&#x27;~/my-prototype-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Initialize plugin system</span></span><br><span class="line"><span class="comment">&quot; - Automatically executes `filetype plugin indent on` and `syntax enable`.</span></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br><span class="line"><span class="comment">&quot; You can revert the settings after the call like so:</span></span><br><span class="line"><span class="string">&quot;   filetype indent off   &quot;</span> Disable <span class="keyword">file</span>-<span class="built_in">type</span>-specific indentation</span><br><span class="line"><span class="string">&quot;   syntax off            &quot;</span> Disable <span class="keyword">syntax</span> highlighting</span><br></pre></td></tr></table></figure>
+<p>Reload .vimrc and <code>:PlugInstall</code> to install plugins.</p>
+<h3 id="commands">Commands</h3>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PlugInstall [name ...] [#threads]</code></td>
+<td>Install plugins</td>
+</tr>
+<tr>
+<td><code>PlugUpdate [name ...] [#threads]</code></td>
+<td>Install or update plugins</td>
+</tr>
+<tr>
+<td><code>PlugClean[!]</code></td>
+<td>Remove unlisted plugins (bang version will clean without
+prompt)</td>
+</tr>
+<tr>
+<td><code>PlugUpgrade</code></td>
+<td>Upgrade vim-plug itself</td>
+</tr>
+<tr>
+<td><code>PlugStatus</code></td>
+<td>Check the status of plugins</td>
+</tr>
+<tr>
+<td><code>PlugDiff</code></td>
+<td>Examine changes from the previous update and the pending
+changes</td>
+</tr>
+<tr>
+<td><code>PlugSnapshot[!] [output path]</code></td>
+<td>Generate script for restoring the current snapshot of the
+plugins</td>
+</tr>
+</tbody>
+</table>
+<h3 id="plug-options"><code>Plug</code> options</h3>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>branch</code>/<code>tag</code>/<code>commit</code></td>
+<td>Branch/tag/commit of the repository to use</td>
+</tr>
+<tr>
+<td><code>rtp</code></td>
+<td>Subdirectory that contains Vim plugin</td>
+</tr>
+<tr>
+<td><code>dir</code></td>
+<td>Custom directory for the plugin</td>
+</tr>
+<tr>
+<td><code>as</code></td>
+<td>Use different name for the plugin</td>
+</tr>
+<tr>
+<td><code>do</code></td>
+<td>Post-update hook (string or funcref)</td>
+</tr>
+<tr>
+<td><code>on</code></td>
+<td>On-demand loading: Commands or
+<code>&lt;Plug&gt;</code>-mappings</td>
+</tr>
+<tr>
+<td><code>for</code></td>
+<td>On-demand loading: File types</td>
+</tr>
+<tr>
+<td><code>frozen</code></td>
+<td>Do not update unless explicitly specified</td>
+</tr>
+</tbody>
+</table>
+<h3 id="global-options">Global options</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 31%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>g:plug_threads</code></td>
+<td>16</td>
+<td>Default number of threads to use</td>
+</tr>
+<tr>
+<td><code>g:plug_timeout</code></td>
+<td>60</td>
+<td>Time limit of each task in seconds (<em>Ruby &amp; Python</em>)</td>
+</tr>
+<tr>
+<td><code>g:plug_retries</code></td>
+<td>2</td>
+<td>Number of retries in case of timeout (<em>Ruby &amp;
+Python</em>)</td>
+</tr>
+<tr>
+<td><code>g:plug_shallow</code></td>
+<td>1</td>
+<td>Use shallow clone</td>
+</tr>
+<tr>
+<td><code>g:plug_window</code></td>
+<td><code>vertical topleft new</code></td>
+<td>Command to open plug window</td>
+</tr>
+<tr>
+<td><code>g:plug_pwindow</code></td>
+<td><code>above 12new</code></td>
+<td>Command to open preview window in <code>PlugDiff</code></td>
+</tr>
+<tr>
+<td><code>g:plug_url_format</code></td>
+<td><code>https://git::@github.com/%s.git</code></td>
+<td><code>printf</code> format to build repo URL (Only applies to the
+subsequent <code>Plug</code> commands)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="keybindings">Keybindings</h3>
+<ul>
+<li><code>D</code> - <code>PlugDiff</code></li>
+<li><code>S</code> - <code>PlugStatus</code></li>
+<li><code>R</code> - Retry failed update or installation tasks</li>
+<li><code>U</code> - Update plugins in the selected range</li>
+<li><code>q</code> - Close the window</li>
+<li><code>:PlugStatus</code>
+<ul>
+<li><code>L</code> - Load plugin</li>
+</ul></li>
+<li><code>:PlugDiff</code>
+<ul>
+<li><code>X</code> - Revert the update</li>
+</ul></li>
+</ul>
+<h3 id="example-a-small-sensible-vim-configuration">Example: A small <a
+target="_blank" rel="noopener" href="https://github.com/tpope/vim-sensible">sensible</a> Vim
+configuration</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line">Plug <span class="string">&#x27;tpope/vim-sensible&#x27;</span></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br></pre></td></tr></table></figure>
+<h3 id="on-demand-loading-of-plugins">On-demand loading of plugins</h3>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; NERD tree will be loaded on the first invocation of NERDTreeToggle command</span></span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>: <span class="string">&#x27;NERDTreeToggle&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Multiple commands</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/vim-github-dashboard&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>: [<span class="string">&#x27;GHDashboard&#x27;</span>, <span class="string">&#x27;GHActivity&#x27;</span>] &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Loaded when clojure file is opened</span></span><br><span class="line">Plug <span class="string">&#x27;tpope/vim-fireplace&#x27;</span>, &#123; <span class="string">&#x27;for&#x27;</span>: <span class="string">&#x27;clojure&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Multiple file types</span></span><br><span class="line">Plug <span class="string">&#x27;kovisoft/paredit&#x27;</span>, &#123; <span class="string">&#x27;for&#x27;</span>: [<span class="string">&#x27;clojure&#x27;</span>, <span class="string">&#x27;scheme&#x27;</span>] &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; On-demand loading on both conditions</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/vader.vim&#x27;</span>,  &#123; <span class="string">&#x27;on&#x27;</span>: <span class="string">&#x27;Vader&#x27;</span>, <span class="string">&#x27;for&#x27;</span>: <span class="string">&#x27;vader&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Code to execute when the plugin is lazily loaded on demand</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/goyo.vim&#x27;</span>, &#123; <span class="string">&#x27;for&#x27;</span>: <span class="string">&#x27;markdown&#x27;</span> &#125;</span><br><span class="line">autocmd! User goyo.<span class="keyword">vim</span> <span class="keyword">echom</span> <span class="string">&#x27;Goyo is now loaded!&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>The <code>for</code> option is generally not needed as most plugins
+for specific file types usually don't have too much code in the
+<code>plugin</code> directory. You might want to examine the output of
+<code>vim --startuptime</code> before applying the option.</p>
+<h3 id="post-update-hooks">Post-update hooks</h3>
+<p>There are some plugins that require extra steps after installation or
+update. In that case, use the <code>do</code> option to describe the
+task to be performed.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plug <span class="string">&#x27;Shougo/vimproc.vim&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;make&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;ycm-core/YouCompleteMe&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install.py&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>If the value starts with <code>:</code>, it will be recognized as a
+Vim command.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plug <span class="string">&#x27;fatih/vim-go&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;:GoInstallBinaries&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>If you need more control, you can pass a reference to a Vim function
+that takes a single argument.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function!</span> <span class="title">BuildYCM</span><span class="params">(info)</span></span><br><span class="line">  <span class="comment">&quot; info is a dictionary with 3 fields</span></span><br><span class="line">  <span class="comment">&quot; - name:   name of the plugin</span></span><br><span class="line">  <span class="comment">&quot; - status: &#x27;installed&#x27;, &#x27;updated&#x27;, or &#x27;unchanged&#x27;</span></span><br><span class="line">  <span class="comment">&quot; - force:  set on PlugInstall! or PlugUpdate!</span></span><br><span class="line">  <span class="keyword">if</span> <span class="variable">a:info</span>.status == <span class="string">&#x27;installed&#x27;</span> || <span class="variable">a:info</span>.force</span><br><span class="line">    !./install.<span class="keyword">py</span></span><br><span class="line">  <span class="keyword">endif</span></span><br><span class="line"><span class="keyword">endfunction</span></span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;ycm-core/YouCompleteMe&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="keyword">function</span>(<span class="string">&#x27;BuildYCM&#x27;</span>) &#125;</span><br></pre></td></tr></table></figure>
+<p>Both forms of post-update hook are executed inside the directory of
+the plugin and only run when the repository has changed, but you can
+force it to run unconditionally with the bang-versions of the commands:
+<code>PlugInstall!</code> and <code>PlugUpdate!</code>.</p>
+<p>Make sure to escape BARs and double-quotes when you write the
+<code>do</code> option inline as they are mistakenly recognized as
+command separator or the start of the trailing comment.</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;yes \| ./install&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>But you can avoid the escaping if you extract the inline
+specification using a variable (or any Vimscript expression) as
+follows:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">g:fzf_install</span> = <span class="string">&#x27;yes | ./install&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="variable">g:fzf_install</span> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="pluginstall-and-plugupdate"><code>PlugInstall!</code> and
+<code>PlugUpdate!</code></h3>
+<p>The installer takes the following steps when installing/updating a
+plugin:</p>
+<ol type="1">
+<li><code>git clone</code> or <code>git fetch</code> from its
+origin</li>
+<li>Check out branch, tag, or commit and optionally
+<code>git merge</code> remote branch</li>
+<li>If the plugin was updated (or installed for the first time)
+<ol type="1">
+<li>Update submodules</li>
+<li>Execute post-update hooks</li>
+</ol></li>
+</ol>
+<p>The commands with the <code>!</code> suffix ensure that all steps are
+run unconditionally.</p>
+<h3 id="articles">Articles</h3>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="http://junegunn.kr/2013/09/writing-my-own-vim-plugin-manager">Writing
+my own Vim plugin manager</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://junegunn.kr/2014/07/vim-plugins-and-startup-time">Vim
+plugins and startup time</a></li>
+<li><del><a
+target="_blank" rel="noopener" href="http://junegunn.kr/2013/09/thoughts-on-vim-plugin-dependency">Thoughts
+on Vim plugin dependency</a></del>
+<ul>
+<li><em>Support for Plugfile has been removed since 0.5.0</em></li>
+</ul></li>
+</ul>
+<h3 id="collaborators">Collaborators</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/janlazo">Jan Edmund Lazo</a> - Windows
+support</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/starcraftman">Jeremy Pallats</a> -
+Python installer</li>
+</ul>
+<h3 id="license">License</h3>
+<p>MIT</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%94%B5%E8%84%91%E6%8A%80%E6%9C%AF/" rel="tag"># 电脑技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/16/oh-my-zsh%E5%9C%A8github%E4%B8%8A%E7%9A%84README/" rel="prev" title="oh-my-zsh在github上的README">
+                  <i class="fa fa-angle-left"></i> oh-my-zsh在github上的README
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/07/17/Vim%E9%85%8D%E7%BD%AELSP/" rel="next" title="Vim配置LSP">
+                  Vim配置LSP <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; Sat Sep 03 2022 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa-solid fa-star"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">fengzhenhua</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/fungzhenhua" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://s4.zstatic.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://s4.zstatic.net/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://s4.zstatic.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://s4.zstatic.net/ajax/libs/pdfobject/2.3.0/pdfobject.min.js","integrity":"sha256-JJZNsid68vnh3/zyj0lY9BN5ynxVX/12XgOa1TlaYN0="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://s4.zstatic.net/ajax/libs/mermaid/11.4.0/mermaid.min.js","integrity":"sha256-G8ouPAnw4zzMbnAenHnVz6h9XpKbNdOkrqTh7AadyHs="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://s4.zstatic.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
