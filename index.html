@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -390,6 +390,166 @@ target="_blank" rel="noopener" href="https://endeavouros.com">Endeavour</a>
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/28/Linux%E7%9B%AE%E5%BD%95%E5%8F%8C%E5%90%91%E5%90%8C%E6%AD%A5%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%EF%BC%9AUnison%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/28/Linux%E7%9B%AE%E5%BD%95%E5%8F%8C%E5%90%91%E5%90%8C%E6%AD%A5%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%EF%BC%9AUnison%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">Linux目录双向同步完全指南：Unison从入门到实战</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-28 10:02:48 / 修改时间：10:20:46" itemprop="dateCreated datePublished" datetime="2026-04-28T10:02:48+08:00">2026-04-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在日常工作和运维中，我们经常遇到这样的需求：两个目录 A 和 B
+都可能随时新增或修改文件，希望它们最终保持完全一致，同时<strong>绝不能删除任何文件</strong>。这种场景下，传统的
+<code>rsync</code> 单向同步方案显得力不从心，而 <strong>Unison</strong>
+正是解决这一问题的利器。</p>
+<p>本文将深入讲解 Unison
+的安装、使用、冲突处理机制，以及如何安全地实现双向同步。</p>
+<h2 id="一为什么-rsync-不够用">一、为什么 rsync 不够用？</h2>
+<p>很多人首先想到的是 <code>rsync</code>，但它的局限很明显：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这条命令无法实现真正的双向同步</span></span><br><span class="line">rsync -a --update A/ B/</span><br></pre></td></tr></table></figure>
+<h3 id="问题所在">问题所在</h3>
+<ul>
+<li><code>rsync</code> 本质是<strong>单向</strong>
+工具，只能从源到目标。</li>
+<li><code>--update</code> 只保护目标端的新文件，不会反向同步。</li>
+<li>即使执行两次<code>rsync</code>，
+也无法安全处理两边同时新增或修改的场景。</li>
+</ul>
+<p><strong>结论</strong>
+纯新增文件（从不修改）的场景可以用两次<code>rsync</code>拼凑，但是只要涉及修改，就需要真正的双向同步工具。</p>
+<h2 id="二unison-简介">二、Unison 简介</h2>
+<p><code>Unison</code> 是一款跨平台的双向文件同步工具，核心特性：</p>
+<ul>
+<li><strong>真正的双向同步</strong>: 自动检测并传播两边的变更</li>
+<li><strong>安全第一</strong>： 冲突时不会自动覆盖，需要明确处理</li>
+<li><strong>增量传输</strong>：只同步差异部分，节省带宽和时间</li>
+<li><strong>跨平台</strong>：<code>Linux</code>、<code>macOS</code>和<code>Windows</code>均可使用</li>
+<li><strong>支持SSH</strong>: 可同步远程服务器目录</li>
+</ul>
+<h2 id="安装-uniso">安装 Uniso</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S uniso</span><br></pre></td></tr></table></figure>
+<h2 id="基础用法">基础用法</h2>
+<h3 id="最简单的双向同步">最简单的双向同步</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unison /path/to/A/ /path/to/B</span><br></pre></td></tr></table></figure>
+<p>执行后，<code>Unison</code>会扫描两个目录，并逐一询问如何处理每个差异。</p>
+<h3 id="自动模式跳过非冲突确认">自动模式（跳过非冲突确认）</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unison -auto /path/to/A/ /path/to/B/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>作用</strong>：自动接受所有非冲突的变更（新增、更新、删除）</li>
+<li><strong>冲突</strong>：仍然会停下等待用户选择</li>
+</ul>
+<h3
+id="完全静默模式适合脚本写明任务">完全静默模式（适合脚本/写明任务）</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unison -batch /path/to/A/ /path/to/B/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>作用</strong>：不问任何问题</li>
+<li><strong>冲突时：直接跳过</strong>，不做任何处理</li>
+<li><strong>注意</strong>：冲突会导致目录不一致，需配合<code>-prefer newer</code>使用</li>
+</ul>
+<h2 id="冲突处理机制">冲突处理机制</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">模式</th>
+<th style="text-align: left;">冲突处理方式</th>
+<th style="text-align: left;">适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">默认（交互）</td>
+<td style="text-align: left;">停下来询问用户选择</td>
+<td style="text-align: left;">重要数据，需要人工判断</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-auto</code></td>
+<td style="text-align: left;">停下来询问</td>
+<td style="text-align: left;">同上</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-batch</code></td>
+<td style="text-align: left;">直接跳过，不处理</td>
+<td style="text-align: left;">不适合，除非配合<code>-prefer</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-batch -prefer newer</code></td>
+<td style="text-align: left;">自动选择修改时间更新的版本</td>
+<td style="text-align: left;">日志、缓存等可自动决策的数据</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-batch -prefer A</code></td>
+<td
+style="text-align: left;">始终以<code>A</code>为准覆盖<code>B</code></td>
+<td style="text-align: left;">有明确主次的同步</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
 
@@ -1210,94 +1370,6 @@ ls 和 sort：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la | <span class="built_in">sort</span> -k 9  <span class="comment"># 按第9列（默认文件名列）排序</span></span><br></pre></td></tr></table></figure>
 <p>注：这种方法比较脆弱，因为 ls -l
 的输出格式固定，列位置可能因系统而异。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Linux与Windows双系统重启导致无线网消失的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-01-06 15:15:33 / 修改时间：15:26:30" itemprop="dateCreated datePublished" datetime="2026-01-06T15:15:33+08:00">2026-01-06</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>近期重新安装了双系统中的Windows11,
-但是发现重启后Linux的无线网居然消失了。使用命令 <code>rfkill list</code>
-排查，发现 <code>Hard blocked: yes</code> 且
-<code>Soft blocked: yes</code>,
-这表明驱动层面是没有问题的。导致ArchLinux中无线网消失的根本原因通常是
-Windows的“快速启动”功能改变了硬件的电源状态，导致Arch
-Linux无法正确识别或重置无线网卡.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>禁用Windows快速启动可以根治切换操作系统时导致的无线网消失问题，具体操作如下：</p>
-<ul>
-<li><p><code>在Windows系统</code>中，进入“控制面板” → “硬件和声音” →
-“电源选项” → “选择电源按钮的功能”。</p></li>
-<li><p>点击“更改当前不可用的设置”，然后将 “启用快速启动（推荐）”
-前面的勾选<code>取消</code>。</p></li>
-<li><p><code>保存修改</code>，然后正常重启进入 ArchLinux
-再测试。</p></li>
-</ul>
-<h2 id="为什么是windows的锅">为什么是Windows的锅？</h2>
-<p>Windows的“快速启动”（混合睡眠）在关机时会将系统状态（包括一些硬件状态）保存到硬盘。当你在这种“伪关机”后启动Arch时，硬件可能还处于Windows设定的某种低功耗或禁用状态，而Linux内核无法完全重置它。</p>
 
       
     </div>

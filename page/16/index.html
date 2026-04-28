@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,187 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/01/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%BF%85%E9%A1%BB%E6%BB%A1%E8%B6%B3Maxwell%E6%96%B9%E7%A8%8B%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/01/%E7%94%B5%E7%A3%81%E5%9C%BA%E5%BF%85%E9%A1%BB%E6%BB%A1%E8%B6%B3Maxwell%E6%96%B9%E7%A8%8B%E7%BB%84/" class="post-title-link" itemprop="url">电磁场必须满足Maxwell方程组</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-01 08:17:08" itemprop="dateCreated datePublished" datetime="2024-11-01T08:17:08+08:00">2024-11-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>看到很多研究，凭空臆想了一些复杂的电磁场，但是研究的火热，然后他们臆想的这些电磁场又不满足<code>Maxwell</code>方程组，
+所以从根本上讲就不是电磁场。因为这个基础性的问题，可能会引起某些人的不适，所以决定不发文章，直接在我的博客说明吧。因为我认为知识是全人类的，没有必要非得挂上名字发表，所以我也不怕别人在发表之前看到我的东西，因此就有了这篇文章。</p>
+<h2 id="简介">简介</h2>
+<p><code>Maxwell</code>
+描述了电磁场的基础性质，目前我个人认为，如果一个东西它不满足这组方程，那它一定不是电磁场！所以，研究电磁场相关的问题首先要确保自己选择的电磁场满足这组方程。同时，本人还认为，一个研究如果研究内容不是现实世界中存在的或间接存在的，那这样的研究就是无效研究。</p>
+<h2 id="maxwell-方程组">Maxwell 方程组</h2>
+<h3 id="普遍的-maxwell-方程组">普遍的 Maxwell 方程组</h3>
+<p><span class="math display">\[\begin{align}
+\nabla\times\vec{E} &amp;=-\frac{1}{c}\frac{\partial \vec{B}}{\partial
+t} \label{eq:maxwella} \\
+\nabla\times\vec{B}
+&amp;=\frac{4\pi}{c}\vec{j}+\frac{1}{c}\frac{\partial \vec{E}}{\partial
+t} \label{eq:maxwellb} \\
+\nabla\cdot\vec{B}  &amp;=0 \label{eq:maxwellc}\\
+\nabla\cdot\vec{E}  &amp;=4\pi\rho \label{eq:maxwelld}
+\end{align}\]</span></p>
+<h3 id="无源的-maxwell-方程组">无源的 Maxwell 方程组</h3>
+<p>当空间中不存在电流和电荷时，电磁场满足的方程叫无源的 Maxwell
+方程组。在真空中传播的激光就属于这种情况，其具体表达式为</p>
+<p><span class="math display">\[\begin{align}\label{eq:maxwell1}
+\nabla\times\vec{E} &amp;=-\frac{1}{c}\frac{\partial \vec{B}}{\partial
+t} \\
+\nabla\times\vec{B} &amp;=\frac{1}{c}\frac{\partial \vec{E}}{\partial t}
+\\
+\nabla\cdot\vec{B}  &amp;=0 \\
+\nabla\cdot\vec{E}  &amp;=0
+\end{align}\]</span></p>
+<h2
+id="真空中电场只是时间的函数的形式">真空中电场只是时间的函数的形式</h2>
+<p>如果真空中的电场只是时间的函数，那它的表达式是怎样的？由于受 Maxwell
+方程组的限制，这个形式<label style="color:red">不能凭空臆想</label>，
+这一段就来探讨这种只与时间有关的电场形式。</p>
+<h3
+id="只与时间有关的电场与只与空间有关的磁场对应">只与时间有关的电场与只与空间有关的磁场对应</h3>
+<p>由于真空中无源，所以应当满足无源的 Maxwel
+方程组。又由于电场只是时间的函数，于是<span
+class="math inline">\(\nabla\times\vec{E}=0\)</span>, 根据式<span
+class="math inline">\(\eqref{eq:maxwell1}\)</span> 的第一式可得</p>
+<p><span class="math display">\[\begin{equation}\label{eq:maxwell2}
+-\frac{1}{c}\frac{\partial \vec{B}}{\partial t}=0
+\end{equation}\]</span></p>
+<p>式<span class="math inline">\(\eqref{eq:maxwell2}\)</span>表明<span
+class="math inline">\(\vec{B}\)</span>不是时间的显函数，所以它最多只能是空间的函数。</p>
+<h3
+id="只与空间有关的磁场导致电场只能与时间的一次方成正比">只与空间有关的磁场导致电场只能与时间的一次方成正比</h3>
+<p>根据式<span
+class="math inline">\(\eqref{eq:maxwell1}\)</span>的第2式，由于磁感应强度<span
+class="math inline">\(\vec{B}\)</span>只与空间有关，所以<span
+class="math inline">\(\nabla\times\vec{B}\)</span>就只与空间有关，所以直接对偏导数积分就得到</p>
+<p><span class="math display">\[\begin{equation}\label{eq:maxwell3}
+\vec{E}=\vec{E}_0+t\nabla\times\vec{B}
+\end{equation}\]</span></p>
+<div class="note primary"><p>由式<span
+class="math inline">\(\eqref{eq:maxwell3}\)</span>可得，真空无源的电场受
+Maxwell
+方程组限制而只能取这种形式，它不能凭空臆造，不能设置任意的函数形式，这正是当前（2024年11月01日）好多研究强场的人做的工作中所必须面对的问题。无意与人争论，放在博客上，请大家各取所需。</p>
+</div>
+<h3
+id="只与时间有关的无源电磁场的势也只能与时间的一次方成正比">只与时间有关的无源电磁场的势也只能与时间的一次方成正比</h3>
+<p>由 Maxwell 方程组可以导出电磁场标势和矢势满足的达朗贝尔方程</p>
+<p><span class="math display">\[\begin{align}
+\frac{1}{c}\frac{\partial^2 \varphi}{\partial t^2}-\nabla^2\varphi
+&amp;=0 \label{eq:maxwell4}\\
+\frac{1}{c}\frac{\partial^2 \vec{A}}{\partial t^2}-\nabla^2\vec{A}
+&amp;=0 \label{eq:maxwell5}
+\end{align}\]</span></p>
+<p>由式<span class="math inline">\(\eqref{eq:maxwell4}\)</span>
+和式<span class="math inline">\(\eqref{eq:maxwell5}\)</span>
+可得，对于只与时间有关的势，<span
+class="math inline">\(\nabla^2\)</span>项就变为零，对时间的偏导就变成了导数，于是可以得出结论：只与时间有关的无源电磁场的势也只能与时间的一次方成正比.</p>
+<h2
+id="电场强度和磁感应强度必须满足波动方程">电场强度和磁感应强度必须满足波动方程</h2>
+<h3 id="介质中vece和vecb满足的方程">介质中<span
+class="math inline">\(\vec{E}\)</span>和<span
+class="math inline">\(\vec{B}\)</span>满足的方程</h3>
+<p>对式<span
+class="math inline">\(\eqref{eq:maxwella}\)</span>取旋度,再代入式<span
+class="math inline">\(\eqref{eq:maxwelld}\)</span>得</p>
+<p><span class="math display">\[\begin{equation}\label{eq:bodong0}
+\nabla^2\vec{E}-\frac{1}{c^2}\frac{\partial^2\vec{E}}{\partial t^2}
+=\frac{4\pi}{c^2}\frac{\partial \vec{j}}{\partial t}+4\pi\rho
+\end{equation}\]</span></p>
+<p>对式<span
+class="math inline">\(\eqref{eq:maxwellb}\)</span>取旋度，再代入<span
+class="math inline">\(\eqref{eq:maxwellc}\)</span>得 <span
+class="math display">\[\begin{equation}\label{eq:bodong1}
+\nabla^2\vec{B}-\frac{1}{c^2}\frac{\partial^2\vec{B}}{\partial t^2}
+=-\frac{4\pi}{c}\nabla\times\vec{j}
+\end{equation}\]</span></p>
+<h3 id="真空中vece和vecb满足的方程">真空中<span
+class="math inline">\(\vec{E}\)</span>和<span
+class="math inline">\(\vec{B}\)</span>满足的方程</h3>
+<p>真空中无源，所以令式<span
+class="math inline">\(\eqref{eq:bodong0}\)</span>和式<span
+class="math inline">\(\eqref{eq:bodong1}\)</span>中的源<span
+class="math inline">\(\vec{j}=0\)</span>和<span
+class="math inline">\(\rho=0\)</span>, 得到</p>
+<p><span class="math display">\[\begin{align}
+\nabla^2\vec{E}-\frac{1}{c^2}\frac{\partial^2\vec{E}}{\partial
+t^2}&amp;=0 \label{eq:bodong2} \\
+\nabla^2\vec{B}-\frac{1}{c^2}\frac{\partial^2\vec{B}}{\partial
+t^2}&amp;=0 \label{eq:bodong3}
+\end{align}\]</span></p>
+<p>通过式<span class="math inline">\(\eqref{eq:bodong2}\)</span>
+和式<span class="math inline">\(\eqref{eq:bodong3}\)</span>
+更容易看出来，对于只是时间函数的电场强度和磁感应强度最多只能是时间的一次函数。对于一般情况，电场强度和磁感应强度都必须是波动方程的解，如果任意设置各式各样的只与时间有关的函数那就不是电磁波了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1481,96 +1662,6 @@ href="/2023/12/02/Windows下配置Goldendict">Windows下配置Goldendict</a></li
 </ul>
 <p>执行完成上述操作，基本上就实现了两个操作系统下同一软件使用相同的数据，可以保证任何时候都同步。这四个软件占据的硬盘空间共计<code>107.9G</code>,
 设置共享后也就节省了<code>107.9G</code>的固态硬盘空间。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/16/Linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%92%8C%E5%8F%96%E6%B6%88%E8%BD%AF%E8%BF%9E%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/16/Linux%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%92%8C%E5%8F%96%E6%B6%88%E8%BD%AF%E8%BF%9E%E6%8E%A5/" class="post-title-link" itemprop="url">Linux下创建和取消软链接</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-16 11:37:51" itemprop="dateCreated datePublished" datetime="2024-10-16T11:37:51+08:00">2024-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="创建链接">创建链接</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s [源文件或目录] [软链接名称]</span><br></pre></td></tr></table></figure>
-<p>例如，要为<code>/usr/local/foobar</code>程序创建一个软链接<code>/usr/bin/foobar-link</code>，可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s /usr/local/foobar  /usr/bin/foobar-link</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>这样访问<code>foobar-link</code>就等于是在访问<code>foobar</code>,相当于<code>foobar-link</code>是<code>foobar</code>的快捷方式，注意：<code>foobar-link</code>不能提前存在，如果<code>foobar-link</code>已经是个文件夹，会在<code>foobar-link</code>目录下再生成一个<code>foobar-link</code>.</p>
-</div>
-<h3 id="删除链接">删除链接</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> /usr/bin/foobar-link</span><br><span class="line">或者</span><br><span class="line"><span class="built_in">unlink</span> /usr/bin/foobar-link</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：取消软链接最后没有<code>/</code>,
-如果加上<code>/</code>则<code>rm -rf /usr/bin/foobar-link/</code>表示删除文件夹.</p>
-</div>
-<h3 id="查看链接">查看链接</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l /usr/bin/foobar-link</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：使用命令<code>ls -l</code> 直接加上链接路径即可.</p>
-</div>
 
       
     </div>

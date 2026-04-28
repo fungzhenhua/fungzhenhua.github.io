@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,164 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/10/01/Calibre%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/01/Calibre%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88/" class="post-title-link" itemprop="url">Calibre安装最新版</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-01 01:00:48" itemprop="dateCreated datePublished" datetime="2024-10-01T01:00:48+08:00">2024-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>作为电子书管理的瑞士军刀，Calibre
+一直备受书籍爱好者和数字书虫们的喜爱。虽然存在更好（更轻量级）的
+电子书阅读器，但 Calibre
+在创建电子书、转换格式以及管理你的电子书库方面做得更出色。简言之，它是满足你所有电子书需求的全套解决方案。</p>
+<h2 id="从archlinux仓库中安装-calibre">从ArchLinux仓库中安装
+Calibre</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S calibre</span><br></pre></td></tr></table></figure>
+<p>如果您不需要它，可以使用<code>pacman</code>卸载 Calibre</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Rns calibre</span><br></pre></td></tr></table></figure>
+<h2 id="获取最新版本的-calibre">获取最新版本的 Calibre</h2>
+<p><a target="_blank" rel="noopener" href="https://calibre-ebook.com/download_linux">Calibre 官方</a>
+推荐安装提供的官方二进制文件。目的是防止用户使用存在错误或已过时的软件包。该二进制文件包含了所有私有版本的依赖项，支持
+32 位和 64 位的机器。</p>
+<h3 id="安装依赖">安装依赖</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S xdg-utils wget xz-utils python3</span><br></pre></td></tr></table></figure>
+<h3 id="从官网安装二进制文件">从官网安装二进制文件</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -v &amp;&amp; wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | <span class="built_in">sudo</span> sh /dev/stdin</span><br></pre></td></tr></table></figure>
+<details>
+<summary>
+关于上述安装命令的解解释
+</summary>
+<p>考虑两种情况：</p>
+<ol type="1">
+<li><code>sudo</code>未配置为命令需要密码( <code>NOPASSWD</code>标记),
+对<code>sudo</code>的两个调用都在没有任何提示的情况下成功。</li>
+<li><code>sudo</code>被配置为需要命令的密码:
+<ul>
+<li>如果它们最近进行了身份验证，<code>sudo -v</code>只需更新缓存凭据的时间戳即可。</li>
+<li>如果用户最近没有对<code>sudo</code>进行身份验证，它将提示他们输入密码；一旦经过验证，他们的凭据就会被缓存。</li>
+</ul></li>
+</ol>
+<p>一旦<code>sudo -v</code>进程成功，第二个<code>sudo sh /dev/stdin</code>调用应该使用其缓存的凭据并不间断地运行。</p>
+<p>考虑另一种情况(
+<code>sudo</code>仍然被配置为提示输入密码)，其中没有初始的<code>sudo -v</code>命令。在这种情况下，<code>wget</code>可能已经将输出写到<code>stdout</code>或<code>stderr</code>，这可能会导致用户错过看到它，并想知道为什么什么都没有发生。</p>
+<p><strong><code>sh /dev/stdin</code>的目的是什么？</strong></p>
+<p>在这里，<code>sh</code>是用一个参数作为<code>command_file</code>调用的，这个参数是一个特殊的文件--一个指向<code>stdin</code>的链接。</p>
+<p><strong>名称破折号-命令解释器(外壳)简要说明破折号.[command_file
+争论...]</strong></p>
+<p>结果，<code>sh</code>读取<code>command_file</code>，期待并执行它的命令。这个特殊的<code>stdin</code>“文件”通过管道连接到来自<code>wget</code>的输出，因此最终的结果是将<code>URL</code>的内容发送到根级<code>shell</code>。</p>
+我不知道为什么口径项目具体选择这种语法。备选办法包括： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">... | <span class="built_in">sudo</span> sh</span><br><span class="line">... | <span class="built_in">sudo</span> sh -</span><br></pre></td></tr></table></figure>
+</details>
+<h3 id="创建启动器">创建启动器</h3>
+<div class="tabs" id="desktop"><ul class="nav-tabs"><li class="tab active"><a href="#desktop-1">calibre-gui</a></li><li class="tab"><a href="#desktop-2">calibre-lrfviewer</a></li><li class="tab"><a href="#desktop-3">calibre-ebook-edit</a></li><li class="tab"><a href="#desktop-4">calibre-ebook-viewer</a></li></ul><div class="tab-content"><div class="tab-pane active" id="desktop-1"><figure class="highlight sh"><figcaption><span>/usr/share/applications/calibre-gui.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=Calibre</span><br><span class="line">GenericName=E-book library management</span><br><span class="line">Comment=E-book library management: Convert, view, share, catalogue all your e-books</span><br><span class="line">TryExec=/opt/calibre/calibre</span><br><span class="line">Exec=/opt/calibre/calibre --detach %U</span><br><span class="line">Icon=calibre-gui</span><br><span class="line">Categories=Office;</span><br><span class="line">X-GNOME-UsesNotifications=<span class="literal">true</span></span><br><span class="line">Keywords=epub;ebook;manager;</span><br><span class="line">MimeType=application/x-cbz;application/x-cbc;application/x-mobipocket-ebook;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/ereader;application/x-cb7;application/x-mobi8-ebook;application/vnd.ms-word.document.macroenabled.12;application/vnd.ctc-posml;application/epub+zip;application/oebps-package+xml;image/vnd.djvu;application/x-cbr;application/x-sony-bbeb;application/x-mobipocket-subscription;x-scheme-handler/calibre;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="desktop-2"><figure class="highlight sh"><figcaption><span>/usr/share/applications/calibre-lrfviewer.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=LRF viewer</span><br><span class="line">GenericName=Viewer <span class="keyword">for</span> LRF files</span><br><span class="line">Comment=Viewer <span class="keyword">for</span> LRF files (SONY ebook format files)</span><br><span class="line">TryExec=/opt/calibre/lrfviewer</span><br><span class="line">Exec=/opt/calibre/lrfviewer %f</span><br><span class="line">Icon=calibre-viewer</span><br><span class="line">MimeType=application/x-sony-bbeb;</span><br><span class="line">Categories=Office;Viewer;</span><br><span class="line">Keywords=lrf;viewer;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="desktop-3"><figure class="highlight sh"><figcaption><span>/usr/share/applications/calibre-ebook-edit.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=E-book editor</span><br><span class="line">GenericName=Editor <span class="keyword">for</span> E-books</span><br><span class="line">Comment=Edit E-books <span class="keyword">in</span> various formats</span><br><span class="line">TryExec=/opt/calibre/ebook-edit</span><br><span class="line">Exec=/opt/calibre/ebook-edit --detach %f</span><br><span class="line">Icon=calibre-ebook-edit</span><br><span class="line">Categories=Office;WordProcessor</span><br><span class="line">Keywords=epub;ebook;editor;</span><br><span class="line">MimeType=application/xhtml+xml;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/x-mobi8-ebook;application/epub+zip;text/html;</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="desktop-4"><figure class="highlight sh"><figcaption><span>/usr/share/applications/calibre-ebook-viewer.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=E-book viewer</span><br><span class="line">GenericName=Viewer <span class="keyword">for</span> E-books</span><br><span class="line">Comment=Viewer <span class="keyword">for</span> E-books <span class="keyword">in</span> all the major formats</span><br><span class="line">TryExec=/opt/calibre/ebook-viewer</span><br><span class="line">Exec=/opt/calibre/ebook-viewer --detach %f</span><br><span class="line">Icon=calibre-viewer</span><br><span class="line">Categories=Office;Viewer;</span><br><span class="line">Keywords=epub;ebook;viewer;</span><br><span class="line">MimeType=application/x-cbz;application/x-cbc;application/x-mobipocket-ebook;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/ereader;application/x-cb7;application/x-mobi8-ebook;application/vnd.ms-word.document.macroenabled.12;application/vnd.ctc-posml;application/epub+zip;application/oebps-package+xml;image/vnd.djvu;application/x-cbr;application/x-sony-bbeb;application/x-mobipocket-subscription;</span><br></pre></td></tr></table></figure></div></div></div>
+<div class="note primary"><p>注意：各启动器文件所有者和群组都应当设置为<code>root</code>.</p>
+</div>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-16394-1.html">在 Ubuntu
+上安装最新版的 Calibre</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-9199-1.html">为你的 Linux 应用创建
+.desktop 文件</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://manual.calibre-ebook.com/zh_CN/customize.html#creating-your-own-icon-theme-for-calibre">自定义Calibre</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop
+Entry Specification</a></li>
+<li><a target="_blank" rel="noopener" href="https://manual.calibre-ebook.com/zh_CN/">calibre
+用户手册</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://aimerneige.com/zh/post/linux/how-to-write-a-desktop-file/">如何编写
+.desktop 文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/desktop_entries">Arch
+Linux Wiki - Desktop entries</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.deepin.org/zh/03_技术规范/02_XDG规范/desktop文件规范">Deepin-desktop文件规范</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://gnu-linux.readthedocs.io/zh/latest/Chapter02/53_desktop.html">Linux
+Desktop Entry 文件解析</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/ask/sof/116270897">‘<code>sudo -v &amp;’和‘</code>sh
+/dev/stdin`’在这里的目的是什么？</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/456881/what-are-the-purposes-of-sudo-v-and-sh-dev-stdin-here">What
+are the purposes of <code>sudo -v &amp;&amp;</code> and
+<code>sh /dev/stdin</code> here?</a></li>
+</ul>
+<div class="note primary"><p><code>Linux KDE</code>和<code>Linux GNOME</code>桌面系统都使用 <a
+target="_blank" rel="noopener" href="https://specifications.freedesktop.org/desktop-entry-spec/latest/index.html">Desktop
+Entry
+Specification</a>来描述程序启动配置信息。<code>Desktop Entry 文件标准</code>是由
+<code>X Desktop Group</code> 制定的，目前最新的版本是"Desktop Entry
+Specification 1.5"。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1685,94 +1843,6 @@ target="_blank" rel="noopener" href="https://www.baidu.com/search/rss.html">http
 </ul>
 <h2 id="thunderbird订阅方法">Thunderbird订阅方法</h2>
 <p><code>帐户设置</code>→<code>帐户操作</code>→<code>新建新闻组帐户</code>→主页面右键<code>博客和新闻收取点</code>→<code>订阅...</code>→<code>收取点网址</code>→<code>添加</code>→<code>完成</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/20/vortex%E5%92%8Cspiral%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/20/vortex%E5%92%8Cspiral%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84/" class="post-title-link" itemprop="url">vortex和spiral的不同之处</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-20 13:02:03" itemprop="dateCreated datePublished" datetime="2024-09-20T13:02:03+08:00">2024-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>"Vortex" 和 "Spiral"
-是两个不同的概念，尽管它们在某些情况下可能看起来相似或相互关联。</p>
-<ol type="1">
-<li><p>Vortex（涡流）：
-涡流通常指的是流体（如水或空气）或粒子围绕一个中心点旋转的现象。涡流可以存在于自然界中，例如龙卷风或水下沉船周围形成的漩涡，也可以是在工程应用中如飞机翼尖产生的涡旋。涡流的关键特征是围绕中心的旋转运动以及由此产生的向内的吸力或向外的推力。</p></li>
-<li><p>Spiral（螺旋）：
-螺旋则是一种几何形状或运动路径，它是由一条曲线构成的，这条曲线从一个点开始，并围绕这个点逐渐远离或接近。螺旋可以是开放式的，也可以是封闭式的。开放式的螺旋会不断向外扩展，而封闭式的螺旋则可能会回到起点附近。螺旋并不一定涉及到旋转流体或者粒子，它可以描述任何按照螺旋轨迹运动的事物，例如螺旋楼梯或者弹簧。</p></li>
-</ol>
-<div class="note primary"><p>总结来说，vortex
-是一种物理现象，涉及到流体或粒子围绕中心旋转，通常伴随着向心或离心的力量；而
-spiral
-则是一个几何概念，描述的是沿着螺旋形路径的运动或形状。两者之间的联系在于，当流体形成涡流时，其流动路径可能呈现出螺旋形。</p>
-</div>
 
       
     </div>

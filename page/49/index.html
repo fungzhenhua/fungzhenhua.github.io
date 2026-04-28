@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,89 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/19/UUID%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/03/19/UUID%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">UUID生成方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-19 15:30:01" itemprop="dateCreated datePublished" datetime="2023-03-19T15:30:01+08:00">2023-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在学会了使用Gitlab部署博客后，这个工具给本人的学习和工作带来了很大的方便。但是若作为一个博客工作来讲，每次太多的操作步骤很是麻烦，于是有了我写的<code>diary.sh</code>脚本，来管理和发布博客。但是，其中有一个环节比较麻烦，假如我有两台电脑，一台位于办公室，一台位于宿舍，之前的方案是每次询问，由自己决定是否<code>pull</code>曾经上载的文章，但是时间久了就感觉到不是很方便，所以就决定使用<code>uuid</code>来自动标注安装<code>diary.sh</code>脚本的电脑，每次发布博客的<code>comment</code>都是这个<code>uuid</code>,然后每次启动程序开始写脚本时，<code>curl</code>申请<code>gitlab</code>返回这个备注，然后与本机的<code>uuid</code>比对，如果不相同，说明上一次写博客不是在本机，所以需要<code>pull</code>下来之前的博客，如果相同说明上次写博客就是本机，那就不需要<code>pull</code>了,这就是本文写UUID生成方法的原因。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/19/UUID%E7%94%9F%E6%88%90%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1046,89 +1129,6 @@ target="_blank" rel="noopener" href="http://www.kmplayercn.com/">KMPlayer</a>,
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/12/06/2022-2023%E4%B8%8A%E5%AD%A6%E6%9C%9F%E8%80%83%E8%AF%95%E5%AE%89%E6%8E%92/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/22/%E5%98%89%E4%BB%95%E4%BC%AF%E5%AE%9E%E9%AA%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/22/%E5%98%89%E4%BB%95%E4%BC%AF%E5%AE%9E%E9%AA%8C/" class="post-title-link" itemprop="url">嘉仕伯实验 The Carlsberg Experiment</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-22 08:06:21" itemprop="dateCreated datePublished" datetime="2022-11-22T08:06:21+08:00">2022-11-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>上一周我的英语口语课老师安排了一个作业，这是我、葛玉希和代汶君三个人，每人完成一部分，这一部分是我完成的关于嘉仕伯实验的介绍。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/22/%E5%98%89%E4%BB%95%E4%BC%AF%E5%AE%9E%E9%AA%8C/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

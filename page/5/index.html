@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,167 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/14/%E5%9E%82%E7%9B%B4%E7%9B%98%E5%92%8C%E5%8F%A0%E7%93%A6%E7%9B%98%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/14/%E5%9E%82%E7%9B%B4%E7%9B%98%E5%92%8C%E5%8F%A0%E7%93%A6%E7%9B%98%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">垂直盘和叠瓦盘详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-14 10:34:00 / 修改时间：10:34:40" itemprop="dateCreated datePublished" datetime="2025-04-14T10:34:00+08:00">2025-04-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>随着存储技术的不断发展，硬盘的存储密度和性能也在不断提升。垂直盘（CMR，Conventional
+Magnetic Recording）和叠瓦盘（SMR，Shingled Magnetic
+Recording）是两种常见的硬盘存储技术。本文将详细介绍这两种技术，并通过对比列表帮助读者更好地理解它们的区别。</p>
+<hr />
+<h2 id="什么是垂直盘cmr">什么是垂直盘（CMR）？</h2>
+<p><strong>垂直盘</strong>，即传统磁记录（Conventional Magnetic
+Recording），是一种经典的硬盘存储技术。在这种技术中，数据以垂直方向写入磁盘表面，每个磁道之间保持一定的间隔，避免数据之间的干扰。</p>
+<h3 id="特点">特点：</h3>
+<ul>
+<li><strong>独立磁道</strong>：每个磁道是独立的，读写操作不会影响相邻磁道。</li>
+<li><strong>高性能</strong>：由于磁道之间无重叠，随机写入和改写速度较快。</li>
+<li><strong>高可靠性</strong>：数据修改时无需重新整理邻近磁道的数据，降低了出错概率。</li>
+<li><strong>适用场景</strong>：适合需要频繁读写操作的场景，如数据库、虚拟机和视频编辑。</li>
+</ul>
+<hr />
+<h2 id="什么是叠瓦盘smr">什么是叠瓦盘（SMR）？</h2>
+<p><strong>叠瓦盘</strong>，即叠瓦式磁记录（Shingled Magnetic
+Recording），是一种提高存储密度的技术。在这种技术中，数据磁道像瓦片一样部分重叠，从而在相同物理空间内存储更多的数据。</p>
+<h3 id="特点-1">特点：</h3>
+<ul>
+<li><strong>高存储密度</strong>：通过磁道重叠显著提升了单位面积的存储容量。</li>
+<li><strong>写入性能较低</strong>：由于磁道重叠，改写数据时需要先将受影响的邻近磁道数据迁移到缓存，再重新写入，导致写入速度较慢。</li>
+<li><strong>成本较低</strong>：相比垂直盘，叠瓦盘在相同容量下成本更低。</li>
+<li><strong>适用场景</strong>：适合以顺序写入为主的场景，如冷数据存储、备份和归档。</li>
+</ul>
+<hr />
+<h2 id="垂直盘cmr与叠瓦盘smr对比">垂直盘（CMR）与叠瓦盘（SMR）对比</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>垂直盘（CMR）</th>
+<th>叠瓦盘（SMR）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技术原理</strong></td>
+<td>数据以垂直方向写入，磁道独立</td>
+<td>数据以部分重叠的方式写入，磁道相互覆盖</td>
+</tr>
+<tr>
+<td><strong>存储密度</strong></td>
+<td>较低</td>
+<td>较高</td>
+</tr>
+<tr>
+<td><strong>写入性能</strong></td>
+<td>高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>随机写入能力</strong></td>
+<td>强</td>
+<td>弱</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>较高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>可靠性</strong></td>
+<td>高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>数据库、虚拟机、视频编辑等高频读写场景</td>
+<td>冷数据存储、备份、归档等顺序写入场景</td>
+</tr>
+<tr>
+<td><strong>优点</strong></td>
+<td>高性能、高可靠性</td>
+<td>高存储密度、低成本</td>
+</tr>
+<tr>
+<td><strong>缺点</strong></td>
+<td>存储密度有限，成本较高</td>
+<td>写入性能低，随机写入效率差</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="总结">总结</h2>
+<p>垂直盘（CMR）和叠瓦盘（SMR）各有优劣，选择哪种技术取决于具体的应用场景。如果您的需求是高性能和高可靠性，例如运行数据库或虚拟机，那么垂直盘是更好的选择。如果您更关注存储密度和成本，且主要进行顺序写入操作，例如数据备份或归档，那么叠瓦盘会更适合。</p>
+<p>希望本文能帮助您更好地理解这两种硬盘技术，并根据实际需求做出明智的选择！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1697,109 +1858,6 @@ class="math inline">\(cm^{-1}\)</span>，直接对应单位距离内的碰撞概
 class="math inline">\(\sigma\)</span>
 的靶面积）的基因，尽管在宏观尺度下单位已转换为概率密度。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/27/%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8EGitHub-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/27/%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8EGitHub-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">使用静态网站生成器与GitHub-Pages部署个人博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-27 17:47:17 / 修改时间：17:47:24" itemprop="dateCreated datePublished" datetime="2025-03-27T17:47:17+08:00">2025-03-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1
-id="使用静态网站生成器与github-pages轻松部署个人博客">使用静态网站生成器与GitHub
-Pages轻松部署个人博客</h1>
-<p>无论你是技术爱好者还是专业开发者，拥有一个展示自己作品和个人见解的平台总是非常有价值的。本文将介绍如何通过静态网站生成器（如Hexo、Hugo）和GitHub
-Pages服务来轻松部署你自己的博客。</p>
-<h2 id="静态网站生成器简介">静态网站生成器简介</h2>
-<p>静态网站生成器能够将Markdown文件（或其他格式的内容）转换为HTML文件，并生成一个完整的静态网站目录。这个目录通常包含HTML、CSS、JavaScript和其他静态资源文件。流行的静态网站生成器包括Hexo和Hugo等。</p>
-<ul>
-<li><strong>Hexo</strong>：运行<code>hexo generate</code>。</li>
-<li><strong>Hugo</strong>：运行<code>hugo</code>。</li>
-</ul>
-<p>生成的静态网站文件通常会保存在<code>public</code>目录中（对于Hexo而言），或类似的目录中（根据所使用的工具不同而有所变化）。</p>
-<h2 id="github-pages简介">GitHub Pages简介</h2>
-<p>GitHub
-Pages是一个由GitHub提供的服务，它允许用户托管和发布静态网站。只需将静态网站目录上传到GitHub仓库的特定分支（通常是<code>gh-pages</code>分支或<code>main</code>分支下的<code>docs</code>文件夹），GitHub
-Pages就能自动将其发布为一个网页。</p>
-<h2 id="步骤详解">步骤详解</h2>
-<h3 id="生成静态网站目录">1. 生成静态网站目录</h3>
-<p>使用你喜欢的静态网站生成器生成静态网站文件。例如，如果你选择Hexo，可以通过命令行运行<code>hexo generate</code>。</p>
-<h3 id="准备github仓库">2. 准备GitHub仓库</h3>
-<p>创建一个新的GitHub仓库或使用现有的仓库，并确保启用了GitHub
-Pages功能： - 在仓库的<strong>Settings</strong> &gt;
-<strong>Pages</strong>中，选择要发布的分支（如<code>main</code>或<code>gh-pages</code>）以及目录（如<code>/root</code>或<code>/docs</code>）。</p>
-<h3 id="上传静态文件">3. 上传静态文件</h3>
-<p>将生成的静态网站目录中的所有文件上传到GitHub的指定分支。如果是<code>gh-pages</code>分支，则推送整个目录内容；如果是<code>main</code>分支下的<code>docs</code>文件夹，则需要将静态文件放置于该文件夹中并提交。</p>
-<h3 id="发布网站">4. 发布网站</h3>
-<p>提交代码后，GitHub
-Pages会自动检测并部署你的网站。部署完成后，你可以通过GitHub提供的URL（通常是<code>https://&lt;username&gt;.github.io/&lt;repository&gt;</code>）访问你的网站。</p>
-<h3 id="自定义域名可选">5. 自定义域名（可选）</h3>
-<p>如果你有自己的域名，可以在GitHub
-Pages设置中添加自定义域名，并配置DNS解析。</p>
-<h2 id="总结">总结</h2>
-<p>无论是通过静态网站生成器还是手动生成HTML文件，只要最终能获得一个完整的静态网站目录，就可以通过GitHub
-Pages发布为网页。这种方法简单、免费且高效，非常适合个人博客、项目展示等场景。</p>
 
       
     </div>

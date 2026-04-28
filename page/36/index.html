@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,105 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/22/Zsh%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/22/Zsh%E9%85%8D%E7%BD%AE%E5%BF%AB%E9%80%9F%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC/" class="post-title-link" itemprop="url">Zsh配置快速路径跳转</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-22 23:47:33" itemprop="dateCreated datePublished" datetime="2023-12-22T23:47:33+08:00">2023-12-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用<code>Linux</code>过程中最频繁的命令就是路径跳转<code>cd</code>,
+但是它需要输入完整的路径，显然是一个麻烦的工作，然后我们有几个工具可以解决快速路径跳转的问题，它们分别是：<code>fasd</code>、<code>autojump</code>
+、<code>z.sh</code>、<code>zsh-z-git</code>、<code>z.lua</code>
+。其中前两个可以使用<code>pacman</code>安装，而<code>zsh-z-git</code>是以<code>z.sh</code>构建的，<code>z.lua</code>是国人实现的，后面这三个使用<code>paru</code>从<code>aur</code>源中安装，我试用了<code>zsh-z-git</code>感觉良好。通过文章<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56077546">一个会学习你习惯的 cd 命令
+- z.lua</a>
+获知这几个<code>zsh</code>插件中<code>z.lua</code>的性能最快，比<code>z.sh</code>快三倍，比<code>fasd/autojump</code>快十倍以上，于是决定删除<code>zsh-z-git</code>安装<code>z.lua</code>。</p>
+<h2 id="安装和配置z.lua">安装和配置<code>z.lua</code></h2>
+<ol type="1">
+<li><p>安装<code>z.lua</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru --skipreview --needed --noconfirm -S z.lua</span><br></pre></td></tr></table></figure></p></li>
+<li><p>配置启用<code>z.lua</code> <figure class="highlight sh"><figcaption><span>~/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /usr/share/z.lua/z.lua.plugin.zsh</span><br><span class="line">or</span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(lua /usr/share/z.lua/z.lua --init zsh enhanced once)</span>&quot;</span></span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<div class="note warning"><p>注意：启用<code>z.lua</code>作用上述两种方法都可以，第一种方法比较符合<code>zsh</code>的要求，而第二种方法是官网给出的方法，这里我使用了第二种方法，因为官方文件中还有一名话：</p>
+<p>Options like "enhanced", "once" and "fzf" can be used after --init
+too.</p>
+<p>因为它可以增加选项，所以我采用了官方的方法,
+具体使用方法见下面参考文章。</p>
+</div>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/skywind3000/z.lua">z.lua官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56077546">一个会学习你习惯的
+cd 命令 - z.lua</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1265,95 +1364,6 @@ file you can name it <code>cppmain.template</code> or
 <figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Sub</span> 图片版式转换()</span><br><span class="line"><span class="keyword">Dim</span> n <span class="comment">&#x27;图片个数</span></span><br><span class="line"><span class="keyword">Dim</span> oShape <span class="keyword">As</span> Variant</span><br><span class="line"><span class="keyword">On</span> <span class="keyword">Error</span> <span class="keyword">Resume</span> <span class="keyword">Next</span></span><br><span class="line"><span class="keyword">For</span> n = <span class="number">1</span> <span class="keyword">To</span> ActiveDocument.Shapes.Count <span class="comment">&#x27;Shapes类型图片</span></span><br><span class="line">    ActiveDocument.Shapes(<span class="number">1</span>).ConvertToInlineShape</span><br><span class="line">    <span class="keyword">Next</span> n</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
 <p>参考: <a
 target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/812994510875103092">如何把word里的图片批量转换成嵌入式</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/13/SDDM%E8%AF%AD%E8%A8%80%E4%BF%AE%E6%94%B9%E4%B8%BA%E4%B8%AD%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/13/SDDM%E8%AF%AD%E8%A8%80%E4%BF%AE%E6%94%B9%E4%B8%BA%E4%B8%AD%E6%96%87/" class="post-title-link" itemprop="url">SDDM语言修改为中文</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-13 19:52:49" itemprop="dateCreated datePublished" datetime="2023-12-13T19:52:49+08:00">2023-12-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2023-12-27 在安装完新系统后配置中文环境时，根据<a
-target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Locale#Gnome-terminal_/_rxvt-unicode_不支持_UTF-8">Locale-ArchWiki</a>的描述，对于KDE
-Plasma 则删除<label style="color:red">~/.config/plasma-localerc</label>
-后发现各项翻译包括SDDM增均顺利转换成了英文。如果SDDM没有转成中文，请再按下述方法配置。</p>
-<hr />
-<p>新配置的<code>ArchLinux</code>解决完一些重要的问题后，还剩下<code>SDDM</code>的语言一直显示为英文，需要将语言修改为中文。方法为：
-修改文件<code>/usr/lib/systemd/system/sddm.service</code>，
-在<code>[Service]</code>下添加<code>Environment=LANG=zh_CN.UTF-8</code>,
-即</p>
-<figure class="highlight sh"><figcaption><span>/usr/lib/systemd/system/sddm.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Simple Desktop Display Manager</span><br><span class="line">Documentation=man:sddm(1) man:sddm.conf(5)</span><br><span class="line">Conflicts=getty@tty1.service</span><br><span class="line">After=systemd-user-sessions.service getty@tty1.service plymouth-quit.service systemd-logind.service</span><br><span class="line">PartOf=graphical.target</span><br><span class="line">StartLimitIntervalSec=30</span><br><span class="line">StartLimitBurst=2</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/sddm</span><br><span class="line">Restart=always</span><br><span class="line">Environment=LANG=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">Alias=display-manager.service</span><br></pre></td></tr></table></figure>
-<div class="note info"><p>注意：按<code>ArchLinux</code>的<code>Wiki</code><a
-target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/简体中文本地化">简体中文本地化</a>,不推荐在<code>/etc/locale.conf</code>里把全局的<code>LANG locale</code>设置成中文<code>LANG=zh_CN.UTF-8</code>，因为<code>TTY</code>下没有<code>CJK</code>字体，这样设置会导致<code>TTY</code>中显示豆腐块（除非你使用的内核打了<code>cjktty</code>补丁能绘制中文字体，比如<a
-target="_blank" rel="noopener" href="https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/linux-lily">linux-lily</a><sup>CNRepo</sup>）。</p>
-</div>
 
       
     </div>

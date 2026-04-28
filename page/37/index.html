@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/13/SDDM%E8%AF%AD%E8%A8%80%E4%BF%AE%E6%94%B9%E4%B8%BA%E4%B8%AD%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/13/SDDM%E8%AF%AD%E8%A8%80%E4%BF%AE%E6%94%B9%E4%B8%BA%E4%B8%AD%E6%96%87/" class="post-title-link" itemprop="url">SDDM语言修改为中文</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-13 19:52:49" itemprop="dateCreated datePublished" datetime="2023-12-13T19:52:49+08:00">2023-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023-12-27 在安装完新系统后配置中文环境时，根据<a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Locale#Gnome-terminal_/_rxvt-unicode_不支持_UTF-8">Locale-ArchWiki</a>的描述，对于KDE
+Plasma 则删除<label style="color:red">~/.config/plasma-localerc</label>
+后发现各项翻译包括SDDM增均顺利转换成了英文。如果SDDM没有转成中文，请再按下述方法配置。</p>
+<hr />
+<p>新配置的<code>ArchLinux</code>解决完一些重要的问题后，还剩下<code>SDDM</code>的语言一直显示为英文，需要将语言修改为中文。方法为：
+修改文件<code>/usr/lib/systemd/system/sddm.service</code>，
+在<code>[Service]</code>下添加<code>Environment=LANG=zh_CN.UTF-8</code>,
+即</p>
+<figure class="highlight sh"><figcaption><span>/usr/lib/systemd/system/sddm.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Simple Desktop Display Manager</span><br><span class="line">Documentation=man:sddm(1) man:sddm.conf(5)</span><br><span class="line">Conflicts=getty@tty1.service</span><br><span class="line">After=systemd-user-sessions.service getty@tty1.service plymouth-quit.service systemd-logind.service</span><br><span class="line">PartOf=graphical.target</span><br><span class="line">StartLimitIntervalSec=30</span><br><span class="line">StartLimitBurst=2</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/sddm</span><br><span class="line">Restart=always</span><br><span class="line">Environment=LANG=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">Alias=display-manager.service</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>注意：按<code>ArchLinux</code>的<code>Wiki</code><a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/简体中文本地化">简体中文本地化</a>,不推荐在<code>/etc/locale.conf</code>里把全局的<code>LANG locale</code>设置成中文<code>LANG=zh_CN.UTF-8</code>，因为<code>TTY</code>下没有<code>CJK</code>字体，这样设置会导致<code>TTY</code>中显示豆腐块（除非你使用的内核打了<code>cjktty</code>补丁能绘制中文字体，比如<a
+target="_blank" rel="noopener" href="https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/linux-lily">linux-lily</a><sup>CNRepo</sup>）。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1092,99 +1181,6 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/crabdave/article/deta
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/12/04/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E6%8F%92%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/04/%E5%B9%BF%E5%91%8A%E6%8B%A6%E6%88%AA%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">广告拦截插件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-04 17:52:47" itemprop="dateCreated datePublished" datetime="2023-12-04T17:52:47+08:00">2023-12-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>现在网络环境，广告五花八门，无处不在，其不仅影响阅读体验也会耽误大量的时间。然而，就目前的情况来看，一些互联网公司有意干扰了这些广告拦截插件，使其在浏览器中不能直接搜索安装，于是就需要探讨安装广告拦截插件的方法，直接通过源或者<code>Github</code>安装是最好的，但是前提是能够顺利访问<code>Github</code>,
-这可以参考<a
-href="/2023/12/02/Github终极解决方案">Github终极解决方案</a>。这些值得推荐的插件为：</p>
-<h2 id="tampermonkey">Tampermonkey</h2>
-<p><code>Tampermonkey</code>本身不是广告拦截插件，但是其提供了各种各样的神奇功能，所以将其放在第一位。下面列出一些常用的<code>Tampermonkey</code>脚本：</p>
-<ul>
-<li><code>AC-baidu</code>重定向优化百度搜狗谷歌必应搜索,
-过滤掉所有的搜索广告，最大化的还原一个清静的网页。</li>
-<li>🔥持续更新🔥 CSDN广告完全过滤、人性化脚本优化：🆕
-不用再登录了！让你体验令人惊喜的崭新CSDN。</li>
-</ul>
-<h2 id="ublock-origin">uBlock origin</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox-ublock-origin</span><br></pre></td></tr></table></figure>
-<h2 id="adblock-plus">adblock-plus</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S firefox-adblock-plus</span><br></pre></td></tr></table></figure>
-<h2 id="adguardhome">adguardhome</h2>
-<p>Network-wide ads and trackers blocking DNS server</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S adguardhome</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

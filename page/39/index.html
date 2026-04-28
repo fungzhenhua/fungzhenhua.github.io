@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,91 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/18/%E7%A6%81%E7%94%A8XDG%E7%9B%AE%E5%BD%95%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/18/%E7%A6%81%E7%94%A8XDG%E7%9B%AE%E5%BD%95%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">禁用XDG目录更新</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-18 12:47:39" itemprop="dateCreated datePublished" datetime="2023-11-18T12:47:39+08:00">2023-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前段时间更新<code>ArchLinux</code>时，发现我的目录<code>文档</code>莫名其妙的被删除了！里面有大量的资料，由于之前有备份的习惯，损失不算很严重，但是也带来了麻烦，由于还有一台工作电脑，但是测试工作电脑时却没有发生同样的问题。今天尝试解决这一问题，导致这个问题的主角是程序<code>xdg-user-dir</code>,
+和它相关的文件一共有六个，即</p>
+<figure class="highlight sh"><figcaption><span>xdg-user-dir</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/etc/xdg/user-dirs.conf</span><br><span class="line">/etc/xdg/user-dirs.defaults</span><br><span class="line">~/.config/user-dirs.dirs</span><br><span class="line">~/.config/user-dirs.locale</span><br><span class="line">/usr/bin/xdg-user-dir</span><br><span class="line">/usr/bin/xdg-user-dirs-update</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/11/18/%E7%A6%81%E7%94%A8XDG%E7%9B%AE%E5%BD%95%E6%9B%B4%E6%96%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1079,145 +1164,6 @@ Python。甚至可以共用一套相同的文字介绍框架，仅仅是替换�
           <p><code>diary.sh</code>脚本已经比较完善了，但是还有一个功能就是主题升级，由于本博客对<code>Next</code>主题做了比较深入的定制，改变了基本配色，所以若直接升级<code>Next</code>主题，又需要重新配置一遍，这很浪费时间。但是，如果不对主题升级，那对于性能的改进和错误的修复及新功能的增加都不能享受，所以综合考虑后，在<code>diary.sh</code>脚本中增加了主题升级这一功能，使用脚本自动修改对应主题的配置，这样既可以保证主题最新，又可以保证快速的使用定制版的主题。</p>
 <figure class="highlight sh"><figcaption><span>diary.sh升级代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ThemeNextColor=#006600</span><br><span class="line"><span class="function"><span class="title">ThemeUpdate</span></span>()&#123;</span><br><span class="line">    <span class="built_in">rm</span> -rf <span class="variable">$DIARYPATH</span>/themes/next</span><br><span class="line">        git <span class="built_in">clone</span> https://gitlab.com/hexo-theme-next/hexo-theme-next.git <span class="variable">$DIARYPATH</span>/themes/next</span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$DIARYPATH</span>/themes/next</span><br><span class="line">        git checkout $(git describe --tags $(git rev-list --tags --max-count=1))</span><br><span class="line">        sed -i <span class="string">&quot;s/^\$black-deep.*$/\$black-deep = &quot;</span><span class="variable">$ThemeNextColor</span><span class="string">&quot;/g&quot;</span>  <span class="variable">$DIARYPATH</span>/themes/next/source/css/_variables/base.styl</span><br><span class="line">        sed -i <span class="string">&quot;s/#222/&quot;</span><span class="variable">$ThemeNextColor</span><span class="string">&quot;/g&quot;</span> <span class="variable">$DIARYPATH</span>/_config.next.yml</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;\$content-desktop     = 900px;&quot;</span> &gt;&gt; <span class="variable">$DIARYPATH</span>/themes/next/source/css/_variables/Muse.styl</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;\$content-desktop-large     = 1200px;&quot;</span> &gt;&gt; <span class="variable">$DIARYPATH</span>/themes/next/source/css/_variables/Muse.styl</span><br><span class="line">        sed -i <span class="string">&quot;s/background: var(--btn-default-bg);//g&quot;</span> <span class="variable">$DIARYPATH</span>/themes/next/source/css/_schemes/Muse/_header.styl    </span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$DIARYPATH</span></span><br><span class="line">        hexo g</span><br><span class="line">        <span class="built_in">cd</span> <span class="variable">$NOWPATH</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;The next theme of hexo has been updated, happy diary !!&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/09/%E4%B8%80%E6%AC%BE%E8%BD%BB%E9%87%8F%E7%BA%A7PDF%E9%98%85%E8%AF%BB%E5%99%A8mupdf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/09/%E4%B8%80%E6%AC%BE%E8%BD%BB%E9%87%8F%E7%BA%A7PDF%E9%98%85%E8%AF%BB%E5%99%A8mupdf/" class="post-title-link" itemprop="url">一款轻量级PDF阅读器mupdf</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-11-09 14:54:30" itemprop="dateCreated datePublished" datetime="2023-11-09T14:54:30+08:00">2023-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2023年11月09日,
-开始正式将<code>mupdf</code>作为与<code>nvim</code>和<code>vim</code>配合编写<code>LaTeX</code>的预览<code>pdf</code>阅读器。常用命令列表如下</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">快捷键</th>
-<th style="text-align: left;">功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">f</td>
-<td style="text-align: left;">全屏</td>
-</tr>
-<tr>
-<td style="text-align: left;">W</td>
-<td style="text-align: left;">适应宽度</td>
-</tr>
-<tr>
-<td style="text-align: left;">H</td>
-<td style="text-align: left;">适应高度</td>
-</tr>
-<tr>
-<td style="text-align: left;">，</td>
-<td style="text-align: left;">翻到上页页尾</td>
-</tr>
-<tr>
-<td style="text-align: left;">.</td>
-<td style="text-align: left;">翻到下页页首</td>
-</tr>
-<tr>
-<td style="text-align: left;">b</td>
-<td style="text-align: left;">翻到上页同一位置</td>
-</tr>
-<tr>
-<td style="text-align: left;">空格</td>
-<td style="text-align: left;">翻到下页同一位置</td>
-</tr>
-<tr>
-<td style="text-align: left;">鼠标左键</td>
-<td
-style="text-align: left;">当手形工具可以自动翻到上一页或下一页，可以点链接</td>
-</tr>
-<tr>
-<td style="text-align: left;">鼠标滚轮</td>
-<td style="text-align: left;">上下滚屏</td>
-</tr>
-<tr>
-<td style="text-align: left;">鼠标滚轮+Shift</td>
-<td style="text-align: left;">左右滚屏</td>
-</tr>
-<tr>
-<td style="text-align: left;">鼠标滚轮+Ctrl</td>
-<td style="text-align: left;">缩放</td>
-</tr>
-</tbody>
-</table>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/11/09/%E4%B8%80%E6%AC%BE%E8%BD%BB%E9%87%8F%E7%BA%A7PDF%E9%98%85%E8%AF%BB%E5%99%A8mupdf/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,94 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Linux与Windows双系统重启导致无线网消失的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-01-06 15:15:33 / 修改时间：15:26:30" itemprop="dateCreated datePublished" datetime="2026-01-06T15:15:33+08:00">2026-01-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近期重新安装了双系统中的Windows11,
+但是发现重启后Linux的无线网居然消失了。使用命令 <code>rfkill list</code>
+排查，发现 <code>Hard blocked: yes</code> 且
+<code>Soft blocked: yes</code>,
+这表明驱动层面是没有问题的。导致ArchLinux中无线网消失的根本原因通常是
+Windows的“快速启动”功能改变了硬件的电源状态，导致Arch
+Linux无法正确识别或重置无线网卡.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>禁用Windows快速启动可以根治切换操作系统时导致的无线网消失问题，具体操作如下：</p>
+<ul>
+<li><p><code>在Windows系统</code>中，进入“控制面板” → “硬件和声音” →
+“电源选项” → “选择电源按钮的功能”。</p></li>
+<li><p>点击“更改当前不可用的设置”，然后将 “启用快速启动（推荐）”
+前面的勾选<code>取消</code>。</p></li>
+<li><p><code>保存修改</code>，然后正常重启进入 ArchLinux
+再测试。</p></li>
+</ul>
+<h2 id="为什么是windows的锅">为什么是Windows的锅？</h2>
+<p>Windows的“快速启动”（混合睡眠）在关机时会将系统状态（包括一些硬件状态）保存到硬盘。当你在这种“伪关机”后启动Arch时，硬件可能还处于Windows设定的某种低功耗或禁用状态，而Linux内核无法完全重置它。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1165,99 +1253,6 @@ target="_blank" rel="noopener" href="https://www.pantum.cn/search/download-drive
 </ul>
 <h1 id="注意">注意</h1>
 <p>由于奔图打印机在github上没有公开驱动程序，所以使用paru也无法实现驱动安装，通过一系列测试，使用Linux系统的通用打印驱动即可实现完美打印。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Seewo电脑安装win10后显卡和芯片组驱动安装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-27 15:58:37 / 修改时间：16:44:41" itemprop="dateCreated datePublished" datetime="2025-09-27T15:58:37+08:00">2025-09-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p>单位配置了国产电脑，牌子是 Seewo
-的。但是其安装的系统是银河麒麟系统和win10家庭版，它们同时占据了一块512的固态硬盘，这给不经常使用Linux的用户造成麻烦，因此有必要将Linux去除，同时只安装LTSC版本的Win10.
-但是我在安装完成LTSC版win10后，发现右键我的电脑后发现还有若干硬件出现黄色感叹号，也就是这些硬件没有被win10识别，同时由于缺失显卡驱动，也无法将分辨率调成1080p。本文给出解决方案。</p>
-<h2 id="解决方案">解决方案</h2>
-<h3 id="芯片硬件驱动">芯片硬件驱动</h3>
-<ul>
-<li>下载海光3350驱动<a
-target="_blank" rel="noopener" href="https://www.cancon.com.cn/download/files/drivers/driversNEW/Chipset/HygonSoCDriver-1.0.3.msi">HygonSoCDriver-1.0.3.msi</a>.</li>
-<li>双击安装.</li>
-<li>参考文章：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/8852505469#">海光c86
-3250 装的win10驱动打不上</a></li>
-</ul>
-<h3 id="显卡驱动">显卡驱动</h3>
-<ul>
-<li>下载<a
-target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Oq7rm9q1IvYtovkX37hKFA?pwd=lkkk">国产风华2号win10/win11驱动</a></li>
-<li>解压缩文件到你的电脑</li>
-<li>以管理员身份运行命令
-<code>pnputil.exe /add-driver innogpu.inf /install</code></li>
-<li>你可以看到驱动立刻安装完成。</li>
-<li>参考文章：<a
-target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1-1.html">国产显卡风华2号Windows10/11驱动</a></li>
-</ul>
 
       
     </div>

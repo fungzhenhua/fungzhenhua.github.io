@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,135 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/01/ArchLinuxCN%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/01/ArchLinuxCN%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">ArchLinuxCN软件仓库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-01 00:56:05" itemprop="dateCreated datePublished" datetime="2023-05-01T00:56:05+08:00">2023-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><label style="color:red">2023年12月03日星期日晴北京市</label>
+更新为官方标准设置方案。</p>
+<div class="tabs" id="linuxcn"><ul class="nav-tabs"><li class="tab active"><a href="#linuxcn-1">Arch Linux 中文社区仓库标准方法</a></li><li class="tab"><a href="#linuxcn-2">/etc/pacman.d/mirrorcnlist</a></li><li class="tab"><a href="#linuxcn-3">/etc/pacman.conf</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linuxcn-1"><p><label style="color:red">2023-12-02 23:51</label>
+完善本文，删除了原来的方法，但是作为纪念最初的配置请参考 <a
+target="_blank" rel="noopener" href="https://fengzhenhua.gitlab.io/2023/05/01/">ArchLinuxCN软件仓库</a>
+, 在这一版中我们参考<a
+target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">Arch
+Linux 中文社区仓库</a> 进行标准的配置，方法如下：</p>
+<ul>
+<li>在 <code>/etc/pacman.conf</code> 文件末尾添加以下两行 <figure class="highlight sh"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+<div class="note info">
+<p>
+注意：点击<a
+target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">https://github.com/archlinuxcn/mirrorlist-repo</a>
+,
+选择任意一个源的链接取代上述<code>Server</code>后的链接也是可以的。如果<code>githb.com</code>无法访问，请访问镜像网站
+<a
+target="_blank" rel="noopener" href="https://hub.yzuu.cf/archlinuxcn/mirrorlist-repo">https://hub.yzuu.cf/archlinuxcn/mirrorlist-repo</a>
+或 <a
+target="_blank" rel="noopener" href="https://archlinux.org/mirrorlist/?country=CN">https://archlinux.org/mirrorlist/?country=CN</a>
+</p>
+</div></li>
+<li>安装 <code>archlinuxcn-keyring</code> 包以导入 <code>GPG key</code>
+<figure class="highlight sh"><figcaption><span>安装archlinuxcn-keyring</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></li>
+<li>安装 <code>archlinuxcn-mirrorlist-git</code> 包可以获得一份镜像列表
+<figure class="highlight sh"><figcaption><span>安装archlinuxcn-mirrorlist-git</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S archlinuxcn-mirrorlist-git</span><br></pre></td></tr></table></figure>
+安装完成后，会生成文件<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>,
+此文件正是国内所有的镜像，同时也在更新。</li>
+<li>在 pacman.conf 中直接引入<code>archlinuxcn-mirrorlist</code>
+<figure class="highlight sh"><figcaption><span>/etc/pacman.conf`末尾追加</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/<span class="variable">$arch</span></span><br><span class="line">Include = /etc/pacman.d/archlinuxcn-mirrorlist</span><br></pre></td></tr></table></figure></li>
+<li>编辑<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>文件，去掉要引用的源前面的注释符即可。</li>
+</ul></div><div class="tab-pane" id="linuxcn-2"><ol type="1">
+<li><p>在<code>/etc/pacman.conf</code>文件末尾添加以下两行
+<figure class="highlight bash"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Include = /etc/pacman.d/mirrorcnlist</span><br></pre></td></tr></table></figure></p></li>
+<li><p>新建文件<code>/etc/pacman.d/mirrorcnlist</code>,加入cn源
+<figure class="highlight bash"><figcaption><span>/etc/pacman.d/mirrorcnlist</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># archlinuxcn</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<div class="note warning">
+<p>
+注意，在执行完成上述添加命令后，再通过命令安装<code>archlinuxcn-keyring</code>包导入GPG
+key.若添加之前执行命令，<code>pacman</code>找不到这个软件，所以是
+<mark class="label warning">先添加再执行</mark>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+</p>
+<p>
+本法中，如果第一个源出现问题，则系统会自动调用第二个源，因此这是一个更加方便稳定的方法，推荐此法。
+</p>
+</div></div><div class="tab-pane" id="linuxcn-3"><p>在<code>/etc/pacman.conf</code>文件末尾添加以下两行 <figure class="highlight bash"><figcaption><span>archlinuxcn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
+<div class="note warning">
+<p>
+注意，在执行完成上述添加命令后，再通过命令安装<code>archlinuxcn-keyring</code>包导入GPG
+key.若添加之前执行命令，<code>pacman</code>找不到这个软件，所以是
+<mark class="label warning">先添加再执行</mark>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+</p>
+</div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1087,90 +1216,6 @@ target="_blank" rel="noopener" href="https://xtremedownloadmanager.com/">https:/
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/04/10/XtremeDownload/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/09/Python%E4%B9%8B%E7%BE%8E%E7%AC%AC%E5%85%AB%E6%AC%A1%E4%BD%9C%E4%B8%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/04/09/Python%E4%B9%8B%E7%BE%8E%E7%AC%AC%E5%85%AB%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">Python之美第八次作业</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-04-09 09:20:04" itemprop="dateCreated datePublished" datetime="2023-04-09T09:20:04+08:00">2023-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2023年04月09日星期日晴北京市北京师范大学,
-昨天完成了Python之美课程的作业，此次封装了函数，自己感觉这才有程序的意思，同时也保留了一些有用的功能。在以后使用Python开发软件时有可能会用到，所以这里释出这次作业的源码。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/04/09/Python%E4%B9%8B%E7%BE%8E%E7%AC%AC%E5%85%AB%E6%AC%A1%E4%BD%9C%E4%B8%9A/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

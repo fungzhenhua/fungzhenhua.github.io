@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">567</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,99 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Seewo电脑安装win10后显卡和芯片组驱动安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-09-27 15:58:37 / 修改时间：16:44:41" itemprop="dateCreated datePublished" datetime="2025-09-27T15:58:37+08:00">2025-09-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述">问题描述</h2>
+<p>单位配置了国产电脑，牌子是 Seewo
+的。但是其安装的系统是银河麒麟系统和win10家庭版，它们同时占据了一块512的固态硬盘，这给不经常使用Linux的用户造成麻烦，因此有必要将Linux去除，同时只安装LTSC版本的Win10.
+但是我在安装完成LTSC版win10后，发现右键我的电脑后发现还有若干硬件出现黄色感叹号，也就是这些硬件没有被win10识别，同时由于缺失显卡驱动，也无法将分辨率调成1080p。本文给出解决方案。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="芯片硬件驱动">芯片硬件驱动</h3>
+<ul>
+<li>下载海光3350驱动<a
+target="_blank" rel="noopener" href="https://www.cancon.com.cn/download/files/drivers/driversNEW/Chipset/HygonSoCDriver-1.0.3.msi">HygonSoCDriver-1.0.3.msi</a>.</li>
+<li>双击安装.</li>
+<li>参考文章：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/8852505469#">海光c86
+3250 装的win10驱动打不上</a></li>
+</ul>
+<h3 id="显卡驱动">显卡驱动</h3>
+<ul>
+<li>下载<a
+target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Oq7rm9q1IvYtovkX37hKFA?pwd=lkkk">国产风华2号win10/win11驱动</a></li>
+<li>解压缩文件到你的电脑</li>
+<li>以管理员身份运行命令
+<code>pnputil.exe /add-driver innogpu.inf /install</code></li>
+<li>你可以看到驱动立刻安装完成。</li>
+<li>参考文章：<a
+target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1-1.html">国产显卡风华2号Windows10/11驱动</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1185,98 +1278,6 @@ File-Roller 会优先使用列表中的编码尝试解压（等同于关闭自�
 <code>solved="none"</code> 为 <code>solved="easy"</code> 或
 <code>solved="hard"</code>.</li>
 <li>修改好的文件内容为： <figure class="highlight xml"><figcaption><span>~/.config/supertuxkart/config-0.10/players.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">story-mode</span> <span class="attr">first-time</span>=<span class="string">&quot;false&quot;</span> <span class="attr">finished</span>=<span class="string">&quot;false&quot;</span> <span class="attr">speedrun-finished</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">story-ms</span>=<span class="string">&quot;1023726&quot;</span> <span class="attr">speedrun-ms</span>=<span class="string">&quot;1291839&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">abyss</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">candela_city</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cocoa_temple</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cornfield_crossing</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fortmagma</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp1</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp2</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp3</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp4</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">granparadiso_island</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">green_valley</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hacienda</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lighthouse</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mansion</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mines</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">minigolf</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">olivermath</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sandtrack</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">scotland</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">snowmountain</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">snowpeak</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stk_enterprise</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_bonus_kart1</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_bonus_kart2</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_supertux</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">volcano_island</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xr591</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">zengarden</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">story-mode</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/17/Gnome3%E4%B8%AD%E7%9A%84%E7%8E%B0%E4%BB%A3%E9%98%85%E8%AF%BB%E5%99%A8papers%E5%8F%96%E4%BB%A3evince/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/17/Gnome3%E4%B8%AD%E7%9A%84%E7%8E%B0%E4%BB%A3%E9%98%85%E8%AF%BB%E5%99%A8papers%E5%8F%96%E4%BB%A3evince/" class="post-title-link" itemprop="url">Gnome3中的现代阅读器papers取代evince</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-06-17 15:13:45 / 修改时间：15:19:54" itemprop="dateCreated datePublished" datetime="2025-06-17T15:13:45+08:00">2025-06-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介">简介</h2>
-<p>GNOME 近年来正在转向 GTK4 +
-LibAdwaita。核心应用程序要么移植到新框架，要么被新框架替换。Papers
-是一款专门为 GNOME
-桌面环境打造的强大「文档查看器」。它支持多种文档格式，能够轻松查看、搜索和批注文档，为用户带来更丰富的使用体验。</p>
-<p>目前，Papers
-支持的文档格式包括：PDF、PS、EPS、XPS、DjVu、TIFF，以及漫画书档案（CBR、CBT、CBZ
-和 CB7 格式）。无论常见文档还是特殊格式，Papers 都能轻松搞定，堪称 GNOME
-用户的得力助手。</p>
-<h2 id="安装">安装</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S papers</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://cn.linux-terminal.com/?p=8491">Papers 预计将取代
-Evince 成为 GNOME 默认 PDF 查看器</a></li>
-<li><a target="_blank" rel="noopener" href="https://news.qq.com/rain/a/20250220A049HP00">GNOME 48
-测试版：X11 终结的又一里程碑</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.sysgeek.cn/ubuntu-papers-pdf-viewer/">Papers：Ubuntu
-中的新 PDF 查看器</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.linuxeden.com/a/137116">作为基于 GTK4 的 Evince
-分叉，GNOME Papers 文档查看器正在取得进展</a></li>
 </ul>
 
       
