@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,866 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/25/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA%E8%BF%9E%E6%8E%A5%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/25/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA%E8%BF%9E%E6%8E%A5%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">一台电脑主机连接双显示器的连接方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-25 10:58:53" itemprop="dateCreated datePublished" datetime="2024-06-25T10:58:53+08:00">2024-06-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3
+id="一先与电脑连接好两个显示器"><strong>一、先与电脑连接好两个显示器</strong></h3>
+<figure>
+<img src="https://img.picui.cn/free/2024/06/25/667a3407b0810.png"
+alt="显示器插口" />
+<figcaption aria-hidden="true">显示器插口</figcaption>
+</figure>
+<ol type="1">
+<li><p>电脑必须要有两个显示器插口，如<code>HDMI</code>、<code>DVI</code>、<code>VGA</code>都可以，其他参考<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/didi_ya/article/details/122241863">【科普】显示器VGA、DVI、HDMI、DP等各种接口详细科普</a></p></li>
+<li><p>使用相应线材连接显示器，可以一个连接<code>DVI</code>一个连接<code>VGA</code>，或是<code>HDMI</code>。使用什么线，取决于你的显示器支持什么接口。</p></li>
+<li><p>连接完成，开机一般两个显示器可以正常显示。</p></li>
+</ol>
+<div class="note primary"><p>注意事项：使用两个信号线分别将两个显示器连接到显卡上两个视频输出接口。电脑显卡必须支持双输出，有两个用于连接不同显示器的视频接口。</p>
+</div>
+<h3
+id="二linuxgnome连接两个显示器设置方法"><strong>二、Linux(Gnome)连接两个显示器设置方法</strong></h3>
+<figure>
+<img src="https://img.picui.cn/free/2024/06/25/667a85c5bb977.png"
+alt="Archlinux Gnome 双屏设置" />
+<figcaption aria-hidden="true">Archlinux Gnome 双屏设置</figcaption>
+</figure>
+<ol type="1">
+<li><p>打开<code>设置</code>→<code>显示器</code></p></li>
+<li><p>选择<code>加入</code>或<code>镜像</code>等设置.
+其中<code>加入</code>是指两个屏显示不同内容，而<code>镜像</code>是副屏与主屏完全一样，适合教学演示之用。</p></li>
+</ol>
+<h3
+id="三win7连接两个显示器设置方法"><strong>三、WIN7连接两个显示器设置方法</strong></h3>
+<ol type="1">
+<li><p>在桌面空白处右击鼠标选择“屏幕分辨率”选项;
+进入分辨率设置对话框。</p></li>
+<li><p>如果电脑主机显卡连接有两台显示器的，就会有显示。单击“检测”进行检测。然后点击多显示器后面的按钮框，就可以看到“复制这些显示”和“扩展这些显示”两个选项。</p></li>
+<li><p>选择的“复制这些显示”，那么在两个显示器上你会看到一模一样的<code>Windows</code>
+窗口。适合教学演示、为多人展示相同内容的场所，也适合会场和户外等商业展示。</p></li>
+</ol>
+<h3
+id="四win10连接两个显示器设置方法"><strong>四、WIN10连接两个显示器设置方法</strong></h3>
+<ol type="1">
+<li><p>在<code>Windows 10</code>桌面上单击右键，选择“显示设置”。或通过快捷键<code>Win + I</code>打开设置，然后导航至“系统”&gt;“显示”。</p></li>
+<li><p>检测并配置显示器：系统将自动检测到两个显示器。在“显示”页面，你可以看到显示器的代表图标，点击“标识”按钮帮助区分哪个是显示器1，哪个是2。随后，选择“多显示器设置”，设定为“扩展这些显示器”，以实现不同内容的显示。</p></li>
+<li><p>自定义布局：通过拖动显示器图标，你可以根据实际摆放位置调整虚拟布局，确保操作顺畅。</p></li>
+<li><p>调整分辨率与方向：进一步个性化每个显示器的显示设置，包括分辨率和方向调整，确保最佳视觉效果。</p></li>
+<li><p>保存设置：调整完毕后，设置会自动保存，无需额外确认，你可以立即体验双屏带来的便捷</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/%E4%B8%89%E6%98%9F%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4%E4%BA%AE%E5%BA%A6%E5%92%8C%E5%AF%B9%E6%AF%94%E5%BA%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/24/%E4%B8%89%E6%98%9F%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4%E4%BA%AE%E5%BA%A6%E5%92%8C%E5%AF%B9%E6%AF%94%E5%BA%A6/" class="post-title-link" itemprop="url">三星显示器调整亮度和对比度</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-24 21:03:53" itemprop="dateCreated datePublished" datetime="2024-06-24T21:03:53+08:00">2024-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天终于使用上了双屏显示器，其中主屏使用的是三星<code>S27D590</code>,
+副屏是<code>DELL</code>的一个<code>22寸</code>的屏幕。其中，主屏通过<code>VGA</code>接口直接与主机连接，同时副屏通过<code>HDMI</code>接口也直接与主机相连，顺利使用上了双显示器。测试通过三星<code>S27D590</code>上的<code>HDMI</code>转接到副屏上没有成功，这留待以后再研究。连接两块屏幕后，一个最显著的地方是它们的亮度不同，于是需要调整屏幕的亮度，而这个三星<code>S27D590</code>只有一个按键，一时有点让人琢磨不透。经过一翻百度，获得答案，原来三星显示器的按键是一个叫做<code>五维式按键</code>的东西，百度问答给出了答案：</p>
+<p>根据三星显示器的不同型号，调整屏幕亮度的方法，请参考以下方式：</p>
+<ol type="1">
+<li>普通按（或触摸）键：按（或触摸）机身的【MENU】键，依次选择【图像】-【亮度】
+， 根据个人的需求调整亮度数值即可。</li>
+<li>五维式按键：按【电源】键，将摇杆向上拔动，光标移至菜单位置，按【电源】键，依次选择【图像】-【亮度】，进行调整。</li>
+<li>没有菜单选择的显示器，需要在电脑上安装MagicTune（魔调软件），通过此软件进行调整。</li>
+</ol>
+<p>参考网址：<a
+target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1706498937311098820.html">三星显示器亮度在显示器上怎么调</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90JASON%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90JASON%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Shell脚本解析JASON数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-24 10:36:20" itemprop="dateCreated datePublished" datetime="2024-06-24T10:36:20+08:00">2024-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="jason-语言简介">JASON 语言简介</h2>
+<ul>
+<li>JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）</li>
+<li>JSON 是轻量级的文本数据交换格式</li>
+<li>JSON 独立于语言：JSON 使用 Javascript语法来描述数据对象，但是 JSON
+仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。
+目前非常多的动态（PHP，JSP，.NET）编程语言都支持 JSON</li>
+<li>JSON 具有自我描述性，更易理解</li>
+</ul>
+<p>详细参考：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/cserchen/article/details/6232341">jason数据格式</a></p>
+<h2 id="shell脚本解析jason数据">Shell脚本解析JASON数据</h2>
+<h3 id="使用jq解析jason数据">使用<code>jq</code>解析JASON数据</h3>
+<p><code>jq</code>
+是一个小型跨平台解决方案，用于以更短、更简单、更轻松的方式管理 JSON
+数据。安装<code>jq</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S jq</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li><code>jq .</code> 命令美化 json 数据。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq .</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 1,</span><br><span class="line">      &quot;title&quot;: &quot;delectus aut autem&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 2,</span><br><span class="line">      &quot;title&quot;: &quot;quis ut nam facilis et officia qui&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 3,</span><br><span class="line">      &quot;title&quot;: &quot;fugiat veniam minus&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">    ... // remaining list of data</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>从 JSON 获取特定字段的值</li>
+</ol>
+<p>我们可以使用 <code>jq.[].field_name</code> 从 JSON
+数据数组中获取任何特定字段的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq <span class="string">&#x27;.[].id&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>从 JSON 中获取第一个项目的标题</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq <span class="string">&#x27;.[0].title&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;delectus aut autem&quot;</span></span><br></pre></td></tr></table></figure>
+<h2
+id="使用grep解析json">使用<code>grep</code>解析<code>JSON</code></h2>
+<p><code>grep</code> 命令也可用于解析 JSON 数据。</p>
+<p>示例 JSON 文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Andres Gustov&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;andddy7@gmail.com&quot;</span></span><br><span class="line">     <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Anthony Marklov&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antman33@gmail.com&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<p>示例脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -o <span class="string">&#x27;&quot;email&quot;: &quot;[^&quot;]*&#x27;</span> examplejsonfile.json | grep -o <span class="string">&#x27;[^&quot;]*$&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>我们使用 <code>-o</code>
+选项仅选择与给定模式匹配的行。然后，我们指定模式<code>'"email": "[^"]*'</code>，这意味着我们想要键
+<code>email</code> 的所有值。之后，我们传递 JSON
+文件来查找模式。最后，我们使用另一个 <code>grep -o</code>
+命令将结果通过管道输出，以删除除值之外的所有内容。</p>
+<p>输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">andddy7@gmail.com </span><br><span class="line">antman33@gmail.com</span><br></pre></td></tr></table></figure>
+<h2 id="使用python3解析json">使用<code>python3</code>解析JSON</h2>
+<p>我们还可以使用 python 的 <code>json</code> 模块来处理 JSON 操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s <span class="string">&#x27;https://jsonplaceholder.typicode.com/posts&#x27;</span> | \ python3 -c <span class="string">&quot;import sys, json; print(json.load(sys.stdin))&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取特定字段值">获取特定字段值</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | \ </span><br><span class="line">    python3 -c <span class="string">&quot;import sys, json; data=json.load(sys.stdin); print([d[&#x27;id&#x27;] for d in data])&quot;</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="获取第一个项目的标题">获取第一个项目的标题</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | \ </span><br><span class="line">    python3 -c <span class="string">&quot;import sys, json; print(json.load(sys.stdin)[0][&#x27;title&#x27;])&quot;</span></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;delectus aut autem&quot;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90YAML%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90YAML%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Shell脚本解析YAML数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-24 10:14:06" itemprop="dateCreated datePublished" datetime="2024-06-24T10:14:06+08:00">2024-06-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="yaml语言简介">YAML语言简介</h2>
+<p><code>AML</code> 是"YAML Ain't a Markup Language"（<code>YAML</code>
+不是一种标记语言）的递归缩写。在开发的这种语言时，<code>YAML</code>
+的意思其实是："Yet Another Markup Language"（仍是一种标记语言）。</p>
+<p><code>YAML</code> 的语法和其他高级语言类似，
+并且可以简单表达清单、散列表， 标量等数据形态。
+它使用空白符号缩进和大量依赖外观的特色，
+特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和<code>YAML</code>非常接近）。</p>
+<p><code>YAML</code>常在<code>Linux</code>作为一种配置文件出现，详细使用规则参考：<a
+target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/yaml-intro.html">YAML入门教程</a></p>
+<h2 id="shell中解析yaml">Shell中解析YAML</h2>
+<p>在 Bash 中直接操作 YAML 需要一点创造性，因为 Bash 没有内置支持解析
+YAML。然而，你可以使用外部工具，如
+<code>yq</code>（一个轻量级且便携的命令行 YAML 处理器），来高效地与 YAML
+文件交互。</p>
+<h3 id="安装yaml解析器">安装YAML解析器</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S yq</span><br></pre></td></tr></table></figure>
+<p>假设你有一个名为 <code>config.yaml</code> 的文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">database:</span> </span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span> </span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span> </span><br><span class="line"><span class="attr">user:</span> </span><br><span class="line">    <span class="attr">name:</span> <span class="string">admin</span> </span><br><span class="line">    <span class="attr">password:</span> <span class="string">secret</span></span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>要读取数据库主机，你可以如下使用 <code>yq</code>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.database.host&#x27;</span> config.yaml</span><br><span class="line">&gt;localhost</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>要在 <code>config.yaml</code> 中更新用户的名称，使用带
+<code>-i</code>（就地）选项的 <code>yq eval</code> 命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.user.name = &quot;newadmin&quot;&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
+<p>用以下命令验证更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.user.name&#x27;</span> config.yaml</span><br><span class="line">&gt; newadmin</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>要在数据库部分下添加一个新字段 <code>timeout</code>：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.database.timeout = 30&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>要移除用户下的密码：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;del(.user.password)&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
+<p>此操作将从配置中删除密码字段。</p>
+<div class="note primary"><p>记住，<code>yq</code> 是一款强大的工具，具有更多功能，包括将 YAML
+转换为 JSON、合并文件，甚至更复杂的操作。请参考 <code>yq</code>
+文档以进一步探索。</p>
+</div>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://lyyao09.github.io/2019/08/02/tools/The-usage-of-yq-read-write/">YAML处理工具yq之读写篇</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2357396">linux下轻量级工具：yq（json,yaml）格式转换工具安装和使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mikefarah/yq">yq官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://mikefarah.gitbook.io/yq">yq-gitbook</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Shell脚本替换字符串的几种方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-23 21:08:07" itemprop="dateCreated datePublished" datetime="2024-06-23T21:08:07+08:00">2024-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>变量<code>a</code>是一个带空格的字符串，现在用"hdpusr400"替换变量<code>a</code>中的"hduser302"：</p>
+<h2 id="字符串变量的替换方式">字符串变量的替换方式</h2>
+<figure class="highlight bash"><figcaption><span>定义变量a</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line">hduser302 hduser302 /apps/hduser302/student/</span><br></pre></td></tr></table></figure>
+<h3 id="用变量替换a做字符替换">用变量替换${a//}做字符替换</h3>
+<figure class="highlight sh"><figcaption><span>用变量替换$&#123;a//&#125;做字符替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$&#123;a/hduser302/hdpusr400&#125;</span> </span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$&#123;a//hduser302/hdpusr400&#125;</span>　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
+<h3 id="用-sed-做字符串替换">用 sed 做字符串替换</h3>
+<figure class="highlight sh"><figcaption><span>用sed做字符串替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | sed <span class="string">&#x27;s/hduser302/hdpusr400/&#x27;</span> 　　</span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | sed <span class="string">&#x27;s/hduser302/hdpusr400/&#x27;</span> 　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
+<h3 id="用-awk-做字符串替换">用 awk 做字符串替换</h3>
+<figure class="highlight sh"><figcaption><span>用awk做字符串替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | awk <span class="string">&#x27;&#123;gsub(/hduser302/,&quot;hdpusr400&quot;,$3);print $0&#125;&#x27;</span></span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | awk <span class="string">&#x27;&#123;gsub(/hduser302/,&quot;hdpusr400&quot;);print $0&#125;&#x27;</span> 　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
+<h2 id="数组所有元中的字符串替换">数组所有元中的字符串替换</h2>
+<figure class="highlight sh"><figcaption><span>数组所有元替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arr=($(<span class="built_in">ls</span> -d /run/media/<span class="variable">$USER</span>/*/*))</span><br><span class="line">Brr=(<span class="variable">$&#123;Arr[*]//&quot;/run/media/$USER&quot;/&quot;$HOME&quot;&#125;</span>)</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p><code>Arr</code>数组元中，所有元包括绝对路径<code>/run/media/$USER</code>,
+而<code>Brr</code>数组将其全部替换为<code>$HOME</code>.</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8ls%E8%8E%B7%E5%8F%96%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8ls%E8%8E%B7%E5%8F%96%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">Shell脚本使用ls获取绝对路径</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-23 20:12:50" itemprop="dateCreated datePublished" datetime="2024-06-23T20:12:50+08:00">2024-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>已经完成了<code>ugit.sh</code>程序，利用它可以方便的将仓库建立在<code>U盘</code>上，这也就达成了随身携带<code>U盘</code>仓库而不依赖网络的问题。但是在最初实现时，对<code>Shell</code>的理解不够深入，一些基础的命令没有用好，从而增加了一些循环判断，尽管在使用体验上不会有什么影响，但是仔细测试效率时还是有差别的，同时从维护脚本的角度讲不是足够简洁。本着精益求精的原则，决定进一步精简脚本，实现<code>Shell</code>层次上的效率极大化！在所有的问题中，一步列出所有<code>U盘</code>并且将<code>U盘</code>中的目录都添加绝对路径是一个重要的步骤，本文实现了这个一步操作。代码如下:</p>
+<figure class="highlight sh"><figcaption><span>列出子目录并添加绝对路径</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> -d /run/media/<span class="variable">$USER</span>/*/*</span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">/run/media/feng/BNU-FZH/article.git</span><br><span class="line">/run/media/feng/BNU-FZH/cexam.git</span><br><span class="line">/run/media/feng/BNU-FZH/config.git</span><br><span class="line">/run/media/feng/BNU-FZH/document.git</span><br><span class="line">/run/media/feng/BNU-FZH/latex.git</span><br><span class="line">/run/media/feng/BNU-FZH/python.git</span><br><span class="line">/run/media/feng/BNU-FZH/script.git</span><br><span class="line">/run/media/feng/BNU-FZH/System Volume Information</span><br><span class="line">/run/media/feng/feng/20230203_094347.jpg</span><br><span class="line">/run/media/feng/feng/2023_07_19 17_25 Office Lens (1).jpg</span><br><span class="line">/run/media/feng/feng/2023_07_19 17_25 Office Lens.jpg</span><br><span class="line">/run/media/feng/feng/截图 2024-06-18 18-03-16.png</span><br><span class="line">/run/media/feng/feng/截图 2024-06-18 18-06-42.png</span><br><span class="line">/run/media/feng/feng/PDF文件</span><br><span class="line">/run/media/feng/feng/System Volume Information</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>可以看到在路径<code>/run/media/feng/</code>下有两个<code>U盘</code>,分别是<code>BNU-FZH</code>和<code>feng</code>,
+这是路径<code>/run/media/$USER/*/*</code>中左起第一个<code>*</code>所代表的，而最后一个<code>*</code>表示列出此目录下的内容。<code>-d</code>选项，则控制<code>ls</code>命令列出路径。一条命令实现了列出所有<code>U盘</code>目录的功能，极大的提高了效率！</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/22/Rust%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E8%AF%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/22/Rust%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E8%AF%BE/" class="post-title-link" itemprop="url">Rust编程第一课</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-22 16:03:29" itemprop="dateCreated datePublished" datetime="2024-06-22T16:03:29+08:00">2024-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Rust</code>的官方网站是<a
+target="_blank" rel="noopener" href="https://www.rust-lang.org">https://www.rust-lang.org</a>,
+它是一门赋予每个人构建可靠且高效软件能力的语言.
+按官方介绍，选择<code>Rust</code>的原因主要为：</p>
+<ul>
+<li>高性能：<code>Rust</code>
+速度惊人且内存利用率极高。由于没有运行时和垃圾回收，它能够胜任对性能要求特别高的服务，可以在嵌入式设备上运行，还能轻松和其他语言集成。</li>
+<li>可靠性：<code>Rust</code>
+丰富的类型系统和所有权模型保证了内存安全和线程安全，让您在编译期就能够消除各种各样的错误。</li>
+<li>生产力：<code>Rust</code>
+拥有出色的文档、友好的编译器和清晰的错误提示信息，
+还集成了一流的工具——包管理器和构建工具，
+智能地自动补全和类型检验的多编辑器支持， 以及自动格式化代码等等。</li>
+</ul>
+<p>学习<code>Rust</code>语言，本博客提供以下几个途径：</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/learn">Rust官方教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/rust/rust-tutorial.html">Rust
+教程|菜鸟教程</a></li>
+<li><a target="_blank" rel="noopener" href="https://course.rs/basic/intro.html">Rust语言圣经</a></li>
+<li><a target="_blank" rel="noopener" href="https://rustwiki.org/docs/">Rust 中文文档</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/ch00-00-introduction.html">Rust
+程序设计语言 简体中文版</a></li>
+</ul>
+<p>本博客决定边学习边记录，以期完成一篇入门级的简洁实用教程。第一课当然是编写<code>Hello World</code>程序，其源码为：</p>
+<figure class="highlight rust"><figcaption><span>hello_world.rs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hello_world.rs</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s</span> = <span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于其没有复杂的依赖关系，直接使用<code>rustc</code>编译即可，其他所有选项使用默认值：</p>
+<figure class="highlight rust"><figcaption><span>编译hello_world.rs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc hello_world.rs</span><br></pre></td></tr></table></figure>
+<p>编译完成后，在本地文件夹中生成了可执行程序：<code>hello_world</code>,
+执行程序<code>./hello_world</code>,
+控制台上输出了<code>hello world!</code>字符串，
+第一个<code>Rust</code>程序已经成功！
+根据这个最简单的例子，我们得到一些基本的规则：</p>
+<ul>
+<li><p>一般<code>Rust</code>源代码的后缀名使用<code>.rs</code>表示。源码一定要注意使用<code>utf-8</code>编码。</p></li>
+<li><p>第一行是注释语句，<code>Rust</code>的注释是<code>C语言</code>系列风格的，行注释采用<code>//</code>开头，块注释使用<code>/*</code>和<code>*/</code>包围。它还支持更高级的文档注释，将在后文中详细展开说明。</p></li>
+<li><p><code>fn</code>是一个关键字（<code>key word</code>），函数定义必须以这个关键字开头。函数体使用大括号来包含。<code>fn</code>是单词<code>function</code>的缩写，在<code>Rust</code>中，设计者比较偏向使用单词缩写，即使是关键字也不例外。在代码风格上，某些读者可能开始会有点不习惯。但总体而言，这只是个审美偏好而已，不必过于纠结，习惯就好。</p></li>
+<li><p>默认情况下，<code>main</code>函数是可执行程序的入口点，它是一个无参数，无返回值的函数。如果我们要定义的函数有参数和返回值，可以使用以下语法（参数列表使用逗号分开，冒号后面是类型，返回值类型使用<code>-&gt;</code>符号分隔）：
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">Foo</span>( input1 : <span class="type">i32</span>, input2 : <span class="type">u32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>局部变量声明使用<code>let</code>关键字开头，用双引号包含起来的部分是字符串常量。<code>Rust</code>是静态强类型语言，所有的变量都有严格的编译期语法检查。关于<code>Rust</code>的变量和类型系统将在后文详细说明。</p></li>
+<li><p>每条语句使用分号结尾。语句块使用大括号。空格、换行和缩进不是语法规则的一部分。这都是明显的<code>C语言</code>系列的风格。</p></li>
+</ul>
+<div class="note primary"><p>最简单的标准输出是使用<code>println！</code>宏来完成。请大家一定注意<code>println</code>后面的感叹号，它代表这是一个宏，而不是一个函数。<code>Rust</code>中的宏与<code>C/C++</code>中的宏是完全不一样的东西。简单点说，可以把它理解为一种安全版的编译期语法扩展。这里之所以使用宏，而不是函数，是因为标准输出宏可以完成编译期格式检查，更加安全。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/22/Shell%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%AB%E5%90%8D%E5%91%BD%E4%BB%A4alias/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/22/Shell%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%AB%E5%90%8D%E5%91%BD%E4%BB%A4alias/" class="post-title-link" itemprop="url">Shell脚本和别名命令alias</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-22 13:32:35" itemprop="dateCreated datePublished" datetime="2024-06-22T13:32:35+08:00">2024-06-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>linux shell</code>有交互式与非交互式两种工作模式。我们日常使用<code>shell</code>输入命令得到结果的方式是交互式的方式，而<code>shell</code>脚本使用的是非交互式方式。</p>
+<p><code>shell</code>提供了<code>alias</code>功能来简化我们的日常操作，使得我们可以为一个复杂的命令取一个简单的名字，从而提高我们的工作效率。在<label style="color:red">交互式模式下</label>，<code>shell</code>的<code>alias</code>扩展功能是<label style="color:red">打开的</label>，因此我们可以键入自己定义的alias别名来执行对应的命令。</p>
+<p>在<label style="color:red">非交互式模式下</label><code>alias</code>扩展功能<label style="color:red">默认是关闭的</label>，此时仍然可以定义<code>alias</code>别名，但是<code>shell</code>不会将<code>alias</code>别名扩展成对应的命令，而是将<code>alias</code>别名本身当作命令执行，如果<code>shell</code>内置命令和<code>PATH</code>中均没有与<code>alias</code>别名同名的命令，则<code>shell</code>会“抱怨”找不到指定的命令。</p>
+<div class="note default"><p>在编写脚本时为了提高脚本的通用性，一般使用<code>linux</code>内置的通用命令，例如<code>ls</code>,<code>cat</code>等.
+由于脚本是<label style="color:red">非交互模式</label>，
+所以在脚本中直接使用系统命令即可。</p>
+</div>
+<p>现在有人要问了，在非交互模式的脚本中如何启用<code>alias</code>扩展呢？
+答案是可以使用<code>shell</code>的内置命令<code>shopt</code>来开启<code>alias</code>扩展选项。</p>
+<figure class="highlight sh"><figcaption><span>shopt的使用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shopt</span> -s opt_name                 Enable (<span class="built_in">set</span>) opt_name.</span><br><span class="line"><span class="built_in">shopt</span> -u opt_name                 Disable (<span class="built_in">unset</span>) opt_name.</span><br><span class="line"><span class="built_in">shopt</span> opt_name                    Show current status of opt_name.</span><br></pre></td></tr></table></figure>
+<p><code>alias</code>扩展功能的选项名称是<code>expand_aliases</code>，我们可以在交互式模式下查看此选项是否开启：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sw@gentoo ~ $ <span class="built_in">shopt</span> expand_aliases</span><br><span class="line">expand_aliases  on</span><br><span class="line">sw@gentoo ~ $</span><br></pre></td></tr></table></figure>
+<p>可见在交互式模式下<code>alias</code>扩展功能的确是开启的，因此我们才能使用<code>alias</code>别名。我们编写一个脚本来验证一下非交互式模式下<code>alias</code>扩展的设置：</p>
+<figure class="highlight sh"><figcaption><span>验证alias扩展</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash --login</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">alias</span> echo_hello=<span class="string">&quot;echo Hello!&quot;</span></span><br><span class="line"><span class="built_in">shopt</span> expand_aliases  </span><br><span class="line">echo_hello</span><br><span class="line"> </span><br><span class="line"><span class="built_in">shopt</span> -s  expand_aliases </span><br><span class="line"><span class="built_in">shopt</span> expand_aliases  </span><br><span class="line">echo_hello</span><br></pre></td></tr></table></figure>
+<p>执行结果为：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sw@gentoo ~ $ ./test.sh</span><br><span class="line">expand_aliases  off</span><br><span class="line">./test.sh: line 5: echo_hello: <span class="built_in">command</span> not found</span><br><span class="line">expand_aliases  on</span><br><span class="line">Hello!</span><br><span class="line">sw@gentoo ~ $</span><br></pre></td></tr></table></figure>
+<p>另外，<code>alias</code>别名只在当前<code>shell</code>有效，不能被子<code>shell</code>继承，也不能像环境变量一样<code>export</code>。可以把<code>alias</code>别名定义写在<code>.bashrc</code>文件中，这样如果启动交互式的子<code>shell</code>，则子<code>shell</code>会读取<code>.bashrc</code>，从而得到<code>alias</code>别名定义。但是执行<code>shell</code>脚本时，启动的子<code>shell</code>处于非交互式模式，是不会读取<code>.bashrc</code>的。</p>
+<p>如果你一定要让执行<code>shell</code>脚本的子<code>shell</code>读取<code>.bashrc</code>的话，可以给<code>shell</code>脚本第一行的解释器加上参数：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash --login</span></span><br></pre></td></tr></table></figure></p>
+<p>我们有三种方法可以使脚本变成交互式：</p>
+<ul>
+<li><code>--login</code>使得执行脚本的子<code>shell</code>成为一个<code>login shell</code>，<code>login shell</code>会读取系统和用户的<code>profile</code>及<code>rc</code>文件，因此用户自定义的<code>.bashrc</code>文件中的内容将在执行脚本的子<code>shell</code>中生效。</li>
+<li>让执行脚本的<code>shell</code>读取<code>.bashrc</code>，在脚本中主动<code>source ~/.bashrc</code>即可。</li>
+<li><code>bash</code>脚本首行加上<code>-i</code>参数就变成交互式了，即<code>#!/bin/bash -i</code>.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -493,1303 +1353,8 @@ id="抓取第一个字符数字串出现的位置">抓取第一个字符数字�
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/21/Shell%E4%B8%AD%E7%9A%84%E5%8D%95%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%8C%E6%8B%AC%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/21/Shell%E4%B8%AD%E7%9A%84%E5%8D%95%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%8F%8C%E6%8B%AC%E5%8F%B7/" class="post-title-link" itemprop="url">Shell中的单括号和双括号</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-21 15:43:41" itemprop="dateCreated datePublished" datetime="2024-06-21T15:43:41+08:00">2024-06-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="单括号-和-test">1. 单括号[ ] 和 test</h2>
-<p>左括号<code>[</code>和<code>test</code>本质是一样的，是shell的内部命令，所以<code>&gt;</code>和<code>&lt;</code>等会被解释为<code>重定向</code>符号，而不是比较符号：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bash-3.2$ type [ [[ test</span><br><span class="line">[ is a shell builtin</span><br><span class="line">[[ is a shell keyword</span><br><span class="line">test is a shell builtin</span><br></pre></td></tr></table></figure>
-<p>右括号<code>]</code>表示判断结束，可以通过<code>man [</code>查看支持的判断语句：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">man [</span></span><br></pre></td></tr></table></figure>
-<h3 id="文件相关判断">1.1 文件相关判断</h3>
-<ul>
-<li><code>-d file</code>: True if file exists and is a directory.</li>
-<li><code>-f file</code>: True if file exists and is a regular
-file.</li>
-<li><code>-h file</code>: True if file exists and is a symbolic
-link.</li>
-<li><code>-S file</code>: True if file exists and is a socket.</li>
-<li><code>file1 -nt file2</code>: True if file1 exists and is newer than
-file2.</li>
-</ul>
-<h3 id="字符串相关判断">1.2 字符串相关判断</h3>
-<ul>
-<li><code>string</code>: True if string is not the null string.</li>
-<li><code>s1 = s2</code>: True if the strings s1 and s2 are
-identical.</li>
-<li><code>s1 &lt; s2</code>: True if string s1 comes before s2 based on
-the binary value of their characters.</li>
-</ul>
-<h3 id="整型判断">1.3 整型判断</h3>
-<ul>
-<li><code>n1 -eq n2</code>: True if the integers n1 and n2 are
-algebraically equal.</li>
-<li><code>n1 -ne n2</code>: True if the integers n1 and n2 are not
-algebraically equal.</li>
-<li><code>n1 -gt n2</code>: True if the integer n1 is algebraically
-greater than the integer n2.</li>
-<li><code>n1 -ge n2</code>: True if the integer n1 is algebraically
-greater than or equal to the integer n2.</li>
-<li><code>n1 -lt n2</code>: True if the integer n1 is algebraically less
-than the integer n2.</li>
-<li><code>n1 -le n2</code>: True if the integer n1 is algebraically less
-than or equal to the integer n2.</li>
-</ul>
-<h3 id="多个判断连接">1.4 多个判断连接</h3>
-<ul>
-<li><code>! expression</code>: True if expression is false.</li>
-<li><code>expression1 -a expression2</code>: True if both expression1
-and expression2 are true.</li>
-<li><code>expression1 -o expression2</code>: True if either expression1
-or expression2 are true.</li>
-</ul>
-<h2 id="双括号">2. 双括号[[ ]]</h2>
-<p>双括号是shell的<strong>关键字</strong>，会返回一个状态码，所以也可以作为判断条件使用。（更加通用）</p>
-<ul>
-<li><code>[[</code>支持字符串的模式匹配，<code>=~</code>支持正则匹配</li>
-<li><code>[[</code>返回状态码，所以可以与shell中的
-<code>&amp;&amp;</code>和<code>||</code>一起使用：</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">[[ 1 &lt; 2 ]] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;1 &lt; 2&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;1 &gt;= 2&quot;</span></span></span><br><span class="line">1 &lt; 2</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/15/Shell%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E3%80%81%E5%B9%B6%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/15/Shell%E6%B1%82%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E3%80%81%E5%B9%B6%E9%9B%86/" class="post-title-link" itemprop="url">Shell求两个数组的交、并集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-15 20:55:36" itemprop="dateCreated datePublished" datetime="2024-06-15T20:55:36+08:00">2024-06-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="脚本命令">脚本命令</h2>
-<figure class="highlight sh"><figcaption><span>shell求交、并和差集</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">file_list_1=(<span class="string">&quot;test1&quot;</span> <span class="string">&quot;test2&quot;</span> <span class="string">&quot;test3&quot;</span> <span class="string">&quot;test4&quot;</span> <span class="string">&quot;test5&quot;</span> <span class="string">&quot;test6&quot;</span>)</span><br><span class="line">file_list_2=(<span class="string">&quot;test5&quot;</span> <span class="string">&quot;test6&quot;</span> <span class="string">&quot;test7&quot;</span> <span class="string">&quot;test8&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取并集，A ∪ B</span></span><br><span class="line">file_list_union=(`<span class="built_in">echo</span> <span class="variable">$&#123;file_list_1[*]&#125;</span> <span class="variable">$&#123;file_list_2[*]&#125;</span>|sed <span class="string">&#x27;s/ /\n/g&#x27;</span>|<span class="built_in">sort</span>|<span class="built_in">uniq</span>`)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;file_list_union[*]&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取交集，A n B</span></span><br><span class="line">file_list_inter=(`<span class="built_in">echo</span> <span class="variable">$&#123;file_list_1[*]&#125;</span> <span class="variable">$&#123;file_list_2[*]&#125;</span>|sed <span class="string">&#x27;s/ /\n/g&#x27;</span>|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c|awk <span class="string">&#x27;$1!=1&#123;print $2&#125;&#x27;</span>`)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;file_list_inter[*]&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对称差集，不属于 A n B</span></span><br><span class="line">file_list_4=(`<span class="built_in">echo</span> <span class="variable">$&#123;file_list_1[*]&#125;</span> <span class="variable">$&#123;file_list_2[*]&#125;</span>|sed <span class="string">&#x27;s/ /\n/g&#x27;</span>|<span class="built_in">sort</span>|<span class="built_in">uniq</span> -c|awk <span class="string">&#x27;$1==1&#123;print $2&#125;&#x27;</span>`)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;file_list_4[*]&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="命令解释">命令解释</h2>
-<p>在上述三条命令中，首先使用<code>echo</code>
-输出由两个数组构成的集合，然后使用<code>sed</code>将空格替换成换行符<code>\n</code>,
-再使用<code>sort</code>排序：</p>
-<ul>
-<li>使用<code>uniq</code>处理则<label style="color:red">去除相同的项</label>获得并集.</li>
-<li>使用<code>uniq -c</code>处理则<label style="color:red">删除文件中重复出现的行，并在行首显示该行重复出现的次数</label>.
-再使用<code>awk</code>分析第一个参数<code>$1</code>若不等于<code>1</code>就表示这是两个数组中<label style="color:red">重复出现的项</label>，于是打印<code>$2</code>便得到交集.</li>
-<li>使用<code>uniq -c</code>处理则<label style="color:red">删除文件中重复出现的行，并在行首显示该行重复出现的次数</label>.
-再使用<code>awk</code>分析第一个参数<code>$1</code>若等于<code>1</code>就表示这是两个数组中<label style="color:red">不重复出现的项</label>，于是打印<code>$2</code>便得到差集.</li>
-</ul>
-<h2 id="命令参考">命令参考</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-uniq.html">Linux
-uniq 命令</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-awk.html">Linux awk
-命令</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sed.html">Linux sed
-命令</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-sort.html">Linux
-sort 命令</a></li>
-</ul>
-<h2 id="执行结果">执行结果</h2>
-<figure class="highlight sh"><figcaption><span>执行结果</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test1 test2 test3 test4 test5 test6 test7 test8</span><br><span class="line">test5 test6</span><br><span class="line">test1 test2 test3 test4 test7 test8</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/15/Shell%E6%95%B0%E7%BB%84%E5%85%83%E6%B7%BB%E5%8A%A0%E5%89%8D%E5%90%8E%E7%BC%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/15/Shell%E6%95%B0%E7%BB%84%E5%85%83%E6%B7%BB%E5%8A%A0%E5%89%8D%E5%90%8E%E7%BC%80/" class="post-title-link" itemprop="url">Shell数组元添加和删除前后缀</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-15 15:53:07" itemprop="dateCreated datePublished" datetime="2024-06-15T15:53:07+08:00">2024-06-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="添加前后缀">添加前后缀</h2>
-<p>在Linux中使用bash正则表达式来为数组元添加前缀和后缀是一个标准的做法，这在脚本编写中是一个很方便的操作。例如：
-<figure class="highlight sh"><figcaption><span>bash正则表达式添加前后缀</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ARRAY=( one two three )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]/#/prefix_&#125;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]/%/_suffix&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>除了正则表达式外，还有一种漂亮的解决方案： <figure class="highlight sh"><figcaption><span>数组加入前后缀</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ARRAY=(A B C)</span><br><span class="line">$ <span class="built_in">mapfile</span> -t -d $<span class="string">&#x27;\0&#x27;</span> EXPANDED &lt; &lt;(<span class="built_in">printf</span> <span class="string">&quot;prefix_%s_postfix\0&quot;</span> <span class="string">&quot;<span class="variable">$&#123;ARRAY[@]&#125;</span>&quot;</span>)</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$&#123;EXPANDED[@]&#125;</span>&quot;</span></span><br><span class="line">prefix_A_postfix prefix_B_postfix prefix_C_postfix</span><br></pre></td></tr></table></figure></p>
-<p><code>mapfile</code>将行读入数组的元素。使用<code>-d $'\0'</code>，它将读取以<code>null</code>分隔的字符串，并且<code>-t</code>将从结果中省略分隔符。参见<code>help mapfile</code>。</p>
-<h2 id="删除前后缀">删除前后缀</h2>
-<h3 id="删除后缀">删除后缀</h3>
-<figure class="highlight sh"><figcaption><span>bash正则表达式删除后缀</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ARRAY=( one.git two.git three.git four.me )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]%.git&#125;</span></span><br><span class="line">&gt; one two three four.me</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]%.*&#125;</span></span><br><span class="line">&gt; one two three four</span><br></pre></td></tr></table></figure>
-<h3 id="删除前缀">删除前缀</h3>
-<figure class="highlight sh"><figcaption><span>bash正则表达式删除前缀</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ARRAY=( pre.one pre.two pre.three me.four )</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]#pre.&#125;</span></span><br><span class="line">&gt; one two three me.four</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;ARRAY[@]#*.&#125;</span></span><br><span class="line">&gt; one two three four</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：在删除前后缀中，使用的<code>*</code>是正则表达式，表示任意个字符，若要删除指定字符，应当输入具体的字符。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/15/Shell%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/15/Shell%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">Shell中的正则表达式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-15 15:38:50" itemprop="dateCreated datePublished" datetime="2024-06-15T15:38:50+08:00">2024-06-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>正则表达式可以极大的提高程序效率，本文提供Shell中的正则表达相关知识。</p>
-<h2 id="分类">分类</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-syntax.html">正则表达式</a>最早在
-1950 年代由美国数学家 <code>Stephen Cole Kleene</code> 提出，后来被
-<code>Unix</code> 操作系统的文本处理工具广泛使用。</p>
-<p>经过多年的发展和实践，最终形成两大标准，一个是 <code>POSIX</code>
-标准，另一个是 <code>Perl</code> 标准。后者本是为 <code>Perl</code>
-语言实现的，由于其功能非常强大，被
-<code>Java</code>、<code>JavaScript</code>等语言广泛借鉴，从而被广泛使用。</p>
-<p>这里将正则表达式分为三类：</p>
-<ul>
-<li>基本正则表达式（<code>Basic Regular Expression</code> 简称
-<code>BRE</code>），由 <code>POSIX</code> 标准定义。</li>
-<li>扩展正则表达式（<code>Extended Regular Expression</code> 简称
-<code>ERE</code>），也由 <code>POSIX</code> 标准定义。</li>
-<li><code>Perl</code> 的正则表达式（<code>Perl Regular Expression</code>
-简称 <code>PRE</code>），由 <code>Perl</code> 语言定义。</li>
-</ul>
-<h2 id="组成部分">组成部分</h2>
-<h3 id="基本组成部分">基本组成部分</h3>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">正则表达式</th>
-<th style="text-align: left;">描述</th>
-<th style="text-align: left;">示例</th>
-<th style="text-align: left;">Basic RegEx</th>
-<th style="text-align: left;">Extended RegEx</th>
-<th style="text-align: left;">Perl regEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>\</code></td>
-<td
-style="text-align: left;">转义符，将特殊字符进行转义，忽略其特殊意义</td>
-<td
-style="text-align: left;">a.b匹配a.b，但不能匹配ajb，.被转义为特殊意义</td>
-<td style="text-align: left;"><code>\</code></td>
-<td style="text-align: left;"><code>\</code></td>
-<td style="text-align: left;"><code>\</code></td>
-</tr>
-<tr>
-<td style="text-align: left;">^</td>
-<td style="text-align: left;">匹配行首</td>
-<td style="text-align: left;">^tux匹配以tux开头的行</td>
-<td style="text-align: left;">^</td>
-<td style="text-align: left;">^</td>
-<td style="text-align: left;">^</td>
-</tr>
-<tr>
-<td style="text-align: left;">$</td>
-<td style="text-align: left;">匹配行尾</td>
-<td style="text-align: left;">tux$匹配以tux结尾的行</td>
-<td style="text-align: left;">$</td>
-<td style="text-align: left;">$</td>
-<td style="text-align: left;">$</td>
-</tr>
-<tr>
-<td style="text-align: left;">.</td>
-<td style="text-align: left;">匹配除换行符\n之外的任意单个字符</td>
-<td
-style="text-align: left;">ab.匹配abc或bad，不可匹配abcd或abde，只能匹配单字符</td>
-<td style="text-align: left;">.</td>
-<td style="text-align: left;">.</td>
-<td style="text-align: left;">.</td>
-</tr>
-<tr>
-<td style="text-align: left;">[]</td>
-<td style="text-align: left;">匹配包含在[字符]之中的任意一个字符</td>
-<td style="text-align: left;">coo[kl]可以匹配cook或cool</td>
-<td style="text-align: left;">[]</td>
-<td style="text-align: left;">[]</td>
-<td style="text-align: left;">[]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[^]</td>
-<td style="text-align: left;">匹配<a
-href="#fn-1">1</a>之外的任意一个字符</td>
-<td style="text-align: left;">123<a
-href="#fn-2">2</a>不可以匹配1234或1235，1236、1237都可以</td>
-<td style="text-align: left;">[^]</td>
-<td style="text-align: left;">[^]</td>
-<td style="text-align: left;">[^]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[-]</td>
-<td
-style="text-align: left;">匹配[]中指定范围内的任意一个字符，要写成递增</td>
-<td
-style="text-align: left;">[0-9]可以匹配1、2或3等其中任意一个数字</td>
-<td style="text-align: left;">[-]</td>
-<td style="text-align: left;">[-]</td>
-<td style="text-align: left;">[-]</td>
-</tr>
-<tr>
-<td style="text-align: left;">?</td>
-<td style="text-align: left;">匹配之前的项1次或者0次</td>
-<td
-style="text-align: left;">colou?r可以匹配color或者colour，不能匹配colouur</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">?</td>
-<td style="text-align: left;">?</td>
-</tr>
-<tr>
-<td style="text-align: left;">+</td>
-<td style="text-align: left;">匹配之前的项1次或者多次</td>
-<td style="text-align: left;">sa-6+匹配sa-6、sa-666，不能匹配sa-</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">+</td>
-<td style="text-align: left;">+</td>
-</tr>
-<tr>
-<td style="text-align: left;">*</td>
-<td style="text-align: left;">匹配之前的项0次或者多次</td>
-<td style="text-align: left;">co*l匹配cl、col、cool、coool等</td>
-<td style="text-align: left;">*</td>
-<td style="text-align: left;">*</td>
-<td style="text-align: left;">*</td>
-</tr>
-<tr>
-<td style="text-align: left;">()</td>
-<td style="text-align: left;">匹配表达式，创建一个用于匹配的子串</td>
-<td style="text-align: left;">ma(tri)?匹配max或maxtrix</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">()</td>
-<td style="text-align: left;">()</td>
-</tr>
-<tr>
-<td style="text-align: left;">{n}</td>
-<td style="text-align: left;">匹配之前的项n次，n是可以为0的正整数</td>
-<td
-style="text-align: left;">[0-9]{3}匹配任意一个三位数，可以扩展为0-9[0-9]</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">{n}</td>
-<td style="text-align: left;">{n}</td>
-</tr>
-<tr>
-<td style="text-align: left;">{n,}</td>
-<td style="text-align: left;">之前的项至少需要匹配n次</td>
-<td style="text-align: left;">[0-9]{2,}匹配任意一个两位数或更多位数</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">{n,}</td>
-<td style="text-align: left;">{n,}</td>
-</tr>
-<tr>
-<td style="text-align: left;">{n,m}</td>
-<td
-style="text-align: left;">指定之前的项至少匹配n次，最多匹配m次，n&lt;=m</td>
-<td
-style="text-align: left;">[0-9]{2,5}匹配从两位数到五位数之间的任意一个数字</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">{n,m}</td>
-<td style="text-align: left;">{n,m}</td>
-</tr>
-<tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">交替匹配</td>
-<td style="text-align: left;">两边的任意一项</td>
-<td style="text-align: left;">ab(c</td>
-<td style="text-align: left;">d)匹配abc或abd</td>
-</tr>
-</tbody>
-</table>
-<h3 id="posix-字符类">POSIX 字符类</h3>
-<p>POSIX字符类是一个形如<code>[:...:]</code>的特殊元序列（meta
-sequence），他可以用于匹配特定的字符范围。</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">正则表达式</th>
-<th style="text-align: left;">描述</th>
-<th style="text-align: left;">示例</th>
-<th style="text-align: left;">Basic RegEx</th>
-<th style="text-align: left;">Extended RegEx</th>
-<th style="text-align: left;">Perl RegEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">[:alnum:]</td>
-<td style="text-align: left;">匹配任意一个字母或数字字符</td>
-<td style="text-align: left;">[[:alnum:]]+</td>
-<td style="text-align: left;">[:alnum:]</td>
-<td style="text-align: left;">[:alnum:]</td>
-<td style="text-align: left;">[:alnum:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:alpha:]</td>
-<td
-style="text-align: left;">匹配任意一个字母字符（包括大小写字母）</td>
-<td style="text-align: left;">[[:alpha:]]{4}</td>
-<td style="text-align: left;">[:alpha:]</td>
-<td style="text-align: left;">[:alpha:]</td>
-<td style="text-align: left;">[:alpha:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:blank:]</td>
-<td style="text-align: left;">空格与制表符（横向和纵向）</td>
-<td style="text-align: left;">[[:blank:]]*</td>
-<td style="text-align: left;">[:blank:]</td>
-<td style="text-align: left;">[:blank:]</td>
-<td style="text-align: left;">[:blank:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:digit:]</td>
-<td style="text-align: left;">匹配任意一个数字字符</td>
-<td style="text-align: left;">[[:digit:]]?</td>
-<td style="text-align: left;">[:digit:]</td>
-<td style="text-align: left;">[:digit:]</td>
-<td style="text-align: left;">[:digit:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:lower:]</td>
-<td style="text-align: left;">匹配小写字母</td>
-<td style="text-align: left;">[[:lower:]]{5,}</td>
-<td style="text-align: left;">[:lower:]</td>
-<td style="text-align: left;">[:lower:]</td>
-<td style="text-align: left;">[:lower:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:upper:]</td>
-<td style="text-align: left;">匹配大写字母</td>
-<td style="text-align: left;">([[:upper:]]+)?</td>
-<td style="text-align: left;">[:upper:]</td>
-<td style="text-align: left;">[:upper:]</td>
-<td style="text-align: left;">[:upper:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:punct:]</td>
-<td style="text-align: left;">匹配标点符号</td>
-<td style="text-align: left;">[[:punct:]]</td>
-<td style="text-align: left;">[:punct:]</td>
-<td style="text-align: left;">[:punct:]</td>
-<td style="text-align: left;">[:punct:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:space:]</td>
-<td
-style="text-align: left;">匹配一个包括换行符、回车等在内的所有空白符</td>
-<td style="text-align: left;">[[:space:]]+</td>
-<td style="text-align: left;">[:space:]</td>
-<td style="text-align: left;">[:space:]</td>
-<td style="text-align: left;">[:space:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:graph:]</td>
-<td
-style="text-align: left;">匹配任何一个可以看得见的且可以打印的字符</td>
-<td style="text-align: left;">[[:graph:]]</td>
-<td style="text-align: left;">[:graph:]</td>
-<td style="text-align: left;">[:graph:]</td>
-<td style="text-align: left;">[:graph:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:xdigit:]</td>
-<td
-style="text-align: left;">任何一个十六进制数（即：0-9，a-f，A-F）</td>
-<td style="text-align: left;">[[:xdigit:]]+</td>
-<td style="text-align: left;">[:xdigit:]</td>
-<td style="text-align: left;">[:xdigit:]</td>
-<td style="text-align: left;">[:xdigit:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:cntrl:]</td>
-<td
-style="text-align: left;">任何一个控制字符（ASCII字符集中的前32个字符)</td>
-<td style="text-align: left;">[[:cntrl:]]</td>
-<td style="text-align: left;">[:cntrl:]</td>
-<td style="text-align: left;">[:cntrl:]</td>
-<td style="text-align: left;">[:cntrl:]</td>
-</tr>
-<tr>
-<td style="text-align: left;">[:print:]</td>
-<td style="text-align: left;">任何一个可以打印的字符</td>
-<td style="text-align: left;">[[:print:]]</td>
-<td style="text-align: left;">[:print:]</td>
-<td style="text-align: left;">[:print:]</td>
-<td style="text-align: left;">[:print:]</td>
-</tr>
-</tbody>
-</table>
-<h3 id="元字符">元字符</h3>
-<p>元字符（meta character）是一种 Perl
-风格的正则表达式，只有一部分文本处理工具支持它，并不是所有的文本处理工具都支持。</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">正则表达式</th>
-<th style="text-align: left;">描述</th>
-<th style="text-align: left;">示例</th>
-<th style="text-align: left;">Basic RegEx</th>
-<th style="text-align: left;">Extended RegEx</th>
-<th style="text-align: left;">Perl RegEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">\b</td>
-<td style="text-align: left;">单词边界</td>
-<td style="text-align: left;">\bcool\b 匹配cool，不匹配coolant</td>
-<td style="text-align: left;">\b</td>
-<td style="text-align: left;">\b</td>
-<td style="text-align: left;">\b</td>
-</tr>
-<tr>
-<td style="text-align: left;">\B</td>
-<td style="text-align: left;">非单词边界</td>
-<td style="text-align: left;">cool\B 匹配coolant，不匹配cool</td>
-<td style="text-align: left;">\B</td>
-<td style="text-align: left;">\B</td>
-<td style="text-align: left;">\B</td>
-</tr>
-<tr>
-<td style="text-align: left;">\d</td>
-<td style="text-align: left;">单个数字字符</td>
-<td style="text-align: left;">b\db 匹配b2b，不匹配bcb</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\d</td>
-</tr>
-<tr>
-<td style="text-align: left;">\D</td>
-<td style="text-align: left;">单个非数字字符</td>
-<td style="text-align: left;">b\Db 匹配bcb，不匹配b2b</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\D</td>
-</tr>
-<tr>
-<td style="text-align: left;">\w</td>
-<td style="text-align: left;">单个单词字符（字母、数字与_）</td>
-<td style="text-align: left;">\w 匹配1或a，不匹配&amp;</td>
-<td style="text-align: left;">\w</td>
-<td style="text-align: left;">\w</td>
-<td style="text-align: left;">\w</td>
-</tr>
-<tr>
-<td style="text-align: left;">\W</td>
-<td style="text-align: left;">单个非单词字符</td>
-<td style="text-align: left;">\W 匹配&amp;，不匹配1或a</td>
-<td style="text-align: left;">\W</td>
-<td style="text-align: left;">\W</td>
-<td style="text-align: left;">\W</td>
-</tr>
-<tr>
-<td style="text-align: left;">\n</td>
-<td style="text-align: left;">换行符</td>
-<td style="text-align: left;">\n 匹配一个新行</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\n</td>
-</tr>
-<tr>
-<td style="text-align: left;">\s</td>
-<td style="text-align: left;">单个空白字符</td>
-<td style="text-align: left;">x\sx 匹配x x，不匹配xx</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\s</td>
-</tr>
-<tr>
-<td style="text-align: left;">\S</td>
-<td style="text-align: left;">单个非空白字符</td>
-<td style="text-align: left;">x\S\x 匹配xkx，不匹配xx</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\S</td>
-</tr>
-<tr>
-<td style="text-align: left;">\r</td>
-<td style="text-align: left;">回车</td>
-<td style="text-align: left;">\r 匹配回车</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\r</td>
-</tr>
-<tr>
-<td style="text-align: left;">\t</td>
-<td style="text-align: left;">横向制表符</td>
-<td style="text-align: left;">\t 匹配一个横向制表符</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\t</td>
-</tr>
-<tr>
-<td style="text-align: left;">\v</td>
-<td style="text-align: left;">垂直制表符</td>
-<td style="text-align: left;">\v 匹配一个垂直制表符</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\v</td>
-</tr>
-<tr>
-<td style="text-align: left;">\f</td>
-<td style="text-align: left;">换页符</td>
-<td style="text-align: left;">\f 匹配一个换页符</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">不支持</td>
-<td style="text-align: left;">\f</td>
-</tr>
-</tbody>
-</table>
-<h2 id="常见命令中的使用">常见命令中的使用</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">命令</th>
-<th style="text-align: left;">Basic RegEx</th>
-<th style="text-align: left;">Extended RegEx</th>
-<th style="text-align: left;">Perl RegEx</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">grep</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">需加 <code>-E</code> 参数</td>
-<td style="text-align: left;">需加 <code>-P</code> 参数</td>
-</tr>
-<tr>
-<td style="text-align: left;">egrep</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">需加 <code>-P</code> 参数</td>
-</tr>
-<tr>
-<td style="text-align: left;">sed</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">需加 <code>-r</code> 参数</td>
-<td style="text-align: left;">不支持</td>
-</tr>
-<tr>
-<td style="text-align: left;">awk</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">支持</td>
-<td style="text-align: left;">不支持</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/15/Shell%E6%95%B0%E7%BB%84%E8%BF%BD%E5%8A%A0%E5%85%83%E7%B4%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/15/Shell%E6%95%B0%E7%BB%84%E8%BF%BD%E5%8A%A0%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">Shell数组追加元素</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-15 15:00:57" itemprop="dateCreated datePublished" datetime="2024-06-15T15:00:57+08:00">2024-06-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <table>
-<colgroup>
-<col style="width: 13%" />
-<col style="width: 13%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-<col style="width: 18%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">添加方式</th>
-<th style="text-align: left;">语法</th>
-<th style="text-align: center;">多元素</th>
-<th style="text-align: center;">下标连续</th>
-<th style="text-align: center;">下标改变</th>
-<th style="text-align: center;">覆盖原元素</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">直接下标添加</td>
-<td style="text-align: left;"><code>array_name[index]=value</code></td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-</tr>
-<tr>
-<td style="text-align: left;">数组长度添加</td>
-<td
-style="text-align: left;"><code>array_name[$&#123;#array_name[@]&#125;]=value</code></td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-</tr>
-<tr>
-<td style="text-align: left;">数组长度添加</td>
-<td
-style="text-align: left;"><code>array_name[$&#123;#array_name[*]&#125;]=value</code></td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-</tr>
-<tr>
-<td style="text-align: left;">重新创建数组</td>
-<td
-style="text-align: left;"><code>array_name=("$&#123;array_name[@]&#125;" value1 ... valueN)</code></td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">否</td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">否</td>
-</tr>
-<tr>
-<td style="text-align: left;">赋值运算符<code>+=</code></td>
-<td
-style="text-align: left;"><code>array_name+=(value1 ... valueN)</code></td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">是</td>
-<td style="text-align: center;">否</td>
-</tr>
-</tbody>
-</table>
-<p>综上可知，<label style="color:red">赋值运算符+=</label>是最通用的方案。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/Linux%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E4%B8%8E%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8D%E4%B8%80%E8%87%B4%E7%9A%84%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/14/Linux%E4%B8%8D%E5%90%8C%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E4%B8%8E%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B8%8D%E4%B8%80%E8%87%B4%E7%9A%84%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux不同发行版安装安装命令与软件包不一致的命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-14 16:06:24" itemprop="dateCreated datePublished" datetime="2024-06-14T16:06:24+08:00">2024-06-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>当编写脚本时，可能会遇到需要的命令在系统中没有安装,
-此时需要解决命令依赖的问题，解决方法为安装对应的软件。Linux下大量的发行版，且不同发行版一般使用不同的包管理器，这导致了安装软件需要执行不同的安装命令，于是需要解决第二个问题：使用通用<code>Linux</code>命令探测系统安装的包管理器，然后确定安装命令。但是有时候，软件包提供的命令与其包的名称并不一致，这里就需要建立一个命令与包的映射关系，以正确执行安装命令。按照这个思路，本文提供一个基础的脚本：</p>
-<figure class="highlight sh"><figcaption><span>通用安装脚本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># readycmd.sh</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># Date     : 2024-06-14 15:58</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2030 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment"># Objective: 在不同的发行版中安装命令与软件包名不同的命令</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 包管理器列表: 管理器=安装命令</span></span><br><span class="line"><span class="built_in">declare</span> -A RD_PKG=(\</span><br><span class="line">    [<span class="string">&quot;pacman&quot;</span>]=<span class="string">&quot;pacman -S --needed --confirm&quot;</span>  <span class="comment">#arch endeavour manjaro 等</span></span><br><span class="line">    [<span class="string">&quot;apt-get&quot;</span>]=<span class="string">&quot;apt-get -y install&quot;</span>           <span class="comment">#debian ubuntu 等</span></span><br><span class="line">    [<span class="string">&quot;yum&quot;</span>]=<span class="string">&quot;yum -y install&quot;</span>                   <span class="comment">#redhat centos7 及以下</span></span><br><span class="line">    [<span class="string">&quot;dnf&quot;</span>]=<span class="string">&quot;dnf -y install&quot;</span>                   <span class="comment">#fedora centos8</span></span><br><span class="line">    [<span class="string">&quot;zypper&quot;</span>]=<span class="string">&quot;zypper -y install&quot;</span>             <span class="comment">#open suse</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># 待安装软件列表: 命令=软件名</span></span><br><span class="line"><span class="built_in">declare</span> -A RD_CMD=(\</span><br><span class="line">    [<span class="string">&quot;unar&quot;</span>]=<span class="string">&quot;unarchiver&quot;</span> [<span class="string">&quot;ssh&quot;</span>]=<span class="string">&quot;openssh&quot;</span> [<span class="string">&quot;nvim&quot;</span>]=<span class="string">&quot;neovim&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># 选择发行版中的包管理器</span></span><br><span class="line"><span class="keyword">for</span> sh_pkg <span class="keyword">in</span> <span class="variable">$&#123;!RD_PKG[*]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">which</span> <span class="variable">$sh_pkg</span> &amp;&gt; /dev/null</span><br><span class="line">    <span class="keyword">if</span> [ $? = 0 ]; <span class="keyword">then</span></span><br><span class="line">        RD_PKG_INS=<span class="variable">$&#123;RD_PKG[$sh_pkg]&#125;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="comment"># 使用发行版中的包管理器安装系统中缺失的命令</span></span><br><span class="line"><span class="keyword">for</span> sh_cmd <span class="keyword">in</span> <span class="variable">$&#123;!RD_CMD[*]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">which</span> <span class="variable">$&#123;sh_cmd&#125;</span> &amp;&gt; /dev/null</span><br><span class="line">    <span class="keyword">if</span> [ ! $? = 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="variable">$&#123;RD_PKG_INS&#125;</span> <span class="variable">$&#123;RD_CMD[$sh_cmd]&#125;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/Linux%E4%B8%AD%E5%9B%9B%E4%B8%AA%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E7%94%A8%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/14/Linux%E4%B8%AD%E5%9B%9B%E4%B8%AA%E6%9F%A5%E6%89%BE%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">Linux中四个查找命令的区别和用法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-14 14:11:03" itemprop="dateCreated datePublished" datetime="2024-06-14T14:11:03+08:00">2024-06-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="find-locate-whereis-和which-的区别">find , locate, whereis
-和which 的区别</h1>
-<ul>
-<li><p><code>which</code>：常用于查找可直接执行的命令。只能查找可执行文件，该命令基本只在<code>$PATH</code>路径中搜索，查找范围最小，查找速度快。默认只返回第一个匹配的文件路径，通过选项
-<code>-a</code> 可以返回所有匹配结果。</p></li>
-<li><p><code>whereis</code>：不只可以查找命令，其他文件类型都可以（<code>man</code>中说只能查命令、源文件和<code>man</code>文件，实际测试可以查大多数文件）。在<code>$PATH</code>路径基础上增加了一些系统目录的查找，查找范围比<code>which</code>稍大，查找速度快。可以通过
-<code>-b</code> 选项，限定只搜索二进制文件。</p></li>
-<li><p><code>locate</code>：超快速查找任意文件。它会从<code>linux</code>内置的索引数据库查找文件的路径，索引速度超快。刚刚新建的文件可能需要一定时间才能加入该索引数据库，可以通过执行<code>updatedb</code>命令来强制更新一次索引，这样确保不会遗漏文件。该命令通常会返回大量匹配项，可以使用
-<code>-r</code> 选项通过正则表达式来精确匹配。</p></li>
-<li><p><code>find</code>：直接搜索整个文件目录，默认直接从根目录开始搜索，建议在以上命令都无法解决问题时才用它，功能最强大但速度超慢。除非你指定一个很小的搜索范围。通过
-<code>-name</code> 选项指定要查找的文件名，支持通配符。</p></li>
-</ul>
-<h1 id="find-locate-whereis-和which-的用法">find , locate, whereis
-和which 的用法</h1>
-<p><strong>1. find</strong></p>
-<p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。</p>
-<p>find的使用格式如下：</p>
-<p>　　<strong>$ find <指定目录> <指定条件> <指定动作></strong></p>
-<p>　　- <指定目录>： 所要搜索的目录及其所有子目录。默认为当前目录。</p>
-<p>　　- <指定条件>： 所要搜索的文件的特征。</p>
-<p>　　- <指定动作>： 对搜索结果进行特定的处理。</p>
-<p>如果什么参数也不加，find默认搜索当前目录及其子目录，并且不过滤任何结果（也就是返回所有文件），将它们全都显示在屏幕上。</p>
-<p>find的使用实例：</p>
-<p>　　<strong>$ find . -name "my*"</strong></p>
-<p>搜索当前目录（含子目录，以下同）中，所有文件名以my开头的文件。</p>
-<p>　　<strong>$ find . -name "my*" -ls</strong></p>
-<p>搜索当前目录中，所有文件名以my开头的文件，并显示它们的详细信息。</p>
-<p>　　<strong>$ find . -type f -mmin -10</strong></p>
-<p>搜索当前目录中，所有过去10分钟中更新过的普通文件。如果不加-type
-f参数，则搜索普通文件+特殊文件+目录。</p>
-<p><strong>2. locate</strong></p>
-<p>locate命令其实是“find
--name”的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使用<strong>updatedb</strong>命令，手动更新数据库。</p>
-<p>locate命令的使用实例：</p>
-<p>　　<strong>$ locate /etc/sh</strong></p>
-<p>搜索etc目录下所有以sh开头的文件。</p>
-<p>　　<strong>$ locate ~/m</strong></p>
-<p>搜索用户主目录下，所有以m开头的文件。</p>
-<p>　　<strong>$ locate -i ~/m</strong></p>
-<p>搜索用户主目录下，所有以m开头的文件，并且忽略大小写。</p>
-<p><strong>3. whereis</strong></p>
-<p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文件（参数-s）。如果省略参数，则返回所有信息。</p>
-<figure class="highlight sh"><figcaption><span>whereis 命令的使用实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ whereis grep </span><br><span class="line">grep: /usr/bin/grep /usr/share/man/man1/grep.1.gz /usr/share/man/man1p/grep.1p.gz /usr/share/info/grep.info.gz</span><br></pre></td></tr></table></figure>
-<p><strong>4. which</strong></p>
-<p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
-<figure class="highlight sh"><figcaption><span>which 命令使用实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> <span class="built_in">date</span></span><br><span class="line">/usr/bin/date</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/bash%E7%9A%84%E5%AD%97%E5%85%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/14/bash%E7%9A%84%E5%AD%97%E5%85%B8/" class="post-title-link" itemprop="url">bash的字典---关联数组</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-14 11:52:08" itemprop="dateCreated datePublished" datetime="2024-06-14T11:52:08+08:00">2024-06-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>python</code>中存在一种叫做字典的数据类型，字典是另一种可变容器模型，且可存储任意类型对象。字典的每个键值
-<code>key:value</code> 对用冒号 <code>:</code>
-分割，每个键值对之间用逗号 <code>,</code> 分割，整个字典包括在花括号
-<code>&#123;&#125;</code> 中<code>,</code>格式如下所示： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d = &#123;key1 : value1, key2 : value2 &#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="关联数组的定义">关联数组的定义</h2>
-<p>在<code>shell</code>中称为关联数组，可以使用任意的字符串、或者整数作为下标来访问数组元素。关联数组使用
-<code>declare</code> 命令来声明，语法格式如下： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A array_name</span><br></pre></td></tr></table></figure></p>
-<p><code>-A</code>选项就是用于声明一个关联数组。关联数组的键是唯一的。以下实例我们创建一个关联数组
-<code>site</code>，并创建不同的键值： <figure class="highlight sh"><figcaption><span>实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A site=([<span class="string">&quot;google&quot;</span>]=<span class="string">&quot;www.google.com&quot;</span> [<span class="string">&quot;runoob&quot;</span>]=<span class="string">&quot;www.runoob.com&quot;</span> [<span class="string">&quot;taobao&quot;</span>]=<span class="string">&quot;www.taobao.com&quot;</span>)</span><br></pre></td></tr></table></figure></p>
-<p>我们也可以先声明一个关联数组，然后再设置键和值： <figure class="highlight sh"><figcaption><span>实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A site</span><br><span class="line">site[<span class="string">&quot;google&quot;</span>]=<span class="string">&quot;www.google.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;runoob&quot;</span>]=<span class="string">&quot;www.runoob.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;taobao&quot;</span>]=<span class="string">&quot;www.taobao.com&quot;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="关联数组的访问">关联数组的访问</h2>
-<p>访问关联数组元素可以使用指定的键，格式如下： <figure class="highlight sh"><figcaption><span>实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A site</span><br><span class="line">site[<span class="string">&quot;google&quot;</span>]=<span class="string">&quot;www.google.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;runoob&quot;</span>]=<span class="string">&quot;www.runoob.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;taobao&quot;</span>]=<span class="string">&quot;www.taobao.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;site[&quot;runoob&quot;]&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>执行脚本，输出结果为： <figure class="highlight sh"><figcaption><span>result</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">www.runoob.com</span><br></pre></td></tr></table></figure></p>
-<p>对于一些不确定的大量数组，我们可以直接使用默认的<code>编号</code>方式赋值或取出结果，然后可以用循环来处理每一条记录。但是对于某些数量有限，且有一些特意义的情况使用关联数组可以大大提高程序的可读性。例如，我们需要在系统中检测一下是否存在命令<code>unar</code>,
-如果不存在则安装程序，但是程序的名称却是<code>unarchiver</code>,
-因此可以定义一个关联数组解决： <figure class="highlight sh"><figcaption><span>实例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A cmd</span><br><span class="line">cmd[<span class="string">&quot;unar&quot;</span>]=<span class="string">&quot;unarchiver&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S <span class="variable">$&#123;cmd[&quot;unar&quot;]&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>在不同的系统中存在不同的软件包管理器，此时可以通过定义关系数组来实现统一的管理脚本程序。</p>
-<h2 id="关联数组的特殊值">关联数组的特殊值</h2>
-<figure class="highlight sh"><figcaption><span>关联数组的特殊值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -A site</span><br><span class="line">site[<span class="string">&quot;google&quot;</span>]=<span class="string">&quot;www.google.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;runoob&quot;</span>]=<span class="string">&quot;www.runoob.com&quot;</span></span><br><span class="line">site[<span class="string">&quot;taobao&quot;</span>]=<span class="string">&quot;www.taobao.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#site[*]&#125;</span>  <span class="comment">#输出数组的元的个数(大小)</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;!site[*]&#125;</span>  <span class="comment">#输出全部的键名</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;site[*]&#125;</span>   <span class="comment">#输出全部的值</span></span><br></pre></td></tr></table></figure>
-<p>注意：上述<code>echo</code>中的<code>*</code>可以替换成<code>@</code>,效果等价。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/26/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/28/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/26/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/28/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

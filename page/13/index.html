@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,965 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/14/Shell%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%89%8D%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/14/Shell%E6%95%B0%E7%BB%84%E6%B7%BB%E5%8A%A0%E5%89%8D%E7%BC%80%E5%92%8C%E5%90%8E%E7%BC%80/" class="post-title-link" itemprop="url">Shell数组添加前缀和后缀</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-14 13:47:59" itemprop="dateCreated datePublished" datetime="2024-12-14T13:47:59+08:00">2024-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Shell
+脚本中经常需要添加前缀和后缀，如果使用循环的方式自然可以，但是从效率和规范上讲都不是最佳方式。本文记录标准添加前缀和后缀的方法。2024年12月14日星期六晴北京市</p>
+<h1 id="示例脚本">示例脚本</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PREFIX=<span class="string">&quot;rajiv&quot;</span></span><br><span class="line">services=($( <span class="built_in">echo</span> $* | <span class="built_in">tr</span> -d <span class="string">&#x27;/&#x27;</span> ))</span><br><span class="line"><span class="built_in">echo</span>  <span class="string">&quot;<span class="variable">$&#123;services[@]/#/$PREFIX-&#125;</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span>  <span class="string">&quot;<span class="variable">$&#123;services[@]/%/-$PREFIX&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="命令解释">命令解释</h1>
+<ul>
+<li>第1行，定义前缀变量<code>PREFIX</code>.</li>
+<li>第2行，获取输入的所有变量，并使用<code>tr -d</code>去除字符<code>/</code>.</li>
+<li>第3行，在数组<code>services</code>的所有<label style="color:red">组元前</label>追加前缀<code>$PREFIX-</code>.</li>
+<li>第4行，在数组<code>services</code>的所有<label style="color:red">组元后</label>追加前缀<code>-$PREFIX</code>.</li>
+<li>第3,4行中的<code>services[@]</code>表示数组的所有元素，也可以用<code>services[*]</code>表示.</li>
+</ul>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-tr.html">Linux
+tr命令</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/ask/sof/1540088">为Bash中的所有数组元素添加前缀</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/10/Grassmann%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/10/Grassmann%E6%95%B0/" class="post-title-link" itemprop="url">Grassmann 数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-10 19:56:13" itemprop="dateCreated datePublished" datetime="2024-12-10T19:56:13+08:00">2024-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在数学物理学中，格拉斯曼数（又称反交换数）是一种用于狄拉克场路径积分表示的数学架构。格拉斯曼数是以德国学者赫尔曼·格拉斯曼命名的。取任意两个格拉斯曼代数<span
+class="math inline">\(\theta\)</span>和<span
+class="math inline">\(\eta\)</span>, 则它们之间成反交换关系，即 <span
+class="math display">\[\begin{equation}
+    \theta\eta=-\eta\theta
+    \label{eq:grassmann0}
+\end{equation}\]</span> 同时格拉斯曼变量与一般的数<span
+class="math inline">\(x\)</span>则为交换关系,即 <span
+class="math display">\[\begin{equation}
+    \theta x=x\theta
+    \label{eq:grassmann1}
+\end{equation}\]</span></p>
+<p>由于<span class="math inline">\(\theta^2=-\theta^2\)</span>,
+所以有<span class="math inline">\(\theta^2=0\)</span>, 于是任意函数<span
+class="math inline">\(f(\theta)\)</span>泰勒展开为 <span
+class="math display">\[\begin{equation}
+    f(\theta)=A+B\theta
+    \label{eq:grassmann2}
+\end{equation}\]</span> 既然函数<span
+class="math inline">\(f(\theta)\)</span>是任意的，所以对于一个周期函数也必然成立，即
+<span class="math display">\[\begin{equation}
+    \int f(\theta)d{\theta}=\int f(\theta+T)d{\theta}
+    \label{eq:grassmann3}
+\end{equation}\]</span> 把式<span
+class="math inline">\(\eqref{eq:grassmann2}\)</span>代入到式<span
+class="math inline">\(\eqref{eq:grassmann3}\)</span>可得 <span
+class="math display">\[\begin{equation}
+    \int A+B\theta d{\theta}=\int A+B\theta d{\theta}+BT\int 1 d{\theta}
+    \label{eq:grassmann4}
+\end{equation}\]</span> 由于对于任意的周期函数都成立，所以必然有 <span
+class="math display">\[\begin{equation}
+    \int 1d{\theta}=0
+    \label{eq:grassmann5}
+\end{equation}\]</span> 对式<span
+class="math inline">\(\eqref{eq:grassmann2}\)</span>积分得 <span
+class="math display">\[\begin{equation}
+    \int f(\theta)d{\theta}=B\int \theta d{\theta}
+    \label{eq:grassmann6}
+\end{equation}\]</span> 式<span
+class="math inline">\(\eqref{eq:grassmann6}\)</span>中的积分不能对所有函数都是零，所认定义对<span
+class="math inline">\(\theta\)</span>的积分为<span
+class="math inline">\(1\)</span>, 即 <span
+class="math display">\[\begin{equation}
+    \int \theta d{\theta}=1
+    \label{eq:grassmann7}
+\end{equation}\]</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/09/SpecialUnitaryGroup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/09/SpecialUnitaryGroup/" class="post-title-link" itemprop="url">Special Unitary Group</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-09 20:16:25" itemprop="dateCreated datePublished" datetime="2024-12-09T20:16:25+08:00">2024-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="名词解释">名词解释</h1>
+<p><span class="math inline">\(SU_n(q)\)</span>群，是指“The special
+unitary group”, 翻译成中文就是“特殊幺正群”。 同理<span
+class="math inline">\(SO_n(q)\)</span>群，是指"The special orthogonal
+group", 翻译成中文就是“特殊正交群”。酉矩阵（unitary
+matrix）也叫幺正矩阵,
+对它取复共轭再转置则等于逆矩阵,也即是幺正矩阵的转置共轭等于它的逆。当矩阵元为实数时也叫正交矩阵（orthogonal
+matrix），它的共轭就是它自己，所以转置即得到逆矩阵，这也就表现为矩阵的行向量间为正交关系，列向量间也为正交关系。</p>
+<h1 id="英文介绍">英文介绍</h1>
+<p>The special unitary group <span
+class="math inline">\(SU_n(q)\)</span> is the set of <span
+class="math inline">\(n×n\)</span> <a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/UnitaryMatrix.html">unitary
+matrices</a> with <a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/Determinant.html">determinant</a>
+<span class="math inline">\(+1\)</span> (having <span
+class="math inline">\(n^2-1\)</span> independent parameters). SU(2) is
+homeomorphic with the <a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/OrthogonalGroup.html">orthogonal
+group</a> <span class="math inline">\(O_3^+(2)\)</span>. It is also
+called the unitary unimodular group and is a <a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LieGroup.html">Lie group</a>.</p>
+<p>Special unitary groups can be represented by matrices</p>
+<p><span class="math display">\[\begin{equation}\label{eq:sug0}
+\begin{bmatrix}
+a &amp; b \\
+-\overline{b} &amp; \overline{a}
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p>where <span
+class="math inline">\(\overline{a}a+\overline{b}b=1\)</span> and <span
+class="math inline">\(a,b\)</span> are the <a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/Cayley-KleinParameters.html">Cayley-Klein
+parameters</a>. The special unitary group may also be represented by
+matrices</p>
+<p><span class="math display">\[\begin{equation}\label{eq:sug1}
+U(\xi,\eta,\zeta)=
+\begin{bmatrix}
+e^{i\xi}\cos\eta &amp; e^{i\zeta}\sin\eta \\
+-e^{-i\zeta}\sin\eta &amp; e^{0i\xi}\cos\eta
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p>or the matrices</p>
+<p><span class="math display">\[\begin{equation}\label{eq:sug2}
+U_x(\frac{1}{2}\phi)=
+\begin{bmatrix}
+\cos(\frac{1}{2}\phi) &amp; i\sin(\frac{1}{2}\phi) \\
+i\sin(\frac{1}{2}\phi) &amp; \cos(\frac{1}{2}\phi)
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}\label{eq:sug3}
+U_y(\frac{1}{2}\phi)=
+\begin{bmatrix}
+\cos(\frac{1}{2}\beta) &amp; \sin(\frac{1}{2}\beta) \\
+-\sin(\frac{1}{2}\beta) &amp; \cos(\frac{1}{2}\beta)
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}\label{eq:sug4}
+U_z(\xi)=
+\begin{bmatrix}
+e^{i\xi} &amp; 0 \\
+0 &amp; e^{-i\xi}
+\end{bmatrix}
+\end{equation}\]</span></p>
+<h1 id="参考引文">参考引文</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/SpecialUnitaryGroup.html">Special
+Unitary Group</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2069968/special-orthogonal-group-so2">Special
+Orthogonal Group</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://mathworld.wolfram.com/OrthogonalGroup.html">Orthogonal
+Group</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wuli.wiki/online/UniMat.html">正交矩阵、酉矩阵</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/07/Python%E4%BD%BF%E7%94%A8Numpy%E5%8F%98%E6%8D%A2%E6%95%B0%E7%BB%84%E5%BD%A2%E7%8A%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/07/Python%E4%BD%BF%E7%94%A8Numpy%E5%8F%98%E6%8D%A2%E6%95%B0%E7%BB%84%E5%BD%A2%E7%8A%B6/" class="post-title-link" itemprop="url">Python使用Numpy变换数组形状</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-07 21:49:21" itemprop="dateCreated datePublished" datetime="2024-12-07T21:49:21+08:00">2024-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一-修改数组的形状">一、 修改数组的形状</h1>
+<h2 id="重塑数组形状">1、重塑数组形状</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reshape()</td>
+<td>不修改原数组的形状，返回一个视图，会影响原数组的数据</td>
+</tr>
+<tr>
+<td>resize()</td>
+<td>直接作用于原数组</td>
+</tr>
+<tr>
+<td>shape()</td>
+<td>直接作用于原数组</td>
+</tr>
+</tbody>
+</table>
+<p>若不理解视图，可以通过 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41805096/article/details/108589557">视图与拷贝</a>
+这篇博客进行了解。</p>
+<ul>
+<li><code>ndarry.reshape()</code></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ndarry.reshape(shape)</span><br><span class="line">shape:填入生成的数组形状（元组）</span><br><span class="line"></span><br><span class="line">特点：</span><br><span class="line">1、有返回值，返回一个视图</span><br><span class="line">2、不直接作用于原数组（不改变原数组的形状），但影响原数组的元素</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">n1 = np.array([[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],[<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>],[<span class="number">8</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>]])</span><br><span class="line"><span class="comment"># 形状</span></span><br><span class="line">n1.shape</span><br><span class="line"><span class="comment"># (3, 4)</span></span><br><span class="line"><span class="comment"># reshape</span></span><br><span class="line">n1.reshape((<span class="number">4</span>,<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarry.resize()</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resize(shape) :谨慎使用!</span><br><span class="line"></span><br><span class="line">shape:填入生成的数组形状（元组）</span><br><span class="line"></span><br><span class="line">特点：</span><br><span class="line">1、无返回值</span><br><span class="line">2、直接作用于原数组（改变原数组的形状）</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n1 = np.array([[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],[<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>],[<span class="number">8</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>]])</span><br><span class="line">n1.resize(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n1形状已修改</span></span><br><span class="line">n1.shape</span><br><span class="line"><span class="comment"># (2, 2, 3)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarry.shape</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shape</span><br><span class="line">通过属性直接赋值修改（改变原数组的形状）</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">n1 = np.array([[<span class="number">2</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>],[<span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>],[<span class="number">8</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>]])</span><br><span class="line"><span class="comment"># 数组的原始形状</span></span><br><span class="line">n1.shape</span><br><span class="line"><span class="comment"># (4, 3)</span></span><br><span class="line">n1.shape = (<span class="number">2</span>,<span class="number">6</span>)</span><br><span class="line">n1</span><br></pre></td></tr></table></figure>
+<h2 id="多维数换向一维数组转换">2、多维数换向一维数组转换</h2>
+<ul>
+<li><code>ndarry.ravel()</code></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ndarry.ravel(order=)</span><br><span class="line"></span><br><span class="line">当不设置参数order，默认将数组横向展平为一维数组</span><br><span class="line">当设置参数order = <span class="string">&#x27;F&#x27;</span>，即为将数组纵向展平为一维数组</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">    使用ravel函数修改形状，得到一个视图，不会改变原数组的形状，但会会改变原数组中的元素！</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">n1</span><br><span class="line"><span class="comment"># array([[2, 4, 3],</span></span><br><span class="line"><span class="comment">#        [2, 8, 4],</span></span><br><span class="line"><span class="comment">#        [2, 9, 8],</span></span><br><span class="line"><span class="comment">#        [3, 4, 9]])</span></span><br><span class="line"><span class="comment"># 横向展平为一维数组</span></span><br><span class="line">n1.ravel()</span><br><span class="line"><span class="comment"># array([2, 4, 3, 2, 8, 4, 2, 9, 8, 3, 4, 9])</span></span><br><span class="line"><span class="comment"># 纵向展平为一维数组</span></span><br><span class="line">n1.ravel(order=<span class="string">&#x27;F&#x27;</span>)</span><br><span class="line"><span class="comment"># array([2, 2, 2, 3, 4, 8, 9, 4, 3, 4, 8, 9])</span></span><br><span class="line"><span class="comment"># 原数组形状未改变</span></span><br><span class="line">n1</span><br><span class="line"><span class="comment"># array([[2, 4, 3],</span></span><br><span class="line"><span class="comment">#        [2, 8, 4],</span></span><br><span class="line"><span class="comment">#        [2, 9, 8],</span></span><br><span class="line"><span class="comment">#        [3, 4, 9]])</span></span><br><span class="line"><span class="comment"># 修改元素</span></span><br><span class="line">n1.ravel()[<span class="number">3</span>] = <span class="number">77</span></span><br><span class="line"><span class="comment"># 原数组数据被修改</span></span><br><span class="line">n1</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarry.flatten()</code></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ndarry.flatten(order=)</span><br><span class="line"></span><br><span class="line">当不设置参数order，默认为将数组横向展平为一维数组</span><br><span class="line">当设置参数order = <span class="string">&#x27;F&#x27;</span>，则将数组纵向展平为一维数组</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">    使用flatten函数不会对原数组产生任何影响</span><br><span class="line">    （原数组形状和元素都不受其影响）</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">n1</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br><span class="line"><span class="comment"># # 将数组横向展平成一维数组</span></span><br><span class="line">n1.flatten()</span><br><span class="line"><span class="comment"># array([ 2,  4,  3, 77,  8,  4,  2,  9,  8,  3,  4,  9])</span></span><br><span class="line"><span class="comment"># 展平时候的形状</span></span><br><span class="line">n1.flatten().shape</span><br><span class="line"><span class="comment"># (12,)</span></span><br><span class="line"><span class="comment"># 将数组纵向展平成一维数组</span></span><br><span class="line">n1.flatten(order=<span class="string">&#x27;F&#x27;</span>)</span><br><span class="line"><span class="comment"># array([ 2, 77,  2,  3,  4,  8,  9,  4,  3,  4,  8,  9])</span></span><br><span class="line"><span class="comment"># flatten修改元素数值</span></span><br><span class="line">n1.flatten()[<span class="number">1</span>] = <span class="number">6</span></span><br><span class="line"><span class="comment"># 不影响原数组的形状和元素数据</span></span><br><span class="line">n1</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarry.reshape(-1)</code></li>
+</ul>
+<p><a
+target="_blank" rel="noopener" href="https://marketing.csdn.net/p/3127db09a98e0723b83b2914d9256174?pId=2782&amp;utm_source=glcblog&amp;spm=1001.2101.3001.7020">函数</a>说明</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">n1.reshape(-1)</span><br><span class="line">-1：表示自动计算</span><br><span class="line"></span><br><span class="line">n1.reshape(m,-1)</span><br><span class="line">指定行为m，列自动计算</span><br><span class="line"></span><br><span class="line">n1.reshape(-1,n)</span><br><span class="line">指定列为n，行自动计算</span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line">    1、不影响原数组的形状</span><br><span class="line">    2、影响原数组的元素</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">n1</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br><span class="line"><span class="comment"># 横向展平</span></span><br><span class="line">n1.reshape(-<span class="number">1</span>)</span><br><span class="line"><span class="comment"># array([ 2,  4,  3, 77,  8,  4,  2,  9,  8,  3,  4,  9])</span></span><br><span class="line"><span class="comment"># 同n1.reshape(-1) 数组只有一个维度，自动计算长度</span></span><br><span class="line">n1.reshape(-<span class="number">1</span>,)</span><br><span class="line"><span class="comment"># array([ 2,  4,  3, 77,  8,  4,  2,  9,  8,  3,  4,  9])</span></span><br><span class="line"><span class="comment"># 指定列数，自动计算行数</span></span><br><span class="line">n1.reshape(-<span class="number">1</span>,<span class="number">6</span>)</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3, 77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8,  3,  4,  9]])</span></span><br><span class="line"><span class="comment"># 指定行数</span></span><br><span class="line">n1.reshape(<span class="number">3</span>,-<span class="number">1</span>)</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3, 77],</span></span><br><span class="line"><span class="comment">#        [ 8,  4,  2,  9],</span></span><br><span class="line"><span class="comment">#        [ 8,  3,  4,  9]])</span></span><br><span class="line"><span class="comment"># 不改变原数组的形状</span></span><br><span class="line">n1</span><br><span class="line"><span class="comment"># array([[ 2,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br><span class="line"><span class="comment"># 通过reshape修改元素，原数组元素数据产生变化</span></span><br><span class="line">n1.reshape(-<span class="number">1</span>,)[<span class="number">0</span>] = <span class="number">12</span></span><br><span class="line">n1</span><br><span class="line"><span class="comment"># array([[12,  4,  3],</span></span><br><span class="line"><span class="comment">#        [77,  8,  4],</span></span><br><span class="line"><span class="comment">#        [ 2,  9,  8],</span></span><br><span class="line"><span class="comment">#        [ 3,  4,  9]])</span></span><br></pre></td></tr></table></figure>
+<h2 id="增加一个维度">3、 增加一个维度</h2>
+<ul>
+<li><code>np.newaxis()</code> 所在位置增加一个维度</li>
+</ul>
+<p>一维扩展为二维</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一维度数组</span></span><br><span class="line">n2 = np.arange(<span class="number">10</span>)</span><br><span class="line">n2</span><br><span class="line"><span class="comment"># array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span></span><br><span class="line">n2.shape</span><br><span class="line"><span class="comment"># (10,)</span></span><br><span class="line"><span class="comment"># 行方向增加一个维度</span></span><br><span class="line">n2[np.newaxis,:]</span><br><span class="line"><span class="comment"># array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])</span></span><br><span class="line">n2[np.newaxis,:].shape</span><br><span class="line"><span class="comment"># (1, 10)</span></span><br><span class="line"><span class="comment"># 列方向增加一个维度</span></span><br><span class="line">n2[:,np.newaxis]</span><br><span class="line"><span class="comment"># array([[0],</span></span><br><span class="line"><span class="comment">#        [1],</span></span><br><span class="line"><span class="comment">#        [2],</span></span><br><span class="line"><span class="comment">#        [3],</span></span><br><span class="line"><span class="comment">#        [4],</span></span><br><span class="line"><span class="comment">#        [5],</span></span><br><span class="line"><span class="comment">#        [6],</span></span><br><span class="line"><span class="comment">#        [7],</span></span><br><span class="line"><span class="comment">#        [8],</span></span><br><span class="line"><span class="comment">#        [9]])</span></span><br><span class="line"></span><br><span class="line">n2[:,].shape</span><br><span class="line"><span class="comment"># (10, 1)</span></span><br></pre></td></tr></table></figure>
+<p>二维扩展为三维</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二维度数组</span></span><br><span class="line">n2 = np.arange(<span class="number">10</span>).reshape(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line">n2.shape</span><br><span class="line"><span class="comment"># (2, 5)</span></span><br><span class="line">n2[np.newaxis,:,:]</span><br><span class="line"><span class="comment"># array([[[0, 1, 2, 3, 4],</span></span><br><span class="line"><span class="comment">#         [5, 6, 7, 8, 9]]])</span></span><br><span class="line">n2[np.newaxis,:,:].shape</span><br><span class="line"><span class="comment"># (1, 2, 5)</span></span><br></pre></td></tr></table></figure>
+<p>以此类推，将小维度数组扩展成更多维的数组。</p>
+<h2 id="数组行列转置">4、数组行列转置</h2>
+<ul>
+<li><code>ndarray.T 属性</code></li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">n2</span><br><span class="line"><span class="comment"># array([[0, 1, 2, 3, 4],</span></span><br><span class="line"><span class="comment">#        [5, 6, 7, 8, 9]])</span></span><br><span class="line"><span class="comment"># ndarray.T 将数据按照对角线进行行列倒置，行变成了列，列变成了行</span></span><br><span class="line">n2.T</span><br><span class="line"><span class="comment"># array([[0, 5],</span></span><br><span class="line"><span class="comment">#        [1, 6],</span></span><br><span class="line"><span class="comment">#        [2, 7],</span></span><br><span class="line"><span class="comment">#        [3, 8],</span></span><br><span class="line"><span class="comment">#        [4, 9]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarray.transpose()</code></li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 同ndarray.T </span></span><br><span class="line">n2.transpose()</span><br><span class="line"><span class="comment"># array([[0, 5],</span></span><br><span class="line"><span class="comment">#        [1, 6],</span></span><br><span class="line"><span class="comment">#        [2, 7],</span></span><br><span class="line"><span class="comment">#        [3, 8],</span></span><br><span class="line"><span class="comment">#        [4, 9]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>ndarray.swapaxes(1,0)</code></li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必须填入两个参数，进行行列转换</span></span><br><span class="line">n2.swapaxes(<span class="number">1</span>,<span class="number">0</span>)</span><br><span class="line"><span class="comment"># array([[0, 5],</span></span><br><span class="line"><span class="comment">#        [1, 6],</span></span><br><span class="line"><span class="comment">#        [2, 7],</span></span><br><span class="line"><span class="comment">#        [3, 8],</span></span><br><span class="line"><span class="comment">#        [4, 9]])</span></span><br></pre></td></tr></table></figure>
+<h1 id="二数据的拼接合并">二、数据的拼接（合并）</h1>
+<ul>
+<li><code>np.hstack()</code> 水平拼接</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.hstack(tup) 数组的水平拼接</span><br><span class="line">水平拼接即为横向拼接，数组的行数要一致</span><br><span class="line"></span><br><span class="line">tup：ndarray序列</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备数组1</span></span><br><span class="line">a1 = np.array([[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">8</span>,<span class="number">9</span>,<span class="number">4</span>]])</span><br><span class="line">a1</span><br><span class="line"><span class="comment"># array([[3, 4, 5],</span></span><br><span class="line"><span class="comment">#        [2, 4, 1],</span></span><br><span class="line"><span class="comment">#        [8, 9, 4]])</span></span><br><span class="line"><span class="comment"># 准备数组2</span></span><br><span class="line">a2 = np.array([[<span class="number">7</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">4</span>]])</span><br><span class="line">a2</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 进行水平拼接</span></span><br><span class="line">np.hstack([a1,a2])</span><br><span class="line"><span class="comment"># array([[3, 4, 5, 7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [2, 4, 1, 3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [8, 9, 4, 2, 8, 7, 4]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>np.vstack()</code> 竖直拼接</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.vstack(tup) 数组的水平拼接</span><br><span class="line">竖直拼接即为纵向拼接，数组的列数要一致</span><br><span class="line"></span><br><span class="line">tup：ndarray序列</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备数组1</span></span><br><span class="line">a2 = np.array([[<span class="number">7</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">4</span>]])</span><br><span class="line">a2</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 准备数组2</span></span><br><span class="line">a3=np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># array([[ 0,  1,  2,  3],</span></span><br><span class="line"><span class="comment">#        [ 4,  5,  6,  7],</span></span><br><span class="line"><span class="comment">#        [ 8,  9, 10, 11]])</span></span><br><span class="line"><span class="comment"># 进行竖直拼接</span></span><br><span class="line">np.vstack((a3,a2))</span><br><span class="line"><span class="comment"># array([[ 0,  1,  2,  3],</span></span><br><span class="line"><span class="comment">#        [ 4,  5,  6,  7],</span></span><br><span class="line"><span class="comment">#        [ 8,  9, 10, 11],</span></span><br><span class="line"><span class="comment">#        [ 7,  3,  1,  5],</span></span><br><span class="line"><span class="comment">#        [ 3,  9,  4,  1],</span></span><br><span class="line"><span class="comment">#        [ 2,  8,  7,  4]])</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>np.concatenate()</code> 指定数组的拼接方向</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.concatenate((a1, a2, ...), axis=<span class="number">0</span>, out=None)</span><br><span class="line"></span><br><span class="line">axis = <span class="number">0</span> ：按照行的方向进行拼接，竖直拼接</span><br><span class="line">axis = <span class="number">1</span> ：按照列的方向进行拼接，横向拼接</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备数组1</span></span><br><span class="line">a1 = np.array([[<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>],[<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">8</span>,<span class="number">9</span>,<span class="number">4</span>]])</span><br><span class="line">a1</span><br><span class="line"><span class="comment"># array([[3, 4, 5],</span></span><br><span class="line"><span class="comment">#        [2, 4, 1],</span></span><br><span class="line"><span class="comment">#        [8, 9, 4]])</span></span><br><span class="line"><span class="comment"># 准备数组2</span></span><br><span class="line">a2 = np.array([[<span class="number">7</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">5</span>],[<span class="number">3</span>,<span class="number">9</span>,<span class="number">4</span>,<span class="number">1</span>],[<span class="number">2</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">4</span>]])</span><br><span class="line">a2</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 按照列的方向进行拼接，横向拼接</span></span><br><span class="line">np.concatenate((a1,a2),axis = <span class="number">1</span>)</span><br><span class="line"><span class="comment"># array([[3, 4, 5, 7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [2, 4, 1, 3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [8, 9, 4, 2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 准备数组3</span></span><br><span class="line">a3=np.arange(<span class="number">12</span>).reshape(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line"><span class="comment"># array([[ 0,  1,  2,  3],</span></span><br><span class="line"><span class="comment">#        [ 4,  5,  6,  7],</span></span><br><span class="line"><span class="comment">#        [ 8,  9, 10, 11]])</span></span><br><span class="line"><span class="comment"># 按照行的方向进行拼接，竖直拼接</span></span><br><span class="line">np.concatenate((a3,a2),axis = <span class="number">0</span>)</span><br><span class="line"><span class="comment"># array([[ 0,  1,  2,  3],</span></span><br><span class="line"><span class="comment">#        [ 4,  5,  6,  7],</span></span><br><span class="line"><span class="comment">#        [ 8,  9, 10, 11],</span></span><br><span class="line"><span class="comment">#        [ 7,  3,  1,  5],</span></span><br><span class="line"><span class="comment">#        [ 3,  9,  4,  1],</span></span><br><span class="line"><span class="comment">#        [ 2,  8,  7,  4]])</span></span><br></pre></td></tr></table></figure>
+<h1 id="三-数据的复制">三、 数据的复制</h1>
+<ul>
+<li><code>np.tile(ndarry,(m,n))</code> 指定数组的方向复制</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">np.tile(ndarry,(m,n))</span><br><span class="line">tile是瓷砖的意思，顾名思义，这个函数就是把数组像瓷砖一样铺展开来。</span><br><span class="line">m：表示按照行的方向进行复制，铺展m次</span><br><span class="line">m：表示按照列的方向进行复制，铺展n次</span><br></pre></td></tr></table></figure>
+<p>代码</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">a2</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4]])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 按照行的方向进行复制，铺展3次，竖直铺展</span></span><br><span class="line">np.tile(a2,(<span class="number">3</span>,<span class="number">1</span>))</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4],</span></span><br><span class="line"><span class="comment">#        [7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4],</span></span><br><span class="line"><span class="comment">#        [7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 按照列的方向进行复制，铺展2次，横向铺展</span></span><br><span class="line">np.tile(a2,(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5, 7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1, 3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4, 2, 8, 7, 4]])</span></span><br><span class="line"><span class="comment"># 分别按照行列方向进行铺展</span></span><br><span class="line">np.tile(a2,(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line"><span class="comment"># array([[7, 3, 1, 5, 7, 3, 1, 5, 7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1, 3, 9, 4, 1, 3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4, 2, 8, 7, 4, 2, 8, 7, 4],</span></span><br><span class="line"><span class="comment">#        [7, 3, 1, 5, 7, 3, 1, 5, 7, 3, 1, 5],</span></span><br><span class="line"><span class="comment">#        [3, 9, 4, 1, 3, 9, 4, 1, 3, 9, 4, 1],</span></span><br><span class="line"><span class="comment">#        [2, 8, 7, 4, 2, 8, 7, 4, 2, 8, 7, 4]])</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41805096/article/details/108680836">Numpy_04_ndarray数据形状的变换（一维到多维、多维变一维、数据合并等）</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41805096/article/details/108589557">NumPy_03_视图与拷贝</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/07/%E5%B0%86%E4%B8%80%E4%B8%AANumPy%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E6%88%90csv%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/07/%E5%B0%86%E4%B8%80%E4%B8%AANumPy%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E6%88%90csv%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">将一个NumPy数组转换成csv文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-07 15:58:36" itemprop="dateCreated datePublished" datetime="2024-12-07T15:58:36+08:00">2024-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>CSV 文件格式是存储数据的最简单和有用的格式, 本文记录将 NumPy
+数组保存为 CSV 文件的不同方法。</p>
+<h1 id="使用-dataframe.to_csv-将-numpy-数组转换为-csv">使用
+Dataframe.to_csv() 将 NumPy 数组转换为 CSV</h1>
+<p>该方法用于将 Dataframe 写入 CSV 文件中。将数组转换为 pandas Dataframe
+，然后将其保存为 CSV 格式。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import necessary libraries</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># create a dummy array</span></span><br><span class="line">arr = np.arange(<span class="number">1</span>,<span class="number">11</span>).reshape(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment"># display the array</span></span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># convert array into dataframe</span></span><br><span class="line">DF = pd.DataFrame(arr)</span><br><span class="line"><span class="comment"># save the dataframe as a csv file</span></span><br><span class="line">DF.to_csv(<span class="string">&quot;data1.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="使用-numpy_array.tofile-将一个-numpy-数组转换为-csv">使用
+numpy_array.tofile() 将一个 NumPy 数组转换为 CSV</h1>
+<p>该方法用于将一个数组写入文件中。创建一个数组，然后将其保存到 CSV
+文件中。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import the necessary library</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># create a dummy array</span></span><br><span class="line">arr = np.arange(<span class="number">1</span>,<span class="number">11</span>)</span><br><span class="line"><span class="comment"># display the array</span></span><br><span class="line"><span class="built_in">print</span>(arr)</span><br><span class="line"><span class="comment"># use the tofile() method</span></span><br><span class="line"><span class="comment"># and use &#x27;,&#x27; as a separator</span></span><br><span class="line"><span class="comment"># as we have to generate a csv file</span></span><br><span class="line">arr.tofile(<span class="string">&#x27;data2.csv&#x27;</span>, sep = <span class="string">&#x27;,&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="使用-numpy.savetext-将一个-numpy-数组转换为-csv">使用
+numpy.savetext() 将一个 NumPy 数组转换为 CSV</h1>
+<p>该方法用于保存一个数组到一个文本文件。创建一个数组，然后将其保存为
+CSV 文件。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import numpy library</span></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="comment"># create an array</span></span><br><span class="line">a = numpy.array([[<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>],</span><br><span class="line">                [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>],</span><br><span class="line">                [<span class="number">3</span>, <span class="number">9</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="comment"># save array into csv file</span></span><br><span class="line">numpy.savetxt(<span class="string">&quot;data3.csv&quot;</span>, a, delimiter = <span class="string">&quot;,&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="使用文件处理将-numpy-数组转换为-csv-文件">使用文件处理将 NumPy
+数组转换为 CSV 文件</h1>
+<p>格式化器通过使用 str.format
+函数和一对大括号（）将一个或多个替换字段和占位符插入一个字符串中。该值将被插入占位符中，并与作为输入提供给
+format函数的字符串连接。 with 是用来写进 CSV 文件的。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># import numpy library</span></span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"> </span><br><span class="line"><span class="comment"># create an array</span></span><br><span class="line">a = numpy.array([[<span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>],</span><br><span class="line">                [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>],</span><br><span class="line">                [<span class="number">3</span>, <span class="number">9</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">11</span>, <span class="number">23</span>, <span class="number">43</span>]])</span><br><span class="line"><span class="comment"># save array into csv file</span></span><br><span class="line">rows = [<span class="string">&quot;&#123;&#125;,&#123;&#125;,&#123;&#125;&quot;</span>.<span class="built_in">format</span>(i, j, k) <span class="keyword">for</span> i, j, k <span class="keyword">in</span> a]</span><br><span class="line">text = <span class="string">&quot;\n&quot;</span>.join(rows)</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data3.csv&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f: f.write(text)</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://geek-docs.com/numpy/python-numpy-io/convert-a-numpy-array-into-a-csv-file.html">将一个NumPy数组转换成csv文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_16213307/11771061">Python
+保存三维数据</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66306575">用Python的Matplotlib模块绘制3D图像</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/07/Next%E4%B8%BB%E9%A2%98%E5%8D%87%E7%BA%A7%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/07/Next%E4%B8%BB%E9%A2%98%E5%8D%87%E7%BA%A7%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="post-title-link" itemprop="url">Next主题升级注意事项</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-07 11:16:02" itemprop="dateCreated datePublished" datetime="2024-12-07T11:16:02+08:00">2024-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next</a> 是一款优秀的 Hexo
+博客主题。 随时间的推移，Next 主题已经升级到了 <a
+target="_blank" rel="noopener" href="https://theme-next.js.org/next-8-21-1-released/">Next 8.21.1</a>,
+但是升级主题的时候有时候会遇到错误，比如：</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/CDL_LuFei/article/details/123226745">Hexo换Next主题遇到的各种问题</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next/issues/623">v8.15.0
+hexo g 报错 ENOENT: no such file or directory · Issue #623 ·
+next</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://maplerain.cc/index.php/archives/29.html">关于升级Hexo和Next主题踩过的坑</a></li>
+</ul>
+<p>造成这些问题的主要原因在于，<code>Next</code>
+主题升级必然有许多要修改的源码或增加的功能。而按官网的教程 <a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/#Upgrading-NexT">theme-next</a>
+的建议，升级 <code>Next</code> 主题时应当把原来的主题配置文件
+<code>themes/next/_config.yml</code> 复制到根目录，也就是和
+<code>themes</code> 一个目录，并且命名为 <code>_config.next.yml</code>,
+这样升级主题后配置文件由于没被覆盖而得以保留自定义设置。但是这造成另一个问题，假如升级前后两个版本的差异过大，导致有些功能上的删减，那原来的配置有可能就不再被新主题兼容，这样再生成博客就会导致出错。同时，由于配置文件没有被修改，新配置就不会生效，所以升级后应当将原配置文件
+<code>_config.next.yml</code> 与 <code>themes/next/_config.yml</code>
+对比，找出不同，修改成新主题的配置方式，这样就可以正常使用新系统了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/05/%E6%A3%80%E6%9F%A5%E5%92%8C%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4uniq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/05/%E6%A3%80%E6%9F%A5%E5%92%8C%E5%A4%84%E7%90%86%E9%87%8D%E5%A4%8D%E8%A1%8C%E7%9A%84%E5%91%BD%E4%BB%A4uniq/" class="post-title-link" itemprop="url">检查和处理重复行的命令uniq</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-05 11:33:30" itemprop="dateCreated datePublished" datetime="2024-12-05T11:33:30+08:00">2024-12-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>文本中的重复行，基本上不是我们所要的，所以就要去除掉。使用<code>uniq</code>的时候要注意以下二点:</p>
+<h1 id="uniq-的语法">uniq 的语法</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">用法：<span class="built_in">uniq</span> [选项]... [输入文件 [输出文件]]</span><br><span class="line">从 &lt;输入文件&gt;（或标准输入）中过滤内容相同的相邻的行，</span><br><span class="line">并写到 &lt;输出文件&gt;（或标准输出）。</span><br><span class="line"></span><br><span class="line">不带选项时，内容相同的行将仅输出一次。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">长选项的必选参数对于短选项也是必选的。</span><br><span class="line">  -c, --count           在每行之前加上该行的重复次数作为前缀</span><br><span class="line">  -d, --repeated        只输出重复的行，每组重复的行输出一次</span><br><span class="line">  -D                    输出所有重复的行</span><br><span class="line">      --all-repeated[=方法]    类似 -D，但支持在每组重复的行之间添加一行空行；</span><br><span class="line">                                 方法=&#123;none（默认）,prepend,separate&#125;</span><br><span class="line">  -f, --skip-fields=N   不要比较前 N 个字段</span><br><span class="line">      --group[=方法]    分组输出所有项目，每组之间用空行分隔；</span><br><span class="line">                          方法=&#123;separate（默认）,prepend,append,both&#125;</span><br><span class="line">  -i, --ignore-case     比较时忽略大小写</span><br><span class="line">  -s, --skip-chars=N    不要比较前 N 个字符</span><br><span class="line">  -u, --unique          只输出不重复（内容唯一）的行</span><br><span class="line">  -z, --zero-terminated     以 NUL 空字符而非换行符作为行分隔符</span><br><span class="line">  -w, --check-chars=N   每行最多比较 N 个字符</span><br><span class="line">      --<span class="built_in">help</span>        显示此帮助信息并退出</span><br><span class="line">      --version     显示版本信息并退出</span><br><span class="line"></span><br><span class="line">字段指的是空白字符（通常是空格和/或制表符）的序列，后跟非空白字符的序列。</span><br><span class="line">程序将先跳过字段 (--skip-fields)，后跳过字符 (--skip-chars)。</span><br><span class="line"></span><br><span class="line">除非重复的行是相邻的，否则 <span class="string">&quot;uniq&quot;</span> 将无法检测到它们。</span><br><span class="line">您可能需要事先对输入进行排序，或使用 <span class="string">&quot;sort -u&quot;</span> 而无需接着使用 <span class="string">&quot;uniq&quot;</span>。</span><br><span class="line"></span><br><span class="line">GNU coreutils 在线帮助：&lt;https://www.gnu.org/software/coreutils/&gt;</span><br><span class="line">请向 &lt;http://translationproject.org/team/zh_CN.html&gt; 报告任何翻译错误</span><br><span class="line">完整文档 &lt;https://www.gnu.org/software/coreutils/uniq&gt;</span><br><span class="line">或者在本地使用：info <span class="string">&#x27;(coreutils) uniq invocation&#x27;</span></span><br></pre></td></tr></table></figure>
+<h1 id="uniq-处理文件重复数据">uniq 处理文件重复数据</h1>
+<p>经常有这样的需求：两个文本文件要求取重复的行或只取不重复的，但是<code>uniq</code>只能处理相邻重复的行，所以需要借助于<code>sort</code>命令，先排序。利用现存两个文件
+<code>file1</code>和<code>file2</code>，生成一个新的文件。</p>
+<h2
+id="取出两个文件的并集重复的行只保留一份">取出两个文件的并集(重复的行只保留一份)</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1 file2 | <span class="built_in">sort</span> | <span class="built_in">uniq</span></span><br></pre></td></tr></table></figure>
+<h2
+id="取出两个文件的交集只留下同时存在于两个文件中的文件重复行">取出两个文件的交集(只留下同时存在于两个文件中的文件，重复行)</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1 file2 | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -d</span><br></pre></td></tr></table></figure>
+<h2
+id="删除交集留下其他的行非重复行">删除交集，留下其他的行（非重复行）</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1 file2 | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -u</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：对文本操作时，若域中为先空字符(通常包括空格以及制表符)，然后非空字符，域中字符前的空字符将被跳过。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/03/%E7%BB%8F%E5%85%B8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E6%91%98%E8%A6%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/03/%E7%BB%8F%E5%85%B8%E7%A7%AF%E5%88%86%E5%85%AC%E5%BC%8F%E6%91%98%E8%A6%81/" class="post-title-link" itemprop="url">经典积分公式摘要</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-03 21:46:07" itemprop="dateCreated datePublished" datetime="2024-12-03T21:46:07+08:00">2024-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>矢量分析在电动力学中具有无可替代的作用和地位，但是学过电动力学的人都知道
+Maxwell 方程组， 而今天我却要为 Maxwell
+方程组的积分形式重申一下它们的名字。</p>
+<h1 id="牛顿-莱布尼兹公式">牛顿-莱布尼兹公式</h1>
+<p><span class="math display">\[\begin{equation}\label{eq:n-l}
+\int_{\partial \gamma} f=\int_\gamma (\nabla f)\cdot ds
+\end{equation}\]</span></p>
+<div class="note primary"><p>梯度场通常对应于静电场，因为电场强度是电势的梯度，它的典型特点就是积分与路径无关，或都说存在原函数，满足牛顿-莱布尼兹公式。</p>
+</div>
+<h1 id="斯托克斯公式">斯托克斯公式</h1>
+<p><span class="math display">\[\begin{equation}\label{eq:stokes}
+\int_{\partial S}A\cdot ds=\int_{S}(\nabla \times A)\cdot d\sigma
+\end{equation}\]</span></p>
+<div class="note primary"><p>这个公式比较厉害，用斯托克斯一个人的名字命名.
+这个公式描述的是磁感应强度是矢势的旋度,
+它把磁通量用矢势的线积分表示了出来。</p>
+</div>
+<h1 id="高斯-奥斯特罗格拉德斯基公式">高斯-奥斯特罗格拉德斯基公式</h1>
+<p><span class="math display">\[\begin{equation}\label{eq:g-a}
+\int_{\partial V}V\cdot dd\sigma =\int_V (\nabla\cdot B)dV
+\end{equation}\]</span></p>
+<div class="note primary"><p>这个公式，多数人都知道是高斯公式，但是它却还有另一个人：奥斯特罗格拉德斯基，这点还是需要大家注意的。唉，看来，起名字不能太长，不然不容易被人记住。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -540,1075 +1499,8 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Grep%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/30/Grep%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Grep过滤文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-30 20:46:29" itemprop="dateCreated datePublished" datetime="2024-11-30T20:46:29+08:00">2024-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在Linux中，可以使用grep命令去除重复行。grep命令是一个强大的文本搜索工具，但是默认情况下它只会输出匹配的行，而不会去除重复的行。要去除重复行，可以使用grep命令的<code>-v</code>选项结合<code>sort</code>和<code>uniq</code>命令来实现。</p>
-<p>下面是使用grep命令去除重复行的步骤：</p>
-<ol type="1">
-<li>使用grep命令搜索匹配的行，将输出重定向到一个临时文件。</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep “pattern” file.txt &gt; temp.txt  </span><br></pre></td></tr></table></figure>
-<p>其中，<code>pattern</code>是你要匹配的模式，<code>file.txt</code>是要搜索的文件。</p>
-<ol start="2" type="1">
-<li>使用sort命令对临时文件进行排序。</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> temp.txt &gt; sorted.txt  </span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>使用uniq命令去除重复行。</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uniq</span> sorted.txt &gt; result.txt  </span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>可选：删除临时文件。</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> temp.txt sorted.txt  </span><br></pre></td></tr></table></figure>
-<p>这样，就可以得到一个去除重复行的结果文件result.txt。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Hexo%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/30/Hexo%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hexo配置博客实战教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-30 17:34:43" itemprop="dateCreated datePublished" datetime="2024-11-30T17:34:43+08:00">2024-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-29 14:41:06" itemprop="dateModified" datetime="2025-03-29T14:41:06+08:00">2025-03-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本博客已经持续写了三四年了，最初根据网上的教程安装好后就把各种配置写到了自动化脚本
-<code>diary.sh</code>
-中，然而最近发现升级脚本后会有一串由<code>node.js</code>发出的错误。为了解决这个错误，不断的排除各种小问题，最终决定重新写一下配置博客的基本教程。</p>
-<h1 id="node.js-和-hexo-简介">Node.js 和 Hexo 简介</h1>
-<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">Node.js</a>是作为
-<code>Hexo</code>程序的依赖而安装的，但是它报错了，经过网络搜索后发现，这是由于我的电脑中安装了最新的<code>Node.js</code>导致的。官网介绍：Node.js®
-是一个免费、开源、跨平台的 JavaScript 运行时环境,
-它让开发人员能够创建服务器 Web 应用、命令行工具和脚本。 而
-<code>Hexo</code> 是一个部署博客的工具，而博客也是发布于网络上的一个 Web
-页，所认这个依赖关系就清楚了。</p>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 的作用是: 把作者写好的 <a
-target="_blank" rel="noopener" href="https://markdown.com.cn/basic-syntax/">Markdown</a>
-文件，使用<code>Node.js</code>渲染成 <code>Web</code>
-页，进而可以在网站服务器上部署，实现网络访问的目标。</p>
-<h1 id="安装依赖软件">安装依赖软件</h1>
-<h2 id="使用-pacman-安装的软件">使用 pacman 安装的软件</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nodejs-lts-jod npm git pandoc</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>git</code>
-是一个在<code>github</code>上管理源码的必备工具，详细使用请稳步： <a
-target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">Git 教程</a></li>
-<li><code>nodejs</code>共有三个版本，分别是<code>nodejs 23.1.0-1</code>(最新版)、<code>nodejs-lts-iron</code>（最新长期支持版）、<code>nodejs-lts-hydrogen</code>(旧的长期支持版).
-由于最新版不断有功能添加，其相当不稳定，今天的错误就是由它造成的。旧的长期支持版，又可能不兼容最新的软件，所以安装最新长期支持版就是一个最佳选择。</li>
-<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a>
-是一个<code>nodejs</code>包管理器，使用它可以安装各种模块，这就很容易为博客添加新的功能。</li>
-<li><a target="_blank" rel="noopener" href="https://pandoc.org/">pandoc</a> If you need to convert
-files from one markup format into another, pandoc is your swiss-army
-knife.</li>
-<li>2025年03月29日,
-<code>nodejs-lts-iron</code>维护进入倒计时，因此今天升级到新的长期支持版<code>nodejs-lts-jod</code>.</li>
-</ul>
-<h2 id="使用-nodejs-包管理器安装的软件">使用 nodejs
-包管理器安装的软件</h2>
-<h3 id="npm-切换国内源">npm 切换国内源</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>阿里更换了淘宝镜像的域名，原域名<code>https://registry.npm.taobao.org</code>的
-SSL 证书已经过期了（2024/01/22），所以我们需要更换最新的源.</p>
-</div>
-<h3 id="安装更好用的包管理器-yarn">安装更好用的包管理器 yarn</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 pacman 安装</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S yarn</span><br><span class="line"><span class="comment"># 通过 npm 安装</span></span><br><span class="line"><span class="built_in">sudo</span> npm install yarn -g</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：<code>npm</code>是<code>JavaScript</code>自带的包管理器，拥有庞大的包注册表，但在性能和安全性方面相对较弱,
-特别是下载安装模块的速度相当感人。<code>Yarn</code> 是由
-Facebook、Google 等公司共同创建的，旨在解决 npm
-的一些痛点，提供更快、更安全、更可靠的包管理体验,
-其下载模块非常迅速，所以值得推荐。此外还有<code>pnpm</code>包管理器，但是由于它为了节省硬盘空间而做出了相当大的改变，这导致一些依赖问题不是很好解决，因此不推荐。这三个的区别和优缺点细节，请大家参考本文末的参考文章。</p>
-</div>
-<h2 id="配置-hexo">配置 hexo</h2>
-<h3 id="设置-yarn-的国内源">设置 yarn 的国内源</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.yarnpkg.com/</span><br></pre></td></tr></table></figure>
-<h3 id="安装-nrm-镜像源工具">安装 nrm 镜像源工具</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yarn global add nrm</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p><code>nrm</code>使用方法，请参考本文末参考文章。使用<code>nrm test</code>列出各源，并给出源的网速，使用<code>nrm use huawei</code>切换到速度最快的华为源。</p>
-</div>
-<h3 id="安装-hexo-命令">安装 hexo 命令</h3>
-<figure class="highlight sh"><figcaption><span>推荐使用速度更快的 yarn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用yarn 安装</span></span><br><span class="line"><span class="built_in">sudo</span> yarn global add hexo-cli</span><br><span class="line"><span class="comment"># 使用 npm 安装</span></span><br><span class="line"><span class="built_in">sudo</span> npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h1 id="设置本地博客站点">设置本地博客站点</h1>
-<h2 id="配置-hexo-默认站点">配置 hexo 默认站点</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo-source</span><br><span class="line"><span class="built_in">cd</span> ./hexo-source</span><br><span class="line">hexo init</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>完成上面的操作后，在浏览器地址栏输入上述命令生成的本地地址
-localhost:4000 就可以看到默认的博客了。</p>
-</div>
-<h2 id="安装-next-主题">安装 Next 主题</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git checkout $(git describe --tags $(git rev-list --tags --max-count=1))</span><br></pre></td></tr></table></figure>
-<h2 id="切换为-next-主题">切换为 Next 主题</h2>
-<p>Like all Hexo themes, after you download it, open Hexo config file,
-find theme option, and change its value to next (or another theme
-directory name).</p>
-<figure class="highlight sh"><figcaption><span>hexo-source/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>2024年11月30日, 在测试上述步骤时，发现 <a
-target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next/issues/759">启动报错
-Cannot find module 'css'</a>,
-据<code>github</code>上的信息，解决方法是：css 应该被作为 stylus
-的依赖包安装。你可以试试重新安装 hexo-renderer-stylus</p>
-</div>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">yarn add hexo-renderer-stylus</span><br><span class="line"><span class="comment"># 也可以使用 npm</span></span><br><span class="line">npm i hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
-<h2 id="本地启动检测">本地启动检测</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2408483">你真的知道
-NPM、Yarn 与 PNPM 这三个前端包管理器之间的区别吗？</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://ksh7.com/posts/npm-registry/index.html">npm、yarn、pnpm
-设置最新国内镜像源（附官方镜像源和最新阿里源），以及 nrm
-的使用教程</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/installation.html">Next
-Installation</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/#Enabling-NexT">Next
-Getting Started</a></li>
-<li><a href="2021/05/18/使用Hexo搭建博客">使用Hexo搭建博客</a></li>
-<li><a
-href="/2022/09/15/Gitlab上部署Hexo博客">Gitlab上部署Hexo博客</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/ArchLinux%E5%AE%89%E8%A3%85%E5%90%8E%E6%B2%A1%E6%9C%89dig%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/30/ArchLinux%E5%AE%89%E8%A3%85%E5%90%8E%E6%B2%A1%E6%9C%89dig%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">ArchLinux安装后没有dig命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-30 01:50:05" itemprop="dateCreated datePublished" datetime="2024-11-30T01:50:05+08:00">2024-11-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="命令安装">命令安装</h1>
-<p>以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装。其中ifconfig、route在net-tools包中，nslookup、dig在dnsutils包中，ftp、telnet等在inetutils包中，ip命令在iproute2包中。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="http://ivo-wang.github.io/2018/06/02/archlinux%E6%B2%A1%E6%9C%89dig-nslookup%E7%AD%89%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/">archlinux安装后没有ifconfig命令</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://man.archlinux.org/man/dig.1.zh_CN">dig-ArchWiki</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/smile_YangYue/article/details/105074197">dig命令查询结果解析</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/REVTEX4%E6%92%B0%E5%86%99%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/29/REVTEX4%E6%92%B0%E5%86%99%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">REVTEX4撰写科研论文</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-29 12:03:07" itemprop="dateCreated datePublished" datetime="2024-11-29T12:03:07+08:00">2024-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介">简介</h1>
-<p>《REVTEX 4 作者指南》是美国物理学会（APS）提供的，用于指导如何使用
-REVTEX 4 来准备向 APS 期刊提交的手稿。在 <a
-target="_blank" rel="noopener" href="https://tug.org/texlive/">TexLive</a>已经收录，所以安装<code>TexLive</code>后，直接调用模板就可以了。</p>
-<h1 id="模板">模板</h1>
-<p>这个模板是我写作时采用的，列在此处大家可以直接调用。</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[aps,pre,showpacs,preprint,superscriptaddress]&#123;revtex4-1&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;subfigure&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;ulem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;bm&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amssymb&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;color&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;epstopdf&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;epsfig,dsfont,multirow&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;physics&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;tikz&#125;</span><br><span class="line"><span class="keyword">\usetikzlibrary</span>&#123;fadings,patterns&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;float&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[</span><br><span class="line">    pdfborder=&#123;0 0 0&#125;,</span><br><span class="line">    bookmarksnumbered=true,</span><br><span class="line">    pagebackref,</span><br><span class="line">    pdftex</span><br><span class="line">]&#123;hyperref&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;orcidlink&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;Your Article Title&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;YourName<span class="keyword">\,</span><span class="keyword">\orcidlink</span>&#123;0000-0000-0000-0000&#125;&#125;</span><br><span class="line"><span class="keyword">\email</span>[Contact author:]&#123;YourEmail@xxx.com&#125;</span><br><span class="line"><span class="keyword">\homepage</span>[Visit:]&#123;https://YourHomePageSite&#125;</span><br><span class="line"><span class="keyword">\affiliation</span>&#123;School of Physics and Astronomy, Beijing Normal University, Beijing 100875, China&#125;</span><br><span class="line"><span class="comment">% \thanks&#123;miscellaneous text&#125;</span></span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\preprint</span>&#123;Preprint&#125;</span><br><span class="line"><span class="keyword">\keywords</span>&#123;electron-positron; laser&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;abstract&#125;</span><br><span class="line">Your abstract</span><br><span class="line"><span class="keyword">\end</span>&#123;abstract&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% \pacs&#123;05.45.-a; 02.60.-x; preprint&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Introduction&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Reference&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;unsrt&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;Reference.bib&#125;</span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% 直接写引用信息，不推荐</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \appendix</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \begin&#123;thebibliography&#125;&#123;99&#125;\suppressfloats</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;ComDyn&#125;</span></span><br><span class="line"><span class="comment">%         L. Carleson, T. W. Gamelin, Complex Dynamics, Springer, New York,</span></span><br><span class="line"><span class="comment">%         NY, 1993.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;AITJF&#125;</span></span><br><span class="line"><span class="comment">%         S. Sutherland, An Introduction to Julia and Fatou Sets, in: C. Bandt,</span></span><br><span class="line"><span class="comment">%         M. Barnsley, R. Devaney, K. J. Falconer, V. Kannan, V. Kumar P.B.</span></span><br><span class="line"><span class="comment">%         (Eds.), Fractals, Wavelets, and their Applications, Springer Proceedings</span></span><br><span class="line"><span class="comment">%         in Mathematics $\&amp;$ Statistics, Springer International Publishing, Cham,</span></span><br><span class="line"><span class="comment">%         pp. 37-60, 2014.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;MJFO&#125;</span></span><br><span class="line"><span class="comment">%         M.-F. Danca, M. Fečkan, Mandelbrot set and Julia sets of fractional order, Nonlinear Dynamics 111(10), 9555-9570 (2023).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;MSPPCRF&#125;</span></span><br><span class="line"><span class="comment">%         A. J. Mitchell, Existence of the Mandelbrot Set in the Parameter Planes of Certain Rational Functions, Theses and Dissertations, University of Wisconsin-Milwaukee (2016).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;GBBM&#125;</span></span><br><span class="line"><span class="comment">%         H. Jang, Y. So, S. M. Marotta, Generalized baby Mandelbrot sets adorned with halos in families of rational maps, Journal of Difference Equations and Applications 23(3), 503-520 (2017).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \end&#123;thebibliography&#125;</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="重要宏包">重要宏包</h1>
-<h2 id="orcidlink">1. orcidlink</h2>
-<p>用来插入作者的<a target="_blank" rel="noopener" href="https://orcid.org/">orcid</a>, 调用和命令
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;orcidlink&#125;</span><br><span class="line"><span class="keyword">\orcidlink</span>&#123;0000-0000-0000-0000&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="float">2. float</h2>
-<p>在LaTex中，<code>\begin&#123;figure&#125;[htbp]</code>是图片环境，常用选择项<code>[htbp]</code>是浮动格式：</p>
-<ul>
-<li><code>[h]</code>
-here，当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩页面不够，这一参数将不起作用。<br />
-</li>
-<li><code>[t]</code> top，顶部。将图形放置在页面的顶部。<br />
-</li>
-<li><code>[b]</code> bottom，底部。将图形放置在页面的底部。<br />
-</li>
-<li><code>[p]</code> page of its
-own，浮动页。将图形放置在一个允许有浮动对象的页面上。</li>
-</ul>
-<p>一般使用<code>[htb]</code>这样的组合，只用<code>[h]</code>是没有用的。这样组合的意思就是<code>LaTex</code>会尽量满足排在前面的浮动格式，就是<code>h-t-b</code>这个顺序，让排版的效果尽量好。</p>
-<p><code>[!h]</code>只是试图放在当前位置。如果页面剩下的部分放不下，还是会跑到下一页的。一般而言，用<code>[!h]</code>选项通常会出现不能正确放置的问题，所以常用<code>[ht]</code>、<code>[htbp]</code>等,
-这里加感叹号的意思是 忽略 “美学” 标准。</p>
-<p>如果你确实需要把图片放在当前位置，不容改变，可以用
-<code>\usepackege&#123;float&#125;</code>
-宏包的<code>[H]</code>选项。不过如果这样做，出现放不下的问题时需要手工调整。使用格式如下。</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;float&#125; </span><br><span class="line"><span class="comment">% ... </span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[H] </span><br><span class="line">foo </span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>特别强调，当表格或者图片占据双栏模板的两栏时(即在<code>\begin{table*}</code>时），这些控制选项就失效了。其他情况请参考
-<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/LeonSUST/article/details/89332744">技能提升之Latex控制图片位置</a></p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://7id.xray.aps.anl.gov/journals/revtex4/auguide.pdf">revtex4-auguide.pdf</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36654593/article/details/108369354">LaTeX如何插入作者的ORCID</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/LeonSUST/article/details/89332744">技能提升之Latex控制图片位置</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/Linux%E4%BD%BF%E7%94%A8dnsmasq%E5%BC%80%E5%90%AF%E6%9C%AC%E5%9C%B0dns%E7%BC%93%E5%AD%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/29/Linux%E4%BD%BF%E7%94%A8dnsmasq%E5%BC%80%E5%90%AF%E6%9C%AC%E5%9C%B0dns%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">Linux使用dnsmasq开启本地dns缓存</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-29 10:36:25" itemprop="dateCreated datePublished" datetime="2024-11-29T10:36:25+08:00">2024-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="通俗解释-dns">通俗解释 DNS</h1>
-<p>DNS (Domain Name System) 是域名系统的缩写，它作为可以将域名和 IP
-地址相互映射的一个分布式数据库。通俗来讲，互联网上每台电脑都会有一个<code>身份证号</code>来标记电脑，然后电脑相互访问时就需要知道这个身份证号才能到达指定的电脑，这个身份证号就是<code>IP</code>地址。但是，如果仅仅是有限的几台电脑，这个方法足够应对了，然而互联网上有无数的电脑，每次访问某台电脑，就需要查询这台电脑的
-<code>IP</code>,
-显然一个人不可能记住那么多的<code>IP</code>地址。为了方便人的记忆，我们可以为
-<code>IP</code>
-起一个别名,也就是域名，比如<code>www.baidu.com</code>，同时把<code>IP</code>和<code>www.baidu.com</code>的对应关系保存在<code>/etc/hosts</code>文件中。
-这样每次电脑访问这台电脑时就直接访问<code>www.baidu.com</code>,
-然后电脑就会去<code>/etc/hosts</code>查询这个域名对应的<code>IP</code>,
-然后根据查到的<code>IP</code>访问对应的电脑。
-然而，这样做以后，每个人的电脑就会保存不同的<code>hosts</code>文件，同时也需要每次访问新的电脑都要编辑这个<code>hosts</code>文件，世界很大，维护<code>hosts</code>会耽误大量的时间，同时若自己换了电脑，那必然也要带上这个自己习惯的<code>hosts</code>文件到新的电脑。为了解决这个问题，网络上出现了专门同步<code>IP</code>与域名对应关系的分布式服务器（也是一台电脑）,
-这台电脑就叫做 DNS 服务器。当我们知道了 DNS 服务器的
-<code>IP</code>以后，把这个
-<code>IP</code>告诉我们自己的电脑，这样每次访问互联网，我们自己的电脑就会向
-DNS 服务器发出申请，返回相应域名的
-<code>IP</code>地址，然后再通过这个<code>IP</code>访问域名对应的电脑,
-于是<code>hosts</code>文件实现了全网同步。但是，随之而来的问题是 DNS
-服务器的性能会因不同的设备而有差异，同时不同 DNS
-服务器也会因为通信线路和地理位置等造成访问速度不同，我们肯定希望速度越快越好，于是人们就需要选择那些可靠的大厂
-DNS 服务器。</p>
-<h1 id="提升网络访问速度">提升网络访问速度</h1>
-<p>随着互联网的发展，全球的电脑越来越多，同一个网站为了更好的展示效果和更强大的功能而链接到多个网站。有时候，我们可以快速打开一个网站，但是它会花相当长的时间来打开完整的网站，这个体验就不是很好了。
-事实上，DNS
-服务器再快也不会比自己电脑上保存了<code>hosts</code>文件快，似乎问题又回到了最初，但是又不一样。为了提高访问速度，我们可以通过某些软件记录下每次访问过的域名和相应的<code>IP</code>地址，这样第二次以后速度会实现质的飞越。同时，现在的硬盘价格也是相当便宜，我们平时游览的网站通常也是和自己相关领域的有限数目的网站，因此使用软件自动缓存下这些访问过的记录也是一件相当容易的事情，这会给我们网上冲浪带来质的飞越。</p>
-<h1 id="全自动安装脚本">全自动安装脚本</h1>
-<p>如果您使用的是<code>ArchLinux</code>,
-同时不想关注细节，请直接保存脚本<code>syndns.sh</code>后，执行<code>sudo chmod +x syndns.sh &amp;&amp; ./syndns -i</code>
-, 即可一键配置好本地<code>dns</code>缓存。</p>
-<figure class="highlight sh"><figcaption><span>syndns.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : syndns.sh</span></span><br><span class="line"><span class="comment"># Version  : v1.1</span></span><br><span class="line"><span class="comment"># Date     : 2024-11-30 00:52</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 检测软件依懒, 若未检测到，则自动安装</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_DEPEND</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span> VAR <span class="keyword">in</span> <span class="variable">$1</span> ;<span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;<span class="subst">$(pacman -Q |grep $VAR)</span>&quot;</span> = <span class="string">&quot;&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">sudo</span> pacman -S <span class="variable">$VAR</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line">SYN_EXE=<span class="string">&quot;/usr/local/bin/<span class="variable">$&#123;0%.sh&#125;</span>&quot;</span></span><br><span class="line">SYN_AUTO=<span class="string">&quot;<span class="variable">$HOME</span>/.config/autostart/<span class="variable">$&#123;0%.sh&#125;</span>.desktop&quot;</span></span><br><span class="line">SYN_SUDO=<span class="string">&quot;/etc/sudoers.d/01_<span class="variable">$USER</span>&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$1</span> == <span class="string">&quot;-i&quot;</span> -o <span class="variable">$1</span> == <span class="string">&quot;-I&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        SYNDNS_DEPEND <span class="string">&quot;inetutils dnsmasq&quot;</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">cp</span> -f <span class="variable">$0</span> <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">chmod</span> +x <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -e <span class="variable">$SYN_AUTO</span> ]; <span class="keyword">then</span></span><br><span class="line">           <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_AUTO</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="variable">$SYN_AUTO</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Desktop Entry]</span></span><br><span class="line"><span class="string">Name=SynDns</span></span><br><span class="line"><span class="string">TryExec=syndns</span></span><br><span class="line"><span class="string">Exec=$SYN_EXE</span></span><br><span class="line"><span class="string">Type=Application</span></span><br><span class="line"><span class="string">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span></span><br><span class="line"><span class="string">StartupNotify=true</span></span><br><span class="line"><span class="string">X-Desktop-File-Install-Version=0.22</span></span><br><span class="line"><span class="string">X-GNOME-Autostart-enabled=true</span></span><br><span class="line"><span class="string">Hidden=false</span></span><br><span class="line"><span class="string">NoDisplay=false</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; /etc/dnsmasq.conf&quot;</span> &lt;&lt;<span class="string">EOA</span></span><br><span class="line"><span class="string">domain-needed</span></span><br><span class="line"><span class="string">bogus-priv</span></span><br><span class="line"><span class="string">resolv-file=/etc/resolv.conf</span></span><br><span class="line"><span class="string">no-poll</span></span><br><span class="line"><span class="string">interface=lo</span></span><br><span class="line"><span class="string">listen-address=127.0.0.1</span></span><br><span class="line"><span class="string">bind-interfaces</span></span><br><span class="line"><span class="string">no-hosts</span></span><br><span class="line"><span class="string">addn-hosts=/dev/shm/dnsrecord.txt</span></span><br><span class="line"><span class="string">cache-size=9999</span></span><br><span class="line"><span class="string">port=53</span></span><br><span class="line"><span class="string">EOA</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_SUDO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_SUDO</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; <span class="variable">$SYN_SUDO</span>&quot;</span> &lt;&lt;<span class="string">EOB</span></span><br><span class="line"><span class="string">$USER ALL=(ALL) NOPASSWD: /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span></span><br><span class="line"><span class="string">EOB</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">SYN_REC=$(grep <span class="string">&quot;addn-hosts&quot;</span> /etc/dnsmasq.conf)</span><br><span class="line">SYN_REC=<span class="variable">$&#123;SYN_REC#*=&#125;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts &gt; <span class="variable">$SYN_REC</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(hostname -i)</span>                 localhost:&quot;</span> &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>本脚本全自动配置好了<code>dnsmasq</code>,
-但是若想达到自己快速访问自己习惯的网站，请在<code>/etc/hosts</code>文件中加入<code>IP</code>和域名映射，具体操作参见：<a
-href="/2024/11/29/Linux解决无法访问学术网站的问题/">Linux解决无法访问学术网站的问题</a></p>
-</div>
-<h1 id="屏蔽广告">屏蔽广告</h1>
-<ul>
-<li>建立屏蔽文件存放目录：<code>sudo mkdir /etc/dnsmasq.d</code></li>
-<li>下载<code>anti-Ad</code>广告列表: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -o /etc/dnsmasq.d/anti-ad-for-dnsmasq.conf https://anti-ad.net/anti-ad-for-dnsmasq.conf</span><br></pre></td></tr></table></figure></li>
-<li>修改配置文件<code>/etc/dnsmasq.conf</code>: <figure class="highlight sh"><figcaption><span>/etc/dnsmasq.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">domain-needed</span><br><span class="line">bogus-priv</span><br><span class="line">resolv-file=/etc/resolv.conf</span><br><span class="line">no-poll</span><br><span class="line">interface=lo</span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line">bind-interfaces</span><br><span class="line">no-hosts</span><br><span class="line">addn-hosts=/dev/shm/dnsrecord.txt</span><br><span class="line">addn-hosts=/etc/dnsmasq.d</span><br><span class="line">cache-size=9999</span><br><span class="line">port=53</span><br></pre></td></tr></table></figure></li>
-<li>重启<code>dnsmasq.service</code>服务 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart dnsmasq.service</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="技术细节">技术细节</h1>
-<h2 id="linux-使用-dnsmasq-开启本地-dns-缓存">Linux 使用 dnsmasq
-开启本地 dns 缓存</h2>
-<p><a target="_blank" rel="noopener" href="https://dnsmasq.org/doc.html">dnsmasq</a> 是一个轻量组 <a
-target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows-server/troubleshoot/dynamic-host-configuration-protocol-basics">DHCP</a>
-和缓存 <a
-target="_blank" rel="noopener" href="https://www.pcmag.com/how-to/what-is-dns-how-it-works-domain-name-system">DNS</a>
-服务器。</p>
-<h3 id="安装-dnsmasq">1. 安装 dnsmasq</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S dnsmasq</span><br></pre></td></tr></table></figure>
-<h3 id="配置-dnsmasq">2. 配置 dnsmasq</h3>
-<p><code>dnsmasq</code>
-的主配置文件为<code>/etc/dnsmasq.conf</code>。一些配置 <code>dns</code>
-缓存相关参数（更多参数说明见 <a
-target="_blank" rel="noopener" href="https://thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example">https://thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example</a>
-或 <code>/etc/dnsmasq.conf</code> 内说明）</p>
-<h4 id="配置文件设置">配置文件设置</h4>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/dnsmasq.conf</span><br><span class="line"></span><br><span class="line">domain-needed</span><br><span class="line"></span><br><span class="line">port=53</span><br><span class="line"></span><br><span class="line">bogus-priv</span><br><span class="line"></span><br><span class="line">interface=lo</span><br><span class="line"></span><br><span class="line">bind-interfaces</span><br><span class="line"></span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line"></span><br><span class="line">cache-size=4000</span><br><span class="line"></span><br><span class="line">resolv-file=/etc/resolv.dnsmasq</span><br><span class="line"></span><br><span class="line">no-poll</span><br></pre></td></tr></table></figure>
-<h4 id="参数说明">参数说明</h4>
-<p><strong>（1）domain-needed</strong></p>
-<p>如果没有域名后缀的请求（即单个主机名的查询）会被忽略，不会被转发到上游
-DNS 服务器。防止将无效的主机名查询发送到外部 DNS 服务器。</p>
-<p><strong>（2）port</strong></p>
-<p>绑定指定端口</p>
-<p><strong>（3）bogus-priv</strong></p>
-<p>阻止将私有 IP 地址范围的查询结果返回给客户端。如果上游 DNS
-服务器返回的结果是私有 IP 地址，dnsmasq 会将其丢弃。防止意外将私有 IP
-地址暴露在外部网络。</p>
-<p><strong>（4）interface=lo</strong></p>
-<p>指定 dnsmasq 仅监听在本地回环接口 lo 上。限制 dnsmasq
-只在本机的回环接口上工作，不对外提供 DNS 服务，增加安全性。</p>
-<p><strong>（5）bind-interfaces</strong></p>
-<p>强制 dnsmasq 只绑定到配置中明确指定的接口（例如 lo）。确保 dnsmasq
-只监听指定接口，防止不必要的接口绑定，增强控制和安全性。</p>
-<p><strong>（6）listen-address</strong></p>
-<p>指定 dnsmasq 应该监听 DNS 查询的 IP 地址。如果使用 dnsmasq 作为本地
-DNS 缓存服务，设置为 127.0.0.1。</p>
-<p><strong>（7）resolv-file</strong></p>
-<p>设置包含上游 DNS 服务器的文件的路径，不打开的话，默认用
-/etc/resolv.conf ，也可以直接指定，例如，我们在 /etc 中创建一个名为
-resolv.dnsmasq 的文件，其内容如下：</p>
-<p>cat /etc/resolv.dnsmasq</p>
-<p>nameserver 8.8.8.8</p>
-<p>这些配置将使 dnsmasq 能够从 8.8.8.8 查询 DNS 记录并在本地缓存。</p>
-<p><strong>（8）cache-size</strong></p>
-<p>定义要缓存的最大 DNS 记录数。</p>
-<p><strong>（9）no-resolv</strong></p>
-<p>dnsmasq不使用 /etc/resolv.conf 或者其他文件，不做上游DNS查询。取消注释此行以防止
-dnsmasq 使用 /etc/resolv.conf 文件。</p>
-<p><strong>（10）no-poll</strong></p>
-<p>禁用 dnsmasq 对 /etc/resolv.dnsmasq 文件的持续轮询检查。提高<a
-target="_blank" rel="noopener" href="https://marketing.csdn.net/p/3127db09a98e0723b83b2914d9256174?pId=2782?utm_source=glcblog&amp;spm=1001.2101.3001.7020">性能</a>，避免频繁检查该文件的变动。如果不经常修改该文件，这个选项可以避免不必要的文件系统访问。</p>
-<h3 id="启用-dnsmasq-服务">3. 启用 dnsmasq 服务</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now dnsmasq.service</span><br></pre></td></tr></table></figure>
-<h3 id="将默认-dns-设置为-dnsmasq">4. 将默认 DNS 设置为 dnsmasq</h3>
-<p>如果已经取消注释 dnsmasq 配置中的 no-resolv 选项，则无需编辑
-<code>/etc/resolv.conf</code>。</p>
-<p>注释掉所有涉及 nameserver 的行，并写入127.0.0.1到
-<code>/etc/resolv.conf</code>，如下示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/resolv.conf</span><br><span class="line"><span class="comment"># nameserver 8.8.8.8</span></span><br><span class="line">nameserver 127.0.0.1</span><br></pre></td></tr></table></figure>
-<hr />
-<center>
-<i class="fa fa-flag" style="font-size:52px;color:red"></i><font color="DarkViolet" size="8" >
-dnsmasq 性能优化</font>
-</center>
-<hr />
-<p>我们都知道<code>Bind</code>不配合数据库的情况下，经常需要重新载入并读取配置文件，这是造成性能低下的原因。根据这点教训，我们可以考虑不读取<code>/etc/hosts</code>文件。而是另外指定一个在共享内存里的文件，比如<code>/dev/shm/dnsrecord.txt</code>
-，这样就不费劲了，又由于内存的非持久性，重启就消失，可以设置为开机启动服务，实现每次开机自动同步<code>/etc/hosts</code>文件到内存中。</p>
-<h3 id="配置-dnsmasq-1">1. 配置 dnsmasq</h3>
-<figure class="highlight sh"><figcaption><span>/etc/dnsmasq.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">no-hosts</span><br><span class="line">addn-hosts=/dev/shm/dnsrecord.txt</span><br></pre></td></tr></table></figure>
-<h3 id="创建同步脚本-syndns.sh">2. 创建同步脚本 syndns.sh</h3>
-<figure class="highlight sh"><figcaption><span>/usr/local/bin/syndns</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># syndns.sh</span></span><br><span class="line"><span class="comment"># Copyright (C) 2024 Zhen-hua Feng &lt;fengzhenhua@outlook.com&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts &gt; /dev/shm/dnsrecord.txt</span><br><span class="line"><span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
-<h3 id="提升权限">3. 提升权限</h3>
-<figure class="highlight sh"><figcaption><span>/etc/sudoers.d/01_feng</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feng ALL=(ALL) NOPASSWD: /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>提升启动<code>dnsmasq.service</code>的开启权限后，开机启动服务就不再需要<code>sudo</code>输入密码了，这样做更加合理。</p>
-</div>
-<h3 id="设置开机时启动">4. 设置开机时启动</h3>
-<figure class="highlight sh"><figcaption><span>~/.config/autostart/syndns.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=SynDns</span><br><span class="line">TryExec=syndns</span><br><span class="line">Exec=/usr/local/bin/syndns</span><br><span class="line">Type=Application</span><br><span class="line">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">X-Desktop-File-Install-Version=0.22</span><br><span class="line">X-GNOME-Autostart-enabled=<span class="literal">true</span></span><br><span class="line">Hidden=<span class="literal">false</span></span><br><span class="line">NoDisplay=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>由于本人的桌面环境是<code>Gnome</code>,
-所以推荐使用此处的<code>ArchLinux</code>配置自启动程序的方法。同时，在尝试使用<code>systemctl</code>方案时并求成功，原因在于<code>systemctl</code>是系统级服务，启动时<code>cat</code>写入内存的文件<code>dnsrecord.txt</code>就属于具备<code>root</code>权限，因此由于<code>cat</code>权限不足而失败。</p>
-</div>
-<h2 id="针对网站提速">针对网站提速</h2>
-<p>将常用网站的域名和<code>IP</code>放置到 <code>/etc/hosts</code>
-文件可以缩短主机访问
-<code>DNS</code>服务器的时间，前面将这些常用网站添加到内存文件
-<code>/dev/shm/dnsrecord.txt</code>
-中，这极大的提高了电脑访问的速度，因为即使是固态硬盘，它的读取速度也是与内存无法相比的，而这个文件却占据很小内存，甚至可以忽略不计。但是，在访问某一网站时，由于网站会借助
-<code>cdn</code>
-等添加一些<code>js</code>组件，而这一部分会零星的占用不少时间去访问
-<code>DNS</code>服务器。为了进一步提速，就需要我们将这些后台访问的网址域名也添加到<code>/etc/hosts</code>文件中。方法是：打开
-<code>firefox</code>
-→<code>更多工具</code>→<code>Web 开发者工具</code>→<code>网络</code>,
-然后就可以看到后台访问的许多网站，手动把这些域名解析后有可能获取多个<code>IP</code>,
-将这些<code>IP</code>使用<code>Ping</code>工具测速后，把最快的<code>IP</code>添加到<code>hosts</code>中。下次访问主网站，速度就飞起了。</p>
-<p>另外需要注意的是：<code>firefox</code>→<code>设置</code>→<code>隐私和安全</code>→取消<code>关闭Firfox时删除Cookie与网站数据</code>.
-这样设置后，下次在访问此网站，那些缓存好的图片等就不需要再次下载了，网站只下载那些发生变动的部分，因此这又可以进一步的提升访问速度。</p>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/zh-tw/Dnsmasq">dnsmasq-ArchWiki</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/xaioxiaotutunuo/article/details/143356372">dnsmasq本地缓存dns方案</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1174717">DNSmasq详细解析及详细配置</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51251861">linux基本服务系列之DNSmasq的使用</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lps365/p/3366497.html">archlinux
-DNS缓存建立</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gaoyanbing/p/13030111.html">利用
-Dnsmasq 部署 DNS 服务</a></li>
-<li><a target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/XDG_Autostart">XDG
-Autostart-Wiki</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/Linux%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/29/Linux%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Linux解决无法访问学术网站的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-29 01:06:49" itemprop="dateCreated datePublished" datetime="2024-11-29T01:06:49+08:00">2024-11-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>科研工作中需要经常访问学术网站，然而有时候却无法访问或速度太慢，以致于论文无法下载。为解决这一问题，本文提出修改<code>/etc/hosts</code>文件的方法。</p>
-<h2 id="解决追加内容到-hosts-时无权限问题">解决追加内容到 hosts
-时无权限问题</h2>
-<h3 id="使用子命令">1. 使用子命令</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> bash -c <span class="string">&quot;cat &gt;&gt; /etc/hosts&quot;</span> &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<h3 id="使用tee命令">2. 使用tee命令</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> -a /etc/hosts &gt; /dev/null &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-<h2 id="ip-查询">Ip 查询</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://zh-hans.ipshu.com/">https://zh-hans.ipshu.com</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ip138.com/">https://www.ip138.com</a></li>
-<li><a target="_blank" rel="noopener" href="https://uutool.cn/nslookup/">https://uutool.cn</a></li>
-<li><a target="_blank" rel="noopener" href="https://ip.cn/">https://ip.cn</a></li>
-<li><a target="_blank" rel="noopener" href="https://iplark.com/search">https://iplark.com</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.ipuu.net/Home">https://www.ipuu.net</a></li>
-<li><a target="_blank" rel="noopener" href="https://ip.weirain.com/">https://ip.weirain.com/</a></li>
-</ul>
-<div class="note primary"><p>注意：选择上述任意的一个网站，然后输入你要访问的学术网站的域名，查询到对应的<code>IP</code>地址，保存下来。</p>
-</div>
-<h2 id="写入到-hosts">写入到 hosts</h2>
-<figure class="highlight sh"><figcaption><span>updatehost.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : updatehost.sh</span></span><br><span class="line"><span class="comment"># Version  : v1.1</span></span><br><span class="line"><span class="comment"># Date     : 2023-10-08</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">OutHost=<span class="string">&quot;/etc/hosts&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> curl -o <span class="variable">$OutHost</span> https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts\?inline\=<span class="literal">false</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt;&gt; <span class="variable">$OutHost</span>&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">104.20.229.70                orcid.org</span></span><br><span class="line"><span class="string">172.64.146.247               www.researchgate.net</span></span><br><span class="line"><span class="string">151.101.3.42                 arxiv.org</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
-<h2 id="windows下修改hosts">Windows下修改hosts</h2>
-<ul>
-<li>打开文本编辑器:
-在<code>管理员权限</code>下打开你选择的文本编辑器。</li>
-<li>打开hosts文件:
-在文本编辑器中，选择<code>文件</code>→<code>打开</code>，找到的<code>hosts</code>文件
-<br> <code>C:\Windows\System32\drivers\etc\hosts</code>。</li>
-<li>编辑hosts文件:
-在<code>hosts</code>文件的最后一行，添加你需要的域名和对应的IP地址。例如，你想将
-<br>
-<code>www.example.com</code>指向本地的<code>127.0.0.1</code>，那么可以在<code>hosts</code>文件中添加以下内容：
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1       www.example.com</span><br></pre></td></tr></table></figure>
-每个映射关系应该占据一行，IP地址和域名之间使用制表符或空格进行分隔。</li>
-<li>保存文件: 在编辑完成后，保存hosts文件。</li>
-<li>刷新DNS缓存
-<ul>
-<li>打开命令提示符：
-在开始菜单中搜索“命令提示符”，并以管理员权限打开。</li>
-<li>执行命令： 在命令提示符中输入以下命令，并按下回车键：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig/flushdns</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.amjun.com/1628.html">Linux 执行 cat
-命令往文件写入内容提示 Permission denied</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/438447914">如何修改hosts文件？几种修改hosts文件的方法</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_55846296/article/details/131451501">一步步教你修改Windows本地hosts文件，轻松修改域名指向！</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux用户组管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-28 23:38:56" itemprop="dateCreated datePublished" datetime="2024-11-28T23:38:56+08:00">2024-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在<code>ArchLinux</code>的<a
-target="_blank" rel="noopener" href="https://arch.icekylin.online/guide/rookie/desktop-env-and-app.html#_2-%E5%87%86%E5%A4%87%E9%9D%9E-root-%E7%94%A8%E6%88%B7">安装教程</a>和<a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Sudo">Sudo-ArchWiki</a>中都默认建立了<code>wheel</code>组，并且赋予其<code>sudo</code>权限，这个操作就不是太安全了，因此在安装系统时您应当建立自己的组，而不是使用网上所统一使用的<code>wheel</code>，所以本文就来更正这个错误。</p>
-<h2 id="查看本机建立的组">查看本机建立的组</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span></span><br><span class="line">&gt;</span><br><span class="line">wheel yourname</span><br></pre></td></tr></table></figure>
-<h2
-id="建立自己的组并将当前帐号移到自己的组">建立自己的组并将当前帐号移到自己的组</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupadd yourgrp</span><br><span class="line"><span class="built_in">sudo</span> usermod -aG yourgrp yourname</span><br></pre></td></tr></table></figure>
-<h2 id="删除-wheel-组">删除 wheel 组</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupdel wheel</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：删除<code>wheel</code>后，需要修改<code>/etc/sudoers</code>文件，将其中的<code>wheel</code>全部替换成<code>yourgrp</code>，这样您的<code>yourgrp</code>才能具备<code>sudo</code>的权限。</p>
-</div>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/MrWangHao/article/details/131334000">21.Linux把用户加入或移除用户组</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wenku.csdn.net/answer/mag01q5150">linux创建组并添加用户</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.idc.net/help/149347/">Linux用户组及其命令：id
-groups (linux id groups)</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E4%B8%AD4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%BE%E5%87%BA%E8%BF%9B%E7%A8%8BID%EF%BC%88PID%EF%BC%89%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/28/Linux%E4%B8%AD4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%BE%E5%87%BA%E8%BF%9B%E7%A8%8BID%EF%BC%88PID%EF%BC%89%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Linux中4个简单的找出进程ID（PID）的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-28 15:57:42" itemprop="dateCreated datePublished" datetime="2024-11-28T15:57:42+08:00">2024-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>每个人都知道 PID，究竟什么是 PID？为什么你想要 PID？你打算用 PID
-做什么？你脑子里有同样的问题吗？如果是这样，你就找对地方了解这些细节了。</p>
-<p>我们查询 PID 主要是用来杀死一个没有响应的程序，它类似于 Windows
-任务管理器一样。 Linux GUI 也提供相同的功能，但 CLI 是执行
-<code>kill</code> 操作的有效方法。</p>
-<h3 id="什么是进程-id">什么是进程 ID?</h3>
-<p><code>PID</code>
-代表进程标识号<code>process identification</code>，它在大多数操作系统内核（如
-Linux、Unix、macOS 和
-Windows）中使用。它是在操作系统中创建时自动分配给每个进程的唯一标识号。一个进程是一个正在运行的程序实例。</p>
-<p>除了 init 进程外其他所有的进程 ID 每次都会改变，因为 init
-始终是系统上的第一个进程，并且是所有其他进程的父进程。它的 PID 是
-1。</p>
-<p>PID 默认的最大值是 <code>32768</code>。可以在你的系统上运行
-<code>cat /proc/sys/kernel/pid_max</code> 来验证。在 32
-位系统上，<code>32768</code> 是最大值，但是我们可以在 64
-位系统上将其设置为最大 2<sup>22（约</sup> 4 百万）内的任何值。</p>
-<p>你可能会问，为什么我们需要这么多的 PID？因为我们不能立即重用
-PID，这就是为什么。另外为了防止可能的错误。</p>
-<p>系统正在运行的进程的 PID 可以通过使用
-<code>pidof</code>、<code>pgrep</code>、<code>ps</code> 和
-<code>pstree</code> 命令找到。</p>
-<h3 id="方法-1使用-pidof-命令">方法 1：使用 pidof 命令</h3>
-<p><code>pidof</code> 用于查找正在运行的程序的进程
-ID。它在标准输出上打印这些 id。为了演示，我们将在 Debian
-9（stretch）系统中找出 Apache2 的进程 ID。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pidof apache2</span><br><span class="line">3754 2594 2365 2364 2363 2362 2361</span><br></pre></td></tr></table></figure>
-<p>从上面的输出中，你可能会遇到难以识别进程 ID
-的问题，因为它通过进程名称显示了所有的
-PID（包括父进程和子进程）。因此，我们需要找出父
-PID（PPID），这是我们要查找的。它可能是第一个数字。在本例中，它是
-<code>3754</code>，并按降序排列。</p>
-<h3 id="方法-2使用-pgrep-命令">方法 2：使用 pgrep 命令</h3>
-<p><code>pgrep</code> 遍历当前正在运行的进程，并将符合选择条件的进程 ID
-列到标准输出中。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pgrep apache2</span><br><span class="line">2361</span><br><span class="line">2362</span><br><span class="line">2363</span><br><span class="line">2364</span><br><span class="line">2365</span><br><span class="line">2594</span><br><span class="line">3754</span><br></pre></td></tr></table></figure>
-<p>这也与上面的输出类似，但是它将结果从小到大排序，这清楚地说明父 PID
-是最后一个。在本例中，它是 <code>3754</code>。</p>
-<p><strong>注意：</strong> 如果你有多个进程的进程 ID，那么在使用
-<code>pidof</code> 和 <code>pgrep</code> 识别父进程 ID
-时就可能不会很顺利。</p>
-<h3 id="方法-3使用-pstree-命令">方法 3：使用 pstree 命令</h3>
-<p><code>pstree</code> 将运行的进程显示为一棵树。树的根是某个
-pid，如果省略了 pid 参数，那么就是 init。如果在 <code>pstree</code>
-命令中指定了用户名，则显示相应用户拥有的所有进程。</p>
-<p><code>pstree</code>
-会将相同的分支放在方括号中，并添加重复计数的前缀来可视化地合并到一起。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pstree -p | grep <span class="string">&quot;apache2&quot;</span></span><br><span class="line">|- apache2(3754) -|-apache2(2361)</span><br><span class="line">| |-apache2(2362)</span><br><span class="line">| |-apache2(2363)</span><br><span class="line">| |-apache2(2364)</span><br><span class="line">| |-apache2(2365)</span><br><span class="line">| `-apache2(2594)</span><br></pre></td></tr></table></figure>
-<p>要单独获取父进程，请使用以下格式。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pstree -p | grep <span class="string">&quot;apache2&quot;</span> | <span class="built_in">head</span> -1</span><br><span class="line">|- apache2(3754) -|-apache2(2361)</span><br></pre></td></tr></table></figure>
-<p><code>pstree</code>
-命令非常简单，因为它分别隔离了父进程和子进程，但这在使用
-<code>pidof</code> 和 <code>pgrep</code> 时命令不容易做到。</p>
-<h3 id="方法-4使用-ps-命令">方法 4：使用 ps 命令</h3>
-<p><code>ps</code> 显示活动进程的选择信息。它显示进程
-ID（<code>pid</code>=PID）、与进程关联的终端（<code>tname</code>=TTY）、以
-<code>[DD-]hh:mm:ss</code> 格式（<code>time</code>=TIME）显示的累计 CPU
-时间、以及执行名（<code>ucmd</code> = CMD）。输出默认是未排序的。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep <span class="string">&quot;apache2&quot;</span></span><br><span class="line">www-data 2361 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2362 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2363 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2364 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2365 0.0 0.4 302652 8400 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2594 0.0 0.4 302652 8400 ? S 06:55 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">root 3754 0.0 1.4 302580 29324 ? Ss Dec11 0:23 /usr/sbin/apache2 -k start</span><br><span class="line">root 5648 0.0 0.0 12784 940 pts/0 S+ 21:32 0:00 grep apache2</span><br></pre></td></tr></table></figure>
-<p>从上面的输出中，我们可以根据进程的启动日期轻松地识别父进程
-ID（PPID）。在此例中，apache2 启动于
-<code>Dec 11</code>，它是父进程，其他的是子进程。apache2 的 PID 是
-<code>3754</code>。</p>
-<h2 id="引用">引用</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://linux.cn/article-9344-1.html">Linux 中 4
-个简单的找出进程 ID（PID）的方法</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

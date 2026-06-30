@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,1690 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/26/%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86:%E5%BA%93%E4%B8%8E%E8%B7%A8%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/26/%E7%BC%96%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86:%E5%BA%93%E4%B8%8E%E8%B7%A8%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">编程的基本原理：库与跨程序调用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-03-26 10:38:20 / 修改时间：18:21:20" itemprop="dateCreated datePublished" datetime="2025-03-26T10:38:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在现代软件开发中，代码复用是提高效率和减少重复劳动的关键。无论是通过内置的库文件还是自定义的通用模块，开发者都可以利用这些资源来加速开发过程。本文将探讨编程语言中的库使用机制，以及如何实现跨语言的功能共享。</p>
+<h1 id="内置库与自定义库">内置库与自定义库</h1>
+<h2 id="内置库">内置库</h2>
+<p>大多数编程语言都提供了丰富的标准库，这些库包含了预先编写好的功能模块，可以直接在写程序时使用，并且在运行或编辑时自动调用。例如，Python的标准库提供了大量的模块用于处理文件、网络通信等常见任务；Shell脚本则可以通过系统命令快速完成自动化任务。</p>
+<h2 id="自定义库">自定义库</h2>
+<p>对于自己编写的用于多个程序的通用模块，通常需要以库的形式保存。这样做的好处是显而易见的：一旦某个库更新了，所有依赖它的程序只需重新加载或编译即可享受到最新的改进。这大大简化了代码维护工作。</p>
+<ul>
+<li><strong>脚本语言</strong>：如Python、Shell等，可以通过简单的导入语句（如<code>import</code>或<code>source</code>）直接加载并使用自定义库。</li>
+<li><strong>编辑型语言</strong>：如Rust等，会将库加载到源文件中，在编译时封存进目标文件，避免了对自定义特定程序的过多依赖。</li>
+</ul>
+<h1 id="跨语言调用的挑战与解决方案">跨语言调用的挑战与解决方案</h1>
+<p>尽管在同一语言内使用库非常方便，但在不同语言之间直接调用库通常是不可能的，因为每种语言都有其独特的语法和运行时环境。然而，通过一些策略可以实现跨语言的功能共享。</p>
+<h2 id="将特殊功能封装成函数">将特殊功能封装成函数</h2>
+<p>一种常见的做法是将特殊功能封装成独立的函数或服务，然后在其他程序中直接调用这些函数或服务来获取相关值。这种方法不仅适用于脚本语言，也可以应用于编辑型语言。</p>
+<h2 id="示例场景">示例场景</h2>
+<ul>
+<li><strong>网络服务</strong>：将某些计算密集型任务封装为RESTful
+API服务，任何支持HTTP请求的语言都可以轻松调用。</li>
+<li><strong>CLI工具</strong>：将功能封装为命令行工具，其他语言可以通过子进程调用来执行该工具并捕获输出结果。</li>
+</ul>
+<h2 id="动态链接库">动态链接库</h2>
+<p>另一种方法是创建动态链接库（如<code>.so</code>或<code>.dll</code>文件），这些库通常用C或C++编写，因为它们具有较低级别的ABI（应用二进制接口）。许多编程语言都支持加载这类动态库，从而实现一定程度上的跨语言调用。</p>
+<h2 id="文件或消息队列">文件或消息队列</h2>
+<p>此外，还可以通过文件交换或消息队列进行数据传递。比如，一个程序生成JSON格式的数据文件，另一个程序读取并处理这些文件；或者使用RabbitMQ、Kafka等消息队列系统实现异步消息传递。</p>
+<h1
+id="不同语言使用共同程序片段的方法举例-python-和-shell">不同语言使用共同程序片段的方法举例:
+Python 和 Shell</h1>
+<p>本节探讨<code>Python</code>和<code>Shell</code>语言通过模块化设计来实现共同程序片段的使用具体方法。</p>
+<h2 id="python模块与包">Python：模块与包</h2>
+<p>在 Python
+中，代码复用是通过模块化设计实现的。通过将常用的代码片段封装到模块或包中，开发者可以在不同的程序中轻松地复用这些功能。本节将详细介绍
+Python
+中使用共同程序片段的方法，包括模块、包以及跨项目复用的最佳实践。</p>
+<h2 id="模块module">1. 模块（Module）</h2>
+<h3 id="什么是模块"><strong>什么是模块？</strong></h3>
+<p>模块是一个包含 Python 代码的文件，通常以 <code>.py</code>
+为扩展名。模块可以定义函数、类和变量，并且可以通过 <code>import</code>
+语句导入到其他脚本中。</p>
+<h3 id="创建模块"><strong>创建模块</strong></h3>
+<p>假设我们有一个常用的功能，比如打印问候语。可以将其封装到一个模块中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># utils.py</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_numbers</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br></pre></td></tr></table></figure>
+<h3 id="使用模块"><strong>使用模块</strong></h3>
+<p>在另一个脚本中，可以通过 import 或 from ... import
+引入模块并调用其中的功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> say_hello, add_numbers</span><br><span class="line"></span><br><span class="line">say_hello(<span class="string">&quot;Alice&quot;</span>)  <span class="comment"># 输出: Hello, Alice!</span></span><br><span class="line">result = add_numbers(<span class="number">5</span>, <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;5 + 3 = <span class="subst">&#123;result&#125;</span>&quot;</span>)  <span class="comment"># 输出: 5 + 3 = 8</span></span><br></pre></td></tr></table></figure>
+<h2 id="包package">2. 包（Package）</h2>
+<p>包是一种组织模块的方式，用于管理大型项目中的代码。包是一个包含多个模块的目录，并且必须包含一个名为
+<code>__init__.py</code> 的文件（Python 3.3 及以上版本中可省略）。</p>
+<h3 id="创建包">创建包</h3>
+<p>假设我们有多个模块，可以将它们组织成一个包。例如：</p>
+<figure class="highlight python"><figcaption><span>Python包的组织</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_package/</span><br><span class="line">    __init__.py</span><br><span class="line">    utils.py</span><br><span class="line">    math_ops.py</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>utils.py</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">say_hello</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Hello, <span class="subst">&#123;name&#125;</span>!&quot;</span>)</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>math_ops.py</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">multiply</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a * b</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h3 id="使用包"><strong>使用包</strong></h3>
+<p>在脚本中可以通过包路径导入模块中的功能： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py</span></span><br><span class="line"><span class="keyword">from</span> my_package.utils <span class="keyword">import</span> say_hello</span><br><span class="line"><span class="keyword">from</span> my_package.math_ops <span class="keyword">import</span> multiply</span><br><span class="line"></span><br><span class="line">say_hello(<span class="string">&quot;Bob&quot;</span>)  <span class="comment"># 输出: Hello, Bob!</span></span><br><span class="line">result = multiply(<span class="number">4</span>, <span class="number">6</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;4 * 6 = <span class="subst">&#123;result&#125;</span>&quot;</span>)  <span class="comment"># 输出: 4 * 6 = 24</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="跨项目复用发布到pypi">3. 跨项目复用：发布到PyPI</h2>
+<p>如果需要在多个项目之间共享代码，可以将模块或包打包为一个 Python
+包并发布到 PyPI（Python Package Index）。</p>
+<ul>
+<li><p>创建包结构, 创建一个符合 Python 包规范的目录结构。例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_library/</span><br><span class="line">    setup.py</span><br><span class="line">    my_library/</span><br><span class="line">        __init__.py</span><br><span class="line">        utils.py</span><br></pre></td></tr></table></figure></p></li>
+<li><p>编写<code>setup.py</code>, 在根目录下创建 setup.py
+文件，用于描述包信息： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&quot;my_library&quot;</span>,</span><br><span class="line">    version=<span class="string">&quot;0.1&quot;</span>,</span><br><span class="line">    packages=find_packages(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p></li>
+<li><p>发布到<code>PyPI</code>, 使用以下命令将包发布到 PyPI：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python setup.py sdist bdist_wheel</span><br><span class="line">twine upload dist/*</span><br></pre></td></tr></table></figure></p></li>
+<li><p>安装并使用，在其他项目中通过 <code>pip</code> 安装并使用该包：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install my_library</span><br></pre></td></tr></table></figure> 然后在代码中导入： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> my_library.utils <span class="keyword">import</span> say_hello</span><br><span class="line">say_hello(<span class="string">&quot;Charlie&quot;</span>)  <span class="comment"># 输出: Hello, Charlie!</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="其他方法">4. 其他方法</h2>
+<h3 id="动态加载模块">4.1 动态加载模块</h3>
+<p>如果需要动态加载模块，可以使用 <code>importlib</code> 库。例如：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line">module_name = <span class="string">&quot;utils&quot;</span></span><br><span class="line">module = importlib.import_module(module_name)</span><br><span class="line">module.say_hello(<span class="string">&quot;Dynamic User&quot;</span>)  <span class="comment"># 输出: Hello, Dynamic User!</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="配置文件与环境变量">4.2 配置文件与环境变量</h3>
+<p>对于一些配置相关的代码片段，可以使用配置文件（如
+JSON、YAML）或环境变量来实现复用。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;config.json&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    config = json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">&quot;greeting&quot;</span>])  <span class="comment"># 输出: Hello, World!</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>Python
+提供了多种灵活的方式来复用代码片段，从简单的模块到复杂的包管理，再到跨项目的
+PyPI
+发布。通过合理地组织代码，开发者可以显著提高开发效率，并确保代码的可维护性和扩展性。</p>
+</div>
+<h2 id="shell-使用共同程序片段的方法">Shell 使用共同程序片段的方法</h2>
+<p>在 Shell
+脚本编程中，复用代码片段是提高效率和减少重复劳动的重要手段。通过将常用的功能封装到函数库文件中，开发者可以在多个脚本中轻松地共享这些功能。本文将详细介绍
+Shell
+中使用共同程序片段的方法，包括函数库的创建、加载以及全局配置的最佳实践。</p>
+<h2 id="函数库的基本概念">1. 函数库的基本概念</h2>
+<h3 id="什么是函数库"><strong>什么是函数库？</strong></h3>
+<p>函数库是一个包含一组 Shell 函数的文件，通常以 <code>.sh</code>
+为扩展名。通过将常用的功能封装成函数并存储在单独的文件中，开发者可以在多个脚本中复用这些功能。</p>
+<h2 id="创建函数库">2. 创建函数库</h2>
+<h3 id="定义函数库"><strong>定义函数库</strong></h3>
+<p>创建一个包含常用函数的文件，例如 <code>functions.sh</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># functions.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印问候语</span></span><br><span class="line"><span class="function"><span class="title">say_hello</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Hello, <span class="variable">$1</span>!&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算两个数的和</span></span><br><span class="line"><span class="function"><span class="title">add_numbers</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> $(( &quot;<span class="variable">$1</span>&quot; + &quot;<span class="variable">$2</span>&quot; ))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="加载函数库">3. 加载函数库</h2>
+<p>在其他脚本中可以通过 source 或 . 命令加载函数库，并调用其中的函数。
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载函数库</span></span><br><span class="line"><span class="built_in">source</span> ./functions.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数</span></span><br><span class="line">say_hello <span class="string">&quot;Alice&quot;</span>       <span class="comment"># 输出: Hello, Alice!</span></span><br><span class="line">result=$(add_numbers 5 3)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;5 + 3 = <span class="variable">$result</span>&quot;</span>  <span class="comment"># 输出: 5 + 3 = 8</span></span><br></pre></td></tr></table></figure></p>
+<div class="note primary"><ul>
+<li><code>source</code> 和 <code>.</code>
+是等价的，选择其中之一即可。</li>
+<li>如果函数库文件不在当前目录下，请使用绝对路径或相对路径来指定文件位置。</li>
+</ul>
+</div>
+<h2 id="全局函数库">4. 全局函数库</h2>
+<p>如果希望某些函数在整个系统中都可以使用，可以将函数库文件放到一个通用目录（如
+<code>/usr/local/lib</code>），然后在用户的 <code>.bashrc</code> 或
+<code>.bash_profile</code> 中加载。操作步骤：</p>
+<ul>
+<li><p>将函数库文件放到通用目录: 假设你将 <code>functions.sh</code>
+放到了 <code>/usr/local/lib/functions.sh</code>。</p></li>
+<li><p>在<code>.bashrc</code>中加载函数库：编辑用户的<code>.bashrc</code>文件，添加以下内容：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /usr/local/lib/functions.sh ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> /usr/local/lib/functions.sh</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>使更改生效： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p></li>
+<li><p>直接在终端或脚本中使用函数：现在，你可以在任何地方直接调用这些函数，而无需显式加载函数库。</p></li>
+</ul>
+<h2 id="动态加载函数库">5. 动态加载函数库</h2>
+<p>如果需要根据需求动态加载不同的函数库，可以使用环境变量来指定函数库的路径。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> FUNCTION_LIB_PATH=<span class="string">&quot;/path/to/functions.sh&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在脚本中动态加载</span></span><br><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$FUNCTION_LIB_PATH</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$FUNCTION_LIB_PATH</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<h2 id="将功能封装为独立脚本">6. 将功能封装为独立脚本</h2>
+<p>除了函数库，还可以将某些功能封装为独立的脚本文件，并通过子进程调用来获取结果。例如：</p>
+<ul>
+<li><p>创建一个名为<code>greet.sh</code>的脚本： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello, <span class="variable">$1</span>!&quot;</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>确保脚本具有执行权限： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x greet.sh</span><br></pre></td></tr></table></figure></p></li>
+<li><p>在其他脚本中调用：通过子进程调用该脚本并捕获输出
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">result=$(./greet.sh <span class="string">&quot;Alice&quot;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$result</span>&quot;</span>  <span class="comment"># 输出: Hello, Alice!</span></span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="注意事项">7. 注意事项</h2>
+<ul>
+<li>避免命名冲突：函数名应尽量具有唯一性，以免与其他脚本或系统命令发生冲突。</li>
+<li>检查文件是否存在：在加载函数库时，建议先检查文件是否存在，以避免出错。例如
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f <span class="string">&quot;./functions.sh&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">source</span> ./functions.sh</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Function library not found!&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></li>
+<li>权限问题：如果函数库文件位于系统目录（如
+<code>/usr/local/lib</code>），确保文件具有适当的权限。</li>
+</ul>
+<div class="note primary"><p>Shell
+提供了多种灵活的方式来复用代码片段，从简单的函数库到独立的脚本文件，开发者可以根据需求选择合适的方式。通过合理地组织代码，不仅可以显著提高开发效率，还能确保代码的可维护性和扩展性。</p>
+</div>
+<h1 id="总结">总结</h1>
+<p>无论是通过内置库还是自定义库，编程语言都提供了一套机制来促进代码复用。对于同一语言内的库调用相对简单，但对于跨语言调用，则需要借助标准化的接口或协议。理解这些基本原理有助于我们更好地设计和组织代码，同时也能在面对复杂系统时找到合适的解决方案。</p>
+<p>掌握如何有效地使用库以及如何跨越语言障碍实现功能共享，是每个程序员应当具备的核心技能之一。希望本文能为您提供有价值的见解，并帮助您更高效地进行软件开发。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/25/Sudo%E5%AF%86%E7%A0%81%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/25/Sudo%E5%AF%86%E7%A0%81%E7%9A%84%E5%AD%98%E5%82%A8%E5%92%8C%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">Sudo密码的存储和自动调用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-25 21:02:07" itemprop="dateCreated datePublished" datetime="2025-03-25T21:02:07+08:00">2025-03-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="简介">简介</h2>
+<p><code>keysudo.sh</code>是一个用于安全存储和调用 sudo 密码的 Bash
+脚本工具，通过 GNOME Keyring
+实现敏感信息的加密存储。脚本设计目标是通过密钥环系统减少密码的明文暴露，同时解决
+sudo 验证失败导致的账户锁定问题。</p>
+<h2 id="主要功能">主要功能</h2>
+<ul>
+<li>🔐 自动将 sudo 密码存储至 GNOME Keyring</li>
+<li>🔄 支持 3 次验证尝试（可配置）</li>
+<li>⚠️ 智能检测系统环境（支持 Arch/RHEL 系）</li>
+<li>🔒 密码输入支持 systemd-ask-password 工具</li>
+<li>🛡️ 密码错误时自动重置 sudo 失败计数</li>
+<li>🚫 杜绝密码明文存储和传输</li>
+</ul>
+<h2 id="快速使用">快速使用</h2>
+<h3 id="基础用法">基础用法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取密码（自动触发存储流程）</span></span><br><span class="line">syndns_password=$(./keysudo.sh)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例（建议立即清理变量）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$syndns_password</span> | <span class="built_in">sudo</span> -S your_command</span><br><span class="line"><span class="built_in">unset</span> syndns_password</span><br></pre></td></tr></table></figure>
+<h3 id="安装依赖">安装依赖</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Arch 系系统</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S pambase libsecret</span><br><span class="line"></span><br><span class="line"><span class="comment"># RHEL/CentOS 系系统</span></span><br><span class="line"><span class="built_in">sudo</span> yum install pam libsecret-tools</span><br></pre></td></tr></table></figure>
+<h3 id="卸载密码">卸载密码</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secret-tool clear syndns_password_key syndns_password</span><br></pre></td></tr></table></figure>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="q1-密码无法存储到密钥环">Q1: 密码无法存储到密钥环</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查密钥环服务状态</span></span><br><span class="line">gnome-keyring-daemon --start</span><br><span class="line"><span class="comment"># 验证存储功能</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;test&quot;</span> | secret-tool store --label=<span class="string">&quot;Test&quot;</span> test_key test_value</span><br></pre></td></tr></table></figure>
+<h3 id="q2-sudo-被锁定后如何处理">Q2: sudo 被锁定后如何处理</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示当前失败计数（RHEL系）</span></span><br><span class="line"><span class="built_in">sudo</span> pam_tally2 --user <span class="variable">$USER</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 强制解锁所有用户（Arch系）</span></span><br><span class="line"><span class="built_in">sudo</span> faillock --reset</span><br></pre></td></tr></table></figure>
+<h2 id="程序源码">程序源码</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : keysudo.sh</span></span><br><span class="line"><span class="comment"># Author   : Zhen-Hua Feng(冯振华)</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># Date     : 2025-01-10 20:41</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2025--</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 定义标识符</span></span><br><span class="line">SYN_KEY=<span class="string">&quot;syndns_password&quot;</span>  <span class="comment"># 密钥环中的唯一标识符</span></span><br><span class="line">SYN_SUDO_NUM_MAX=<span class="string">&quot;3&quot;</span>       <span class="comment"># 确保这个数值与您系统中sudo验证次数一致，以免进入死循环</span></span><br><span class="line"><span class="comment"># 检测依赖，确保secret-tool正确安装</span></span><br><span class="line"><span class="keyword">if</span> ! <span class="built_in">command</span> -v secret-tool &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;错误：需要安装 secret-tool（包名：libsecret-tools）&quot;</span> &gt;&amp;2</span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 探测系统sud解锁程序</span></span><br><span class="line">SYN_RES_CMD=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">command</span> -v faillock &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    SYN_RES_CMD=<span class="string">&quot;faillock --user <span class="variable">$USER</span> --reset&quot;</span></span><br><span class="line"><span class="keyword">elif</span> <span class="built_in">command</span> -v pam_tally2 &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    SYN_RES_CMD=<span class="string">&quot;pam_tally2 --user <span class="variable">$USER</span> --reset&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;错误：未找到可用SUDO解锁工具 !&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;请安装：Arch系安装pambase，RHEL系安装pam&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="built_in">exit</span> 1  <span class="comment"># 正确终止脚本</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 存储密码到 GNOME Keyring</span></span><br><span class="line"><span class="comment"># 测试密码过程中存在sudo次数限制，如果sudo被锁定了，那本脚本在首次没有完成密码保存的工作后将处于锁定状态</span></span><br><span class="line"><span class="function"><span class="title">SYN_KEY_GET</span></span>()&#123;</span><br><span class="line">    <span class="built_in">local</span> SYN_AMT=<span class="string">&quot;<span class="variable">$SYN_SUDO_NUM_MAX</span>&quot;</span></span><br><span class="line">    <span class="keyword">while</span> [[ <span class="string">&quot;<span class="variable">$SYN_AMT</span>&quot;</span> -gt 0 ]]; <span class="keyword">do</span></span><br><span class="line">        SYN_KEY_X=$(secret-tool lookup syndns_password_key <span class="string">&quot;<span class="variable">$SYN_KEY</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> [[ -z <span class="string">&quot;<span class="variable">$SYN_KEY_X</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">unset</span> SYN_KEY_DATA</span><br><span class="line">            <span class="comment"># 使用专业密码输入工具</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">command</span> -v systemd-ask-password &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">                SYN_KEY_DATA=$(systemd-ask-password --<span class="built_in">timeout</span>=30 <span class="string">&quot;请求sudo密码:&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$0</span> 请求输入sudo密码(30秒超时):&quot;</span> &gt;&amp;2</span><br><span class="line">                <span class="comment"># 增加超时后的清理逻辑</span></span><br><span class="line">                <span class="keyword">if</span> ! <span class="built_in">read</span> -rs -t 30 SYN_KEY_DATA; <span class="keyword">then</span></span><br><span class="line">                    <span class="built_in">printf</span> <span class="string">&quot;\n输入超时，操作取消。\n&quot;</span> &gt;&amp;2</span><br><span class="line">                    <span class="built_in">unset</span> SYN_KEY_DATA</span><br><span class="line">                    <span class="built_in">exit</span> 1</span><br><span class="line">                <span class="keyword">fi</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            <span class="keyword">if</span> [[ -z <span class="string">&quot;<span class="variable">$SYN_KEY_DATA</span>&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">printf</span> <span class="string">&quot;\n密码不能为空，请重新输入。\n&quot;</span> &gt;&amp;2</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">printf</span> <span class="string">&quot;%s&quot;</span> <span class="string">&quot;<span class="variable">$SYN_KEY_DATA</span>&quot;</span> | secret-tool store --label=<span class="string">&quot;Syndns Password&quot;</span> syndns_password_key <span class="string">&quot;<span class="variable">$SYN_KEY</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">                    <span class="built_in">sudo</span> -k</span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">printf</span> <span class="string">&quot;%s&quot;</span> <span class="string">&quot;<span class="variable">$SYN_KEY_DATA</span>&quot;</span> | <span class="built_in">sudo</span> -S -v 2&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">                        <span class="comment"># 存储成功后立即清理</span></span><br><span class="line">                        <span class="built_in">unset</span> SYN_KEY_DATA</span><br><span class="line">                        <span class="built_in">printf</span> <span class="string">&quot;\n密码已成功存储到 GNOME Keyring 中。\n&quot;</span> &gt;&amp;2</span><br><span class="line">                        <span class="built_in">return</span> 0</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        SYN_AMT=$((SYN_AMT - <span class="number">1</span>))</span><br><span class="line">                        SYN_FAIL_RES <span class="string">&quot;警告：当前系统可能需要手动重置失败计数!&quot;</span></span><br><span class="line">                    <span class="keyword">fi</span></span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="built_in">printf</span> <span class="string">&quot;\n无法存储密码，请检查 GNOME Keyring 是否可用。\n&quot;</span> &gt;&amp;2</span><br><span class="line">                    <span class="built_in">exit</span> 1</span><br><span class="line">                <span class="keyword">fi</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">sudo</span> -k</span><br><span class="line">            <span class="keyword">if</span> ! <span class="built_in">printf</span> <span class="string">&quot;%s&quot;</span> <span class="string">&quot;<span class="variable">$SYN_KEY_X</span>&quot;</span> | <span class="built_in">sudo</span> -S -v 2&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">                SYN_AMT=$((SYN_AMT - <span class="number">1</span>))</span><br><span class="line">                secret-tool clear syndns_password_key <span class="string">&quot;<span class="variable">$SYN_KEY</span>&quot;</span> <span class="comment"># 清空密码，重新循环才能进入设置</span></span><br><span class="line">                SYN_FAIL_RES <span class="string">&quot;警告：当前系统可能需要手动重置失败计数!&quot;</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">return</span> 0</span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">printf</span> <span class="string">&quot;尝试次数已达上限，操作终止。\n&quot;</span> &gt;&amp;2</span><br><span class="line">    SYN_FAIL_RES <span class="string">&quot;请切换至ROOT权限解除锁定: <span class="variable">$SYN_RES_CMD</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">SYN_FAIL_RES</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> grep -qi <span class="string">&#x27;arch&#x27;</span> /etc/os-release 2&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">        faillock --user <span class="variable">$USER</span> --reset</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="comment"># 优先显示传入的定制化提示</span></span><br><span class="line">        <span class="built_in">printf</span> <span class="string">&quot;<span class="variable">$1</span> \n&quot;</span> &gt;&amp;2</span><br><span class="line">        <span class="comment"># 补充建议命令（带sudo前缀）</span></span><br><span class="line">        [ -n <span class="string">&quot;<span class="variable">$SYN_RES_CMD</span>&quot;</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;可尝试执行: sudo <span class="variable">$SYN_RES_CMD</span>&quot;</span> &gt;&amp;2</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">sudo</span> -k  <span class="comment"># 清除sudo缓存</span></span><br><span class="line">SYN_KEY_GET</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SYN_KEY_X</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/24/Paru%E7%9A%84%E5%A2%9E%E5%BC%BA%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%ACParia/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/24/Paru%E7%9A%84%E5%A2%9E%E5%BC%BA%E4%B8%8B%E8%BD%BD%E8%84%9A%E6%9C%ACParia/" class="post-title-link" itemprop="url">Paru的增强下载脚本Paria</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-24 14:17:13" itemprop="dateCreated datePublished" datetime="2025-03-24T14:17:13+08:00">2025-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ArchLinux是一款备受推崇的Linux发行版，以其滚动更新机制、最新软件包支持和高度可定制性而闻名。然而，在使用Paru从AUR（Arch
+User
+Repository）安装软件时，很多用户遇到了因依赖于GitHub上的资源无法访问而导致的问题。为了解决这一挑战，我最初开发了名为“<a
+href="./2024/11/06/Paru的增强下载脚本ParuAxel">ParuAxel.sh</a>”的脚本，以帮助用户更顺畅地安装软件。</p>
+<p>随着进一步的优化升级，我决定采用更为高效的多线程下载工具Aria2，并对脚本进行了全面改进。为了更好地反映这些变化，我将这个新版本的脚本重命名为“Paria.sh”。通过使用Aria2，“<a
+target="_blank" rel="noopener" href="https://github.com/fungzhenhua/script">Paria.sh</a>”不仅解决了由于网络限制导致的GitHub资源访问问题，还大幅提升了下载速度与稳定性，为用户提供了一个更加流畅可靠的软件包管理体验。</p>
+<p>“Paria.sh”专注于增强ArchLinux用户的AUR软件安装过程，使得即使面对复杂的依赖关系或网络波动，也能轻松完成软件的下载与安装。它体现了我对提升用户体验的持续努力，旨在让每一位ArchLinux用户都能享受更加高效便捷的软件管理过程。</p>
+<h1 id="paria.sh脚本及其配置">Paria.sh脚本及其配置</h1>
+<div class="tabs" id="paria"><ul class="nav-tabs"><li class="tab active"><a href="#paria-1">Paria.sh</a></li><li class="tab"><a href="#paria-2">makepkg.conf</a></li><li class="tab"><a href="#paria-3">install</a></li></ul><div class="tab-content"><div class="tab-pane active" id="paria-1"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program: Paria.sh</span></span><br><span class="line"><span class="comment"># Version: V2.0</span></span><br><span class="line"><span class="comment"># Author : Zhen-Hua Feng</span></span><br><span class="line"><span class="comment"># Email  : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># Date   : 2025-03-24 11:45</span></span><br><span class="line"><span class="comment"># Copyright (C) 2023-2025 feng &lt;feng@arch&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">GIT_DOMIN=`<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$2</span>&quot;</span> | <span class="built_in">cut</span> -f3 -d<span class="string">&#x27;/&#x27;</span>`;</span><br><span class="line">GIT_OTHER=`<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$2</span>&quot;</span> | <span class="built_in">cut</span> -f4- -d<span class="string">&#x27;/&#x27;</span>`;</span><br><span class="line">GIT_INIT=<span class="string">&quot;https://github.com/&quot;</span></span><br><span class="line">DNS_SERVERS=<span class="string">&quot;1.0.0.1,1.0.0.2,1.0.0.3&quot;</span></span><br><span class="line">GCF=/home/<span class="variable">$USER</span>/.gitconfig</span><br><span class="line">GIT_SIT=($(grep -oP <span class="string">&#x27;\[url\s+&quot;\Khttps://[^&quot;]+&#x27;</span> <span class="variable">$GCF</span>))</span><br><span class="line"><span class="function"><span class="title">mirror_available</span></span>() &#123;</span><br><span class="line">    <span class="built_in">local</span> url=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> curl -fsL --max-time 5 --<span class="built_in">head</span> <span class="string">&quot;<span class="variable">$url</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$GIT_DOMIN</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    <span class="string">&quot;github.com&quot;</span>)</span><br><span class="line">        GIT_URL=<span class="string">&quot;<span class="variable">$2</span>&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Download from mirror <span class="variable">$GIT_URL</span>&quot;</span>;</span><br><span class="line">        /usr/bin/aria2c --async-dns-server=<span class="string">&quot;<span class="variable">$DNS_SERVERS</span>&quot;</span> --<span class="built_in">split</span>=12 --max-connection-per-server=15 -k 1M --auto-file-renaming=<span class="literal">false</span> -o <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="string">&quot;<span class="variable">$GIT_URL</span>&quot;</span> ;</span><br><span class="line">        <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;[WARN] GitHub 原始地址下载失败，启动镜像检测...&quot;</span></span><br><span class="line">            <span class="keyword">if</span> [ -e <span class="variable">$GCF</span> ]; <span class="keyword">then</span></span><br><span class="line">                GIT_SIT=($(grep -oP <span class="string">&#x27;\[url\s+&quot;\Khttps://[^&quot;]+&#x27;</span> <span class="variable">$GCF</span>))</span><br><span class="line">                <span class="keyword">for</span> mirror <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;GIT_SIT[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">                    <span class="keyword">if</span> [[ <span class="string">&quot;<span class="variable">$&#123;mirror&#125;</span>&quot;</span> =~ <span class="string">&quot;/$&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">                        GIT_URL=<span class="string">&quot;<span class="variable">$&#123;mirror&#125;</span><span class="variable">$&#123;GIT_PATH&#125;</span>&quot;</span></span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        GIT_URL=<span class="string">&quot;<span class="variable">$&#123;mirror&#125;</span>/<span class="variable">$&#123;GIT_PATH&#125;</span>&quot;</span></span><br><span class="line">                    <span class="keyword">fi</span></span><br><span class="line">                    <span class="keyword">if</span> mirror_available <span class="string">&quot;<span class="variable">$&#123;GIT_URL&#125;</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">                        /usr/bin/aria2c --<span class="built_in">split</span>=12 --max-connection-per-server=15 -k 1M --auto-file-renaming=<span class="literal">false</span> -o <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="string">&quot;<span class="variable">$GIT_URL</span>&quot;</span> ;</span><br><span class="line">                        <span class="keyword">if</span> [[ $? -eq 0 ]]; <span class="keyword">then</span></span><br><span class="line">                            <span class="built_in">exit</span> 0  <span class="comment"># 下载成功则退出</span></span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            <span class="built_in">echo</span> <span class="string">&quot;[ERROR] 镜像下载失败: <span class="variable">$GIT_URL</span> (状态码: $?)&quot;</span> &gt;&amp;2</span><br><span class="line">                        <span class="keyword">fi</span></span><br><span class="line">                    <span class="keyword">fi</span></span><br><span class="line">                <span class="keyword">done</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            <span class="comment"># 所有镜像失败后直接退出（不回退 GitHub）</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;[FATAL] 所有下载尝试失败，请检查网络或镜像配置&quot;</span></span><br><span class="line">            <span class="built_in">exit</span> 1</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        /usr/bin/aria2c --<span class="built_in">split</span>=12 --max-connection-per-server=15 -k 1M --auto-file-renaming=<span class="literal">false</span> -o <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="string">&quot;<span class="variable">$2</span>&quot;</span> ;</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="paria-2"><figure class="highlight sh"><figcaption><span>/etc/makepkg.conf 中对应DLAGENTS部分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DLAGENTS=(<span class="string">&#x27;file::/usr/bin/curl -qgC - -o %o %u&#x27;</span></span><br><span class="line">          <span class="string">&#x27;ftp::/usr/bin/aria2c -s 15 -x 15 -k 1M --auto-file-renaming=false -o %o %u&#x27;</span></span><br><span class="line">          <span class="string">&#x27;http::/usr/bin/aria2c -s 15 -x 15 -k 1M --auto-file-renaming=false -o %o %u&#x27;</span></span><br><span class="line">          <span class="string">&#x27;https::/usr/bin/Paria %o %u&#x27;</span></span><br><span class="line">          <span class="string">&#x27;rsync::/usr/bin/rsync --no-motd -z %u %o&#x27;</span></span><br><span class="line">          <span class="string">&#x27;scp::/usr/bin/scp -C %u %o&#x27;</span>)</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="paria-3"><figure class="highlight sh"><figcaption><span>install.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 项目：install.sh</span></span><br><span class="line"><span class="comment"># 版本：V1.4</span></span><br><span class="line"><span class="comment"># Copyright (C) 2023 feng &lt;feng@arch&gt;</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S --needed --noconfirm aria &amp;&gt; /dev/null</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> ./makepkg.conf /etc/makepkg.conf</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> ./Paria.sh  /usr/bin/Paria</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> 755 /usr/bin/Paria</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Paria 安装成功，paru配置完毕 !! &quot;</span></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></div></div></div>
+<div class="note primary"><p>注意为了方便您的使用，请将上述三个脚本文件放置在同一个目录下，然后赋于执行权限，运行<code>./intsll.sh</code>即可完成安装。</p>
+</div>
+<h1 id="paruaxel-与-paria-功能对比">ParuAxel 与 Paria 功能对比</h1>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 34%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th>特性</th>
+<th>ParuAxel.sh (V1.4)</th>
+<th>Paria.sh (V2.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>下载工具</td>
+<td><code>curl</code>(单线)或<code>axel</code>(多线程)</td>
+<td><code>aria2c</code>（多线程，默认启用）</td>
+</tr>
+<tr>
+<td>镜像检测逻辑</td>
+<td>优先遍历镜像，失败后回退 GitHub</td>
+<td>先尝试原始地址，失败后遍历镜像，不自动回退</td>
+</tr>
+<tr>
+<td>URL 拼接处理</td>
+<td>简单拼接，可能产生双斜杠或路径错误</td>
+<td>检查结尾斜杠，确保路径拼接正确</td>
+</tr>
+<tr>
+<td>DNS 配置</td>
+<td>无</td>
+<td>自定义 DNS 服务器（Cloudflare）</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>简单回退，无详细日志</td>
+<td>详细错误分级（WARN/ERROR/FATAL），明确退出码</td>
+</tr>
+<tr>
+<td>镜像检测方法</td>
+<td><code>wget --spider</code></td>
+<td><code>curl --head</code></td>
+</tr>
+<tr>
+<td>代码结构</td>
+<td>字符串处理复杂，多次替换</td>
+<td>使用正则提取配置，逻辑更简洁</td>
+</tr>
+</tbody>
+</table>
+<h1 id="git克隆修改为ssh">Git克隆修改为SSH</h1>
+<p>由于在执行依赖安装时，有时候<code>Paru</code>会调用<code>git clone</code>
+命令，但是默认是从 <code>https://github.com</code>
+克隆仓库，而当它无法访问时可以尝试配置好<code>ssh</code>后采用<code>ssh</code>方法来克隆，于是全局修改<code>https://github.com</code>为<code>git@github.com:github.com</code>.</p>
+<figure class="highlight sh"><figcaption><span>~/.gitconfig</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[user]</span><br><span class="line">	email = YourEmail</span><br><span class="line">	name = YourName</span><br><span class="line">[url <span class="string">&quot;git@github.com:&quot;</span>]</span><br><span class="line">	insteadOf = https://github.com/</span><br><span class="line">[init]</span><br><span class="line">	defaultBranch = main</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/24/%E9%80%9A%E8%BF%87%E6%B5%8F%E8%A7%88%E5%99%A8%E7%99%BB%E5%BD%95%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/24/%E9%80%9A%E8%BF%87%E6%B5%8F%E8%A7%88%E5%99%A8%E7%99%BB%E5%BD%95%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">通过浏览器登录路由的方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-24 13:54:34" itemprop="dateCreated datePublished" datetime="2025-03-24T13:54:34+08:00">2025-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="通过浏览器登录路由的方法">通过浏览器登录路由的方法</h1>
+<ol type="1">
+<li><p><strong>确保连接</strong>：首先，确保你的设备（如电脑或手机）已经连接到你想要管理的网络。</p></li>
+<li><p><strong>打开浏览器</strong>：在你的设备上打开一个网页浏览器（如Chrome、Firefox等）。</p></li>
+<li><p><strong>输入IP地址</strong>：在浏览器的地址栏中输入图片中显示的默认路由IP地址
+<code>192.168.50.1</code>，然后按回车键。</p></li>
+<li><p><strong>登录界面</strong>：你会看到一个登录界面，要求你输入用户名和密码。这些信息通常可以在路由器的说明书上找到，或者使用默认的用户名和密码（如
+<code>admin/admin</code>）。如果你之前修改过这些信息，那么请输入你之前设置的用户名和密码。</p></li>
+<li><p><strong>进入管理界面</strong>：成功登录后，你将进入路由器的管理界面，在这里你可以进行各种设置，如更改无线网络名称（SSID）、设置密码、调整安全设置等。</p></li>
+</ol>
+<div class="note primary"><p>如果你不确定如何操作，建议参考路由器的用户手册或联系制造商的技术支持。其中第3步中的IP地址应当替换成你自己的电脑的默认网关。</p>
+</div>
+<h1 id="查询默认路由">查询默认路由</h1>
+<p>在不同操作系统中，可以通过图形界面（GUI）轻松查询默认路由（即默认网关）,
+具体操作步骤:</p>
+<ul>
+<li><strong>Windows</strong>：通过“网络和共享中心” → 当前连接 →
+“详细信息” 查看默认网关。</li>
+<li><strong>Linux</strong>：通过网络设置 → 当前连接 → IPv4 设置
+查看默认网关。</li>
+<li><strong>macOS</strong>：通过“网络”设置 → 当前连接 → “高级” →
+“TCP/IP” 查看路由器地址。</li>
+</ul>
+<p>通过这些图形界面操作，你可以轻松找到默认路由（即路由器的 IP
+地址）。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/19/Linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%EF%BC%9A%E6%B5%81%E8%A1%8C%E5%BA%A6%E6%98%9F%E7%BA%A7%E5%AF%B9%E6%AF%94%E4%B8%8E%E5%8C%85%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/19/Linux%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97%EF%BC%9A%E6%B5%81%E8%A1%8C%E5%BA%A6%E6%98%9F%E7%BA%A7%E5%AF%B9%E6%AF%94%E4%B8%8E%E5%8C%85%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/" class="post-title-link" itemprop="url">Linux发行版实战指南：流行度星级对比与包管理命令速查</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-19 15:09:58" itemprop="dateCreated datePublished" datetime="2025-03-19T15:09:58+08:00">2025-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="linux发行版的基本使用">Linux发行版的基本使用</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 40%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>流行程度</th>
+<th>安装命令</th>
+<th>删除命令（保留/删除配置）</th>
+<th>发行规则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://ubuntu.com">Ubuntu</a></strong></td>
+<td>★★★★★</td>
+<td><code>sudo apt install ...</code></td>
+<td><code>sudo apt remove ...</code>（✓）<br><code>sudo apt purge ...</code>（🗑️）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://www.debian.org">Debian</a></strong></td>
+<td>★★★★☆</td>
+<td><code>sudo apt install ...</code></td>
+<td><code>sudo apt remove ...</code>（✓）<br><code>sudo apt purge ...</code>（🗑️）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://getfedora.org">Fedora</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo dnf install ...</code></td>
+<td><code>sudo dnf remove ...</code>（✓）<br>删除配置 ❗（需手动）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://archlinux.org">Arch Linux</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo pacman -S ...</code></td>
+<td><code>sudo pacman -R ...</code>（✓）<br><code>sudo pacman -Rns ...</code>（🗑️）</td>
+<td>✅（滚动）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://linuxmint.com">Linux Mint</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo apt install ...</code></td>
+<td><code>sudo apt remove ...</code>（✓）<br><code>sudo apt purge ...</code>（🗑️）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://www.centos.org">CentOS</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo dnf install ...</code></td>
+<td><code>sudo dnf remove ...</code>（✓）<br>删除配置 ❗（需手动）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://manjaro.org">Manjaro</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo pacman -S ...</code></td>
+<td><code>sudo pacman -R ...</code>（✓）<br><code>sudo pacman -Rns ...</code>（🗑️）</td>
+<td>✅（滚动）</td>
+</tr>
+<tr>
+<td><strong><a
+target="_blank" rel="noopener" href="https://www.opensuse.org">openSUSE</a></strong></td>
+<td>★★☆☆☆</td>
+<td><code>sudo zypper install ...</code></td>
+<td><code>sudo zypper remove ...</code>（✓）<br>删除配置
+❗（需手动）</td>
+<td>❌/✅</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://www.redhat.com">Red Hat</a></strong></td>
+<td>★★★☆☆</td>
+<td><code>sudo yum install ...</code></td>
+<td><code>sudo yum remove ...</code>（✓）<br>删除配置 ❗（需手动）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://www.kali.org">Kali Linux</a></strong></td>
+<td>★★☆☆☆</td>
+<td><code>sudo apt install ...</code></td>
+<td><code>sudo apt remove ...</code>（✓）<br><code>sudo apt purge ...</code>（🗑️）</td>
+<td>❌（定期）</td>
+</tr>
+<tr>
+<td><strong><a target="_blank" rel="noopener" href="https://voidlinux.org">Void Linux</a></strong></td>
+<td>★★☆☆☆</td>
+<td><code>sudo xbps-install ...</code></td>
+<td><code>sudo xbps-remove ...</code>（✓）<br>删除配置 ❗（需手动）</td>
+<td>✅（滚动）</td>
+</tr>
+</tbody>
+</table>
+<div class="note primary"><p>注意：<strong>openSUSE</strong>
+分为Leap版定期和Tumbleweed版滚动）</p>
+</div>
+<h1
+id="linux发行版性能对比截至2024年">Linux发行版性能对比（截至2024年）</h1>
+<h2 id="一通用性能基于amd锐龙9-9950x">一、通用性能（基于AMD锐龙9
+9950X）</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear Linux</td>
+<td>★★★★★</td>
+<td>英特尔深度优化，性能提升最高16%，适合高性能计算和服务器场景。</td>
+</tr>
+<tr>
+<td>CachyOS</td>
+<td>★★★★☆</td>
+<td>轻量快速，基于Arch Linux，适合现代硬件和桌面用户。</td>
+</tr>
+<tr>
+<td>Arch Linux</td>
+<td>★★★★☆</td>
+<td>滚动更新，硬件兼容性好，性能接近前沿但需手动优化。</td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td>★★★☆☆</td>
+<td>内核前沿但稳定性稍弱，适合开发测试。</td>
+</tr>
+<tr>
+<td>Ubuntu 24.10</td>
+<td>★★★☆☆</td>
+<td>非LTS版本性能较好，但Snaps可能影响部分应用。</td>
+</tr>
+<tr>
+<td>Ubuntu LTS</td>
+<td>★★☆☆☆</td>
+<td>稳定性最佳但性能最弱，适合长期稳定需求。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="二服务器性能企业级场景">二、服务器性能（企业级场景）</h2>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rocky Linux</td>
+<td>★★★★★</td>
+<td>RHEL兼容，稳定性与性能最佳，适合企业级服务器和云计算。</td>
+</tr>
+<tr>
+<td>AlmaLinux</td>
+<td>★★★★★</td>
+<td>与Rocky Linux同级，社区驱动，性能与稳定性并重。</td>
+</tr>
+<tr>
+<td>Clear Linux</td>
+<td>★★★★☆</td>
+<td>适合高性能计算任务，但需特定硬件优化。</td>
+</tr>
+<tr>
+<td>Debian</td>
+<td>★★★☆☆</td>
+<td>极稳定但软件较旧，适合长期运行服务。</td>
+</tr>
+<tr>
+<td>Ubuntu LTS</td>
+<td>★★★☆☆</td>
+<td>社区支持强，适合Web服务器和通用企业场景。</td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td>★★☆☆☆</td>
+<td>开发测试用，不适合长期生产环境。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="三桌面开发性能">三、桌面/开发性能</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CachyOS</td>
+<td>★★★★☆</td>
+<td>启动快、低延迟，适合游戏和日常使用。</td>
+</tr>
+<tr>
+<td>Arch Linux</td>
+<td>★★★★☆</td>
+<td>滚动更新，硬件支持最佳，适合开发者。</td>
+</tr>
+<tr>
+<td>Manjaro</td>
+<td>★★★★☆</td>
+<td>基于Arch，新手友好，性能接近Arch但更稳定。</td>
+</tr>
+<tr>
+<td>Ubuntu LTS</td>
+<td>★★★☆☆</td>
+<td>平衡性最佳，新手首选，但Snaps可能影响部分应用。</td>
+</tr>
+<tr>
+<td>Fedora</td>
+<td>★★★☆☆</td>
+<td>开发工具链前沿，适合测试新功能。</td>
+</tr>
+<tr>
+<td>Kali Linux</td>
+<td>★★☆☆☆</td>
+<td>安全工具优化，但非通用场景性能无优势。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="四其他关键性能维度">四、其他关键性能维度</h2>
+<h3 id="硬件兼容性">硬件兼容性</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arch Linux</td>
+<td>★★★★★</td>
+<td>滚动更新，支持最新硬件驱动。</td>
+</tr>
+<tr>
+<td>Clear Linux</td>
+<td>★★★★☆</td>
+<td>英特尔深度优化，兼容性极佳。</td>
+</tr>
+<tr>
+<td>Ubuntu LTS</td>
+<td>★★★☆☆</td>
+<td>社区支持强，但旧版本可能兼容性不足。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="轻量级性能">轻量级性能</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CachyOS</td>
+<td>★★★★☆</td>
+<td>系统轻量，资源占用低。</td>
+</tr>
+<tr>
+<td>MX Linux</td>
+<td>★★★★☆</td>
+<td>基于Debian，适合老旧硬件。</td>
+</tr>
+<tr>
+<td>veket</td>
+<td>★★★☆☆</td>
+<td>资源高效，针对老旧计算机优化。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安全性能">安全性能</h3>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>发行版</th>
+<th>星级（★）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kali Linux</td>
+<td>★★★★☆</td>
+<td>专为渗透测试设计，安全工具高度优化。</td>
+</tr>
+<tr>
+<td>Debian</td>
+<td>★★★☆☆</td>
+<td>源代码高度审查，适合安全敏感场景。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="总结建议">总结建议</h2>
+<ul>
+<li><strong>极致性能</strong>：Clear Linux（x86优化最佳）或
+CachyOS（轻量快速）。<br />
+</li>
+<li><strong>通用场景</strong>：Ubuntu LTS（新手首选）或
+Manjaro（Arch友好版）。<br />
+</li>
+<li><strong>服务器</strong>：Rocky
+Linux/AlmaLinux（RHEL兼容，稳定性最佳）。<br />
+</li>
+<li><strong>开发者</strong>：Arch Linux（滚动更新）或
+Fedora（前沿技术）。<br />
+</li>
+<li><strong>老旧硬件</strong>：MX Linux 或 veket（资源高效）。</li>
+</ul>
+<blockquote>
+<p><strong>星标说明</strong>：<br />
+★★★★★：性能最优，推荐首选；<br />
+★★★★☆：性能优秀，适合特定场景；<br />
+★★★☆☆：性能中等，平衡性较好；<br />
+★★☆☆☆：性能较弱，需谨慎选择。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/19/Linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/19/Linux%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%E7%BB%88%E6%9E%81%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Linux系统信息查询终极指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-19 14:20:39" itemprop="dateCreated datePublished" datetime="2025-03-19T14:20:39+08:00">2025-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Linux环境中，了解如何有效地查询和展示系统信息是非常重要的。无论是为了调试、监控还是单纯地想了解更多关于你正在使用的硬件和软件的信息，下面列出的一系列命令和工具都将对你有所帮助。</p>
+<hr />
+<p><strong>符号说明</strong>：✅需要安装，❌无需安装，🔑需sudo权限，🔓无需sudo权限。</p>
+<hr />
+<h2 id="系统级硬件信息"><strong>系统级硬件信息</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lshw</code></td>
+<td>硬件树状信息（支持过滤、XML输出）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>inxi</code></td>
+<td>一键查询系统/硬件综合信息</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>dmidecode</code></td>
+<td>主板/BIOS详细信息（需root权限）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>neofetch</code></td>
+<td>图形化系统信息（支持主题）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>screenfetch</code></td>
+<td>ASCII艺术系统信息</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>fastfetch</code></td>
+<td>高性能跨平台系统信息工具</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>hyfetch</code></td>
+<td>支持LGBTQ+主题的系统信息工具</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>sysinfo</code></td>
+<td>简单轻量级系统信息工具</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cpu信息"><strong>CPU信息</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lscpu</code></td>
+<td>CPU架构/核心/缓存信息</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>/proc/cpuinfo</code></td>
+<td>CPU原始参数（型号/频率/物理核心）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>cpufreq-info</code></td>
+<td>CPU频率监控（需<code>cpufrequtils</code>）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="存储设备"><strong>存储设备</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lsblk</code></td>
+<td>块设备列表（含挂载点/UUID）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>fdisk -l</code></td>
+<td>磁盘分区表（MBR/GPT支持）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>parted -l</code></td>
+<td>分区详细信息（GPT/MBR支持）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>smartctl</code></td>
+<td>硬盘SMART状态（需驱动）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>df</code></td>
+<td>文件系统空间使用统计</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>du</code></td>
+<td>目录/文件空间分析</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="网络信息"><strong>网络信息</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip</code></td>
+<td>网络接口/IP/路由表</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>ethtool</code></td>
+<td>网卡参数（速度/驱动/链路状态）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>lspci</code></td>
+<td>PCI设备列表（含网卡）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>netstat</code></td>
+<td>网络连接/路由统计</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>套接字连接状态</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>curl</code></td>
+<td>网络资源下载（HTTP/HTTPS/FTP）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="gpu显卡信息"><strong>GPU/显卡信息</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lspci</code></td>
+<td>显卡PCI信息（型号/厂商）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>nvidia-smi</code></td>
+<td>NVIDIA显卡状态（温度/显存/功耗）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>glxinfo</code></td>
+<td>OpenGL/显卡驱动信息</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>radeontop</code></td>
+<td>AMD GPU实时监控</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="主板和bios"><strong>主板和BIOS</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dmidecode</code></td>
+<td>BIOS/主板硬件信息</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>lshw</code></td>
+<td>主板芯片组/总线信息</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="usb设备"><strong>USB设备</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lsusb</code></td>
+<td>USB设备列表（厂商/速度）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>usb-devices</code></td>
+<td>USB设备详细信息（路径/驱动）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="温度和传感器"><strong>温度和传感器</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensors</code></td>
+<td>CPU/GPU温度/风扇/电压监控</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔑</td>
+</tr>
+<tr>
+<td><code>htop</code></td>
+<td>实时资源监控（含温度）</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="其他设备"><strong>其他设备</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lspci -v</code></td>
+<td>详细PCI设备信息（驱动/配置）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>dmesg</code></td>
+<td>系统启动日志（硬件检测/错误）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="系统版本查询"><strong>系统版本查询</strong></h2>
+<table>
+<thead>
+<tr>
+<th>命令/工具</th>
+<th>功能描述</th>
+<th style="text-align: center;">安装</th>
+<th style="text-align: center;">Sudo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lsb_release -a</code></td>
+<td>发行版信息（名称/版本/代号）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>cat /etc/os-release</code></td>
+<td>系统版本详细信息（文件）</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+<tr>
+<td><code>uname -a</code></td>
+<td>内核版本及系统信息</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">🔓</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="关键说明"><strong>关键说明</strong></h3>
+<ol type="1">
+<li><strong>Fetch类工具</strong>：
+<ul>
+<li><strong><code>fastfetch</code></strong>：高性能跨平台工具，推荐优先使用。</li>
+<li><strong><code>hyfetch</code></strong>：支持主题定制，适合个性化需求。</li>
+<li><strong><code>neofetch</code>/<code>screenfetch</code></strong>：经典工具，但前者已停止维护。</li>
+</ul></li>
+<li><strong>专业检测工具</strong>：
+<ul>
+<li><strong><code>hwinfo</code></strong>：详细硬件检测（需安装，支持传感器）。</li>
+<li><strong><code>lshw</code></strong>：综合硬件树状信息（支持XML/HTML输出）。</li>
+<li><strong><code>dmidecode</code></strong>：BIOS/主板深度信息（需root权限）。</li>
+</ul></li>
+<li><strong>网络与存储</strong>：
+<ul>
+<li><strong><code>ethtool</code></strong>：网卡参数调整（需sudo）。</li>
+<li><strong><code>smartctl</code></strong>：硬盘健康状态检测（需<code>smartmontools</code>）。</li>
+</ul></li>
+<li><strong>系统版本</strong>：
+<ul>
+<li><strong><code>/etc/os-release</code></strong>：标准系统版本文件，跨发行版通用。</li>
+</ul></li>
+</ol>
+<hr />
+<h3 id="安装建议"><strong>安装建议</strong></h3>
+<ul>
+<li><strong>基础工具</strong>：<code>sudo pacman -S lshw dmidecode neofetch inxi</code></li>
+<li><strong>进阶工具</strong>：<code>sudo pacman -S hwinfo smartmontools nvidia-smi</code></li>
+<li><strong>Fetch类</strong>：<code>sudo pacman -S fastfetch hyfetch</code></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%BC%98%E5%8C%96%E5%A2%9E%E5%BC%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E7%A8%8B%E5%BA%8F%E4%BC%98%E5%8C%96%E5%A2%9E%E5%BC%BA/" class="post-title-link" itemprop="url">蒙特卡洛方法计算圆周率的程序优化增强</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-18 16:19:31" itemprop="dateCreated datePublished" datetime="2025-03-18T16:19:31+08:00">2025-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>关于蒙特卡洛方法，我已经连续发布了三篇博文：</p>
+<ul>
+<li><a
+href="./2025/02/18/使用蒙特卡洛方法计算圆周率">使用蒙特卡洛方法计算圆周率</a></li>
+<li><a
+href="./2025/03/18/蒙特卡洛方法计算圆周率：积分公式选择的方差分析">蒙特卡洛方法计算圆周率：积分公式选择的方差分析</a></li>
+<li><a
+href="./2025/03/18/蒙特卡洛方法计算圆周率的一个高精度公式">蒙特卡洛方法计算圆周率的一个高精度公式</a></li>
+</ul>
+<p>在第一篇文章中我们探讨了蒙特卡洛方法使用面积法计算圆周率的经典案例，对MC方法有了一个初步的认识，在第二篇文章中我们在MC方法中使用不同的公式计算圆周率，得到了影响MC方法精度的条件，在第三篇文章中根据第二篇文章得到的条件实现了高精度计算圆周率的一个公式，从而验证了提高MC精度的条件。本文进一步，基于第三篇文章，在程序实现上将写死的程序代码以循环程序自动化。同时，引入<code>mpmath</code>库，实现迭代求根式的精度拓展，但是仍然使用<code>numpy</code>进行随机采样。</p>
+<h1 id="python3-代码实现">Python3 代码实现</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> mpmath <span class="keyword">import</span> mp, mpf</span><br><span class="line"><span class="comment"># 修改为 40 位十进制精度</span></span><br><span class="line">mp.dps = <span class="number">40</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数f(x)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>-x**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Monte Carlo方法求积分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integral</span>(<span class="params">f, m, b, num_samples=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="comment"># 根据半角公式用m设定嵌套次数</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> count &lt; m:</span><br><span class="line">        b = mp.sqrt(<span class="number">1</span>/<span class="number">2</span>-mp.sqrt(<span class="number">1</span>-b**<span class="number">2</span>)/<span class="number">2</span>)</span><br><span class="line">        count +=<span class="number">1</span></span><br><span class="line">    <span class="comment"># 先用半角公式根据b计算a</span></span><br><span class="line">    a = mp.sqrt(<span class="number">1</span>/<span class="number">2</span>-mp.sqrt(<span class="number">1</span>-b**<span class="number">2</span>)/<span class="number">2</span>)</span><br><span class="line">    <span class="comment"># 在区间[a, b]内随机生成num_samples个样本点</span></span><br><span class="line">    samples = np.random.uniform(a, b, num_samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算这些样本点对应的函数值</span></span><br><span class="line">    y_values = f(samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 根据平均高度估计积分值，乘以区间的宽度得到近似面积</span></span><br><span class="line">    integral_estimate = <span class="number">2</span>**(m + <span class="number">3</span>)*(b - a) * np.mean(y_values)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> integral_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Monte Carlo方法估计积分</span></span><br><span class="line">estimated_integral = monte_carlo_integral(f,<span class="number">42</span>, mp.sqrt(<span class="number">2</span>)/<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Pi&quot;</span>, estimated_integral)</span><br></pre></td></tr></table></figure>
+<h1 id="计算结果">计算结果</h1>
+<ul>
+<li>运行程序得到的结果：
+<code>3.14159265358979313874736836854190094502</code></li>
+<li>资源消耗情况：
+<code>0.08s user 0.02s system 98% cpu 0.099 total</code></li>
+<li>按现有资料<span
+class="math inline">\(\pi\)</span>的前<code>20</code>位精确结果为<code>3.1415926535 8979323846</code>,
+对比可知我们的程序可以精确到小数点后<code>15</code>位,
+用时仅<code>0.08s</code>, 所以这是一个不错的结果。</li>
+</ul>
+<h1 id="优化的细节">优化的细节</h1>
+<ul>
+<li>动态精度控制：通过循环，使用参数<code>m</code>灵活调整精度(如<code>m=42</code>时，区间极小，方差极低）。</li>
+<li>高效性：样本需求低(<code>1000</code>), 计算速度快。</li>
+<li>可拓展性：增加<code>m</code>可进一步提高精度，代码结构清晰，易于维护。</li>
+</ul>
+<div class="note primary"><p>在这四篇博客中，我们从初步了解蒙特卡罗（MC）方法开始，逐步进行优化改进，展示了三种能够计算圆周率的程序。其中，本文介绍的第三个程序以其高效性和灵活性脱颖而出，特别适合需要高精度结果并希望简化手动计算的场景。然而，值得注意的是，m的取值并非越大越好，因为随着m增大，随机点的取值区间(a,b)会减少，加之本程序使用了通常采用双精度浮点数的<code>np.random.uniform</code>
+进行随机取样，为了确保精度，m需要保持在一个适当的范围内。此外，<code>np.mean</code>的使用也限制了精度的进一步提升。如果想要进一步提高利用蒙特卡罗方法计算圆周率的精度，可以从调整m的取值和改进均值计算方式这两个方面入手。尽管如此，蒙特卡罗方法的核心价值在于在一定精度下快速提供那些常规方法难以计算或计算量极大的问题的结果，因此本文在这些考量基础上未对精度做进一步优化，但指明了可能的改进路径，以期与读者共同探讨技术细节。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E4%B8%80%E4%B8%AA%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/03/18/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E4%B8%80%E4%B8%AA%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">蒙特卡洛方法计算圆周率的一个高精度公式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-03-18 01:01:30" itemprop="dateCreated datePublished" datetime="2025-03-18T01:01:30+08:00">2025-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过文章<a
+href="./2025/03/18/蒙特卡洛方法计算圆周率：积分公式选择的方差分析">蒙特卡洛方法计算圆周率：积分公式选择的方差分析</a>，
+我们可以得到提高蒙特卡洛方法计算精度的方法：</p>
+<ol type="1">
+<li>确保函数的平滑性，这样可以减少方差，于是每次随机点都更加接近平均值。</li>
+<li>减少积分区间，这样同样的随机点数，采样密度更高，有效点更多，所以误差更小。</li>
+</ol>
+<h1 id="半角公式的选择">半角公式的选择</h1>
+<p>本文就来验证这两条规则，于是仍然选择反正弦三角函数，但是使用半角公式不断减小积分区间,
+于是我们选择了<span
+class="math inline">\(\frac{\pi}{24576}\)</span>作为积分值，即取积分:</p>
+<p><span class="math display">\[
+\pi=24576\int_0^b\frac{1}{\sqrt{1-x^2}}dx\]</span></p>
+<p>其中<span class="math inline">\(b\)</span>为</p>
+<p><span class="math display">\[
+b=\frac{1}{2}\sqrt{2-\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{2+\sqrt{3}}}}}}}}}}}}
+\]</span></p>
+<h1 id="python代码实现">Python代码实现</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数f(x)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>-x**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Monte Carlo方法求积分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integral</span>(<span class="params">f, a, b, num_samples=<span class="number">1000</span></span>):</span><br><span class="line">    <span class="comment"># 在区间[a, b]内随机生成num_samples个样本点</span></span><br><span class="line">    samples = np.random.uniform(a, b, num_samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算这些样本点对应的函数值</span></span><br><span class="line">    y_values = f(samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 根据平均高度估计积分值，乘以区间的宽度得到近似面积</span></span><br><span class="line">    integral_estimate = (b - a) * np.mean(y_values)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">24576</span>*integral_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Monte Carlo方法估计积分</span></span><br><span class="line">a, b = <span class="number">0</span>, np.sqrt(<span class="number">2</span>-np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">2</span>+np.sqrt(<span class="number">3</span>)))))))))))))/<span class="number">2</span>  <span class="comment"># 定义积分区间</span></span><br><span class="line">estimated_integral = monte_carlo_integral(f, a, b)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Pi&quot;</span>, estimated_integral)</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>上述程序计算了<span
+class="math inline">\(\frac{\pi}{6}\)</span>的<span
+class="math inline">\(\frac{1}{2^{12}}\)</span>,
+随机点只取了<code>1000</code>, 运行结果为
+<code>3.1415926538918395</code>,
+这个精度已经相当高了，计算量也急剧下降。所以对比之前的文章我们通过半角公式降低的计算量的同时，有效提高了计算精度。这个例子说明，对于同一个物理或数学问题，设计不同的算法，给出不同的公式是相当重要的事情。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -572,902 +2256,8 @@ class="math inline">\(x \to 1\)</span>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/14/libreoffice%E5%9B%BE%E6%A0%87%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/14/libreoffice%E5%9B%BE%E6%A0%87%E6%A8%A1%E7%B3%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">libreoffice图标模糊的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-14 13:09:16" itemprop="dateCreated datePublished" datetime="2025-03-14T13:09:16+08:00">2025-03-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>LibreOffice是一款开源的办公软件套件，能够提供文字处理、电子表格、演示文稿、绘图、数据库等多种功能，适用于Windows、MacOS以及Linux等多种操作系统。然而我在ArchLinux使用LibreOffice时遇到一些问题，本文记录这些问题的解决方案。</p>
-<h2 id="取消表格选中时高对比度">取消表格选中时高对比度</h2>
-<p>2025年03月14日星期五阴北京市, 当安装好<code>LibreOffice</code>,
-默认开启了高对比度，这导致每次选中表格的单元格时都是<code>黑色</code>的，相当不雅观。解决方法为：<code>工具</code>→<code>选项</code>→<code>LibreOffice</code>→<code>无障碍辅助</code>→<code>高对比度</code>→<code>禁用</code>.</p>
-<h2 id="工具栏图标模糊的解决方法">工具栏图标模糊的解决方法</h2>
-<p>2025年03月14日星期五阴北京市,
-在<code>4k</code>显示器使用<code>ArchLinux</code>系统，<code>LibreOffice</code>默认开启的工具栏图标不是<code>svg</code>格式，这导致了工具栏图标模糊，解决方法为：<code>工具</code>→<code>选项</code>→<code>LibreOffice</code>→<code>视图</code>→<code>主题</code>→<code>选择任何一款svg图标</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/13/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%E4%B8%AD%E7%9A%84Lagrange%E4%BD%99%E9%A1%B9%E5%92%8CPeano%E4%BD%99%E9%A1%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/13/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%E4%B8%AD%E7%9A%84Lagrange%E4%BD%99%E9%A1%B9%E5%92%8CPeano%E4%BD%99%E9%A1%B9/" class="post-title-link" itemprop="url">泰勒展开中的Lagrange余项和Peano余项</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-13 12:04:13" itemprop="dateCreated datePublished" datetime="2025-03-13T12:04:13+08:00">2025-03-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在泰勒展开中，余项的形式决定了展开式的精度和适用范围。拉格朗日余项（Lagrange
-Remainder）和皮亚诺余项（Peano
-Remainder）是两种最常见的余项类型，它们的核心区别在于对误差的描述方式和无穷小性的要求。本文将通过表达式、性质、对比和例子详细分析两者的异同。</p>
-<hr />
-<h2 id="拉格朗日余项lagrange-remainder">1. 拉格朗日余项（Lagrange
-Remainder）</h2>
-<h3 id="表达式">表达式</h3>
-<p>对于函数 $ y(x) $ 在 $ x_0 $ 处的 <strong>$ n $
-阶泰勒展开</strong>，拉格朗日余项的形式为： <span
-class="math display">\[
-R_n(x) = \frac{y^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}
-\]</span> 其中，$ $ 是介于 $ x_0 $ 和 $ x $ 之间的某个点。</p>
-<h3 id="性质">性质</h3>
-<ul>
-<li><strong>余项的无穷小性</strong>： 当 $ x_0$ 时，若 $ y^{(n+1)}(x) $
-在 $ x_0 $ 附近有界，则余项 $ R_n(x) $
-趋于零；否则余项可能不趋于零。</li>
-<li><strong>误差描述</strong>：
-提供定量的误差估计，例如明确给出余项的表达式和依赖的高阶导数值。</li>
-<li><strong>导数要求</strong>： 需要函数 $ y(x) $ 在 $ x_0 $ 处具有
-<strong>$ n+1 $ 阶连续导数</strong>。</li>
-</ul>
-<h3 id="例子">例子</h3>
-<p>以 $ y(x) = e^x $ 在 $ x_0 = 0 $ 处的二阶泰勒展开为例： <span
-class="math display">\[
-e^x = 1 + x + \frac{x^2}{2} + \frac{e^\xi}{6}x^3 \quad (\xi \text{ 介于
-} 0 \text{ 和 } x \text{ 之间})
-\]</span> 余项 $ x^3 $ 的大小取决于 $ $ 的值。当 $ x $ 时，$
-$，余项趋于零；但对固定 $ x $，余项不一定无穷小。</p>
-<hr />
-<h2 id="皮亚诺余项peano-remainder">2. 皮亚诺余项（Peano Remainder）</h2>
-<h3 id="表达式-1">表达式</h3>
-<p>对于 $ n $ 阶泰勒展开，皮亚诺余项的形式为： <span
-class="math display">\[
-R_n(x) = o\left((x - x_0)^n\right) \quad \text{当} \ x \to x_0
-\]</span> 符号 $ o(...) $ 表示余项是比 $ (x - x_0)^n $
-<strong>更高阶的无穷小</strong>。</p>
-<h3 id="性质-1">性质</h3>
-<ul>
-<li><strong>余项的无穷小性</strong>：<br />
-强制要求余项满足： <span class="math display">\[
-\lim_{x \to x_0} \frac{R_n(x)}{(x - x_0)^n} = 0
-\]</span> 即余项必须比展开式的最后一项 $ (x - x_0)^n $
-更快趋近于零。</li>
-<li><strong>误差描述</strong>：<br />
-仅提供定性描述，强调余项的高阶无穷小性质，不涉及具体数值估计。</li>
-<li><strong>导数要求</strong>：<br />
-仅需函数 $ y(x) $ 在 $ x_0 $ 处存在 ​<strong>$ n $
-阶导数</strong>，无需更高阶导数连续。</li>
-</ul>
-<h3 id="例子-1">例子</h3>
-<p>以 $ y(x) = e^x $ 在 $ x_0 = 0 $ 处的二阶泰勒展开为例： <span
-class="math display">\[
-e^x = 1 + x + \frac{x^2}{2} + o(x^2) \quad (x \to 0)
-\]</span> 余项 $ o(x^2) $ 仅表明当 <span class="math inline">\(x \to
-0\)</span> 时，余项比 $ x^2 $ 更快趋近于零，但不提供具体表达式。</p>
-<hr />
-<h2 id="关键区别对比">关键区别对比</h2>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 37%" />
-<col style="width: 37%" />
-</colgroup>
-<thead>
-<tr>
-<th><strong>性质</strong></th>
-<th><strong>拉格朗日余项</strong></th>
-<th><strong>皮亚诺余项</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>余项是否无穷小</strong></td>
-<td>不一定，取决于高阶导数的有界性</td>
-<td>必须无穷小（定义要求）</td>
-</tr>
-<tr>
-<td><strong>误差描述</strong></td>
-<td>定量估计（具体数值）</td>
-<td>定性描述（仅高阶无穷小）</td>
-</tr>
-<tr>
-<td><strong>导数要求</strong></td>
-<td>需要 $ y^{(n+1)}(x) $ 存在且连续</td>
-<td>只需 $ y^{(n)}(x) $ 在 $ x_0 $ 处存在</td>
-</tr>
-<tr>
-<td><strong>适用场景</strong></td>
-<td>需要误差范围的实际问题</td>
-<td>理论分析，强调局部逼近性质</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="结论">结论</h2>
-<ol type="1">
-<li><strong>拉格朗日余项</strong>：
-<ul>
-<li>适用于需要定量误差估计的场景（如工程计算）。<br />
-</li>
-<li>余项的无穷小性依赖于高阶导数的有界性，当 <span
-class="math inline">\(x \to x_0\)</span> 且导数有界时，余项趋于零。</li>
-</ul></li>
-<li><strong>皮亚诺余项</strong>：
-<ul>
-<li>适用于理论分析，强调函数在局部的高阶逼近性质。<br />
-</li>
-<li>强制余项为高阶无穷小，无需具体计算高阶导数的值。</li>
-</ul></li>
-</ol>
-<p>两种余项的共同点是当 <span class="math inline">\(x \to x_0\)</span>
-时，余项均趋于零，但皮亚诺余项对无穷小性的要求更严格，且不依赖高阶导数的连续性。</p>
-<hr />
-<p><strong>延伸思考</strong>：
-在实际应用中，若函数的高阶导数难以计算或无界（例如 $ y(x) = x^{5/2} $ 在
-$ x=0 $ 处的三阶导数不存在），皮亚诺余项可能是唯一可行的选择。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/06/Gnome3%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/06/Gnome3%E6%98%BE%E7%A4%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/" class="post-title-link" itemprop="url">Gnome3显示桌面图标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-06 10:59:38" itemprop="dateCreated datePublished" datetime="2025-03-06T10:59:38+08:00">2025-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="gtk4-desktop-icons-ng-ding-简介">Gtk4 Desktop Icons NG (DING)
-简介</h2>
-<p><code>Gtk4 Desktop Icons NG (DING)</code> 是一个GNOME
-Shell扩展，旨在为使用GTK4的GNOME桌面环境提供增强的桌面图标管理功能。这个扩展是对原有支持GTK3的<code>Desktop Icons NG</code>的一个更新版本，它带来了对GTK4的支持，并引入了一系列改进和新特性，以提升用户体验。</p>
-<p><img src="https://extensions.gnome.org/extension-data/screenshots/screenshot_5263_jRdjQyF.png" alt="Gtk4 Desktop Icons NG" style="width:40%;"></p>
-<h2 id="主要特点包括">主要特点包括：</h2>
-<ul>
-<li><p><strong>灵活的图标布局</strong>：图标可以自由放置在桌面上任何位置，或者选择对齐到网格，方便用户根据个人喜好组织桌面。</p></li>
-<li><p><strong>桌面链接创建</strong>：允许用户直接在桌面上创建文件或文件夹的快捷方式，便于快速访问重要资源。</p></li>
-<li><p><strong>GSconnect集成</strong>：通过与GSconnect的集成，用户可以直接从桌面发送文件到连接的设备（如手机），极大地提高了跨设备文件传输的便捷性。</p></li>
-<li><p><strong>拖放支持</strong>：支持将文件拖放到Dock、Dash上，或反向操作，即从Dock、Dash拖放到桌面上，增强了操作灵活性。</p></li>
-<li><p><strong>现代化的代码库</strong>：采用了更新的技术栈，包括移植到ESM模块和使用Gio菜单，确保了更好的性能和更高的稳定性。所有翻译工作都在Weblate平台上进行，确保多语言支持的质量。</p></li>
-<li><p><strong>异步函数</strong>：尽可能采用异步处理的方式实现各种功能，提升了响应速度和整体性能。</p></li>
-<li><p><strong>兼容性</strong>：支持Gnome
-45及更高版本，确保用户可以在最新的GNOME环境中享受这些改进。</p></li>
-</ul>
-<p>总的来说，<code>Gtk4 Desktop Icons NG (DING)</code>
-提供了一个更加现代化、功能丰富的解决方案来管理和定制你的GNOME桌面环境中的图标显示，特别适合那些希望获得更传统桌面体验并享受最新技术带来的优势的用户。</p>
-<h2 id="插件安装">插件安装</h2>
-<ol type="1">
-<li>访问插件网站：<a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/?spm=5176.28103460.0.0.297c451eWSvcfg">GNOME
-Extensions</a>.</li>
-<li>搜索<code>Gtk4 Desktop Icons NG (DING)</code>,
-点击右侧的按钮<code>On</code>.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/06/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/06/%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" class="post-title-link" itemprop="url">蒙特卡洛方法计算圆周率</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-06 02:30:06" itemprop="dateCreated datePublished" datetime="2025-03-06T02:30:06+08:00">2025-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用蒙特卡洛方法求解圆周率的一个经典方法是取一个单位圆和外接正四边形，则正四边形的面积为1,
-随机生成点数，统计落在圆内的点的数目m,
-然后再以m除以总点数n,获得随机点落在圆内的概率，再乘以正方形的面积就得到了圆周率。
-但是本文不计划采用这个方法，我们使用积分来计算，即</p>
-<p><span class="math display">\[\pi=2\int_0^1 \frac{1}{\sqrt{1-x^2}}
-dx\]</span></p>
-<p>按积分中值定理，在<span
-class="math inline">\((0,1)\)</span>内必存在一点<span
-class="math inline">\(\xi\)</span>满足</p>
-<p><span
-class="math display">\[\pi=2\frac{1}{\sqrt{1-\xi^2}}(1-0)\]</span></p>
-<p>如果我们任意取<span
-class="math inline">\((0,1)\)</span>中的一个点，那必然不一定满足上式，但是按照大数定理，当在<span
-class="math inline">\((0,1)\)</span>内随机取值的数量达到足够大，并且平均时，按统计规律积分值将接近真实结果，并且随随机取点的数量增大而提高精度。</p>
-<h2 id="python-实现">Python 实现</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 定义函数f(x)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>/(<span class="number">1</span>-x**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Monte Carlo方法求积分</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integral</span>(<span class="params">f, a, b, num_samples=<span class="number">90000000</span></span>):</span><br><span class="line">    <span class="comment"># 在区间[a, b]内随机生成num_samples个样本点</span></span><br><span class="line">    samples = np.random.uniform(a, b, num_samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算这些样本点对应的函数值</span></span><br><span class="line">    y_values = f(samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 根据平均高度估计积分值，乘以区间的宽度得到近似面积</span></span><br><span class="line">    integral_estimate = (b - a) * np.mean(y_values)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>*integral_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用Monte Carlo方法估计积分</span></span><br><span class="line">a, b = <span class="number">0</span>, <span class="number">1</span>  <span class="comment"># 定义积分区间</span></span><br><span class="line">estimated_integral = monte_carlo_integral(f, a, b)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Pi&quot;</span>, estimated_integral)</span><br></pre></td></tr></table></figure>
-<h2 id="rust-实现">Rust 实现</h2>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> rand::distributions::&#123;Distribution, Uniform&#125;;</span><br><span class="line"><span class="keyword">use</span> std::<span class="type">f64</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">f</span>(x: <span class="type">f64</span>) <span class="punctuation">-&gt;</span> <span class="type">f64</span> &#123;</span><br><span class="line">    <span class="number">1.0</span> / (<span class="number">1.0</span> - x.<span class="title function_ invoke__">powi</span>(<span class="number">2</span>)).<span class="title function_ invoke__">sqrt</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">monte_carlo_integral</span>(a: <span class="type">f64</span>, b: <span class="type">f64</span>, num_samples: <span class="type">usize</span>) <span class="punctuation">-&gt;</span> <span class="type">f64</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">between</span> = Uniform::<span class="title function_ invoke__">new</span>(a, b);</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">rng</span> = rand::<span class="title function_ invoke__">thread_rng</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">sum</span> = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">_</span> <span class="keyword">in</span> <span class="number">0</span>..num_samples &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">sample</span> = between.<span class="title function_ invoke__">sample</span>(&amp;<span class="keyword">mut</span> rng);</span><br><span class="line">        sum += <span class="title function_ invoke__">f</span>(sample);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> <span class="variable">integral_estimate</span> = (b - a) * (sum / num_samples <span class="keyword">as</span> <span class="type">f64</span>);</span><br><span class="line">    <span class="number">2.0</span> * integral_estimate</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">a</span> = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">b</span> = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">num_samples</span> = <span class="number">90_000_000</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> <span class="variable">estimated_integral</span> = <span class="title function_ invoke__">monte_carlo_integral</span>(a, b, num_samples);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Pi: &#123;&#125;&quot;</span>, estimated_integral);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，我们使用了 <code>rand crate</code>
-来生成随机数。因此，在你的 <code>Cargo.toml</code>
-文件中需要添加以下依赖：</p>
-<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[dependencies]</span></span><br><span class="line"><span class="attr">rand</span> = <span class="string">&quot;0.8&quot;</span></span><br></pre></td></tr></table></figure>
-<p>使用<code>cargo build --release</code>编译后再运行代码，可以明显感觉到比<code>Python</code>要快的多。</p>
-<div class="note primary"><ul>
-<li>运行环境：ArchLinux，ThinkPad T490, Intel(R) Core(TM) i5-8265U (8) @
-3.90 GHz，NVIDIA GeForce MX250 [Discrete]，Memory 16G</li>
-<li>Python 执行总用时<code>1.255s</code></li>
-<li>Rust 执行总用时<code>0.466s</code></li>
-<li>它们的精度都能达到<code>3.14xxx</code>,
-通过这个例子也显示出了Rust的优越性，在这个例子它需要的时间只是Python的<code>0.37</code>倍。</li>
-</ul>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/Rust%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/05/Rust%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%9D%83/" class="post-title-link" itemprop="url">Rust语言中的所有权</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-05 22:50:39" itemprop="dateCreated datePublished" datetime="2025-03-05T22:50:39+08:00">2025-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="理解-rust-的所有权系统">理解 Rust 的所有权系统</h1>
-<p>Rust
-的所有权（Ownership）是其核心特性之一，旨在确保内存安全的同时提供高性能。通过所有权系统，Rust
-能够在编译时自动管理内存，避免了诸如空指针引用、数据竞争等常见问题，而无需垃圾回收机制。</p>
-<h2 id="什么是所有权">什么是所有权？</h2>
-<p>每个程序都需要管理它使用的内存资源。在低级语言中，如 C 或
-C++，程序员必须手动分配和释放内存，这容易导致错误。Rust
-使用所有权系统来自动化这一过程，并且保证了内存的安全性。</p>
-<h3 id="主要概念">主要概念</h3>
-<ul>
-<li><strong>所有权</strong>：控制着堆上数据的生命周期。</li>
-<li><strong>借用</strong>：允许临时访问某个值而不获取其所有权。</li>
-<li><strong>生命周期</strong>：定义了引用的有效范围，确保引用始终有效。</li>
-</ul>
-<h2 id="所有权规则">所有权规则</h2>
-<ol type="1">
-<li><strong>每个值都有一个变量，称为它的所有者。</strong></li>
-<li><strong>每个值在同一时间只能有一个所有者。</strong></li>
-<li><strong>当所有者离开作用域时，该值将被丢弃。</strong></li>
-</ol>
-<h3 id="示例代码">示例代码</h3>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello&quot;</span>); <span class="comment">// s1 是所有者</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s2</span> = s1; <span class="comment">// s1 的所有权转移给 s2，s1 不再有效</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// println!(&quot;&#123;&#125;&quot;, s1); // 这行会报错，因为 s1 已经不再有效</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, s2); <span class="comment">// 正确，s2 拥有 &quot;hello&quot;</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-<h2 id="借用">借用</h2>
-<p>为了避免所有权转移带来的不便，Rust
-允许我们通过借用（borrowing）来临时访问数据。</p>
-<h2 id="引用与解引用">引用与解引用</h2>
-<ul>
-<li>引用：<code>&amp;</code>
-符号用来创建一个引用，允许你使用值但不拥有它。</li>
-<li>解引用：<code>*</code> 符号用来访问引用指向的实际数据。</li>
-</ul>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">len</span> = <span class="title function_ invoke__">calculate_length</span>(&amp;s1); <span class="comment">// 将 s1 的引用传递给函数</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;The length of &#x27;&#123;&#125;&#x27; is &#123;&#125;.&quot;</span>, s1, len);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">calculate_length</span>(s: &amp;<span class="type">String</span>) <span class="punctuation">-&gt;</span> <span class="type">usize</span> &#123; <span class="comment">// s 是一个引用</span></span><br><span class="line">    s.<span class="title function_ invoke__">len</span>()</span><br><span class="line">&#125; <span class="comment">// 这里 s 离开作用域，但因为它只是引用，所以不会影响原始数据</span></span><br></pre></td></tr></table></figure>
-<h2 id="切片类型">切片类型</h2>
-<p>切片让你可以引用集合的一部分，而不需要整个集合的所有权。</p>
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">hello</span> = &amp;s[<span class="number">0</span>..<span class="number">5</span>]; <span class="comment">// 字符串切片</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">world</span> = &amp;s[<span class="number">6</span>..<span class="number">11</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;First word: &#123;&#125;&quot;</span>, hello);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;Second word: &#123;&#125;&quot;</span>, world);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="结论">结论</h2>
-<p>Rust
-的所有权系统是一种独特的方法，用于解决内存管理和并发问题，同时保持性能。虽然一开始可能看起来有些复杂，但它极大地减少了运行时错误，提高了代码的安全性和可靠性。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/Rust%E7%94%9F%E6%88%90CSV%E6%95%B0%E6%8D%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Veusz%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0%E8%B1%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/05/Rust%E7%94%9F%E6%88%90CSV%E6%95%B0%E6%8D%AE%E5%B9%B6%E4%BD%BF%E7%94%A8Veusz%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0%E8%B1%A1/" class="post-title-link" itemprop="url">Rust生成CSV数据并使用Veusz绘制函数像</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-05 22:04:05" itemprop="dateCreated datePublished" datetime="2025-03-05T22:04:05+08:00">2025-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用<code>Rust</code>编写的程序由于是编译型的语言，其速度远超<code>Python</code>等脚本程序，所以本文尝试使用<code>Rust</code>编写一段<span
-class="math inline">\(f(x)=x^2\)</span>在区间<span
-class="math inline">\((0,10)\)</span>上的值，并将其保存在<code>function_data.csv</code>文件中，以供<code>veusz</code>调用，绘制函数图像。</p>
-<h2 id="编写rust程序">编写Rust程序</h2>
-<ol type="1">
-<li><p>建立项目: drawfunction <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo new drawfunction</span><br><span class="line"><span class="built_in">cd</span> drawfunction</span><br></pre></td></tr></table></figure></p></li>
-<li><p>确保<code>Cargo.toml</code>文件中添加了必要的依赖项：
-<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[dependencies]</span></span><br><span class="line"><span class="attr">csv</span> = <span class="string">&quot;1.1&quot;</span></span><br></pre></td></tr></table></figure></p></li>
-<li><p>编辑源码： <figure class="highlight rust"><figcaption><span>drawfunction/src/main.rs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> csv::Writer;</span><br><span class="line"><span class="keyword">use</span> std::error::Error;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() <span class="punctuation">-&gt;</span> <span class="type">Result</span>&lt;(), <span class="type">Box</span>&lt;<span class="keyword">dyn</span> Error&gt;&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">wtr</span> = Writer::<span class="title function_ invoke__">from_path</span>(<span class="string">&quot;function_data.csv&quot;</span>)?;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入CSV头部</span></span><br><span class="line">    wtr.<span class="title function_ invoke__">write_record</span>(&amp;[<span class="string">&quot;x&quot;</span>, <span class="string">&quot;x_squared&quot;</span>])?;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成数据并写入CSV</span></span><br><span class="line">    <span class="keyword">for</span> <span class="variable">x</span> <span class="keyword">in</span> <span class="number">0</span>..=<span class="number">100</span> &#123; <span class="comment">// 使用0到10之间的101个点</span></span><br><span class="line">        <span class="keyword">let</span> <span class="variable">x_val</span> = (x <span class="keyword">as</span> <span class="type">f64</span>) / <span class="number">10.0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">y_val</span> = x_val.<span class="title function_ invoke__">powi</span>(<span class="number">2</span>);</span><br><span class="line">        wtr.<span class="title function_ invoke__">write_record</span>(&amp;[x_val.<span class="title function_ invoke__">to_string</span>(), y_val.<span class="title function_ invoke__">to_string</span>()])?;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    wtr.<span class="title function_ invoke__">flush</span>()?;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;CSV data has been written.&quot;</span>);</span><br><span class="line">    <span class="title function_ invoke__">Ok</span>(())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note primary"><p>使用<code>cargo run</code>运行这个程序将会在当前目录下生成一个名为<code>function_data.csv</code>的文件，其中包含了我们计算的数据。</p>
-</div></p></li>
-<li><p>编译程序： <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo build --release</span><br><span class="line">./drawfunction/target/release/montecarlo</span><br></pre></td></tr></table></figure> <div class="note primary"><p>第1行为编译程序，第2行为运行这个程序.
-可以明显的感觉到程序运行时,瞬间在当前目录下生成一个名为<code>function_data.csv</code>的文件，其中包含了我们计算的数据。</p>
-</div></p></li>
-</ol>
-<h2 id="使用veusz绘图">使用Veusz绘图</h2>
-<ol type="1">
-<li>启动<code>veusz</code>: 打开Veusz应用程序。</li>
-<li>导入数据：通过“数据-&gt;导入”菜单选项导入你用Rust生成的<code>function_data.csv</code>文件。</li>
-<li>创建图表：</li>
-</ol>
-<ul>
-<li>在<code>Veusz</code>中，选择<code>Insert--&gt;add Graph</code>以创建一个新的图形窗口。</li>
-<li>在工具栏中选择<code>Plot points with lines and eorrbars</code>.</li>
-<li>选中上述组件，在<code>X data</code> 中选择 <code>x</code> ,
-<code>Y data</code> 中选择<code>x_squared</code>.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/Rust%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/05/Rust%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Rust编程入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-05 21:16:06" itemprop="dateCreated datePublished" datetime="2025-03-05T21:16:06+08:00">2025-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介">简介</h2>
-<p>Rust是一种由Mozilla开发的系统级编程语言，专注于速度、内存安全和并行处理。它通过所有权模型、借用检查器及生命周期概念，在编译时确保内存安全，有效避免了空指针异常、悬挂指针和数据竞争等问题。Rust支持高效的并发编程，并提供了高层次抽象而无运行时开销，保证程序性能。其自带的包管理和构建工具Cargo简化了依赖管理和构建流程。Rust适用于多种场景，包括操作系统、嵌入式系统、WebAssembly、游戏开发及高性能网络服务。凭借现代化的语法、强大的工具链支持（如rustfmt和clippy）以及跨平台兼容性，Rust在追求高效和安全的项目中展现出色。活跃的开源社区和丰富的学习资源进一步增强了它的吸引力，使其成为开发下一代可靠软件的理想选择。</p>
-<h2 id="创建rust项目">创建Rust项目</h2>
-<ol type="1">
-<li><p>安装Rust: 各种系统中Rust的安装，请参考<a
-target="_blank" rel="noopener" href="https://www.rust-lang.org/?spm=5176.28103460.0.0.297c451ef56Kw8">Rust官网说明</a>.
-在ArchLinux环境下，安装命令为 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S rust</span><br></pre></td></tr></table></figure></p></li>
-<li><p>创建新项目 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo new hello_world</span><br><span class="line"><span class="built_in">cd</span> hello_world</span><br></pre></td></tr></table></figure> <div class="note primary"><p>运行<code>cargo new hello_world</code>后，会建立一个文件夹<code>hello_world</code>,
-其内部包含：<code>Cargo.lock</code>,<code>Cargo.toml</code>,<code>src</code>,<code>target</code>.</p>
-</div></p></li>
-<li><p>编辑<code>src/main.rs</code>:
-打开<code>src/main.rs</code>文件，并添加一些简单的Rust代码，比如打印斐波那契数列的前10项：
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">fibonacci</span>(n: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> <span class="type">u32</span> &#123;</span><br><span class="line">    <span class="keyword">match</span> n &#123;</span><br><span class="line">        <span class="number">0</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="number">1</span> =&gt; <span class="number">1</span>,</span><br><span class="line">        _ =&gt; <span class="title function_ invoke__">fibonacci</span>(n - <span class="number">1</span>) + <span class="title function_ invoke__">fibonacci</span>(n - <span class="number">2</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">0</span>..<span class="number">10</span> &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;fibonacci(&#123;&#125;) = &#123;&#125;&quot;</span>, i, <span class="title function_ invoke__">fibonacci</span>(i));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>编译并运行项目： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo run</span><br></pre></td></tr></table></figure> <div class="note primary"><p>运行上述命令后，将输出斐波那契数列的前10项。</p>
-</div></p></li>
-</ol>
-<h2 id="使用evcxr进行交互式探索">使用EVCXR进行交互式探索</h2>
-<p>为了能够更灵活地试验代码片段而不必每次都通过<code>cargo run</code>执行整个程序，我们可以使用<code>evcxr</code>，这是一个为<code>Rust</code>设计的<code>Jupyter</code>内核，也可以作为独立的<code>REPL</code>使用。</p>
-<ol type="1">
-<li><p>安装<code>EVCXR</code>: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install evcxr</span><br></pre></td></tr></table></figure></p></li>
-<li><p>启动<code>EVCXR</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">evcxr</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在<code>EVCXR</code>中试验代码：一旦进入了<code>evcxr</code>环境，您可以直接输入<code>Rust</code>表达式或小段代码进行试验，例如尝试上面定义的斐波那契函数：
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义斐波那契函数</span></span><br><span class="line">:dep num_traits</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">fibonacci</span>(n: <span class="type">u32</span>) <span class="punctuation">-&gt;</span> <span class="type">u32</span> &#123;</span><br><span class="line">    <span class="keyword">match</span> n &#123;</span><br><span class="line">        <span class="number">0</span> =&gt; <span class="number">0</span>,</span><br><span class="line">        <span class="number">1</span> =&gt; <span class="number">1</span>,</span><br><span class="line">        _ =&gt; <span class="title function_ invoke__">fibonacci</span>(n - <span class="number">1</span>) + <span class="title function_ invoke__">fibonacci</span>(n - <span class="number">2</span>),</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试斐波那契函数</span></span><br><span class="line"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> <span class="number">0</span>..<span class="number">10</span> &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;fibonacci(&#123;&#125;) = &#123;&#125;&quot;</span>, i, <span class="title function_ invoke__">fibonacci</span>(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <div class="note primary"><p>请注意，在<code>evcxr</code>中，您可能需要先声明对外部依赖项（如果有的话）使用<code>:dep</code>命令。在这个特定的例子中，我们实际上不需要额外的依赖项，所以可以忽略<code>:dep num_traits</code>这一行。
-通过这种方式，您可以在不离开终端的情况下快速测试<code>Rust</code>代码片段，这对于学习语言特性、调试问题或简单地验证想法都非常有用。此外，由于<code>evcxr</code>支持类似<code>Jupyter notebook</code>的交互方式，它也适合用于教学和演示目的。</p>
-</div></p></li>
-</ol>
-<h2 id="rust代码编译">Rust代码编译</h2>
-<ol type="1">
-<li><p>确保处于正确的目录:
-请确保您位于包含<code>Cargo.toml</code>文件的项目根目录下。这个文件定义了项目的配置、依赖和其他相关信息。在上述例子中，就是位于目录<code>hello_world</code>下.</p></li>
-<li><p>编译项目： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo build</span><br></pre></td></tr></table></figure> <div class="note primary"><p>这将根据当前环境（调试或发布）编译项目。默认情况下，<code>cargo build</code>会在调试模式下进行编译，生成的二进制文件会位于<code>target/debug/</code>目录下。</p>
-</div></p></li>
-<li><p>编译优化版本（发布模式）: <figure class="highlight sh"><figcaption><span>编译优化后的版本（适用于生产环境）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo build --release</span><br></pre></td></tr></table></figure> <div class="note primary"><p>这将在<code>target/release/</code>目录下生成经过优化的二进制文件。相比调试模式，发布模式下的编译会花费更多时间，但是生成的二进制文件通常更小且执行速度更快。</p>
-</div></p></li>
-<li><p>直接运行可执行文件:</p></li>
-</ol>
-<ul>
-<li>对于调试模式编译的二进制文件，可以直接从<code>target/debug/</code>目录下运行：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./target/debug/your_project_name</span><br></pre></td></tr></table></figure></li>
-<li>对于发布模式编译的二进制文件，则从<code>target/release/</code>目录下运行：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./target/release/your_project_name</span><br></pre></td></tr></table></figure> <div class="note primary"><p>这里的<code>your_project_name</code>是指您<code>Cargo</code>项目的名称，也就是<code>Cargo.toml</code>文件中的<code>[package] name</code>字段所指定的名字。</p>
-</div></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/05/MonteCarlo%E6%96%B9%E6%B3%95%E6%B1%82%E7%A7%AF%E5%88%86%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/05/MonteCarlo%E6%96%B9%E6%B3%95%E6%B1%82%E7%A7%AF%E5%88%86%E4%B8%8E%E8%A7%A3%E6%9E%90%E6%96%B9%E6%B3%95%E7%9A%84%E5%AF%B9%E6%AF%94%E9%AA%8C%E8%AF%81/" class="post-title-link" itemprop="url">MonteCarlo方法求积分与解析方法的对比验证</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-03-05 20:30:07" itemprop="dateCreated datePublished" datetime="2025-03-05T20:30:07+08:00">2025-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>蒙特卡洛积分是一种通过随机抽样来估计定积分的方法。我们可以用它来近似计算函数
-<span
-class="math inline">\(y=x^2\)</span>在某个区间上的积分，并基于此结果绘制出其积分函数的图像。
-为了验证蒙卡的计算效果，我们在同一张图中给制出蒙卡积分结果和解析解析的结果，对比结果可以证实蒙特卡洛方法的可行性。代码如下：</p>
-<figure class="highlight python"><figcaption><span>Comparison between Monte Carlo Integration and Analytical Solutions</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义蒙特卡洛积分函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integration</span>(<span class="params">func, a, b, n=<span class="number">1000</span></span>):</span><br><span class="line">    x_samples = np.random.uniform(a, b, n)</span><br><span class="line">    y_samples = func(x_samples)</span><br><span class="line">    <span class="comment"># 计算平均高度</span></span><br><span class="line">    average_height = np.mean(y_samples)</span><br><span class="line">    <span class="comment"># 计算积分值</span></span><br><span class="line">    integral = average_height * (b - a)</span><br><span class="line">    <span class="keyword">return</span> integral</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义被积函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析解计算积分函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">analytic_integral_f</span>(<span class="params">x,a</span>):</span><br><span class="line">    <span class="keyword">return</span> (x**<span class="number">3</span>)/<span class="number">3</span>-(a**<span class="number">3</span>)/<span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用蒙特卡洛方法求解积分</span></span><br><span class="line">a, b = -<span class="number">5</span>, <span class="number">5</span>  <span class="comment"># 积分区间</span></span><br><span class="line">x_points = np.linspace(a, b, <span class="number">100</span>)  <span class="comment"># 用于绘图的x点</span></span><br><span class="line">monte_carlo_values = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x_points)):</span><br><span class="line">    <span class="comment"># 对每个x点计算从a到该点的积分</span></span><br><span class="line">    integral_value = monte_carlo_integration(f, a, x_points[i], n=<span class="number">20000</span>)</span><br><span class="line">    monte_carlo_values.append(integral_value)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算解析解</span></span><br><span class="line">analytic_values = analytic_integral_f(x_points,a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制积分后的函数图像</span></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line">plt.plot(x_points, monte_carlo_values, label=<span class="string">&#x27;Monte Carlo Integral of $x^2$&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">plt.plot(x_points, analytic_values, label=<span class="string">&#x27;Analytical Integral of $x^2$&#x27;</span>, color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加标题和标签</span></span><br><span class="line">plt.title(<span class="string">&#x27;Comparison between Monte Carlo and Analytical Integration of $x^2$&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Integral Value&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图例</span></span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示网格</span></span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图像</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

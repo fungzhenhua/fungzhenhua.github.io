@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,1702 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/09/ls%E6%9B%BF%E4%BB%A3%E5%91%BD%E4%BB%A4exa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/09/ls%E6%9B%BF%E4%BB%A3%E5%91%BD%E4%BB%A4exa/" class="post-title-link" itemprop="url">ls替代命令exa</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-09 20:49:35" itemprop="dateCreated datePublished" datetime="2024-06-09T20:49:35+08:00">2024-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这个简单的 <code>ls</code> 命令列出目录的内容十分方便，但是直到我发现
+<code>exa</code> 之前从来没想过会有命令能替代它。</p>
+<h3 id="exa-命令简介">exa 命令简介</h3>
+<p><a target="_blank" rel="noopener" href="https://the.exa.website">exa</a>
+是一个命令行工具，可以列出指定路径（如未指定则是当前目录）的目录和文件。这也许听起来很熟悉，因为这就是
+<code>ls</code> 命令所做的事情。</p>
+<p><code>exa</code> 被视作从 UNIX 旧时代延续至今的古老的 <code>ls</code>
+命令的一个现代替代品。如其所声称的那样，它有比 <code>ls</code>
+命令更多的功能、更好的默认行为。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202111/10/155702mm72rrjvmpz9kprh.png"
+alt="exa 功能" />
+<figcaption aria-hidden="true">exa 功能</figcaption>
+</figure>
+<p>以下是一些你应该使用 <code>exa</code> 替代 <code>ls</code>
+的原因：</p>
+<ul>
+<li><code>exa</code> 像 <code>ls</code> 一样可移植（在所有主流 Linux
+发行版、*BSD 和 macOS 上可用）</li>
+<li>默认彩色输出</li>
+<li><code>exa</code> 不同格式化的“详细”输出也许会吸引 Linux/BSD
+新手</li>
+<li>文件查询是并行进行的，这使得 <code>exa</code> 与 <code>ls</code>
+的性能相当</li>
+<li>显示单个文件的 git 暂存或未暂存状态</li>
+</ul>
+<p><code>exa</code> 的另外一个不同的地方是它是用 Rust
+编写的。顺便说一句，Rust 与 C
+语言的执行速度相近，但在编译时减少了内存错误，使你的软件可以快速而安全地执行。</p>
+<h3 id="在-linux-系统上安装-exa">在 Linux 系统上安装 exa</h3>
+<p><code>exa</code>
+最近很流行，因为许多发行版开始将其包括在其官方软件库中。也就是说，你应该可以使用你的
+[发行版的包管理器] 来安装它。</p>
+<p>从 Ubuntu 20.10 开始，你可以使用 <code>apt</code> 命令来安装它：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install exa</span><br></pre></td></tr></table></figure>
+<p>Arch Linux 已经有了它，你只需要 使用 pacman 命令即可：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S exa</span><br></pre></td></tr></table></figure>
+<p>如果它无法通过你的包管理器安装，请不要担心。毕竟它是一个 Rust
+包，你可以很容易地用 Cargo 安装它。请确保在你使用的任何发行版 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/install-rust-cargo-ubuntu-linux/">或 Ubuntu
+上安装了 Rust 和 Cargo</a>。</p>
+<p>安装 Rust 和 Cargo 后，使用此命令安装 <code>exa</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo install exa</span><br></pre></td></tr></table></figure>
+<h3 id="使用-exa">使用 exa</h3>
+<p><code>exa</code>
+有很多命令选项，主要是为了更好的格式化输出和一些提高舒适度的改进，比如文件的
+git 暂存或未暂存状态等等。</p>
+<p>下面是一些屏幕截图，展示了 <code>exa</code>
+是如何在你的系统上工作的。</p>
+<p>简单地使用 <code>exa</code> 命令将产生类似于 <code>ls</code>
+但带有颜色的输出。这种彩色的东西可能没有那么吸引人，因为像 Ubuntu
+这样的发行版至少在桌面版本中已经提供了彩色的 <code>ls</code>
+输出。不过，<code>ls</code> 命令本身默认没有彩色输出。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exa</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202111/10/155702nwcizcfc5c1q1ug9.jpg"
+alt="exa 命令的输出截图，没有任何额外的标志" />
+<figcaption aria-hidden="true">exa
+命令的输出截图，没有任何额外的标志</figcaption>
+</figure>
+<p>请注意，<code>exa</code> 和 <code>ls</code>
+命令的选项不尽相同。例如，虽然 <code>-l</code> 选项在 <code>exa</code>
+和 <code>ls</code> 中都给出了长列表，但 <code>-h</code>
+选项添加了一个列标题，而不是 <code>ls</code> 的人类可读选项。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exa -lh</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202111/10/155702k8226p6c3ra2fafn.jpg"
+alt="正如我之前提到的，exa 有列标题以获得更好的“详细”输出" />
+<figcaption aria-hidden="true">正如我之前提到的，exa
+有列标题以获得更好的“详细”输出</figcaption>
+</figure>
+<p>我前面说过，<code>exa</code> 已经内置了 Git
+集成。下面的屏幕截图给出了 <code>–git</code> 标志的演示。请注意
+<code>test_file</code> 在 <code>git</code> 的 <code>tracked</code>
+列中显示 <code>-N</code> ，因为它尚未添加到存储库中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exa --git -lh</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202111/10/155703wdr02s72rex3b29q.jpg"
+alt="演示 git 标志如何与 exa 一起工作" />
+<figcaption aria-hidden="true">演示 git 标志如何与 exa
+一起工作</figcaption>
+</figure>
+<p>下面的例子不是我的猫键入的。它是各种选项的组合。<code>exa</code>
+有可供你尝试和探索的很多选项。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exa -abghHliS</span><br></pre></td></tr></table></figure>
+<p>你可以通过在终端中运行以下命令来获取完整的选项列表：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exa --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>但是，如果你想了解 exa 所提供的功能，可以查看其 Git 存储库 上的
+官方文档。值得从 ls 切换到 exa 吗？</p>
+<p>对于类 UNIX 操作系统的新手来说，exa
+可能是用户友好的，它牺牲了在脚本中容易使用的能力，以换取“易用性”和外观。其中，显示得更清楚并不是一件坏事。</p>
+<p>无论如何，ls 就像通用命令。你可以将 exa
+用于个人用途，但在编写脚本时，请坚持使用
+ls。当预期输出与任一命令中的实际输出不匹配时，ls 和 exa 之间一个
+[或多个] 标志的差异可能会让你发疯。</p>
+<p>我想知道你对 exa 的看法。你已经尝试过了吗？你对它的体验如何？</p>
+<p>但是，如果你想了解 <code>exa</code> 所提供的功能，可以查看其 <a
+target="_blank" rel="noopener" href="https://kkgithub.com/ogham/exa">Git 存储库</a> 上的 <a
+target="_blank" rel="noopener" href="https://kkgithub.com/ogham/exa#command-line-options">官方文档</a>。</p>
+<h3 id="值得从-ls-切换到-exa-吗">值得从 ls 切换到 exa 吗？</h3>
+<p>对于类 UNIX 操作系统的新手来说，<code>exa</code>
+可能是用户友好的，它牺牲了在脚本中容易使用的能力，以换取“易用性”和外观。其中，显示得更清楚并不是一件坏事。</p>
+<p>无论如何，<code>ls</code> 就像通用命令。你可以将 <code>exa</code>
+用于个人用途，但在编写脚本时，请坚持使用
+<code>ls</code>。当预期输出与任一命令中的实际输出不匹配时，<code>ls</code>
+和 <code>exa</code> 之间一个 [或多个] 标志的差异可能会让你发疯。</p>
+<p>我想知道你对 <code>exa</code>
+的看法。你已经尝试过了吗？你对它的体验如何？</p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://linux.cn/article-13972-1.html">exa：一个 ls
+命令的现代替代品</a>，如有侵权，请联系删除。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/09/Zsh%E5%BF%AB%E9%80%9F%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC%E4%B9%8Bzoxide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/09/Zsh%E5%BF%AB%E9%80%9F%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC%E4%B9%8Bzoxide/" class="post-title-link" itemprop="url">Zsh快速路径跳转之zoxide</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-09 20:03:56" itemprop="dateCreated datePublished" datetime="2024-06-09T20:03:56+08:00">2024-06-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在<code>Zsh</code>中实现快速路径跳转,
+之前已经介绍了<code>z.lua</code>（<a
+href="/2023/12/22/Zsh配置快速路径跳转">Zsh配置快速路径跳转</a>）。今天看到了另一个<code>zsh</code>的插件<code>zoxide</code>,
+它是用<code>rust</code>语言写的，所以效率上应当是更高的。至于为什么会由<code>z.lua</code>切换到<code>zoxide</code>,
+这里我也想不出更好的理由，但是大家可以参考文章<a
+target="_blank" rel="noopener" href="https://www.libhunt.com/compare-zoxide-vs-z.lua">zoxide VS
+z.lua</a>和<a
+target="_blank" rel="noopener" href="https://www.libhunt.com/compare-zsh-z-vs-zoxide">zsh-z VS
+zoxide</a>, 今天我是做为尝试而切换到<code>zoxide</code>,
+当然<code>z.lua</code>依然优秀。</p>
+<h2 id="zoxide-简介">zoxide 简介</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/ajeetdsouza/zoxide">zoxide</a> is a
+<strong>smarter cd command</strong>, inspired by z and autojump.</p>
+<p>It remembers which directories you use most frequently, so you can
+"jump" to them in just a few keystrokes.zoxide works on all major
+shells.</p>
+<h2 id="getting-started">Getting started</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">z foo              <span class="comment"># cd into highest ranked directory matching foo</span></span><br><span class="line">z foo bar          <span class="comment"># cd into highest ranked directory matching foo and bar</span></span><br><span class="line">z foo /            <span class="comment"># cd into a subdirectory starting with foo</span></span><br><span class="line"></span><br><span class="line">z ~/foo            <span class="comment"># z also works like a regular cd command</span></span><br><span class="line">z foo/             <span class="comment"># cd into relative path</span></span><br><span class="line">z ..               <span class="comment"># cd one level up</span></span><br><span class="line">z -                <span class="comment"># cd into previous directory</span></span><br><span class="line"></span><br><span class="line">zi foo             <span class="comment"># cd with interactive selection (using fzf)</span></span><br><span class="line"></span><br><span class="line">z foo&lt;SPACE&gt;&lt;TAB&gt;  <span class="comment"># show interactive completions (zoxide v0.8.0+, bash 4.4+/fish/zsh only)</span></span><br></pre></td></tr></table></figure>
+<h2 id="installation">Installation</h2>
+<figure class="highlight sh"><figcaption><span>install zoxide</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S zoxide</span><br></pre></td></tr></table></figure>
+<h2 id="configure">Configure</h2>
+<figure class="highlight sh"><figcaption><span>~/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># set for zsh-z-git</span></span><br><span class="line"><span class="comment"># source /usr/share/zsh/plugins/zsh-z/zsh-z.plugin.zsh</span></span><br><span class="line"><span class="comment"># set for z.lua 功能上不如zsh-z-git完善</span></span><br><span class="line"><span class="comment"># eval &quot;$(lua /usr/share/z.lua/z.lua --init zsh enhanced once)&quot;</span></span><br><span class="line"><span class="comment"># set for zoxide instead of z.lua</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(zoxide init zsh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>对比配置信息来看，<code>zoxide</code>
+好像更加简洁一些，但是这不是主要的切换依据，几个工具都可以尝试。我认为<code>z.lua</code>是从<code>aur</code>中安装的，但是<code>zoxide</code>是从<code>Archlinux</code>的官方仓库中安装，使用官方的工具我认为更可靠一些。</p>
+</div>
+<h2 id="import-your-data">Import your data</h2>
+<p>If you currently use any of these plugins, you may want to import
+your data</p>
+<details>
+<summary>
+autojump
+</summary>
+<p>Run this command in your terminal:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zoxide import --from=autojump <span class="string">&quot;/path/to/autojump/db&quot;</span></span><br></pre></td></tr></table></figure>
+<p>The path usually varies according to your system:</p>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 57%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>OS</th>
+<th>Path</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>$XDG_DATA_HOME/autojump/autojump.txt</code> or
+<code>$HOME/.local/share/autojump/autojump.txt</code></td>
+<td><code>/home/alice/.local/share/autojump/autojump.txt</code></td>
+</tr>
+<tr>
+<td>macOS</td>
+<td><code>$HOME/Library/autojump/autojump.txt</code></td>
+<td><code>/Users/Alice/Library/autojump/autojump.txt</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>%APPDATA%\autojump\autojump.txt</code></td>
+<td><code>C:\Users\Alice\AppData\Roaming\autojump\autojump.txt</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+fasd, z, z.lua, zsh-z
+</summary>
+<p>Run this command in your terminal:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zoxide import --from=z <span class="string">&quot;path/to/z/db&quot;</span></span><br></pre></td></tr></table></figure>
+<p>The path usually varies according to your system:</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr>
+<th>Plugin</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fasd</td>
+<td><code>$_FASD_DATA</code> or <code>$HOME/.fasd</code></td>
+</tr>
+<tr>
+<td>z (bash/zsh)</td>
+<td><code>$_Z_DATA</code> or <code>$HOME/.z</code></td>
+</tr>
+<tr>
+<td>z (fish)</td>
+<td><code>$Z_DATA</code> or <code>$XDG_DATA_HOME/z/data</code> or
+<code>$HOME/.local/share/z/data</code></td>
+</tr>
+<tr>
+<td>z.lua (bash/zsh)</td>
+<td><code>$_ZL_DATA</code> or <code>$HOME/.zlua</code></td>
+</tr>
+<tr>
+<td>z.lua (fish)</td>
+<td><code>$XDG_DATA_HOME/zlua/zlua.txt</code> or
+<code>$HOME/.local/share/zlua/zlua.txt</code> or
+<code>$_ZL_DATA</code></td>
+</tr>
+<tr>
+<td>zsh-z</td>
+<td><code>$ZSHZ_DATA</code> or <code>$_Z_DATA</code> or
+<code>$HOME/.z</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+ZLocation
+</summary>
+<p>Run this command in PowerShell:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$db</span> = <span class="built_in">New-TemporaryFile</span></span><br><span class="line">(<span class="built_in">Get-ZLocation</span>).GetEnumerator() | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Write-Output</span> (<span class="variable">$_</span>.Name+<span class="string">&#x27;|&#x27;</span>+<span class="variable">$_</span>.Value+<span class="string">&#x27;|0&#x27;</span>) &#125; | <span class="built_in">Out-File</span> <span class="variable">$db</span></span><br><span class="line">zoxide import <span class="literal">--from</span>=z <span class="variable">$db</span></span><br></pre></td></tr></table></figure>
+</details>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Neovim%E7%9A%84%E6%8F%92%E4%BB%B6%E7%BD%91%E7%AB%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/08/Neovim%E7%9A%84%E6%8F%92%E4%BB%B6%E7%BD%91%E7%AB%99/" class="post-title-link" itemprop="url">Neovim的插件网站</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-08 16:51:44" itemprop="dateCreated datePublished" datetime="2024-06-08T16:51:44+08:00">2024-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/neovim/neovim/wiki/Related-projects#plugins">Neovim插件列表</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/rockerBOO/awesome-neovim">awesome-neovim</a></li>
+<li><a target="_blank" rel="noopener" href="https://dotfyle.com/plugins">plugins</a></li>
+<li><a target="_blank" rel="noopener" href="https://neovimcraft.com/">neovimcraft.com</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://nvim-awesome.vercel.app/">nvim-awesome.vercel.app</a></li>
+<li><a target="_blank" rel="noopener" href="https://luarocks.org/labels/neovim">Luarocks</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/08/Linux%E4%B8%AD%E7%9A%84XDG%E5%9F%BA%E5%87%86%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/08/Linux%E4%B8%AD%E7%9A%84XDG%E5%9F%BA%E5%87%86%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">Linux中的XDG基准目录规范</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-08 16:37:28" itemprop="dateCreated datePublished" datetime="2024-06-08T16:37:28+08:00">2024-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="介绍">介绍</h2>
+<p>各种规范指定文件和文件格式。此规范通过定义相对于哪些文件应该位于的一个或多个基本目录来定义应该查找这些文件的位置。</p>
+<h2 id="基本">基本</h2>
+<p>XDG基本目录规范基于以下概念：</p>
+<ul>
+<li>有一个用于写入特定用户数据文件的基本目录。$XDG_DATA_HOME。</li>
+<li>有一个用于写入特定用户的配置文件基本目录。$XDG_CONFIG_HOME。</li>
+<li>有一组首选的基本数据目录。$XDG_DATA_DIRS。</li>
+<li>有一组首选的基本配置目录。$XDG_CONFIG_DIRS。</li>
+<li>有一个用于写入用户特定的非必要（缓存）数据的基本目录。$XDG_CACHE_HOME。</li>
+<li>有一个用户放置特定于用户的运行时文件和其他文件对象。$XDG_RUNTIME_DIR。</li>
+</ul>
+<h2 id="环境变量">环境变量</h2>
+<table>
+<thead>
+<tr>
+<th>XDG环境变量</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$XDG_DATA_HOME</td>
+<td>$HOME/.local/share</td>
+</tr>
+<tr>
+<td>$XDG_CONFIG_HOME</td>
+<td>$HOME/.config</td>
+</tr>
+<tr>
+<td>$XDG_DATA_DIRS</td>
+<td>/usr/local/share/:/usr/share/</td>
+</tr>
+<tr>
+<td>$XDG_CONFIG_DIRS</td>
+<td>/etc/xdg</td>
+</tr>
+<tr>
+<td>$XDG_CACHE_HOME</td>
+<td>$HOME/.cache</td>
+</tr>
+</tbody>
+</table>
+<div class="note primary"><p><code>$XDG_RUNTIME_DIR</code>是用户特定的不重要的运行时文件和其他文件对象（例如套接字，命名管道…）存储的基本目录。该目录必须由用户拥有，并且他必须是唯一具有读写访问权限的目录。它的Unix访问模式必须是0700。</p>
+</div>
+<p>目录的生命周期必须绑定到登录用户。必须在用户首次登录时创建，如果用户完全注销，则必须删除该目录。如果用户多次登录，他应该指向同一目录，并且必须从第一次登录到他在系统上的最后一次登出时继续存在，而不是在两者之间删除。目录中的文件必须不能在重新启动或完全注销/登录循环后继续存在。</p>
+<p>该目录必须位于本地文件系统上，不与任何其他系统共享。该目录必须完全按照操作系统的标准进行。更具体地说，在类Unix操作系统上，AF_UNIX套接字，符号链接，硬链接，适当的权限，文件锁定，稀疏文件，内存映射，文件更改通知，必须支持可靠的硬链接计数，并且对文件名没有限制应该强加字符集。此目录中的文件可能需要定期清理。为确保不删除您的文件，他们应至少每6小时单调时间修改一次访问时间戳记，或者在文件上设置“粘滞”位。</p>
+<p>如果$XDG_RUNTIME_DIR未设置，应用程序应回退到具有类似功能的替换目录并打印警告消息。应用程序应使用此目录进行通信和同步，并且不应在其中放置较大的文件，因为它可能驻留在运行时内存中，并且不一定可以交换到磁盘。</p>
+<h2 id="参考规范">参考规范</h2>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>参考规范：subdir应该为软件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据文件</td>
+<td>$datadir/subdir/filename</td>
+</tr>
+<tr>
+<td>配置文件</td>
+<td>$confdir/subdir/filename</td>
+</tr>
+</tbody>
+</table>
+<p>$config默认为～/.config : /etc<br />
+如果在尝试编写文件时，目标目录不存在，则应尝试使用权限创建目标目录0700。如果目标目录已存在，则不应更改权限。应用程序应准备好处理无法写入文件的情况，因为该目录不存在且无法创建，或者出于任何其他原因。在这种情况下，它可以选择向用户呈现错误消息。</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.8.html">basedir-spec-0.8</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/XDG_Base_Directory">XDG
+Base Directory</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.deepin.org/zh/03_技术规范/02_XDG规范/XDG基本目录规范">XDG基本目录规范</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/07/%E4%B8%BA%E4%BD%95Emacs%E5%92%8CVim%E8%A2%AB%E7%A7%B0%E4%B8%BA%E4%B8%A4%E5%A4%A7%E7%A5%9E%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/07/%E4%B8%BA%E4%BD%95Emacs%E5%92%8CVim%E8%A2%AB%E7%A7%B0%E4%B8%BA%E4%B8%A4%E5%A4%A7%E7%A5%9E%E5%99%A8/" class="post-title-link" itemprop="url">为何Emacs和Vim被称为两大神器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-07 17:00:57" itemprop="dateCreated datePublished" datetime="2024-06-07T17:00:57+08:00">2024-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Emacs 是神的编辑器，而 Vim
+是编辑器之神。二者为何会有如此美誉，且听本文向你一一道来。</p>
+<h3 id="序章神器的传说">0. 序章：神器的传说</h3>
+<p>在这个蔚蓝色的星球上，流传着两大神器的传说：
+据说Emacs是神的编辑器，而Vim是编辑器之神。</p>
+<p>追求独步天下的高手和低手们争着一睹它们的风采，可看到它们朴素单薄的界面后，不禁心下怀疑：这就是神器吗？甚至有人生了轻视之心。</p>
+<p>肤浅的人嗤之以鼻，说：什么年代了，还抱着这么老土的玩意不放，真他妈Geek！同学，请冷静下来，听我说：它们的确够老了，都几十年的寿命了，但你想想为什么，为什么这么古老的编辑器，却有越来越多的人皈依它们。</p>
+<p>Windows下用UltraEdit和Editplus的人质问：它们到底比UltraEdit和Editplus好在哪里？我说：不可同日而语。</p>
+<p>连UltraEdit和EditPlus都没用过的同学问：它们就相当于Linux上的
+Notepad吧？我说：请你从我的眼前消失。</p>
+<p>一些人勇敢地拾起了Vim或Emacs，却发现学习曲线陡峭而漫长，于是在没发现它们的强大之前就放弃了，说：太难用了，把键盘当鼠标用的烂玩意，有什么好的？</p>
+<p>还是有一些人留下来了，坚定地守护着这两大神器。一些说葡萄太酸的人想离开又不甘心，总是问：它们到底神在哪里啊？我不禁想起了李宗盛的几句歌词:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;span&gt;&lt;/span&gt;有人问我你究竟是哪里好，</span><br><span class="line">这么多年我还忘不掉？</span><br><span class="line">春风再美也比不上你的笑，</span><br><span class="line">没见过你的人不会明了。</span><br></pre></td></tr></table></figure>
+<p>也许你不会明了，我还是要努力讲一讲。</p>
+<h3 id="无敌的可扩展性">1. 无敌的可扩展性</h3>
+<h4 id="可扩展性给了软件强大的生命">1.1 可扩展性给了软件强大的生命</h4>
+<p>曾几何时，Windows用户对软件的可扩展性没有概念，他们只能对他们使用的软件进行非常有限的定制。扩展软件的权利保留在软件开发者手中。软件的使用者如果想要新的功能和特性，只能等待软件的升级。有能力的用户等不及了，为了添加自己想要的功能，从0开始写了一款新的软件。就这样，新的功能意味着新的软件，Windows下的软件前赴后继，迅速地更新换代着。因此，Windows下的软件都很短命。</p>
+<p>Linux和开源软件渐渐流行起来，人们才发现：可扩展性才能给软件强大的生命。在MS的VS横行的今天，Eclipse为什么被评为最好的IDE？就是因为它在IDE中最具可扩展性。在IE几乎一统天下的时候，为什么Firefox能夺走越来越多的用户，也是因为它的可扩展性。提供了良好的扩展接口，用户自然会写出各种各样的插件，来满足用户自己形形色色的要求。这样，软件在用户的推动下自然变得强大了。</p>
+<p>Emacs和Vim没有被时代淘汰，反而越发强大，也正是因为在数不清的编辑器中，他们具有无可匹敌的可扩展性。</p>
+<h4 id="emacs是伪装成编辑器的操作系统">1.2
+Emacs是伪装成编辑器的操作系统</h4>
+<p>有句夸张的话说：Emacs是伪装成编辑器的操作系统。细细想来，这句话并不夸张。</p>
+<p>Emacs其实是个Lisp的解释器，因此可以用Lisp灵活地扩展。Lisp是什么东西，这同样是种很有生命力的编程语言。在C语言还没有发明的年代，MIT的人工智能实验室写ITS操作系统时，一部分用的是汇编语言，还有一部分就是用的Lisp。现在，Lisp仍在人工智能研究领域广泛使用着。</p>
+<p>有这么牛逼的扩展语言，注定Emacs向着无所不能的方向发展。渐渐地，人们用Emacs不再限于写程序，写文档，而且在Emacs里管理文件系统，运行终端，收邮件，上网，听音乐……，真是一发不可收拾。甚至，有人用Emacs控制咖啡机煮咖啡。</p>
+<p>这种大而全的扩展，背离了“一个程序只做一件事并做好它”的Unix哲学，被Unix的忠诚用户所诟病。可是真的背离了吗？Emacs说过自己是一个编辑器吗？</p>
+<p>正是因为Emacs的无敌的可扩展性，人们才分不清Emacs到底是不是一个编辑器了。但，就是有人喜欢这种All-in-One的哲学，喜欢在Emacs中完成每件事。所以才会有人写《生活在Emacs中》，所以，Emacs才会成为一种信仰。</p>
+<h4 id="vim不只是vi">1.3 Vim不只是Vi</h4>
+<p>Vim是Vi最受欢迎的变种之一，除了继承了Vi迅捷的编辑方式，Vim的功能已经比原始的Vi强大得多。这也得益于它可以用Vim脚本无限地扩展。<a
+target="_blank" rel="noopener" href="http://www.vim.org/">Vim.org</a>
+上已经有数千个脚本了，给Vim增加各种各样的特性和功能。</p>
+<p>为了证明Vim的可扩展性不输于Emacs，也有用户写了在Vim中玩游戏、运行Shell、和集成GDB在Vim内部调试的插件。客观地讲，Vim的脚本语言与Emacs的ELisp相比，略显逊色，但这丝毫不妨碍它把Vim扩展成非常优秀的编辑器。</p>
+<p>说到底，Vim的前身Vi和Emacs的设计采用了不同的哲学，Vi更符合Unix传统，它通过管道机制和系统内各种积木工具打交道，它讲究的是和系统内的工具程序协作来完成用户的任务。和Emacs相比，它的定位很明确，就是要做一个强大的编辑器。因此Vim的绝大部分扩展，都是为了更好地完成编辑文本的任务。</p>
+<p>海纳百川，有容乃大。Emacs和Vim通过别的编辑器无法比肩的可扩展性，不断吸收广大用户的智慧，是它们能成为“神器”的原因之一。</p>
+<h3 id="特立独行的魅力">2. 特立独行的魅力</h3>
+<h4 id="可扩展性让你倾注了灵魂">2.1 可扩展性让你倾注了灵魂</h4>
+<p>一旦你意识到Vim或Emacs的强大，你就踏上了不停发掘它们潜力的漫漫长路。你不停地改进自己的配置文件，你不停地搜索更好的插件，甚至有一天你开始动手写自己的插件。就像剑客保养自己的剑一样，你也甘心花时间提升你的Vim或Emacs。经年累月，不知不觉，你已经在那把剑上倾注了你的灵魂。</p>
+<h4 id="独特的操作方式让你中了毒">2.2 独特的操作方式让你中了毒</h4>
+<p>Emacs和Vim有着迥异的操作方式，却成了Unix/Linux世界中两种代表性的操作方式，有些软件的操作方式类似Vi，而有些软件的方式类似Emacs，甚至有些软件提供了Vi的键绑定和Emacs的键绑定让你选择。而无论哪种操作方式，对Windows用户来说都是古怪的。虽说古怪，多少代人也验证了这两种操作方式的高效。</p>
+<p>Emacs号称Ctrl到死的编辑器。其实它几乎用了所有的辅助键，听说过没有，Emacs
+= Esc + Meta + Alt + Ctrl +
+Shift。所以高德纳大师说操作Emacs，就像弹奏管风琴。Emacs使用非常多的组合按键，这大概也是它高效于其它无模式编辑器的原因之一。你也可以定义自己的组合键序列，调用自己写的lisp函数，完成自己想要的功能。</p>
+<p>Vi一向是以快速的文本编辑闻名于世的。它的按键更简洁，通常是单个字符按键，就实现某种操作。但这是以有模式为代价的。你要不停地按Esc在从它的插入模式返回Normal模式。客观得讲，在文本编辑方面，Vim比Emacs高效，因为它提供了一些Emacs没有对应功能的操作来辅助高效的文本编辑。但它的模式切换也让一些人受不了，于是那些人选择了Emacs。</p>
+<p>不管你选择了Vim还是Emacs，你都要为习惯它们独特的操作方式而努力，这是一个技艺积累的过程。当你习惯了Vim或Emacs，你会有欲罢不能的感觉，你希望用它们完成尽可能多的任务，因为你再用别的编辑器也已经不习惯。</p>
+<p>用Vim或Emacs就像吸食毒品，慢慢地就会上瘾。它们会带给你渐渐强烈的快感，但你也向它们献出了自己的灵魂。这时，你只能称它们为神器。</p>
+<h3 id="黑客的编辑器">3. 黑客的编辑器</h3>
+<p>Vim的前身Vi的作者Bill Joy和Emacs的作者Richard
+Stallman都是那个时代著名的黑客，所以这两款编辑器一开始面向的主要用户就是写程序的人，现在仍然是。它们对编程加入了越来越多的支持，如语法高亮、智能缩进、关键字补全甚至集成调试。也有越来越多的程序员从IDE转向了Vim和Emacs。</p>
+<p>用Vim和Emacs编程到底有什么好处？我想首先是它们高效的编辑操作会提高你的编程效率。其次你可以用它们完成各种语言的编程，所谓一剑在手，夫复何求。你不用再因为编程语言不同去学习不同的IDE的使用，那些庞大的IDE的升级换代也与你再不相关，你把精力用于学习编程语言本身就好了。听说Google和微软内部开发也都不用IDE的，他们也会用Emacs或Vim。</p>
+<p>因为我写的程序不多，还不能深入体会用Vim或Emacs开发程序的乐趣。我只是觉得这很酷，你看，Linux之父Linus多年来用的是一款MicroEmacs，它比GNU
+Emacs或XEmacs少许多功能，但Linus就是用它在维护Linux。 微软的大牛Don
+Box，Com之父，一直用Emacs，他说谁也不能夺走他的编辑器。他还在网上放了一段他用Emacs写C#程序的视频。</p>
+<p>编程大师们的选择，也是Emacs和Vim被追捧为神器的原因之一。</p>
+<h3 id="神器引发的圣战">4. 神器引发的圣战</h3>
+<p>Vim用户和Emacs用户有着旗鼓相当的品位，应该互相欣赏才对。现实却是，忠诚于Vim的用户和忠诚于Emacs的用户互不相容，常常没完没了地打口水仗。Emacs用户说Vim的操作方式单一而古怪，Vim用户说Emacs体积庞大，启动缓慢。</p>
+<p>很有点一山不容二虎的意思，大概因为二者都处于神器的高度，才会斗争不断吧。也可能是因为二者截然不同的设计哲学吸引的用户在价值观上也互不认同。</p>
+<p>正因为两者难分高下，新人总是在Vim和Emacs之间犹豫不定，很难决定到底要皈依哪一个神。</p>
+<h3 id="参考文章">参考文章</h3>
+<p><a target="_blank" rel="noopener" href="https://linuxtoy.org/archives/why-emacs-vim-good.html">为何
+Emacs 和 Vim 被称为两大神器</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/07/Neovim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/07/Neovim%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Neovim常用快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-07 16:13:57" itemprop="dateCreated datePublished" datetime="2024-06-07T16:13:57+08:00">2024-06-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="normal模式下">normal模式下</h3>
+<h4 id="移动编辑相关">移动/编辑相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">左</td>
+</tr>
+<tr>
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">下</td>
+</tr>
+<tr>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">上</td>
+</tr>
+<tr>
+<td style="text-align: left;">l</td>
+<td style="text-align: left;">右</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + j/k</td>
+<td style="text-align: left;">上下跳4行</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + u/d</td>
+<td style="text-align: left;">上下9行</td>
+</tr>
+<tr>
+<td style="text-align: left;">i</td>
+<td style="text-align: left;">在光标前插入</td>
+</tr>
+<tr>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">在光标后插入</td>
+</tr>
+<tr>
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">到末尾插入</td>
+</tr>
+<tr>
+<td style="text-align: left;">I</td>
+<td style="text-align: left;">到首插入</td>
+</tr>
+<tr>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">删当前字符并进入插入模式</td>
+</tr>
+<tr>
+<td style="text-align: left;">zc</td>
+<td style="text-align: left;">折叠代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">zo</td>
+<td style="text-align: left;">打开折叠</td>
+</tr>
+<tr>
+<td style="text-align: left;">u</td>
+<td style="text-align: left;">撤销上一次代码修改/undo</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + r</td>
+<td style="text-align: left;">与u相反/redo</td>
+</tr>
+</tbody>
+</table>
+<h4
+id="tabbuffer标签相关按vim的用法来说应该叫buffer">tab/buffer/标签相关（按vim的用法来说应该叫buffer）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ctrl + h/l</td>
+<td style="text-align: left;">左右切换tab</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + w</td>
+<td style="text-align: left;">关闭当前tab</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code>bl</td>
+<td style="text-align: left;">关闭右边所有tab</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code>bh</td>
+<td style="text-align: left;">关闭左边所有tab</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code>bc</td>
+<td style="text-align: left;">选择关闭tab</td>
+</tr>
+</tbody>
+</table>
+<h4 id="窗口相关">窗口相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">option + h/j/k/l</td>
+<td style="text-align: left;">左下上右切换窗口</td>
+</tr>
+<tr>
+<td style="text-align: left;">sv</td>
+<td style="text-align: left;">左右分屏</td>
+</tr>
+<tr>
+<td style="text-align: left;">sh</td>
+<td style="text-align: left;">上下分屏</td>
+</tr>
+<tr>
+<td style="text-align: left;">sc</td>
+<td style="text-align: left;">关闭当前窗口</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code> + t</td>
+<td style="text-align: left;">底部打开terminal</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code> + vt</td>
+<td style="text-align: left;">侧边打开terminal</td>
+</tr>
+<tr>
+<td style="text-align: left;">s,</td>
+<td style="text-align: left;">当前窗口左右比例缩小</td>
+</tr>
+<tr>
+<td style="text-align: left;">s.</td>
+<td style="text-align: left;">当前窗口左右比例放大</td>
+</tr>
+<tr>
+<td style="text-align: left;">sj</td>
+<td style="text-align: left;">当前窗口上下比例放大</td>
+</tr>
+<tr>
+<td style="text-align: left;">sk</td>
+<td style="text-align: left;">当前窗口上下比例缩小</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tree侧边栏相关">tree（侧边栏）相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ctrl + m</td>
+<td style="text-align: left;">隐藏与显示tree</td>
+</tr>
+<tr>
+<td style="text-align: left;">Enter</td>
+<td style="text-align: left;">打开tree中选中的文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">v</td>
+<td style="text-align: left;">左右分屏打开</td>
+</tr>
+<tr>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">上下分屏</td>
+</tr>
+<tr>
+<td style="text-align: left;">i</td>
+<td style="text-align: left;">忽略node_modules</td>
+</tr>
+<tr>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">显示与隐藏隐藏文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">F5</td>
+<td style="text-align: left;">refresh file</td>
+</tr>
+<tr>
+<td style="text-align: left;">a</td>
+<td style="text-align: left;">create file</td>
+</tr>
+<tr>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">remove file</td>
+</tr>
+<tr>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">rename file</td>
+</tr>
+<tr>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">cut file</td>
+</tr>
+<tr>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">copy file</td>
+</tr>
+<tr>
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">paste file</td>
+</tr>
+<tr>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">system_open file</td>
+</tr>
+<tr>
+<td style="text-align: left;">o</td>
+<td style="text-align: left;">open file</td>
+</tr>
+</tbody>
+</table>
+<h4 id="telescope搜索相关">telescope搜索相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">ctrl + p</td>
+<td style="text-align: left;">搜索文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + f</td>
+<td style="text-align: left;">全局搜索</td>
+</tr>
+<tr>
+<td
+style="text-align: left;"><label style="color:red">以下命令是在👆的命令后使用</label></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + j</td>
+<td style="text-align: left;">向下移动选择文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + k</td>
+<td style="text-align: left;">向上移动选择文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + n</td>
+<td style="text-align: left;">历史搜索下一个</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + p</td>
+<td style="text-align: left;">历史搜索上一个</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + c</td>
+<td style="text-align: left;">关闭搜索页面</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + u</td>
+<td style="text-align: left;">预览上滚</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + d</td>
+<td style="text-align: left;">预览下滚</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lsp相关">LSP相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">gd</td>
+<td style="text-align: left;">跳到变量的定义处</td>
+</tr>
+<tr>
+<td style="text-align: left;">gh</td>
+<td style="text-align: left;">悬浮显示当前变量的信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">gp</td>
+<td style="text-align: left;">显示当前文件的错误的代码信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">gj</td>
+<td style="text-align: left;">跳到下一个错误代码的地方</td>
+</tr>
+<tr>
+<td style="text-align: left;">gk</td>
+<td style="text-align: left;">跳到上一个错误代码的地方</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code> + f</td>
+<td style="text-align: left;">格式化代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + j/n</td>
+<td style="text-align: left;">选择下一个提示</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + k/p</td>
+<td style="text-align: left;">选择上一个提示</td>
+</tr>
+<tr>
+<td style="text-align: left;">Enter</td>
+<td style="text-align: left;">确认选择</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;leader&gt;</code> + rn</td>
+<td style="text-align: left;">重命名变量名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="退出">退出</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">q</td>
+<td style="text-align: left;">:q</td>
+</tr>
+<tr>
+<td style="text-align: left;">qq</td>
+<td style="text-align: left;">:q!</td>
+</tr>
+<tr>
+<td style="text-align: left;">Q</td>
+<td style="text-align: left;">:qa!</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inser模式下">Inser模式下</h3>
+<h4 id="移动编辑相关-1">移动/编辑相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">option + h/j/k/l</td>
+<td style="text-align: left;">左下上右移动</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + b</td>
+<td style="text-align: left;">到末尾</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + e</td>
+<td style="text-align: left;">到首</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctrl + j</td>
+<td style="text-align: left;">开辟新行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="visual模式下">Visual模式下</h3>
+<h4 id="移动相关">移动相关</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">向下移动代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">向上移动选中的代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">左缩进代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">右缩进代码</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">=</td>
+<td style="text-align: left;">选中代码后格式化代码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用命令">常用命令</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">命令</th>
+<th style="text-align: left;">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">:q</td>
+<td style="text-align: left;">退出</td>
+</tr>
+<tr>
+<td style="text-align: left;">:q!</td>
+<td style="text-align: left;">强制退出</td>
+</tr>
+<tr>
+<td style="text-align: left;">:w</td>
+<td style="text-align: left;">保存</td>
+</tr>
+<tr>
+<td style="text-align: left;">:qa</td>
+<td style="text-align: left;">退出并关闭</td>
+</tr>
+<tr>
+<td style="text-align: left;">:qa!</td>
+<td style="text-align: left;">强制退出并关闭</td>
+</tr>
+<tr>
+<td style="text-align: left;">:wq</td>
+<td style="text-align: left;">保存并退出</td>
+</tr>
+<tr>
+<td style="text-align: left;">:PackerCompile</td>
+<td style="text-align: left;">每次改变插件配置时，必须运行此命令或
+<code>PackerSync</code>, 重新生成编译的加载文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:PackerClean</td>
+<td style="text-align: left;">清除所有不用的插件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:PackerInstall</td>
+<td style="text-align: left;">清除，然后安装缺失的插件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:PackerUpdate</td>
+<td style="text-align: left;">清除，然后更新并安装插件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:PackerSync（最常使用）</td>
+<td style="text-align: left;">执行 <code>PackerUpdate</code> 后，再执行
+<code>PackerCompile</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">:h base-directories</td>
+<td style="text-align: left;">查看详细文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">:echo stdpath("data")</td>
+<td
+style="text-align: left;">查看你系统下Neovim的数据存储在标准数据目录的实际路径</td>
+</tr>
+<tr>
+<td style="text-align: left;">:colorscheme Tab键</td>
+<td style="text-align: left;">查看内置主题色</td>
+</tr>
+<tr>
+<td style="text-align: left;">:echo <code>$VIMRUNTIME</code></td>
+<td style="text-align: left;">查看<code>VIMRUNTIME</code>
+具体的路径</td>
+</tr>
+<tr>
+<td style="text-align: left;">:h nvim-tree.setup</td>
+<td style="text-align: left;">查看nvim-tree的帮助文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">:NvimTreeToggle</td>
+<td style="text-align: left;">再按Enter即可打开或关闭侧边栏</td>
+</tr>
+<tr>
+<td style="text-align: left;">:checkhealth telescope</td>
+<td style="text-align: left;">检查telescope依赖情况</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope find_files</td>
+<td style="text-align: left;">打开搜索文件窗口，快速打开文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope live_grep</td>
+<td
+style="text-align: left;">可以打开搜索窗口，输入内容后，结果会实时显示</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope buffers</td>
+<td style="text-align: left;">命令可以列出打开的 buffers</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope git_files</td>
+<td style="text-align: left;">列出 git 文件</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope man_pages</td>
+<td style="text-align: left;">列出帮助</td>
+</tr>
+<tr>
+<td style="text-align: left;">:Telescope env</td>
+<td style="text-align: left;">打开环境变量列表</td>
+</tr>
+<tr>
+<td style="text-align: left;">Telescope colorscheme</td>
+<td style="text-align: left;">换肤功能</td>
+</tr>
+<tr>
+<td style="text-align: left;">:TSInstallInfo</td>
+<td style="text-align: left;">命令查看 language parsers
+列表与安装状态</td>
+</tr>
+<tr>
+<td style="text-align: left;">:TSInstall
+&lt;language_to_install&gt;</td>
+<td style="text-align: left;">安装指定的 <code>Language parser</code>
+例如:TSInstall javascript</td>
+</tr>
+<tr>
+<td style="text-align: left;">:TSModuleInfo</td>
+<td style="text-align: left;">查看你的模块是否开启成功</td>
+</tr>
+<tr>
+<td style="text-align: left;">LSP相关命令</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">:h lsp</td>
+<td style="text-align: left;">查看 LSP 文档</td>
+</tr>
+<tr>
+<td style="text-align: left;">:LspInstallInfo</td>
+<td style="text-align: left;">安装 LSP Servers的图形化界面</td>
+</tr>
+<tr>
+<td style="text-align: left;">j/k</td>
+<td style="text-align: left;">移动光标到你要安装的 server</td>
+</tr>
+<tr>
+<td style="text-align: left;">i</td>
+<td style="text-align: left;">安装server</td>
+</tr>
+<tr>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">卸载该 server</td>
+</tr>
+<tr>
+<td style="text-align: left;">u</td>
+<td style="text-align: left;">更新 server</td>
+</tr>
+<tr>
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">更新所有 servers</td>
+</tr>
+<tr>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">检查 server 新版本</td>
+</tr>
+<tr>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">检查所有 servers 的新版本</td>
+</tr>
+<tr>
+<td style="text-align: left;">Esc</td>
+<td style="text-align: left;">关闭窗口</td>
+</tr>
+<tr>
+<td style="text-align: left;">?</td>
+<td style="text-align: left;">显示其他帮助信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">:LspInfo</td>
+<td style="text-align: left;">查看绑定的 Language Server 信息</td>
+</tr>
+<tr>
+<td style="text-align: left;">:NullLsInfo</td>
+<td style="text-align: left;">查看源的激活情况</td>
+</tr>
+<tr>
+<td style="text-align: left;">:lua vim.lsp.buf.formatting_sync()</td>
+<td style="text-align: left;">格式化代码</td>
+</tr>
+<tr>
+<td style="text-align: left;">:lua vim.lsp.buf.formatting_sync(nil,
+9999)</td>
+<td style="text-align: left;">不加参数可能会报Time out</td>
+</tr>
+<tr>
+<td style="text-align: left;">echo executable('xxx')</td>
+<td style="text-align: left;">查看某个命令是否可用 例如echo
+executable('rubocop')查看rubocop是否可用，一般用来排查格式化代码时需要的命令是否已安装</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参考文章">参考文章</h3>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://juejin.cn/post/7084462939595341831">Neovim的常见快捷键和命令</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/06/Neovim%E7%9A%84%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/06/Neovim%E7%9A%84%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8/" class="post-title-link" itemprop="url">Neovim的插件管理器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-06 14:37:52" itemprop="dateCreated datePublished" datetime="2024-06-06T14:37:52+08:00">2024-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Neovim
+是一个现代的、快速的且与vim完全兼容的文本编辑器。它支持插件、LSP、GUI、web
+browsers
+等等。各种各样的插件可以极大的提高Neovim的工作效率，随着使用时间的增加安装的插件也越来越多，所以有必要使用一个管理插件的插件来规范管理大量的插件，这样的插件称为插件管理器。Neovim
+有各种各样的插件管理器，本文的目的就是列出这些常用的插件管理器，以方便读者选择。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/folke/lazy.nvim">lazy.nvim</a>:
+lazy.nvim is a modern plugin manager for Neovim.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lewis6991/pckr.nvim">pckr.nvim</a>:
+Spiritual successor of <a
+target="_blank" rel="noopener" href="https://github.com/wbthomason/packer.nvim">https://github.com/wbthomason/packer.nvim</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wbthomason/packer.nvim">packer.nvim</a>:
+packer.nvim is currently unmaintained. For the time being (as of August,
+2023), it is recommended to use one of the following plugin managers
+instead: <code>lazy.nvim</code> or <code>pckr.nvim</code></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/savq/paq-nvim">paq-nvim</a>: Paq is a
+Neovim package manager written in Lua.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ii14/neopm">neopm</a>:Plugin manager for
+neovim, pre-alpha stage. Expect breaking changes.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/chiyadev/dep">dep</a>: A versatile,
+declarative and correct neovim package manager in Lua. Originally
+written for personal use by luaneko.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/notomo/optpack.nvim">optpack.nvim</a>:
+This is a neovim plugin manager that uses only opt package.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rktjmp/pact.nvim">pact.nvim</a>: pact is
+a semver focused, pessimistic plugin manager for Neovim.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a>:A
+minimalist Vim plugin manager.Just one file with no dependencies. Super
+easy to set up.</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">Vundle.vim</a>:Vundle is
+short for Vim bundle and is a Vim plugin manager.</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/tpope/vim-pathogen">pathogen.vim</a>:Manage
+your 'runtimepath' with ease. In practical terms, pathogen.vim makes it
+super easy to install plugins and runtime files in their own private
+directories.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Shougo/dein.vim">dein.vim</a>: Dein.vim
+is a dark powered Vim/Neovim plugin manager.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vim-volt/volt">volt</a>: Multi-platform
+CLI tool managing Vim plugin life</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/06/Neovim%E9%85%8D%E7%BD%AE%E5%BA%93Mini/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/06/Neovim%E9%85%8D%E7%BD%AE%E5%BA%93Mini/" class="post-title-link" itemprop="url">Neovim配置库Mini.nvim</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-06 11:20:19" itemprop="dateCreated datePublished" datetime="2024-06-06T11:20:19+08:00">2024-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>项目地址:<a
+target="_blank" rel="noopener" href="https://github.com/echasnovski/mini.nvim">https://github.com/echasnovski/mini.nvim</a></p>
+<h3 id="项目简介">项目简介</h3>
+<p><a target="_blank" rel="noopener" href="https://github.com/echasnovski/mini.nvim">Mini.nvim</a>
+是一个由开发者 echasnovski
+创建的简洁高效的Neovim配置库。它旨在提供一个基础但全面的功能集，让你的Neovim体验既精简又高效。作为一个开源项目，Mini.nvim
+已经吸引了众多用户和贡献者，并且持续更新以适应不断变化的开发需求。</p>
+<h3 id="技术分析">技术分析</h3>
+<h4 id="neovim-基础">Neovim 基础</h4>
+<p>Neovim 是 Vim 的一个分支，具有更高的可扩展性和性能优化。Mini.nvim
+利用了 Neovim
+的这些优势，通过精心挑选的插件和配置，实现了极佳的交互性和速度。</p>
+<h4 id="lua-配置">Lua 配置</h4>
+<p>Mini.nvim 使用 Lua
+语言进行配置，这是一种轻量级、快速且易于阅读的语言。Lua
+的使用使得配置文件更易理解，降低了维护难度，同时也方便了对现有配置的个性化修改。</p>
+<h4 id="插件选择">插件选择</h4>
+<p>该项目选用了诸如
+<code>nvim-lspconfig</code>（用于语言服务器协议支持）,
+<code>telescope.nvim</code>（用于查找和选择文件），和
+<code>treesitter</code>（语法高亮和结构解析）等优秀插件，为开发环境提供了强大的功能，而不会牺牲性能。</p>
+<h4 id="敏捷性与性能">敏捷性与性能</h4>
+<p>Mini.nvim
+的设计注重启动速度和运行效率。它的核心理念是“只加载你需要的东西”，避免了不必要的资源消耗，确保在日常使用中流畅无阻。</p>
+<h3 id="应用场景">应用场景</h3>
+<ul>
+<li><strong>开发环境</strong>： Mini.nvim 提供了一套完整的 LSP
+支持，可以满足大多数编程语言的代码智能提示和自动完成。</li>
+<li><strong>文本编辑</strong>：
+对于日常文档编辑，其优秀的搜索、替换和导航工具使工作效率倍增。</li>
+<li><strong>远程工作</strong>： 在低带宽或资源有限的环境中，Mini.nvim
+的轻量化特性尤为突出。</li>
+</ul>
+<h3 id="特点">特点</h3>
+<ol type="1">
+<li><strong>简洁</strong> - 只包含必要的组件，避免了过度配置。</li>
+<li><strong>模块化</strong> - 容易添加或移除特定功能，便于自定义。</li>
+<li><strong>高性能</strong> - 专为速度和低内存占用优化。</li>
+<li><strong>可扩展</strong> - 灵活地与新的插件和配置集成。</li>
+<li><strong>社区驱动</strong> -
+有活跃的开发社区支持，问题反馈和新特性更新迅速。</li>
+</ol>
+<h3 id="结语">结语</h3>
+<p>无论是初识Neovim的新手，还是寻求简约高效的老手，Mini.nvim
+都是一个值得尝试的选择。其优化的配置和强大的功能组合，能够提升你的编辑器体验，助你在编程旅程中更加得心应手。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -536,980 +2232,8 @@ text, it does not interact with the clipboard directly.</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">LaTeX中插入图片</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-28 00:54:48" itemprop="dateCreated datePublished" datetime="2024-05-28T00:54:48+08:00">2024-05-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在科研论文中，图片是一个非常重要的组成部分。LaTeX
-提供了许多定制化图片的功能。这篇文章将会介绍如何用最常见的格式插入图片、缩放图片、旋转图片，以及如何在文档中引用这些图片。实现插入图片的功能需要在导言引用<code>graphics</code>或<code>graphicx</code>,
-下面就一些重要的点展开讨论。</p>
-<h2 id="图片的路径">图片的路径</h2>
-<p>当你的文档拥有很多个图片的时候，创建多个文件夹来存储图片是一个规划项目的好办法。</p>
-<p>命令<code>\graphicspath&#123; &#123;images/&#125; &#125;</code>告诉 LaTeX
-在_images_文件夹中寻找图片。这个路径是当前工作文件夹的<strong>相对</strong>路径，所以，编译器会在当前文档所在的目录中开始寻找文件。文件夹的路径默认情况下是相对路径，如果没有一个初始的目录被指定，例如：</p>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path relative to the .tex file containing the \includegraphics command</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;images/&#125; &#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/27/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">LaTeX中插入网络图片</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-27 21:59:01" itemprop="dateCreated datePublished" datetime="2024-05-27T21:59:01+08:00">2024-05-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>有时候在编写LaTeX文件时需要插入图片，但是图片源自网络，这时可以使用<code>\write18</code>调用外部命令，下载图片，然后再插入到文件中，引用网络上的一个具体例子为：</p>
-<figure class="highlight tex"><figcaption><span>\write18 插入图片</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphix&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">    <span class="keyword">\write</span>18&#123;wget http://www.some-site.com/path/to/image.png&#125;</span><br><span class="line">    <span class="keyword">\includegraphic</span>&#123;image.png&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>参考：<a
-target="_blank" rel="noopener" href="https://www.latexstudio.net/archives/8040.html">LaTeX技巧427：LaTeX如何插入网络上的图片？</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/Linux%E7%BB%88%E7%AB%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/27/Linux%E7%BB%88%E7%AB%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Linux终端下使用默认程序打开文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-27 16:17:15" itemprop="dateCreated datePublished" datetime="2024-05-27T16:17:15+08:00">2024-05-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在日常编写脚本的过程中，不可避免的可打开一些文件进行编辑，对于一些特定的文件可以使用某相应的软件打开。但是，若脚本需要处理的有各种各样的文件，若针对每一个文件都设计一个对应程序来打开，原理上可行，但是比较麻烦。现在的<code>Linux</code>基本都内置了命令<code>xdg-open</code>,
-它可以自动调用系统的默认程序打开文件，可以大大提高脚本的效率。为了方便查询，此贴出它的帮助文件：</p>
-<figure class="highlight txt"><figcaption><span>xdg-open --help</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   xdg-open -- opens a file or URL in the user&#x27;s preferred</span><br><span class="line">   application</span><br><span class="line"></span><br><span class="line">Synopsis</span><br><span class="line"></span><br><span class="line">   xdg-open &#123; file | URL &#125;</span><br><span class="line"></span><br><span class="line">   xdg-open &#123; --help | --manual | --version &#125;</span><br><span class="line"></span><br><span class="line">Use &#x27;man xdg-open&#x27; or &#x27;xdg-open --manual&#x27; for additional info.</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>提出这个要求是因为我今天在脚本<code>xugit.sh</code>中加入了根据选项打开文件，避免每次都切换路径的麻烦。尽管有<code>z-lua</code>等路径切换插件，但是在连接<code>U盘</code>时，使用<code>ugit -l</code>选择文件再打开，更加直接。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/26/Shell%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%8F%AF%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/26/Shell%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%8F%AF%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95/" class="post-title-link" itemprop="url">Shell脚本编写可选择菜单</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-26 16:27:03" itemprop="dateCreated datePublished" datetime="2024-05-26T16:27:03+08:00">2024-05-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>使用<code>diary.sh</code>写博客已经有近两年了，对于菜单一直没有细致的设计，这主要是因为对<code>Shell</code>理解的不够透彻。今天实现了真正意义上的可选择菜单，实现原理是：不再使用<code>clear</code>每次按键后清屏，改用指定行输出来输出菜单！这样就可以避免每按一次键就闪烁一次的不好体验，同时对于一屏的信息，当只有一二行发生变化时，整体上看很流畅：</p>
-<h2 id="运行截图展示">运行截图展示</h2>
-<figure>
-<img src="https://img2.imgtp.com/2024/05/26/0mRbEkkk.gif"
-alt="可选择菜单" />
-<figcaption aria-hidden="true">可选择菜单</figcaption>
-</figure>
-<div class="note primary"><p>可选择菜单支持<code>vim</code>的快捷键，即<code>j</code>向下，<code>k</code>向上，同时<code>J</code>向下一页，<code>K</code>向上一页.</p>
-</div>
-<h2 id="shell源代码">shell源代码</h2>
-<figure class="highlight sh"><figcaption><span>可选择菜单shell源码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br></pre></td><td class="code"><pre><span class="line">DY_FILES=($(<span class="built_in">ls</span> /home/<span class="variable">$USER</span>/))  <span class="comment">#设置用来列表输出的数组, 此处可以改为您自己的路径</span></span><br><span class="line"><span class="function"><span class="title">DY_SET_SIZE</span></span>()&#123;</span><br><span class="line">    TTY_H=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">    <span class="built_in">let</span> TTY_H-=2</span><br><span class="line">    TTY_W=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">DY_LINE=<span class="string">&quot;-&quot;</span></span><br><span class="line"><span class="function"><span class="title">DY_MKLINE</span></span>()&#123;</span><br><span class="line">    l=0</span><br><span class="line">    <span class="keyword">while</span> [ <span class="variable">$l</span> -lt <span class="variable">$TTY_W</span> ]; <span class="keyword">do</span> </span><br><span class="line">        <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$DY_LINE</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> l+=1</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line">NEO_FORMAT=7    <span class="comment"># 高亮行的格式，可以自行修改</span></span><br><span class="line"><span class="comment"># 参数： 输出行，行号，数组号， 高亮行号</span></span><br><span class="line"><span class="function"><span class="title">NEO_PRINT</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [[ <span class="variable">$3</span> -eq <span class="variable">$4</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;\033[<span class="variable">$1</span>;1H\033[?25l\033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m[<span class="variable">$2</span>] <span class="variable">$&#123;NEO_ARR[$3-1]&#125;</span>\033[0m\033[K\033&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;\033[<span class="variable">$1</span>;1H\033[?25l[<span class="variable">$2</span>] <span class="variable">$&#123;NEO_ARR[$3-1]&#125;</span>\033[K&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数：$1 起始点 $2 列表长度 $3 高亮行</span></span><br><span class="line"><span class="function"><span class="title">NEO_LIA</span></span>()&#123;</span><br><span class="line">    k=0 ; i=<span class="variable">$1</span></span><br><span class="line">    <span class="keyword">while</span> [[ <span class="variable">$k</span> -lt <span class="variable">$TTY_H</span> ]]; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> k+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt -<span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">let</span> i+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -gt <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>-<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt 1 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> j=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j=<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        NEO_PRINT <span class="variable">$k</span> <span class="variable">$j</span> <span class="variable">$i</span> <span class="variable">$3</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_SELECT</span></span>()&#123;</span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&quot;\r\033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m[s] 选择\033[0m &quot;</span>; <span class="built_in">echo</span> -ne <span class="string">&quot;\033[K&quot;</span> ; <span class="built_in">read</span> TLS_SNum</span><br><span class="line">    <span class="built_in">expr</span> <span class="string">&quot;<span class="variable">$TLS_SNum</span>&quot;</span> + 0 &amp;&gt; /dev/null</span><br><span class="line">    <span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$TLS_SNum</span> -lt <span class="variable">$1</span> -o <span class="variable">$TLS_SNum</span> -gt  <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;编号超出范围，请重新选择编号！&quot;</span></span><br><span class="line">            <span class="built_in">exit</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            NEO_OUT_H=<span class="variable">$TLS_SNum</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;输入非数字，请重新输入编号！&quot;</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数： 输出行，光标所在行</span></span><br><span class="line"><span class="function"><span class="title">NEO_MENUE</span></span>()&#123;</span><br><span class="line">    <span class="built_in">let</span> r=<span class="variable">$1</span>+2</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -ne <span class="string">&quot;\033[<span class="variable">$r</span>;1H[j] 向下 [k] 向上 [s] 选择 [q] 退出 \033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m<span class="variable">$2</span>\033[0m\033[K\033[?25h&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -ne <span class="string">&quot;\033[<span class="variable">$r</span>;1H[j] 向下 [k] 向上 [q] 退出 \033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m<span class="variable">$2</span>\033[0m\033[K\033[?25h&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LISA</span></span>()&#123;</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    p=<span class="variable">$1</span> ; <span class="built_in">let</span> q=<span class="variable">$p</span>+<span class="variable">$TTY_H</span>; m=<span class="variable">$3</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$q</span> -gt <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> q=<span class="variable">$q</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> p=<span class="variable">$p</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$m</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$p</span> -le <span class="string">&quot;-<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> q=<span class="variable">$q</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> p=<span class="variable">$p</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$m</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_LIA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">    DY_MKLINE</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -le 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> NEO_CURRENT=<span class="variable">$m</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        NEO_CURRENT=<span class="variable">$m</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_MENUE <span class="string">&quot;<span class="variable">$TTY_H</span>&quot;</span> <span class="string">&quot;<span class="variable">$NEO_CURRENT</span>&quot;</span></span><br><span class="line">    <span class="built_in">read</span> -s -n 1 ListDo</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$ListDo</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        j)</span><br><span class="line">            <span class="built_in">let</span> m+=1</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$m</span> -gt <span class="variable">$q</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">let</span> p+=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        J)</span><br><span class="line">            <span class="built_in">let</span> p+=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="built_in">let</span> m=<span class="variable">$p</span>+1</span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        k)</span><br><span class="line">            <span class="built_in">let</span> m-=1</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$m</span> -le <span class="variable">$p</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">let</span> p-=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        K)</span><br><span class="line">            <span class="built_in">let</span> m=<span class="variable">$p</span></span><br><span class="line">            <span class="built_in">let</span> p-=<span class="variable">$TTY_H</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        <span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_OUT_H=<span class="variable">$m</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">exit</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        s)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_SELECT <span class="variable">$p</span> <span class="variable">$q</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        q)</span><br><span class="line">            <span class="built_in">exit</span> </span><br><span class="line">            ;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LIB</span></span>()&#123;</span><br><span class="line">    k=0 ; i=<span class="variable">$1</span></span><br><span class="line">    <span class="keyword">while</span> [[ <span class="variable">$k</span> -lt <span class="variable">$2</span> ]]; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> k+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt -<span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">let</span> i+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -gt <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>-<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt 1 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> j=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j=<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        NEO_PRINT <span class="variable">$k</span> <span class="variable">$j</span> <span class="variable">$i</span> <span class="variable">$3</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LISB</span></span>()&#123;</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    p=<span class="variable">$1</span> ; q=<span class="variable">$2</span> ; m=<span class="variable">$3</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -gt <span class="variable">$q</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$p</span>+1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -le <span class="variable">$p</span> ]; <span class="keyword">then</span></span><br><span class="line">        m=<span class="variable">$q</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_LIB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">    DY_MKLINE</span><br><span class="line">    NEO_MENUE <span class="variable">$q</span> <span class="variable">$m</span></span><br><span class="line">    <span class="built_in">read</span> -s -n 1 ListDo</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$ListDo</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        j)</span><br><span class="line">            <span class="built_in">let</span> m+=1</span><br><span class="line">            NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        k)</span><br><span class="line">            <span class="built_in">let</span> m-=1</span><br><span class="line">            NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        s)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_SELECT <span class="variable">$p</span> <span class="variable">$q</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        <span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_OUT_H=<span class="variable">$m</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">exit</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        q)</span><br><span class="line">            <span class="built_in">exit</span></span><br><span class="line">            ;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数：列出的数组， 1开启选择，0关闭选择</span></span><br><span class="line"><span class="function"><span class="title">NEO_LIST</span></span>()&#123;</span><br><span class="line">    NEO_ARR=(<span class="variable">$1</span>) ; NEO_SEL_ON=<span class="variable">$2</span></span><br><span class="line">    clear</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> -gt <span class="variable">$TTY_H</span> ]; <span class="keyword">then</span></span><br><span class="line">        NEO_LISA 0 <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> 1</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        NEO_LISB 0 <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$NEO_OUT_H</span>  <span class="comment"># 目标是获得光标所在的行</span></span><br><span class="line">&#125;</span><br><span class="line">NEO_LIST <span class="string">&quot;<span class="variable">$&#123;DY_FILES[*]&#125;</span>&quot;</span> 1  <span class="comment"># 测试程序命令</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/25/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/25/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">编程中的函数命名规范</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-25 16:24:26" itemprop="dateCreated datePublished" datetime="2024-05-25T16:24:26+08:00">2024-05-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在对函数进行命名时，每个人都有自己的标准。本书会推荐两种，希望这两种标准成为读者以后编程时的命名规范。比较著名的命名规则首推匈牙利命名法，这种命名方法是由Microsoft
-程序员查尔斯·西蒙尼(Charles
-Simonyi)提出的。其主要思想是“在变量和函数名中加入前缀，以增进人们对程序的理解”。匈牙利命名法的关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途。骆驼(Camel)命名法近年来越来越流行，在许多新的函数库和
-Java
-开发平台下使用得相当多。正如它的名称所表示的那样，骆驼命名法指的是混合使用大小写字母来构成标识符的名字，其中的第一个单词首字母小写，余下的单词首字母大写。帕斯卡(Pascal)命名法与骆驼命名法类似。只不过骆驼命名法是第一个单词首字母小写，而帕斯卡命名法则是第一个单词首字母大写。</p>
-<p>对于以上的几种命名规则，本书认为对变量或函数进行描述时常用的是骆驼命名法和匈牙利命名法，因此，我们推荐使用这两种命名标准。</p>
-<p>对于函数来说，一般是根据函数的功能来进行命名，通常有两种命名方式：</p>
-<ul>
-<li>对于一些复杂点的函数操作，可以使用“操作对象+操作”的形式命名，如<code>array_sort()</code>函数，从字面上就可以看出，该函数用于对数字进行排序。</li>
-<li>对于简单的函数，可以直接使用操作名作为函数名，但要注意不要和系统的命令相同，否则容易造成不必要的错误，如<code>address()</code>,对该函数进行操作。</li>
-</ul>
-<p>对于变量来说， 一般通过匈牙利命名法命名：</p>
-<ul>
-<li>对于单个英文单词就可命名，可直接用该单词进行命名，如变量<code>average</code>可用于对变量“平均数”的命名。</li>
-<li>对于单个单词无法命名的单词，可通过双单词或多单词形式的缩略词进行命名，如<code>dir_num</code>可用于命名变量“目录个数”</li>
-</ul>
-<p>对于常量来说，可通过将该变量全部设置为大写与变量形成区别，下面是常量的命名方式：</p>
-<ul>
-<li>对于单个单词可以名句的，可直接使用该单词的全部大写形式进行命名，如：常量<code>TOTAL</code>可对常量“总数”进行命名。</li>
-<li>对于单个单词无法表达清晰的常数，可以通过加下画线的形式命名，如<code>GLOBAL_CON</code>可以常量“全局常量”进行命名。</li>
-</ul>
-<div class="note primary"><p>注：上述引用自《LINUX SHELL 编程从初学到精通》</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/24/Shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/24/Shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Shell常用快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-24 23:24:23" itemprop="dateCreated datePublished" datetime="2024-05-24T23:24:23+08:00">2024-05-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>为了提高我们使用 Bash Shell 的效率，本文总结了一些 Bash
-中常用的高效快捷键，可以帮助我们在快节奏的学习和工作环境中提高生产力。熟悉了这些常用的快捷键之后，将会极大的提升我们与终端交互的速度，从而有效利用时间。</p>
-<h3 id="光标移动">光标移动</h3>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>对应功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + a 或 Home</td>
-<td>将光标移动到整行命令的开头 (#)</td>
-</tr>
-<tr>
-<td>Ctrl + e 或 End</td>
-<td>将光标移动到整行命令的末尾 (#)</td>
-</tr>
-<tr>
-<td>Ctrl + b 或 &lt;-</td>
-<td>将光标向左移动一个字符 (#)</td>
-</tr>
-<tr>
-<td>Ctrl + f 或 -&gt;</td>
-<td>将光标向右移动一个字符 (#)</td>
-</tr>
-<tr>
-<td>Alt + b 或 Ctrl + &lt;-</td>
-<td>将光标向左移动到当前单词或前一个单词的第一个字母上 (#)</td>
-</tr>
-<tr>
-<td>Alt + f 或 Ctrl + -&gt;</td>
-<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处 (#)</td>
-</tr>
-<tr>
-<td>Alt + c</td>
-<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的首字母大写</td>
-</tr>
-<tr>
-<td>Alt + u</td>
-<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的所有字母大写</td>
-</tr>
-<tr>
-<td>Alt + l</td>
-<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的所有字母小写</td>
-</tr>
-<tr>
-<td>Alt + -&gt;</td>
-<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处 (#)</td>
-</tr>
-<tr>
-<td>Alt + &lt;-</td>
-<td>将光标向左移动到当前单词或前一个单词的首字母处 (#)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="终端编辑">终端编辑</h3>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>对应功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + u</td>
-<td>删除从命令开始位置到当前光标所在位置之前的所有字符（会保留当前光标所在位置的字符）
-(#))</td>
-</tr>
-<tr>
-<td>Ctrl + k</td>
-<td>删除从当前光标位置到结尾的所有字符（不保留当前光标所在位置的字符）
-(#)</td>
-</tr>
-<tr>
-<td>Ctrl + w</td>
-<td>删除当前光标之前的第一个命令行参数或从光标位置往左删除至上一个空字符处（会保留当前光标位置的字符）
-(#)</td>
-</tr>
-<tr>
-<td>Ctrl + t</td>
-<td>交换当前光标之前和之后的两个字符</td>
-</tr>
-<tr>
-<td>Ctrl + h 或 Backspace</td>
-<td>删除光标之前的单个字符 (#)</td>
-</tr>
-<tr>
-<td>Ctrl + d 或 Delete</td>
-<td>往后删除当前光标所在位置的字符 (#)</td>
-</tr>
-<tr>
-<td>Alt + d 或 Ctrl + Delete</td>
-<td>往右删除从当前光标到下一个单词结尾的所有字符（不会保留当前光标所在位置的字符）</td>
-</tr>
-<tr>
-<td>Alt + Backspace</td>
-<td>往左删除从当前光标到上一个单词开头的所有字符（会保留当前光标所在位置的字符）</td>
-</tr>
-</tbody>
-</table>
-<h3 id="任务处理">任务处理</h3>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr>
-<th>快捷键或命令</th>
-<th>对应功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + c</td>
-<td>通过向当前前台进程发送SIGINT信号来中断当前前台进程。默认行为是终止进程
-(#)</td>
-</tr>
-<tr>
-<td>Ctrl + z</td>
-<td>向进程发送SIGTSTP信号，并挂起当前前台进程。可以使用fg命令将重新将进程拉回到前台
-(#)</td>
-</tr>
-<tr>
-<td>[Command] &amp;</td>
-<td>将Command命令放到后台执行，一般和nohup一起使用（eg: nohup ping <a
-target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> &amp;） (#)</td>
-</tr>
-<tr>
-<td>jobs 或 jobs -l</td>
-<td>查看当前终端后台所执行的用户提交任务 (#)</td>
-</tr>
-<tr>
-<td>kill -9 PID</td>
-<td>杀掉进程ID号为PID的进程 (#)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="其他">其他</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>对应功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ctrl + l</td>
-<td>清除整个屏幕，与clear命令作用相同 (#)</td>
-</tr>
-<tr>
-<td>Ctrl + s</td>
-<td>暂停终端屏幕的显示</td>
-</tr>
-<tr>
-<td>Ctrl + q</td>
-<td>终止Ctr</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/23/Gnome3%E8%AE%BE%E7%BD%AE%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/23/Gnome3%E8%AE%BE%E7%BD%AE%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Gnome3设置打开终端快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-23 15:55:25" itemprop="dateCreated datePublished" datetime="2024-05-23T15:55:25+08:00">2024-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>旧版的Gnome3默认的终端叫<code>gnome-terminal</code>,
-新版（2023年5月之后)的新终端控制台启动命令叫<code>kgx</code>,
-于是解决方法为:
-<code>设置</code>→<code>键盘</code>→<code>自定义键盘</code>→<code>设置自定义快捷键</code></p>
-<figure>
-<img src="/Picture/kgx.png" title="Console 设置快捷键"
-alt="Console 设置启动快捷键" />
-<figcaption aria-hidden="true">Console 设置启动快捷键</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/23/KDE-Plasma%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/23/KDE-Plasma%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">KDE-Plasma桌面环境提高效率的快捷键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-23 12:38:39" itemprop="dateCreated datePublished" datetime="2024-05-23T12:38:39+08:00">2024-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天有同学遇到一个问题，她的KDE-Plasma
-桌面莫名其妙的变大了，一直不能设置回来，调显示器分辨率也不行。由于我平时使用Gnome作为主力，好久不使用KDE-Plasma了，所以一时也找不到症结所在。最初的判断是她误删除了配置文件，同时Endavour
-也很长时间没有升级了，所以决定把系统升级到Plasma6.0,
-如果是配置文件删除了的话，那系统升级后会重新建立的，但是重启后仍然不行！一时间解决不了问题，但是突然想起来，有可能是她误触了某些键导致开启了KDE-Plasma的<code>屏幕缩放</code>功能,
-于是按这个思路百度了一下，发现确实是她误触了。解决方法是：
-<code>Meta+=</code> 放大屏幕， <code>Meta+-</code>缩小屏幕，
-<code>Meta+0</code>恢复到初始，
-真是”踏破铁鞋无密处，得来全不费工夫“！为了方便大家，特附上可以提高工作效率的快捷键如下：</p>
-<h2 id="应用程序启动器元">1.<strong>应用程序启动器（元）</strong></h2>
-<ul>
-<li><strong>功能</strong>：打开应用程序启动器，这是所有已安装程序的门户。</li>
-<li><strong>优点</strong>：无需使用鼠标导航来启动应用程序，从而节省时间。</li>
-</ul>
-<h2 id="运行命令界面altspacealtf2">2.
-<strong>运行命令界面（Alt+Space/Alt+F2）</strong></h2>
-<ul>
-<li><strong>功能</strong>：激活命令框以快速启动程序或执行命令。</li>
-<li><strong>优点</strong>：简化运行应用程序或命令的过程，无需导航菜单。</li>
-</ul>
-<h2 id="系统活动ctrlesc">3.<strong>系统活动（Ctrl+Esc）</strong></h2>
-<ul>
-<li><strong>功能</strong>：显示正在进行的系统活动和资源使用情况的概述。</li>
-<li><strong>优点</strong>：对于监控系统性能和识别资源密集型进程至关重要。</li>
-</ul>
-<h2 id="关闭窗口altf4">4.<strong>关闭窗口(Alt+F4)</strong></h2>
-<ul>
-<li><strong>功能</strong>：立即关闭活动窗口，快速退出程序。</li>
-<li><strong>优点</strong>：通过允许快速关闭应用程序来增强窗口管理。</li>
-</ul>
-<h2 id="退出应用程序ctrlq">5.<strong>退出应用程序(Ctrl+Q)</strong></h2>
-<ul>
-<li><strong>功能</strong>：退出当前应用程序，是跨多个程序的常用快捷方式。</li>
-<li><strong>好处</strong>：提供统一的退出方法，增强用户体验。</li>
-</ul>
-<h2 id="强制退出ctrlaltesc">6.
-<strong>强制退出（Ctrl+Alt+Esc）</strong></h2>
-<ul>
-<li><strong>功能</strong>：启动强制关闭无响应应用程序的工具。</li>
-<li><strong>好处</strong>：对于重新获得对无响应应用程序的控制至关重要。</li>
-</ul>
-<h2 id="显示窗口-ctrlf10">7. <strong>显示窗口 (Ctrl+F10)</strong></h2>
-<ul>
-<li><strong>功能</strong>：一次显示所有打开的窗口，以便于导航。</li>
-<li><strong>好处</strong>：通过允许快速窗口选择，极大地改进了多任务处理。</li>
-</ul>
-<h2 id="显示桌面ctrlf12">8. <strong>显示桌面(Ctrl+F12)</strong></h2>
-<ul>
-<li><strong>功能</strong>：最小化所有窗口以显示桌面，提供对文件和小部件的访问。</li>
-<li><strong>优点</strong>：提供整洁的工作空间并快速访问桌面项目。</li>
-</ul>
-<h2 id="窗口导航alttabaltshifttab">9.
-<strong>窗口导航（Alt+Tab/Alt+Shift+Tab）</strong></h2>
-<ul>
-<li><strong>功能</strong>：能够在打开的窗户中快速循环，向前和向后。</li>
-<li><strong>好处</strong>：促进任务之间的平滑过渡并提高工作流程效率。</li>
-</ul>
-<h2 id="放大缩小metameta-">10.
-<strong>放大/缩小（Meta+=/Meta+-）</strong></h2>
-<ul>
-<li><strong>功能</strong>：允许放大和缩小桌面视图。</li>
-<li><strong>优点</strong>：增强可视性和可访问性，特别是对于有视力障碍的用户。</li>
-</ul>
-<h2 id="恢复缩放meta0">11. <strong>恢复缩放（Meta+0）</strong></h2>
-<ul>
-<li><strong>功能</strong>：将桌面缩放级别重置为默认设置。</li>
-<li><strong>优点</strong>：快速标准化视图，在放大细节或辅助功能后特别有用。</li>
-</ul>
-<h2 id="下一个活动metatab">12.
-<strong>下一个活动（Meta+Tab）</strong></h2>
-<ul>
-<li><strong>功能</strong>：切换到下一个 KDE
-活动，这是工作区组织的独特功能。</li>
-<li><strong>优点</strong>：通过允许在针对特定任务定制的不同工作区之间轻松导航来提高工作效率。</li>
-</ul>
-<h2
-id="上一个活动metashifttab">13.<strong>上一个活动（Meta+Shift+Tab）</strong></h2>
-<ul>
-<li><strong>功能</strong>：返回到上一个活动，有助于高效的工作区管理。</li>
-<li><strong>优点</strong>：可以快速反转到以前使用的工作区，保持流畅的工作流程。</li>
-</ul>
-<h2 id="切换到桌面-1-4ctrlf1-至-ctrlf4">14. <strong>切换到桌面
-1-4（Ctrl+F1 至 Ctrl+F4）</strong></h2>
-<ul>
-<li><strong>功能</strong>：直接切换到前四个虚拟桌面之一。</li>
-<li><strong>优点</strong>：便于在多个桌面之间轻松快速地导航，从而增强多任务处理能力。</li>
-</ul>
-<h2 id="添加小部件手动方法">15.
-<strong>添加小部件（手动方法）</strong></h2>
-<ul>
-<li><strong>功能</strong>：提供一种通过桌面上下文菜单或面板选项手动添加小部件的方法。</li>
-<li><strong>优点</strong>：允许对工作区进行定制和个性化，以满足个人需求。</li>
-</ul>
-<h2 id="锁定屏幕ctrlaltl">16.
-<strong>锁定屏幕（Ctrl+Alt+L）</strong></h2>
-<ul>
-<li><strong>功能</strong>：安全锁定屏幕，防止未经授权的访问。</li>
-<li><strong>好处</strong>：对于离开计算机时维护隐私和安全至关重要。</li>
-</ul>
-<h2 id="平移元箭头键">17. <strong>平移（元+箭头键）</strong></h2>
-<ul>
-<li><strong>功能</strong>：按照箭头键的方向导航放大的桌面视图。</li>
-<li><strong>优点</strong>：放大细节或可访问性时，可用于探索桌面的不同区域。</li>
-</ul>
-<h2 id="打开窗口操作菜单altf3">18.
-<strong>打开窗口操作菜单(Alt+F3)</strong></h2>
-<ul>
-<li><strong>功能</strong>：显示带有各种窗口管理选项的菜单。</li>
-<li><strong>优点</strong>：提供对窗口大小调整、移动和其他管理功能的快速访问。</li>
-</ul>
-<h2
-id="面板小部件管理面板选项">19.<strong>面板小部件管理（面板选项）</strong></h2>
-<ul>
-<li><strong>功能</strong>：通过上下文菜单或面板控制器提供对面板中小部件管理的访问。</li>
-<li><strong>优点</strong>：支持自定义面板，为用户界面添加功能和效率。</li>
-</ul>
-<h2
-id="最小化全部显示桌面ctrlf12">20.<strong>最小化全部/显示桌面(Ctrl+F12)</strong></h2>
-<ul>
-<li><strong>功能</strong>：快速最小化所有打开的窗口，露出桌面。</li>
-<li><strong>优点</strong>：对于快速访问桌面项目或从干净的工作区开始非常有用。</li>
-</ul>
-<p>通过将这些快捷方式融入到您的日常使用中，您可以更轻松、更高效地导航和控制
-KDE
-Plasma。无论您是在处理复杂的项目还是只是浏览，这些快捷方式都旨在增强您在
-KDE 环境中的整体体验。</p>
-<h2 id="结论">结论</h2>
-<p>掌握 KDE Plasma 的键盘快捷键是提高工作效率并简化与 Linux
-桌面环境交互的有效方法。通过熟悉这 20
-个最重要的快捷方式，您可以显着提高从简单的应用程序启动到复杂的工作区管理等任务的效率。这些知识不仅可以节省时间，还可以丰富您的整体用户体验，使
-KDE Plasma
-成为满足您日常计算需求的更强大且用户友好的界面。无论您是新用户还是经验丰富的
-Linux 爱好者，这些快捷方式都是您更熟练、更愉快地使用 KDE Plasma
-的宝贵工具。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/28/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/30/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/28/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/30/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

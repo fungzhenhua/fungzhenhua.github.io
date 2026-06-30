@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,922 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/13/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%AF%86%E5%88%AB%E6%96%B9%E5%90%91%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/13/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E8%AF%86%E5%88%AB%E6%96%B9%E5%90%91%E9%94%AE/" class="post-title-link" itemprop="url">Shell脚本中识别方向键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-13 12:33:50" itemprop="dateCreated datePublished" datetime="2024-07-13T12:33:50+08:00">2024-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在<code>vim</code>中使用<code>H</code>、<code>J</code>、<code>K</code>、<code>L</code>移动光标，但是有时候人们习惯于使用方向键，这在有一些脚本中实现移动光标选择选项时比较重要。在网络上找到两个方案：</p>
+<h2 id="方案一">方案一</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">akey=(0 0 0)</span><br><span class="line"></span><br><span class="line">cESC=`<span class="built_in">echo</span> -ne <span class="string">&quot;\033&quot;</span>`</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"><span class="comment">#这里要注意，这里有-n选项，后跟一个数字，指定输入的字符长度最大值，所以不管key变量的值有多少个字符，都是一个值一个值做循环， 有多少个值就循环多少次</span></span><br><span class="line"><span class="comment">#输入键盘的上下左右键时，都有三个字符(ESC键算一个)，所以都是做三次循环，每做一次循环，akey的值都会发生改变</span></span><br><span class="line">      <span class="built_in">read</span> -s -n 1 key</span><br><span class="line"></span><br><span class="line">      akey[0]=<span class="variable">$&#123;akey[1]&#125;</span></span><br><span class="line">      akey[1]=<span class="variable">$&#123;akey[2]&#125;</span></span><br><span class="line">      akey[2]=<span class="variable">$&#123;key&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> [[ <span class="variable">$&#123;key&#125;</span> == <span class="variable">$&#123;cESC&#125;</span> &amp;&amp; <span class="variable">$&#123;akey[1]&#125;</span> == <span class="variable">$&#123;cESC&#125;</span> ]]</span><br><span class="line">      <span class="keyword">then</span></span><br><span class="line">         <span class="built_in">echo</span> <span class="string">&quot;ESC键&quot;</span></span><br><span class="line">      <span class="keyword">elif</span> [[ <span class="variable">$&#123;akey[0]&#125;</span> == <span class="variable">$&#123;cESC&#125;</span> &amp;&amp; <span class="variable">$&#123;akey[1]&#125;</span> == <span class="string">&quot;[&quot;</span> ]]</span><br><span class="line">      <span class="keyword">then</span></span><br><span class="line">           <span class="keyword">if</span> [[ <span class="variable">$&#123;key&#125;</span> == <span class="string">&quot;A&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;上键&quot;</span></span><br><span class="line">           <span class="keyword">elif</span> [[ <span class="variable">$&#123;key&#125;</span> == <span class="string">&quot;B&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;向下&quot;</span></span><br><span class="line">           <span class="keyword">elif</span> [[ <span class="variable">$&#123;key&#125;</span> == <span class="string">&quot;D&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;向左&quot;</span></span><br><span class="line">           <span class="keyword">elif</span> [[ <span class="variable">$&#123;key&#125;</span> == <span class="string">&quot;C&quot;</span> ]];<span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">&quot;向右&quot;</span></span><br><span class="line">           <span class="keyword">fi</span></span><br><span class="line">      <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="方案二">方案二</h2>
+<p>因为上下左右键当中分别含有ABDC，可以利用这一点来做while循环控制输出上下左右键的信号</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">key=() <span class="comment">#-----&gt;自定义一个数组key，为空值</span></span><br><span class="line"><span class="keyword">while</span> :</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">     <span class="built_in">read</span> -s -n 1 key  <span class="comment">#-----&gt;这里跟第一种方法类似，就是利用while循环，不过这里有点不一样的地方，就是这个不考虑完整方向键的字符</span></span><br><span class="line">     <span class="comment">#的方向键字符组成只要循环中包含A就会输出上键，包含B就会输出下键，以此类推，所以个人觉得这种方法没有第一种方法严谨，第一种方法更适合用来写比较大的脚本</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">case</span> <span class="variable">$&#123;KEY[0]&#125;</span> <span class="keyword">in</span></span><br><span class="line">     <span class="string">&quot;B&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;下键&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">     <span class="string">&quot;A&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;上键&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">     <span class="string">&quot;D&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;左键&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">     <span class="string">&quot;C&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;右键&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">       *)</span><br><span class="line">           <span class="built_in">continue</span></span><br><span class="line">     <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="方案三">方案三</h2>
+<p>通过分析上述两种方案，我们给出第三种方案，即识别<code>[A</code>、<code>[B</code>、<code>[C</code>、<code>[D</code>
+也可以区分方向键。代码如下:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">NEO_ESC=`<span class="built_in">echo</span> -ne <span class="string">&quot;\033&quot;</span>`</span><br><span class="line"><span class="built_in">echo</span> -n <span class="string">&quot;请输入按键&quot;</span>; <span class="built_in">read</span> -s -n 1 key</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$key</span> == <span class="variable">$&#123;NEO_ESC&#125;</span> ]]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">read</span> -sn 2 SubListDo</span><br><span class="line">   <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$SubListDo</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">       <span class="string">&quot;[A&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;向上&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">       <span class="string">&quot;[B&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;向下&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">       <span class="string">&quot;[C&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;向右&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">       <span class="string">&quot;[D&quot;</span>)</span><br><span class="line">           <span class="built_in">echo</span> <span class="string">&quot;向左&quot;</span></span><br><span class="line">           ;;</span><br><span class="line">       *)</span><br><span class="line">           <span class="built_in">exit</span></span><br><span class="line">           ;;</span><br><span class="line">   <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><ul>
+<li>2024年07月13日,
+由于在脚本<code>diary.sh</code>和<code>zugit.sh</code>中菜单使用了单一的<code>vim</code>方案，在没有实现完美的方向键识别前暂不加入方向键移动光标选择功能。</li>
+<li>2024年07月14日,
+在上述方案中首先检测是否输入特殊字符，若为特殊字符前导符<code>\033[</code>,
+则读取后面两个字符，再对后两个字符分类探测。使用此方法成功在<code>diary.sh</code>和<code>zugit.sh</code>中引入<code>方向键</code>,<code>home</code>,<code>end</code>,<code>pgup</code>,<code>pgdn</code>控制列表显示，使之成为更加友好的同时兼容<code>vim</code>快捷键的脚本程序。</li>
+</ul>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B1%82%E5%AF%BC%E6%95%B0%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/12/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%B1%82%E5%AF%BC%E6%95%B0%E7%9A%84%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA/" class="post-title-link" itemprop="url">计算机求导数的数学理论</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-12 12:26:20" itemprop="dateCreated datePublished" datetime="2024-07-12T12:26:20+08:00">2024-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>对于解析函数，可以将其Taylor展开为： <span
+class="math display">\[\begin{equation}\label{eq:taylor}
+f(x_{i+1})=f(x_i)+f&#39;(x_i)h+\frac{f&#39;&#39;(x_i)}{2}h^2+\cdots
+\end{equation}\]</span> 现在据式<span
+class="math inline">\(\eqref{eq:taylor}\)</span>来计算多阶导数，取近似到二阶项，则一阶导数为
+<span class="math display">\[\begin{equation}\label{eq:taylor1}
+f&#39;(x_i)=\frac{f(x_{i+1})-f(x_i)}{h}+O(h)
+\end{equation}\]</span> 将式<span
+class="math inline">\(\eqref{eq:taylor1}\)</span>中的函数<span
+class="math inline">\(f\)</span>替换为相应的导数<span
+class="math inline">\(f&#39;\)</span>得二阶导数,然后出现的一阶导数使用式<span
+class="math inline">\(\eqref{eq:taylor1}\)</span>替换，从而得到二阶导数用零阶导数表达的算式
+<span class="math display">\[\begin{equation}\label{eq:taylor2}
+f&#39;&#39;(x_i)=-\frac{f(x_{i+2})-2f(x_{i+1})+f(x_i)}{h^{2}}+O(h)
+\end{equation}\]</span>
+按前述方法可以求出任意阶导数使用零阶导数表达的算式，于是可以将式<span
+class="math inline">\(\eqref{eq:taylor}\)</span>取更多的项以提高其导数<span
+class="math inline">\(f&#39;(x_i)\)</span>的精度，比如取到二阶项 <span
+class="math display">\[\begin{equation}\label{eq:taylor3}
+f&#39;(x_i)=\frac{f(x_{i+1})-f(x_i)}{h}-\frac{f(x_{i+2})-2f(x_{i+1})+f(x_i)}{2h^{2}}h+O(h^2)
+\end{equation}\]</span> 化简式<span
+class="math inline">\(\eqref{eq:taylor3}\)</span>得 <span
+class="math display">\[\begin{equation}\label{eq:taylor4}
+f&#39;(x_i)=\frac{-f(x_{i+2})+4f(x_{i+1})-3f(x_i)}{2h}+O(h^2)
+\end{equation}\]</span></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/12/tar%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/12/tar%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">tar命令详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-12 10:23:41" itemprop="dateCreated datePublished" datetime="2024-07-12T10:23:41+08:00">2024-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="tar的选项参数">tar的选项参数</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-c: 建立压缩档案</span><br><span class="line">-x：解压</span><br><span class="line">-t：查看内容</span><br><span class="line">-r：向压缩归档文件末尾追加文件</span><br><span class="line">-u：更新原压缩包中的文件</span><br></pre></td></tr></table></figure>
+<p>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-z：有gzip属性的</span><br><span class="line">-j：有bz2属性的</span><br><span class="line">-Z：有compress属性的</span><br><span class="line">-v：显示所有过程</span><br><span class="line">-O：将文件解开到标准输出</span><br></pre></td></tr></table></figure>
+<p><code>--delete</code>从存档中删除 注意是两个减号。</p>
+<p>下面的参数-f是必须的<br />
+-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
+<h2 id="举例说明">举例说明</h2>
+<ol type="1">
+<li><p>压缩一个目录 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg:  tar -cvzf test.tar.gz  tar  <span class="comment">#压缩当前目录下的tar目录，压缩包的名字叫test.tar.gz</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>压缩其中某一类型的文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg:  tar -cvzf test.tar.gz  ./*.c <span class="comment">#压缩当前目录下的.c为后缀的文件。但是不能压缩以.开头的文件</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>查看一个压缩文件的内容 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -tvf test.tar.gz   <span class="comment">#查看当前目录下test.tar.gz压缩文件中的文件</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>解压一个文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg.  tar -xvzf test.tar.gz <span class="comment">#解压test.tar.gz到当前目录下面</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>文件夹做一个归档文件、备份一个目录、 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -cvf test.tar tar <span class="comment">#将tar文件夹下的文件生成一个test.tar归档文件</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>将某一类型的文件做成归档文件、备份某一类型的文件
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg:tar -cvf test.tar ./tar/*.c   <span class="comment"># 将tar文件夹下所有以.c结尾的文件放到test.tar 文件中，但是以.开头的文件不行</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>向归档文件中添加一个文件夹 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -rf test.tar  ./test1  <span class="comment">#将test1文件夹中的所有文件，添加到test.tar 归档文件中</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除归档文件中的文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -f test.tar --delete a.c  <span class="comment">#删除test.tar文件中的 a.c文件</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>删除归档文件中的某一类的文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -f test.tar --delete *.c  <span class="comment">#删除test.tar文件中的 以.c结尾的文件</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>释放归档文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg:  tar  -xvf  test.tar  <span class="comment">#释放test.tar归档文件中的内容到 当前目录下</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>查看归档文件中的内容 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eg: tar -tvf test.tar </span><br></pre></td></tr></table></figure></p></li>
+</ol>
+<h2 id="总结">总结</h2>
+<figure class="highlight bash"><figcaption><span>格式与解压命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、*.tar           用 tar –xvf 解压</span><br><span class="line">2、*.gz            用 gzip -d或者gunzip 解压</span><br><span class="line">3、*.tar.gz和*.tgz 用 tar –xzf 解压</span><br><span class="line">4、*.bz2           用 bzip2 -d或者用bunzip2 解压</span><br><span class="line">5、*.tar.bz2       用tar –xjf 解压</span><br><span class="line">6、*.Z             用 uncompress 解压</span><br><span class="line">7、*.tar.Z         用tar –xZf 解压</span><br><span class="line">8、*.rar           用 unrar e解压</span><br><span class="line">9、*.zip           用 unzip 解压</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>使用举例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar cvf  etcbak.tar etc/      打包一个tar</span><br><span class="line">tar xvf  etcbak.tar           解开一个tar</span><br><span class="line">tar cvzf etcbak.tar.gz etc/   打包压缩一个 tar</span><br><span class="line">tar zxvf etcbak.tar.gz        解压一个tar</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/09/%E5%85%B3%E4%BA%8ELaTeX%E6%8E%92%E7%89%88%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AF%B4%E6%98%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/09/%E5%85%B3%E4%BA%8ELaTeX%E6%8E%92%E7%89%88%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AF%B4%E6%98%8E/" class="post-title-link" itemprop="url">关于LaTeX排版系统的说明</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-09 13:49:14" itemprop="dateCreated datePublished" datetime="2024-07-09T13:49:14+08:00">2024-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>LaTeX</code>排版系统主要有<code>CTeX套装</code>和<code>TeXLive</code>,
+然而我们建议大家尽量使用<code>TeXLive</code>, 原因是：</p>
+<h3 id="ctex套装">CTeX套装</h3>
+<p><code>CTeX套装</code>是科学院吴凌云研究员的个人作品。在
+<code>CTeX套装</code>刚刚问世之时，因其解决了繁琐的中文字体安装工作，所以广受欢迎。但是，一方面
+<code>CTeX套装</code>已经很久不更新，内里的宏包、工具陈旧；另一方面，随着
+<code>XeLaTeX</code> 的发展，以及 <code>xeCJK</code>
+等技术的成熟，上述这些繁琐的工作已经没有必要而失去意义；因此，<label style="color:red">现在不推荐使用CTeX套装</label>.</p>
+<h3 id="ctex宏集">CTeX宏集</h3>
+<p>虽然它的名字也是<code>「CTeX」</code>，但是 <code>CTeX</code> 宏集和
+<code>CTeX</code> 套装是两个不同的东西。<code>CTeX</code>
+宏集是集成了中文支持、操作系统判定、字体选择、版式预设为一体的一组宏包和文档类的合集。我们推荐在任何情况下，优先使用
+<code>CTeX</code> 宏集处理中文。</p>
+<h3 id="texlive">TeXLive</h3>
+<p><code>TeXLive</code> 是 <code>TUG (TeX User Group)</code>
+维护和发布的 <code>TeX</code> 系统，可说是「官方」的 <code>TeX</code>
+系统。我们推荐任何阶段的 <code>TeX</code> 用户，都尽可能使用
+<code>TeXLive</code>，以保持在跨操作系统平台、跨用户的一致性。<code>TeXLive</code>
+的官方站点是 <a
+target="_blank" rel="noopener" href="https://tug.org/texlive/">https://tug.org/texlive/</a>.</p>
+<h3 id="归纳总结">归纳总结</h3>
+<div class="note primary"><ul>
+<li>不要安装和使用 CTeX 套装！</li>
+<li>请在任何情况下优先使用 CTeX 宏集在 LaTeX 中处理中文！</li>
+<li>具体安装配置请参考：<a
+href="/2022/03/01/ArchLinux安装指南">ArchLinux安装指南</a></li>
+</ul>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/08/LaTeX%E4%B8%AD%E6%96%87%E6%A1%A3%E7%B1%BBrevtex4%E4%B8%AD%E7%A6%81%E6%AD%A2%E5%BC%95%E7%94%A8%E6%96%87%E7%8C%AE%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%84%9A%E6%B3%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/08/LaTeX%E4%B8%AD%E6%96%87%E6%A1%A3%E7%B1%BBrevtex4%E4%B8%AD%E7%A6%81%E6%AD%A2%E5%BC%95%E7%94%A8%E6%96%87%E7%8C%AE%E4%B8%AD%E6%98%BE%E7%A4%BA%E8%84%9A%E6%B3%A8/" class="post-title-link" itemprop="url">LaTeX中文档类revtex4中禁止引用文献中显示脚注</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-08 12:58:14" itemprop="dateCreated datePublished" datetime="2024-07-08T12:58:14+08:00">2024-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="简介">简介</h3>
+<p>Includes styles for American Physical Society, American Institute of
+Physics, and Optical Society of America. The distribution consists of
+the RevTeX class itself, and several support packages.</p>
+<h3 id="文献引用显示和隐藏脚注">文献引用显示和隐藏脚注</h3>
+<p>在使用<code>revtex4</code>编写论文时，发现所有的<code>footnote</code>都会在引用文献中出现，调用其说明文档<a
+target="_blank" rel="noopener" href="https://mirrors.cloud.tencent.com/CTAN/obsolete/macros/latex/contrib/revtex4-1/revtex4-1.pdf">revtex4.pdf</a>后发现其使用规则并没有详细介绍。于是经过一翻查找得到设置方法：即使用选项<code>footinbib</code>实现在参考文献列表中出现<code>footnote</code>的内容，使用选项<code>nofootinbib</code>则不在参考文献中出现<code>footnote</code>.
+即</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[footinbib]&#123;revtex4&#125;   <span class="comment">%默认启用此选项</span></span><br><span class="line"><span class="keyword">\documentclass</span>[nofootinbib]&#123;revtex4&#125; <span class="comment">%关闭需手动设置</span></span><br></pre></td></tr></table></figure>
+<h3 id="参考文章">参考文章</h3>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://journals.aps.org/revtex">REVTeX Home Page</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cdn.journals.aps.org/files/revtex/index.html">REVTeX 4
+Home Page</a></li>
+<li><a target="_blank" rel="noopener" href="https://ctan.org/pkg/revtex4-1">revtex4-1 -Styles for
+various Physics Journals</a></li>
+<li><a target="_blank" rel="noopener" href="https://ctan.org/pkg/revtex">revtex -Styles for various
+Physics Journals</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/06/Outlook%E9%82%AE%E7%AE%B1%E5%8F%96%E6%B6%88StartDaily%E9%82%AE%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/06/Outlook%E9%82%AE%E7%AE%B1%E5%8F%96%E6%B6%88StartDaily%E9%82%AE%E4%BB%B6/" class="post-title-link" itemprop="url">Outlook邮箱取消StartDaily邮件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-06 00:43:22" itemprop="dateCreated datePublished" datetime="2024-07-06T00:43:22+08:00">2024-07-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本来我的<code>Outlook</code>邮箱是相当纯净的，但是最近总是收到<code>Start Daily</code>的邮件，有点不能接受。研究后发现解决方法：</p>
+<ul>
+<li>登录网页版的<code>Outlook</code>邮箱：<a
+target="_blank" rel="noopener" href="https://outlook.live.com/owa/">Outlook登录</a></li>
+<li>点击右上角您的头象，然后选择<code>我的Microsoft帐户</code></li>
+<li>在左侧点击第二项<code>您的信息</code></li>
+<li>在右侧向下滚动，找到<code>帐户信息</code>,
+再点击<code>通信首选项</code></li>
+<li>将所有的订阅取消,然后点击应用，<code>Outlook</code>得归清静。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/05/vim-vsnip%E8%87%AA%E5%AE%9A%E4%B9%89%E7%89%87%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/05/vim-vsnip%E8%87%AA%E5%AE%9A%E4%B9%89%E7%89%87%E6%AE%B5/" class="post-title-link" itemprop="url">vim-vsnip自定义片段</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-05 23:15:39" itemprop="dateCreated datePublished" datetime="2024-07-05T23:15:39+08:00">2024-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>插件<code>vim-vsnip</code>自带了相当数量的补全插件，但是一般都是通用的片段，对于编写自己常用的文件还需要自定义片段。本文记录自定义片段的具体过程。</p>
+<h2 id="安装插件">安装插件</h2>
+<figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/lazy-init.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;lazy&quot;</span>).setup(&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="string">&#x27;hrsh7th/cmp-vsnip&#x27;</span> ,</span><br><span class="line">    <span class="string">&#x27;hrsh7th/vim-vsnip&#x27;</span> ,</span><br><span class="line">    <span class="string">&#x27;rafamadriz/friendly-snippets&#x27;</span> ,</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="编辑片段">编辑片段</h2>
+<p>这里可以使用命令<code>VsnipOpen</code>,
+或者直接编辑<code>~/.vsnip/markdown.json</code>就可以直接添加<code>markdown</code>相应的片段。在编写过程中，为了适应<code>Next</code>博客主题输入数学公式的需要，需要输入<code>$$</code>,
+但是这个片段是错误的，因为默认<code>$</code>是变量的符号，于是转义，片段的转义符号为<code>\\</code>,
+于是得相应片段为：</p>
+<figure class="highlight lua"><figcaption><span>~/.vsnip/markdown.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;math-sup&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;^&#123;&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;^&#123;$1&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-sub&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;_&#123;&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;_&#123;$1&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-dkuohao&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;&#123;&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;$1&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-fkuohao&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;[&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;[$1]&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-ykuohao&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;(&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;($1)&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-sqrt&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;sqrt&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\sqrt&#123;$1&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-frac&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;Vsnips.EnableAutoTrigger&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;frac&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\frac&#123;$1&#125;&#123;&lt;++&gt;&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math formular&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-tag&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;tag&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\$\\tag&#123;$1&#125;\\label&#123;tag&lt;++&gt;&#125;\\$&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math referance&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-eqref&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;eqref&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\$\\eqref&#123;eq:$1&#125;\\$&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math referance&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-label&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;eqlabel&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\label&#123;eq:$1&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;math labels&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-multi2&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;align&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\$\\$\\begin&#123;align&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$1&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\\end&#123;align&#125;\\$\\$&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Multi-line Equations&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-multi1&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;mequation&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\$\\$\\begin&#123;equation&#125;\\label&#123;eq:$1&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\\begin&#123;aligned&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\\end&#123;aligned&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\\end&#123;equation&#125;\\$\\$&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Multi-line Equations&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;math-simple&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;equation&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;\\$\\$\\begin&#123;equation&#125;\\label&#123;eq:$1&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;\\end&#123;equation&#125;\\$\\$&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Simple Equation&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;LinkGrid&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;linkgrid&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% linkgrid %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot; $1 | https://&lt;+url+&gt; | &lt;+description+&gt; | /Picture/&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endlinkgrid %&#125;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;For diary.sh write&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;button&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;button&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% button https://&lt;+url+&gt;, $1 %&#125;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;For diary.sh write&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;fold&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;fold&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;details&gt;&lt;summary&gt;$1&lt;/summary&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;+contents+&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;/details&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;For diary.sh write&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;more&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;more&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;!-- more --&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;For diary.sh write&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;arrow&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;arrow&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;$&#123;1|&amp;rarr;,&amp;uarr;,&amp;darr;,&amp;larr;,&amp;harr;|&#125;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;picture&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;picture&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;![$1](/Picture/&lt;+pic+&gt; \&quot;&lt;+title+&gt;\&quot;)&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;centertext&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;center&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% cq %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$1&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endcq %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;textcolor&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;color&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;label style=\&quot;color:$&#123;1|red,yellow,blue,cyan,gold,green,gray,orange|&#125;\&quot;&gt;&lt;++&gt;&lt;/label&gt;&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;underline&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;underline&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;u&gt;$1&lt;/u&gt;&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;sub&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;__&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;sub&gt;$1&lt;/sub&gt;&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;sup&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;^^&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;sup&gt;$1&lt;/sup&gt;&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;href&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;ref&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;[$1](/&lt;+year+&gt;/&lt;+month+&gt;/&lt;+day+&gt;/&lt;+article+&gt;)&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Ref the article of my blog&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;hurl&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;url&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;[$1](&lt;+url+&gt;)&lt;++&gt;&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;delete&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;delete&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;~~$1~~&quot;</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;code&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;code&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% code &lt;+title+&gt; lang:$&#123;1|sh,python,lua,perl,yaml,ruby|&#125; %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;+code+&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endcode %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;codeblock&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;codeblock&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% codeblock &lt;+title+&gt; lang:$&#123;1|sh,python,lua,perl,yaml,ruby|&#125; %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;+code+&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endcodeblock %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;```&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;```&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;```$&#123;1|sh,python,lua,perl,yaml,ruby|&#125; &lt;+title+&gt; &quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;+code+&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;```&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;note&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;note&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% note $&#123;1|default,primary,success,info,warning,danger|&#125; %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endnote %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;tabs&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;tabs&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% tabs $&#123;1:&lt;+UniqueName+&gt;&#125; %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;!-- tab $&#123;2:&lt;+tabcaption+&gt;&#125; --&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;!-- endtab --&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endtabs %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;tab&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;tab&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&lt;!-- tab $&#123;2:&lt;+tabcaption+&gt;&#125; --&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;!-- endtab --&gt;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;label&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;label&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% label $&#123;1|default,primary,success,info,warning,danger|&#125;@$&#123;2:&lt;+content+&gt;&#125; %&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;centerquote&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;centerquote&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% centerquote %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;$&#123;1:&lt;+content+&gt;&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endcenterquote %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;video&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;video&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% video $&#123;1|/Video/&lt;++&gt;,https://&lt;+website+&gt;|&#125;%&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;pdf&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;pdf&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% pdf $&#123;1|/PDF/&lt;++&gt;.pdf,https://&lt;+website+&gt;|&#125;%&#125;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;grouppicture&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;prefix&quot;</span>: [<span class="string">&quot;grouppicture&quot;</span>],</span><br><span class="line">        <span class="string">&quot;body&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;&#123;% grouppicture $&#123;1:&lt;+number+&gt;&#125;-$&#123;2:&lt;+layout+&gt;&#125; &#125;%&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;![$&#123;3:&lt;+picturetitle+&gt;&#125;]($&#123;4:&lt;+picture+&gt;&#125;)&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&#123;% endgroudpicture %&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;&lt;++&gt;&quot;</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="string">&quot;description&quot;</span>: <span class="string">&quot;Next theme environment for Hexo&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/hrsh7th/vim-vsnip/blob/master/README.md">hrsh7th/vim-vsnip</a></li>
+<li><a target="_blank" rel="noopener" href="https://vsnips.corvo.fun/zh/intro/">Vsnips
+Documents</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2146403">vsnip
+插件</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/05/Linux%E4%B8%AD%E4%BD%BF%E7%94%A8inxi%E8%8E%B7%E5%8F%96%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/05/Linux%E4%B8%AD%E4%BD%BF%E7%94%A8inxi%E8%8E%B7%E5%8F%96%E5%90%84%E7%A7%8D%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">Linux中使用inxi获取各种信息</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-05 16:55:55" itemprop="dateCreated datePublished" datetime="2024-07-05T16:55:55+08:00">2024-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>inix</code> 是一个用于获取 Linux
+系统信息的终端命令。能够获取软件和硬件的详细信息，比如计算机型号、内核版本、发行版号以及桌面环境等信息，甚至可以读取主存模块占用主板的哪块
+RAM 卡槽等详细信息。</p>
+<p><code>inxi</code> 还可以用于监控系统中正在消耗 CPU
+或者内存资源的进程。</p>
+<p>在本文中，我将展示使用 <code>inxi</code> 命令获取系统信息的常用操作。</p>
+<p>首先，我将展示下如何安装 <code>inxi</code> 命令。</p>
+<h3 id="在-linux-上安装-inxi">在 Linux 上安装 inxi</h3>
+<p><code>inxi</code> 是一个非常流行的工具，所以在大多数 Linux
+发行版仓库中都可以轻松获取到该工具。不过还没有流行到各大 Linux
+发行版默认就安装了该软件，所以需要我们自己安装一下。</p>
+<p>在 Ubuntu/Debian 发行版系统中，安装命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install inxi</span><br></pre></td></tr></table></figure>
+<p>在 Fedora/RHEL8-based 等发行版中，安装命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install -y epel-release</span><br><span class="line"><span class="built_in">sudo</span> dnf install -y inxi</span><br></pre></td></tr></table></figure>
+<p>在 <code>Arch Linux</code> 以及它的派生分支版本中，安装命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S inxi</span><br></pre></td></tr></table></figure>
+<h3 id="使用-inxi-获取系统信息">使用 inxi 获取系统信息</h3>
+<p>你可以在终端运行 <code>inxi</code> 命令来总体浏览下系统信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi</span><br></pre></td></tr></table></figure>
+<p>如下图所示，运行 <code>inxi</code> 命令可以简要浏览
+CPU、时钟频率（<code>speed/min/max</code>）、内核（<code>Kernel</code>）、内存（<code>Mem</code>）、磁盘存储空间（<code>Storage</code>）、运行进程数量（<code>Procs</code>）以及
+Shell 等信息。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134938gckyz33o3ybxggbs.jpg"
+alt="The default output of inxi command" />
+<figcaption aria-hidden="true">The default output of inxi
+command</figcaption>
+</figure>
+<p>使用 <code>-b</code> 参数可以获取更为详细的系统信息。<code>-b</code> 参数会读取更多有关
+CPU、驱动器、当前运行进程、主板 UEFI
+版本、GPU、显示分辨率以及网络设备等详细信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -b</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134938wzhamzbmbl7b11lk.jpg"
+alt="Detailed hardware and software information about machine as reported by inxi" />
+<figcaption aria-hidden="true">Detailed hardware and software
+information about machine as reported by inxi</figcaption>
+</figure>
+<p>类似 <code>-b</code> 参数使用方法，<code>inxi</code> 还有许多其他的参数可供使用。你可以综合使用这些参数来获取你关心的信息。</p>
+<p>让我们看几个实例。</p>
+<h3 id="获取音频设备信息">获取音频设备信息</h3>
+<p>使用 <code>-A</code> 参数可以获取有关音频（输出）设备信息，包括物理音频（输出）设备、声音服务器以及音频驱动等详细信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -A</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134938q3y2pjpsps3qpymq.jpg"
+alt="Output of inxi command when “-A” flag is used" />
+<figcaption aria-hidden="true">Output of inxi command when “-A” flag is
+used</figcaption>
+</figure>
+<h3 id="获取电池信息">获取电池信息</h3>
+<p>使用 <code>-B</code> 参数，可以获取有关电池的信息（如果安装了电池）。你将读取到例如以 <code>Wh</code>（瓦特小时）为单位的当前电池电量和状况。</p>
+<p>因为我使用的是台式机，所以这里仅仅作为一个示例，让我们看看使用 <code>inxi -B</code> 会输出什么。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Battery:   ID-1: BAT0 charge: 50.0 Wh (100.0%) condition: 50.0/50.0</span><br></pre></td></tr></table></figure>
+<h3 id="获取-cpu-信息">获取 CPU 信息</h3>
+<p><code>-C</code> 参数用于获取有关 CPU 的详细信息。比如包括 CPU
+缓存大小、频率（单位 <code>MHz</code>，如果有多核，会显示每个核心的频率）、核心数、CPU
+型号以及 CPU 是 32 位还是 64 位。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -C</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134939ag2s0byetgbcarce.jpg"
+alt="Detailed CPU information displayed by inxi" />
+<figcaption aria-hidden="true">Detailed CPU information displayed by
+inxi</figcaption>
+</figure>
+<p>注意，如果是在虚拟机中使用 <code>inix -C</code>，<code>inxi</code> 读取到的 <code>CPU</code> 的最大和最小频率可能异常。下面是一个在四核
+Debian 11 虚拟机中使用 <code>-C</code> 参数的示例输出。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134939u2isin8zhccrrhhn.jpg"
+alt="An example output of using the “-C” flag in a Virtual Machine" />
+<figcaption aria-hidden="true">An example output of using the “-C” flag
+in a Virtual Machine</figcaption>
+</figure>
+<h3 id="获取更多的系统信息">获取更多的系统信息</h3>
+<p>使用 <code>-F</code> 参数可以获取更详细的系统信息（类似 <code>-b</code> 参数，但会更为详细）。几乎囊括了所有层次的系统信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -F</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134939fcdz7eg4fsqf8plz.jpg" /></p>
+<h3 id="获取图形显示相关信息">获取图形显示相关信息</h3>
+<p><code>-G</code> 参数可以获取和图形相关的信息。</p>
+<p>它会显示所有的图形设备（GPU）、正在使用的 GPU
+驱动（有助于检查是否使用 Nvidia 驱动还是 nouveau
+驱动）、显示输出分辨率和驱动程序版本。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -G</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134940kkuiwcakzkkv1utm.jpg" /></p>
+<h3 id="获取运行进程信息">获取运行进程信息</h3>
+<p><code>-I</code> 参数（大写字母 <code>i</code>）显示正在运行的进程、当前
+shell 、内存（内存使用情况）以及 <code>inxi</code> 版本号等信息。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134940p7ccatw7weemte8n.png"
+alt="inxi get running process info" />
+<figcaption aria-hidden="true">inxi get running process
+info</figcaption>
+</figure>
+<h3 id="获取内存信息">获取内存信息</h3>
+<p>可能你已经猜到了，<code>-m</code> 参数可以获取与内存相关的信息。</p>
+<p>它读取了如总可用内存、最大内存容量（硬件或 CPU
+支持的）、主板物理内存插槽数、是否存在
+ECC、插入的内存插槽，以及枚举每个插槽中运行的内存模块的大小和运行速度等信息。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -m</span><br></pre></td></tr></table></figure>
+<p>要使用 <code>-m</code> 参数获取更详细的信息，例如最大容量、每个插槽的内存模块信息等，需要超级用户权限。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> inxi -m</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134941vu61m9tqdxugq2gt.jpg" /></p>
+<p>如果只是希望简短的输出内存信息，可以使用 <code>-memory-short</code> 参数。</p>
+<p>使用 <code>-memroy-short</code> 参数将会只显示总内存以及当前已使用的内存量。</p>
+<h3 id="查看正在使用的包存储库">查看正在使用的包存储库</h3>
+<p>当使用 <code>-r</code> 参数时，会列举当前正在使用的包管理仓库或者更新本地仓库缓存中的所有存储库列表。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134941kfwpalmlftzwm916.png"
+alt="List of repositories in use" />
+<figcaption aria-hidden="true">List of repositories in use</figcaption>
+</figure>
+<h3 id="获取-raid-设备信息">获取 RAID 设备信息</h3>
+<p><code>-R</code> 参数用于获取所有 RAID 设备相关信息。</p>
+<p>令人惊喜的是，它甚至显示了有关 ZFS RAID（默认情况下，多数 Linux
+系统不包含该文件系统）的信息。它显示了 RAID
+设备上文件系统的详细信息、状态（包含离线状态、总大小和可用大小等）。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -R</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134941pj8dni7qjdnw4d3n.jpg" /></p>
+<h3 id="在-linux-终端中查询天气对这是可以的">在 Linux
+终端中查询天气（对，这是可以的）</h3>
+<p>利用 <code>-W</code> 参数，你可以查询地球上任何地方的天气情况。</p>
+<p><code>-W</code> 参数后面，需要携带以下中的任一一个体现位置的信息</p>
+<ul>
+<li>邮政编码</li>
+<li>纬度</li>
+<li>城市（及州）、国家（不能含有空格，使用 “+” 替换空格）</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -W Baroda,India</span><br></pre></td></tr></table></figure>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134942ja1ue68kvor8ecsu.jpg"
+alt="Use of the “-W” flag with inxi followed by the city,country location descriptor" />
+<figcaption aria-hidden="true">Use of the “-W” flag with inxi followed
+by the city,country location descriptor</figcaption>
+</figure>
+<h3 id="监控系统资源使用情况">监控系统资源使用情况</h3>
+<p><code>inxi</code> 除了提供有关已安装的硬件和驱动的信息外，还可以用于资源监控。</p>
+<p>使用 <code>-t</code> 参数可以显示进程信息。你还可以可选项 <code>-c</code> （用于
+CPU）和 <code>-m</code>（用于内存）。这些选项结合使用可以按指定数量列出进程信息。</p>
+<p>下面是一些使用 <code>-t</code> 参数监控资源信息的示例。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -t</span><br></pre></td></tr></table></figure>
+<p>命令 <code>inxi -t</code> 默认效果等同于 <code>inxi -t cm5</code> 的效果。</p>
+<figure>
+<img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134942w2nsininwbwj2fsc.jpg"
+alt="No difference in output of “inti -t” and “inxi -t cm5”" />
+<figcaption aria-hidden="true">No difference in output of “inti -t” and
+“inxi -t cm5”</figcaption>
+</figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inxi -t cm10</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://img.linux.net.cn/data/attachment/album/202112/17/134942zwuo9ukw9t8f9b12.jpg" /></p>
+<p>偶尔需要监控资源使用情况时，该工具挺管用。如果需要更多的资源监控功能，则推荐使用 <a
+target="_blank" rel="noopener" href="https://itsfoss.com/linux-system-monitoring-tools/">专用系统资源监控工具</a>。</p>
+<h3 id="总结">总结</h3>
+<p>对于需要诊断计算机问题以及获取那些并不熟悉的软硬件信息的人来说，<code>inxi</code> 工具是十分便利且有用的。它能识别那些消耗
+CPU、内存的进程；可以检查是否安装了合适的图形驱动程序、主板 UEFI/BIOS
+是否需要更新等等。</p>
+<p>事实上，在 <code>inxi</code> 开源社区论坛上，我们要求那些寻求帮助的成员提供 <code>inxi</code> 命令输出内容以便判断他们当前正在使用什么样的系统环境。</p>
+<p>我知道也有其他的工具可以读取 Linux
+上的硬件信息，不过 <code>inxi</code> 同时能读取硬件和软件信息，这也是我喜欢它的地方所在。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -485,1055 +1401,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/04/paru%E7%9A%84%E6%9C%AA%E7%9F%A5%E9%80%89%E9%A1%B9%E9%94%99%E8%AF%AFFileManager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/04/paru%E7%9A%84%E6%9C%AA%E7%9F%A5%E9%80%89%E9%A1%B9%E9%94%99%E8%AF%AFFileManager/" class="post-title-link" itemprop="url">paru的未知选项错误FileManager</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-04 22:55:13" itemprop="dateCreated datePublished" datetime="2024-07-04T22:55:13+08:00">2024-07-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>前几天配置好的新电脑后，逐步完成<code>ArchLinux</code>的使用细节配置，但是在使用<code>paru</code>安装软件时会出现一个提示：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">错误：选项节 [options] 中有未知的选项 <span class="string">&#x27;FileManager&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>这源自于<code>paru</code>的配置文件<code>/etc/paru.conf</code>中出现了错误，即将<code>[bin]</code>前的注释去掉，即修改为：</p>
-<figure class="highlight sh"><figcaption><span>/etc/paru.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Binary OPTIONS</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">[bin]</span><br><span class="line">FileManager = vifm</span><br></pre></td></tr></table></figure>
-<p>注意：在之前的配置中我的<code>[bin]</code>是被注释掉的，但是能正常工作，或许是升级后作者修复了这个<code>bug</code>，因些需要严格的启动这个选项。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/%E8%89%BE%E8%BE%BE%E8%89%BEPPT%E7%94%9F%E6%88%90%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/03/%E8%89%BE%E8%BE%BE%E8%89%BEPPT%E7%94%9F%E6%88%90%E5%99%A8/" class="post-title-link" itemprop="url">艾达艾PPT生成器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-03 21:32:40" itemprop="dateCreated datePublished" datetime="2024-07-03T21:32:40+08:00">2024-07-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>工作和学习中编写<code>PPT</code>是一件很平常的事情，但是做的多了就需要提高效率。目前网络上的<code>AI</code>生成<code>PPT</code>的工具有很多，但是大多需要注册或者有使用次数限制，这非常不方便。本文隆重介绍一个永久免费的，免注册的工具<label style="color:red">艾达艾PPT生成器</label>。点击官网直接进入：</p>
-<blockquote class="blockquote-center">
-<p><a
-target="_blank" rel="noopener" href="https://aippt.antdanceai.com">https://aippt.antdanceai.com</a></p>
-
-</blockquote>
-<p>官方的介绍：</p>
-<p>adAI 艾达艾ai一键生成ppt工具，是adAI
-艾达艾旗下一个通过ai能力，一键全自动生成图文信息的ppt工具。adAI 艾达艾ai
-ppt工具，可以在2分钟内，根据用户输入的对ppt制作的要求，一键生成精美页面的ppt文字内容和针对性配图。</p>
-<p>adAI
-艾达艾ai一键生成ppt工具，通过针对数十万种ppt生成格式的训练，用户只需要通过简洁清晰描述需求，即可转化为高质量的ppt文字结构的内容。并且通过针对每页的ppt标题，智能理解标题语义并根据语义，智能匹配对应的配图。实现了一键自动化生成图文并茂的ppt。并且支持一键免费下载生成的ppt。如果对生成的ppt需要进行编辑和调整，只需要通过wps
-或PowerPoint打开后即可编辑。</p>
-<p>adAI 艾达艾ai
-ppt还创新的采用了新的商业模式。对于用户而言，这是一个真正免费的
-，并且免注册登录的，也无需科学上网即可使用的ai
-ppt生成工具。只是在生成的ppt最后一页带有
-广告。用户可以随时删除。这个广告是通过adAI
-艾达艾的千人千面ai算法实现基于用户输入的ppt提示词智能匹配的。比如用户输入如果策划一场车展，那么匹配的广告会跟：车、展会、策划相关。做到精准广告匹配。</p>
-<p>adAI 艾达艾人工智能科技有限公司，致力于通过ai重构传统营销模式，除了ai
-ppt工具以外，还提供基于 ai的全自动内容营销服务。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/Hexo%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/02/Hexo%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Hexo中输入数学公式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-02 17:04:41" itemprop="dateCreated datePublished" datetime="2024-07-02T17:04:41+08:00">2024-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>根据<code>Next</code>主题官方文档<a
-target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/math-equations.html?highlight=latex">Math
-Equation</a>配置好<code>Hexo</code>对数学公式的支持，对于一些小问题可以写成<code>LaTeX</code>记录在博客中。但是这里面遇到的问题是，<code>MarkDown</code>毕竟不是针对<code>LaTeX</code>设计的，所以一些特殊的宏包在博客中是不能使用的，对于一些特殊复杂的公式需要撰写<code>tex</code>文件编译，而不是发表在博客上。对于一些简单的公式，如果在<code>Hexo</code>博客上编写，应当注意使用原始的<code>LaTeX</code>命令，以增强其兼容性，对于一些数学符号的输入，请参考：<a
-target="_blank" rel="noopener" href="https://www.latexlive.com/help#d15">关于LaTeX公式编辑
-Introduce</a>,
-而对于<code>Hexo</code>支持的数学公式格式，为了方便使用，直接引用其官方的例子。</p>
-<h2 id="支持的数学公式">支持的数学公式</h2>
-<p>在<code>Hexo</code>中开启数学支持，有两种插件支持，其中<code>MathJax</code>依赖<code>JavaScript</code>,但其支持的数学公式更多，而<code>KaTeX</code>不依赖<code>JavaScript</code>,
-同时速度更快，但是其持的数学公式少一些，因些根据<code>Next</code>主题官方，推荐使用<code>MathJax</code>.它们支持的<code>TeX/LaTeX</code>命令参考:</p>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://docs.mathjax.org/en/latest/input/tex/macros/index.html">MathJax支持的TeX/LaTeX命令</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://katex.org/docs/supported.html">KaTeX支持的TeX/LaTeX命令</a></li>
-</ul>
-<h2 id="simple-equations">Simple Equations</h2>
-<p>For simple equations, use the following form to give a tag,</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;equation&#125; <span class="keyword">\label</span>&#123;eq1&#125;</span><br><span class="line">e=mc<span class="built_in">^</span>2</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
-<p><span class="math display">\[\begin{equation} \label{eq1}
-e=mc^2
-\end{equation}\]</span></p>
-<p>Then, you can refer to this equation in your text easily by using
-something like:</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The famous matter-energy equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq1&#125;<span class="built_in">$</span> proposed by Einstein...</span><br></pre></td></tr></table></figure>
-<p>The famous matter-energy equation <span
-class="math inline">\(\eqref{eq1}\)</span> proposed by Einstein...</p>
-<h2 id="multi-line-equations">Multi-line Equations</h2>
-<p>For multi-line equations, inside the <code>equation</code>
-environment, you can use the <code>aligned</code> environment to split
-it into multiple lines:</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;equation&#125; <span class="keyword">\label</span>&#123;eq2&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= d + e + f + g <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= h + i</span><br><span class="line"><span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
-<p><span class="math display">\[\begin{equation} \label{eq2}
-\begin{aligned}
-a &amp;= b + c \\
-  &amp;= d + e + f + g \\
-  &amp;= h + i
-\end{aligned}
-\end{equation}\]</span></p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq2&#125;<span class="built_in">$</span> is a multi-line equation.</span><br></pre></td></tr></table></figure>
-<p>Equation <span class="math inline">\(\eqref{eq2}\)</span> is a
-multi-line equation.</p>
-<h2 id="multiple-aligned-equations">Multiple Aligned Equations</h2>
-<p>We can use <code>align</code> environment to align multiple
-equations. Each of these equations will get its own numbers.</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\label</span>&#123;eq3&#125; <span class="keyword">\\</span></span><br><span class="line">x <span class="built_in">&amp;</span>= yz <span class="keyword">\label</span>&#123;eq4&#125; <span class="keyword">\\</span></span><br><span class="line">l <span class="built_in">&amp;</span>= m - n <span class="keyword">\label</span>&#123;eq5&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
-<p><span class="math display">\[\begin{align}
-a &amp;= b + c \label{eq3} \\
-x &amp;= yz \label{eq4} \\
-l &amp;= m - n \label{eq5}
-\end{align}\]</span></p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There are three aligned equations: equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq3&#125;<span class="built_in">$</span>, equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq4&#125;<span class="built_in">$</span> and equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq5&#125;<span class="built_in">$</span>.</span><br></pre></td></tr></table></figure>
-<p>There are three aligned equations: equation <span
-class="math inline">\(\eqref{eq3}\)</span>, equation <span
-class="math inline">\(\eqref{eq4}\)</span> and equation <span
-class="math inline">\(\eqref{eq5}\)</span>.</p>
-<p>Since <code>align</code> in and of itself is a complete equation
-environment (read <a
-target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/95402/what-is-the-difference-between-aligned-in-displayed-mode-and-starred-align">here</a>
-about the difference between <code>aligned</code> and <code>align</code>
-in LaTeX). You do not need to wrap it with equation environment.</p>
-<h2 id="exclude-equations-from-numbering">Exclude Equations from
-Numbering</h2>
-<p>In the <code>align</code> environment, if you do not want to number
-one or some equations, just use <code>\nonumber</code> right behind
-these equations. Like the following:</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">-4 + 5x <span class="built_in">&amp;</span>= 2 + y <span class="keyword">\nonumber</span> <span class="keyword">\\</span></span><br><span class="line">w + 2 <span class="built_in">&amp;</span>= -1 + w <span class="keyword">\\</span></span><br><span class="line">ab <span class="built_in">&amp;</span>= cb</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
-<p><span class="math display">\[\begin{align}
--4 + 5x &amp;= 2 + y \nonumber \\
-w + 2 &amp;= -1 + w \\
-ab &amp;= cb
-\end{align}\]</span></p>
-<h2 id="use-tag-to-tag-equations">Use <code>\tag</code> to Tag
-Equations</h2>
-<p>Sometimes, you want to use more «exotic» style to refer your
-equation. You can use <code>\tag&#123;&#125;</code> to achieve this. For
-example:</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span>x+1<span class="keyword">\over</span><span class="keyword">\sqrt</span>&#123;1-x<span class="built_in">^</span>2&#125; <span class="keyword">\tag</span>&#123;i&#125;<span class="keyword">\label</span>&#123;eq<span class="built_in">_</span>tag&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
-<p><span class="math display">\[x+1\over\sqrt{1-x^2}
-\tag{i}\label{eq_tag}\]</span></p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq<span class="built_in">_</span>tag&#125;<span class="built_in">$</span> use `<span class="keyword">\tag</span>&#123;&#125;` instead of automatic numbering.</span><br></pre></td></tr></table></figure>
-<p>Equation <span class="math inline">\(\eqref{eq_tag}\)</span> use
-<code>\tag&#123;&#125;</code> instead of automatic numbering.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/" class="post-title-link" itemprop="url">如何深刻理解从二项分布到泊松分布</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-02 15:57:50" itemprop="dateCreated datePublished" datetime="2024-07-02T15:57:50+08:00">2024-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="二项分布和泊松分布的表达式">二项分布和泊松分布的表达式</h2>
-<ul>
-<li><p>二项分布： <span class="math display">\[
-P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p></li>
-<li><p>泊松分布： <span
-class="math display">\[P(x=k)=\frac{\lambda^k}{k!}e^{-\lambda}\]</span></p></li>
-</ul>
-<h2 id="一个现实生活中的例子">一个现实生活中的例子</h2>
-<p>一条汽车单向行驶的公路边有个便利店，店家经过一周的统计，得到数据：上个周一共有100辆次的车从这个便利店通过，其中有5辆次的车来买了东西。那么，店家现在想用这个数据来推测，下周，有6辆次的车会在这个便利店买东西的概率是多少？</p>
-<h3
-id="现在假设我们只知道二项分布而对泊松分布一无所知我们如何通过构建二项分布的数学模型来解决这个问题呢">现在，假设我们只知道二项分布而对泊松分布一无所知，我们如何通过构建二项分布的数学模型来解决这个问题呢？</h3>
-<p>这是二项分布的经典场景。对于通过的每一辆车，它只有两种可能的观测结果，那就是买东西和不买东西。这是一个
-<code>0-1</code>
-分布。现在我们做一个假设，假设每辆车通过时停下来买东西的概率是一样的（这样做假设不会影响整体的推测，因为做统计时，我们只统计了通过的车的总辆次和停下来买东西的车的总次数，也就是说做统计时每辆车是没有区别的）。通过买东西的车的总辆次
-<code>/</code> 通过的车的总辆次，我们能得到每一辆车的 <code>0-1</code>
-分布，任意一辆车停下来买东西的概率 <code>P</code> 为： <span
-class="math inline">\(\frac{5}{100}=0.05\)</span></p>
-<table>
-<thead>
-<tr>
-<th>行为</th>
-<th>买东西</th>
-<th>不买东西</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>P</td>
-<td>0.05</td>
-<td>0.95</td>
-</tr>
-</tbody>
-</table>
-<p>现在，我们已经通过对之前统计的数据的分析，知道了任意一辆车通过时停下来买东西的概率。如何通过这个<code>0-1</code>分布来做预测？那就做独立重复实验（也就是伯努利试验），假设有
-<code>n</code> 辆车在下个周通过该路口，每辆车停下来买东西的概率都是
-<code>p</code>，则有 <code>k</code> 辆车到商店买东西的概率为：</p>
-<p><span class="math display">\[P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p>
-<p>为此，我们必须颇为无奈地对下个周通过这条路的车的总辆次做个假设，那就是也通过<code>100</code>辆。现在我们就能做预测啦！</p>
-<p><span
-class="math display">\[P(x=6)=C_{100}^{6}\times-.005^6\times(1-0.05)^{100-6}\approx0.15\]</span></p>
-<h3
-id="如果以时间为维度来考量二项分布就会出问题">如果以时间为维度来考量，二项分布就会出问题</h3>
-<p>上一种通过二项分布来做预测的方法，依赖于我们需要做一个假设，即下一个周通过这条路的车的总辆次是<code>100</code>辆。现在我们想绕过需要对总辆次做假设这一障碍，用时间来作为观察的基准。但是因为二项分布所对应的伯努利实验的每一次实验是零散的，所以不得不将连续的时间进行分割。这就要涉及到单位时间，我们不妨把单位时间设置成小时，<span
-class="math inline">\(1周=7\times24=168小时\)</span>。根据之前的观察，一共有
-<code>5</code>
-辆车次的车去到商店买东西，也就是说，每小时有车进商店买东西的概率为 <span
-class="math inline">\(P=\frac{5}{168}\approx
-0.02976\)</span>。好像，我们又可以像上面那样去建立一个关于单位时间的<code>0-1</code>分布了。但是其实这个模型缺陷就出来了，由于考察的对象是单位时间，它的结果不再只有两个，即该时间段进入商店买东西的车的数量除了<code>0</code>、<code>1</code>，还可能是<code>2、3、4、…</code>，所以其实用<code>0-1</code>分布来对单位时间进入商店的车的数量进行模拟是不太科学的。</p>
-<p>那怎么办呢？自然而然，会想到将单位时间继续分割为更小的单位时间，如果把小时分割为分钟，那每小时就可以做<code>60</code>次独立重复实验，也就是说这下每小时最多可以有<code>60</code>辆车进入商店买东西了。但是这样仍然不满足时间这个连续的度量，要是出现极端情况，每小时有<code>70</code>辆车进入商店呢，这个模型又没法满足了。自然而然，我们想到将时间无限的分割下去。在非常非常小的一段时间里，我们就能做<code>0-1</code>分布的假设了，即在这段时间里只有
-<code>0</code> 或 <code>1</code>
-辆车进入商店买东西。但是无限的分割时间之后，我们还怎么计算这个无穷小的单位时间里车进入商店的概率呢？答案是，根本就不用去计算。因为我们的观测量是一个周汽车进入商店的辆次的总数，不妨把它记为
-<span class="math inline">\(\lambda\)</span>，它满足下面的等式：</p>
-<p><span class="math display">\[ \lambda = np \]</span></p>
-<p>其中 <code>n</code>
-为将一周的时间无限分割成的无穷小的单位时间的总份数，而 <code>p</code>
-是分割成这么多份数之后，根据观测值 <span
-class="math inline">\(\lambda\)</span>
-所计算出来的该单位时间里有车辆进入商店的概率。</p>
-<h3 id="从二项式公式推导泊松公式">从二项式公式推导泊松公式</h3>
-<p><span class="math display">\[\begin{equation}\label{eq:poisson}
-\begin{aligned}
-P(X=k)&amp;=\lim_{n\to\infty} C_n^kp^k(1-p)^{n-k} \\
-    &amp;= \lim_{n\to\infty}
-C_n^k(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
-    &amp;=\lim_{n\to\infty}
-\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^n(1-\frac{\lambda}{n})^{-k}\\
-    &amp;=\lim_{n\to\infty}
-\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}\frac{\lambda^k}{n^k}(1-\frac{\lambda}{n})^{-k}(1-\frac{\lambda}{n})^{n}\\
-    &amp;=1\times\frac{\lambda^k}{k!}\times 1\times e^{-\lambda}\\
-    &amp;=\frac{\lambda^k}{k!}e^{-\lambda}
-\end{aligned}
-\end{equation}\]</span></p>
-<p>推导之后我们发现，其实根本不需要用到 <code>n</code> 和 <code>p</code>
-这两个数据，而只有观测值 <span
-class="math inline">\(\lambda\)</span>。到这里是不是觉得泊松大大干了一件非常有价值的事情！</p>
-<h3
-id="通过泊松分布来对这个问题进行预测">通过泊松分布来对这个问题进行预测</h3>
-<p>根据之前的统计， <span class="math inline">\(\lambda = 5\)</span>
-<span class="math display">\[P(X=6) = \frac{5^6}{6!}e^{-5} \approx
-0.1462\]</span></p>
-<h3 id="总结">总结</h3>
-<p>根据二项分布推导出了泊松分布，并不代表二项分布就没有泊松分布先进，只是对于解决连续时间的这种问题，显然泊松分布更好用。但是有些情况下，二项分布会更好用。</p>
-<h2 id="声明">声明</h2>
-<p>本文引用自：<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40064300/article/details/134628610">如何深刻理解从二项式分布到泊松分布</a>,
-只是对数学公式部分重新编写以适应<code>Next</code>主题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/Nvidia-ArchLinux-Wayland%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/02/Nvidia-ArchLinux-Wayland%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Nvidia-ArchLinux-Wayland安装教程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-02 13:43:09" itemprop="dateCreated datePublished" datetime="2024-07-02T13:43:09+08:00">2024-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>As you know, the transition to Wayland from the traditional Xorg
-server in the Linux ecosystem has been a hot topic that caused much
-controversy and, admittedly, a fair share of troubleshooting.</p>
-<p>While Wayland promises a more streamlined and secure interface than
-its predecessor, Xorg, users have often encountered hurdles,
-particularly regarding compatibility with NVIDIA graphics cards.</p>
-<p>In other words, the journey hasn’t always been without bumps, from
-rendering issues to compatibility quirks. However, it’s becoming
-increasingly clear that the NVIDIA and Wayland combo, while not yet a
-perfect match, is evolving into a viable, working solution for many.</p>
-<p>Still, with the proper guidance and a bit of patience, using NVIDIA
-with Wayland on Arch is not just a possibility but a largely workable
-solution. You can approach this transition with confidence.</p>
-<p>This guide is designed to do precisely this: usher you through the
-setup process and offer solutions to ensure you can take most of your
-NVIDIA and Wayland experience on Arch Linux. So, let’s get started.</p>
-<h2 id="install-nvidia-driver">1、Install NVIDIA Driver</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nvidia nvidia-settings</span><br></pre></td></tr></table></figure>
-<h2 id="set-environment-variables">2、Set Environment Variables</h2>
-<p>With NVIDIA’s introduction of GBM (Generic Buffer Management)
-support, a crucial component of the Linux graphics stack that provides
-an API for allocating buffers for graphics rendering and display, many
-compositors have adopted it as their default. So, to force GBM as a
-backend, we need to set some environment variables.</p>
-<p>Open the “<em>/etc/environment</em>” file, paste the following two
-lines, then save the file and exit.</p>
-<figure class="highlight sh"><figcaption><span>/etc/environment</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GBM_BACKEND=nvidia-drm</span><br><span class="line">__GLX_VENDOR_LIBRARY_NAME=nvidia</span><br></pre></td></tr></table></figure>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland07.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland07-1024x396.jpg"
-alt="Set environment variables." /></a></p>
-<h2 id="loading-the-nvidia-modules-at-system-boot">3、Loading the NVIDIA
-Modules at System Boot</h2>
-<p>To ensure that the NVIDIA modules are loaded at the earliest possible
-stage, i.e., on the system boot, we need to add the ‘<em>nvidia</em>,’
-‘<em>nvidia_modeset</em>,’ ‘<em>nvidia_uvm</em>,’ and
-‘<em>nvidia_drm</em>‘ modules to the initramfs – a temporary root file
-system loaded into memory as part of the boot process before the real
-root file system is mounted.</p>
-<p>This is possible by entering them in the “<em>MODULES</em>” section
-of the “<em>/etc/mkinitcpio.conf</em>” file. This is a configuration
-file for mkinitcpio, a tool Arch uses to generate initial ramdisk
-images.</p>
-<p>So, open the “<em>/etc/mkinitcpio.conf</em>” file. Then, enter the
-modules mentioned above, as the final version should look like this:</p>
-<figure class="highlight sh"><figcaption><span>/etc/mkinitcpio.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)</span><br></pre></td></tr></table></figure>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland03.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland03.jpg"
-alt="Loading the NVIDIA modules at system boot." /></a></p>
-<p>Great, but we’re not done with this file yet. Scroll down and remove
-the “<em>kms</em>” from the “<em>HOOKS</em>” section. This ensures that
-the initramfs will avoid including the open-source “<em>nouveau</em>”
-driver to mess with the work of the proprietary NVIDIA one we have
-installed and rely on.</p>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland04.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland04.jpg"
-alt="Removing KMS from the Hooks." /></a></p>
-<p>We’ve finished modifying “<em>/etc/mkinitcpio.conf</em>“. Save your
-changes and close the file. Next, we’ll proceed to regenerate the
-initramfs. To do this, execute the following command:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mkinitcpio -P</span><br></pre></td></tr></table></figure>
-<p>In the command’s output, you might notice messages like “<em>WARNING:
-Possibly missing firmware for module…</em>” These shouldn’t cause
-concern and are unrelated to the modifications we are currently
-implementing.</p>
-<h2 id="enable-drm">4、Enable DRM</h2>
-<p>DRM (Direct Rendering Manager) is a subsystem of the Linux kernel
-responsible for interfacing with GPUs. It provides a framework for
-graphics drivers to enable direct access to the graphics hardware, which
-is crucial for performance in rendering tasks, 3D graphics, video
-playback, and more.</p>
-<p>NVIDIA provides proprietary graphics drivers for Linux that use the
-DRM subsystem to interact with their GPUs. These drivers are essential
-for getting the best performance and feature support on NVIDIA hardware
-under Linux.</p>
-<p>Enabling the DRM kernel mode setting is required for Wayland
-compositors to function properly. So, we will pass it as a parameter to
-the Linux kernel during its initial boot through the GRUB
-bootloader.</p>
-<p>Open its configuration file<code>/etc/default/grub</code>. Locate the
-line that begins with “<em>GRUB_CMDLINE_LINUX_DEFAULT</em>” and append
-“<em>nvidia-drm.modeset=1</em>” to its end. The completed line should
-resemble the example provided below.</p>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland05.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland05-1024x501.jpg"
-alt="Enabling DRM (Direct Rendering Manager) via GRUB." /></a></p>
-<p>Finally, regenerate the GRUB configuration by running:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland06.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland06-1024x396.jpg"
-alt="Regenerating the main GRUB configuration file." /></a></p>
-<h2 id="testing-wayland-with-nvidia-on-arch-linux">5、Testing Wayland
-with NVIDIA on Arch Linux</h2>
-<p>You are all set up. Now, reboot your Arch system. At the login screen
-of the display manager you’re using, choose the Wayland Session
-option.</p>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland09.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland09-1024x640.jpg"
-alt="Switching to Wayland session on Arch." /></a></p>
-<p>Log in and enjoy a seamless Wayland experience with NVIDIA and your
-beloved Arch Linux.</p>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland10.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland10-1024x640.jpg"
-alt="Arch Linux is running on Wayland with NVIDIA GPU." /></a></p>
-<p>In addition, to verify that the NVIDIA DRM settings were correctly
-applied after a reboot, execute the following command; in response, you
-should get “<em>Y</em>.”</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cat</span> /sys/module/nvidia_drm/parameters/modeset</span><br></pre></td></tr></table></figure>
-<p><a
-target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland11.jpg"><img
-src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland11.jpg"
-alt="Verifying the NVIDIA DRM settings." /></a></p>
-<h2 id="设置-nvidia-电源管理">6、设置 nvidia 电源管理</h2>
-<ol type="1">
-<li><p>Create a file
-<code>/etc/modprobe.d/nvidia-power-management.conf</code> with the
-following content: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp</span><br></pre></td></tr></table></figure></p></li>
-<li><p><code>sudo update-initramfs -c -k all</code> to re-generate the
-kernels.
-此处我没有执行成功命令，但是并没有影响，系统正常配置成功。</p></li>
-<li><p>Reboot</p></li>
-<li><p>Go to suspend mode.</p></li>
-<li><p>Get an error when trying to load a saved state.</p></li>
-</ol>
-<h2 id="配置wayland">7、配置wayland</h2>
-<p>经过上述配置后，我发现重启系统将会默认进入到<code>x11</code>,
-它是可以正常工作的，效果良好。但是，既然有强大的独立<code>nvidia</code>显卡，我们还是需要设置好<code>nvidia</code>.
-下述根据 <a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver">Wayland
-and the proprietary NVIDIA driver</a>主操作，详细信息可以参考。</p>
-<ul>
-<li><p>启用<code>nvidia</code>相关服务 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service</span><br></pre></td></tr></table></figure> 此项参考：<a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend">Preserve
-video memory after suspend</a></p></li>
-<li><p>强制启用<code>Wayland</code>, As of GDM 42 and NVIDIA driver 510,
-GDM defaults to Wayland. For older NVIDIA drivers (in between version
-470 and 510), GDM has chipset-dependent udev rules to use Xorg rather
-than Wayland. To force-enable Wayland, override these rules by creating
-the following symlink: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /dev/null /etc/udev/rules.d/61-gdm.rules</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p>注意：如果没有第<code>6</code>到<code>7</code>步，在<code>GNOME</code>桌面环境启动后，<code>GDM</code>不能显示<code>wayland</code>启动选项，而只是默认启动<code>Xorg</code>,
-设置好<code>6</code>和<code>7</code>后，系统正常进入到<code>wayland</code>。</p>
-<h2 id="bottom-line">8、Bottom Line</h2>
-<p>In the end, it’s essential to clarify a key point. Our guide has
-confidently demonstrated that Wayland can operate smoothly with NVIDIA
-on an Arch system. This, however, does not extend to guaranteeing that
-every application, game, or desktop environment will also function
-flawlessly.</p>
-<p>The compatibility of these components with Wayland varies and is
-dependent on the extent to which they have integrated support for
-it.</p>
-<p>For example, desktop environments like KDE Plasma and GNOME offer
-very good support for Wayland, ensuring a seamless experience. On the
-other hand, environments like Cinnamon, with only basic Wayland support,
-may not deliver the same smoothness. So, it’s important to consider
-these differences.</p>
-<p>Similarly, using the Hyprland dynamic tiling Wayland compositor would
-result in a smooth user experience, whereas others that are still
-dependent on Xorg may not offer the necessary support for Wayland. This
-variability in compatibility applies to individual applications too, so
-it’s important to be aware of potential issues when using specific
-software.</p>
-<p>In conclusion, navigating the complexities of setting up Wayland on
-Arch can seem daunting, especially for those wielding the power of
-NVIDIA GPUs, who have historically faced hurdles ranging from rendering
-glitches to compatibility concerns.</p>
-<p>Yet, with the proper knowledge, a dash of perseverance, and our
-guidance, the hurdles that once seemed impossible begin to shrink to the
-level that, with the correct setup, NVIDIA and Wayland can indeed create
-a synergy that brings out the best in your Arch setup.</p>
-<p>Finally, we recommend referring to the specific <a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Wayland">Wayland</a> and <a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA">NVIDIA</a> sections on
-the official Arch wiki for a more comprehensive understanding. They
-provide detailed information on setting up and troubleshooting Wayland
-and NVIDIA on Arch, making them valuable resources for further
-exploration.</p>
-<p>And, of course, we’d love to hear your feedback or thoughts, so
-please don’t hesitate to share them in the comment box below.</p>
-<h2 id="references">9、References</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/">NVIDIA
-+ Wayland on Arch: A Comprehensive Setup Guide</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.maketecheasier.com/wayland-work-with-nvidia-graphics-cards/">How
-to Get Wayland to Work on Nvidia Graphics Cards</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv25617874/">ArchLinux
-安装Nvidia 驱动使用Wayland</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Wayland">Wayland-ArchWiki</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA">Nvidia-ArchWiki</a></li>
-<li><a target="_blank" rel="noopener" href="https://sh.alynx.one/posts/NVIDIA-GNOME-Wayland/">NVIDIA
-驱动和 GNOME 和 Wayland</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Shell脚本截取字符串变量</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-29 22:58:45" itemprop="dateCreated datePublished" datetime="2024-06-29T22:58:45+08:00">2024-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>对于一个数组，使用<code>#</code>表示删除左侧的部分，<code>%</code>表示删除右侧的部分，同时支持正则表达式。例如:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">url=<span class="string">&quot;https://gitlab.com/fengzhenhua/script/-/raw/<span class="variable">$USB_REMORT_SH</span>\?inline\=false&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$url</span> |sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> |grep <span class="string">&quot;/&quot;</span> |<span class="built_in">wc</span> -l</span><br><span class="line">&gt; 7 <span class="comment"># $url中一共有7个`/`</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;url#*//*/*/*/&#125;</span></span><br><span class="line">&gt;</span><br><span class="line">-/raw/<span class="variable">$USB_REMORT_SH</span>\?inline\=<span class="literal">false</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;url%/<span class="variable">$&#123;url#*//*/*/*/&#125;</span>&#125;</span></span><br><span class="line">&gt;</span><br><span class="line">https://gitlab.com/fengzhenhua/script</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：此处不同与网上的教程，网上的一些教程如<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/jined/article/details/124196546">Shell
-8种字符串截取方法</a>等，指明了截取字符串时某一个字符的方法，但是对于<code>*</code>的理解没有做深入分析，而本文指出其代表若干字符，是正则表达式的一部分。于是在截取网址时，使用正则表达式给出<code>*//*/*/*/</code>方便的取得了相要的地址部分。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%96%E6%96%87%E4%BB%B6%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%96%E6%96%87%E4%BB%B6%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="post-title-link" itemprop="url">Shell脚本统计字符串或文件中特定字符出现的次数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-29 22:38:15" itemprop="dateCreated datePublished" datetime="2024-06-29T22:38:15+08:00">2024-06-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在编写<code>Shell</code>脚本中需要判断网址中的<code>/</code>出现的次数，进而获取网址的结构，然后根据需要可以截取部分网址。假设我们有一个字符串“Hello
-Bash”：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ STRING=<span class="string">&quot;Hello Bash&quot;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span></span><br><span class="line">Hello Bash</span><br></pre></td></tr></table></figure>
-<p>使用 bash
-shell，我们现在可以计算任何给定字符的出现次数。例如，让我们计算字符
-<code>l</code> 出现的次数：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<p><code>sed</code>
-命令首先将任何给定的字符串分成多行。其中每行包含一个字符：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> </span><br><span class="line">H</span><br><span class="line">e</span><br><span class="line">l</span><br><span class="line">l</span><br><span class="line">o</span><br><span class="line"> </span><br><span class="line">B</span><br><span class="line">a</span><br><span class="line">s</span><br><span class="line">h</span><br></pre></td></tr></table></figure>
-<p>之后我们可以使用<code>grep</code>命令来仅搜索特定字符。在本例中，我们仅打印字符
-<code>l</code>：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l</span><br><span class="line">l</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
-<p>剩下的就是使用 wc -l 来简单地计算行数：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<p>相同的策略也可用于计算文件中字符的出现次数。下面的 bash shell
-命令计算字符 <code>l</code> 在文件 <code>/etc/services</code>
-中出现的次数：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> $ <span class="built_in">cat</span> /etc/services | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">9298</span><br></pre></td></tr></table></figure>
-<p>然而，计算字符出现次数的另一种方法是使用 grep 的
-<code>--only-matching</code> 或 <code>-o</code>
-选项仅打印匹配的字符：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -o l /etc/services | <span class="built_in">wc</span> -l</span><br><span class="line">9298</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/28/RS232%E4%B8%B2%E8%A1%8C%E6%8E%A5%E5%8F%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/28/RS232%E4%B8%B2%E8%A1%8C%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">RS232串行接口</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-28 11:13:47" itemprop="dateCreated datePublished" datetime="2024-06-28T11:13:47+08:00">2024-06-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>  <strong>RS232是一种通用的串行接口，可以用来连接不同的设备，比如计算机、打印机、终端设备等。</strong>它可以传输数据、控制信号和电源，但是它有一定的缺点，比如传输速率较慢，最高只能达到115200bps，而且它也不能支持高级功能，比如多点控制和网络通信。那么，RS232能接显示器吗？</p>
-<figure>
-<img
-src="https://images-na.ssl-images-amazon.com/images/I/81VUdVo2kLL._AC_SL1500_.jpg"
-alt="RS232" />
-<figcaption aria-hidden="true">RS232</figcaption>
-</figure>
-<p>  RS232接口是一种标准的串行接口，它由25个接口针组成，每个接口针都有一个不同的功能，比如接收和发送数据，控制信号等。它的接口针分为4组，每组有5个接口针，第一组是信号线，第二组是控制线，第三组是电源线，第四组是用于接收和发送数据的线。</p>
-<h2 id="rs232能接显示器吗">RS232能接显示器吗？</h2>
-<p>  RS232接口可以用来连接显示器，但是需要使用一个转换器，它可以将RS232接口转换成显示器接口，如VGA接口、DVI接口等。这样，就可以使用RS232接口来连接显示器，但是由于RS232接口的传输速率较慢，所以只能用来传输低分辨率的画面，比如640×480或800×600，而不能用来传输高分辨率的画面，比如1920×1080。</p>
-<h2 id="总结">总结</h2>
-<p>  <strong>RS232是一种通用的串行接口，可以用来连接不同的设备，比如计算机、打印机、终端设备等。</strong>它由25个接口针组成，每个接口针都有一个不同的功能，比如接收和发送数据，控制信号等。RS232接口可以用来连接显示器，但是需要使用一个转换器，它可以将RS232接口转换成显示器接口，如VGA接口、DVI接口等，但是由于RS232接口的传输速率较慢，所以只能用来传输低分辨率的画面，而不能用来传输高分辨率的画面。</p>
-<h2 id="参考资料">参考资料</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://tech.sina.com.cn/roll/2020-07-27/doc-iivhvpwx7717284.shtml">终于有人把常用的三种通讯方式：RS485、RS232、RS422讲明白了</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1584849703749891078">台式机主机背面接口全介绍
-各种接口知识扫盲（收藏）</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.techphant.cn/blog/63665.html">RS232能接显示器吗？</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/24/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/26/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/24/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/26/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

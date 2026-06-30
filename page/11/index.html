@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,949 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/08/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E9%81%BF%E5%85%8D%E8%BE%93%E5%85%A5sudo%E5%AF%86%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/08/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E9%81%BF%E5%85%8D%E8%BE%93%E5%85%A5sudo%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">Shell脚本中避免输入sudo密码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-08 14:33:47" itemprop="dateCreated datePublished" datetime="2025-01-08T14:33:47+08:00">2025-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 Shell 脚本中避免输入 <code>sudo</code>
+密码的方法有几种，但每种方法都有其适用场景和安全考量。以下是几种常见的方法：</p>
+<h2 id="修改-etcsudoers-文件">1. 修改 <code>/etc/sudoers</code>
+文件</h2>
+<p>你可以编辑 <code>/etc/sudoers</code> 文件（推荐使用
+<code>visudo</code>
+命令以确保语法正确），为特定用户或用户组添加不需要密码的权限。</p>
+<p>例如，要允许用户 <code>username</code>
+在不输入密码的情况下运行所有命令，可以添加如下行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL=(ALL) NOPASSWD:ALL </span><br></pre></td></tr></table></figure>
+<p>如果你想限制到特定命令，比如只允许不输入密码地运行
+<code>apt-get update</code>，可以这样做： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL=(ALL) NOPASSWD:/usr/bin/apt-get update</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用sudo--s和环境变量">2.
+使用<code>sudo -S</code>和环境变量</h2>
+<p>虽然这不是最推荐的安全实践，但在某些情况下你可能需要自动化流程，并且能够通过环境变量传递密码。你可以设置一个环境变量来保存密码，并结合
+<code>echo</code>和 <code>sudo -S</code>
+来实现这一点。但是，请注意这种方法存在安全风险，因为密码可能会被其他进程看到。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SUDO_PASSWORD=<span class="string">&quot;your_password_here&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$SUDO_PASSWORD</span>&quot;</span> | <span class="built_in">sudo</span> -S command_to_run</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>警告： 这种方式并不安全，应该尽量避免使用。</p>
+</div>
+<h2 id="使用sudo的-n选项">3.
+使用<code>sudo</code>的<code>-n</code>选项</h2>
+<p><code>-n</code> 选项可以让 <code>sudo</code>
+尝试非交互式执行命令，即如果当前用户没有足够的权限或缓存的凭证已过期，则不会提示输入密码而是直接失败。这可以用于检查是否可以在不提供密码的情况下执行命令。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -n command_to_run</span><br></pre></td></tr></table></figure>
+<h2 id="利用sudo的时间戳">4. 利用<code>sudo</code>的时间戳</h2>
+<p><code>sudo</code>
+会缓存用户的认证一段时间（默认是15分钟）。如果你在一个脚本中多次调用
+<code>sudo</code>，那么在第一次成功输入密码后，在这段时间内后续的
+<code>sudo</code> 调用将不再要求密码。</p>
+<h2 id="安全建议">安全建议</h2>
+<p>无论选择哪种方法，都应该谨慎行事，确保最小权限原则 （ Principle of
+Least Privilege ）
+得以遵守，即给予用户完成工作所需的最少权限。修改系统配置文件如
+<code>/etc/sudoers</code>
+应该非常小心，错误的配置可能导致安全漏洞或系统无法正常工作。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/07/%E4%BD%BF%E7%94%A8Github-Cli%E7%AE%A1%E7%90%86%E4%BB%93%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/07/%E4%BD%BF%E7%94%A8Github-Cli%E7%AE%A1%E7%90%86%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">使用Github-Cli管理仓库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-07 16:58:34" itemprop="dateCreated datePublished" datetime="2025-01-07T16:58:34+08:00">2025-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-08-16 20:44:29" itemprop="dateModified" datetime="2025-08-16T20:44:29+08:00">2025-08-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="github-cli-简介">GitHub CLI 简介</h1>
+<p>GitHub CLI 是一个用于通过命令行与 GitHub
+进行交互的强大工具。它允许开发者和用户管理存储库、拉取请求、问题和其他
+GitHub 资源，而无需离开终端。</p>
+<h2 id="主要功能">主要功能</h2>
+<ol type="1">
+<li><strong>仓库管理</strong>：创建、克隆、列出和删除仓库。</li>
+<li><strong>拉取请求</strong>：查看、创建、合并和关闭拉取请求。</li>
+<li><strong>问题跟踪</strong>：创建、列表、评论和关闭问题。</li>
+<li><strong>项目管理</strong>：管理和操作 GitHub Projects。</li>
+<li><strong>代码审查</strong>：检查更改、提交评论和批准或拒绝拉取请求。</li>
+<li><strong>扩展性</strong>：支持通过脚本和插件进行扩展。</li>
+</ol>
+<h1 id="安装-github-cli">安装 Github-Cli</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S github-cli</span><br></pre></td></tr></table></figure>
+<h1 id="基本使用">基本使用</h1>
+<h2 id="在-github-上取得-personal-access-token">在 GitHub 上取得
+Personal Access Token</h2>
+<h3 id="登录-github-账户">1. 登录 GitHub 账户</h3>
+<ul>
+<li>打开 <a target="_blank" rel="noopener" href="https://github.com">GitHub</a>
+并使用你的凭据登录。</li>
+</ul>
+<h3 id="进入开发者设置">2. 进入开发者设置</h3>
+<ul>
+<li>点击右上角的头像图标。</li>
+<li>从下拉菜单中选择 <code>Settings</code>。</li>
+</ul>
+<h3 id="导航到developer-settings">3. 导航到“Developer settings”</h3>
+<ul>
+<li>在左侧边栏中找到并点击 <code>Developer settings</code>。</li>
+</ul>
+<h3 id="生成新的个人访问令牌">4. 生成新的个人访问令牌</h3>
+<ul>
+<li>在 <code>Developer settings</code> 中，点击
+<code>Personal access tokens</code>。</li>
+<li>点击 <code>Tokens (classic)</code> 或
+<code>Fine-grained tokens</code>，具体取决于你需要的权限范围。
+<ul>
+<li>如果选择 <code>Tokens (classic)</code>：
+<ul>
+<li>点击 <code>Generate new token</code>。</li>
+<li>填写令牌描述。</li>
+<li>选择所需的权限范围（例如，<code>repo</code>
+表示对仓库的完全控制）。</li>
+<li>点击 <code>Generate token</code>。</li>
+</ul></li>
+<li>如果选择 <code>Fine-grained tokens</code>：
+<ul>
+<li>点击 <code>Generate new token</code>。</li>
+<li>填写令牌名称和描述。</li>
+<li>配置资源访问权限（例如，特定组织或仓库）。</li>
+<li>配置所需的作用域（例如，读取和写入仓库）。</li>
+<li>点击 <code>Generate token</code>。</li>
+</ul></li>
+</ul></li>
+<li>如果您需要取得对仓库的所有权限，则选择<code>Tokens(classic)</code>,
+如果仅需要有限的权限，则选择<code>Fine-grained tokens</code>。
+一般只有自己使用系统时，使用所有权限更方便。</li>
+</ul>
+<h3 id="保存令牌">5. 保存令牌</h3>
+<ul>
+<li>生成后，你会看到新创建的令牌。<strong>非常重要的是，此时需要复制并安全地存储这个令牌</strong>，因为一旦离开页面，你就无法再次查看该令牌。</li>
+<li>不要将令牌泄露给他人，并确保将其存储在一个安全的地方。</li>
+</ul>
+<h3 id="使用令牌">6. 使用令牌</h3>
+<ul>
+<li>你可以使用这个令牌来进行身份验证，例如，在命令行工具中使用 GitHub
+CLI 登录： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login --with-token &lt; your_token_here &gt;</span><br></pre></td></tr></table></figure> <div class="note primary"><p>在本地配置 ssh 后， 可以在第6步中使用令牌登录，选择 ssh,
+这种方法可以方便的创建、删除仓库等操作而不用登录网页。</p>
+</div></li>
+</ul>
+<h2 id="基本操作">基本操作</h2>
+<ol type="1">
+<li><p>登录和认证(按提示，一步一步认证即可) <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login</span><br></pre></td></tr></table></figure></p></li>
+<li><p>仓库管理 <figure class="highlight sh"><figcaption><span>新建、列出、查看、删除仓库</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gh repo create my-new-repo --public</span><br><span class="line">gh repo list</span><br><span class="line">gh repo view owner/repo</span><br><span class="line">gh repo delete owner/repo</span><br></pre></td></tr></table></figure></p></li>
+<li><p>拉取请求 <figure class="highlight sh"><figcaption><span>创建、列出、查看、合并、关闭请求</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gh <span class="built_in">pr</span> create --title <span class="string">&quot;Fix bug&quot;</span> --body <span class="string">&quot;This PR fixes a critical bug.&quot;</span></span><br><span class="line">gh <span class="built_in">pr</span> list</span><br><span class="line">gh <span class="built_in">pr</span> view 123</span><br><span class="line">gh <span class="built_in">pr</span> merge 123</span><br><span class="line">gh <span class="built_in">pr</span> close 123</span><br></pre></td></tr></table></figure></p></li>
+<li><p>问题跟踪 <figure class="highlight sh"><figcaption><span>创建、列出、查看、关闭issue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gh issue create --title <span class="string">&quot;Bug report&quot;</span> --body <span class="string">&quot;I found a bug...&quot;</span></span><br><span class="line">gh issue list</span><br><span class="line">gh issue view 456</span><br><span class="line">gh issue close 456</span><br></pre></td></tr></table></figure></p></li>
+<li><p>分支管理 <figure class="highlight sh"><figcaption><span>列出、创建、删除分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gh branch list</span><br><span class="line">gh branch create new-feature</span><br><span class="line">gh branch delete old-feature</span><br></pre></td></tr></table></figure></p></li>
+<li><p>发布管理 <figure class="highlight sh"><figcaption><span>创建、列出、查看release</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gh release create v1.0.0</span><br><span class="line">gh release list</span><br><span class="line">gh release view v1.0.0</span><br></pre></td></tr></table></figure></p></li>
+<li><p>用户信息 <figure class="highlight sh"><figcaption><span>查看当前用户、其他用户</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gh api user</span><br><span class="line">gh api <span class="built_in">users</span>/username</span><br></pre></td></tr></table></figure></p></li>
+<li><p>组织管理 <figure class="highlight sh"><figcaption><span>列出、查看组织</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gh org list</span><br><span class="line">gh org view organization-name</span><br></pre></td></tr></table></figure></p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/06/%E4%BD%BF%E7%94%A8Pandoc%E5%B0%86Markdown%E8%BD%ACPDF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/06/%E4%BD%BF%E7%94%A8Pandoc%E5%B0%86Markdown%E8%BD%ACPDF/" class="post-title-link" itemprop="url">使用Pandoc将Markdown转PDF</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-06 17:41:17" itemprop="dateCreated datePublished" datetime="2025-01-06T17:41:17+08:00">2025-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="安装好-pandoc">安装好 Pandoc</h2>
+<p>详细可以参考 <a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">Pandoc -
+Installing pandoc</a>。</p>
+<p>先安装依赖软件<code>wkhtmltopdf</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S wkhtmltopdf</span><br></pre></td></tr></table></figure>
+<p>官网上给出的简单的不修改格式的将 Markdown 转换为 PDF 命令如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc file.md -f markdown -t html -o index.pdf</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/73016/how-do-i-install-an-individual-package-on-a-linux-system">installing
+- How do I install an individual package on a Linux system? - TeX -
+LaTeX Stack Exchange</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/u013019701/article/details/119512493">使用
+Pandoc 来转换 Markdown 为漂亮的 PDF 格式</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/06/%E4%BD%BF%E7%94%A8LaTeX%E6%8E%92%E7%89%88Markdown%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/06/%E4%BD%BF%E7%94%A8LaTeX%E6%8E%92%E7%89%88Markdown%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">使用LaTeX排版Markdown文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-06 16:59:10" itemprop="dateCreated datePublished" datetime="2025-01-06T16:59:10+08:00">2025-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="引言">引言</h2>
+<p>在数字化写作和出版领域， <code>LaTeX</code> 和 <code>Markdown</code>
+各自拥有独特的魅力。 <code>LaTeX</code>
+是一个高质量的排版系统，尤其擅长处理包含大量数学公式和技术文档；而
+<code>Markdown</code>
+则以其简单易用的标记语法受到许多写作者的喜爱。然而，随着写作需求的多样化，用户往往希望找到一种方式，既能享受
+<code>Markdown</code> 的简洁，又能利用 <code>LaTeX</code>
+的强大功能。</p>
+<p><code>markdown</code> 宏包——由 <code>Vít Novotný</code>
+维护的一个宏包，它的核心机制使用 Lua 编写，并提供了针对
+<code>PlainTeX/LaTeX/ConTeXt</code> 等格式的接口。这个宏包不仅简化了
+Markdown 文档到 LaTeX 的转换过程，还允许直接在 LaTeX 中嵌入 Markdown
+标记，使得两者之间的协作更加紧密。</p>
+<h2 id="使用-markdown-宏包的优势">使用 markdown 宏包的优势</h2>
+<p><code>markdown</code> 宏包具有以下几个显著优势：</p>
+<ul>
+<li><strong>无需额外安装</strong>：现代 TeX 发行版（如 TeX
+Live、MiKTeX）通常自带 Lua 解释器，因此只需开启
+<code>--shell-escape</code> 标记即可使用 <code>markdown</code>
+宏包。</li>
+<li><strong>集成良好</strong>：相比 Sphinx、Pandoc
+等第三方工具，<code>markdown</code> 宏包更好地集成了 LaTeX
+系统，避免了转换过程中可能出现的问题。</li>
+<li><strong>支持多种环境</strong>：提供了 <code>markdown</code> 环境和
+<code>\markdownInput</code> 命令，分别用于在 LaTeX 文稿中直接书写
+Markdown 内容或从外部文件读取。</li>
+<li><strong>预设丰富的宏定义</strong>：对于常见的 Markdown
+功能，<code>markdown</code> 宏包都预设了相应的 LaTeX
+宏实现，例如图片渲染等。</li>
+</ul>
+<h2 id="使用实例">使用实例</h2>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;markdown&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;markdown&#125;</span><br><span class="line"><span class="params">#</span> 标题</span><br><span class="line"></span><br><span class="line">这是一个使用Markdown语法书写的段落。可以包括**粗体**、*斜体*、`代码`以及[链接](http://example.com)。</span><br><span class="line"></span><br><span class="line"><span class="params">##</span> 列表</span><br><span class="line"></span><br><span class="line">- 第一项</span><br><span class="line">- 第二项</span><br><span class="line">- 第三项</span><br><span class="line"></span><br><span class="line"><span class="params">##</span> 图片</span><br><span class="line"></span><br><span class="line">![示例图片](path/to/image.png &quot;图片标题&quot;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;markdown&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="实践中的应用">实践中的应用</h2>
+<p>通过 <code>markdown</code> 宏包，我们可以轻松地在 LaTeX 中嵌入
+Markdown 标记。例如，当遇到如下 Markdown 图片标签时：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图像标签</span>](<span class="link">路径 &quot;图像标题&quot;</span>) </span><br></pre></td></tr></table></figure>
+<p>Lua 解释器会将其翻译成 LaTeX 宏命令：</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\markdownRendererImage</span>&#123;图像标签&#125;&#123;路径&#125;&#123;路径&#125;&#123;图像标题&#125;</span><br></pre></td></tr></table></figure>
+<p>随后，根据 <code>\markdownRendererImage</code>
+的定义，<code>TeX</code>
+引擎会在后续步骤展开这个宏，完成最终的排版工作。</p>
+<h2 id="结论">结论</h2>
+<p>综上所述，markdown
+宏包为我们提供了一种全新的解决方案，使我们可以更方便地使用 Markdown
+进行写作，同时享受 LaTeX
+的专业排版效果。这对于那些既追求写作效率又重视文档质量的用户来说，无疑是一个理想的选择。正如
+Harry Chen 所说：“你喜爱的 Markdown 写作，现更以 LaTeX 呈现。”</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.latexstudio.net/archives/51808.html">以
+Markdown 撰写文稿，以 LaTeX 排版【好文推荐】</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/04/DNS%E8%A7%A3%E6%9E%90%E4%B8%AD%E7%9A%84%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/04/DNS%E8%A7%A3%E6%9E%90%E4%B8%AD%E7%9A%84%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">DNS解析中的记录类型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-04 13:07:13" itemprop="dateCreated datePublished" datetime="2025-01-04T13:07:13+08:00">2025-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在DNS解析中，存在多种类型的记录，每种记录都有其特定的用途。本文列举一些常见的DNS记录类型：</p>
+<ol type="1">
+<li><strong>A 记录 (Address Record)</strong>
+<ul>
+<li>将域名映射到IPv4地址。</li>
+</ul></li>
+<li><strong>AAAA 记录 (IPv6 Address Record)</strong>
+<ul>
+<li>与A记录类似，但将域名映射到IPv6地址。</li>
+</ul></li>
+<li><strong>CNAME 记录 (Canonical Name Record)</strong>
+<ul>
+<li>指定一个域名是另一个域名的别名，允许多个域名指向相同的IP地址。</li>
+</ul></li>
+<li><strong>MX 记录 (Mail Exchange Record)</strong>
+<ul>
+<li>指定负责接收发往该域名邮件的邮件服务器。</li>
+</ul></li>
+<li><strong>NS 记录 (Name Server Record)</strong>
+<ul>
+<li>指明哪些DNS服务器是负责某个域的权威服务器。</li>
+</ul></li>
+<li><strong>PTR 记录 (Pointer Record)</strong>
+<ul>
+<li>用于反向DNS查找，即将IP地址映射到域名。</li>
+</ul></li>
+<li><strong>SOA 记录 (Start of Authority Record)</strong>
+<ul>
+<li>包含有关域名的权威信息，包括主名称服务器、序列号等。</li>
+</ul></li>
+<li><strong>SRV 记录 (Service Record)</strong>
+<ul>
+<li>定义提供特定服务（如SIP、XMPP等）的服务器的位置。</li>
+</ul></li>
+<li><strong>TXT 记录 (Text Record)</strong>
+<ul>
+<li>允许管理员在DNS中存储文本注释或设置SPF记录以防止垃圾邮件。</li>
+</ul></li>
+<li><strong>CAA 记录 (Certification Authority Authorization)</strong>
+<ul>
+<li>指定哪些证书颁发机构(CA)被授权为该域名发行证书。</li>
+</ul></li>
+</ol>
+<p>这些记录构成了DNS系统的骨干，确保互联网上的设备能够找到彼此并交换信息。根据需要，还可以配置更多特定用途的DNS记录。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/03/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">yarn的常用命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-03 14:48:26" itemprop="dateCreated datePublished" datetime="2025-01-03T14:48:26+08:00">2025-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="yarn-简介">Yarn 简介</h1>
+<p>Yarn 是一个快速、可靠且安全的依赖管理工具，主要用于 JavaScript
+项目。它由 Facebook 与社区成员共同开发，旨在解决 npm（Node Package
+Manager）存在的性能问题和一些功能上的局限性。Yarn
+的设计目标是加速包的安装过程、确保操作的可重复性和安全性，同时简化开发者的工作流程。</p>
+<h2 id="主要特点">主要特点</h2>
+<ul>
+<li><strong>速度</strong>：Yarn
+使用并行化下载技术来提升安装速度，并通过本地缓存避免重复下载相同的包。</li>
+<li><strong>安全性</strong>：每次安装时都会校验每个包的完整性，保证了项目依赖的一致性和安全性。</li>
+<li><strong>可重复性</strong>：借助 <code>yarn.lock</code> 文件，Yarn
+可以确保不同环境中安装的依赖版本完全一致，从而减少了因版本差异导致的问题。</li>
+<li><strong>兼容性</strong>：与 npm 生态系统完全兼容，能够无缝使用 npm
+注册表中的所有包。</li>
+<li><strong>插件支持</strong>：Yarn
+支持丰富的插件生态系统，允许用户扩展其核心功能。</li>
+<li><strong>命令简洁</strong>：提供了一套简单易用的命令行接口，帮助开发者更高效地管理项目依赖。</li>
+</ul>
+<h1 id="yarn-的常用命令列表">yarn 的常用命令列表</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看 yarn 全局安装过的包</span></span><br><span class="line">yarn global list --depth=0</span><br><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">yarn global add &lt;package&gt;</span><br><span class="line"><span class="comment"># 安装所有依赖</span></span><br><span class="line">yarn</span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">yarn add &lt;package&gt;@&lt;version&gt;</span><br><span class="line"><span class="comment"># 安装最新版本</span></span><br><span class="line">yarn add &lt;package&gt;</span><br><span class="line"><span class="comment"># 删除包,会更新package.json和yarn.lock</span></span><br><span class="line">yarn remove &lt;package&gt;</span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">yarn upgrade</span><br><span class="line"><span class="comment"># 更新指定的包</span></span><br><span class="line">yarn upgrade &lt;package&gt;</span><br><span class="line"><span class="comment"># 获取可更新的包列表选择更新</span></span><br><span class="line">yarn upgrade-interactive --latest</span><br><span class="line"><span class="comment"># 更新全局依赖</span></span><br><span class="line">yarn global upgrade --latest</span><br><span class="line"><span class="comment"># 更新全局依赖，有交互</span></span><br><span class="line">yarn global upgrade-interactive --latest</span><br><span class="line"><span class="comment"># 列出已缓存的包</span></span><br><span class="line">yarn cache list</span><br><span class="line"><span class="comment"># 查找缓存包的路径</span></span><br><span class="line">yarn cache <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># 清除缓存的包</span></span><br><span class="line">yarn cache clean</span><br></pre></td></tr></table></figure>
+<h1 id="yarn-使用ssh安装插件">yarn 使用ssh安装插件</h1>
+<p>当安装一个模块时，yarn 默认从 <code>https://github.com</code> 下载，
+但有时网络不通，所以可以采用直接添加 <code>ssh</code>
+地址的方法，此后更新也会从新的地址更新。例如</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add @next-theme/plugins@git+ssh://github.com/next-theme/plugins.git</span><br><span class="line">yarn add hexogenerator-searchdb@git+ssh://github.com/next-theme/hexo-generator-searchdb.git</span><br></pre></td></tr></table></figure>
+<h1 id="yarn-切换源">yarn 切换源</h1>
+<h3 id="设置-yarn-的国内源">设置 yarn 的国内源</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.yarnpkg.com/</span><br></pre></td></tr></table></figure>
+<h3 id="安装-nrm-镜像源工具">安装 nrm 镜像源工具</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yarn global add nrm</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p><code>nrm</code>使用方法，请参考本文末参考文章。使用<code>nrm test</code>列出各源，并给出源的网速，使用<code>nrm use huawei</code>切换到速度最快的华为源。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58689048/article/details/118789091">npm
+和 yarn 常用命令 （更新、删除、清缓存）</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1588456">秒懂
+Yarn：从安装配置到高效使用的全攻略</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/Linux%E9%87%8D%E5%AE%9A%E5%90%91%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/03/Linux%E9%87%8D%E5%AE%9A%E5%90%91%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Linux重定向权限不够的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-03 10:29:56" itemprop="dateCreated datePublished" datetime="2025-01-03T10:29:56+08:00">2025-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在使用 <code>cat</code> 或<code>echo</code>
+等命令，将一些内容添加到<code>root</code>权限的文件，比如<code>/etc/hosts</code>时，系统会报出“权限不够”的错误。</p>
+<h1 id="原因分析">原因分析</h1>
+<p>以向<code>/etc/hosts</code>中添加一条记录为例，通常代码写为</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">echo</span>  <span class="string">&quot;220.181.111.232 www.baidu.com&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line">-bash: test.asc: Permission denied</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>此时，<code>bash</code> 拒绝这么做会提示权限不够，是因为重定向符号
+<code>&gt;</code> 和 <code>&gt;&gt;</code> 也是 <code>bash</code>
+的命令。由于使用 <code>sudo</code> 只是让 <code>echo</code> 命令具有了
+<code>root</code> 权限，但是没有让 <code>&gt;</code> 和
+<code>&gt;&gt;</code> 命令也具有 <code>root</code> 权限，所以
+<code>bash</code>
+会认为这两个命令都没有向<code>/etc/hosts</code>写入信息的权限。</p>
+</div>
+<h1 id="解决方法">解决方法</h1>
+<h2 id="使用命令sh--c">使用命令<code>sh -c</code></h2>
+<p><code>sh -c</code> 命令，可以让 <code>bash</code>
+将一个字串作为完整的命令来执行，这样就可以将 <code>sudo</code>
+的影响范围扩展到整条命令。具体用法如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&#x27;echo  &quot;220.181.111.232 www.baidu.com&quot; &gt;&gt; /etc/hosts&#x27;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用命令tee">使用命令<code>tee</code></h2>
+<p>利用管道和 tee
+命令，该命令可以从标准输入中读入信息并将其写入标准输出或文件中，具体用法如下：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>  <span class="string">&quot;220.181.111.232 www.baidu.com&quot;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> -a /etc/hosts</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意: <code>tee</code> 命令的 <code>-a</code> 选项的作用等同于
+<code>&gt;&gt;</code> 命令。如果去除该选项，那么 <code>tee</code>
+命令的作用就等同于 <code>&gt;</code> 命令。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15821725/article/details/104015904">linux
+关于重定向 权限不够 的解决方式使用 sh -c 或者 tee</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/m0_60352504/article/details/121442148">Linux执行sudo
+echo xxx ＞＞ 命令提示权限不够的问题</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/sparkdev/p/10287164.html">sudo与输出重定向</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/%E4%BF%AE%E5%A4%8Dsudo%E5%AF%86%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/03/%E4%BF%AE%E5%A4%8Dsudo%E5%AF%86%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">修复sudo密码不起作用的错误</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-03 10:12:00" itemprop="dateCreated datePublished" datetime="2025-01-03T10:12:00+08:00">2025-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天升级 <code>ArchLinu</code> 后发现 <code>sudo</code>
+命令无法接收密码，即使正确的密码它也会返回 "密码错误"
+的提示。修复方法有三个：</p>
+<h1 id="注销并重新登录会话">注销并重新登录会话</h1>
+<p>重新启动 Linux
+系统是修复任何临时系统故障的最流行且最简单的解决方案之一。在最好的情况下，sudo
+密码不起作用错误只是 Linux
+中的一个临时故障，只需快速注销登录或重新启动系统即可神奇地修复它。</p>
+<h1 id="修改sudo密码">修改sudo密码</h1>
+<ol type="1">
+<li>打开一个新的终端。</li>
+<li>使用命令<code>su</code>， 切换到 <code>root</code>用户。</li>
+<li>使用 <code>passwd</code> 命令，更改用户的<code>sudo</code>密码：
+<code>passwd username</code></li>
+</ol>
+<div class="note primary"><p>多数情况下我们习惯了某一密码，所以尽量不使用本方法修改密码。</p>
+</div>
+<h1 id="重启systemd-homed服务">重启systemd-homed服务</h1>
+<p>systemd-homed 是一个核心 systemd
+服务，负责为用户的主目录提供支持。重新启动它可能会解决该问题，因为它会重置身份验证机制并可能修复任何临时系统故障。重新启动服务的步骤：</p>
+<ol type="1">
+<li>启动一个新终端。</li>
+<li>使用 <code>su</code> 命令切换到 <code>root</code>。</li>
+<li>使用systemctl命令启动或重新启动<code>systemd-homed</code>服务：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start systemd-homed.service</span><br><span class="line">systemctl restart systemd-homed.service</span><br></pre></td></tr></table></figure></li>
+</ol>
+<div class="note primary"><p>2025年01月03日, 使用此方法解决问题，建议使用此方法。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12167">如何修复 Linux
+上的“sudo 密码不起作用”错误</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -653,937 +1596,8 @@ target="_blank" rel="noopener" href="https://mirrors.sustech.edu.cn/help/cdnjs.h
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/01/%E5%B8%B8%E8%A7%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%93%81%E7%89%8C%E5%8F%8A%E8%B7%AF%E7%94%B1%E5%99%A8%E7%BD%91%E5%85%B3%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95IP%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/01/%E5%B8%B8%E8%A7%81%E8%B7%AF%E7%94%B1%E5%99%A8%E5%93%81%E7%89%8C%E5%8F%8A%E8%B7%AF%E7%94%B1%E5%99%A8%E7%BD%91%E5%85%B3%E9%BB%98%E8%AE%A4%E7%99%BB%E5%BD%95IP%E5%9C%B0%E5%9D%80%E5%A4%A7%E5%85%A8/" class="post-title-link" itemprop="url">常见路由器品牌及路由器网关默认登录IP地址大全</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-01 14:04:56" itemprop="dateCreated datePublished" datetime="2025-01-01T14:04:56+08:00">2025-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr>
-<th>路由器品牌或类型</th>
-<th>后台登录 IP</th>
-<th>后台登录网址</th>
-<th>品牌官网</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>TP-Link 路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.1.1/">192.168.1.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://tplogin.cn/">tplogin.cn</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.tp-link.com.cn/">www.tp-link.com.cn</a></td>
-</tr>
-<tr>
-<td>D-Link 路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.0.1/">192.168.0.1</a></td>
-<td></td>
-<td><a target="_blank" rel="noopener" href="https://www.dlink.com.cn/">www.dlink.com.cn</a></td>
-</tr>
-<tr>
-<td>华为路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.3.1/">192.168.3.1</a></td>
-<td></td>
-<td><a
-target="_blank" rel="noopener" href="https://consumer.huawei.com/cn/">consumer.huawei.com</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a target="_blank" rel="noopener" href="http://192.168.101.1/">192.168.101.1</a></td>
-<td></td>
-<td><a
-target="_blank" rel="noopener" href="https://consumer.huawei.com/cn/">consumer.huawei.com</a></td>
-</tr>
-<tr>
-<td>荣耀路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.3.1/">192.168.3.1</a></td>
-<td></td>
-<td><a target="_blank" rel="noopener" href="https://www.honor.com/cn/">www.hihonor.com</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a target="_blank" rel="noopener" href="http://192.168.101.1/">192.168.101.1</a></td>
-<td></td>
-<td><a target="_blank" rel="noopener" href="https://www.honor.com/cn/">www.hihonor.com</a></td>
-</tr>
-<tr>
-<td>网件(Netgear)路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.1.1/">192.168.1.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://www.routerlogin.com/">routerlogin.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.netgear.com.cn/">www.netgear.com.cn</a></td>
-</tr>
-<tr>
-<td>华硕(Asus)路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.1.1/">192.168.1.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://www.asusrouter.com/">router.asus.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.asus.com.cn/">www.asus.com.cn</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a target="_blank" rel="noopener" href="http://192.168.50.1/">192.168.50.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://www.asusrouter.com/">router.asus.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.asus.com.cn/">www.asus.com.cn</a></td>
-</tr>
-<tr>
-<td>小米路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.31.1/">192.168.31.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://www.miwifi.com/">miwifi.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://miwifi.com/">www.miwifi.com</a></td>
-</tr>
-<tr>
-<td>360安全路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.0.1/">192.168.0.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://luyou.360.cn/">luyou.360.cn</a></td>
-<td><a target="_blank" rel="noopener" href="https://luyou.360.cn/">luyou.360.cn</a></td>
-</tr>
-<tr>
-<td></td>
-<td><a target="_blank" rel="noopener" href="http://192.168.100.1/">192.168.100.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://luyou.360.cn/">luyou.360.cn</a></td>
-<td><a target="_blank" rel="noopener" href="https://luyou.360.cn/">luyou.360.cn</a></td>
-</tr>
-<tr>
-<td>水星(MERCURY)路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.1.1/">192.168.1.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://melogin.cn/">melogin.cn</a></td>
-<td><a
-target="_blank" rel="noopener" href="https://www.mercurycom.com.cn/">www.mercurycom.com.cn</a></td>
-</tr>
-<tr>
-<td>腾达(Tenda)无线路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.0.1/">192.168.0.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://tendawifi.com/">tendawifi.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.tenda.com.cn/">www.tenda.com.cn</a></td>
-</tr>
-<tr>
-<td>H3C 路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.0.1/">192.168.0.1</a></td>
-<td></td>
-<td><a target="_blank" rel="noopener" href="https://www.h3c.com/cn/">www.h3c.com</a></td>
-</tr>
-<tr>
-<td>京东云无线宝路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.68.1/">192.168.68.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://jdcloudwifi.com/">jdcloudwifi.com</a></td>
-<td><a target="_blank" rel="noopener" href="https://jdbox.jdcloud.com/">jdbox.jdcloud.com</a></td>
-</tr>
-<tr>
-<td>ZTE 中兴路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.5.1/">192.168.5.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://zte.home/">zte.home</a></td>
-<td><a target="_blank" rel="noopener" href="https://www.zte.com.cn/">www.zte.com.cn</a></td>
-</tr>
-<tr>
-<td>极路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.199.1/">192.168.199.1</a></td>
-<td></td>
-<td>官网已关闭</td>
-</tr>
-<tr>
-<td>Newifi 智能路由器</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.99.1/">192.168.99.1</a></td>
-<td></td>
-<td>官网已关闭</td>
-</tr>
-<tr>
-<td>斐讯(PHICOMM)路由</td>
-<td><a target="_blank" rel="noopener" href="http://192.168.2.1/">192.168.2.1</a></td>
-<td><a target="_blank" rel="noopener" href="http://p.to/">p.to</a></td>
-<td>官网已关闭</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/31/Firefox%E7%9A%84%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/31/Firefox%E7%9A%84%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Firefox的关键配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-31 13:52:51" itemprop="dateCreated datePublished" datetime="2024-12-31T13:52:51+08:00">2024-12-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Firefox 是 Linux 下最流行的浏览器，但是有时候访问网站会受到 DNS
-污染，特别是有时候一些不良 DNS 服务返回的 IP
-会跳转到广告、挂马的恶意网站。 为了避免上述情况，本文记录针对 Firefox
-的关键配置。</p>
-<h2 id="启用基于-https-的-dns">启用基于 HTTPS 的 DNS</h2>
-<p><code>设置</code>→<code>隐私与安全</code>→<code>“基于HTTPS的DNS”启用策略</code>→<code>增强防护</code>→<code>Cloudflare(默认)</code></p>
-<h2 id="选择增强防护的原因">选择增强防护的原因</h2>
-<p>在上一节，启用方法中如果选择默认保护，则<code>基于HTTPS的DNS</code>是关闭的，这可能会导致有此<code>DNS</code>服务器返回被污染的<code>IP</code>.
-如果选择<code>最大保护</code>,
-则所有的网站都会使用<code>基于HTTPS的DNS</code>，
-这会严重降低网站的访问速度。所以选择<code>增强防护</code>是一个折中的选择，它只在安全
-<code>DNS</code>出现问题时才使用默认 <code>DNS</code>
-解析器，因此这是一个兼顾速度和安全的方案。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/31/Git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/31/Git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Git分支管理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-31 13:32:08" itemprop="dateCreated datePublished" datetime="2024-12-31T13:32:08+08:00">2024-12-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="git-删除本地的所有分支">Git 删除本地的所有分支</h2>
-<p>在本文中，我们将介绍如何使用Git命令来删除本地的所有分支。Git是一个非常流行的版本控制工具，可以帮助我们管理代码库的变更历史和分支。有时候，在开发过程中我们可能需要删除一些不再需要的本地分支。</p>
-<h2 id="查看本地分支">查看本地分支</h2>
-<p>在开始删除本地的所有分支之前，我们首先需要查看目前的所有本地分支。我们可以使用以下命令来列出所有的本地分支：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
-<p>这将会列出所有本地分支的列表，当前分支会被标记为一个特殊符号（通常是一个星号
-<code>*</code>）。示例输出如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* master</span><br><span class="line">  feature-branch</span><br><span class="line">  fix-bug-branch</span><br><span class="line">  dev</span><br></pre></td></tr></table></figure>
-<p>在这个示例中，我们有四个本地分支：master、feature-branch、fix-bug-branch和dev。</p>
-<h2 id="删除指定分支">删除指定分支</h2>
-<p>如果我们只想删除特定的本地分支，可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-<p>其中<code>&lt;branch-name&gt;</code>是要删除的分支名称。例如，要删除名为<code>feature-branch</code>的分支，我们可以运行以下命令：</p>
-<p>确认删除操作后，该分支将被彻底删除。如果分支合并到了其他分支中，但是我们要强制删除某个分支可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="删除所有本地分支">删除所有本地分支</h2>
-<p>要删除本地的所有分支，我们可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch | grep -v <span class="string">&quot;master&quot;</span> | xargs git branch -D</span><br></pre></td></tr></table></figure>
-<p>这个命令首先列出所有的本地分支，然后通过grep命令过滤掉master分支（我们通常不希望删除主分支）。接下来，xargs命令将每个分支名称作为参数传递给<code>git branch -D</code>命令，实现逐个删除。</p>
-<h2 id="删除所有已合并的本地分支">删除所有已合并的本地分支</h2>
-<p>如果我们只想删除已经合并的本地分支，可以使用以下命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --merged | grep -v <span class="string">&quot;master&quot;</span> | xargs git branch -d</span><br></pre></td></tr></table></figure>
-<p>这个命令与上一个命令类似，只是使用了<code>--merged</code>参数来列出已经合并的分支。</p>
-<h2 id="删除除主分支外的所有本地分支">删除除主分支外的所有本地分支</h2>
-<p>有时候，我们希望保留主分支（通常是master分支），而删除其他所有本地分支。我们可以使用以下命令来实现：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch | grep -v <span class="string">&quot;master&quot;</span> | xargs git branch -D</span><br></pre></td></tr></table></figure>
-<p>这个命令与删除所有本地分支的命令类似，只是没有排除任何分支。</p>
-<h2 id="总结">总结</h2>
-<p>在本文中，我们介绍了如何使用Git命令删除本地的所有分支。我们可以通过查看本地分支列表、删除指定分支以及删除所有分支来完成这个过程。如果你需要删除已合并的分支或者只保留主分支，我们也有相应的命令来帮助你完成。使用Git命令删除本地分支可以帮助我们保持代码库的整洁性和可维护性。</p>
-<h2 id="本文原始地址">本文原始地址</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://geek-docs.com/git/git-questions/421_git_delete_all_local_git_branches.html">Git
-删除本地的所有分支</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/31/%E8%A7%A3%E5%86%B3GIT%E6%97%A0%E6%B3%95PULL%E4%BB%93%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/31/%E8%A7%A3%E5%86%B3GIT%E6%97%A0%E6%B3%95PULL%E4%BB%93%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决GIT无法PULL仓库的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-31 12:12:39" itemprop="dateCreated datePublished" datetime="2024-12-31T12:12:39+08:00">2024-12-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>时光匆匆，转眼间到了2024年的最后一天，似乎2024还没有写习惯，又不得不写2025。
-这是切换回 <code>github</code>
-的第一篇文章，在此恭祝大家2025元旦快乐，学业有成！</p>
-<h1 id="问题描述">问题描述</h1>
-<p>今天遇到了无法使用<code>git</code>拉取仓库的问题,
-同时百度获知有好多人遇到了同样的问题，其的原因是"DNS 污染"。
-同样也有人遇到了下面的错误：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git pull</span><br><span class="line">ssh: connect to host github.com port 22: Connection refused</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
-<p>同样，在使用<code>ssh</code>克隆仓库时也会遇到相同的问题，表现为：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -vT git@github.com</span><br><span class="line">OpenSSH_9.0p1, OpenSSL 1.1.1o  3 May 2022</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: Connecting to github.com [::1] port 22.</span><br><span class="line">debug1: connect to address ::1 port 22: Connection refused</span><br><span class="line">debug1: Connecting to github.com [127.0.0.1] port 22.</span><br><span class="line">debug1: connect to address 127.0.0.1 port 22: Connection refused</span><br><span class="line">ssh: connect to host github.com port 22: Connection refused</span><br></pre></td></tr></table></figure>
-<h1 id="解决方法">解决方法</h1>
-<p>在<code>/etc/hosts</code>文件中，增加一条<code>github.com</code>的域名映射：</p>
-<figure class="highlight txt"><figcaption><span>/etc/hosts</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">140.82.113.4 github.com</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521340971">坑：ssh: connect to
-host github.com port 22: Connection refused</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37866436/article/details/109456501">解决git使用ssh克隆失败的问题</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://smallhdcc.github.io/2024/01/25/Git%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8SSH%20%E4%BF%AE%E5%A4%8D/index.html">Git无法使用SSH
-bug修复</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/544864281">遇到ssh: connect to
-host github.com port 22: Connection refused的解决办法</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.dns.com/news/3351.html">DNS污染的防护措施有哪些？</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://thax.cn/6608.html">什么是域名DNS污染，如何挽救被污染的域名</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/28/Shell%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E4%BB%A5%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/28/Shell%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E4%BB%A5%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Shell定义函数以数组作为参数的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-28 12:23:47" itemprop="dateCreated datePublished" datetime="2024-12-28T12:23:47+08:00">2024-12-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天升级<code>syndns.sh</code>脚本，升级为默认<code>DNS</code>
-服务器为多个，当一个<code>DNS</code>服务器探测失败后使用下一个<code>DNS</code>服务器继续探测，从而大大提高了脚本的探测能力。在升级过程中，需要用到将默认<code>DNS</code>服务器数组作为参数传递到函数的问题，于是有了本文。</p>
-<h1 id="遍历所有参数">遍历所有参数: <code>$@</code></h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> para <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span> ; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$para</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>在上述例子中，使用<code>for</code>循环和<code>$@</code>遍历传递给脚本的所有参数，并逐个输出这些参数。其优点在于简洁，但也存在缺点，即无法指定输出哪一个参数。所以，对于不需要识别参数具体位置的情况，使用变量<code>$@</code>来遍历参数是个不错的方案。</p>
-</div>
-<h1 id="参数的数量">参数的数量：<code>$#</code></h1>
-<p>变量<code>$#</code>返回参数的数量，使用它配合<code>$@</code>可以指定输出确定位置的参数。例如</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">test</span></span>()&#123;</span><br><span class="line">    <span class="built_in">local</span> paras=(<span class="string">&quot;<span class="variable">$@</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> ((k = <span class="number">0</span>; k &lt; <span class="variable">$#</span>; k++)); <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="variable">$&#123;paras[$k]&#125;</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="展开数组arr-或-arr">展开数组：<code>$&#123;arr[@]&#125;</code> 或
-<code>$&#123;arr[*]&#125;</code></h1>
-<p>在<code>for</code>的展开位置，可以使用上述两条命令，来逐一调用数组变量。例如</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ipc <span class="keyword">in</span> <span class="variable">$&#123;SYN_IP[*]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$ipc</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<h1 id="数组作为参数传递给函数">数组作为参数传递给函数</h1>
-<p>需要注意的是，在将数组作为参数传递给函数时，参数形式只能使用<code>"$&#123;Arr[*]&#125;"</code>才行。例如</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SYN_DN2IP <span class="string">&quot;<span class="variable">$&#123;SYN_GITHUB[*]&#125;</span>&quot;</span> <span class="string">&quot;<span class="variable">$SYN_REC</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<h1 id="syndns.sh-v2.1"><code>syndns.sh</code> V2.1</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : syndns.sh</span></span><br><span class="line"><span class="comment"># Version  : v2.1</span></span><br><span class="line"><span class="comment"># Date     : 2024-12-28 12:10</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 检测软件依懒, 若未检测到，则自动安装</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_DEPEND</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span> VAR <span class="keyword">in</span> <span class="variable">$1</span> ;<span class="keyword">do</span></span><br><span class="line">        pacman -Qq <span class="variable">$VAR</span> &amp;&gt; /dev/null</span><br><span class="line">        <span class="keyword">if</span> [[ $? != 0 ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">sudo</span> pacman -S <span class="variable">$VAR</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 变量</span></span><br><span class="line">SYN_EXE=<span class="string">&quot;/usr/local/bin/<span class="variable">$&#123;0%.sh&#125;</span>&quot;</span></span><br><span class="line">SYN_AUTO=<span class="string">&quot;<span class="variable">$HOME</span>/.config/autostart/<span class="variable">$&#123;0%.sh&#125;</span>.desktop&quot;</span></span><br><span class="line">SYN_SUDO=<span class="string">&quot;/etc/sudoers.d/01_<span class="variable">$USER</span>&quot;</span></span><br><span class="line">SYN_HOS=<span class="string">&quot;/etc/hosts&quot;</span></span><br><span class="line">SYN_REC=$(grep <span class="string">&quot;addn-hosts&quot;</span> /etc/dnsmasq.conf |grep <span class="string">&quot;/dev/shm/&quot;</span>)</span><br><span class="line">SYN_REC=<span class="variable">$&#123;SYN_REC#*=&#125;</span></span><br><span class="line">SYN_ADD=<span class="string">&quot;<span class="variable">$HOME</span>/.host_dns_autoadd.txt&quot;</span></span><br><span class="line">SYN_DNSIP=(8.8.8.8 119.29.29.29)  <span class="comment"># 默认DNS服务器</span></span><br><span class="line"><span class="comment"># Github 网站涉及的所有域名</span></span><br><span class="line">SYN_GITHUB=(github.githubassets.com central.github.com desktop.githubusercontent.com \</span><br><span class="line">assets-cdn.github.com camo.githubusercontent.com github.map.fastly.net github.global.ssl.fastly.net \</span><br><span class="line">gist.github.com github.io github.com api.github.com raw.githubusercontent.com user-images.githubusercontent.com \</span><br><span class="line">favicons.githubusercontent.com avatars5.githubusercontent.com avatars4.githubusercontent.com \</span><br><span class="line">avatars3.githubusercontent.com avatars2.githubusercontent.com avatars1.githubusercontent.com \</span><br><span class="line">avatars0.githubusercontent.com avatars.githubusercontent.com codeload.github.com \</span><br><span class="line">github-cloud.s3.amazonaws.com github-com.s3.amazonaws.com \</span><br><span class="line">github-production-release-asset-2e65be.s3.amazonaws.com \</span><br><span class="line">github-production-user-asset-6210df.s3.amazonaws.com \</span><br><span class="line">github-production-repository-file-5c1aeb.s3.amazonaws.com githubstatus.com github.community \</span><br><span class="line">media.githubusercontent.com objects.githubusercontent.com raw.github.com copilot-proxy.githubusercontent.com)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 参数1为域名数组，参数2 保存文件， 使用 SYN_DN2IP &quot;$&#123;DOMAN[*]&#125;&quot; &quot;outfile&quot;</span></span><br><span class="line"><span class="function"><span class="title">SYN_DN2IP</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span> hubweb <span class="keyword">in</span> <span class="variable">$1</span>; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">unset</span> SYN_IP</span><br><span class="line">        <span class="keyword">for</span> ((k = <span class="number">0</span>; k &lt; <span class="variable">$&#123;#SYN_DNSIP[@]&#125;</span>; k++)); <span class="keyword">do</span></span><br><span class="line">            SYN_IP=<span class="string">&quot;<span class="subst">$(dig @$&#123;SYN_DNSIP[$k]&#125; +short $hubweb)</span>&quot;</span></span><br><span class="line">            <span class="keyword">if</span> [[ ! <span class="string">&quot;<span class="variable">$SYN_IP</span>&quot;</span> =~ <span class="string">&quot;#&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">                k=<span class="variable">$&#123;#SYN_DNSIP[@]&#125;</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="keyword">if</span> [[ ! <span class="string">&quot;<span class="variable">$SYN_IP</span>&quot;</span> =~ <span class="string">&quot;#&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="keyword">for</span> ipc <span class="keyword">in</span> <span class="variable">$&#123;SYN_IP[*]&#125;</span>; <span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$ipc</span> <span class="variable">$hubweb</span>&quot;</span> &gt;&gt; <span class="variable">$2</span></span><br><span class="line">            <span class="keyword">done</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 主程序</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_PROCESS</span></span>()&#123;</span><br><span class="line">    <span class="built_in">cat</span> <span class="variable">$SYN_HOS</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> |sed -r <span class="string">&#x27;s/ * / /g&#x27;</span> &gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    <span class="comment"># 需要专门对Github探测</span></span><br><span class="line">    SYN_DN2IP <span class="string">&quot;<span class="variable">$&#123;SYN_GITHUB[*]&#125;</span>&quot;</span> <span class="string">&quot;<span class="variable">$SYN_REC</span>&quot;</span></span><br><span class="line">    <span class="keyword">if</span> [ -e <span class="variable">$SYN_ADD</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">cat</span> <span class="variable">$SYN_ADD</span> |grep <span class="string">&#x27;^[0-9]&#x27;</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> |sed -r <span class="string">&#x27;s/ * / /g&#x27;</span> &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">cat</span> <span class="variable">$SYN_REC</span> |grep <span class="string">&#x27;^[0-9]&#x27;</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> |sed -r <span class="string">&#x27;s/ * / /g&#x27;</span>  &gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(hostname -i)</span> localhost:&quot;</span> &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line">    systemctl is-active --quiet dnsmasq</span><br><span class="line">    <span class="keyword">if</span> [[ $? == 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">sudo</span> systemctl restart dnsmasq.service</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 安装和更新</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$1</span> == <span class="string">&quot;-i&quot;</span> -o <span class="variable">$1</span> == <span class="string">&quot;-I&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        SYNDNS_DEPEND <span class="string">&quot;dnsutils inetutils dnsmasq jq&quot;</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">cp</span> -f <span class="variable">$0</span> <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">chmod</span> +x <span class="variable">$SYN_EXE</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_AUTO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_AUTO</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="variable">$SYN_AUTO</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Desktop Entry]</span></span><br><span class="line"><span class="string">Name=SynDns</span></span><br><span class="line"><span class="string">TryExec=syndns</span></span><br><span class="line"><span class="string">Exec=$SYN_EXE</span></span><br><span class="line"><span class="string">Type=Application</span></span><br><span class="line"><span class="string">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span></span><br><span class="line"><span class="string">StartupNotify=true</span></span><br><span class="line"><span class="string">X-Desktop-File-Install-Version=0.22</span></span><br><span class="line"><span class="string">X-GNOME-Autostart-enabled=true</span></span><br><span class="line"><span class="string">Hidden=false</span></span><br><span class="line"><span class="string">NoDisplay=false</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; /etc/dnsmasq.conf&quot;</span> &lt;&lt;<span class="string">EOA</span></span><br><span class="line"><span class="string">domain-needed</span></span><br><span class="line"><span class="string">bogus-priv</span></span><br><span class="line"><span class="string">resolv-file=/etc/resolv.conf</span></span><br><span class="line"><span class="string">no-poll</span></span><br><span class="line"><span class="string">interface=lo</span></span><br><span class="line"><span class="string">listen-address=127.0.0.1</span></span><br><span class="line"><span class="string">bind-interfaces</span></span><br><span class="line"><span class="string">no-hosts</span></span><br><span class="line"><span class="string">addn-hosts=/dev/shm/dnsrecord.txt</span></span><br><span class="line"><span class="string">cache-size=9999</span></span><br><span class="line"><span class="string">port=53</span></span><br><span class="line"><span class="string">EOA</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_SUDO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_SUDO</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; <span class="variable">$SYN_SUDO</span>&quot;</span> &lt;&lt;<span class="string">EOB</span></span><br><span class="line"><span class="string">$USER ALL=(ALL) NOPASSWD: /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span></span><br><span class="line"><span class="string">EOB</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">elif</span> [[ <span class="variable">$1</span> =~ <span class="string">&quot;.json&quot;</span> || <span class="variable">$1</span> =~ <span class="string">&quot;.dom&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="variable">$1</span> =~ <span class="string">&quot;.json&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            Address=($(<span class="built_in">cat</span> <span class="variable">$1</span>|jq -r <span class="string">&#x27;.children[]&#x27;</span> |grep <span class="string">&quot;\&quot;uri\&quot;:&quot;</span>))</span><br><span class="line">            Address=(<span class="variable">$&#123;Address[*]#*//&#125;</span>)</span><br><span class="line">            Address=(<span class="variable">$&#123;Address[*]/\&quot;uri\&quot;:&#125;</span>)</span><br><span class="line">            Address=(<span class="variable">$&#123;Address[*]%%/*&#125;</span>)</span><br><span class="line">            Address=(<span class="variable">$&#123;Address[*]%%\&quot;*&#125;</span>)</span><br><span class="line">            Address=(<span class="variable">$&#123;Address[*]%%*[0-9]&#125;</span>)  <span class="comment"># 去除非域名</span></span><br><span class="line">            Address=(`<span class="built_in">echo</span> <span class="variable">$&#123;Address[@]&#125;</span>|sed -e <span class="string">&#x27;s/ /\n/g&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span>`)</span><br><span class="line">        <span class="keyword">elif</span> [[ <span class="variable">$1</span> =~ <span class="string">&quot;.dom&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            Address=($(<span class="built_in">cat</span> <span class="variable">$1</span>))</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -e <span class="variable">$SYN_ADD</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">touch</span> <span class="variable">$SYN_ADD</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        SYN_DN2IP <span class="string">&quot;<span class="variable">$&#123;Address[*]&#125;</span>&quot;</span> <span class="string">&quot;<span class="variable">$SYN_ADD</span>&quot;</span></span><br><span class="line">        <span class="built_in">cat</span> <span class="variable">$SYN_ADD</span> |grep <span class="string">&#x27;^[0-9]&#x27;</span> |grep -v <span class="string">&#x27;^$&#x27;</span>|grep -v <span class="string">&#x27;^#&#x27;</span>|<span class="built_in">sort</span> |<span class="built_in">uniq</span> -u |sed -r <span class="string">&#x27;s/ * / /g&#x27;</span> &gt; <span class="variable">$SYN_ADD</span></span><br><span class="line">        SYNDNS_PROCESS</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="comment"># 默认执行主程序</span></span><br><span class="line">SYNDNS_PROCESS</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/fdipzone/article/details/61220396">shell
-使用数组作为函数参数的方法</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_13449468/10662045">linux
-shell数组参数传递参数</a></li>
-<li><a
-href="/2024/12/02/syndns脚本让您的网速飞起">syndns脚本让您的网速飞起</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/21/%E5%8D%8E%E7%A1%95TUF-GAMING%E5%B0%8F%E6%97%8B%E9%A3%8E%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/21/%E5%8D%8E%E7%A1%95TUF-GAMING%E5%B0%8F%E6%97%8B%E9%A3%8E%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">华硕TUF-GAMING小旋风设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-21 16:45:30" itemprop="dateCreated datePublished" datetime="2024-12-21T16:45:30+08:00">2024-12-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>近日决定升级一下路由器，最初从京东自营店购买的<a
-target="_blank" rel="noopener" href="https://www.tp-link.com.cn/product_3289.html?source=productCenter">TP-BE5100</a>,
-但是发现收到的货是二手的，所以果断决定退货。经过对比，选择了口碑良好的<a
-target="_blank" rel="noopener" href="https://www.asus.com.cn/networking-iot-servers/wifi-routers/asus-gaming-routers/tuf-gaming-3600/techspec/">华硕TUF-GAMING
-小旋风 WiFi7 BE3600</a>,
-以过一下午的使用发现这款路由器确实值得购买。</p>
-<h1 id="aidisk-共享usb-硬盘设置">AiDisk 共享USB 硬盘设置</h1>
-<p>TUF-GAMING 配置了一个 USB3.0
-接口，通过这个接口我们可以设置自己的网络硬盘，这是一个相当实用的功能。下面是其设置方法：</p>
-<ul>
-<li>连接好路由，然后在游览器地址栏输入: <a
-target="_blank" rel="noopener" href="http://www.asusrouter.com">http://www.asusrouter.com</a>,
-输入帐户名和密码进入到路由器管理页面。</li>
-<li>点击 <a
-target="_blank" rel="noopener" href="http://www.asusrouter.com/Advanced_ASUSDDNS_Content.asp">外部网络(WAN)</a>→<code>DDNS</code>,
-然后输入一个主机名，如果没有被占用，则可以成功开启，如果被占用则要更改新的主机名。</li>
-<li>点击 <code>USB相关应用</code> →<code>AiDisk</code>,
-然后根据向导设置就可以了。设置完成的样子： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">您曾经设置过AiDisk向导，现在可参考以下信息来访问硬盘：</span><br><span class="line">   Internet FTP address: ftp://yourhost.asuscomm.cn</span><br><span class="line">   LAN FTP address: ftp://192.168.50.1</span><br><span class="line">   若您需要更专业的文件共享设置，例如多组共享权限的规划，共享文件夹的修改，请至 这里设置。</span><br><span class="line">   警告：AiDisk 已设置。若您再次设置，之前的帐号/密码与存取 权限都将重置。 欲添加更多帐号，选择 这里 以编辑帐户信息。</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>之后在文件管理器中输入上述 <code>Internet</code>或<code>LAN</code>的
-<code>ftp</code>地址，输入帐号名和密码就可以访问路由器<code>U</code>盘接口上连接的<code>U盘</code>了。</p>
-<h1 id="aicloud-2.0-个人云应用">AiCloud 2.0 个人云应用</h1>
-<p><code>AiCloud</code>提供了外网通过浏览器访问<code>U</code>盘接口上连接的<code>U盘</code>的功能。直接点击<code>AiCloud 2.0 个人云2.0 应用</code>根据提示设置就好。但是这里设置遇到了一些问题，比如</p>
-<div class="note primary"><ul>
-<li>ASUS Router 在 HTTP 下外网可以连接路由器，HTTPS 下不可以。</li>
-<li>AiCloud 内网情况下 Web 和 App 都可以登陆，外网情况下 Web
-可以登陆，App 不能。</li>
-<li>参考文章：<a target="_blank" rel="noopener" href="https://www.52asus.com/thread-4536-1-1.html">求助
-AiCloud app外网登陆问题</a></li>
-</ul>
-</div>
-<h1 id="应用下载">应用下载</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.123pan.com/s/lRT7Vv-IXeaH.html">AiCloud 2.0
-安卓版 提取码：YZhS</a></li>
-</ul>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.52asus.com/thread-4536-1-1.html">求助 AiCloud
-app外网登陆问题</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.asus.com.cn/support/faq/1010004/">如何设置Aicloud中的智能访问功能?</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/20/vim-latex%E8%BF%87%E6%BB%A4Warning%E4%BF%A1%E6%81%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/20/vim-latex%E8%BF%87%E6%BB%A4Warning%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">vim-latex过滤Warning信息</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-20 20:34:41" itemprop="dateCreated datePublished" datetime="2024-12-20T20:34:41+08:00">2024-12-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 neovim 中编辑 LaTeX 使用 <a
-target="_blank" rel="noopener" href="https://github.com/vim-latex/vim-latex">vim-latex</a>
-插件是一个绝佳选择。然而，有时候写论文需要使用官方的
-LaTeX的模板，但是不同出版社的模板设置多少有些不符合 LaTeX
-规范，于是就会有字体等 Warning 信息出现，但是这些信息又不是 LaTeX
-必须处理的，它们是可以忽略的。如果不忽略它们，每次编译 <a
-target="_blank" rel="noopener" href="https://neovim.io/doc/user/quickfix.html">quicfix</a>
-窗口都会弹出提示，这极大的影响的写作体验，为此本文提供屏蔽这些信息的方法。</p>
-<h1 id="neovim-中设置">Neovim 中设置</h1>
-<figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/plg/vim-latex.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 控制统计过程中的警告信息</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_IgnoredWarnings&#x27;</span>] = <span class="string">[[</span></span><br><span class="line"><span class="string">    LaTeX Font Warning:</span></span><br><span class="line"><span class="string">    LaTeX Warning:</span></span><br><span class="line"><span class="string">    Warning:</span></span><br><span class="line"><span class="string">    Overfull</span></span><br><span class="line"><span class="string">]]</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_IgnoreLevel&#x27;</span>] = <span class="number">4</span></span><br><span class="line">vim.g[<span class="string">&#x27;Tex_GotoError&#x27;</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h1 id="vim-中设置">Vim 中设置</h1>
-<figure class="highlight vim"><figcaption><span>~/.vimrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; 控制编译过程中的警告信息</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:Tex_IgnoredWarnings</span> = </span><br><span class="line">	\<span class="string">&#x27;Underfull&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;Overfull&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;specifier changed to&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;You have requested&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;Missing number, treated as zero.&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;There were undefined references&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&#x27;Citation %.%# undefined&#x27;</span>.<span class="string">&quot;\n&quot;</span>.</span><br><span class="line">	\<span class="string">&quot;LaTeX hooks Warning&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:Tex_IgnoreLevel</span> = <span class="number">8</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:Tex_GotoError</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：如果您想追加需要过滤的消息，请按上述标格式对应添加到<code>Tex_IgnoredWarnings</code>变量中即可，这样在<code>nvim</code>或<code>vim</code>中输入<code>\ll</code>时，系统直接编译不再弹出<code>quicfix</code>窗口。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/15/%E7%BD%91%E9%80%9F%E5%8D%95%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/12/15/%E7%BD%91%E9%80%9F%E5%8D%95%E4%BD%8D%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">网速单位的转换</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-12-15 15:19:43" itemprop="dateCreated datePublished" datetime="2024-12-15T15:19:43+08:00">2024-12-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>Mbps</code> 到<code>MB/s</code>
-转换计算器允许用户将<label style="color:red">兆位每秒(Mbps)</label>转换为<label style="color:red">兆字节每秒（<span
-class="math inline">\(MB/s\)</span>）</label>，这有助于理解不同单位的数据传输速率。</p>
-<h1 id="历史背景">历史背景</h1>
-<p><code>Mbps</code>(兆位每秒)和<code>MB/s</code>(兆字节每秒)这两个术语常用于计算和网络中描述数据传输速率。它们的区别在于测量单位：</p>
-<div class="note primary"><p>1字节=8比特，这意味着从Mbps到MB/s的转换需要将Mbps值除以8。</p>
-</div>
-<p>此转换对于理解互联网速度、文件下载时间和网络设备的性能非常重要。例如，广告宣传的互联网速度为<code>100 Mbps</code>，转换为<code>12.5 MB/s</code>，这表明数据实际下载或上传的速度。</p>
-<h1 id="转换公式">转换公式</h1>
-<p>将<code>Mbps</code>转换为<code>MB/s</code>的公式很简单：</p>
-<p><span class="math display">\[\begin{equation}\label{eq:translate}
-MB/s=\frac{Mbps}{8}
-\end{equation}\]</span></p>
-<div class="note primary"><ul>
-<li><code>Mbps</code>是以兆位每秒为单位的数据速率.</li>
-<li><code>MB/s</code>是以兆字节每秒为单位的数据速率.</li>
-</ul>
-</div>
-<h1 id="在线转换">在线转换</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.calculatorultra.com/zh/tool/mbps-to-mb-s-conversion-calculator.html">Mbps
-到 MB/s 转换计算器</a></li>
-<li><a target="_blank" rel="noopener" href="https://purecalculators.com/zh-CN/convert-mbps-to-mb">将
-Mbps 转换为 Mb</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

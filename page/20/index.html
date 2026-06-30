@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,983 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/16/LaTeX%E8%BE%93%E5%85%A5%E5%B8%A6%E5%9C%88%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">LaTeX输入带圈的数字</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-16 22:44:50" itemprop="dateCreated datePublished" datetime="2024-09-16T22:44:50+08:00">2024-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>LaTeX</code>自带了可以为文字外围加圆圈的命令<code>\textcircled&#123;&#125;</code>,
+但是其显示效果并不好，所以本文解决这一问题。</p>
+<h2 id="重定义textcircled">重定义<code>\textcircled</code></h2>
+<p>借用<code>tikz</code>宏包重新定义一下这个命令：</p>
+<figure class="highlight tex"><figcaption><span>重定义\textcircled</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;tikz&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>*&#123;<span class="keyword">\circled</span>&#125;[1]&#123;<span class="keyword">\lower</span>.7ex<span class="keyword">\hbox</span>&#123;<span class="keyword">\tikz</span><span class="keyword">\draw</span> (0pt, 0pt)<span class="comment">%</span></span><br><span class="line">    circle (.5em) node &#123;<span class="keyword">\makebox</span>[1em][c]&#123;<span class="keyword">\small</span> <span class="params">#1</span>&#125;&#125;;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="调用pifont宏包">调用<code>pifont</code>宏包</h2>
+<p>带圈的序号从<code>1</code>到<code>10</code>依次为</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\ding</span>&#123;172&#125;<span class="keyword">\ding</span>&#123;173&#125;<span class="keyword">\ding</span>&#123;174&#125;<span class="keyword">\ding</span>&#123;175&#125;<span class="keyword">\ding</span>&#123;176&#125;<span class="keyword">\ding</span>&#123;177&#125;<span class="keyword">\ding</span>&#123;178&#125;<span class="keyword">\ding</span>&#123;179&#125;<span class="keyword">\ding</span>&#123;180&#125;<span class="keyword">\ding</span>&#123;181&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.jianshu.com/p/f9ce0367a1dd">LaTeX输入带圈数字</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/615066252">Latex如何输入圆圈1（圆圈数字，圆圈序号）？如何解决圆圈序号不美观的问题？</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/14/Paru%E5%8D%87%E7%BA%A7%E5%90%8E%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/14/Paru%E5%8D%87%E7%BA%A7%E5%90%8E%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">Paru升级后报错</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-14 21:09:47" itemprop="dateCreated datePublished" datetime="2024-09-14T21:09:47+08:00">2024-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天升级了<code>Pacman</code>后发现<code>Paru</code>不能正常运行了，报错</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libalpm.so.14 cannot be found with pacman <span class="keyword">in</span> [testing]</span><br></pre></td></tr></table></figure>
+<p>此问题已经在<code>paru</code>的<code>Issue</code>中，即<a
+target="_blank" rel="noopener" href="https://github.com/Morganamilo/paru">#1239</a>.
+采用<code>Issue</code>下<code>kug3lblitz</code>的方案解决问题，即</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/lib/libalpm.so.15.0.0 /usr/lib/libalpm.so.14</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/14/%E8%A7%A3%E5%86%B3LaTeX%E6%A0%87%E9%A2%98%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E6%8A%A5%E9%94%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/14/%E8%A7%A3%E5%86%B3LaTeX%E6%A0%87%E9%A2%98%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">解决LaTeX标题中使用特殊符号报错</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-14 11:15:07" itemprop="dateCreated datePublished" datetime="2024-09-14T11:15:07+08:00">2024-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在编写LaTeX文件时，有时在章节中会使用一些特殊符号，比如： <span
+class="math inline">\(\mu\)</span>
+等。但是由于超链接宏包<code>hyperref</code>建立超链接的时候会导致错误。其警告信息为：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Package hyperref warning: Token not allowed <span class="keyword">in</span> a PDF string (Unicode):(hyperref) removing <span class="string">&#x27;math shift&#x27;</span> on input line 2</span><br></pre></td></tr></table></figure>
+<p>解决方法：使用命令<code>\texorpdfstring&#123;#1&#125;&#123;#2&#125;</code></p>
+<p>参数<code>#1</code>为正文标题栏中显示信息，为<span
+class="math inline">\(\mu\)</span>,
+参数<code>#2</code>为目录页中显示的信息，由<code>hyperref</code>引用，所以需要使用非特殊符号替换。例如：<code>\texorpdfstring&#123;\mu&#125;&#123;mu&#125;</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/11/Rhythmbox%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/11/Rhythmbox%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">Rhythmbox中文乱码解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-11 22:40:08" itemprop="dateCreated datePublished" datetime="2024-09-11T22:40:08+08:00">2024-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Rhythmbox</code>
+是Linux下的一款优秀的音乐播放器，经过对比我选择了它。但是在使用过程中发现，由于编码的问题，导入音乐后一些<code>mp3</code>的艺人名称乱码，解决方法为：</p>
+<ul>
+<li><p>安装工具<code>python-mutagen</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S python-mutagen</span><br></pre></td></tr></table></figure></p></li>
+<li><p>切换到您的音乐文件夹下，执行转换代码 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mid3iconv -e GBK *.mp3</span><br></pre></td></tr></table></figure></p></li>
+<li><p>重启<code>Rhythmbox</code>,
+所有<code>mp3</code>显示正常。</p></li>
+</ul>
+<div class="note primary"><p><code>mid3iconv</code>命令主要是将原来<code>mp3</code>音乐文件的<code>ID3</code>信息转换成<code>Unicode</code>并用<code>ID3v2</code>的格式存回文件中。</p>
+</div>
+<ul>
+<li>参考文章：<a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/yiersay/articles/4239046.html">Rhythmbox中文乱码解决</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/10/zotero-pdf-translate%E6%97%A0%E6%B3%95%E7%BF%BB%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/10/zotero-pdf-translate%E6%97%A0%E6%B3%95%E7%BF%BB%E8%AF%91/" class="post-title-link" itemprop="url">zotero-pdf-translate无法翻译</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-10 00:59:26" itemprop="dateCreated datePublished" datetime="2024-09-10T00:59:26+08:00">2024-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近几天<code>zotero</code>正式升级为<code>7.0</code>版，而翻译插件<code>zotero-pdf-translate</code>是一个必不可少的强大工具，对于那些纯英文的文献它可以正常翻译。而由于小牛翻译的快速和较大的免费额度，所以将翻译设置成了小牛翻译，但是由于要备考六级英语考试，在翻译六级真题题，它却无法正常翻译。切换到<code>Deepl</code>翻译后却可以准确的翻译，仔细分析得到问题所在。小牛无法自动检测原语言，而<code>Deepl</code>可以自动检测原语言，于是点击右上角<code>展开/折叠内容窗格</code>后发现，小牛翻译是从中文到中文的翻译，原因我想应该是文件名中存在中文，于是它自动检测为原始文字为中文了，将其改为英文到中文后，翻译插件<code>zotero-pdf-translate</code>正常工作。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/Beamer%E5%A4%9A%E4%B8%AA%E4%BD%9C%E8%80%85%E5%A4%9A%E4%B8%AA%E5%8D%95%E4%BD%8D%E7%9A%84%E7%BC%96%E5%86%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/Beamer%E5%A4%9A%E4%B8%AA%E4%BD%9C%E8%80%85%E5%A4%9A%E4%B8%AA%E5%8D%95%E4%BD%8D%E7%9A%84%E7%BC%96%E5%86%99/" class="post-title-link" itemprop="url">Beamer多个作者多个单位的编写</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-09 01:06:46" itemprop="dateCreated datePublished" datetime="2024-09-09T01:06:46+08:00">2024-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在<code>Beamer</code>的封面加上</p>
+<ol type="1">
+<li>Joint work with Prof. xxx and Prof. xxx</li>
+<li>两个不同的作者单</li>
+</ol>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\title</span>&#123;xxxxx&#125;</span><br><span class="line"><span class="keyword">\author</span>[ author ]&#123;author1<span class="keyword">\inst</span>&#123;1&#125; <span class="keyword">\small</span>&#123;Joint work with Prof. author2<span class="keyword">\inst</span>&#123;1&#125; and Prof. author3<span class="keyword">\inst</span>&#123;2&#125;&#125;&#125;</span><br><span class="line"><span class="keyword">\institute</span>[ cug ] <span class="comment">% (optional, but mostly needed)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">\inst</span>&#123;1&#125;</span><br><span class="line">     School of Computer Science<span class="keyword">\\</span></span><br><span class="line">     China University of Geosciences (Wuhan)</span><br><span class="line">    <span class="keyword">\and</span></span><br><span class="line">    <span class="keyword">\inst</span>&#123;2&#125;</span><br><span class="line">    Department of Mathematical Sciences<span class="keyword">\\</span></span><br><span class="line">    University of Cincinnati</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;[plain]</span><br><span class="line">    <span class="keyword">\titlepage</span></span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/07/%E5%95%81%E5%95%BE%E6%98%AF%E4%BB%80%E4%B9%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/07/%E5%95%81%E5%95%BE%E6%98%AF%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">啁啾是什么</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-07 12:39:14" itemprop="dateCreated datePublished" datetime="2024-09-07T12:39:14+08:00">2024-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>啁啾是信号的<strong>频率随时间</strong>变化的现象，是在<strong>时域上</strong>对脉冲性质做的一个表征，在一个脉冲周期内各频率成分不是同时到达的，就是激光脉冲的不同频率成分在<strong>时域上</strong>是不同步的，它分为正啁啾和负啁啾，正啁啾是频率随时间增加，就是激光输出先是低频再是高频，比如一个脉冲上升的前沿是低频，下降的后沿是高频，负啁啾反之。比如正常色散，高频波的折射率大，传播速度慢，而低频波的传播速度快，就形成正啁啾。</p>
+<p>啁啾产生的原因主要是由于介质的<strong>折射率</strong>由于动态电信号调制的影响<strong>产生动态变化</strong>，从而引起在介质中传播的光信号的<strong>相位发生变化</strong>，这种相位的变化直接体现为输出光信号频率的动态变化。</p>
+<p>举几个产生啁啾的例子帮助理解：</p>
+<ol type="1">
+<li><p>在直调激光器中，由于注入电流的变化，引起了载流子浓度的变化，导致激光器有源层折射率的变化，使得光场的相位随时间变化，光相位的快速变化导致调制谱的频率展宽，产生频率啁啾现象。该信号在光纤中传输时，不同频率的光群速度不一样，导致携带信息的脉冲形状发生了变化，限制了脉冲的有效传输距离（因此直接调制的方式主要用于短距离通信，比如接入网、城域网；而长距离、高速率、10Gb/s以上的高速光纤通信骨干网，则需要使用外调制）。</p></li>
+<li><p>在超快光学中，超短脉冲含有多个频率的光，当该脉冲进入某一介质时，由于材料的色散，不同频率的光群速度不一样，使得脉冲波包不同位置处光的频率随时间改变。</p></li>
+<li><p>三阶非线性效应也会导致啁啾效应的产生，例如克尔效应，自相位调制效应。</p></li>
+</ol>
+<p>所以一般产生啁啾的方法是通过改变各频率成分的位相来得到的，无论是光栅对还是棱镜对，都是利用不同频率的光程不同（也是位相不同）来产生激光脉冲的。</p>
+<p>总的来说啁啾<strong>有利有弊</strong>：弊是：光脉冲中不同频率群速度大小不一导致脉冲展宽，功率降低，解决方法是让光再通过一个色散性质相反的材料，使得原先速度快的频率成分速度降低，而原先速度慢的频率成分速度变快，最终大家步调一致，脉冲被压缩。利是：例如在啁啾脉冲放大（chirped-pulse
+amplification）技术中，利用啁啾效应使得脉冲展宽这一现象，展宽后脉冲的峰值功率降低，可以进一步提高其功率，从而得到大功率的激光脉冲。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/06/EvincePDF%E9%98%85%E8%AF%BB%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/06/EvincePDF%E9%98%85%E8%AF%BB%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">EvincePDF阅读器快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-06 15:51:39" itemprop="dateCreated datePublished" datetime="2024-09-06T15:51:39+08:00">2024-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Evince</code> 是一款简单但功能强大的 GNOME
+桌面环境文档阅读器。它可以呈现各种数字文档格式，并包含用于基本注释工作的工具。这使得
+<code>Evince</code>
+成为一款可靠且多功能的文档阅读器，您可以用它进行快速浏览和长时间阅读。本文记录<code>Evince</code>常用的一些快捷键，以方便工作和学习。</p>
+<h2 id="文档操作">文档操作</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + O</td>
+<td>将数字文档打开至当前 <code>Evince</code> 缓冲区。</td>
+</tr>
+<tr>
+<td>Ctrl + R</td>
+<td>在缓冲区重新加载当前打开的文档。</td>
+</tr>
+<tr>
+<td>Ctrl + N</td>
+<td>打开一个新窗口，其中包含当前缓冲区的精确副本。</td>
+</tr>
+<tr>
+<td>Ctrl + W</td>
+<td>关闭当前打开的 <code>Evince</code> 缓冲区。</td>
+</tr>
+<tr>
+<td>Ctrl + S</td>
+<td>将当前打开的 <code>Evince</code> 缓冲区保存到不同的文件。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文档展示">文档展示</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + 加号 (+)</td>
+<td>放大当前缓冲区中的文档。</td>
+</tr>
+<tr>
+<td>Ctrl + 减号 (-)</td>
+<td>缩小当前缓冲区上的文档。</td>
+</tr>
+<tr>
+<td>Ctrl + 0</td>
+<td>将文档的缩放级别返回到其“自动”值。</td>
+</tr>
+<tr>
+<td>A</td>
+<td>将文档的缩放级别恢复为“自动”值。</td>
+</tr>
+<tr>
+<td>F</td>
+<td>强制缓冲区显示整个页面。</td>
+</tr>
+<tr>
+<td>W</td>
+<td>强制缓冲区将页面缩放到其最大宽度。</td>
+</tr>
+<tr>
+<td>C</td>
+<td>切换 <code>Evince</code> 的“连续”页面查看模式。</td>
+</tr>
+<tr>
+<td>D</td>
+<td>强制缓冲区一次显示两页。</td>
+</tr>
+<tr>
+<td>Ctrl + 向右箭头</td>
+<td>将整个文档向右旋转 90 度。</td>
+</tr>
+<tr>
+<td>Ctrl + 向左箭头</td>
+<td>将整个文档向左旋转 90 度。</td>
+</tr>
+<tr>
+<td>Ctrl + I</td>
+<td>反转当前缓冲区中的文档颜色。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="缓冲运动">缓冲运动</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/Ctrl+PageDown</td>
+<td>转到当前文档的下一页。</td>
+</tr>
+<tr>
+<td>P/Ctrl+PageUp</td>
+<td>返回当前文档的上一页。</td>
+</tr>
+<tr>
+<td>Ctrl+End</td>
+<td>转到当前文档的页面末尾。</td>
+</tr>
+<tr>
+<td>Home</td>
+<td>转到当前文档页面的开头。</td>
+</tr>
+<tr>
+<td>End</td>
+<td>转到当前文档的末尾。</td>
+</tr>
+<tr>
+<td>Ctrl + Home</td>
+<td>转到当前文档的开头。</td>
+</tr>
+<tr>
+<td>←</td>
+<td>在当前缓冲区向左移动一列。</td>
+</tr>
+<tr>
+<td>→</td>
+<td>在当前缓冲区上向右移动一列。</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>在当前缓冲区向上移动一行。</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>在当前缓冲区向下移动一行。</td>
+</tr>
+<tr>
+<td>向上一页</td>
+<td>将当前缓冲区向上移动半个屏幕。</td>
+</tr>
+<tr>
+<td>向下翻页</td>
+<td>将当前缓冲区向下移动半个屏幕。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="插入符号的移动和选择">插入符号的移动和选择</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F7</td>
+<td>切换 <code>Evince</code> 的 Caret 导航模式。</td>
+</tr>
+<tr>
+<td>←</td>
+<td>将插入符号光标向左移动一个字符。</td>
+</tr>
+<tr>
+<td>→</td>
+<td>将插入符号光标向右移动一个字符。</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>将插入符号光标向上移动一行。</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>将插入符号光标向下移动一行。</td>
+</tr>
+<tr>
+<td>Shift + ←</td>
+<td>选择插入符号光标左侧的字符。</td>
+</tr>
+<tr>
+<td>Shift + →</td>
+<td>选择插入符号光标右侧的字符。</td>
+</tr>
+<tr>
+<td>Shift + ↑</td>
+<td>选择插入符号光标上方的行。</td>
+</tr>
+<tr>
+<td>Shift + ↓</td>
+<td>选择插入符号光标下方的行。</td>
+</tr>
+<tr>
+<td>Ctrl + ←</td>
+<td>选择插入符号光标左侧的单词。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本突出显示">文本突出显示</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>双击</td>
+<td>选择光标下的单词。</td>
+</tr>
+<tr>
+<td>Ctrl + A</td>
+<td>选择当前文档中的所有 OCR 文本。</td>
+</tr>
+<tr>
+<td>Ctrl + C</td>
+<td>将当前选定的文本复制到系统缓冲区。</td>
+</tr>
+<tr>
+<td>Ctrl + V</td>
+<td>将系统缓冲区的内容粘贴到当前光标下。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文档搜索">文档搜索</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + F</td>
+<td>打开 <code>Evince</code> 的搜索工具栏提示。</td>
+</tr>
+<tr>
+<td>Ctrl + G</td>
+<td>跳转到当前查询的下一个出现位置。</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + G</td>
+<td>跳回到当前查询的上一次出现的位置。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文档注释">文档注释</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F9</td>
+<td>显示当前文档中所有可用的书签。</td>
+</tr>
+<tr>
+<td>Ctrl + D</td>
+<td>将当前页面添加到缓冲区的书签。</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + D</td>
+<td>删除当前页面上的所有书签。</td>
+</tr>
+<tr>
+<td>S</td>
+<td>在当前页面上创建注释。</td>
+</tr>
+<tr>
+<td>Ctrl + H</td>
+<td>突出显示缓冲区上当前选定的文本。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="窗口操作">窗口操作</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th><strong>功能</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + P</td>
+<td>打开当前缓冲区的 <code>Evince</code> 打印对话框。</td>
+</tr>
+<tr>
+<td>F11</td>
+<td>切换当前缓冲区的全屏模式。</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>切换当前缓冲区的 <code>Evince</code> 演示模式。</td>
+</tr>
+<tr>
+<td>在</td>
+<td>用纯白色图像遮蔽整个演示屏幕。</td>
+</tr>
+<tr>
+<td>乙</td>
+<td>用纯黑色图像遮蔽整个演示屏幕。</td>
+</tr>
+</tbody>
+</table>
+<div class="note primary"><p>由于软件升级，快捷键有可能调整。一个最佳的查询方法为：点击<code>Evince</code>右上角三个小点，然后选择<code>键盘快捷键</code>,
+所有快捷键都会显示出来。另外也可以参考<code>Gnome</code>官方文档：<a
+target="_blank" rel="noopener" href="https://help.gnome.org/users/evince/stable/shortcuts.html.zh_CN">键盘快捷键</a></p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -501,994 +1478,8 @@ target="_blank" rel="noopener" href="https://www.xitongzhijia.net/xtjc/20150930/
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/" class="post-title-link" itemprop="url">windows关闭ms-gamingoverlay</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-09-01 09:59:31" itemprop="dateCreated datePublished" datetime="2024-09-01T09:59:31+08:00">2024-09-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>ms-gamingoverlay</code>是系统中的一项游戏叠加功能，且系统默认启用了此功能，这会导致电脑老是弹出关于<code>ms-gamingoverlay</code>的提示窗,
-于是本文提供关闭<code>ms-gamingoverlay</code>弹窗的提示。</p>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-water.jpg"
-alt="msgamingoverlay一直跳出来的解决方法" />
-<figcaption
-aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
-</figure>
-<h2 id="windows10-关闭弹窗">Windows10 关闭弹窗</h2>
-<ol type="1">
-<li>首先点击开始菜单，进入系统设置。</li>
-</ol>
-<figure>
-<img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-50-water.jpg"
-alt="msgamingoverlay一直跳出来的解决方法" />
-<figcaption
-aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
-</figure>
-<ol start="2" type="1">
-<li>然后在设置中进入“游戏设置”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-51_water.jpg?time=1667870521" /></p>
-<ol start="3" type="1">
-<li>然后在游戏栏中将“使用游戏栏录制游戏剪辑.
-屏幕截图和广播”关闭即可。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152_water.jpg?time=1667870526" /></p>
-<h2 id="windows11-关闭弹窗">Windows11 关闭弹窗</h2>
-<h3 id="方法一">方法一</h3>
-<ol type="1">
-<li>打开运行（<code>Win+R</code>），并输入<code>regedit</code>命令，按确定或回车。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411-50_water.png?time=1663653859" /></p>
-<ol start="2" type="1">
-<li>定位如下位置：<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR</code></li>
-</ol>
-<p>找到<code>AppCaptureEnabled</code>这个键值，把值改为<code>0</code>。</p>
-<ol start="3" type="1">
-<li>定位如下位置：<code>HKEY_CURRENT_USER\System\GameConfigStore</code></li>
-</ol>
-<p>找到<code>GameDVR_Enabled</code>这个键值，把值改为<code>0</code>。</p>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411_water.png?time=1663653875" /></p>
-<p>之后打开任意游戏应该就不会弹窗了，如果还弹窗就看看你在设置里有没有关闭<code>xbox</code>相关设置。</p>
-<h3 id="方法二">方法二</h3>
-<ol type="1">
-<li>首先同样是进入系统“设置”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-50_water.jpg?time=1667870532" /></p>
-<ol start="2" type="1">
-<li>然后进入左侧的“游戏”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-51_water.jpg?time=1667870539" /></p>
-<ol start="3" type="1">
-<li>再进入右侧的“屏幕截图”。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-52_water.jpg?time=1667870545" /></p>
-<ol start="4" type="1">
-<li>接着在录制偏好设置中关闭“录制游戏过程”就可以了。</li>
-</ol>
-<p><img
-src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-53_water.jpg?time=1667870552" /></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/27/%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/27/%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">使用路由器实现校园网免登录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-27 10:02:56" itemprop="dateCreated datePublished" datetime="2024-08-27T10:02:56+08:00">2024-08-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在大学校园里一般都会为学生提供免费的校园网，但是由于学生众多，一般当电脑关机时它会自动断开以释放<code>ip</code>给下一个学生使用。然而，对于办公室的台式机，每次开机都要打开校园网登录页面，输入一遍学号和密码，显然这不友好。即使是让游览器记住登录密码，每天重复这一动作也让人心情不好。</p>
-<p>网络上有一个开放的脚本，可以实现免登录操作，但是操作起来有点麻烦，同时安全性和合法性有待商榷。相关参考：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/Freedomisgood/NjuptCmcc">NjuptCmcc
-校园网一键上网脚本</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv16042718/">(理论上)各大高校都适用的
-全平台校园网自动登录实现方法</a></li>
-</ul>
-<p>为了实现合法稳定的使用校园网，我们可以借助于路由器。本文推荐一款好用的路由器：<a
-target="_blank" rel="noopener" href="https://www.tp-link.com.cn/product_1941.html">TP-Link
-5660易展版</a>， 如下图所示</p>
-<figure>
-<img src="https://img.picui.cn/free/2024/08/27/66cd35538fc10.jpg"
-alt="TP-Link 5660 易展版" />
-<figcaption aria-hidden="true">TP-Link 5660 易展版</figcaption>
-</figure>
-<p>将校园网的网线连接路由器的<code>LAN</code>口（易展版无需区分<code>WAN</code>和<code>LAN</code>口）,
-然后使用另一网线连接电脑的网口，使用电脑浏览器打开校园网登录界面，输入学号和密码。然后在浏览器输入<code>192.168.1.1</code>按回车，进入到路由器设置界面，选择<code>DHCP服务器</code>
-，将<code>地址租期</code>设置为最大的<code>2880</code>分钟，这样连网后在<code>2880</code>分钟内就不会断开了。同时，路由器所附加的无线网络功能也可以实现手机和笔记本的连网。</p>
-<figure>
-<img src="https://img.picui.cn/free/2024/08/27/66cd398526e3d.png"
-alt="设置DHCP服务器" />
-<figcaption aria-hidden="true">设置<code>DHCP</code>服务器</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/16/%E6%97%A0%E7%BA%BF%E9%94%AE%E7%9B%98%E5%92%8C%E9%BC%A0%E6%A0%87%E6%80%8E%E4%B9%88%E9%80%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/16/%E6%97%A0%E7%BA%BF%E9%94%AE%E7%9B%98%E5%92%8C%E9%BC%A0%E6%A0%87%E6%80%8E%E4%B9%88%E9%80%89/" class="post-title-link" itemprop="url">无线键盘和鼠标怎么选</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-16 00:44:09" itemprop="dateCreated datePublished" datetime="2024-08-16T00:44:09+08:00">2024-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>无线键盘和鼠标 <code>2.4G</code> 和蓝牙到底哪个好？</p>
-<p>有人说，无线肯定蓝牙好，功耗低够省电；有人说肯定是 <code>2.4G</code>
-好，延迟比蓝牙要低多了；也有人说两个都不好，抗干扰能力都很弱......看似常用的东西，一说到谁更好用，大家都说不上来个但是所以然。</p>
-<p>所以今天 der 就和大家聊聊，都是无线，<code>2.4G</code>
-和蓝牙到底哪个好？</p>
-<p>首先我们要知道，大家常说的蓝牙是“标准版”的蓝牙技术，即
-<code>Bluetooth</code>。</p>
-<p>由于手机厂商觉得标准版的蓝牙技术功耗还是很高，于是就整了个低功耗蓝牙技术，也就是
-<code>BLE</code>。在蓝牙 <code>4.0</code>
-发布后，标准版蓝牙技术和低功耗蓝牙技术都统称蓝牙
-<code>4.0</code>，以至于很多人一时半会分不清。</p>
-<p>好在这两种蓝牙技术的应用场景不同，像标准版蓝牙技术主要应用在蓝牙电话接听，蓝牙耳机、蓝牙音箱等；而低功耗蓝牙技术则应用在可穿戴设备，<code>IoT</code>
-智能设备、鼠标键盘等电池供应的场合。虽说标准版蓝牙技术也支持用电池供电，但低功耗版蓝牙技术对电池的要求更低，续航也更长，有的几年也不在话下。</p>
-<p>而我们常说的 <code>2.4G</code> 无线连接技术，也就是
-<code>2.4G</code>Hz 频段，它的发射频率一般低于
-1W，以免对其他频段造成干扰。</p>
-<p>由于 <code>2.4G</code>Hz 这个频段是美国 FCC
-设立的，还是一个专门为工业、科学、医用开放的免许可频段，简单来说就是可以免费使用。反正不收钱，各国自然也共用这个频段，渐渐的就形成了个庞大的市场，像我们日常用的蓝牙、无线键鼠、无线网络也都支持这个频段。</p>
-<p>于是在功耗方面，自从蓝牙协议 <code>4.0</code>
-发布后，低功耗蓝牙技术的加入使其支持了省电，不再像以前需要占用太多带宽的设备进行连接。</p>
-<p>像现在比较好的智能家居，我们只需开启蓝牙就能连接多个设备，像温度传感器之类的还能进行数据传输，查看温度与记录......只需低功耗蓝牙技术即可实现。还有我们常用的无线蓝牙键盘、鼠标，由于低功耗蓝牙技术的限制，鼠标的回报率、带宽等会限制的很低，这样较低性能的模式去运行，自然会比较省电。</p>
-<p>而 <code>2.4G</code>
-无线连接技术占用的频宽大，像鼠标的回报率要求高，响应速度快，相较于低功耗蓝牙技术会更耗电一点。所以低功耗蓝牙技术相比
-<code>2.4G</code>
-无线连接技术更省电，像很多外设的相关描述中说的都是蓝牙更持久。</p>
-<p>而很多小伙伴关注的稳定性与传输距离的问题，<code>2.4G</code>
-无线连接技术也依旧比不过蓝牙。</p>
-<p>由于 <code>2.4G</code>Hz
-是“公共频段”，当附近有较多该频段的无线产品时，也容易受到干扰，甚至有时候中间放个手机也会造成
-<code>2.4G</code>Hz 设备卡顿。再说了，很多支持 <code>2.4G</code>Hz
-的设备不过 10 米左右，距离相对受限。</p>
-<p>虽说低功耗蓝牙技术也同属 <code>2.4G</code>Hz
-频段，但它支持的频段会更多一些，而且还支持跳频技术错开干扰，稳定性方面会更为稳定。传输距离方面，蓝牙
-<code>4.0</code> 协议理论上最高支持 50 米的传输距离，但实际民用基本为
-8~30 米，也足以比 <code>2.4G</code>
-无线连接技术要强得多，同时这也是为什么有个段子说手机被偷了那么久，蓝牙耳机依旧在播放。</p>
-<p>这时候就有大聪明发话了：既然蓝牙比 <code>2.4G</code>
-更省电，稳定性和传输距离又更好，那 <code>2.4G</code>
-到底有什么用呢？</p>
-<p>der 觉得，<code>2.4G</code>
-无线连接技术最大的优点莫过于它传输速度快很多，而且延迟更低，像一些喜欢玩游戏的小伙伴，对设备有着较高的响应速度，例如鼠标、键盘等，<code>2.4G</code>
-无线连接技术则能提供更好的体验，仅此而已。</p>
-<p>不过有的厂商见蓝牙与 <code>2.4G</code>
-这堆兄弟的优缺点可以互补，推出所谓的蓝牙 + <code>2.4G</code>
-双模无线设备，如果你想玩游戏就用 <code>2.4G</code>
-无线连接；如果只是日常使用省点电，则可以用蓝牙；这样办公娱乐都能用。</p>
-<p>最后总结一下，无论是功耗、稳定性、传输距离等方面，蓝牙确实比
-<code>2.4G</code> 要实用的多，用于办公再适合不过了。</p>
-<p>但如果你喜欢玩游戏，那 <code>2.4G</code>
-速度快且延迟低的特性更适合你。</p>
-<p>再说了，很多主机电脑、其它设备并没自带蓝牙功能，所以很多游戏玩家看不起也用不上蓝牙，只能配备
-USB 解码器对码使用 <code>2.4G</code>
-无线连接技术，祈祷着解码器千万别丢哪不见了。</p>
-<div class="note primary"><p>注：引用自<a
-target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22828241/">买鼠标键盘，选无线 2.4G
-和蓝牙哪个好？看完你就明白了</a></p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/%E5%B0%86Windows%E7%94%B5%E8%84%91%E7%94%A8%E4%BD%9C%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/13/%E5%B0%86Windows%E7%94%B5%E8%84%91%E7%94%A8%E4%BD%9C%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9/" class="post-title-link" itemprop="url">将Windows电脑用作移动热点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-13 23:11:01" itemprop="dateCreated datePublished" datetime="2024-08-13T23:11:01+08:00">2024-08-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过 <strong>Wi-Fi</strong> 与其他设备共享 <strong>Internet</strong>
-连接，将 <strong>Windows</strong> 电脑变成移动热点。 你可以共享
-<strong>WLAN</strong>、<strong>以太网</strong>或<strong>手机网络</strong>数据连接。
-如果你的电脑具有手机网络数据连接并且共享该连接，它将使用流量套餐数据。</p>
-<h2 id="设置移动热点">设置移动热点</h2>
-<ol type="1">
-<li><p>选择<strong>开始</strong>，然后选择<strong>设置</strong>→<strong>网络&amp;
-Internet</strong>→<strong>移动热点</strong>。</p></li>
-<li><p>对于<strong>从中共享我的 Internet 连接</strong>，选择要共享的
-<strong>Internet</strong> 连接。</p></li>
-<li><p>对于 <strong>共享方式</strong>，请选择希望如何通过
-<strong>Wi-Fi</strong> 或 <strong>蓝牙</strong>共享连接。
-<strong>Wi-Fi</strong>通常更快，默认选择。</p></li>
-<li><p>(可选) 展开 <strong>属性</strong>
-部分，然后选择<strong>编辑</strong> 并输入新的网络名称、密码和网络带。
-选择<strong>保存</strong>。</p></li>
-<li><p>打开<strong>移动热点</strong>
-设置页顶部的<strong>移动热点</strong>切换。</p>
-<div class="note primary"><p><strong>注意:</strong>
-如果你的电脑具有手机网络，则可以远程打开移动热点。 若要允许
-<strong>Windows</strong>
-电脑打开移动热点，这两个设备都必须具有蓝牙并已配对。</p>
-</div></li>
-<li><p>若要在其他设备上进行连接，请转到该设备的 <strong>WLAN</strong>
-设置、查找并选择网络名称、输入密码，然后进行连接。</p></li>
-</ol>
-<h2 id="快速启动移动热点">快速启动移动热点</h2>
-<p>如果每次启动电脑都进行一遍上述设置，实在太过麻烦。对于<code>Win11</code>,
-在右下角可以找到<code>移动热点</code>按钮，启动电脑，连接校园网然后点击<code>右下角网络图标</code>，再点击<code>移动热点</code>就可以快速启动无线<code>wifi</code>快速上网了。</p>
-<p>win10在通知面板预设了移动热点按钮，但win11的快速启用面板默认没有。在快速启用面板点击右下角铅笔按钮（如图），添加移动热点即可。</p>
-<figure>
-<img src="https://imgos.cn/2024/08/16/66becced1a3d5.png"
-alt="添加移动热点" />
-<figcaption aria-hidden="true">添加移动热点</figcaption>
-</figure>
-<h2 id="阻止无设备连接热点时自动关闭">阻止无设备连接热点时自动关闭</h2>
-<p>在<code>设置移动热点</code>小节，<code>移动热点</code>选项卡，会看到一个<code>节能</code>选项，默认是开启的，点击右侧按钮关闭它即可。</p>
-<p><img src="https://imgos.cn/2024/08/16/66bed050af319.png" /></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/MacOS%E4%B8%8ELinux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/13/MacOS%E4%B8%8ELinux/" class="post-title-link" itemprop="url">MacOS与Linux</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-13 14:53:21" itemprop="dateCreated datePublished" datetime="2024-08-13T14:53:21+08:00">2024-08-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure>
-<img src="https://imgos.cn/2024/08/13/66bb031616a73.jpg"
-alt="MacOS与Linux" />
-<figcaption aria-hidden="true">MacOS与Linux</figcaption>
-</figure>
-<h2 id="macos与linux简史">MacOS与Linux简史</h2>
-<p>macOS 和 Linux 的主要部分是内核、核心实用程序、GUI
-或桌面环境以及应用程序。</p>
-<p>macOS 基于名为 Darwin 的开源 BSD Unix 内核。 macOS 的其他部分（例如
-GUI 和核心应用程序）是闭源且专有的。 Apple
-构建并维护这些软件系统，它们作为 Mac 设备的一部分提供。</p>
-<p>Apple 在 2000 年代初将 Unix 引入了 macOS。在此之前，macOS 基于非 Unix
-操作系统。</p>
-<p>另一方面，Linux 最初是 Linus Torvalds 于 90 年代初作为个人项目和 Unix
-操作系统的克隆版本。严格来说，Linux只是内核。操作系统本身由 GNU
-实用程序等核心部分和 GNOME、KDE 等桌面环境组成。</p>
-<h2 id="开源软件与专有软件">开源软件与专有软件</h2>
-<p>Linux 和 macOS 都大量使用开源软件，但虽然 Linux 发行版完全开源，但
-macOS 的部分内容是闭源且专有的。</p>
-<p>从开源内核到核心 GNU 实用程序和 GUI 环境，Linux
-是自由和开源软件的缩影。您可以根据自己的喜好自由修改和重新打包整个操作系统。您甚至可以将其商业化并从中赚钱，就像红帽企业
-Linux 的情况一样。</p>
-<p>在大多数情况下，Linux 的许可条款要求您所做的修改也向社区公开。</p>
-<p>对于
-macOS，主要是内核是开源的。桌面和应用程序等其他部分不是开源的。当然，Apple
-的其他组件（例如 Swift 编程语言）也是开源的。</p>
-<p>与可以在您选择的任何硬件上使用的 Linux 不同，macOS 旨在在 Mac
-设备上使用。当您从 Apple 购买 PC 时，您需要为软件和硬件付费。</p>
-<h2 id="软件管理">软件管理</h2>
-<p>Linux
-长期以来一直采用中央软件存储库的概念，用户可以使用命令行或图形工具轻松下载和安装应用程序。</p>
-<p>大多数 Linux 发行版都附带软件包管理器，例如基于 Debian 的发行版上的
-APT、Fedora 和 Red Hat Enterprise Linux 上的 DNF 或 Yum，以及基于 Arch
-的发行版上的 Pacman。使用包管理器，您可以在 PC
-上轻松安装、删除、更新和管理软件应用程序。</p>
-<p>在 macOS
-上安装应用程序的传统方法是通过应用程序文件夹。您从互联网下载要安装的应用程序，然后将其拖到应用程序文件夹中，macOS
-将处理剩下的事情。</p>
-<p>另一个更新的选项是使用 Mac App Store 安装软件应用程序。</p>
-<p>您还可以使用 Homebrew，这是一个包管理器，它在 macOS 上的工作方式与
-APT 等 Linux 包管理器非常相似。 Homebrew 也可以在 Linux 上运行。</p>
-<h2 id="终端">终端</h2>
-<p>Linux 的真正威力在于终端或命令行。 macOS
-有一个类似的终端模拟器，但大部分注意力都集中在精美的 Mac 桌面上。</p>
-<p>该终端允许您以高效、轻松的方式与您的 PC
-和软件资源进行交互。此外，它还可以让您轻松自动化和安排任务。运行 Linux
-的软件工程师、高级用户和系统管理员在他们的工作流程中大量使用终端。</p>
-<p>大多数 Linux 发行版使用 Bash (GNU Bourne Again Shell) 作为终端的默认
-shell。 2019 年，Apple 将 Bash shell 替换为 Zsh（Z shell）。 Z shell
-是高度可定制的，并且与 Bash、ksh 和 tcsh 有许多相似之处。</p>
-<p>由于 Linux 和 macOS 主要使用类似的 shell，因此您在 Linux PC
-上运行的核心命令也可以在 Mac 上运行，反之亦然。</p>
-<h3 id="终端命令大部分相似">终端命令大部分相似</h3>
-<p>macOS 终端命令和 Linux 的命令有很多是相似的，因为 macOS 是基于 UNIX
-的操作系统。这意味着大部分的常用终端命令在 macOS 和 Linux
-上可以通用。</p>
-<ul>
-<li>ls：查看文件和目录的列表</li>
-<li>cd：改变当前工作目录</li>
-<li>mkdir：创建新目录</li>
-<li>rm：删除文件和目录</li>
-<li>cp：复制文件和目录</li>
-<li>mv：移动文件和目录</li>
-<li>cat：查看文件内容</li>
-<li>grep：在文件中搜索匹配的文本</li>
-<li>chmod：修改文件权限</li>
-<li>chown：修改文件所有者</li>
-<li>cat: 查看文件内容</li>
-<li>vi/vim/neovim: 编辑文件</li>
-<li>netstat: 查看网络连接状态</li>
-<li>ifconfig: 查看网络配置</li>
-<li>ps: 查看正在运行的程序</li>
-<li>kill: 杀死进程</li>
-</ul>
-<h3 id="终端命令的不同之处">终端命令的不同之处</h3>
-<ul>
-<li>安装软件包管理器：在 Linux 上，常用的软件包管理器是 apt、yum 和
-dnf，而 macOS 使用的是 Homebrew 或 MacPorts</li>
-<li>文件树结构：macOS 使用的文件树结构与 Linux
-不完全相同，导致一些目录的路径和名称略有不同</li>
-<li>网络工具：一些网络工具命令在两个系统上有所不同，例如，macOS 使用
-ifconfig 命令而 Linux 使用 ip 命令来配置网络接口</li>
-<li>系统服务管理：在 Linux 上，使用 systemctl 命令来管理系统服务，而在
-macOS 上使用 launchctl 命令</li>
-<li>打包和解压缩文件：在 Linux 上，常用的打包和解压缩命令是 tar 和
-gzip，而在 macOS 上常用的是 tar 和 unzip</li>
-<li>查看系统信息：macOS 使用 <code>system_profiler</code> 命令，Linux
-使用 <code>uname</code> 命令</li>
-<li>查看网络配置：macOS 使用 <code>ifconfig</code> 命令，Linux 使用
-<code>ifconfig</code> 或 <code>ip</code> 命令</li>
-</ul>
-<h2 id="桌面环境">桌面环境</h2>
-<p>在 Linux 的早期，基于内核的操作系统没有附带 GUI，大多数 Linux
-服务器仍然没有。您必须通过终端与操作系统交互。随着时间的推移，桌面环境的发展是为了帮助用户以更直观和友好的方式与操作系统交互，以便操作系统能够满足高级和非技术用户的需求。</p>
-<p>与 Linux
-的所有事物一样，您可以选择多种桌面环境，所有这些环境都为您提供了与系统交互的独特方式。一些著名的桌面环境包括
-GNOME、XFCE、KDE、Deepin 等。您可以在 Linux
-上自由安装多个桌面环境，但是一次只能使用一个。</p>
-<p>macOS 上的 GUI
-是标准的，对于所有用户来说都是相同的。除了更改壁纸、主题和类似的调整之外，您无法选择安装另一个桌面管理器来改变
-macOS 的外观和感觉。</p>
-<h2 id="多重分布">多重分布</h2>
-<p>在 Linux 上，发行版或发行版是一种特定类型的
-Linux，附带一组特定的应用程序、桌面环境和系统实用程序。不同的发行版通常针对一组特定的用户，例如道德黑客、艺术家、程序员、软件开发人员等。</p>
-<p>实际上有数千种 Linux 发行版可供您根据您的工作流程进行选择。例如，基于
-Debian 的 Kali Linux
-发行版主要用于道德黑客攻击和渗透测试。它配备了大量适合道德黑客的工具和实用程序。</p>
-<p>Arch Linux 是轻量级 Linux
-发行版的另一个例子，它配备了最少的工具。它被喜欢从头开始定制操作系统的
-Linux 爱好者和极客广泛使用。</p>
-<p>另一方面，有了
-macOS，每个人都可以获得相同类型的操作系统，无论他们的热情或工作是什么。这是因为苹果是唯一开发和控制操作系统的公司。对于苹果来说，维持单一操作系统的多个变体将会适得其反。</p>
-<p>Linux 发行版之所以如此之多，归根结底是因为 Linux
-内核及其核心组件都是开源的。这使得用户可以轻松创建针对特定受众的新 Linux
-风格。</p>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://linux.cn/article-15010-1.html">macOS 和 Linux
-有什么区别？</a></li>
-<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12628">macOS 与
-Linux：您应该了解的 5 个主要区别</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://worktile.com/kb/ask/498880.html">macos终端命令和linux一样吗</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E8%A7%A3%E5%86%B3Ubuntu%E7%9A%84%E5%86%85%E9%83%A8%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/12/%E8%A7%A3%E5%86%B3Ubuntu%E7%9A%84%E5%86%85%E9%83%A8%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">解决Ubuntu的内部错误</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-12 15:50:58" itemprop="dateCreated datePublished" datetime="2024-08-12T15:50:58+08:00">2024-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p><a
-target="_blank" rel="noopener" href="https://ubuntu.com/">ubuntu</a>是大多数人步入<code>Linux</code>世界的入门级系统，其易用性使得多数对系统配置不高的人容易接受这一系统。在我使用<code>Linux</code>的早期，也是使用了一段时间的<code>ubuntu</code>,
-但是直到有一天，它经常出现<label style="color:red">内部错误</label>，不得不让早期的我认为它不友好，于是转入<code>Debian</code>.它的错误对话框如下：</p>
-<figure>
-<img src="https://imgos.cn/2024/08/12/66b9bf1b3db54.png"
-alt="Ubuntu提示出现了内部错误" />
-<figcaption aria-hidden="true">Ubuntu提示出现了内部错误</figcaption>
-</figure>
-<h2 id="原因分析">原因分析</h2>
-<p>Ubuntu桌面版预装了Apport，它是一个错误收集系统，会收集软件崩溃、未处理异常和其他，包括程序bug，并为调试目的生成崩溃报告。当一个应用程序崩溃或者出现Bug时候，Apport就会通过弹窗警告用户并且询问用户是否提交崩溃报告:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“Sorry, the application XXXX has closed unexpectedly.”   </span><br><span class="line">“对不起，应用程序XXXX意外关闭了。”   </span><br><span class="line">“Sorry, Ubuntu XX.XX has experienced an internal error.”   </span><br><span class="line">“对不起，Ubuntu XX.XX 发生了一个内部错误。”   </span><br><span class="line">“System program problem detected.”   </span><br><span class="line">“检测到系统程序问题。”</span><br></pre></td></tr></table></figure>
-<p>实际情况并不是Ubuntu容易出现内部错误，而是一旦程序崩溃过一次，就会生成一个.crash文件，记录着崩溃信息，这些崩溃信息保存在目录: <code>/var/crash/</code></p>
-<p>只要你不去处理，每次开机都会提示你有错误。也就是说：报错并不一定是出现了什么错误，而是曾经出现过错误，而你没有处理。通常情况下，到/var/crash/目录查看崩溃文件，如果不是什么大问题(通常都没什么大问题)，删除该目录下的崩溃文件，之后就不会再报错误了.。</p>
-<h2 id="解决方案">解决方案</h2>
-<h3 id="永久关闭apport错误报告">永久关闭Apport错误报告</h3>
-<p>修改Apport配置文件<code>/etc/default/apport</code></p>
-<figure class="highlight sh"><figcaption><span>/etc/default/apport</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enabled=0</span><br></pre></td></tr></table></figure>
-<p>重启你的Ubuntu系统，Apport将会自动关闭 </p>
-<h3 id="完全移除apport">完全移除Apport</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge apport</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/10/Linux%E7%BB%88%E7%AB%AF%E6%89%93%E5%8D%B0Unicode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/10/Linux%E7%BB%88%E7%AB%AF%E6%89%93%E5%8D%B0Unicode/" class="post-title-link" itemprop="url">Linux终端打印Unicode</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-10 16:32:02" itemprop="dateCreated datePublished" datetime="2024-08-10T16:32:02+08:00">2024-08-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>编写<code>Shell</code>脚本的过程中，使用常用的图标符号增加美观的同时也增强了易用性,
-比如使用软盘符💾、个人电脑符💻 等。
-本文总结在<code>Shell</code>脚本中显示<code>Unicode</code>符号的方法：</p>
-<h2 id="查询-unicode-编码">查询 Unicode 编码</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.unicodery.com/">https://www.unicodery.com/</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.lddgo.net/string/unicode-chart">在线Unicode编码字符查看</a></li>
-<li><a target="_blank" rel="noopener" href="https://unicodeplus.com/">https://unicodeplus.com/</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.rapidtables.org/zh-CN/code/text/unicode-characters.html">Unicode字符表</a></li>
-<li><a target="_blank" rel="noopener" href="https://symbl.cc/cn/">https://symbl.cc/cn/</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.nerdfonts.com/cheat-sheet">https://www.nerdfonts.com/cheat-sheet</a></li>
-</ul>
-<h2 id="使用-echo-命令">使用 echo 命令</h2>
-<p>例如查询到💾的Unicode编码为<code>U+1F4BE</code>,
-则使用<code>echo</code>应当开启<code>-e</code>选项，即：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\u0001F4BE&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用-printf-命令">使用 printf 命令</h2>
-<p>同样输出💾，使用<code>printf</code>命令为:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span> <span class="string">&quot;\u0001F4BE&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用-python-脚本">使用 Python 脚本</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">u&quot;\U0001F4BE&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="使用-perl-脚本">使用 Perl 脚本</h2>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">&quot;\x&#123;1F4BE&#125;\n&quot;</span> ;</span><br></pre></td></tr></table></figure>
-<h2 id="在-html-中使用-unicode">在 Html 中使用 Unicode</h2>
-<p><code>Html</code>中使用<code>Unicode</code>应当使用其专用的格式，例如<a
-target="_blank" rel="noopener" href="https://www.unicodery.com/">https://www.unicodery.com/</a>会直接给出。输出💾的源码为<code>&amp;#x1F4BE;</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/07/Python%E4%B9%8Bpandas%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%99%E4%BF%AE%E5%A4%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/07/Python%E4%B9%8Bpandas%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%99%E4%BF%AE%E5%A4%8D/" class="post-title-link" itemprop="url">Python之pandas模块报错修复</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-07 13:59:27" itemprop="dateCreated datePublished" datetime="2024-08-07T13:59:27+08:00">2024-08-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2
-id="attributeerror-partially-initialized-module-pandas-has-no-attribute-dataframe-most-likely-due-to-a-circular-import">AttributeError:
-partially initialized module 'pandas' has no attribute 'DataFrame' (most
-likely due to a circular import)</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.runoob.com/pandas/pandas-tutorial.html">Pandas</a> 是
-<code>Python</code>
-语言的一个扩展程序库，用于数据分析。但是今天在使用<code>pandas</code>导出数据时，发现它报错了：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: partially initialized module <span class="string">&#x27;pandas&#x27;</span> has no attribute <span class="string">&#x27;DataFrame&#x27;</span> (most likely due to a circular import)</span><br></pre></td></tr></table></figure>
-<p>经过研究发现它是由于我把同目录下的另一个测试程序改名为<code>pandas.py</code>导致的，然后修改了那个程序后，问题解决。</p>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://pandashowto.com/partially-initialized-module-pandas-has-no-attribute/">How
-to fix AttributeError: partially initialized module ‘pandas’ has no
-attribute ‘DataFrame’ (most likely due to a circular import)</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42989041/article/details/111991311">AttributeError:
-module ‘pandas‘ has no attribute ‘DataFrame‘ 报错解决 Python
-Pandas</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/21/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/19/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/21/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

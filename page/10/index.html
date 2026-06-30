@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,816 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/09/%E4%BF%AE%E5%A4%8Dveusz%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/09/%E4%BF%AE%E5%A4%8Dveusz%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">修复veusz不能启动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-09 17:52:35" itemprop="dateCreated datePublished" datetime="2025-02-09T17:52:35+08:00">2025-02-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天需要使用 veusz 处理一个 julia 集的二维图形，但是发现 veusz
+不能正常启动了。由于 veusz 是一个使用 python 写的软件， 所以由于
+archlinux 升级导致的问题可能性还是比较大的, 于是卸载 veusz
+后重新安装，得到了错误提示：</p>
+<figure class="highlight sh"><figcaption><span>paru -S veusz</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 389, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main()</span><br><span class="line">    ~~~~^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 373, <span class="keyword">in</span> main</span><br><span class="line">    json_out[<span class="string">&quot;return_val&quot;</span>] = hook(**hook_input[<span class="string">&quot;kwargs&quot;</span>])</span><br><span class="line">                             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 143, <span class="keyword">in</span> get_requires_for_build_wheel</span><br><span class="line">    <span class="built_in">return</span> hook(config_settings)</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 332, <span class="keyword">in</span> get_requires_for_build_wheel</span><br><span class="line">    <span class="built_in">return</span> self._get_build_requires(config_settings, requirements=[])</span><br><span class="line">           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 302, <span class="keyword">in</span> _get_build_requires</span><br><span class="line">    self.run_setup()</span><br><span class="line">    ~~~~~~~~~~~~~~^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 516, <span class="keyword">in</span> run_setup</span><br><span class="line">    super().run_setup(setup_script=setup_script)</span><br><span class="line">    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 318, <span class="keyword">in</span> run_setup</span><br><span class="line">    <span class="built_in">exec</span>(code, locals())</span><br><span class="line">    ~~~~^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;&lt;string&gt;&quot;</span>, line 38, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">&quot;/home/feng/.cache/paru/clone/veusz/src/veusz-3.6.2/pyqt_setuptools.py&quot;</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import tomli</span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;tomli&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>显然提示缺少 python 库 <code>tomli</code>, 于是使用 archlinux
+自带的包管理器 <code>pacman</code> 安装 <code>tomli</code></p>
+<figure class="highlight sh"><figcaption><span>install tomli</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S python-tomli</span><br></pre></td></tr></table></figure>
+<p>之后再安装 <code>veusz</code>, 则问题解决。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/20/shell%E5%8F%98%E9%87%8F%E4%B8%8Eawk%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/20/shell%E5%8F%98%E9%87%8F%E4%B8%8Eawk%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">shell变量与awk变量冲突的处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-20 15:02:02" itemprop="dateCreated datePublished" datetime="2025-01-20T15:02:02+08:00">2025-01-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="shell-中的特殊变量">Shell 中的特殊变量</h1>
+<p>Shell
+预定义了一些特殊变量，它们通常包含一个或两个连字符作为前缀：</p>
+<ul>
+<li><code>$0</code> - 当前脚本的名字。</li>
+<li><code>$1</code>, <code>$2</code>, ... -
+传递给脚本或函数的位置参数。</li>
+<li><code>$#</code> - 传递给脚本或函数的参数个数。</li>
+<li><code>$*</code> - 所有参数作为一个字符串。</li>
+<li><code>$@</code> - 参数列表（与 <code>$*</code>
+类似，但在引号中有区别）。</li>
+<li><code>$?</code> - 上一条命令的退出状态。</li>
+<li><code>$$</code> - 当前 Shell 的进程 ID。</li>
+<li><code>$!</code> - 最后一个后台进程的 PID。</li>
+</ul>
+<h1 id="awk-内置变量">awk 内置变量</h1>
+<p><code>awk</code> 提供了多个内置变量来访问输入数据和其他特性：</p>
+<ul>
+<li><strong><code>$n</code></strong> - 表示当前行的第 n
+个字段（列），其中 <code>$1</code> 是第一列，<code>$2</code>
+是第二列，依此类推。</li>
+<li><strong><code>$0</code></strong> - 表示整个当前行的内容。</li>
+<li><strong><code>NF</code></strong> - 当前行的字段数（列数）。</li>
+<li><strong><code>NR</code></strong> -
+到目前为止处理的总行数（全局行号）。</li>
+<li><strong><code>FNR</code></strong> -
+当前文件中的行号（对于多文件输入，每个新文件计数会重新开始）。</li>
+<li><strong><code>FILENAME</code></strong> - 当前正在读取的文件名。</li>
+<li><strong><code>FS</code></strong> -
+字段分隔符，默认为空白字符（空格或制表符）。可以设置为其他值以改变字段划分规则。</li>
+<li><strong><code>OFS</code></strong> -
+输出字段分隔符，默认为空格。当使用逗号 <code>,</code>
+分隔输出字段时，<code>awk</code> 会用这个值替换逗号。</li>
+<li><strong><code>ORS</code></strong> - 输出记录分隔符，默认为换行符
+<code>\n</code>。</li>
+<li><strong><code>RS</code></strong> -
+输入记录分隔符，默认为换行符，即每行作为一个记录。</li>
+<li><strong><code>ARGC</code> 和 <code>ARGV</code></strong> - 类似于
+Shell 的特殊变量，分别表示命令行参数的数量和数组。</li>
+</ul>
+<p>这些内置变量提供了对输入数据结构、格式以及程序运行环境的强大控制能力。</p>
+<h1 id="冲突和解决">冲突和解决</h1>
+<p>Shell 和 awk 同时内置了 <code>$n</code> 变量，在 Shell
+脚本中使用变量会造成混乱。但是注意到：Shell 中使用双引号括起来的变量
+<code>"$n"</code>
+表示变量，而使用单引号<code>'$n'</code>不表示变量，但是 awk
+在单引号<code>'$n'</code>中表示 awk 变量，
+所以在任何情况下都使用单引号将 awk 的命令引起来就可以避免冲突。</p>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1960760332238490100.html">awk中使用$0与shell脚本$1有冲突怎么办</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/ask/sof/116316122">awk参数$1，$2与bash输入参数冲突</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/19/%E4%BD%BF%E7%94%A8dig%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/19/%E4%BD%BF%E7%94%A8dig%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2IP/" class="post-title-link" itemprop="url">使用dig批量查询IP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-19 19:27:24" itemprop="dateCreated datePublished" datetime="2025-01-19T19:27:24+08:00">2025-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="dig-命令简介"><code>dig</code> 命令简介</h1>
+<p><code>dig</code>（Domain Information Groper）是 Linux 和 Unix
+系统中用于查询 DNS（域名系统）的强大工具。它提供了对 DNS
+查询的详细控制，并且可以用来执行各种类型的 DNS 查询，包括但不限于 A
+记录、MX 记录、NS 记录、CNAME 记录、TXT 记录等。<code>dig</code>
+是网络管理员和开发者调试 DNS
+问题、验证域名配置以及获取有关互联网资源信息的重要工具。</p>
+<h2 id="主要特点">主要特点</h2>
+<ul>
+<li><strong>多功能性</strong>：支持多种查询类型和选项，能够满足复杂的
+DNS 查询需求。</li>
+<li><strong>详细的输出</strong>：提供详尽的查询结果信息，默认情况下输出格式易于阅读，同时也支持简洁模式（如
+<code>+short</code>）。</li>
+<li><strong>灵活性</strong>：用户可以通过命令行参数自定义查询行为，例如指定
+DNS 服务器、设置查询超时时间、递归查询等。</li>
+<li><strong>批处理能力</strong>：支持从文件批量读取域名进行查询（使用
+<code>-f</code> 参数），适合自动化脚本或大规模 DNS 数据收集。</li>
+</ul>
+<h2 id="基本用法">基本用法</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig [选项] [域名] [记录类型] </span><br></pre></td></tr></table></figure>
+<h3 id="查询特定dns服务器">查询特定DNS服务器</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @8.8.8.8 www.baidu.com</span><br></pre></td></tr></table></figure>
+<h3 id="批量查询文件">批量查询文件</h3>
+<p>创建一个包含域名列表的文本文件，并使用<code>-f</code>参数进行批量查询。</p>
+<div class="tabs" id="批量查询"><ul class="nav-tabs"><li class="tab active"><a href="#批量查询-1">批量查询文件</a></li><li class="tab"><a href="#批量查询-2">domains.txt</a></li></ul><div class="tab-content"><div class="tab-pane active" id="批量查询-1"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig -f domains.txt</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="批量查询-2"><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.baidu.com</span><br><span class="line">www.bing.com</span><br><span class="line">www.sina.com</span><br></pre></td></tr></table></figure></div></div></div>
+<h3 id="批量查询数组">批量查询数组</h3>
+<p>创建一个包含域名列表的数组，并使用<code>-f</code>参数进行批量查询。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MH=(</span><br><span class="line">www.baidu.com</span><br><span class="line">www.bing.com</span><br><span class="line">www.sina.com</span><br><span class="line">)</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;%s\n&quot;</span> <span class="string">&quot;<span class="variable">$&#123;MH[@]&#125;</span>&quot;</span> | dig @119.29.29.29 -f /dev/stdin +noall +answer | awk <span class="string">&#x27;&#123;print $5, $1&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/14/%E9%98%B2%E6%AD%A2resolve%E6%96%87%E4%BB%B6%E8%A2%AB%E8%87%AA%E5%8A%A8%E4%BF%AE%E6%94%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/14/%E9%98%B2%E6%AD%A2resolve%E6%96%87%E4%BB%B6%E8%A2%AB%E8%87%AA%E5%8A%A8%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">防止resolve文件被自动修改</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-14 04:02:50" itemprop="dateCreated datePublished" datetime="2025-01-14T04:02:50+08:00">2025-01-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过dnsmasq 实现了本地 DNS
+服务的功能，这大大加速的域名解析速度。但是最近在连接校园网时，发现每次连网配置文件<code>/etc/resolv.conf</code>都会被修改为校园网默认的配置，但是这样就无法设置为自动<code>dnsmasq</code>接管服务。</p>
+<h1 id="具体原因">具体原因</h1>
+<p>当在<code>eth</code>接口启用<code>DHCP</code>后，本地<code>resolv.conf</code>文件将被修改，<code>resolv.conf</code>文件中的<code>DNS</code>地址将被改为从<code>DHCP</code>获取到的地址。这种从<code>DHCP</code>获得的<code>DNS</code>即是<code>Peer DNS</code>
+启用<code>DHCP</code>后即便修改<code>/etc/resolv.conf</code>，不久又恢复成原样.</p>
+<h1 id="解决方法">解决方法</h1>
+<ol type="1">
+<li>断开网络</li>
+<li>将<code>/etc/resolv.conf</code>修改为 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generated by syndns</span></span><br><span class="line">nameserver 127.0.0.1</span><br><span class="line">nameserver 119.29.29.29</span><br><span class="line">nameserver 180.76.76.76</span><br><span class="line">nameserver 1.2.4.8</span><br></pre></td></tr></table></figure></li>
+<li>设置文件锁 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> chattr +i /etc/resolv.conf</span><br></pre></td></tr></table></figure></li>
+<li>再次修改<code>/etc/resolv.conf</code>必须先解锁，命令为
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> chattr -i /etc/resolv.conf</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/hclhcl12/article/details/119767855">resolv.conf文件被自动修改解决方法</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30682043/article/details/116984821">linux
+resolve 自动生成,resolve.conf总是被自动修改</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43445867/article/details/142874167">linux解决resolv.conf重启之后会自动还原的问题的几种方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chattr.html">Linux
+chattr命令</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/13/Shell%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/13/Shell%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Shell产生随机数的几种方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-13 19:47:31" itemprop="dateCreated datePublished" datetime="2025-01-13T19:47:31+08:00">2025-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="一问题">一、问题</h2>
+<p>Shell下有时需要使用随机数，在此总结产生随机数的方法。计算机产生的的只是“伪随机数”，不会产生绝对的随机数（是一种理想随机数）。伪随机数在大量重现时也并不一定保持唯一，但一个好的伪随机产生算法将可以产生一个非常长的不重复的序列。</p>
+<h2 id="二随机数">二、随机数</h2>
+<h2 id="生成随机数的七种方法">1、生成随机数的七种方法</h2>
+<h3 id="通过内部系统变量random">（1）通过内部系统变量（$RANDOM）</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$RANDOM</span></span><br></pre></td></tr></table></figure>
+<p>生成0-32767之间的整数随机数，若超过5位可以加个固定10位整数，然后进行求余。</p>
+<figure class="highlight sh"><figcaption><span>生成400000~500000的随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash  </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123; </span><br><span class="line">min=<span class="variable">$1</span> </span><br><span class="line">max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>)) </span><br><span class="line">num=$((<span class="variable">$RANDOM</span>+<span class="number">1000000000</span>)) <span class="comment">#增加一个10位的数再求余 </span></span><br><span class="line"><span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>)) </span><br><span class="line">&#125;  </span><br><span class="line">rnd=$(rand 400000 500000) </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span>  </span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<h3 id="使用awk的随机函数">（2）使用awk的随机函数</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;BEGIN&#123;srand();print rand()*1000000&#125;&#x27;</span> <span class="comment">#可以加上if判断</span></span><br></pre></td></tr></table></figure>
+<h3 id="openssl-rand产生随机数">（3）openssl rand产生随机数</h3>
+<p><code>openssl rand</code>
+用于产生指定长度个bytes的随机字符。<code>-base64</code>或<code>-hex</code>对随机字符串进行base64编码或用hex格式显示。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -<span class="built_in">base64</span> 8 | <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8 <span class="comment">#八位字母和数字的组合，3a61800e</span></span><br><span class="line">openssl rand -<span class="built_in">base64</span> 8 | <span class="built_in">cksum</span> | <span class="built_in">cut</span> -c1-8  <span class="comment">#八位数字，10784736</span></span><br></pre></td></tr></table></figure>
+<h3 id="通过时间获得随机数date">（4）通过时间获得随机数（date）</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span> +%s%N <span class="comment">#生成19位数字，1287764807051101270</span></span><br><span class="line"><span class="built_in">date</span> +%s%N | <span class="built_in">cut</span> -c6-13 <span class="comment">#取八位数字，21793709</span></span><br><span class="line"><span class="built_in">date</span> +%s%N | <span class="built_in">md5sum</span> | <span class="built_in">head</span> -c 8 <span class="comment">#八位字母和数字的组合，87022fda</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>生成1~50的随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123;</span><br><span class="line"> min=<span class="variable">$1</span> </span><br><span class="line"> max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>))</span><br><span class="line"> num=$(<span class="built_in">date</span> +%s%N)</span><br><span class="line"> <span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>))</span><br><span class="line">&#125;</span><br><span class="line">rnd=$(rand 1 50)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<h3
+id="通过系统内唯一数据生成随机数devrandom及devurandom">（5）通过系统内唯一数据生成随机数（/dev/random及/dev/urandom）</h3>
+<p><code>/dev/random</code>存储系统当前运行环境的实时数据，可看作系统某时的唯一值，提供优质随机数。</p>
+<p><code>/dev/urandom</code>是非阻塞随机数产生器，读取时不会产生阻塞，速度更快、安全性较差。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#32f1e953ac</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | <span class="built_in">head</span> -n 10 | <span class="built_in">md5sum</span> | <span class="built_in">head</span> -c 10</span><br><span class="line"><span class="comment">#生成全字符的随机字符串，08?WU$ZU</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | strings -n 8 | <span class="built_in">head</span> -n 1</span><br><span class="line"><span class="comment">#生成数字加字母的随机字符串，Ql2q9CXS，其中 strings -n设置字符串的字符数，head -n设置输出的行数。</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | sed -e <span class="string">&#x27;s/[^a-zA-Z0-9]//g&#x27;</span> | strings -n 8 | <span class="built_in">head</span> -n 1</span><br><span class="line"><span class="comment">#urandom的数据很多使用cat会比较慢，在此使用head读200行，cksum将读取文件内容生成唯一的表示整型数据，cut以” “分割然后得到分割的第一个字段数据</span></span><br><span class="line">head-200/dev/urandom| <span class="built_in">cksum</span> |cut-d<span class="string">&quot; &quot;</span> -f1</span><br></pre></td></tr></table></figure>
+<h3 id="读取linux的uuid码">（6）读取linux的uuid码</h3>
+<p>UUID码全称是通用唯一识别码 (Universally Unique Identifier,
+UUID)，UUID格式是：包含32个16进制数字，以“-”连接号分为五段，形式为8-4-4-4-12的32个字符。linux的uuid码也是有内核提供的，在/proc/sys/kernel/random/uuid这个文件内。cat/proc/sys/kernel/random/uuid每次获取到的数据都会不同。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/sys/kernel/random/uuid| <span class="built_in">cksum</span> | <span class="built_in">cut</span> -f1 -d<span class="string">&quot; &quot;</span> <span class="comment">#获取不同的随机整数，1675034933</span></span><br><span class="line"><span class="built_in">cat</span> /proc/sys/kernel/random/uuid| <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8    <span class="comment">#数字加字母的随机数，d69a7ebf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>使用linux uuid 生成100~500随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123;</span><br><span class="line"> min=<span class="variable">$1</span></span><br><span class="line"> max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>))</span><br><span class="line"> num=$(<span class="built_in">cat</span> /proc/sys/kernel/random/uuid | <span class="built_in">cksum</span> | awk -F <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line"> <span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>))</span><br><span class="line">&#125;</span><br><span class="line">rnd=$(rand 100 500)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<h3 id="从元素池中随机抽取取">（7）从元素池中随机抽取取</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pool=(a b c d e f g h i j k l m n o p q r s t 1 2 3 4 5 6 7 8 9 10)</span><br><span class="line">num=<span class="variable">$&#123;#pool[*]&#125;</span></span><br><span class="line">result=<span class="variable">$&#123;pool[$((RANDOM%num))]&#125;</span></span><br></pre></td></tr></table></figure>
+<p>用于生成一段特定长度的有数字和字母组成的字符串，字符串中元素来自自定义的池子。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line">length=8 </span><br><span class="line">i=1 </span><br><span class="line"><span class="built_in">seq</span>=(0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) </span><br><span class="line">num_seq=<span class="variable">$&#123;#seq[@]&#125;</span> </span><br><span class="line">  </span><br><span class="line"><span class="keyword">while</span> [ <span class="string">&quot;<span class="variable">$i</span>&quot;</span> -le <span class="string">&quot;<span class="variable">$length</span>&quot;</span> ] </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> seqrand[<span class="variable">$i</span>]=<span class="variable">$&#123;seq[$((RANDOM%num_seq))]&#125;</span> </span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;i=i+1&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The random string is:&quot;</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="variable">$&#123;seqrand[@]&#125;</span> </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="built_in">echo</span> -n <span class="variable">$j</span> </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
+<h2 id="随机数应用">2、随机数应用</h2>
+<ol type="1">
+<li><p>随机数在互联网中应用广泛如计算机仿真模拟、数据加密、网络游戏等，在登录某些论坛或游戏时，系统会产生一个由随机数字和字母组成的图片，用户必须正确输入，这是防止恶意攻击的很好的方法，因比较难破解图片格式的字符。其关键技术就是产生随机数，再使用ASP.NET等工具将这些字符串封装成图片格式以作为验证图片。</p></li>
+<li><p>网络游戏中也常利用随机数完成一些功能，比如掷骰子、发扑克牌等。以下是连续掷1000次骰子，然后统计出1～6点的次数：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#RANDOM=$$ </span></span><br><span class="line">PIPS=6 </span><br><span class="line">MAX=1000 </span><br><span class="line">throw=1 </span><br><span class="line">  </span><br><span class="line">one=0 </span><br><span class="line">two=0 </span><br><span class="line">three=0 </span><br><span class="line">four=0 </span><br><span class="line">five=0 </span><br><span class="line">six=0 </span><br><span class="line"><span class="function"><span class="title">count</span></span>() </span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line"> 0) <span class="built_in">let</span> <span class="string">&quot;one=one+1&quot;</span>;; </span><br><span class="line"> 1) <span class="built_in">let</span> <span class="string">&quot;two=two+1&quot;</span>;; </span><br><span class="line"> 2) <span class="built_in">let</span> <span class="string">&quot;three=three+1&quot;</span>;; </span><br><span class="line"> 3) <span class="built_in">let</span> <span class="string">&quot;four=four+1&quot;</span>;; </span><br><span class="line"> 4) <span class="built_in">let</span> <span class="string">&quot;five=five+1&quot;</span>;; </span><br><span class="line"> 5) <span class="built_in">let</span> <span class="string">&quot;six=six+1&quot;</span>;; </span><br><span class="line"><span class="keyword">esac</span> </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line"><span class="keyword">while</span> [ <span class="string">&quot;<span class="variable">$throw</span>&quot;</span> -le <span class="string">&quot;<span class="variable">$MAX</span>&quot;</span> ] </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;dice=RANDOM % <span class="variable">$PIPS</span>&quot;</span></span><br><span class="line"> count <span class="variable">$dice</span> </span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;throw=throw+1&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The statistics results are as follows:&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;one=<span class="variable">$one</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;two=<span class="variable">$two</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;three=<span class="variable">$three</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;four=<span class="variable">$four</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;five=<span class="variable">$five</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;six=<span class="variable">$six</span>&quot;</span></span><br></pre></td></tr></table></figure>
+RANDOM产生的随机数基本在平均值左右浮动（即方差较小）。</p></li>
+<li><p>批量创建10个系统帐号，密码随机 先看看指定用户密码的脚本：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#批量创建10个系统帐号并设置密码，帐号和密码相同 </span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> `<span class="built_in">seq</span> -w 10` </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="comment">#非交互式的输入密码 </span></span><br><span class="line"> useradd linux<span class="variable">$name</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;linux<span class="variable">$name</span>&quot;</span> | passwd --stdin linux<span class="variable">$name</span> </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+10个用户用户名和密码相同都从linux-01到linux-10，再看看用户密码随机生成的脚本：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#批量创建10个系统帐号并设置密码 </span></span><br><span class="line"><span class="built_in">rm</span> -f user.log </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> `<span class="built_in">seq</span> -w 10` </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="comment">#非交互式的输入随机密码 </span></span><br><span class="line"> password=`<span class="built_in">echo</span> <span class="variable">$RANDOM</span> | <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8` </span><br><span class="line"> <span class="comment">#可以使用password=`echo &quot;date $RANDOM&quot; | md5sum | cut -c3-11` </span></span><br><span class="line"> <span class="comment">#也可以使用password=`penssl rand -base64 8 | md5sum | cut -c1-8` </span></span><br><span class="line"> useradd linux<span class="variable">$name</span> &amp;&amp; <span class="built_in">echo</span> password | passwd --stdin linux<span class="variable">$name</span> </span><br><span class="line"> <span class="built_in">echo</span> -e <span class="string">&quot;user=linux<span class="variable">$name</span> \t passwd=<span class="variable">$password</span>&quot;</span> &gt;&gt; user.log <span class="comment">#保存用户名密码以查阅 </span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+对比可以看出，随机生成密码的灵活性和保密性，管理员可以打开user.log文件，记录刚创建的十个用户的信息。</p></li>
+</ol>
+<h2 id="三总结">三、总结</h2>
+<ol type="1">
+<li>Shell产生伪随机数的函数$RANDOM，能方便地产生分布较平均的伪随机数，能满足大部分应用的需求。</li>
+<li>产生随机数的方法还有很多并且可以扩展，扩展思路才能选择最近的方式。</li>
+<li>完全引用自: <a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/cnhack/articles/17164650.html">shell产生随机数七种方法的实现</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/11/Linux%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%ADqq%E7%9A%84%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/11/Linux%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%ADqq%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Linux彻底关闭qq的方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-11 21:54:07" itemprop="dateCreated datePublished" datetime="2025-01-11T21:54:07+08:00">2025-01-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于 <a target="_blank" rel="noopener" href="https://im.qq.com/linuxqq/index.shtml">linuxqq</a> 是用
+electron 写的，而且目前还有一些 bug,
+当点击关闭按钮后程序仍然在后台运行。但是，想重新登录一下，却提示已经登录，而原来的聊天界面又找不到，所以必须完全关闭，然后再重新启动才行。
+解决方法是借助<code>pgrep</code>打印所有相关进程，然后一同<code>kill</code>,
+命令为</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">kill</span> $(pgrep qq)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/10/Github-cli%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E5%B8%90%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/10/Github-cli%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E5%B8%90%E5%8F%B7/" class="post-title-link" itemprop="url">Github-cli同时管理多个帐号</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-10 01:29:53" itemprop="dateCreated datePublished" datetime="2025-01-10T01:29:53+08:00">2025-01-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于工作和学习的需要，可能需要同时在一台电脑上维护多个 github
+帐号，这时使用 Github-cli 同时使用多个帐号的 Token
+认证后，然后就可以随时切换了。具体方法为：</p>
+<h1 id="登录认证帐号">登录认证帐号</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login -p ssh --skip-ssh-key --with-token &lt; your_token_here &gt;</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意: 这条命令选择了 <code>ssh</code>的认证方式，所以需要提前配置好
+<code>ssh</code>. 同时按 <a
+href="/2025/01/07/使用Github-Cli管理仓库">使用Github-Cli管理仓库</a>
+取得 <code>Token</code>.</p>
+</div>
+<h1 id="切换帐号">切换帐号</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth switch -u &lt; your_name_here &gt;</span><br></pre></td></tr></table></figure>
+<h1 id="gh-auth-选项详解">gh auth 选项详解</h1>
+<figure class="highlight sh"><figcaption><span>gh help auth login</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Authenticate with a GitHub host.</span><br><span class="line"></span><br><span class="line">The default hostname is `github.com`. This can be overridden using the `--hostname`</span><br><span class="line">flag.</span><br><span class="line"></span><br><span class="line">The default authentication mode is a web-based browser flow. After completion, an</span><br><span class="line">authentication token will be stored securely <span class="keyword">in</span> the system credential store.</span><br><span class="line">If a credential store is not found or there is an issue using it gh will fallback</span><br><span class="line">to writing the token to a plain text file. See `gh auth status` <span class="keyword">for</span> its</span><br><span class="line">stored location.</span><br><span class="line"></span><br><span class="line">Alternatively, use `--with-token` to pass <span class="keyword">in</span> a personal access token (classic) on standard input.</span><br><span class="line">The minimum required scopes <span class="keyword">for</span> the token are: `repo`, `<span class="built_in">read</span>:org`, and `gist`.</span><br><span class="line"></span><br><span class="line">Fine-grained personal access tokens are not supported.</span><br><span class="line"></span><br><span class="line">Alternatively, gh will use the authentication token found <span class="keyword">in</span> environment variables.</span><br><span class="line">This method is most suitable <span class="keyword">for</span> <span class="string">&quot;headless&quot;</span> use of gh such as <span class="keyword">in</span> automation. See</span><br><span class="line">`gh <span class="built_in">help</span> environment` <span class="keyword">for</span> more info.</span><br><span class="line"></span><br><span class="line">To use gh <span class="keyword">in</span> GitHub Actions, add `GH_TOKEN: <span class="variable">$&#123;&#123; github.token &#125;</span>&#125;` to `<span class="built_in">env</span>`.</span><br><span class="line"></span><br><span class="line">The git protocol to use <span class="keyword">for</span> git operations on this host can be <span class="built_in">set</span> with `--git-protocol`,</span><br><span class="line">or during the interactive prompting. Although login is <span class="keyword">for</span> a single account on a host, setting</span><br><span class="line">the git protocol will take effect <span class="keyword">for</span> all <span class="built_in">users</span> on the host.</span><br><span class="line"></span><br><span class="line">Specifying `ssh` <span class="keyword">for</span> the git protocol will detect existing SSH keys to upload,</span><br><span class="line">prompting to create and upload a new key <span class="keyword">if</span> one is not found. This can be skipped with</span><br><span class="line">`--skip-ssh-key` flag.</span><br><span class="line"></span><br><span class="line">For more information on OAuth scopes, &lt;https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps/&gt;.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">USAGE</span><br><span class="line">  gh auth login [flags]</span><br><span class="line"></span><br><span class="line">FLAGS</span><br><span class="line">  -p, --git-protocol string   The protocol to use <span class="keyword">for</span> git operations on this host: &#123;ssh|https&#125;</span><br><span class="line">  -h, --hostname string       The hostname of the GitHub instance to authenticate with</span><br><span class="line">      --insecure-storage      Save authentication credentials <span class="keyword">in</span> plain text instead of credential store</span><br><span class="line">  -s, --scopes strings        Additional authentication scopes to request</span><br><span class="line">      --skip-ssh-key          Skip generate/upload SSH key prompt</span><br><span class="line">  -w, --web                   Open a browser to authenticate</span><br><span class="line">      --with-token            Read token from standard input</span><br><span class="line"></span><br><span class="line">INHERITED FLAGS</span><br><span class="line">  --<span class="built_in">help</span>   Show <span class="built_in">help</span> <span class="keyword">for</span> <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">EXAMPLES</span><br><span class="line">  <span class="comment"># Start interactive setup</span></span><br><span class="line">  $ gh auth login</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Authenticate against github.com by reading the token from a file</span></span><br><span class="line">  $ gh auth login --with-token &lt; mytoken.txt</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Authenticate with specific host</span></span><br><span class="line">  $ gh auth login --hostname enterprise.internal</span><br><span class="line"></span><br><span class="line">LEARN MORE</span><br><span class="line">  Use `gh &lt;<span class="built_in">command</span>&gt; &lt;subcommand&gt; --<span class="built_in">help</span>` <span class="keyword">for</span> more information about a <span class="built_in">command</span>.</span><br><span class="line">  Read the manual at https://cli.github.com/manual</span><br><span class="line">  Learn about <span class="built_in">exit</span> codes using `gh <span class="built_in">help</span> exit-codes`</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cli.githubdocs.cn/manual/">GitHub CLI 手册</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/09/shell%E5%87%A0%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E7%9A%84%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/09/shell%E5%87%A0%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">shell几种字符串加密解密的方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-09 14:41:59" itemprop="dateCreated datePublished" datetime="2025-01-09T14:41:59+08:00">2025-01-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在编写脚本时避免不了使用密码，所以为了增强安全性，需要使用加密解密技术。本文记录几种加密解密的方法。</p>
+<h1 id="python-与-bash-shell-的结合">Python 与 Bash Shell 的结合</h1>
+<p>这个命令会让你输入一个字符串，然后会再输出一串加密了的数字.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码[照直输入]:</span></span><br><span class="line">python -c <span class="string">&#x27;print reduce(lambda a,b: a*256+ord(b), raw_input(&quot;string: &quot;), 0)&#x27;</span></span><br><span class="line"><span class="comment"># 解密代码[数字后+P]：</span></span><br><span class="line">dc -e 输出的数字P</span><br></pre></td></tr></table></figure>
+<h1 id="纯-bash-shell-含-vim-的xxd">纯 Bash Shell, 含 VIM 的xxd</h1>
+<p>用 gtalk@gmail.com 作为明文，加密分两步也可以一步。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gtalk@gmail.com&quot;</span> |xxd -ps -u</span><br><span class="line"><span class="comment"># 得到：6774616C6B40676D61696C2E636F6D0A</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;ibase=16; 6774616C6B40676D61696C2E636F6D0A&quot;</span> |bc</span><br><span class="line"><span class="comment"># 得到：137514765985002236391382606438443478282</span></span><br><span class="line">一步加密代码：</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;ibase=16; <span class="subst">$(echo <span class="string">&quot;gtalk@gmail.com&quot;</span> |xxd -ps -u)</span>&quot;</span> |bc</span><br><span class="line"><span class="comment"># 得到：137514765985002236391382606438443478282</span></span><br></pre></td></tr></table></figure>
+<h1 id="base64-编码">Base64 编码</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gtalk@gmail.com&quot;</span> |<span class="built_in">base64</span> -i</span><br><span class="line"><span class="comment"># 得到：Z3RhbGtAZ21haWwuY29tCg==</span></span><br><span class="line"><span class="comment"># 解密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Z3RhbGtAZ21haWwuY29tCg==&quot;</span> |<span class="built_in">base64</span> -d</span><br><span class="line"><span class="comment"># 得到：gtalk@gmail.com</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>Base64 编码，这个很好很强大，适合写加密脚本</p>
+</div>
+<p>实现使用 base64 加密、解密字符串并赋值给变量。网上绝大多数是使用 echo
+管道实现 加密和解密字符串的输出。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>=$( <span class="built_in">base64</span> -d &lt;&lt;&lt; <span class="string">MQo= )  # 解码</span></span><br><span class="line"><span class="string">in=$( base64 &lt;&lt;&lt; &quot;123456&quot;)  # 加密</span></span><br><span class="line"><span class="string"># 或者</span></span><br><span class="line"><span class="string">test=$(printf &quot;%s&quot;&quot;123456&quot; | base64)      # 加密</span></span><br><span class="line"><span class="string">test=$(printf &quot;%s&quot; MTIzNDU2| base64 -d)   # 解密</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qichangjian/article/details/103769468">shell几种字符串加密解密的方法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -495,951 +1305,8 @@ Shell 脚本中判断脚本停止位置的方法。</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/08/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E9%81%BF%E5%85%8D%E8%BE%93%E5%85%A5sudo%E5%AF%86%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/08/Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E9%81%BF%E5%85%8D%E8%BE%93%E5%85%A5sudo%E5%AF%86%E7%A0%81/" class="post-title-link" itemprop="url">Shell脚本中避免输入sudo密码</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-08 14:33:47" itemprop="dateCreated datePublished" datetime="2025-01-08T14:33:47+08:00">2025-01-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Shell 脚本中避免输入 <code>sudo</code>
-密码的方法有几种，但每种方法都有其适用场景和安全考量。以下是几种常见的方法：</p>
-<h2 id="修改-etcsudoers-文件">1. 修改 <code>/etc/sudoers</code>
-文件</h2>
-<p>你可以编辑 <code>/etc/sudoers</code> 文件（推荐使用
-<code>visudo</code>
-命令以确保语法正确），为特定用户或用户组添加不需要密码的权限。</p>
-<p>例如，要允许用户 <code>username</code>
-在不输入密码的情况下运行所有命令，可以添加如下行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL=(ALL) NOPASSWD:ALL </span><br></pre></td></tr></table></figure>
-<p>如果你想限制到特定命令，比如只允许不输入密码地运行
-<code>apt-get update</code>，可以这样做： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username ALL=(ALL) NOPASSWD:/usr/bin/apt-get update</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用sudo--s和环境变量">2.
-使用<code>sudo -S</code>和环境变量</h2>
-<p>虽然这不是最推荐的安全实践，但在某些情况下你可能需要自动化流程，并且能够通过环境变量传递密码。你可以设置一个环境变量来保存密码，并结合
-<code>echo</code>和 <code>sudo -S</code>
-来实现这一点。但是，请注意这种方法存在安全风险，因为密码可能会被其他进程看到。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SUDO_PASSWORD=<span class="string">&quot;your_password_here&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$SUDO_PASSWORD</span>&quot;</span> | <span class="built_in">sudo</span> -S command_to_run</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>警告： 这种方式并不安全，应该尽量避免使用。</p>
-</div>
-<h2 id="使用sudo的-n选项">3.
-使用<code>sudo</code>的<code>-n</code>选项</h2>
-<p><code>-n</code> 选项可以让 <code>sudo</code>
-尝试非交互式执行命令，即如果当前用户没有足够的权限或缓存的凭证已过期，则不会提示输入密码而是直接失败。这可以用于检查是否可以在不提供密码的情况下执行命令。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> -n command_to_run</span><br></pre></td></tr></table></figure>
-<h2 id="利用sudo的时间戳">4. 利用<code>sudo</code>的时间戳</h2>
-<p><code>sudo</code>
-会缓存用户的认证一段时间（默认是15分钟）。如果你在一个脚本中多次调用
-<code>sudo</code>，那么在第一次成功输入密码后，在这段时间内后续的
-<code>sudo</code> 调用将不再要求密码。</p>
-<h2 id="安全建议">安全建议</h2>
-<p>无论选择哪种方法，都应该谨慎行事，确保最小权限原则 （ Principle of
-Least Privilege ）
-得以遵守，即给予用户完成工作所需的最少权限。修改系统配置文件如
-<code>/etc/sudoers</code>
-应该非常小心，错误的配置可能导致安全漏洞或系统无法正常工作。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/07/%E4%BD%BF%E7%94%A8Github-Cli%E7%AE%A1%E7%90%86%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/07/%E4%BD%BF%E7%94%A8Github-Cli%E7%AE%A1%E7%90%86%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">使用Github-Cli管理仓库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-07 16:58:34" itemprop="dateCreated datePublished" datetime="2025-01-07T16:58:34+08:00">2025-01-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-16 20:44:29" itemprop="dateModified" datetime="2025-08-16T20:44:29+08:00">2025-08-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="github-cli-简介">GitHub CLI 简介</h1>
-<p>GitHub CLI 是一个用于通过命令行与 GitHub
-进行交互的强大工具。它允许开发者和用户管理存储库、拉取请求、问题和其他
-GitHub 资源，而无需离开终端。</p>
-<h2 id="主要功能">主要功能</h2>
-<ol type="1">
-<li><strong>仓库管理</strong>：创建、克隆、列出和删除仓库。</li>
-<li><strong>拉取请求</strong>：查看、创建、合并和关闭拉取请求。</li>
-<li><strong>问题跟踪</strong>：创建、列表、评论和关闭问题。</li>
-<li><strong>项目管理</strong>：管理和操作 GitHub Projects。</li>
-<li><strong>代码审查</strong>：检查更改、提交评论和批准或拒绝拉取请求。</li>
-<li><strong>扩展性</strong>：支持通过脚本和插件进行扩展。</li>
-</ol>
-<h1 id="安装-github-cli">安装 Github-Cli</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S github-cli</span><br></pre></td></tr></table></figure>
-<h1 id="基本使用">基本使用</h1>
-<h2 id="在-github-上取得-personal-access-token">在 GitHub 上取得
-Personal Access Token</h2>
-<h3 id="登录-github-账户">1. 登录 GitHub 账户</h3>
-<ul>
-<li>打开 <a target="_blank" rel="noopener" href="https://github.com">GitHub</a>
-并使用你的凭据登录。</li>
-</ul>
-<h3 id="进入开发者设置">2. 进入开发者设置</h3>
-<ul>
-<li>点击右上角的头像图标。</li>
-<li>从下拉菜单中选择 <code>Settings</code>。</li>
-</ul>
-<h3 id="导航到developer-settings">3. 导航到“Developer settings”</h3>
-<ul>
-<li>在左侧边栏中找到并点击 <code>Developer settings</code>。</li>
-</ul>
-<h3 id="生成新的个人访问令牌">4. 生成新的个人访问令牌</h3>
-<ul>
-<li>在 <code>Developer settings</code> 中，点击
-<code>Personal access tokens</code>。</li>
-<li>点击 <code>Tokens (classic)</code> 或
-<code>Fine-grained tokens</code>，具体取决于你需要的权限范围。
-<ul>
-<li>如果选择 <code>Tokens (classic)</code>：
-<ul>
-<li>点击 <code>Generate new token</code>。</li>
-<li>填写令牌描述。</li>
-<li>选择所需的权限范围（例如，<code>repo</code>
-表示对仓库的完全控制）。</li>
-<li>点击 <code>Generate token</code>。</li>
-</ul></li>
-<li>如果选择 <code>Fine-grained tokens</code>：
-<ul>
-<li>点击 <code>Generate new token</code>。</li>
-<li>填写令牌名称和描述。</li>
-<li>配置资源访问权限（例如，特定组织或仓库）。</li>
-<li>配置所需的作用域（例如，读取和写入仓库）。</li>
-<li>点击 <code>Generate token</code>。</li>
-</ul></li>
-</ul></li>
-<li>如果您需要取得对仓库的所有权限，则选择<code>Tokens(classic)</code>,
-如果仅需要有限的权限，则选择<code>Fine-grained tokens</code>。
-一般只有自己使用系统时，使用所有权限更方便。</li>
-</ul>
-<h3 id="保存令牌">5. 保存令牌</h3>
-<ul>
-<li>生成后，你会看到新创建的令牌。<strong>非常重要的是，此时需要复制并安全地存储这个令牌</strong>，因为一旦离开页面，你就无法再次查看该令牌。</li>
-<li>不要将令牌泄露给他人，并确保将其存储在一个安全的地方。</li>
-</ul>
-<h3 id="使用令牌">6. 使用令牌</h3>
-<ul>
-<li>你可以使用这个令牌来进行身份验证，例如，在命令行工具中使用 GitHub
-CLI 登录： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login --with-token &lt; your_token_here &gt;</span><br></pre></td></tr></table></figure> <div class="note primary"><p>在本地配置 ssh 后， 可以在第6步中使用令牌登录，选择 ssh,
-这种方法可以方便的创建、删除仓库等操作而不用登录网页。</p>
-</div></li>
-</ul>
-<h2 id="基本操作">基本操作</h2>
-<ol type="1">
-<li><p>登录和认证(按提示，一步一步认证即可) <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login</span><br></pre></td></tr></table></figure></p></li>
-<li><p>仓库管理 <figure class="highlight sh"><figcaption><span>新建、列出、查看、删除仓库</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gh repo create my-new-repo --public</span><br><span class="line">gh repo list</span><br><span class="line">gh repo view owner/repo</span><br><span class="line">gh repo delete owner/repo</span><br></pre></td></tr></table></figure></p></li>
-<li><p>拉取请求 <figure class="highlight sh"><figcaption><span>创建、列出、查看、合并、关闭请求</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gh <span class="built_in">pr</span> create --title <span class="string">&quot;Fix bug&quot;</span> --body <span class="string">&quot;This PR fixes a critical bug.&quot;</span></span><br><span class="line">gh <span class="built_in">pr</span> list</span><br><span class="line">gh <span class="built_in">pr</span> view 123</span><br><span class="line">gh <span class="built_in">pr</span> merge 123</span><br><span class="line">gh <span class="built_in">pr</span> close 123</span><br></pre></td></tr></table></figure></p></li>
-<li><p>问题跟踪 <figure class="highlight sh"><figcaption><span>创建、列出、查看、关闭issue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gh issue create --title <span class="string">&quot;Bug report&quot;</span> --body <span class="string">&quot;I found a bug...&quot;</span></span><br><span class="line">gh issue list</span><br><span class="line">gh issue view 456</span><br><span class="line">gh issue close 456</span><br></pre></td></tr></table></figure></p></li>
-<li><p>分支管理 <figure class="highlight sh"><figcaption><span>列出、创建、删除分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gh branch list</span><br><span class="line">gh branch create new-feature</span><br><span class="line">gh branch delete old-feature</span><br></pre></td></tr></table></figure></p></li>
-<li><p>发布管理 <figure class="highlight sh"><figcaption><span>创建、列出、查看release</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gh release create v1.0.0</span><br><span class="line">gh release list</span><br><span class="line">gh release view v1.0.0</span><br></pre></td></tr></table></figure></p></li>
-<li><p>用户信息 <figure class="highlight sh"><figcaption><span>查看当前用户、其他用户</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gh api user</span><br><span class="line">gh api <span class="built_in">users</span>/username</span><br></pre></td></tr></table></figure></p></li>
-<li><p>组织管理 <figure class="highlight sh"><figcaption><span>列出、查看组织</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gh org list</span><br><span class="line">gh org view organization-name</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/06/%E4%BD%BF%E7%94%A8Pandoc%E5%B0%86Markdown%E8%BD%ACPDF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/06/%E4%BD%BF%E7%94%A8Pandoc%E5%B0%86Markdown%E8%BD%ACPDF/" class="post-title-link" itemprop="url">使用Pandoc将Markdown转PDF</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-06 17:41:17" itemprop="dateCreated datePublished" datetime="2025-01-06T17:41:17+08:00">2025-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="安装好-pandoc">安装好 Pandoc</h2>
-<p>详细可以参考 <a target="_blank" rel="noopener" href="https://pandoc.org/installing.html">Pandoc -
-Installing pandoc</a>。</p>
-<p>先安装依赖软件<code>wkhtmltopdf</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S wkhtmltopdf</span><br></pre></td></tr></table></figure>
-<p>官网上给出的简单的不修改格式的将 Markdown 转换为 PDF 命令如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pandoc file.md -f markdown -t html -o index.pdf</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/73016/how-do-i-install-an-individual-package-on-a-linux-system">installing
-- How do I install an individual package on a Linux system? - TeX -
-LaTeX Stack Exchange</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/u013019701/article/details/119512493">使用
-Pandoc 来转换 Markdown 为漂亮的 PDF 格式</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/06/%E4%BD%BF%E7%94%A8LaTeX%E6%8E%92%E7%89%88Markdown%E6%96%87%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/06/%E4%BD%BF%E7%94%A8LaTeX%E6%8E%92%E7%89%88Markdown%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">使用LaTeX排版Markdown文件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-06 16:59:10" itemprop="dateCreated datePublished" datetime="2025-01-06T16:59:10+08:00">2025-01-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="引言">引言</h2>
-<p>在数字化写作和出版领域， <code>LaTeX</code> 和 <code>Markdown</code>
-各自拥有独特的魅力。 <code>LaTeX</code>
-是一个高质量的排版系统，尤其擅长处理包含大量数学公式和技术文档；而
-<code>Markdown</code>
-则以其简单易用的标记语法受到许多写作者的喜爱。然而，随着写作需求的多样化，用户往往希望找到一种方式，既能享受
-<code>Markdown</code> 的简洁，又能利用 <code>LaTeX</code>
-的强大功能。</p>
-<p><code>markdown</code> 宏包——由 <code>Vít Novotný</code>
-维护的一个宏包，它的核心机制使用 Lua 编写，并提供了针对
-<code>PlainTeX/LaTeX/ConTeXt</code> 等格式的接口。这个宏包不仅简化了
-Markdown 文档到 LaTeX 的转换过程，还允许直接在 LaTeX 中嵌入 Markdown
-标记，使得两者之间的协作更加紧密。</p>
-<h2 id="使用-markdown-宏包的优势">使用 markdown 宏包的优势</h2>
-<p><code>markdown</code> 宏包具有以下几个显著优势：</p>
-<ul>
-<li><strong>无需额外安装</strong>：现代 TeX 发行版（如 TeX
-Live、MiKTeX）通常自带 Lua 解释器，因此只需开启
-<code>--shell-escape</code> 标记即可使用 <code>markdown</code>
-宏包。</li>
-<li><strong>集成良好</strong>：相比 Sphinx、Pandoc
-等第三方工具，<code>markdown</code> 宏包更好地集成了 LaTeX
-系统，避免了转换过程中可能出现的问题。</li>
-<li><strong>支持多种环境</strong>：提供了 <code>markdown</code> 环境和
-<code>\markdownInput</code> 命令，分别用于在 LaTeX 文稿中直接书写
-Markdown 内容或从外部文件读取。</li>
-<li><strong>预设丰富的宏定义</strong>：对于常见的 Markdown
-功能，<code>markdown</code> 宏包都预设了相应的 LaTeX
-宏实现，例如图片渲染等。</li>
-</ul>
-<h2 id="使用实例">使用实例</h2>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;markdown&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;markdown&#125;</span><br><span class="line"><span class="params">#</span> 标题</span><br><span class="line"></span><br><span class="line">这是一个使用Markdown语法书写的段落。可以包括**粗体**、*斜体*、`代码`以及[链接](http://example.com)。</span><br><span class="line"></span><br><span class="line"><span class="params">##</span> 列表</span><br><span class="line"></span><br><span class="line">- 第一项</span><br><span class="line">- 第二项</span><br><span class="line">- 第三项</span><br><span class="line"></span><br><span class="line"><span class="params">##</span> 图片</span><br><span class="line"></span><br><span class="line">![示例图片](path/to/image.png &quot;图片标题&quot;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;markdown&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="实践中的应用">实践中的应用</h2>
-<p>通过 <code>markdown</code> 宏包，我们可以轻松地在 LaTeX 中嵌入
-Markdown 标记。例如，当遇到如下 Markdown 图片标签时：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图像标签</span>](<span class="link">路径 &quot;图像标题&quot;</span>) </span><br></pre></td></tr></table></figure>
-<p>Lua 解释器会将其翻译成 LaTeX 宏命令：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\markdownRendererImage</span>&#123;图像标签&#125;&#123;路径&#125;&#123;路径&#125;&#123;图像标题&#125;</span><br></pre></td></tr></table></figure>
-<p>随后，根据 <code>\markdownRendererImage</code>
-的定义，<code>TeX</code>
-引擎会在后续步骤展开这个宏，完成最终的排版工作。</p>
-<h2 id="结论">结论</h2>
-<p>综上所述，markdown
-宏包为我们提供了一种全新的解决方案，使我们可以更方便地使用 Markdown
-进行写作，同时享受 LaTeX
-的专业排版效果。这对于那些既追求写作效率又重视文档质量的用户来说，无疑是一个理想的选择。正如
-Harry Chen 所说：“你喜爱的 Markdown 写作，现更以 LaTeX 呈现。”</p>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.latexstudio.net/archives/51808.html">以
-Markdown 撰写文稿，以 LaTeX 排版【好文推荐】</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/04/DNS%E8%A7%A3%E6%9E%90%E4%B8%AD%E7%9A%84%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/04/DNS%E8%A7%A3%E6%9E%90%E4%B8%AD%E7%9A%84%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">DNS解析中的记录类型</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-04 13:07:13" itemprop="dateCreated datePublished" datetime="2025-01-04T13:07:13+08:00">2025-01-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在DNS解析中，存在多种类型的记录，每种记录都有其特定的用途。本文列举一些常见的DNS记录类型：</p>
-<ol type="1">
-<li><strong>A 记录 (Address Record)</strong>
-<ul>
-<li>将域名映射到IPv4地址。</li>
-</ul></li>
-<li><strong>AAAA 记录 (IPv6 Address Record)</strong>
-<ul>
-<li>与A记录类似，但将域名映射到IPv6地址。</li>
-</ul></li>
-<li><strong>CNAME 记录 (Canonical Name Record)</strong>
-<ul>
-<li>指定一个域名是另一个域名的别名，允许多个域名指向相同的IP地址。</li>
-</ul></li>
-<li><strong>MX 记录 (Mail Exchange Record)</strong>
-<ul>
-<li>指定负责接收发往该域名邮件的邮件服务器。</li>
-</ul></li>
-<li><strong>NS 记录 (Name Server Record)</strong>
-<ul>
-<li>指明哪些DNS服务器是负责某个域的权威服务器。</li>
-</ul></li>
-<li><strong>PTR 记录 (Pointer Record)</strong>
-<ul>
-<li>用于反向DNS查找，即将IP地址映射到域名。</li>
-</ul></li>
-<li><strong>SOA 记录 (Start of Authority Record)</strong>
-<ul>
-<li>包含有关域名的权威信息，包括主名称服务器、序列号等。</li>
-</ul></li>
-<li><strong>SRV 记录 (Service Record)</strong>
-<ul>
-<li>定义提供特定服务（如SIP、XMPP等）的服务器的位置。</li>
-</ul></li>
-<li><strong>TXT 记录 (Text Record)</strong>
-<ul>
-<li>允许管理员在DNS中存储文本注释或设置SPF记录以防止垃圾邮件。</li>
-</ul></li>
-<li><strong>CAA 记录 (Certification Authority Authorization)</strong>
-<ul>
-<li>指定哪些证书颁发机构(CA)被授权为该域名发行证书。</li>
-</ul></li>
-</ol>
-<p>这些记录构成了DNS系统的骨干，确保互联网上的设备能够找到彼此并交换信息。根据需要，还可以配置更多特定用途的DNS记录。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/03/yarn%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">yarn的常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-03 14:48:26" itemprop="dateCreated datePublished" datetime="2025-01-03T14:48:26+08:00">2025-01-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="yarn-简介">Yarn 简介</h1>
-<p>Yarn 是一个快速、可靠且安全的依赖管理工具，主要用于 JavaScript
-项目。它由 Facebook 与社区成员共同开发，旨在解决 npm（Node Package
-Manager）存在的性能问题和一些功能上的局限性。Yarn
-的设计目标是加速包的安装过程、确保操作的可重复性和安全性，同时简化开发者的工作流程。</p>
-<h2 id="主要特点">主要特点</h2>
-<ul>
-<li><strong>速度</strong>：Yarn
-使用并行化下载技术来提升安装速度，并通过本地缓存避免重复下载相同的包。</li>
-<li><strong>安全性</strong>：每次安装时都会校验每个包的完整性，保证了项目依赖的一致性和安全性。</li>
-<li><strong>可重复性</strong>：借助 <code>yarn.lock</code> 文件，Yarn
-可以确保不同环境中安装的依赖版本完全一致，从而减少了因版本差异导致的问题。</li>
-<li><strong>兼容性</strong>：与 npm 生态系统完全兼容，能够无缝使用 npm
-注册表中的所有包。</li>
-<li><strong>插件支持</strong>：Yarn
-支持丰富的插件生态系统，允许用户扩展其核心功能。</li>
-<li><strong>命令简洁</strong>：提供了一套简单易用的命令行接口，帮助开发者更高效地管理项目依赖。</li>
-</ul>
-<h1 id="yarn-的常用命令列表">yarn 的常用命令列表</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看 yarn 全局安装过的包</span></span><br><span class="line">yarn global list --depth=0</span><br><span class="line"><span class="comment"># 全局安装</span></span><br><span class="line">yarn global add &lt;package&gt;</span><br><span class="line"><span class="comment"># 安装所有依赖</span></span><br><span class="line">yarn</span><br><span class="line"><span class="comment"># 安装指定版本</span></span><br><span class="line">yarn add &lt;package&gt;@&lt;version&gt;</span><br><span class="line"><span class="comment"># 安装最新版本</span></span><br><span class="line">yarn add &lt;package&gt;</span><br><span class="line"><span class="comment"># 删除包,会更新package.json和yarn.lock</span></span><br><span class="line">yarn remove &lt;package&gt;</span><br><span class="line"><span class="comment"># 更新包</span></span><br><span class="line">yarn upgrade</span><br><span class="line"><span class="comment"># 更新指定的包</span></span><br><span class="line">yarn upgrade &lt;package&gt;</span><br><span class="line"><span class="comment"># 获取可更新的包列表选择更新</span></span><br><span class="line">yarn upgrade-interactive --latest</span><br><span class="line"><span class="comment"># 更新全局依赖</span></span><br><span class="line">yarn global upgrade --latest</span><br><span class="line"><span class="comment"># 更新全局依赖，有交互</span></span><br><span class="line">yarn global upgrade-interactive --latest</span><br><span class="line"><span class="comment"># 列出已缓存的包</span></span><br><span class="line">yarn cache list</span><br><span class="line"><span class="comment"># 查找缓存包的路径</span></span><br><span class="line">yarn cache <span class="built_in">dir</span></span><br><span class="line"><span class="comment"># 清除缓存的包</span></span><br><span class="line">yarn cache clean</span><br></pre></td></tr></table></figure>
-<h1 id="yarn-使用ssh安装插件">yarn 使用ssh安装插件</h1>
-<p>当安装一个模块时，yarn 默认从 <code>https://github.com</code> 下载，
-但有时网络不通，所以可以采用直接添加 <code>ssh</code>
-地址的方法，此后更新也会从新的地址更新。例如</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yarn add @next-theme/plugins@git+ssh://github.com/next-theme/plugins.git</span><br><span class="line">yarn add hexogenerator-searchdb@git+ssh://github.com/next-theme/hexo-generator-searchdb.git</span><br></pre></td></tr></table></figure>
-<h1 id="yarn-切换源">yarn 切换源</h1>
-<h3 id="设置-yarn-的国内源">设置 yarn 的国内源</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.yarnpkg.com/</span><br></pre></td></tr></table></figure>
-<h3 id="安装-nrm-镜像源工具">安装 nrm 镜像源工具</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yarn global add nrm</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p><code>nrm</code>使用方法，请参考本文末参考文章。使用<code>nrm test</code>列出各源，并给出源的网速，使用<code>nrm use huawei</code>切换到速度最快的华为源。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58689048/article/details/118789091">npm
-和 yarn 常用命令 （更新、删除、清缓存）</a></li>
-<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/1588456">秒懂
-Yarn：从安装配置到高效使用的全攻略</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/Linux%E9%87%8D%E5%AE%9A%E5%90%91%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/03/Linux%E9%87%8D%E5%AE%9A%E5%90%91%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Linux重定向权限不够的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-03 10:29:56" itemprop="dateCreated datePublished" datetime="2025-01-03T10:29:56+08:00">2025-01-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用 <code>cat</code> 或<code>echo</code>
-等命令，将一些内容添加到<code>root</code>权限的文件，比如<code>/etc/hosts</code>时，系统会报出“权限不够”的错误。</p>
-<h1 id="原因分析">原因分析</h1>
-<p>以向<code>/etc/hosts</code>中添加一条记录为例，通常代码写为</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">echo</span>  <span class="string">&quot;220.181.111.232 www.baidu.com&quot;</span> &gt;&gt; /etc/hosts</span><br><span class="line">-bash: test.asc: Permission denied</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>此时，<code>bash</code> 拒绝这么做会提示权限不够，是因为重定向符号
-<code>&gt;</code> 和 <code>&gt;&gt;</code> 也是 <code>bash</code>
-的命令。由于使用 <code>sudo</code> 只是让 <code>echo</code> 命令具有了
-<code>root</code> 权限，但是没有让 <code>&gt;</code> 和
-<code>&gt;&gt;</code> 命令也具有 <code>root</code> 权限，所以
-<code>bash</code>
-会认为这两个命令都没有向<code>/etc/hosts</code>写入信息的权限。</p>
-</div>
-<h1 id="解决方法">解决方法</h1>
-<h2 id="使用命令sh--c">使用命令<code>sh -c</code></h2>
-<p><code>sh -c</code> 命令，可以让 <code>bash</code>
-将一个字串作为完整的命令来执行，这样就可以将 <code>sudo</code>
-的影响范围扩展到整条命令。具体用法如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&#x27;echo  &quot;220.181.111.232 www.baidu.com&quot; &gt;&gt; /etc/hosts&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用命令tee">使用命令<code>tee</code></h2>
-<p>利用管道和 tee
-命令，该命令可以从标准输入中读入信息并将其写入标准输出或文件中，具体用法如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span>  <span class="string">&quot;220.181.111.232 www.baidu.com&quot;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> -a /etc/hosts</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意: <code>tee</code> 命令的 <code>-a</code> 选项的作用等同于
-<code>&gt;&gt;</code> 命令。如果去除该选项，那么 <code>tee</code>
-命令的作用就等同于 <code>&gt;</code> 命令。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15821725/article/details/104015904">linux
-关于重定向 权限不够 的解决方式使用 sh -c 或者 tee</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/m0_60352504/article/details/121442148">Linux执行sudo
-echo xxx ＞＞ 命令提示权限不够的问题</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.cnblogs.com/sparkdev/p/10287164.html">sudo与输出重定向</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/03/%E4%BF%AE%E5%A4%8Dsudo%E5%AF%86%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E9%94%99%E8%AF%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/03/%E4%BF%AE%E5%A4%8Dsudo%E5%AF%86%E7%A0%81%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">修复sudo密码不起作用的错误</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-03 10:12:00" itemprop="dateCreated datePublished" datetime="2025-01-03T10:12:00+08:00">2025-01-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天升级 <code>ArchLinu</code> 后发现 <code>sudo</code>
-命令无法接收密码，即使正确的密码它也会返回 "密码错误"
-的提示。修复方法有三个：</p>
-<h1 id="注销并重新登录会话">注销并重新登录会话</h1>
-<p>重新启动 Linux
-系统是修复任何临时系统故障的最流行且最简单的解决方案之一。在最好的情况下，sudo
-密码不起作用错误只是 Linux
-中的一个临时故障，只需快速注销登录或重新启动系统即可神奇地修复它。</p>
-<h1 id="修改sudo密码">修改sudo密码</h1>
-<ol type="1">
-<li>打开一个新的终端。</li>
-<li>使用命令<code>su</code>， 切换到 <code>root</code>用户。</li>
-<li>使用 <code>passwd</code> 命令，更改用户的<code>sudo</code>密码：
-<code>passwd username</code></li>
-</ol>
-<div class="note primary"><p>多数情况下我们习惯了某一密码，所以尽量不使用本方法修改密码。</p>
-</div>
-<h1 id="重启systemd-homed服务">重启systemd-homed服务</h1>
-<p>systemd-homed 是一个核心 systemd
-服务，负责为用户的主目录提供支持。重新启动它可能会解决该问题，因为它会重置身份验证机制并可能修复任何临时系统故障。重新启动服务的步骤：</p>
-<ol type="1">
-<li>启动一个新终端。</li>
-<li>使用 <code>su</code> 命令切换到 <code>root</code>。</li>
-<li>使用systemctl命令启动或重新启动<code>systemd-homed</code>服务：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start systemd-homed.service</span><br><span class="line">systemctl restart systemd-homed.service</span><br></pre></td></tr></table></figure></li>
-</ol>
-<div class="note primary"><p>2025年01月03日, 使用此方法解决问题，建议使用此方法。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12167">如何修复 Linux
-上的“sudo 密码不起作用”错误</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

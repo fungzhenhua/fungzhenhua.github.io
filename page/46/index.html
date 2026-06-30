@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,975 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/20/%E5%9C%A8Neovim%E4%B8%AD%E4%BD%BF%E7%94%A8Lua/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/20/%E5%9C%A8Neovim%E4%B8%AD%E4%BD%BF%E7%94%A8Lua/" class="post-title-link" itemprop="url">在Neovim中使用Lua</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-20 10:19:49" itemprop="dateCreated datePublished" datetime="2023-06-20T10:19:49+08:00">2023-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="在-neovim-中使用-lua">在 neovim 中使用 Lua</h1>
+<p>本文本最初来源是<a
+target="_blank" rel="noopener" href="https://gitee.com/zhengqijun/nvim-lua-guide-zh/blob/main/README.md">nvim-lua-guide</a>,由于这段时间一直在学习使用Lua配置Neovim,
+但是没有系统的教材，而这篇文章却恰好给了一个大致的框架，所以本文最初借用此文，待时机成熟再正式开始写作。</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/nanotee/nvim-lua-guide">nvim-lua-guide</a>
+中文版简易教程</p>
+<p>译者：Neovim Core Developer</p>
+<p>:arrow_upper_left: （感觉太多太杂乱？使用 Github TOC
+来浏览大纲！）</p>
+<h2 id="简介">简介</h2>
+<p>Lua 作为 Neovim
+中的一等语言的集成正在成为它的杀手级特性之一。然而，学习如何用 Lua
+编写插件的教程数量并不像用 Vimscript
+编写插件那样多。这是一种尝试，试图提供一些基本信息，让人们可以使用 Lua
+编写 Neovim 插件。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/20/%E5%9C%A8Neovim%E4%B8%AD%E4%BD%BF%E7%94%A8Lua/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/18/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/18/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">软件开发规划</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-18 16:24:37" itemprop="dateCreated datePublished" datetime="2023-06-18T16:24:37+08:00">2023-06-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年06月18日星期日多云北京市北京师范大学,
+由于日常工作中需要面对大量 LaTeX
+资料的编写工作，当数量大到一定量的时候在不同电脑上写作就会有不同步的问题，同时即使在同一台电脑上也会有找不到文件的可能性。同时为了不受限于网络，在很多时候
+Github 并不能正确访问，所以一些需要的软件就需要通过 Gitlab 来间接的获取
+，但是每次都通过网页版操作太过麻烦，于是产生了通过脚本命令实现自动化的需要。于是决定规划编写两个主要的软件：</p>
+<ol type="1">
+<li><code>labmgr.sh</code> 管理本地的目录树:
+<ul>
+<li>对于普通 LaTeX 文件，自动组织好目录并及时同步到 Gitlab</li>
+<li>一键列出所有同步的文件，自动调用 nvim
+来编辑对应文档，最后保存并及时上传到对应仓库。</li>
+<li>运行时自动联网，检测 GitLab
+仓库并检测更新情况，自动完成文件的更新</li>
+</ul></li>
+<li><code>plgmgr.sh</code> 管理 nvim 插件:
+<ul>
+<li>对于一些无法访问 Github 的情况，调用 GitLab api 将 github 上的源文件
+fork 到 GitLab ,然后增加到 packer.vim 的插件控制目录，从 GitLab
+上安装。</li>
+<li>同时考虑到插件的更新，本脚本增加 GitLab api
+自动更新仓库的功能，这样就可以实现自动更新功能。</li>
+<li>再增加脚本自动备份功能，将本机配置好的 nvim 的lua
+脚本及目录树一并同步到 GitLab 对应仓库， 这样就可以实现快速部署 nvim
+到新电脑的目的。</li>
+</ul></li>
+<li>参考文献：
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/api/projects.html">GitLab|Projects
+API</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.bookstack.cn/read/gitlab-doc-zh/docs-353.md">GitLab|中文文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/16/%E4%BD%BF%E7%94%A8Lua%E9%85%8D%E7%BD%AENeovim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/16/%E4%BD%BF%E7%94%A8Lua%E9%85%8D%E7%BD%AENeovim/" class="post-title-link" itemprop="url">使用Lua配置Neovim</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-16 21:49:03" itemprop="dateCreated datePublished" datetime="2023-06-16T21:49:03+08:00">2023-06-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年06月16日星期五晴北京市北京师范大学,
+为了更好的编程和写Hexo日志，决定重新配置一下我的Neovim 。
+之前由于课程紧张所以直接使用了vim的配置文件和插件，但是后来发现科技在进步，软件在升级，而Neovim
+也越来越好用。于是决定使用其更加统一的接口来配置好我的Neovim,
+同时本博客会逐步更新教程，力求达到让读都跟着一步一步的操作就可以完成操作。</p>
+<p>限于时间关系，在本文的初步形态，借用一些网上的现成的文章，之后会逐步完善。近三天主要参考的网站分别为</p>
+<ol type="1">
+<li><p><a
+target="_blank" rel="noopener" href="https://www.runoob.com/lua/lua-tutorial.html">菜鸟教程|Lua教程</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/554650619">从零开始配置vim(导读)</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/596879980">你需要知道的使用
+lua 配置 neovim 的一切</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/editor/userdefinedsnippets#_placeholders">Snippets
+in Visual Studio Code</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://vimcolorschemes.com/">Neovim主题</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="http://xfyuan.github.io/2021/02/neovim-builtin-lsp-basic-configuration/">NeoVim
+Builtin LSP的基本配置</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="http://xfyuan.github.io/2021/03/neovim-builtin-lsp-keymappings/">行云流水般的NeoVim
+Builtin LSP操作</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://neovim.io/doc/user/diagnostic.html#diagnostic-api">Neovim|Diagnostics</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://neovim.io/doc/user/index.html">Neovim|Main</a></p></li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/16/%E4%BD%BF%E7%94%A8Lua%E9%85%8D%E7%BD%AENeovim/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/12/%E9%AB%98%E9%98%B6%E8%8B%B1%E8%AF%AD%E5%A4%A7%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/12/%E9%AB%98%E9%98%B6%E8%8B%B1%E8%AF%AD%E5%A4%A7%E4%BD%9C%E4%B8%9A/" class="post-title-link" itemprop="url">高阶英语大作业</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-12 20:54:32" itemprop="dateCreated datePublished" datetime="2023-06-12T20:54:32+08:00">2023-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年06月12日星期一阴北京市北京师范大学,
+高阶英语最先出了成绩，今将此次作业展示于此，里面的诗都是本人原创，翻译的诗歌是谢柏松老师的诗歌。</p>
+<div class="pdf-container" data-target="/PDF/gjyy.pdf" data-height="500px"></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/08/DNS%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/08/DNS%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">DNS列表</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-08 14:19:49" itemprop="dateCreated datePublished" datetime="2023-06-08T14:19:49+08:00">2023-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年06月08日星期四晴北京市北京师范大学,
+发现今天上网的速度很慢，估计是DNS的问题。于是决定收录那些稳定快速的DNS服务器，逐步完善。未列出的服务器，请参考:<a
+target="_blank" rel="noopener" href="https://dns.icoa.cn/">免费公共 DNS 服务器大全</a></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;">厂家</th>
+<th style="text-align: center;">IPV4</th>
+<th style="text-align: center;">IPV6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">北京科技大学</td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><label style="color:green">2001:da8:208:10::6</label></td>
+</tr>
+<tr>
+<td style="text-align: center;">清华大学TUNA</td>
+<td
+style="text-align: center;"><label style="color:green">101.6.6.6</label></td>
+<td
+style="text-align: center;"><label style="color:green">2001:da8::666</label></td>
+</tr>
+<tr>
+<td style="text-align: center;">北京邮电大学</td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><label style="color:green">2001:da8:202:10::36</label></td>
+</tr>
+<tr>
+<td style="text-align: center;">北京邮电大学</td>
+<td style="text-align: center;"></td>
+<td
+style="text-align: center;"><label style="color:green">2001:da8:202:10::37</label></td>
+</tr>
+<tr>
+<td style="text-align: center;">百度</td>
+<td style="text-align: center;">180.76.76.76</td>
+<td style="text-align: center;">2400:da00::6666</td>
+</tr>
+<tr>
+<td style="text-align: center;">阿里</td>
+<td style="text-align: center;">223.5.5.5</td>
+<td style="text-align: center;">2400:3200::1</td>
+</tr>
+<tr>
+<td style="text-align: center;">阿里</td>
+<td style="text-align: center;">223.6.6.6</td>
+<td style="text-align: center;">2400:3200:baba::1</td>
+</tr>
+<tr>
+<td style="text-align: center;">腾讯</td>
+<td style="text-align: center;">119.29.29.29</td>
+<td style="text-align: center;">2402:4e00::</td>
+</tr>
+<tr>
+<td style="text-align: center;">CNNIC</td>
+<td style="text-align: center;">1.2.4.8</td>
+<td style="text-align: center;">2001:dc7:1000::1</td>
+</tr>
+<tr>
+<td style="text-align: center;">CNNIC</td>
+<td style="text-align: center;">210.2.4.8</td>
+<td style="text-align: center;">2001:dc7:1000::1</td>
+</tr>
+<tr>
+<td style="text-align: center;">上交</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2001:da8:8000:1:202:120:2:100</td>
+</tr>
+<tr>
+<td style="text-align: center;">上交</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2001:da8:8000:1:202:120:2:101</td>
+</tr>
+<tr>
+<td style="text-align: center;">Yeti</td>
+<td style="text-align: center;">中科院网络信息中心</td>
+<td style="text-align: center;">2001:cc0:2fff:1::6666</td>
+</tr>
+<tr>
+<td style="text-align: center;">Yeti</td>
+<td style="text-align: center;">北京交通大学</td>
+<td style="text-align: center;">2001:da8:205:2060::188</td>
+</tr>
+<tr>
+<td style="text-align: center;">Yeti</td>
+<td style="text-align: center;">清华大学</td>
+<td style="text-align: center;">2001:da8:ff:305:20c:29ff:fe1f:a92a</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">Cloudflare</label></td>
+<td style="text-align: center;">1.1.1.1</td>
+<td style="text-align: center;">2606:4700:4700::1111</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">Cloudflare</label></td>
+<td style="text-align: center;">1.0.0.1</td>
+<td style="text-align: center;">2606:4700:4700::1001</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">TWNIC</label></td>
+<td style="text-align: center;">101.101.101.101</td>
+<td style="text-align: center;">2001:de4::101</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">TWNIC</label></td>
+<td style="text-align: center;">101.102.103.104</td>
+<td style="text-align: center;">2001:de4::102</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">微软</label></td>
+<td style="text-align: center;">4.2.2.1</td>
+<td style="text-align: center;">4.2.2.2</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">微软</label></td>
+<td style="text-align: center;">4.2.2.3</td>
+<td style="text-align: center;">4.2.2.4</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">微软</label></td>
+<td style="text-align: center;">4.2.2.5</td>
+<td style="text-align: center;">4.2.2.6</td>
+</tr>
+<tr>
+<td
+style="text-align: center;"><label style="color:blue">IBM</label></td>
+<td style="text-align: center;">9.9.9.9</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="note warning"><p>注意：表中标注为绿色的DNS是我的当前环境下<code>ping</code>时响应速度在<code>1ms</code>以内的DNS,
+所以这几个是在北京使用时极力推荐的,
+其他的地址请自行<code>ping</code>后做出选择。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95%E5%A4%87%E5%BF%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/31/%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95%E5%A4%87%E5%BF%98/" class="post-title-link" itemprop="url">英语考试备忘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-31 23:16:14" itemprop="dateCreated datePublished" datetime="2023-05-31T23:16:14+08:00">2023-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年 06月 19日 星期一 11:35:15 CST,
+查询到英语成绩，顺利通过考试，感谢林老师，感谢外教，感谢北师大。本网站本是我准备复习考试之用，现作为Gist
+组英语纪念.</p>
+<figure>
+<img src="/Picture/ldl.jpg" alt="林敦来老师正在给我们上课" />
+<figcaption aria-hidden="true">林敦来老师正在给我们上课</figcaption>
+</figure>
+<p>2022-2023春季学期，英语考试考试时间：2023-06-10 13:30-16:10
+考试地点：2023春期末考试，考场安排17周查询,具体考试安排尚未公布，请及时关注：<a
+target="_blank" rel="noopener" href="https://ggwy.bnu.edu.cn/">北师大公共外语研究部</a></p>
+<!-- default/primary/success/info/warning/danger -->
+<div class="note warning"><p>考场安排已经公布：</p>
+<ol type="1">
+<li><p><mark class="label success">我本人：
+教九楼/104/50</mark></p></li>
+<li><p>其他人<a
+target="_blank" rel="noopener" href="https://ggwy.bnu.edu.cn/docs//2023-06/537cda67d09d4fe58f87bcfb353b45d1.xlsx">考场安排:
+公布版.xlsx</a></p></li>
+<li><p>2023年06月10日 顺利完成考试</p></li>
+<li><p>预计7月2日公布成绩，愿我们都顺利通过考试！</p></li>
+<li><p>2023年 06月 19日 星期一 公布成绩，我们顺利通过了考试。</p></li>
+</ol>
+</div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/31/%E8%8B%B1%E8%AF%AD%E8%80%83%E8%AF%95%E5%A4%87%E5%BF%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95%E8%AF%BE%E5%A4%A7%E4%BD%9C%E4%B8%9A%E5%B1%95%E7%A4%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/31/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95%E8%AF%BE%E5%A4%A7%E4%BD%9C%E4%B8%9A%E5%B1%95%E7%A4%BA/" class="post-title-link" itemprop="url">高等数学物理方法课大作业展示</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-31 21:29:12" itemprop="dateCreated datePublished" datetime="2023-05-31T21:29:12+08:00">2023-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="project-15.32-overcoming-critical-slowing-down">Project 15.32
+Overcoming critical slowing down</h2>
+<p>Many of the original applications of Monte Carlo methods were done
+for systems of approximately one hundred particles and lattices of order
+322 spins. It would be instructive to redo many of these applications
+with much better statistics and with larger system sizes. In the
+following, we discuss some additional recent developments, but we have
+omitted other important topics such as Brownian dynamics and umbrella
+sampling. More ideas for projects can be found in the references.</p>
+<div class="tabs" id="overcoming"><ul class="nav-tabs"><li class="tab active"><a href="#overcoming-1">运行结果</a></li><li class="tab"><a href="#overcoming-2">ocsd_beamer.pdf</a></li><li class="tab"><a href="#overcoming-3">作业展示ocsd_v4.0</a></li><li class="tab"><a href="#overcoming-4">程序代码ocsd_v4.1.py</a></li><li class="tab"><a href="#overcoming-5">Project 15.32</a></li></ul><div class="tab-content"><div class="tab-pane active" id="overcoming-1"><p><img src="/Picture/ocsd_1.png" alt="Energy-Monte Carlo Step" /> <img
+src="/Picture/ocsd_2.png" alt="The Spin Configuration" /> <img
+src="/Picture/ocsd_energy.png" alt="The Spin Configuration" /> <img
+src="/Picture/ocsd_spin.png" alt="The Spin Configuration" /> <img
+src="/Picture/ocsdx_1.png" alt="The Spin Configuration" /></p></div><div class="tab-pane" id="overcoming-2"><div class="pdf-container" data-target="/PDF/ocsd_beamer.pdf"
+data-height="500px">
+
+</div></div><div class="tab-pane" id="overcoming-3"><figure class="highlight python">
+<figcaption>
+<span>ocsd4.py</span>
+</figcaption>
+<table>
+<tr>
+<td class="gutter">
+<pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre>
+</td>
+<td class="code">
+<pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Author: 冯振华</span></span><br><span class="line"><span class="comment"># StudentNumber: 202221140015</span></span><br><span class="line"><span class="comment"># Verdion: V4.0</span></span><br><span class="line"><span class="comment"># Copyright © 2023 feng &lt;feng@arch&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the parameters</span></span><br><span class="line">N = <span class="number">20</span> <span class="comment"># number of spins in each direction</span></span><br><span class="line">J = -<span class="number">1</span> <span class="comment"># coupling constant</span></span><br><span class="line">beta = <span class="number">1</span> <span class="comment"># inverse temperature</span></span><br><span class="line">nsteps = <span class="number">1000</span> <span class="comment"># number of Monte Carlo steps</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize the spins randomly</span></span><br><span class="line">spins = np.random.choice([-<span class="number">1</span>, <span class="number">1</span>], size=(N, N))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the energy function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">energy</span>(<span class="params">spins</span>):</span><br><span class="line">    <span class="keyword">return</span> -J * (np.<span class="built_in">sum</span>(spins[:-<span class="number">1</span>,:] * spins[<span class="number">1</span>:,:]) + np.<span class="built_in">sum</span>(spins[:,:-<span class="number">1</span>] * spins[:,<span class="number">1</span>:])) \</span><br><span class="line">           - J * (np.<span class="built_in">sum</span>(spins[<span class="number">0</span>,:] * spins[-<span class="number">1</span>,:]) + np.<span class="built_in">sum</span>(spins[:,<span class="number">0</span>] * spins[:,-<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the Metropolis algorithm</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">metropolis</span>(<span class="params">spins, beta</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">            <span class="comment"># Choose a random spin to flip</span></span><br><span class="line">            x, y = np.random.randint(<span class="number">0</span>, N), np.random.randint(<span class="number">0</span>, N)</span><br><span class="line">            <span class="comment"># Calculate the energy difference</span></span><br><span class="line">            delta_E = <span class="number">2</span> * J * spins[x, y] * \</span><br><span class="line">                      (spins[(x+<span class="number">1</span>)%N, y] + spins[(x-<span class="number">1</span>)%N, y] + spins[x, (y+<span class="number">1</span>)%N] + spins[x, (y-<span class="number">1</span>)%N])</span><br><span class="line">            <span class="comment"># Flip the spin with probability according to the Boltzmann factor</span></span><br><span class="line">            <span class="keyword">if</span> np.random.uniform(<span class="number">0</span>, <span class="number">1</span>) &lt; np.exp(-beta * delta_E):</span><br><span class="line">                spins[x, y] = -spins[x, y]</span><br><span class="line">    <span class="keyword">return</span> spins</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run the Monte Carlo simulation</span></span><br><span class="line">energies = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nsteps):</span><br><span class="line">    spins = metropolis(spins, beta)</span><br><span class="line">    energies.append(energy(spins))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Calculate the average energy</span></span><br><span class="line">E = np.mean(energies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print the result</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Average energy: <span class="subst">&#123;E:<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the energy as a function of Monte Carlo steps</span></span><br><span class="line">plt.plot(energies)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Monte Carlo step&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Energy&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the spin configuration</span></span><br><span class="line">plt.imshow(spins, cmap=<span class="string">&#x27;binary&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre>
+</td>
+</tr>
+</table>
+</figure></div><div class="tab-pane" id="overcoming-4"><figure class="highlight python">
+<figcaption>
+<span>ocsd3.py</span>
+</figcaption>
+<table>
+<tr>
+<td class="gutter">
+<pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre>
+</td>
+<td class="code">
+<pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Copyright © 2023 feng &lt;feng@archlinux&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">作者：冯振华</span></span><br><span class="line"><span class="string">学号：202221140015</span></span><br><span class="line"><span class="string">版本：V4.1</span></span><br><span class="line"><span class="string">日期：2023年05月20日</span></span><br><span class="line"><span class="string">项目：Monte Carlo methods for Overcoming critical slowing down</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">initialize_spins</span>(<span class="params">N</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Initializes the spin lattice with random spins of -1 or +1</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> np.random.choice([-<span class="number">1</span>, <span class="number">1</span>], size=(N, N))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bond_probability</span>(<span class="params">beta</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Calculates probability of forming a bond between two neighboring spins</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span> - np.exp(-<span class="number">2</span>*beta)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">update_spins</span>(<span class="params">spins, beta</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    a single update of the spins using the Wolff algorithm</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    N = spins.shape[<span class="number">0</span>]</span><br><span class="line">    visited = np.zeros((N, N), dtype=<span class="built_in">bool</span>)</span><br><span class="line">    seed = (np.random.randint(N), np.random.randint(N))</span><br><span class="line">    cluster_spins = [seed]</span><br><span class="line">    cluster_perimeter = [(seed[<span class="number">0</span>], (seed[<span class="number">1</span>]+<span class="number">1</span>)%N), (seed[<span class="number">0</span>], (seed[<span class="number">1</span>]-<span class="number">1</span>)%N),</span><br><span class="line">                         ((seed[<span class="number">0</span>]+<span class="number">1</span>)%N, seed[<span class="number">1</span>]), ((seed[<span class="number">0</span>]-<span class="number">1</span>)%N, seed[<span class="number">1</span>])]</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(cluster_perimeter) &gt; <span class="number">0</span>:</span><br><span class="line">        i, j = cluster_perimeter.pop()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> visited[i,j] <span class="keyword">and</span> np.random.random() &lt; bond_probability(beta):</span><br><span class="line">            cluster_spins.append((i, j))</span><br><span class="line">            visited[i, j] = <span class="literal">True</span></span><br><span class="line">            cluster_perimeter += [(i, (j+<span class="number">1</span>)%N), (i, (j-<span class="number">1</span>)%N),</span><br><span class="line">                                  ((i+<span class="number">1</span>)%N, j), ((i-<span class="number">1</span>)%N, j)]</span><br><span class="line">    spins[<span class="built_in">tuple</span>(<span class="built_in">zip</span>(*cluster_spins))] *= -<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> spins</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_energy</span>(<span class="params">spins,J</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Calculates the energy of the spin configuration</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    N = spins.shape[<span class="number">0</span>]</span><br><span class="line">    energy = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">            spin = spins[i, j]</span><br><span class="line">            neighbors = spins[(i+<span class="number">1</span>)%N, j] + spins[i, (j+<span class="number">1</span>)%N] + spins[(i-<span class="number">1</span>)%N, j] + spins[i, (j-<span class="number">1</span>)%N]</span><br><span class="line">            energy += <span class="number">2</span>*J*spin * neighbors    </span><br><span class="line">    <span class="keyword">return</span> energy </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_simulation</span>(<span class="params">N=<span class="number">20</span>, J=-<span class="number">1</span>,beta=<span class="number">1.0</span>, num_steps=<span class="number">2000</span>, num_measurements=<span class="number">100</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Performs a full simulation of the Wolff algorithm on the spin lattice</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    spins = initialize_spins(N)</span><br><span class="line">    energies = []</span><br><span class="line">    mags = []</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> <span class="built_in">range</span>(num_steps):</span><br><span class="line">        spins = update_spins(spins, beta)</span><br><span class="line">        <span class="keyword">if</span> step % (num_steps // num_measurements) == <span class="number">0</span>:</span><br><span class="line">            energy = calculate_energy(spins,J)</span><br><span class="line">            mag = np.<span class="built_in">sum</span>(spins)</span><br><span class="line">            energies.append(energy)</span><br><span class="line">            mags.append(mag)</span><br><span class="line">    <span class="keyword">return</span> energies, mags </span><br><span class="line"></span><br><span class="line">energies, mags = run_simulation(N=<span class="number">20</span>,J=-<span class="number">1</span>,beta=<span class="number">1.0</span>, num_steps=<span class="number">100000</span>, num_measurements=<span class="number">100</span>)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Calculate the average energy</span></span><br><span class="line">E = np.mean(energies)</span><br><span class="line"><span class="comment"># Print the result</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Average energy: <span class="subst">&#123;E:<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment"># Plot the energy as a function of Monte Carlo steps</span></span><br><span class="line">plt.plot(energies)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Monte Carlo step&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Energy&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot the spin configuration</span></span><br><span class="line">plt.plot(mags)</span><br><span class="line">plt.xlabel(<span class="string">&quot;Monte Carlo step&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;Spin&quot;</span>)</span><br><span class="line">plt.show()</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    To run the simulation, simply the `run_simulation` function with the desired parameters, such as `energies, mags = run_simulation(N=30,=1.0, num_steps=100000, num_measurements=100)`. This will simulate 100,000 Wolff updates on a 30x30 lattice at a temperature of 1. and take measurements of the energy and magnetization every 1,000 steps. The output is two arrays, `energies` and `mags`, that record the energy and magnetization at each measurement step. These arrays can be used to averages and variances to analyze the system properties.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre>
+</td>
+</tr>
+</table>
+</figure></div><div class="tab-pane" id="overcoming-5"><h2 id="project-15.32-overcoming-critical-slowing-down">Project 15.32
+Overcoming critical slowing down</h2>
+<div class="pdf-container" data-target="/PDF/homework.pdf"
+data-height="500px">
+
+</div></div></div></div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/31/Beamer%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/31/Beamer%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Beamer使用技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-31 14:06:15" itemprop="dateCreated datePublished" datetime="2023-05-31T14:06:15+08:00">2023-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-05-07 10:28:08" itemprop="dateModified" datetime="2025-05-07T10:28:08+08:00">2025-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年05月31日星期三多云北京市北京师范大学,由于物理高等计算方法课需要做一个大作业，同时还需要弄一个幻灯片来展示作业，所以又开始准备一个Beamer文档，但是长时间不用了，所以决定在本文逐步来完善Beamer使用中的一些技巧。</p>
+<h1 id="ctexbeamer-中的数学字体">CTeXBeamer 中的数学字体</h1>
+<p>在 <code>ctexbeamer</code>
+文档类中，默认会使用中文环境，包括对字体的设置。如果你在
+<code>ctexbeamer</code>
+中写公式，尤其是英文变量名时发现字体不美观或不符合数学排版习惯（比如用了中文字体嵌套英文），可以通过以下方法让公式中的英文字母和符号使用标准的数学英文字体（如
+<code>Computer Modern</code> 或 <code>Times</code>）。</p>
+<h2 id="使用">使用 </h2>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;ctexbeamer&#125;</span><br><span class="line"><span class="keyword">\usefonttheme</span>[onlymath]&#123;serif&#125;  <span class="comment">% 让公式使用英文字体</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\frametitle</span>&#123;示例公式&#125;</span><br><span class="line">  在公式 <span class="built_in">$</span>E = mc<span class="built_in">^</span>2<span class="built_in">$</span> 中，字母应为斜体。</span><br><span class="line">  </span><br><span class="line">  多变量例子：<span class="built_in">$</span><span class="built_in">$</span>f(x) = <span class="keyword">\int</span><span class="built_in">_</span>&#123;0&#125;<span class="built_in">^</span>&#123;x&#125; e<span class="built_in">^</span>&#123;-t<span class="built_in">^</span>2&#125; dt<span class="built_in">$</span><span class="built_in">$</span></span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用数学字体">常用数学字体</h2>
+<p>标准数学公式通常使用衬线字体（serif），尤其是在学术出版物和专业文档中。在
+LaTeX 中，默认的数学字体是 Computer Modern，这是一种衬线字体，由 Donald
+Knuth 设计，专门用于数学排版以保证最佳的可读性和美观性。
+虽然衬线字体是最常见的选择，但也有其他选项：</p>
+<ul>
+<li>无衬线字体（sans-serif）：有时在演示文稿或网页上会使用无衬线字体，因为它们看起来更加现代、简洁。然而，无衬线字体在表达复杂的数学关系时可能不如衬线字体清晰。</li>
+<li>手写风格字体：如 mathrsfs
+包提供的手写体，常用于表示特定类型的集合或其他特殊用途。</li>
+<li>其他专业字体：例如 newtxmath、fourier、kpfonts
+等，它们提供了不同的视觉效果以及额外的功能特性。</li>
+</ul>
+<h2 id="说明">说明：</h2>
+<ul>
+<li>如果你不加任何设置，在 ctexbeamer 中，LaTeX
+可能会使用与中文兼容的字体族来渲染公式中的字符，导致英文字母不够“数学化”</li>
+<li>Beamer 官方推荐的做法之一，适合绝大多数场合。</li>
+<li>此设置会让 只有数学环境 使用 serif 字体（即默认 LaTeX 的 Computer
+Modern 数学字体）。</li>
+<li>正文仍然使用 ctexbeamer 默认的中文字体，不影响排版风格。</li>
+</ul>
+<h1 id="文字对齐">文字对齐</h1>
+<p>在完成Beamer后发现，文字默认左对齐，我们需要的是分散对齐，解决方案是在导言区加上语句</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ragged2e&#125;</span><br><span class="line"><span class="keyword">\justifying</span><span class="keyword">\let</span><span class="keyword">\raggedright</span><span class="keyword">\justifying</span></span><br></pre></td></tr></table></figure>
+<div class="note warning"><p>注意: 使用时请在调用主题前的调用这个宏包。</p>
+</div>
+<h1 id="幻灯片比例">幻灯片比例</h1>
+<p>2023年09月05日星期二晴北京市北京师范大学,将幻灯片比例改为<code>16:9</code></p>
+<figure class="highlight sh"><figcaption><span>修改幻灯片比例为16:9</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\documentclass[aspectratio=16:9]&#123;ctexbeamer&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info"><p>幻灯片的比例主要有： <code>16:10</code>, <code>14:9</code>,
+<code>1.41:1</code>,<code>5:4</code>, <code>4:3</code>(default),
+<code>3:2</code></p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -512,837 +1481,8 @@ data-height="500px">
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/14/2022-2023%E6%98%A5%E5%AD%A3%E5%AD%A6%E6%9C%9F%E4%BD%9C%E4%B8%9A%E5%88%97%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/14/2022-2023%E6%98%A5%E5%AD%A3%E5%AD%A6%E6%9C%9F%E4%BD%9C%E4%B8%9A%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">2022-2023春季学期作业列表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-14 18:11:38" itemprop="dateCreated datePublished" datetime="2023-05-14T18:11:38+08:00">2023-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <mark class="label success">2023年05月14日星期日多云北京市北京师范大学</mark>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">作业科目</th>
-<th style="text-align: center;">内容</th>
-<th style="text-align: center;">要求</th>
-<th style="text-align: center;">完成情况</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">引力专题</td>
-<td style="text-align: center;">撰写一份报告</td>
-<td style="text-align: center;">需要有自己观点</td>
-<td style="text-align: center;">6月20日已经完成</td>
-</tr>
-<tr>
-<td style="text-align: center;">基础英语</td>
-<td style="text-align: center;">6月10日考试</td>
-<td style="text-align: center;">已经考试</td>
-<td style="text-align: center;">7.2出结果</td>
-</tr>
-<tr>
-<td style="text-align: center;">高等计算物理</td>
-<td style="text-align: center;">补全作业+15.32</td>
-<td style="text-align: center;">大作业已经完成</td>
-<td style="text-align: center;">完成考试</td>
-</tr>
-<tr>
-<td style="text-align: center;">高阶英语</td>
-<td style="text-align: center;">三首诗及一个翻译</td>
-<td style="text-align: center;">最终作业</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: center;">Python之美</td>
-<td style="text-align: center;">抛体问题的数值求解</td>
-<td style="text-align: center;">6月1日下午汇报</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: center;">高等数学物理方法课</td>
-<td style="text-align: center;">课上讲一部分和自己专业相关内容</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">Yes</td>
-</tr>
-<tr>
-<td style="text-align: center;">英语口语</td>
-<td style="text-align: center;">考试</td>
-<td style="text-align: center;">6分通过</td>
-<td style="text-align: center;">顺利通过</td>
-</tr>
-<tr>
-<td style="text-align: center;">量子色动力学</td>
-<td style="text-align: center;">考核</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">顺利通过</td>
-</tr>
-<tr>
-<td style="text-align: center;">量子场论</td>
-<td style="text-align: center;">考试</td>
-<td style="text-align: center;">积极备考</td>
-<td style="text-align: center;">Yes</td>
-</tr>
-</tbody>
-</table>
-<div class="note warning"><ul>
-<li>2023年05月18日, 完成Python之美作业</li>
-<li>2023年05月18日, 完成高等计算物理前四次作业，并发送给了助教</li>
-<li>2023年05月18日,
-完成高阶英语，三首诗和一个翻译，还有两段解释没有写</li>
-<li>2023年05月19日,
-完成高阶英语的两翻译解释，同时调整了格式，今天可以交作业了</li>
-<li>2023年05月23日,
-高阶英语课程完全完成，今天最后一节课，朗读完诗，完成任务</li>
-<li>2023年05月23日, 6月10日参加英语考试，要及时准备</li>
-<li>2023年05月23日, 量子场论需要认真完成计算</li>
-<li>2023年05月25日,
-完成高等计算物理大作业，前天准备演讲用的beamer,对于平时作业已经向助教发邮件寻问尚未完成部分，待回复后补全</li>
-<li>2023年05月25日, 明天准备英语听力练习和量子场论的学习</li>
-<li>2023年05月26日, 今日查询成绩，英语口语顺利过关</li>
-<li>2023年05月27日, 量子色动力学，顺利完成</li>
-<li>2023年05月31日,
-高等计算物理提交大作业5月31日，汇报时间：6月7日，考试时间：6月12日
-，作业占比20%，大作业占比20%， 期末考试占比60%</li>
-<li>2023年06月01日,
-完成Python大作业汇报工作，第一组汇报的，程国栋介绍概要，我介绍了程序代码和程序升级规划</li>
-<li>2023年06月02日,
-完成并提交了高等数学物理方法课期末报告，顺利完成该课程</li>
-<li>2023年06月02日, 完成量子场论考试</li>
-<li>2023年06月10日, 完成基础英语考试</li>
-<li>2023年06月12日,
-完成高等计算物理考试，总共5个题，完成3个，后面两个题没做，保守的讲做的都对了。</li>
-<li>2023年06月22日,
-完成引力理论专题汇报，顺利发送邮件到高老师sijie@bnu.edu.cn 。</li>
-<li>2023年06月22日,
-至此2022-2023春季学期所有考试内容及考核内容全部完成。</li>
-</ul>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/11/vim%E4%B8%80%E9%94%AE%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/11/vim%E4%B8%80%E9%94%AE%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">vim一键运行程序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-11 00:52:48" itemprop="dateCreated datePublished" datetime="2023-05-11T00:52:48+08:00">2023-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <mark class="label success">2023年05月11日星期四多云北京市北京师范大学</mark>
-<p>今天决定在ThinkPad-T490上删除matlab,改用octave执行matlab脚本，同时为了方便编写python等程序，为vim配置了一键执行命令。如下</p>
-<figure class="highlight bash"><figcaption><span>~/.vimrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Set  F5 to run all language program</span></span><br><span class="line"><span class="string">map &lt;F5&gt; :call  CompileRunGcc()&lt;CR&gt;</span></span><br><span class="line"><span class="string">func! CompileRunGcc()</span></span><br><span class="line"><span class="string">   exec &quot;</span>w<span class="string">&quot;</span></span><br><span class="line"><span class="string">   if &amp;filetype == &#x27;sh&#x27;</span></span><br><span class="line"><span class="string">      :!time bash %</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;python&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!<span class="keyword">time</span> python3 %<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;c&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!g++ % -o %&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!<span class="keyword">time</span> ./%&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;cpp&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!g++ % -o %&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!<span class="keyword">time</span> ./%&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;java&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!javac %<span class="string">&quot;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!<span class="keyword">time</span> java %&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;html&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!firefox % &amp;<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;go&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!go build %&lt;<span class="string">&quot;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!<span class="keyword">time</span> go run %<span class="string">&quot;</span></span><br><span class="line"><span class="string">   elseif &amp;filetype == &#x27;mkd&#x27;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!~/.vim/markdown.pl % &gt; %.html &amp;<span class="string">&quot;</span></span><br><span class="line"><span class="string">      exec &quot;</span>!firefox %.html &amp;<span class="string">&quot;</span></span><br><span class="line"><span class="string">   endif</span></span><br><span class="line"><span class="string">endfunc</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/08/Goldendict%E6%89%8B%E5%86%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/08/Goldendict%E6%89%8B%E5%86%8C/" class="post-title-link" itemprop="url">Goldendict手册</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-08 18:07:26" itemprop="dateCreated datePublished" datetime="2023-05-08T18:07:26+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!-- [class]:default/primary/success/info/warning/danger -->
-<mark class="label success">2023年05月08日星期一晴北京市北京师范大学</mark>
-<p>一直以来觉得goldendict不是很好用，但是一时又找不到可以替代他的工具，所以直接引用了一篇文章的README.md文件，因为他讲的很好，所以就直接使用了。</p>
-<h1 id="goldendict-中文用户手册">GoldenDict 中文用户手册</h1>
-<p>本文最后更新：2018-02-13。</p>
-<p>GoldenDict，一款尤其适用于计算机端（Windows、macOS、Linux）的开源、自由、可定制的词典软件。严肃的语言学习者、文字工作者乃至词典编纂者，都应该<strong>至少尝试</strong>一下
-GoldenDict。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/08/Goldendict%E6%89%8B%E5%86%8C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/08/Gnome44%E8%A7%A3%E5%86%B3HideTopBar%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/08/Gnome44%E8%A7%A3%E5%86%B3HideTopBar%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Gnome44解决HideTopBar失效问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-08 16:14:21" itemprop="dateCreated datePublished" datetime="2023-05-08T16:14:21+08:00">2023-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <mark class="label success">2023年05月08日星期一晴北京市北京师范大学</mark>
-<p>在升级archlinux后发现我的插件<code>gnome-shell-extension-hidetopbar-git</code>不能正常工作了，提示版本与当前gnome版本不匹配。在插件安装网页找到解决方法，记录如下：</p>
-<ol type="1">
-<li><p>切换到目录 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca</span><br></pre></td></tr></table></figure></p></li>
-<li><p>修改metadata.json文件,追加上"44" <figure class="highlight bash"><figcaption><span>metadata.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;shell-version&quot;</span>: [<span class="string">&quot;3.38&quot;</span>,<span class="string">&quot;40&quot;</span>,<span class="string">&quot;41&quot;</span>,<span class="string">&quot;42&quot;</span>,<span class="string">&quot;43&quot;</span>,<span class="string">&quot;44&quot;</span>],</span><br></pre></td></tr></table></figure></p></li>
-<li><p>注释掉检测程序片段 <figure class="highlight bash"><figcaption><span>intellihide.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">go to line 116 and comment this:</span><br><span class="line">//, [</span><br><span class="line">//// update wne monitor changes, <span class="keyword">for</span> instance <span class="keyword">in</span> multimonitor when monitor are attached</span><br><span class="line">//Meta.MonitorManager.get(),</span><br><span class="line">//<span class="string">&#x27;monitors-changed&#x27;</span>,</span><br><span class="line">//this._checkOverlap.<span class="built_in">bind</span>(this)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p></li>
-<li><p>注销并重新登录系统，问题解决。</p></li>
-</ol>
-<div class="note warning"><p>不知道为什么这么重要的受欢迎的软件每次在gnome版本大升级后它都会出现问题，之前一直等待修复，但是可能这才是一个及时的应对策略。附上原插件地址：<a
-target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/545/hide-top-bar/">https://extensions.gnome.org/extension/545/hide-top-bar/</a></p>
-</div>
-<p>2023年05月11日星期四多云北京市北京师范大学,
-再次到原插件地址查看问题解决情况。这里有两条新增信息，记录如下：</p>
-<ol start="5" type="1">
-<li><p>In the new gnome44 was made some changes so need to change
-<figure class="highlight bash"><figcaption><span>.local/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca/intellihide.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Meta.MonitorManager.get -&gt; Utils.getMonitorManager()</span><br></pre></td></tr></table></figure></p></li>
-<li><p>Create new file
-<code>.local/share/gnome-shell/extensions/hidetopbar@mathieu.bidon.ca/utils.js</code>
-, with the next content <figure class="highlight bash"><figcaption><span>utils.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">getMonitorManager</span></span>() &#123;</span><br><span class="line">    <span class="keyword">if</span> (global.backend.get_monitor_manager !== undefined)</span><br><span class="line">        <span class="built_in">return</span> global.backend.get_monitor_manager();</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">return</span> Meta.MonitorManager.get();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/06/%E4%BD%BF%E7%94%A8neovim%E7%BC%96%E5%86%99latex/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/06/%E4%BD%BF%E7%94%A8neovim%E7%BC%96%E5%86%99latex/" class="post-title-link" itemprop="url">使用neovim编写latex</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-06 17:30:39" itemprop="dateCreated datePublished" datetime="2023-05-06T17:30:39+08:00">2023-05-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <!-- [class]:default/primary/success/info/warning/danger -->
-<mark class="label success">2023年05月06日星期六多云北京市北京师范大学</mark>
-<p>neovim是一个相当好用的编辑器，可以说是vim的加强版。最近在使用nvim编辑一本latex图书，所以心血来潮想再看一下那些适合在nvim下编辑latex的插件，当我点开插件<a
-target="_blank" rel="noopener" href="https://github.com/lervag/vimtex">vimtex的官网</a>时发现
-他的README直接介绍了其他的插件，所以直接引用他的README.md
-作为参考，放于此处。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/06/%E4%BD%BF%E7%94%A8neovim%E7%BC%96%E5%86%99latex/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/05/%E8%A7%A3%E5%86%B3%E5%8D%87%E7%BA%A7archlinux%E5%90%8Eneovim%E6%8A%A5%E9%94%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/05/%E8%A7%A3%E5%86%B3%E5%8D%87%E7%BA%A7archlinux%E5%90%8Eneovim%E6%8A%A5%E9%94%99/" class="post-title-link" itemprop="url">解决升级archlinux后neovim报错</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-05 09:35:06" itemprop="dateCreated datePublished" datetime="2023-05-05T09:35:06+08:00">2023-05-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <mark class="label success">2023年05月05日星期五阴北京市北京师范大学</mark>
-<p>在宿舍执行<code>sudo pacman -Syu</code>,使用neovim编辑了一篇日记，但是发现插入字符时一操作就会报错，出现如下提示</p>
-<!-- ```[language] [title] [url] [link text] [additional options] -->
-<figure class="highlight python"><figcaption><span>nvim报错</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## Python 3 provider (optional) </span></span><br><span class="line"><span class="number">30</span>   - WARNING: No Python executable found that can `<span class="keyword">import</span> neovim`. Using the first available executable <span class="keyword">for</span> diagnostics.                                    </span><br><span class="line"><span class="number">31</span>   - ERROR: Python provider error:                                                                                                                                </span><br><span class="line"><span class="number">32</span>     - ADVICE:                                                                                                                                                    </span><br><span class="line"><span class="number">33</span>       - provider/pythonx: Could <span class="keyword">not</span> load Python <span class="number">3</span>:                                                                                                               </span><br><span class="line"><span class="number">34</span>           python3 <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                    </span><br><span class="line"><span class="number">35</span>           python3<span class="number">.7</span> <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                  </span><br><span class="line"><span class="number">36</span>           python3<span class="number">.6</span> <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                  </span><br><span class="line"><span class="number">37</span>           python3<span class="number">.5</span> <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                  </span><br><span class="line"><span class="number">38</span>           python3<span class="number">.4</span> <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                  </span><br><span class="line"><span class="number">39</span>           python3<span class="number">.3</span> <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                  </span><br><span class="line"><span class="number">40</span>           python <span class="keyword">not</span> found <span class="keyword">in</span> search path <span class="keyword">or</span> <span class="keyword">not</span> executable.                                                                                                     </span><br><span class="line"><span class="number">41</span>   - INFO: Executable: Not found      </span><br></pre></td></tr></table></figure>
-<p>解决方法为：为<code>neovim</code>添加python支持</p>
-<figure class="highlight python"><figcaption><span>添加python支持</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m pip install --user --upgrade pynvim</span><br></pre></td></tr></table></figure>
-<div class="note warning"><p>注意：不要使用sudo执行，虽然我执行成功了，但是后面提示有可能有影响什么权限的问题。所以使用普通权限又安装了一遍。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/05/EarliestUsesOfFunctionSymbols/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/05/EarliestUsesOfFunctionSymbols/" class="post-title-link" itemprop="url">Earliest Uses of Function Symbols</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-05 09:05:21" itemprop="dateCreated datePublished" datetime="2023-05-05T09:05:21+08:00">2023-05-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>The function symbol f(x) was first used by Leonhard Euler (1707-1783)
-in 1734 in Commentarii Academiae Scientiarum Petropolitanae (Cajori,
-vol. 2, page 268).</p>
-<p>Absolute value function. Karl Weierstrass (1815-1897) used | | in an
-1841 essay "Zur Theorie der Potenzreihen," in which the symbol appears
-on page 67. He also used the symbol in 1859 in "Neuer Beweis des
-Fundamentalsatzes der Algebra," in which the symbol appears on page 252.
-This latter essay was submitted to the Berlin Academy of Sciences on
-December 12, 1859. These are the two reference shown by Cajori (vol. 2,
-page 123).</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/05/EarliestUsesOfFunctionSymbols/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/01/ArchLinuxCN%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/01/ArchLinuxCN%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">ArchLinuxCN软件仓库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-01 00:56:05" itemprop="dateCreated datePublished" datetime="2023-05-01T00:56:05+08:00">2023-05-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><label style="color:red">2023年12月03日星期日晴北京市</label>
-更新为官方标准设置方案。</p>
-<div class="tabs" id="linuxcn"><ul class="nav-tabs"><li class="tab active"><a href="#linuxcn-1">Arch Linux 中文社区仓库标准方法</a></li><li class="tab"><a href="#linuxcn-2">/etc/pacman.d/mirrorcnlist</a></li><li class="tab"><a href="#linuxcn-3">/etc/pacman.conf</a></li></ul><div class="tab-content"><div class="tab-pane active" id="linuxcn-1"><p><label style="color:red">2023-12-02 23:51</label>
-完善本文，删除了原来的方法，但是作为纪念最初的配置请参考 <a
-target="_blank" rel="noopener" href="https://fengzhenhua.gitlab.io/2023/05/01/">ArchLinuxCN软件仓库</a>
-, 在这一版中我们参考<a
-target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">Arch
-Linux 中文社区仓库</a> 进行标准的配置，方法如下：</p>
-<ul>
-<li>在 <code>/etc/pacman.conf</code> 文件末尾添加以下两行 <figure class="highlight sh"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
-<div class="note info">
-<p>
-注意：点击<a
-target="_blank" rel="noopener" href="https://github.com/archlinuxcn/mirrorlist-repo">https://github.com/archlinuxcn/mirrorlist-repo</a>
-,
-选择任意一个源的链接取代上述<code>Server</code>后的链接也是可以的。如果<code>githb.com</code>无法访问，请访问镜像网站
-<a
-target="_blank" rel="noopener" href="https://hub.yzuu.cf/archlinuxcn/mirrorlist-repo">https://hub.yzuu.cf/archlinuxcn/mirrorlist-repo</a>
-或 <a
-target="_blank" rel="noopener" href="https://archlinux.org/mirrorlist/?country=CN">https://archlinux.org/mirrorlist/?country=CN</a>
-</p>
-</div></li>
-<li>安装 <code>archlinuxcn-keyring</code> 包以导入 <code>GPG key</code>
-<figure class="highlight sh"><figcaption><span>安装archlinuxcn-keyring</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure></li>
-<li>安装 <code>archlinuxcn-mirrorlist-git</code> 包可以获得一份镜像列表
-<figure class="highlight sh"><figcaption><span>安装archlinuxcn-mirrorlist-git</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S archlinuxcn-mirrorlist-git</span><br></pre></td></tr></table></figure>
-安装完成后，会生成文件<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>,
-此文件正是国内所有的镜像，同时也在更新。</li>
-<li>在 pacman.conf 中直接引入<code>archlinuxcn-mirrorlist</code>
-<figure class="highlight sh"><figcaption><span>/etc/pacman.conf`末尾追加</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/<span class="variable">$arch</span></span><br><span class="line">Include = /etc/pacman.d/archlinuxcn-mirrorlist</span><br></pre></td></tr></table></figure></li>
-<li>编辑<code>/etc/pacman.d/archlinuxcn-mirrorlist</code>文件，去掉要引用的源前面的注释符即可。</li>
-</ul></div><div class="tab-pane" id="linuxcn-2"><ol type="1">
-<li><p>在<code>/etc/pacman.conf</code>文件末尾添加以下两行
-<figure class="highlight bash"><figcaption><span>/etc/pacman.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Include = /etc/pacman.d/mirrorcnlist</span><br></pre></td></tr></table></figure></p></li>
-<li><p>新建文件<code>/etc/pacman.d/mirrorcnlist</code>,加入cn源
-<figure class="highlight bash"><figcaption><span>/etc/pacman.d/mirrorcnlist</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># archlinuxcn</span></span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p></li>
-</ol>
-<div class="note warning">
-<p>
-注意，在执行完成上述添加命令后，再通过命令安装<code>archlinuxcn-keyring</code>包导入GPG
-key.若添加之前执行命令，<code>pacman</code>找不到这个软件，所以是
-<mark class="label warning">先添加再执行</mark>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-</p>
-<p>
-本法中，如果第一个源出现问题，则系统会自动调用第二个源，因此这是一个更加方便稳定的方法，推荐此法。
-</p>
-</div></div><div class="tab-pane" id="linuxcn-3"><p>在<code>/etc/pacman.conf</code>文件末尾添加以下两行 <figure class="highlight bash"><figcaption><span>archlinuxcn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure></p>
-<div class="note warning">
-<p>
-注意，在执行完成上述添加命令后，再通过命令安装<code>archlinuxcn-keyring</code>包导入GPG
-key.若添加之前执行命令，<code>pacman</code>找不到这个软件，所以是
-<mark class="label warning">先添加再执行</mark>。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Sy archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
-</p>
-</div></div></div></div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/45/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/45/">45</a><span class="page-number current">46</span><a class="page-number" href="/page/47/">47</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/47/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

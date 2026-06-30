@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,795 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/" class="post-title-link" itemprop="url">LaTeX中的硬空格</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-19 09:24:13 / 修改时间：09:30:59" itemprop="dateCreated datePublished" datetime="2025-11-19T09:24:13+08:00">2025-11-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="latex-中-符号的含义">LaTeX 中 <code>~</code> 符号的含义</h2>
+<p>在 LaTeX 中，<strong><code>~</code></strong>
+符号表示一个<strong>不可断行的空格</strong>（non-breaking
+space），也称为硬空格。</p>
+<h2 id="主要功能">主要功能</h2>
+<h3 id="禁止换行">1. 禁止换行</h3>
+<ul>
+<li>使用 <code>~</code>
+连接的两个单词或元素<strong>不会被分开在两行</strong></li>
+<li>示例：<code>Prof.~Smith</code> 会确保 "Prof." 和 "Smith"
+始终在同一行显示</li>
+</ul>
+<h3 id="与普通空格的区别">2. 与普通空格的区别</h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>是否可断行</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通空格</td>
+<td>可断行</td>
+<td><code>Mr. Smith</code> 可能换行为 "Mr." 和 "Smith"</td>
+</tr>
+<tr>
+<td><code>~</code> 空格</td>
+<td>不可断行</td>
+<td><code>Mr.~Smith</code> 强制 "Mr. Smith" 在同一行</td>
+</tr>
+</tbody>
+</table>
+<h2 id="常见使用场景">常见使用场景</h2>
+<h3 id="人名与头衔">人名与头衔</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dr.~White, Prof.~Anderson </span><br></pre></td></tr></table></figure>
+<h3 id="图表编号引用">图表编号引用</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fig.~<span class="keyword">\ref</span>&#123;fig:example&#125;, Table~<span class="keyword">\ref</span>&#123;tab:data&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="章节和公式的引用">章节和公式的引用</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chapter~<span class="keyword">\ref</span>&#123;chap:intro&#125;, Section~<span class="keyword">\ref</span>&#123;sec:method&#125;, Eq.~(<span class="keyword">\ref</span>&#123;eq:1&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="固定搭配单词">固定搭配单词</h3>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pH~value, Apple~Inc., 100~km/h</span><br></pre></td></tr></table></figure>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>在 LaTeX
+源码中，<code>~</code>会渲染为一人空格，但禁止在此处换行</li>
+<li>数学模式中<code>$a~b$</code>也会产生空格，但是要注意与相似符号<code>$\sim$</code>的区别</li>
+<li><code>~</code>是LaTeX中用于保持内容连贯、防止意外换行我重要符号。同时，<code>expl3</code>会自动去除代码中的空格，但是这导致了在<code>expl3</code>中使用<code>source2e</code>中的代码时，如果其中含有空格，就需要使用<code>~</code>取代，这样可以保证代码正常运行。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/expl3%E8%AF%AD%E6%B3%95%E4%B8%8Etikz%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/18/expl3%E8%AF%AD%E6%B3%95%E4%B8%8Etikz%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">expl3语法与tikz冲突的解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-18 21:25:08 / 修改时间：21:34:22" itemprop="dateCreated datePublished" datetime="2025-11-18T21:25:08+08:00">2025-11-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近计划使用<code>source3</code>的原生命令编写一个答题卡宏包，目标是实现高考答题卡的仿真，用于中学生日常测试的规范答题中。但是，在绘制圆角矩形时，由于借助了<code>tikz</code>宏包，这导致了系统报错，报错的代码是</p>
+<figure class="highlight tex"><figcaption><span>报错的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tikzpicture&#125;</span><br><span class="line">        <span class="keyword">\int_while_do:nNnn</span> &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int&#125; &#123;&lt;&#125; &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>column<span class="built_in">_</span>int&#125;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">\draw</span> [color=red, rounded corners] (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim,0) rectangle (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim,<span class="keyword">\gksheet</span><span class="built_in">_</span>ht<span class="built_in">_</span>dim);</span><br><span class="line">            <span class="keyword">\dim_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim+<span class="keyword">\gkcolumnspace</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\dim_set:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim&#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim+<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\int_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int &#123;1&#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;tikzpicture&#125;</span><br></pre></td></tr></table></figure>
+<p>当我去掉圆角括号<code>rounded corners</code>后发现可以正常工作，但是追加上这人括号后系统再次报错。经过研究发现，主要是<code>rounded corners</code>中包含了一个空格，这会导致问题的产生，因为在<code>expl3</code>语法中，空格会被忽略，而在<code>tikz</code>中空格被解释为参数分隔符，这导致了<code>tikz</code>实际获得的是<code>roundedcorners</code>，
+于是错误出现了。而<code>~</code>是不可忽略的空格，于是切换成<code>rounded~corners</code>后问题立刻解决。这是<code>expl3</code>与<code>tikz</code>集成时的一个隐蔽陷阱，所以本文的方案为解决这一问题提供了最佳实践。</p>
+<figure class="highlight tex"><figcaption><span>正确的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tikzpicture&#125;</span><br><span class="line">        <span class="keyword">\int_while_do:nNnn</span> &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int&#125; &#123;&lt;&#125; &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>column<span class="built_in">_</span>int&#125;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">\draw</span> [color=red, rounded~corners] (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim,0) rectangle (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim,<span class="keyword">\gksheet</span><span class="built_in">_</span>ht<span class="built_in">_</span>dim);</span><br><span class="line">            <span class="keyword">\dim_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim+<span class="keyword">\gkcolumnspace</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\dim_set:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim&#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim+<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\int_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int &#123;1&#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;tikzpicture&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/PPT%E4%B8%AD%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/18/PPT%E4%B8%AD%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">PPT中视频无法播放的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-18 16:16:52 / 修改时间：16:21:42" itemprop="dateCreated datePublished" datetime="2025-11-18T16:16:52+08:00">2025-11-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题描述">问题描述</h1>
+<p>在日常使用PowerPoint制作演示文稿时，很多人可能都遇到过这样的困扰：精心准备的视频在PPT中无法播放，只显示黑色框框或错误提示。这种情况往往并非PowerPoint软件本身的问题，而是系统缺少相应的<strong>视频编解码器</strong>所致。今天，我们就来探讨如何通过安装K-Lite
+Codec Pack这一强大工具，彻底解决PPT中视频无法播放的难题。</p>
+<h2 id="为什么ppt中的视频无法播放">为什么PPT中的视频无法播放？</h2>
+<p>在深入解决方案之前，我们首先需要理解问题的根源。PowerPoint并非独立的媒体播放器，它依赖于操作系统中的<strong>编解码器</strong>来播放视频和音频文件。</p>
+<p>编解码器（Codec）是一种能够对视频或音频流进行编码和解码的软件，它压缩大尺寸的媒体文件以便存储和传输，然后在播放时解压缩。当你尝试在PPT中插入一个视频时，如果系统没有安装相应的编解码器，就会出现无法播放的情况。</p>
+<p>导致PPT媒体播放问题的常见原因包括：</p>
+<ul>
+<li><strong>不支持的视频格式</strong>：PPT对视频格式有特定要求，某些特殊格式无法直接嵌入</li>
+<li><strong>缺少合适的编解码器</strong>：系统没有安装相应的解码器来解析视频文件</li>
+<li><strong>文件损坏</strong>：视频文件本身可能已损坏或不完整</li>
+<li><strong>兼容性问题</strong>：使用不同版本的PowerPoint可能导致兼容性问题</li>
+<li><strong>链接断开</strong>：如果是链接到外部视频文件，文件被移动或删除会导致无法播放</li>
+</ul>
+<p>值得注意的是，WPS演示同样需要调用系统中的视频解码器来播放视频，出现此问题也是由于系统中缺乏相应的解码器导致的。</p>
+<h2 id="什么是k-lite-codec-pack">什么是K-Lite Codec Pack？</h2>
+<p>K-Lite Codec
+Pack被广泛认为是<strong>解码器包的鼻祖</strong>，功能非常强大且便捷实用。它在编解码器领域有着悠久的历史和良好的声誉，支持绝大多数你在网络上常见的影音格式。</p>
+<h3 id="k-lite-codec-pack的主要特点">K-Lite Codec Pack的主要特点：</h3>
+<ul>
+<li><strong>兼容性好</strong>：与各种媒体播放器和应用程序良好兼容</li>
+<li><strong>资源占用小</strong>：不插启动项，不拖慢系统速度</li>
+<li><strong>安装简便</strong>：安装和卸载都不用重启计算机</li>
+<li><strong>全面支持</strong>：包含绝大多数常见影音格式的解码器</li>
+</ul>
+<h2 id="如何安装k-lite-codec-pack">如何安装K-Lite Codec Pack？</h2>
+<p>安装K-Lite Codec Pack并不复杂，以下是基本步骤：</p>
+<ol type="1">
+<li><p><strong>下载和解压</strong>：从<a
+target="_blank" rel="noopener" href="https://www.codecguide.com/download_kl.htm">K-Lite Codec Pack
+官网</a>下载安装程序，解压压缩文件并运行安装程序</p></li>
+<li><p><strong>选择安装模式</strong>：共有三种模式可选：</p>
+<ul>
+<li><strong>简单模式</strong>：提供较少的自定义选项，多数选项按照默认设置</li>
+<li><strong>一般模式</strong>：提供所有选项，可选择是否安装Media Player
+Classic播放器</li>
+<li><strong>高级模式</strong>：所有选项可选，并可选择安装位置</li>
+</ul></li>
+<li><p><strong>完成安装</strong>：点击"Install"开始安装，等待进度条完成即可</p></li>
+</ol>
+<p>对于大多数用户，选择<strong>简单模式</strong>即可满足需求。安装过程中，确保勾选与Windows
+Media Player相关的选项，因为PowerPoint依赖Windows Media
+Player的编解码能力。</p>
+<h2 id="总结">总结</h2>
+<p>PowerPoint中视频无法播放是一个常见但令人沮丧的问题，大多数情况下根源在于<strong>缺少适当的编解码器</strong>。通过安装K-Lite
+Codec
+Pack，你可以为系统提供全面的解码支持，解决绝大多数视频播放问题。</p>
+<p>记住，在重要的演示之前，务必在目标设备上<strong>提前测试</strong>所有媒体文件的播放情况，避免出现尴尬的技术故障。同时，考虑将视频转换为兼容性更好的格式（如MP4），并使用PowerPoint的"优化兼容性"功能，进一步确保演示的顺利进行。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/10/28/4k%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4Geogebra%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/10/28/4k%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4Geogebra%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">4k显示器调整Geogebra字体大小</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-10-28 19:42:47 / 修改时间：19:45:05" itemprop="dateCreated datePublished" datetime="2025-10-28T19:42:47+08:00">2025-10-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 4K 显示器上使用 GeoGebra
+时，由于高分辨率可能导致界面元素（包括字体）显得过小，你可以通过以下方法来调整字体大小，使其更清晰易读：</p>
+<ul>
+<li>打开 <code>GeoGebra</code>（桌面版，如 <code>Classic 5</code> 或
+<code>Classic 6</code>）。</li>
+<li>点击菜单栏的 “选项”（<code>Options</code>）。</li>
+<li>选择 “字体大小”（<code>Font Size</code>）。</li>
+<li>在弹出的子菜单中选择一个更大的字号（如
+<code>16</code>、<code>20</code>、<code>24</code> 等）。</li>
+<li>这会同时影响图形视图中的标签、坐标轴、代数区等的字体大小。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/30/Word%E4%BD%BF%E7%94%A8%E5%88%86%E8%8A%82%E7%AC%A6%E5%88%86%E6%88%90%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86%E5%B9%B6%E5%88%86%E5%88%AB%E7%BC%96%E5%8F%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/30/Word%E4%BD%BF%E7%94%A8%E5%88%86%E8%8A%82%E7%AC%A6%E5%88%86%E6%88%90%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86%E5%B9%B6%E5%88%86%E5%88%AB%E7%BC%96%E5%8F%B7/" class="post-title-link" itemprop="url">Word使用分节符分成不同部分并分别编号</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-30 09:05:45" itemprop="dateCreated datePublished" datetime="2025-09-30T09:05:45+08:00">2025-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-28 09:34:33" itemprop="dateModified" datetime="2025-10-28T09:34:33+08:00">2025-10-28</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于工作的需要不得不再次使用<code>word</code>,
+本文针对使用<code>word</code>出题给出模板，将整个<code>word</code>分成试题和答案两部分，并且两部分分别统计页数和分别从1开始编号，也即是在Word中实现分节页码并显示<code>第x页 共X页</code>和<code>第x页 共Y页</code>.</p>
+<h1 id="一正确插入分节符并设置页码">一、正确插入分节符并设置页码</h1>
+<ul>
+<li>插入分节符：
+<ul>
+<li>将光标放在第一节的最后一页的末尾（即需要分节的位置）</li>
+<li>点击<code>布局</code>（或<code>页面布局</code>）选项卡</li>
+<li>在<code>页面设置</code>组中点击<code>分隔符</code></li>
+<li>选择<code>下一页</code>（这样会在新页开始新节）</li>
+</ul></li>
+<li>设置页码：
+<ul>
+<li>双击页脚区域进入页脚编辑模式</li>
+<li>在<code>页眉和页脚工具</code>选项卡中，取消<code>链接到前一节</code>的勾选（确保两节的页脚独立）</li>
+<li>在第一节的页脚中插入页码（设置为<code>第1页</code>）</li>
+<li>在第二节的页脚中插入页码（设置为从1开始）</li>
+</ul></li>
+</ul>
+<h1 id="二插入-sectionpages-域统计各节数量">二、插入 SectionPages
+域统计各节数量</h1>
+<ul>
+<li><p>在第一节最后一页的页脚中：</p>
+<ul>
+<li>双击页脚区域进入编辑模式</li>
+<li>在页脚中输入：<code>第x页 共x页</code></li>
+<li>按<code>Alt + F9</code>打开域代码视图（或点击<code>插入</code> →
+<code>文档部件</code>→<code>域</code>）</li>
+<li>在域代码对话框中，选择<code>SectionPages</code>域</li>
+<li>点击<code>确定</code>，域代码会显示为<code>&#123; SECTIONPAGES &#125;</code></li>
+<li>输入页，完成输入：第<code>&#123; PAGE &#125;</code>页
+共<code>&#123; SECTIONPAGES &#125;</code>页</li>
+<li>按<code>Alt + F9</code>切换回正常视图，显示为<code>第3页 共5页</code>（假设第一节有5页）</li>
+<li>按<code>F9</code>更新域，显示正确的页数</li>
+</ul></li>
+<li><p>在第二节最后一页的页脚中：</p>
+<ul>
+<li>双击页脚区域进入编辑模式</li>
+<li>在页脚中输入：<code>第x页 共y页</code></li>
+<li>按<code>Alt + F9</code>打开域代码视图</li>
+<li>插入<code>&#123; PAGE &#125;</code>域</li>
+<li>插入<code>&#123; SECTIONPAGES &#125;</code>域</li>
+<li>输入页，完成输入：第<code>&#123;PAGE&#125;</code>页
+共<code>&#123; SECTIONPAGES &#125;</code>页</li>
+<li>按<code>F9</code>更新域，显示正确的页数</li>
+</ul></li>
+</ul>
+<h1 id="三重要说明">三、重要说明</h1>
+<ul>
+<li><p>域代码更新：<code>Word</code>的域代码在文档内容变化后不会自动更新。每次修改文档后，需要按<code>F9</code>更新域，或在打印预览时自动更新。</p></li>
+<li><p>域代码格式：您看到的<code>&#123; SECTIONPAGES &#125;</code>是域代码，实际显示时会自动替换为当前节的总页数。</p></li>
+<li><p>通常情况下使用分节可以分别生成第一节为试题，第二节为答案，用于简单的命题工作。</p></li>
+</ul>
+<h1 id="四总结">四、总结</h1>
+<p>使用<code>Word</code>的域代码<code>&#123; SECTIONPAGES &#125;</code>，您可以在每节的最后一页自动显示<code>第x页 共X页</code>和<code>第x页 共Y页</code>，无需手动计算和输入。只需在每节的最后一页页脚中插入相应的域代码，然后按<code>F9</code>更新即可。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/29/%E7%A6%81%E7%94%A8win11%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/29/%E7%A6%81%E7%94%A8win11%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">禁用win11更新</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-09-29 10:18:47 / 修改时间：10:29:37" itemprop="dateCreated datePublished" datetime="2025-09-29T10:18:47+08:00">2025-09-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>windows 11
+会强制更新，这给需要稳定工作的人造成了麻烦，甚至是损失。一般情况下不允许永久关闭，所以本文介绍一个变通的方法，超长时间禁用更新以达到稳定使用系统的目标。</p>
+<h2 id="暂停更新">暂停更新</h2>
+<p>创建一个 <code>txt</code> 文件导入以下代码</p>
+<figure class="highlight txt"><figcaption><span>暂停更新至2042年</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]</span><br><span class="line">&quot;FlightSettingsMaxPauseDays&quot;=dword:00001b58</span><br><span class="line">&quot;PauseFeatureUpdatesStartTime&quot;=&quot;2023-07-07T10:00:52Z&quot;</span><br><span class="line">&quot;PauseFeatureUpdatesEndTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br><span class="line">&quot;PauseQualityUpdatesStartTime&quot;=&quot;2023-07-07T10:00:52Z&quot;</span><br><span class="line">&quot;PauseQualityUpdatesEndTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br><span class="line">&quot;PauseUpdatesStartTime&quot;=&quot;2023-07-07T09:59:52Z&quot;</span><br><span class="line">&quot;PauseUpdatesExpiryTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br></pre></td></tr></table></figure>
+<p>另存为 .reg 文件即可双击使用.</p>
+<h2 id="恢复更新">恢复更新</h2>
+<p>同理可以建立恢复默认，即</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]</span><br><span class="line">&quot;FlightSettingsMaxPauseDays&quot;=-</span><br><span class="line">&quot;PauseFeatureUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseFeatureUpdatesEndTime&quot;=-</span><br><span class="line">&quot;PauseQualityUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseQualityUpdatesEndTime&quot;=-</span><br><span class="line">&quot;PauseUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseUpdatesExpiryTime&quot;=-</span><br></pre></td></tr></table></figure>
+<p>另存为 .reg 文件即可双击使用.</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.disktool.cn/content-center/win11-do-not-turn-off-automatic-update-method-1016.html">win11千万要关闭系统更新！附4种彻底关闭系统更新的方法</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/642914883">唯一无副作用禁用Win10/11更新方法，一键暂停1000周</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/ArchLinux%E5%AE%89%E8%A3%85%E5%A5%94%E5%9B%BEP3370DN%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/27/ArchLinux%E5%AE%89%E8%A3%85%E5%A5%94%E5%9B%BEP3370DN%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8/" class="post-title-link" itemprop="url">ArchLinux安装奔图P3370DN打印机驱动</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-09-27 19:44:48 / 修改时间：19:58:38" itemprop="dateCreated datePublished" datetime="2025-09-27T19:44:48+08:00">2025-09-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题描述">问题描述</h1>
+<p>办公室配置的奔图P3370DN打印机，在其<a
+target="_blank" rel="noopener" href="https://www.pantum.cn/search/download-driver/?s=3370">奔图官网驱动下载</a>站点可以看到该打印机是有Linux驱动的，但是它是针对Debian系列的Linux设计的，在ArchLinux上就无法直接安装了。</p>
+<h1 id="解决方案">解决方案</h1>
+<ul>
+<li>安装<code>system-config-printer</code>, 即运行命令</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S system-config-printer</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>在菜单中找到<code>打印机设置</code>→<code>解锁</code>→<code>添加</code>→<code>网络打印机</code>.</p></li>
+<li><p>选择局域网内的打印机，此时默认会显示打印机的<code>IP</code>和<code>端口</code>,
+同时下方显示连接<code>AppSocket/HP JetDirect</code>,
+点击转发,然后等待搜索驱动.</p></li>
+<li><p>在上方选中<code>从数据库中选择打印机</code>,下方选中<code>Generic(推荐)</code>,
+然后点转发。</p></li>
+<li><p>进一步<code>选择驱动程序</code>→<code>PostScript</code>,
+然后在右侧显示驱动程序<code>Generic PostScript Printer（推荐）</code>,
+再点转发，设置成功。</p></li>
+</ul>
+<h1 id="注意">注意</h1>
+<p>由于奔图打印机在github上没有公开驱动程序，所以使用paru也无法实现驱动安装，通过一系列测试，使用Linux系统的通用打印驱动即可实现完美打印。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Seewo电脑安装win10后显卡和芯片组驱动安装</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-09-27 15:58:37 / 修改时间：16:44:41" itemprop="dateCreated datePublished" datetime="2025-09-27T15:58:37+08:00">2025-09-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述">问题描述</h2>
+<p>单位配置了国产电脑，牌子是 Seewo
+的。但是其安装的系统是银河麒麟系统和win10家庭版，它们同时占据了一块512的固态硬盘，这给不经常使用Linux的用户造成麻烦，因此有必要将Linux去除，同时只安装LTSC版本的Win10.
+但是我在安装完成LTSC版win10后，发现右键我的电脑后发现还有若干硬件出现黄色感叹号，也就是这些硬件没有被win10识别，同时由于缺失显卡驱动，也无法将分辨率调成1080p。本文给出解决方案。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="芯片硬件驱动">芯片硬件驱动</h3>
+<ul>
+<li>下载海光3350驱动<a
+target="_blank" rel="noopener" href="https://www.cancon.com.cn/download/files/drivers/driversNEW/Chipset/HygonSoCDriver-1.0.3.msi">HygonSoCDriver-1.0.3.msi</a>.</li>
+<li>双击安装.</li>
+<li>参考文章：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/8852505469#">海光c86
+3250 装的win10驱动打不上</a></li>
+</ul>
+<h3 id="显卡驱动">显卡驱动</h3>
+<ul>
+<li>下载<a
+target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Oq7rm9q1IvYtovkX37hKFA?pwd=lkkk">国产风华2号win10/win11驱动</a></li>
+<li>解压缩文件到你的电脑</li>
+<li>以管理员身份运行命令
+<code>pnputil.exe /add-driver innogpu.inf /install</code></li>
+<li>你可以看到驱动立刻安装完成。</li>
+<li>参考文章：<a
+target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1-1.html">国产显卡风华2号Windows10/11驱动</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -529,775 +1318,8 @@ LspAttach 自动命令来设置。这可以避免为每个服务器重复编写 
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/31/%E5%90%8E%E5%87%BA%E5%B8%88%E8%A1%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/31/%E5%90%8E%E5%87%BA%E5%B8%88%E8%A1%A8/" class="post-title-link" itemprop="url">后出师表</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-08-31 14:22:53 / 修改时间：14:23:38" itemprop="dateCreated datePublished" datetime="2025-08-31T14:22:53+08:00">2025-08-31</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>先帝深虑汉、贼不两立，王业不偏安，故托臣以讨贼也。以先帝之明，量臣之才，固知臣伐贼，才弱敌强也。然不伐贼，王业亦亡。惟坐而待亡，孰与伐之？是故托臣而弗疑也。</p>
-<p>臣受命之日，寝不安席，食不甘味。思惟北征。宜先入南。故五月渡泸，深入不毛，并日而食；臣非不自惜也，顾王业不可得偏安于蜀都，故冒危难，以奉先帝之遗意也，而议者谓为非计。今贼适疲于西，又务于东，兵法乘劳，此进趋之时也。谨陈其事如左：</p>
-<p>高帝明并日月，谋臣渊深，然涉险被创，危然后安。今陛下未及高帝，谋臣不如良、平，而欲以长策取胜，坐定天下，此臣之未解一也。</p>
-<p>刘繇、王朗各据州郡，论安言计，动引圣人，群疑满腹，众难塞胸，今岁不战，明年不征，使孙策坐大，遂并江东，此臣之未解二也。</p>
-<p>曹操智计，殊绝于人，其用兵也，仿佛孙、吴，然困于南阳，险于乌巢，危于祁连，逼于黎阳，几败北山，殆死潼关，然后伪定一时耳。况臣才弱，而欲以不危而定之，此臣之未解三也。</p>
-<p>曹操五攻昌霸不下，四越巢湖不成，任用李服而李服图之，委任夏侯而夏侯败亡，先帝每称操为能，犹有此失，况臣驽下，何能必胜？此臣之未解四也。</p>
-<p>自臣到汉中，中间期年耳，然丧赵云、阳群、马玉、阎芝、丁立、白寿、刘郃、邓铜等及曲长、屯将七十余人，突将、无前、賨叟、青羌、散骑、武骑一千余人。此皆数十年之内所纠合四方之精锐，非一州之所有；若复数年，则损三分之二也，当何以图敌？此臣之未解五也。</p>
-<p>今民穷兵疲，而事不可息；事不可息，则住与行劳费正等。而不及今图之，欲以一州之地，与贼持久，此臣之未解六也。</p>
-<p>夫难平者，事也。昔先帝败军于楚，当此时，曹操拊手，谓天下已定。然后先帝东连吴越，西取巴蜀，举兵北征，夏侯授首，此操之失计，而汉事将成也。然后吴更违盟，关羽毁败，秭归蹉跌，曹丕称帝。凡事如是，难可逆见。臣鞠躬尽瘁，死而后已。至于成败利钝，非臣之明所能逆睹也。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/08/Shell%E8%84%9A%E6%9C%AC%E5%8F%98%E9%87%8F%E4%B8%8E%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/08/Shell%E8%84%9A%E6%9C%AC%E5%8F%98%E9%87%8F%E4%B8%8E%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Shell脚本变量与函数变量</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-08 11:18:23" itemprop="dateCreated datePublished" datetime="2025-08-08T11:18:23+08:00">2025-08-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-16 20:44:29" itemprop="dateModified" datetime="2025-08-16T20:44:29+08:00">2025-08-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 shell 脚本中使用<code>$1</code>， <code>$2</code>
-等表示变量，它们不仅可以表示脚本的参数，也可以表示函数的参数。但是，如果一个函数它自己有参变量，同时又需要引用脚本的参变量，那这个函数就无法识别<code>$1</code>是脚本的还是函数的，这会导致矛盾。为了解决函数参数覆盖脚本参数的问题，一个简单安全的方法是提前保存脚本参数，即</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 调用前保存脚本参数到全局变量</span></span><br><span class="line">script_args=(<span class="string">&quot;<span class="variable">$@</span>&quot;</span>)  <span class="comment"># 保存所有参数到数组</span></span><br><span class="line"><span class="function"><span class="title">process_args</span></span>() &#123;</span><br><span class="line">    <span class="comment"># 函数参数</span></span><br><span class="line">    <span class="built_in">local</span> func_param=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="comment"># 访问脚本参数</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;脚本第一个参数: <span class="variable">$&#123;script_args[0]&#125;</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;脚本第二个参数: <span class="variable">$&#123;script_args[1]&#125;</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;函数参数: <span class="variable">$func_param</span>&quot;</span></span><br><span class="line">    <span class="comment"># 遍历所有脚本参数</span></span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;script_args[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;脚本参数: <span class="variable">$arg</span>&quot;</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 调用函数并传递函数参数</span></span><br><span class="line">process_args <span class="string">&quot;函数参数值&quot;</span></span><br></pre></td></tr></table></figure>
-<p>此法能确保在函数中正确访问脚本参数，同时保持代码清晰和可维护性。
-这里需要注意变量<code>$0</code>和<code>$?</code>不会被函数参数覆盖，这里将各变量列表如下：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">变量</th>
-<th style="text-align: left;">是否被函数参数覆盖</th>
-<th style="text-align: left;">作用域</th>
-<th style="text-align: left;">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>$0</code></td>
-<td style="text-align: left;">否</td>
-<td style="text-align: left;">全局</td>
-<td style="text-align: left;">始终表示脚本名称</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>$?</code></td>
-<td style="text-align: left;">否</td>
-<td style="text-align: left;">动态更新</td>
-<td style="text-align: left;">始终表示上一个命令的退出状态</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>$1-$9</code></td>
-<td style="text-align: left;">是</td>
-<td style="text-align: left;">函数内局部</td>
-<td style="text-align: left;">在函数内被函数参数覆盖</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>$#</code></td>
-<td style="text-align: left;">是</td>
-<td style="text-align: left;">函数内局部</td>
-<td style="text-align: left;">在函数内表示函数参数个数</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>$@</code></td>
-<td style="text-align: left;">是</td>
-<td style="text-align: left;">函数内局部</td>
-<td style="text-align: left;">在函数内表示函数参数列表</td>
-</tr>
-</tbody>
-</table>
-<p>所以综合考虑，将<code>$0</code>也在脚本开头保存，以便规范使用。于是前面的脚本可以进一步写为：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 调用前保存脚本参数到全局变量</span></span><br><span class="line">script_args=(<span class="string">&quot;<span class="variable">$0</span>&quot;</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span>)  <span class="comment"># 保存所有参数到数组</span></span><br><span class="line"><span class="function"><span class="title">process_args</span></span>() &#123;</span><br><span class="line">    <span class="comment"># 函数参数</span></span><br><span class="line">    <span class="built_in">local</span> func_param=<span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">    <span class="comment"># 访问脚本参数</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;脚本第一个参数: <span class="variable">$&#123;script_args[0]&#125;</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;脚本第二个参数: <span class="variable">$&#123;script_args[1]&#125;</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;函数参数: <span class="variable">$func_param</span>&quot;</span></span><br><span class="line">    <span class="comment"># 遍历所有脚本参数</span></span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;script_args[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;脚本参数: <span class="variable">$arg</span>&quot;</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 调用函数并传递函数参数</span></span><br><span class="line">process_args <span class="string">&quot;函数参数值&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/07/Shell%E8%84%9A%E6%9C%AC%E8%8E%B7%E5%8F%96%E7%BB%88%E7%AB%AF%E5%B0%BA%E5%AF%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/07/Shell%E8%84%9A%E6%9C%AC%E8%8E%B7%E5%8F%96%E7%BB%88%E7%AB%AF%E5%B0%BA%E5%AF%B8/" class="post-title-link" itemprop="url">Shell脚本获取终端尺寸</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-07 19:52:59" itemprop="dateCreated datePublished" datetime="2025-08-07T19:52:59+08:00">2025-08-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-16 20:44:29" itemprop="dateModified" datetime="2025-08-16T20:44:29+08:00">2025-08-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在编写 shell
-脚本时经常使用的函数可以封闭到一个脚本中，然后其他脚本使用 source
-命令直接调用即可，这样不仅有利于新脚本的开发，更有利于维护。但是今天在编写新的脚本
-<code>chaos.sh</code>
-时调用了我之前在<code>diary.sh</code>中调用过的菜单脚本，然而却出现错误。一直提示"
-stty: 标准输入: 对设备不适当的 ioctl 操作" 。</p>
-<p>造成这个问题的原因是：使用 <code>Neovim</code>
-内置命令运行脚本时并没有真正在一个终端中运行，而菜单脚本使用<code>tty</code>获取终端的尺寸，此时没有可用的<code>tty</code>,
-因此出现报错。</p>
-<p>一个更健壮的获取终端尺寸的方法（在非终端环境下，如 Neovim
-<code>:!sh ./chaos.sh</code> 等也不会报错）,是使用<code>tput</code>,
-这是一具兼容度最好的方案。具体原因是</p>
-<ul>
-<li><code>tput</code> 会尝试从环境变量或<code>terminfo</code>
-中获取尺寸</li>
-<li>在非终端环境下返回空或错误，可用<code>||</code>提供默认值</li>
-<li>不会像<code>stty size</code> 那样报错</li>
-</ul>
-<p>一般情况下，使用<code>stty size</code> 与
-<code>tput</code>会获得相同的结果，为了确保与之前脚本的兼容性，修改获取尺寸函数为：</p>
-<figure class="highlight sh"><figcaption><span>~/.Share_Fun/Share_Fun_Menu.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列表程序</span></span><br><span class="line"><span class="function"><span class="title">DY_SET_SIZE</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [ -t 0 ]; <span class="keyword">then</span></span><br><span class="line">        TTY_H=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">        TTY_W=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        TTY_H=$(tput lines 2&gt;/dev/null) || TTY_H=37</span><br><span class="line">        TTY_W=$(tput cols 2&gt;/dev/null) || TTY_W=147</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">let</span> TTY_H-=2</span><br><span class="line">&#125;</span><br><span class="line">DY_SET_SIZE</span><br></pre></td></tr></table></figure>
-<p>通过<code>[ -t 0 ]</code>来判断运行程序时是否在终端，若在终端仍然使用<code>stty size</code>获取终端尺寸，否则使用<code>tput</code>获取。这样重新定义获取尺寸函数后，问题彻底解决。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/06/Mason%E5%8A%A0%E9%80%9F%E4%B8%8B%E8%BD%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/08/06/Mason%E5%8A%A0%E9%80%9F%E4%B8%8B%E8%BD%BD/" class="post-title-link" itemprop="url">Mason加速下载</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-08-06 18:09:58" itemprop="dateCreated datePublished" datetime="2025-08-06T18:09:58+08:00">2025-08-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-08-16 20:44:29" itemprop="dateModified" datetime="2025-08-16T20:44:29+08:00">2025-08-16</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Neovim 配置好 LSP 后可以极大的增强功能，其中 Mason
-可以方便的管理和配置 LSP, 而 <code>ltex-ls</code>
-可以实现离线<code>latex</code>,
-<code>markdown</code>等的语法检测，所以这是一个重要 LSP.
-然而，在近几天使用 <code>Neovim</code> 打开
-<code>latex</code>文件时总是报错如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JDK 24 - Cannot load or parse input stream of <span class="string">&#x27;/org/languagetool/rules/en/grammar.xml&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>根据 <a
-target="_blank" rel="noopener" href="https://github.com/languagetool-org/languagetool/issues/11125">https://github.com/languagetool-org/languagetool/issues/11125</a>
-的提示，将<code>ltex-ls</code>替换为<code>ltex-ls-plus</code>可以解决问题，同时后者是前者的增强版本也是一个更好的选择。但是在安装时发现<code>ltex-ls-plus</code>的体积非常大，使用Mason直接安装多次未成功。于是将<code>Maso</code>的默认下载工具调整为<code>aria2</code>,
-实现了快速下载，最终成功安装<code>ltex-ls-plus</code>.</p>
-<h2 id="安装-aria2">安装 aria2</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S aria</span><br></pre></td></tr></table></figure>
-<h2 id="配置-mason">配置 Mason</h2>
-<p>设置如下：</p>
-<figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/lsp/mason.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;mason&quot;</span>).setup(&#123;</span><br><span class="line">    ... ,</span><br><span class="line">	download = &#123;</span><br><span class="line">	   cmd = <span class="string">&quot;aria2c&quot;</span>,</span><br><span class="line">	   args = &#123; <span class="string">&quot;--continue&quot;</span>, <span class="string">&quot;--out=$FILE&quot;</span>, <span class="string">&quot;$URL&quot;</span> &#125;</span><br><span class="line">	&#125;,</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<p>为方便使用，我的完整文件内容展示如下：</p>
-<figure class="highlight lua"><figcaption><span>~/.config/nvim/lua/lsp/mason.lua</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- :h mason-default-settings</span></span><br><span class="line"><span class="comment">-- ~/.local/share/nvim/mason</span></span><br><span class="line"><span class="comment">--</span></span><br><span class="line"><span class="keyword">local</span> servers = &#123;</span><br><span class="line">   lua_ls = <span class="built_in">require</span> <span class="string">&quot;lsp.lua&quot;</span>, <span class="comment">-- /lua/lsp/lua.lua</span></span><br><span class="line">   ltex = <span class="built_in">require</span> <span class="string">&quot;lsp.ltex&quot;</span>, <span class="comment">-- /lua/lsp/ltex.lua</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;mason&quot;</span>).setup(&#123;</span><br><span class="line">        github = &#123;</span><br><span class="line">            since <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line">            download_url_template = <span class="string">&quot;https://github.com/%s/releases/download/%s/%s&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        ui = &#123;</span><br><span class="line">            icons = &#123;</span><br><span class="line">                package_installed = <span class="string">&quot;✓&quot;</span>,</span><br><span class="line">                package_pending = <span class="string">&quot;➜&quot;</span>,</span><br><span class="line">                package_uninstalled = <span class="string">&quot;✗&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">	download = &#123;</span><br><span class="line">	   cmd = <span class="string">&quot;aria2c&quot;</span>,</span><br><span class="line">	   args = &#123; <span class="string">&quot;--continue&quot;</span>, <span class="string">&quot;--out=$FILE&quot;</span>, <span class="string">&quot;$URL&quot;</span> &#125;</span><br><span class="line">	&#125;,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 添加安装的插件,使用Mason命令查询插件名称</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;mason-lspconfig&quot;</span>).setup &#123;</span><br><span class="line">   ensure_installed = &#123;</span><br><span class="line">      <span class="string">&quot;lua_ls&quot;</span>,</span><br><span class="line">      <span class="string">&quot;rust_analyzer&quot;</span>,</span><br><span class="line">      <span class="comment">-- &quot;ltex_plus&quot;,</span></span><br><span class="line">      <span class="string">&quot;pyright&quot;</span>,</span><br><span class="line">      <span class="string">&quot;vimls&quot;</span>,</span><br><span class="line">      <span class="string">&quot;texlab&quot;</span>,</span><br><span class="line">   &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/25/Hexo%E5%8D%9A%E5%AE%A2%E9%87%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/07/25/Hexo%E5%8D%9A%E5%AE%A2%E9%87%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Hexo博客重置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-07-25 18:19:31" itemprop="dateCreated datePublished" datetime="2025-07-25T18:19:31+08:00">2025-07-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-07-28 10:29:04" itemprop="dateModified" datetime="2025-07-28T10:29:04+08:00">2025-07-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2025年07月25日星期五,
-今天是离开北师大后第一次更新博客，原因是一直没有时间来重新配置系统。在新电脑上启用<code>diary.sh</code>脚本时，需要提前配置好<code>hexo</code>,
-因为直接<code>clone</code>博客仓库后，使用<code>hexo s</code>和<code>hexo g</code>均报错：</p>
-<figure class="highlight sh"><figcaption><span>报错</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Error: Cannot find module <span class="string">&#x27;./db.json&#x27;</span></span><br><span class="line">Require stack:</span><br><span class="line">- /home/feng/.DY_SCE/fungzhenhua.github.io/node_modules/mime-db/index.js</span><br><span class="line">- /home/feng/.DY_SCE/fungzhenhua.github.io/node_modules/compressible/index.js</span><br><span class="line">- /home/feng/.DY_SCE/fungzhenhua.github.io/node_modules/compression/index.js</span><br></pre></td></tr></table></figure>
-<p>解决方法为：使用<code>yarn</code>对应的命令清理缓存和重装.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn cache clean</span><br><span class="line"><span class="built_in">rm</span> -rf node_modules</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
-<p>之后使用<code>hexo g</code>, 重新生成仓库后问题解决。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/19/File-Roller%E8%A7%A3%E5%8E%8B%E7%BC%A9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/19/File-Roller%E8%A7%A3%E5%8E%8B%E7%BC%A9%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">File-Roller解压缩乱码问题的解决</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-06-19 14:45:33" itemprop="dateCreated datePublished" datetime="2025-06-19T14:45:33+08:00">2025-06-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-22 16:13:40" itemprop="dateModified" datetime="2025-10-22T16:13:40+08:00">2025-10-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Linux 使用系统自带的 File-Roller
-文件归档器解压缩文件时有时会遇到中文文件名解压后乱码的问题，此时我们可以使用命令行工具<code>unar</code>执行<code>unar yourfile.zip</code>实现中文名文件的解压缩，但是对于正在进行图形工作的任务时，切换命令行会降低效率。因此，解决
-File-Roller 的中文解压缩乱码问题是一个相当重要的问题。</p>
-<h2 id="乱码的原因">乱码的原因</h2>
-<ul>
-<li>编码不一致(主要原因)：Windows (GBK)和 Linux
-(UTF-8)系统下默认的字符编码不同，导致在交叉使用时出现乱码。</li>
-<li>软件版本问题：某些软件版本对编码支持不全，也会导致乱码的出现。</li>
-</ul>
-<h2 id="安装依赖">安装依赖</h2>
-<p><code>p7zip-natspec</code>包，它增加了对本地语言编码的支持，所以使用<code>p7zip-natspec</code>取代<code>p7zip</code>，同时安装
-<code>p7zip-natspec</code> 后， <code>File Roller</code> 在解压
-<code>7z</code>、<code>rar</code>，有时也包括 <code>zip</code>
-格式时，应会优先调用这个能识别编码的 <code>7z</code>
-版本。这通常能有效解决这些格式压缩包内的中文乱码问题。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S p7zip-natspec</span><br></pre></td></tr></table></figure>
-<h2 id="旧版本-file-roller-解决方案">旧版本 File-Roller 解决方案</h2>
-<ol type="1">
-<li>打开 File-Roller, 选择 “工具” 菜单中的 “配置文件管理器” 。</li>
-<li>在 “编码” 选项卡中，将 “自动检测” 设置为
-“否”，并手动添加<code>GB18030</code>, <code>GBK</code>,
-<code>GB2312</code>等编码。</li>
-<li>保存并关闭配置文件管理器。</li>
-</ol>
-<h2 id="新版本-file-roller-解决方案">新版本 File-Roller 解决方案</h2>
-<p>在 GNOME 48
-环境下，File-Roller（归档管理器）的界面已更新，不再提供旧版的 工具
-菜单和
-配置文件管理器。但底层仍支持通过配置文件（<code>fr-encodings.json</code>）自定义编码列表。修改配置文件后，
-File-Roller 会优先使用列表中的编码尝试解压（等同于关闭自动检测）。</p>
-<ol type="1">
-<li>打开终端。</li>
-<li>编辑 File-Roller 的配置文件： <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.config/file-roller</span><br><span class="line">nvim ~/.config/file-roller/fr-encodings.json</span><br></pre></td></tr></table></figure></li>
-<li>将以下内容粘贴到文件中： <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;encodings&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;GB18030&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;GBK&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;GB2312&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;UTF-8&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;CURRENT&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>GB18030</code>,<code>BGK</code>,<code>BG2312</code>是手动添加的中文编码。</li>
-<li><code>UTF-8</code>, <code>CURRENT</code>是保留的默认编码。</li>
-</ul></li>
-<li>重启 File-Roller 即可生效。</li>
-</ol>
-<h2 id="解压时手动选择编码">解压时手动选择编码</h2>
-<ol type="1">
-<li>双击打开压缩文件。</li>
-<li>点击右上解的<code>⋮（菜单）</code>→<code>使用其他编码打开...</code>。</li>
-<li>从列表中选择<code>GB18030</code>,<code>BGK</code>或<code>GB2312</code>。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/17/SuperTuxKart%E8%A7%A3%E9%94%81%E6%89%80%E6%9C%89%E5%85%B3%E5%8D%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/17/SuperTuxKart%E8%A7%A3%E9%94%81%E6%89%80%E6%9C%89%E5%85%B3%E5%8D%A1/" class="post-title-link" itemprop="url">SuperTuxKart解锁所有关卡</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-06-17 20:37:59 / 修改时间：20:47:12" itemprop="dateCreated datePublished" datetime="2025-06-17T20:37:59+08:00">2025-06-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>办公累了，偶尔也找款游戏玩玩，其中 SuperTuxKart 类似于 Windows
-下的泡泡卡丁车。由于 Linux
-的开源特性，我们可以直接修改配置文件而解锁所有关卡。方法是：</p>
-<ul>
-<li>找到本地配置文件
-<code>~/.config/supertuxkart/config-0.10/players.xml</code></li>
-<li>找到标签 <code>&lt;story-mode&gt;</code>, 然后修改
-<code>solved="none"</code> 为 <code>solved="easy"</code> 或
-<code>solved="hard"</code>.</li>
-<li>修改好的文件内容为： <figure class="highlight xml"><figcaption><span>~/.config/supertuxkart/config-0.10/players.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">story-mode</span> <span class="attr">first-time</span>=<span class="string">&quot;false&quot;</span> <span class="attr">finished</span>=<span class="string">&quot;false&quot;</span> <span class="attr">speedrun-finished</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">story-ms</span>=<span class="string">&quot;1023726&quot;</span> <span class="attr">speedrun-ms</span>=<span class="string">&quot;1291839&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">abyss</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">candela_city</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cocoa_temple</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cornfield_crossing</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">fortmagma</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp1</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp2</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp3</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gp4</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">granparadiso_island</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">green_valley</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">hacienda</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">lighthouse</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mansion</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mines</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">minigolf</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">olivermath</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sandtrack</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">scotland</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">snowmountain</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">snowpeak</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">stk_enterprise</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_bonus_kart1</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_bonus_kart2</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">unlock_supertux</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">volcano_island</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xr591</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">zengarden</span> <span class="attr">solved</span>=<span class="string">&quot;easy&quot;</span> <span class="attr">best_while_slower</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">story-mode</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/06/17/Gnome3%E4%B8%AD%E7%9A%84%E7%8E%B0%E4%BB%A3%E9%98%85%E8%AF%BB%E5%99%A8papers%E5%8F%96%E4%BB%A3evince/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/17/Gnome3%E4%B8%AD%E7%9A%84%E7%8E%B0%E4%BB%A3%E9%98%85%E8%AF%BB%E5%99%A8papers%E5%8F%96%E4%BB%A3evince/" class="post-title-link" itemprop="url">Gnome3中的现代阅读器papers取代evince</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-06-17 15:13:45 / 修改时间：15:19:54" itemprop="dateCreated datePublished" datetime="2025-06-17T15:13:45+08:00">2025-06-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介">简介</h2>
-<p>GNOME 近年来正在转向 GTK4 +
-LibAdwaita。核心应用程序要么移植到新框架，要么被新框架替换。Papers
-是一款专门为 GNOME
-桌面环境打造的强大「文档查看器」。它支持多种文档格式，能够轻松查看、搜索和批注文档，为用户带来更丰富的使用体验。</p>
-<p>目前，Papers
-支持的文档格式包括：PDF、PS、EPS、XPS、DjVu、TIFF，以及漫画书档案（CBR、CBT、CBZ
-和 CB7 格式）。无论常见文档还是特殊格式，Papers 都能轻松搞定，堪称 GNOME
-用户的得力助手。</p>
-<h2 id="安装">安装</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S papers</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://cn.linux-terminal.com/?p=8491">Papers 预计将取代
-Evince 成为 GNOME 默认 PDF 查看器</a></li>
-<li><a target="_blank" rel="noopener" href="https://news.qq.com/rain/a/20250220A049HP00">GNOME 48
-测试版：X11 终结的又一里程碑</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.sysgeek.cn/ubuntu-papers-pdf-viewer/">Papers：Ubuntu
-中的新 PDF 查看器</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.linuxeden.com/a/137116">作为基于 GTK4 的 Evince
-分叉，GNOME Papers 文档查看器正在取得进展</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

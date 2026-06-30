@@ -141,7 +141,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -354,7 +354,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-04-21 08:38:52" itemprop="dateModified" datetime="2026-04-21T08:38:52+08:00">2026-04-21</time>
+      <time title="修改时间：2026-06-11 10:37:23" itemprop="dateModified" datetime="2026-06-11T10:37:23+08:00">2026-06-11</time>
     </span>
 
   
@@ -366,10 +366,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>由于网络限制，升级了脚本<code>diary.sh</code>,
-从而实现了无法上<code>github</code>的电脑上本地托管博客的功能，这样在办公环境中可以使用高度自定义的博客，进而提高办公规范和效率。然而，借助<code>python3</code>实现的博客工作于本地域名<code>127.0.0:4000</code>或<code>http://localhost:4000</code>,
-虽然实现了功能，但是还需要修改<code>firefox</code>的主而为<code>http://localhost:400</code>,
-在地址栏中看起来不爽，所以本节是锦上添的技术：使用<code>Caddy</code>反向代理，生成自签名证书，从而实现访问<code>https://fungzhenhua.github.io</code>时实际上是访问<code>http://localhost:4000</code>效果。</p>
+    <div class="post-body" itemprop="articleBody"><p>由于网络限制，我们升级了脚本
+<code>diary.sh</code>，使其能够在无法访问 <code>GitHub</code>
+的电脑上本地托管博客，这样在办公环境中可以使用高度定制化的博客系统，从而提高工作效率和规范性。尽管通过
+Python3 实现的博客可以在本地域名 <code>127.0.0:4000</code> 或
+<code>http://localhost:4000</code>
+上运行，但在浏览器地址栏中看起来不够美观，并且需要在
+<code>Firefox</code> 中手动设置代理为
+<code>http://localhost:4000</code>。为此，本节介绍了一项锦上添花的技术：使用
+<code>Caddy</code> 反向代理并生成自签名证书，这样当访问
+<code>https://fungzhenhua.github.io</code> 时，实际上是在访问
+<code>http://localhost:4000</code> 的内容。</p>
 <h2 id="配置caddy">配置Caddy</h2>
 <h3 id="安装caddy">安装Caddy</h3>
 <figure class="highlight sh"><figcaption><span>Install Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S caddy</span><br></pre></td></tr></table></figure>

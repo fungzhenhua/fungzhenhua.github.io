@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,958 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/04/Python2%E5%88%B0Python3%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B72to3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/04/Python2%E5%88%B0Python3%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B72to3/" class="post-title-link" itemprop="url">Python2到Python3的转换工具2to3</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-04 02:11:03" itemprop="dateCreated datePublished" datetime="2024-08-04T02:11:03+08:00">2024-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近期在研究使用<code>Python</code>绘图，但是<code>veusz</code>官方网站上给出的例子好多都是<code>Python2</code>格式.
+如果代码量比较少，则按照<a
+target="_blank" rel="noopener" href="https://www.runoob.com/python/python-2x-3x.html">Python2.x与Python3.x版本区别</a>一点一点的修改即可，
+但是如果代码量比较大，那这一点一点的修改显然效率太低了。好在，<code>Python3</code>内置了一个转换工具<code>2to3</code>,
+可以方便的完成从<code>Python2.x</code>到<code>Python3.x</code>的转换工作。</p>
+<h2 id="to3-简介">2to3 简介</h2>
+<p>2to3 是一个 Python 程序，它可以用来读取 Python 2.x
+版本的代码，并使用一系列的 修复器 来将其转换为合法的 Python 3.x
+代码。标准库中已经包含了丰富的修复器，这足以处理绝大多数代码。不过 2to3
+的支持库 lib2to3 是一个很灵活通用的库，所以你也可以为 2to3
+编写你自己的修复器。lib2to3 也可以用在那些需要自动处理 Python
+代码的应用中。</p>
+<h2 id="使用方法">使用方法</h2>
+<p>2to3
+的基本调用参数是一个需要转换的文件或目录列表。对于目录，会递归地寻找其中的
+Python 源码。例如，一个<code>Python2.x</code>的源文件为：</p>
+<figure class="highlight python"><figcaption><span>python2.x:example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;Hello, &#123;0&#125;!&quot;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;What&#x27;s your name?&quot;</span></span><br><span class="line">name = raw_input()</span><br><span class="line">greet(name)</span><br></pre></td></tr></table></figure>
+<p>它可以在命令行中使用 2to3 转换成 Python 3.x 版本的代码：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 example.py</span><br></pre></td></tr></table></figure>
+<p>这个命令会打印出和源文件的区别。通过传入 -w 参数，2to3
+也可以把需要的修改写回到原文件中（除非传入了 -n
+参数，否则会为原始文件创建一个副本）：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -w example.py</span><br></pre></td></tr></table></figure>
+<p>转换完成后，example.py 看起来像是这样：</p>
+<figure class="highlight python"><figcaption><span>python3.x:example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, &#123;0&#125;!&quot;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;What&#x27;s your name?&quot;</span>)</span><br><span class="line">name = <span class="built_in">input</span>()</span><br><span class="line">greet(name)</span><br></pre></td></tr></table></figure>
+<p>注释和缩进都会在转换过程中保持不变。默认情况下，2to3 会执行
+预定义修复器 的集合。使用 -l 参数可以列出所有可用的修复器。使用 -f
+参数可以明确指定需要使用的修复器集合。而使用 -x
+参数则可以明确指定不使用的修复器。下面的例子会只使用 imports 和
+<code>has_key</code> 修复器运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -f imports -f has_key example.py</span><br></pre></td></tr></table></figure>
+<p>这个命令会执行除了 apply 之外的所有修复器：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -x apply example.py</span><br></pre></td></tr></table></figure>
+<p>有一些修复器是需要 显式指定
+的，它们默认不会执行，必须在命令行中列出才会执行。比如下面的例子，除了默认的修复器以外，还会执行
+idioms 修复器：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -f all -f idioms example.py</span><br></pre></td></tr></table></figure>
+<p>注意这里使用 all 来启用所有默认的修复器。</p>
+<p>--add-suffix
+选项接受一个字符串，用来作为后缀附加在输出文件名后面的后面。由于写入的文件名与原始文件不同，所以没有必要创建副本，因此
+-n 选项也是必要的。举个例子：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -n -W --add-suffix=3 example.py</span><br></pre></td></tr></table></figure>
+<p>这样会把转换后的文件写入 example.py3
+文件。将整个项目从一个目录转换到另一个目录可以用这样的命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 --output-dir=python3-version/mycode -W -n python2-version/mycode</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/2to3.html#to3-automated-python-2-to-3-code-translation">2to3
+- 自动将 Python 2 代码转为 Python 3 代码</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/qftd/p/11508586.html">Python代码2转3、3转2的方法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/Python%E6%8E%A8%E5%AF%BC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/03/Python%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-title-link" itemprop="url">Python推导式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-03 15:16:58" itemprop="dateCreated datePublished" datetime="2024-08-03T15:16:58+08:00">2024-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Python
+推导式是一种强大且简洁的语法，适用于生成列表、字典、集合和生成器。在使用推导式时，需要注意可读性，尽量保持表达式简洁，以免影响代码的可读性和可维护性。</p>
+<h2 id="语法格式">语法格式</h2>
+<figure class="highlight python"><figcaption><span>语法格式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">结果值<span class="number">1</span> <span class="keyword">if</span> 判断条件 <span class="keyword">else</span> 结果<span class="number">2</span>  <span class="keyword">for</span> 变量名 <span class="keyword">in</span> 原列表</span><br></pre></td></tr></table></figure>
+<h2 id="举例说明">举例说明</h2>
+<h3 id="代码">代码</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;test1&#x27;</span>, <span class="string">&#x27;test2&#x27;</span>]</span><br><span class="line">list2 = [word.title() <span class="keyword">if</span> word.startswith(<span class="string">&#x27;p&#x27;</span>) <span class="keyword">else</span> word.upper() <span class="keyword">for</span> word <span class="keyword">in</span> list1]</span><br><span class="line"><span class="built_in">print</span>(list2)</span><br></pre></td></tr></table></figure>
+<h3 id="结果">结果</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;TEST1&#x27;</span>, <span class="string">&#x27;TEST2&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-comprehensions.html">Python
+推导式</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32727095/article/details/118959610">【Python】推导式（列表推导式、元组推导式、字典推导式、集合推导式）详解</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018183488">Python
+进阶之路 (八) 最用心的推导式详解 (附简单实战及源码)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/veusz%E7%BB%98%E5%88%B6mandelbrot%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/03/veusz%E7%BB%98%E5%88%B6mandelbrot%E9%9B%86/" class="post-title-link" itemprop="url">veusz绘制mandelbrot集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-03 01:10:09" itemprop="dateCreated datePublished" datetime="2024-08-03T01:10:09+08:00">2024-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="python2到python3的问题修复">Python2到Python3的问题修复</h2>
+<p>本文测试<code>veusz</code>绘制<code>2D</code>图形的能力，于是在官方网站下载了<code>mandelbrot</code>的经典例子：<a
+target="_blank" rel="noopener" href="https://veusz.github.io/examples/mandelbrot.vsz">mandelbrot.vsz</a>,
+但是官方的例子是以<code>python2</code>构建的，而本文希望切换到<code>python3</code>解决问题。由于语法的兼容，需要做出少许修改：</p>
+<ul>
+<li>指明<code>python2</code>可以直接运行程序，但不是目前我想要的。</li>
+<li><code>print</code>函数，在<code>python2</code>中不需要加括号，但是<code>python3</code>中需要加括号，即<code>print "hello world"</code>→<code>print ("hello world")</code></li>
+<li><code>python2</code>中使用<code>xrange</code>函数，在<code>python3</code>中已经取消，合并到<code>range</code>函数。所以需要修改：<code>xrange()</code>→<code>range()</code></li>
+<li>错误：<code>TypeError: ‘float‘ object cannot be interpreted as an integer</code>.
+造成错误的原因是<code>range</code>里面使用了小数，所以解决方法有两个：
+<ul>
+<li><code>python2</code>中的<code>/</code>只保留整数部分，是<code>int</code>型。在<code>python3</code>中的<code>/</code>的结果是真正意义上的除法，得到的是一个小数，所以是<code>float</code>型，所以改用<code>python3</code>中的<code>//</code>得到一个整数，则问题解决。即：<code>/</code>→<code>//</code></li>
+<li>如果不想任何改变仍要使用<code>range</code>的功能，则可以使用<code>numpy</code>中提供的<code>arange</code>，即
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> numpy.arange(<span class="number">0.0</span>, <span class="number">4.1</span>, <span class="number">0.8</span>)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h2
+id="python3下的mandelbrot.vsz">Python3下的<code>mandelbrot.vsz</code></h2>
+<figure class="highlight python"><figcaption><span>mandelbrot.vsz for pyton3</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Veusz script (version 0.7 or later)</span></span><br><span class="line"><span class="comment"># Jeremy Sanders (2005)</span></span><br><span class="line"><span class="comment"># for python3</span></span><br><span class="line"><span class="comment"># computes the Mandelbrot set in real time</span></span><br><span class="line"></span><br><span class="line">size = <span class="number">300</span></span><br><span class="line">maxiters = <span class="number">20</span></span><br><span class="line">image = zeros( (size, size) )</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;This takes some time, please wait&quot;</span>)</span><br><span class="line"></span><br><span class="line">minx = <span class="number">100000</span></span><br><span class="line">maxx = -<span class="number">100000</span></span><br><span class="line">miny = <span class="number">100000</span></span><br><span class="line">maxy = -<span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(size//<span class="number">2</span>):</span><br><span class="line">        c1 = -<span class="number">2</span>+<span class="number">4.</span>*i/size</span><br><span class="line">        c2 = <span class="number">2</span>-<span class="number">4.</span>*j/size</span><br><span class="line">        x = c1</span><br><span class="line">        y = c2</span><br><span class="line"></span><br><span class="line">        minx=<span class="built_in">min</span>(x, minx)</span><br><span class="line">        maxx=<span class="built_in">max</span>(x, maxx)</span><br><span class="line">        miny=<span class="built_in">min</span>(y, miny)</span><br><span class="line">        maxy=<span class="built_in">max</span>(y, maxy)</span><br><span class="line"></span><br><span class="line">        n = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> n &lt; maxiters <span class="keyword">and</span> x**<span class="number">2</span>+y**<span class="number">2</span> &lt; <span class="number">4.</span>:</span><br><span class="line">            x1 = x**<span class="number">2</span>-y**<span class="number">2</span>+c1</span><br><span class="line">            y1 = <span class="number">2</span>*x*y+c2</span><br><span class="line">            x = x1</span><br><span class="line">            y = y1</span><br><span class="line"></span><br><span class="line">            n += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        image[j, i] = n</span><br><span class="line">        image[size-j-<span class="number">1</span>, i] = n</span><br><span class="line"></span><br><span class="line"><span class="comment"># set output data into veusz</span></span><br><span class="line">SetData2D(<span class="string">&#x27;image&#x27;</span>, image, xrange=(minx, maxx), yrange=(miny, maxy))</span><br><span class="line"></span><br><span class="line"><span class="comment"># construct the graph</span></span><br><span class="line">To(Add(<span class="string">&#x27;page&#x27;</span>))</span><br><span class="line">To(Add(<span class="string">&#x27;graph&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add a label</span></span><br><span class="line">Add(<span class="string">&#x27;label&#x27;</span>, label=<span class="string">&#x27;The Mandelbrot Set&#x27;</span>, yPos=<span class="number">0.95</span>,</span><br><span class="line">    alignHorz=<span class="string">&#x27;centre&#x27;</span>, alignVert=<span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">    Text__size=<span class="string">&#x27;30pt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add colorbar in front of image</span></span><br><span class="line">Add(<span class="string">&#x27;colorbar&#x27;</span>, name=<span class="string">&#x27;colorbar1&#x27;</span>, image=<span class="string">&#x27;image1&#x27;</span>,</span><br><span class="line">    direction=<span class="string">&#x27;vertical&#x27;</span>, vertPosn=<span class="string">&#x27;top&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add image</span></span><br><span class="line">Add(<span class="string">&#x27;image&#x27;</span>, name=<span class="string">&#x27;image1&#x27;</span>, data=<span class="string">&#x27;image&#x27;</span>, <span class="built_in">min</span>=<span class="number">1</span>,</span><br><span class="line">    colorScaling=<span class="string">&#x27;log&#x27;</span>, colorMap=<span class="string">&#x27;heat&#x27;</span>, colorInvert=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># adjust axes</span></span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;x/min&#x27;</span>, -<span class="number">2.2</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;x/max&#x27;</span>, <span class="number">1.2</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;y/min&#x27;</span>, <span class="number">0.3</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;y/max&#x27;</span>, <span class="number">1.9</span>)</span><br><span class="line"></span><br><span class="line">To(<span class="string">&#x27;/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="运行结果">运行结果</h2>
+<figure>
+<img src="https://veusz.github.io/examples/mandelbrot.png"
+alt="mandelbrot 集(python3 实现)" />
+<figcaption aria-hidden="true">mandelbrot 集(python3 实现)</figcaption>
+</figure>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45653050/article/details/107306665">SyntaxError:
+Missing parentheses in call to ‘print‘. 正解</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/zag666/article/details/124782019">成功解决TypeError:
+‘float‘ object cannot be interpreted as an integer</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.runoob.com/python/python-2x-3x.html"><label style="color:red">Python2.x
+与 Python3.x 版本区别</label></a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/Matplotlib%E6%8C%87%E5%AE%9A%E5%9B%BE%E5%BD%A2%E5%A4%A7%E5%B0%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/03/Matplotlib%E6%8C%87%E5%AE%9A%E5%9B%BE%E5%BD%A2%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">Matplotlib指定图形大小</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-03 00:44:12" itemprop="dateCreated datePublished" datetime="2024-08-03T00:44:12+08:00">2024-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="matplotlib-指定图形大小单位厘米">Matplotlib
+指定图形大小（单位厘米）</h2>
+<p>Matplotlib是Python中最常用的绘图工具之一。它可以用来画各种类型的图表，从简单的折线图到复杂的3D图。在Matplotlib中，可以指定图像的大小和分辨率。</p>
+<p>本文将介绍如何在Matplotlib中指定图形大小，以及如何使用厘米单位。</p>
+<h2 id="确定图形大小">确定图形大小</h2>
+<p>在Matplotlib中，可以使用<code>plt.figure()</code>函数来创建一个新的图像。该函数包括几个参数，其中一个是<code>figsize</code>，它可以用来指定图像的大小。</p>
+<p>默认情况下，Matplotlib中的<code>figsize</code>参数是以英寸为单位的。但是，我们可以通过将<code>figsize</code>参数设置为一个包含两个数字的元组来指定图像的大小。第一个数字是图像的宽度，第二个数字是图像的高度。</p>
+<p>例如，下面的代码将创建一个大小为4英寸x4英寸的图像：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个大小为4英寸x4英寸的图像</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">4</span>, <span class="number">4</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在图像中绘制一个正弦波</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">ax.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>你可以看到，这个图像略微有些小，无法清晰地显示。如果我们需要一个更大的图像，我们可以通过增加<code>figsize</code>参数中的数字来实现。例如，如果我们需要一个8英寸x8英寸的图像，我们可以将<code>figsize</code>参数设置为<code>(8,8)</code>。</p>
+<p>但是，如果我们想要以厘米为单位指定图像的大小，该怎么办呢？</p>
+<h2 id="使用厘米单位">使用厘米单位</h2>
+<p>默认情况下，Matplotlib使用英寸作为图像大小的单位。但是，我们可以使用其他单位来指定图像的大小，包括厘米。</p>
+<p>要在Matplotlib中指定图像大小为厘米，我们需要使用<code>Figure.set_size_inches()</code>函数。该函数包括两个参数，分别是图像的宽度和高度，以英寸为单位。我们可以将这些参数转换为厘米，然后将它们传递给<code>set_size_inches()</code>函数。</p>
+<p>例如，下面的代码将创建一个大小为8厘米x8厘米的图像：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个大小为8英寸x8英寸的图像</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>/<span class="number">2.54</span>, <span class="number">8</span>/<span class="number">2.54</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在图像中绘制一个正弦波</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">ax.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>你可以看到，这个图像与上面的图像相同，只是现在它的大小是以厘米为单位的。我们将<code>figsize</code>参数设置为<code>(8/2.54, 8/2.54)</code>，其中<code>8/2.54</code>是以厘米为单位的8英寸。</p>
+<p>注意，如果你使用的是Python2，你需要在<code>8/2.54</code>前面加上一个小数点，即<code>.8/2.54</code>。</p>
+<h2 id="总结">总结</h2>
+<p>在Matplotlib中，我们可以使用<code>plt.figure()</code>函数来创建一个新的图像，并使用<code>figsize</code>参数指定它的大小。默认情况下，<code>figsize</code>的大小是以英寸为单位的。我们可以通过将<code>figsize</code>设置为一个包含两个值的元组来调整它的大小。要使用厘米作为单位指定图像大小，我们需要使用<code>Figure.set_size_inches()</code>函数，并将宽度和高度转换为厘米。</p>
+<h2 id="文章参考">文章参考</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://geek-docs.com/matplotlib/matplotlib-ask-answer/65_matplotlib_specify_figure_size_in_centimeter_in_matplotlib.html">Matplotlib
+指定图形大小（单位厘米）</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://geek-docs.com/matplotlib/matplotlib-tutorial/matplotlib-tutorial.html">Matplotlib
+教程</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/%E4%BD%BF%E7%94%A8Python%E7%94%BB%E5%88%86%E5%BD%A2%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/03/%E4%BD%BF%E7%94%A8Python%E7%94%BB%E5%88%86%E5%BD%A2%E5%9B%BE/" class="post-title-link" itemprop="url">使用Python画分形图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-03 00:03:05" itemprop="dateCreated datePublished" datetime="2024-08-03T00:03:05+08:00">2024-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于不想受限于<code>MatLab</code>，于是全面转入到<code>Python</code>工作，同时绘图工具使用免费开源的<code>veusz</code>,
+在实现<code>python</code>导出数据，再使用<code>veusz</code>绘图时，第一步就是使用<code>python</code>正确的绘图，而分形图就是练习画这类图的绝佳素材。</p>
+<h2 id="koch曲线">Koch曲线</h2>
+<h3 id="代码">代码</h3>
+<figure class="highlight python"><figcaption><span>Koch</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line">Division = <span class="number">3.0</span> </span><br><span class="line">DirectionAangle = [(<span class="string">&#x27;left&#x27;</span>,<span class="number">60</span>),(<span class="string">&#x27;right&#x27;</span>,<span class="number">120</span>),(<span class="string">&#x27;left&#x27;</span>,<span class="number">60</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">call</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&#x27;left&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> turtle.left</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> turtle.right</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">koch</span>(<span class="params">n, length</span>):</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</span><br><span class="line">        turtle.forward(length)   </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> DA <span class="keyword">in</span> DirectionAangle:</span><br><span class="line">            koch(n-<span class="number">1</span>,length/Division)</span><br><span class="line">            call(DA[<span class="number">0</span>])(DA[<span class="number">1</span>])</span><br><span class="line">        koch(n-<span class="number">1</span>,length/Division)   </span><br><span class="line">            </span><br><span class="line">koch(n=<span class="number">4</span>, length=<span class="number">400</span>)</span><br><span class="line">turtle.done()        </span><br></pre></td></tr></table></figure>
+<h3 id="运行结果">运行结果</h3>
+<figure>
+<img src="http://imgos.cn/2024/08/03/66ad037f9fd02.png" alt="koch" />
+<figcaption aria-hidden="true">koch</figcaption>
+</figure>
+<h2 id="julia-集">Julia 集</h2>
+<h3 id="代码-1">代码</h3>
+<figure class="highlight python"><figcaption><span>Julia</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">p=<span class="number">0.45</span> <span class="comment">#初始值c的实部</span></span><br><span class="line">q=-<span class="number">0.1428</span> <span class="comment">#初始值c的虚部</span></span><br><span class="line">N=<span class="number">800</span> <span class="comment">#最大迭代次数</span></span><br><span class="line">M=<span class="number">100</span> <span class="comment">#迭代区域的界值</span></span><br><span class="line">a=<span class="number">3.0</span> <span class="comment">#绘制图的横轴大小</span></span><br><span class="line">b=<span class="number">3.0</span> <span class="comment">#绘制图的纵轴大小</span></span><br><span class="line">step=<span class="number">0.005</span> <span class="comment">#绘制点的步长</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">z,N,M</span>):</span><br><span class="line">    z=z*z+c</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(z)&gt;M:</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        z=z*z+c</span><br><span class="line">    <span class="keyword">return</span> N</span><br><span class="line"></span><br><span class="line">c=p+q*<span class="number">1j</span></span><br><span class="line">i=np.arange(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,step)</span><br><span class="line">j=np.arange(b/<span class="number">2.0</span>,-b/<span class="number">2.0</span>,-step)</span><br><span class="line">I,J=np.meshgrid(i, j)</span><br><span class="line">ufunc=np.frompyfunc(iterate,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">Z=ufunc(I+<span class="number">1j</span>*J,N,M).astype(np.float64)</span><br><span class="line">plot.imshow(Z,extent=(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,-b/<span class="number">2</span>,b/<span class="number">2.0</span>))</span><br><span class="line">cb = plot.colorbar(orientation=<span class="string">&#x27;vertical&#x27;</span>,shrink=<span class="number">1</span>)</span><br><span class="line">cb.set_label(<span class="string">&#x27;iteration counts&#x27;</span>)</span><br><span class="line">plot.show()</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果-1">运行结果</h3>
+<figure>
+<img src="http://imgos.cn/2024/08/03/66ad043fc8b4f.png" alt="Julia集" />
+<figcaption aria-hidden="true">Julia集</figcaption>
+</figure>
+<h2 id="mandelbrot-集">Mandelbrot 集</h2>
+<h3 id="代码-2">代码</h3>
+<figure class="highlight python"><figcaption><span>Mandelbrot</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot </span><br><span class="line"></span><br><span class="line">x0=<span class="number">0</span> <span class="comment">#初始值z0的x0</span></span><br><span class="line">y0=<span class="number">0</span> <span class="comment">#初始值z0的y0</span></span><br><span class="line">zoom=<span class="number">1.0</span> <span class="comment">#放大倍率</span></span><br><span class="line">N=<span class="number">100</span> <span class="comment">#最大迭代次数</span></span><br><span class="line">R=<span class="number">2</span> <span class="comment">#迭代半径</span></span><br><span class="line">a=<span class="number">4.0</span> <span class="comment">#绘制图的横轴大小</span></span><br><span class="line">b=<span class="number">3.0</span> <span class="comment">#绘制图的纵轴大小</span></span><br><span class="line">step=<span class="number">0.005</span> <span class="comment">#绘制点的步长</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">c,N,R</span>):</span><br><span class="line">    z=c</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(z)&gt;R: </span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        z = z*z+c</span><br><span class="line">    <span class="keyword">return</span> N</span><br><span class="line"></span><br><span class="line">x=np.arange(-a/(<span class="number">2.0</span>*zoom)+x0,a/(<span class="number">2.0</span>*zoom)+x0,step)</span><br><span class="line">y=np.arange(b/(<span class="number">2.0</span>*zoom)+y0,-b/(<span class="number">2.0</span>*zoom)+y0,-step)</span><br><span class="line">cx,cy=np.meshgrid(x, y)</span><br><span class="line">c = cx + cy*<span class="number">1j</span></span><br><span class="line">ufunc=np.frompyfunc(iterate,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">Z=ufunc(c,N,R).astype(np.float64)</span><br><span class="line">plot.imshow(Z,extent=(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,-b/<span class="number">2</span>,b/<span class="number">2.0</span>))</span><br><span class="line">cb = plot.colorbar(orientation=<span class="string">&#x27;vertical&#x27;</span>,shrink=<span class="number">1</span>)</span><br><span class="line">cb.set_label(<span class="string">&#x27;iteration counts&#x27;</span>)</span><br><span class="line">plot.show()</span><br></pre></td></tr></table></figure>
+<h3 id="运行结果-2">运行结果</h3>
+<figure>
+<img src="http://imgos.cn/2024/08/03/66ad043fac140.png"
+alt="Mandelbrot 集" />
+<figcaption aria-hidden="true">Mandelbrot 集</figcaption>
+</figure>
+<h2 id="说明">说明</h2>
+<p>本文参考文章： <a
+target="_blank" rel="noopener" href="https://www.chenshaowen.com/blog/drawing-2d-fractal-graph-using-python.html">使用
+Python 绘制分形: Koch 曲线、Julia 集、Mandelbrot 集</a>,
+文章发布于2017年1月25日， 比较早。其使用的是<code>python2</code>,
+而当前使用更加先进的<code>python3</code>更加合理，于是切换为<code>python3</code>代码后，出现几处错误，本文逐一更正。</p>
+<h3 id="python3-xrange-报错">python3 xrange 报错</h3>
+<p>由于<code>python3</code>取消了在<code>python2</code>中定义的<code>xrange</code>函数，取而代之的是<code>range</code>,
+于是在修改后的代码中改<code>xrange</code>为<code>range</code>.</p>
+<h3
+id="attributeerror-module-numpy-has-no-attribute-float.">AttributeError:
+module 'numpy' has no attribute 'float'.</h3>
+<p>直接运行程序时，会提示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: module <span class="string">&#x27;numpy&#x27;</span> has no attribute <span class="string">&#x27;float&#x27;</span>.</span><br><span class="line">`np.float` was a deprecated <span class="built_in">alias</span> <span class="keyword">for</span> the <span class="built_in">builtin</span> `<span class="built_in">float</span>`. To avoid this error <span class="keyword">in</span> existing code, use `<span class="built_in">float</span>` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar <span class="built_in">type</span>, use `np.float64` here.</span><br><span class="line">The aliases was originally deprecated <span class="keyword">in</span> NumPy 1.20; <span class="keyword">for</span> more details and guidance see the original release note at:</span><br><span class="line">    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations. Did you mean: <span class="string">&#x27;float16&#x27;</span>?</span><br></pre></td></tr></table></figure>
+<p>于是根据提示：将<code>np.float</code>修改为<code>np.float64</code>解决问题。</p>
+<h3
+id="importerror-libtk8.6.so-cannot-open-shared-object-file-no-such-file-or-directory">ImportError:
+libtk8.6.so: cannot open shared object file: No such file or
+directory</h3>
+<p>造成这个问题的原因是系统没有安装程序<code>tk</code>,安装即可解决问题：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S tk</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p><code>Tkinter</code> 模块(<code>Tk</code> 接口)是 <code>Python</code>
+的标准 <code>Tk GUI</code> 工具包的接口 <code>.Tk</code> 和
+<code>Tkinter</code> 可以在大多数的 <code>Unix</code>
+平台下使用,同样可以应用在 <code>Windows</code> 和 <code>Macintosh</code>
+系统里。<code>Tk8.0</code> 的后续版本可以实现本地窗口风格,
+并良好地运行在绝大多数平台中。详情参考：<a
+target="_blank" rel="noopener" href="https://www.runoob.com/python/python-gui-tkinter.html">Python
+GUI编程(Tkinter)</a></p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACNode%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/02/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACNode%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">不同版本Node的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-02 23:18:56" itemprop="dateCreated datePublished" datetime="2024-08-02T23:18:56+08:00">2024-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>Node.js</code> 是一个流行的服务器端 JavaScript
+运行时环境，用于构建高性能、可扩展的网络应用程序。<code>Node.js</code>
+有两个主要的版本发布频道，分别是 <code>Current</code> 版本和
+<code>LTS</code> 版本，它们之间有一些重要的区别。在本文中，我将详细介绍
+<code>Node.js</code> 的 <code>Current</code> 版本和 <code>LTS</code>
+版本的区别，并通过示例来说明这些区别。</p>
+<h2 id="node.js-的版本发布周期"><code>Node.js</code> 的版本发布周期</h2>
+<p>首先，让我们了解一下 <code>Node.js</code>
+的版本发布周期，以便更好地理解 <code>Current</code> 版本和
+<code>LTS</code> 版本之间的差异。</p>
+<ul>
+<li><code>Current</code> 版本：<code>Current</code> 版本是
+<code>Node.js</code>
+的最新开发版本，通常每隔几个月发布一次。它包含最新的功能、改进和实验性特性，但不太稳定。<code>Current</code>
+版本的目标是提供给开发人员一个平台来尝试新的功能和实验性特性，以便反馈和测试。</li>
+<li><code>LTS</code> 版本：<code>LTS</code>（Long-Term Support）版本是
+<code>Node.js</code>
+的长期支持版本，通常每隔两年发布一次。<code>LTS</code>
+版本的主要特点是稳定性和可靠性。它们接受持续的维护和安全更新，以确保企业和生产环境的稳定性。</li>
+</ul>
+<h2 id="区别一稳定性和可靠性">区别一：稳定性和可靠性</h2>
+<p>最明显的区别是 <code>Current</code> 版本和 <code>LTS</code>
+版本的稳定性和可靠性。<code>LTS</code>
+版本在发布后会接受长达几年的维护和安全更新，因此非常适合用于生产环境，特别是对于企业应用程序。相比之下，<code>Current</code>
+版本可能包含实验性特性和较新的代码，可能会引入不稳定性或潜在的问题，因此不建议在生产环境中使用。</p>
+<p>示例：假设你正在开发一个在线电子商务网站，该网站需要高度稳定性和可靠性。在这种情况下，你可能会选择使用
+<code>LTS</code>
+版本，因为它提供了经过验证的稳定性和长期支持，有助于确保你的网站在生产环境中保持高可用性。另一方面，如果你正在开发一个实验性的新功能，可以选择
+<code>Current</code> 版本，以便尝试最新的功能和改进。</p>
+<h2 id="区别二新特性和改进">区别二：新特性和改进</h2>
+<p><code>Current</code> 版本是 <code>Node.js</code>
+的最新开发版本，因此包含了最新的功能、改进和实验性特性。这使得它成为了尝试新技术和构建原型的理想选择。如果你想要访问最新的
+ECMAScript 版本、<code>Node.js</code> API
+或其他功能，<code>Current</code> 版本可能会更适合你。</p>
+<p>示例：假设你需要使用最新的 ECMAScript
+模块系统，以便更好地组织你的代码。在这种情况下，你可以选择
+<code>Current</code>
+版本，因为它可能会提供对这些新特性的更好支持。另外，如果你想尝试
+<code>Node.js</code> 中的实验性功能，例如 Web Streams API，也可以选择
+<code>Current</code> 版本来体验这些新功能。</p>
+<h2 id="区别三性能优化">区别三：性能优化</h2>
+<p><code>Current</code>
+版本通常包含了性能优化和改进，以提高应用程序的性能。这些优化可以包括更快的执行速度、更低的内存消耗和更好的并发处理能力。如果你对应用程序的性能有较高的要求，那么可能会考虑使用
+<code>Current</code> 版本来获得这些优势。</p>
+<p>示例：假设你正在开发一个实时多人游戏服务器，需要处理大量并发连接和快速响应时间。在这种情况下，你可能会选择
+<code>Current</code>
+版本，因为它可能包含了性能改进，有助于提高服务器的响应速度和并发处理能力，从而提供更好的游戏体验。</p>
+<h2 id="区别四维护和安全更新">区别四：维护和安全更新</h2>
+<p><code>LTS</code>
+版本的一个关键优势是它们接受长期的维护和安全更新。这意味着即使在发布后的几年内，<code>Node.js</code>
+社区仍然会修复潜在的安全漏洞和问题，以确保应用程序的安全性。对于企业和生产环境来说，这是一个非常重要的因素。</p>
+<p>示例：假设你的公司运行着一个在线支付平台，处理大量敏感用户数据。在这种情况下，安全性至关重要。你可能会选择
+<code>LTS</code>
+版本，因为它提供了长期的维护和安全更新，帮助你保持应用程序的安全性，同时避免潜在的安全威胁。</p>
+<h2 id="区别五社区支持">区别五：社区支持</h2>
+<p>由于 <code>LTS</code>
+版本在生命周期内接受长期的维护，因此通常拥有更广泛的社区支持。这意味着你可以更容易地找到解决问题的资源、文档和社区支持。相比之下，<code>Current</code>
+版本可能会更加小众，社区支持可能有限。</p>
+<p>示例：假设你在开发过程中遇到了一个复杂的问题，需要寻求帮助和支持。如果你使用的是
+<code>LTS</code>
+版本，你可能会更容易地在社区中找到有经验的开发者来帮助你解决问题，因为这个版本有更广泛的社区支持。</p>
+<h2 id="区别六升级频率">区别六：升级频率</h2>
+<p><code>LTS</code> 版</p>
+<p>本的升级频率较低，通常每隔两年发布一个新的 <code>LTS</code>
+版本。这使得企业可以更轻松地规划和管理升级过程。相比之下，<code>Current</code>
+版本的升级频率较高，可能每隔几个月就会发布一个新版本，需要更频繁的升级和迁移工作。</p>
+<p>示例：如果你的公司有一个严格的升级策略，并且希望最小化升级带来的风险和工作量，那么你可能会更倾向于选择
+<code>LTS</code>
+版本。这样，你可以更轻松地规划升级，并确保稳定性和可靠性。</p>
+<h2 id="如何选择适合的版本">如何选择适合的版本？</h2>
+<p>选择 <code>Node.js</code>
+的版本取决于你的具体需求和项目的性质。以下是一些指导原则，帮助你决定是使用
+<code>Current</code> 版本还是 <code>LTS</code> 版本：</p>
+<ol type="1">
+<li>生产环境 vs.
+开发环境：如果你的应用程序将在生产环境中运行，特别是对于企业级应用程序，通常建议使用
+<code>LTS</code>
+版本，以确保稳定性和安全性。对于开发和测试环境，你可以考虑使用
+<code>Current</code> 版本来尝试最新的功能和改进。</li>
+<li>功能需求：如果你需要访问最新的 ECMAScript 版本、<code>Node.js</code>
+API 或其他功能，<code>Current</code>
+版本可能更适合你。如果你的应用程序对稳定性要求较高，那么应该优先选择
+<code>LTS</code> 版本。</li>
+<li>性能需求：如果你对应用程序的性能有较高的要求，可以考虑使用
+<code>Current</code>
+版本，因为它可能包含性能优化。但要确保你有充分的测试和性能监控，以确保新版本不会引入性能问题。</li>
+<li>安全性：如果你处理敏感数据或对安全性有严格要求，<code>LTS</code>
+版本是更安全的选择，因为它接受长期的维护和安全更新。</li>
+<li>社区支持：如果你需要广泛的社区支持，特别是在解决问题时，<code>LTS</code>
+版本通常会有更多的资源和支持可用。</li>
+<li>升级策略：考虑你的公司或项目的升级策略。如果你希望最小化升级工作量，<code>LTS</code>
+版本可能更适合你。</li>
+</ol>
+<h2 id="结论">结论</h2>
+<p><code>Node.js</code> 的 <code>Current</code> 版本和 <code>LTS</code>
+版本之间存在明显的区别，涵盖了稳定性、新特性、性能、维护、社区支持和升级频率等方面。在选择适合你的版本时，需要综合考虑你的项目需求和优先级。无论你选择哪个版本，都要确保了解该版本的特性和限制，并采取适当的测试和监控措施，以确保应用程序的稳定性和性能。在任何情况下，<code>Node.js</code>
+的强大生态系统和活跃的社区都将为你提供支持和资源，帮助你构建出色的应用程序。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87%E5%B9%B6%E9%9D%9E%E8%B6%8A%E9%AB%98%E8%B6%8A%E5%A5%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/02/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87%E5%B9%B6%E9%9D%9E%E8%B6%8A%E9%AB%98%E8%B6%8A%E5%A5%BD/" class="post-title-link" itemprop="url">内存频率并非越高越好</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-02 14:51:47" itemprop="dateCreated datePublished" datetime="2024-08-02T14:51:47+08:00">2024-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>很多人觉得内存频率越高速度越快，尤其是在英特尔12代酷睿处理器支持DDR5之后，不少人都想升级到DDR5，以为升级到DDR5就能获得更高的性能。事实真的是这样吗？如下图两内存，都是同样的芝奇的DDR4
+3600MHz
+16GBx2的内存，为什么会有500+的价格差？因为它们有不同的CL时序，一个是18-22-22-42，另一个是16-19-19-39，这点区别就值500+。那么内存CL时序到底是什么？对性能又有什么影响？</p>
+<p><img src="https://thumbsnap.com/i/rpssrcWZ.jpg" /></p>
+<p>内存在存取数据时是以行列的方式进行，跟Excel表格类似，通过行列的方式定位数据。内存时序代表的是行列访问所需要的周期数（周期数不等于时间），主要有四个分别是CL，tRCD，tRP，tRAS。CL代表内存访问一次列所需的周期数，下图为16，tRCD表示内存访问一次行所需的最小周期数，下图中的19，tRP表示打开下一行的最小周期数，下图中为19，tRAS代表的是行活动到发出打开下一行的最小周期数。看起来很复杂，最重要的就是第一个，即CL。</p>
+<p><img src="https://thumbsnap.com/i/Tm3zwE8v.jpg" /></p>
+<p>CL全称CAS
+latency，内存访问一次列的延迟时间，在频率相同的情况下，CL值越小内存速度越快。就跟我们看小说一样，只要定位到了行，剩下的就是读行中的每一列，直到读完一行才会读下一行。内存只要定位到了数据所在的行，剩下的基本就是列操作，直到读完一行才会进行一次行操作。所以CL值对内存来说非常重要。</p>
+<p><img src="https://thumbsnap.com/i/PPyvUBcU.jpg" /></p>
+<p>从下表中可以发现CL（表中的CAS
+Latency）的值是随着内存频率的增加而增大的。DDR5
+4800MHz的CL值为40个时钟周期，比DDR4更大。这也是为什么DDR5比DDR4提升不大的原因，频率高了延迟更大。由于CL是时钟周期与内存频率相关不好比较，所以要换成时间。CL延迟时时间=1/（DDR频率/2）*
+CL周期数*1000。</p>
+<p><img src="https://thumbsnap.com/i/nQRdzqHh.jpg" /></p>
+<p>公式中的1代表1秒钟，内存频率除以2，是因为DDR的全称是Double Data
+Rate即双倍数据传输速率，如下图SDR不用除，QDR要除以4才是内存的时钟频率，因此上图的DDR4，DDR5都要除以2
+。乘1000是为了把微秒换成纳秒。所以上图DDR5
+4800MHz的CL延迟时间=1/（4800/2）*40*1000=16.67ns。</p>
+<p><img src="https://thumbsnap.com/i/68eD9NZA.jpg" /></p>
+<p>内存的CL，tRCD等都是可以通过BIOS修改的，如下图修改成1600MHz
+16CL和1500MHz
+15CL哪个更快？用上面的公式算CL延迟都是10ns，所以几乎一样快。决定内存速度的除了CL延迟以外，还有其它几个。但CL影响更大。</p>
+<p><img src="https://thumbsnap.com/i/7RhG2BXY.jpg" /></p>
+<p>现在我们来解决第一张图为什么后者比前者更贵的问题。2099的CL延迟时间为8.89ns，而1549的CL延迟时间为10ns，2099的存取速度更快，也因此更贵。</p>
+<p>引用：<a
+target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1722749333299450599">对内存频率的误解！以为频率越高速度就越快，真相未必是这样</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/ArchLinux%E8%A7%A3%E5%86%B3%E8%93%9D%E7%89%99%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/02/ArchLinux%E8%A7%A3%E5%86%B3%E8%93%9D%E7%89%99%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">ArchLinux解决蓝牙无法打开的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-02 13:12:56" itemprop="dateCreated datePublished" datetime="2024-08-02T13:12:56+08:00">2024-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述">问题描述</h2>
+<p>今天突然发现台式机上的蓝牙无法启动，按钮开启后蓝牙仍然处于关闭状态。如图所示：</p>
+<figure>
+<img src="http://imgos.cn/2024/08/02/66ac6a9d9002b.png"
+alt="蓝牙无法打开" />
+<figcaption aria-hidden="true">蓝牙无法打开</figcaption>
+</figure>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="卸载并重新加载btusb内核模块支持蓝牙设备的内核模块">1.
+卸载并重新加载<code>btusb</code>内核模块（支持蓝牙设备的内核模块）</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rmmod btintel</span><br><span class="line"><span class="built_in">sudo</span> rmmod btusb</span><br><span class="line"><span class="built_in">sudo</span> modprobe btusb</span><br><span class="line"><span class="built_in">sudo</span> modprobe btintel</span><br></pre></td></tr></table></figure>
+<div class="note primary"><ul>
+<li>2024年08月29日, 升级ArchLinux后发现蓝牙再次无法打开，根据文章<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38305523/article/details/131031379">在Archlinux
+下蓝牙突然无法打开的解决办法</a> 修复此问题，于是做出如上修改。</li>
+<li>2024年12月08日, 升级ArchLinux后发现问题复现，但是这次我注意到是
+Linux 内核有更新。使用本方法仍然解决问题。</li>
+</ul>
+</div>
+<p>当蓝牙总是不能开启时，查看蓝牙服务， 得到如下信息:</p>
+<figure class="highlight sh"><figcaption><span>sudo systemctl status bluetooth.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support bap plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support bass plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support mcp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support vcp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: profiles/audio/micp.c:micp_init() D-Bus experimental not enabled</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support micp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support ccp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support csip plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support asha plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: Bluetooth management interface 1.23 initialized</span><br></pre></td></tr></table></figure>
+<p>因此判断蓝牙无法启动的原因是内核升级造成的，因此使用此法成功解决问题。</p>
+<h3 id="安装蓝牙工具和工具包">2. 安装蓝牙工具和工具包</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S --needed --noconfirm bluez bluez-utils pipewire-pulse bluedevil blueman</span><br></pre></td></tr></table></figure>
+<h3 id="启动蓝牙服务">3. 启动蓝牙服务</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service bluetooth start</span><br></pre></td></tr></table></figure>
+<h3 id="重新解除蓝牙设备的阻止">4. 重新解除蓝牙设备的阻止</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rfkill block bluetooth</span><br><span class="line">rfkill unblock bluetooth</span><br></pre></td></tr></table></figure>
+<h2 id="蓝牙设备可被检测到">蓝牙设备可被检测到</h2>
+<figure>
+<img src="http://imgos.cn/2024/08/02/66ac6c85e6835.png"
+alt="蓝牙启动成功" />
+<figcaption aria-hidden="true">蓝牙启动成功</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -544,1006 +1496,8 @@ alt="应用修改" />
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/01/Gitee%E4%B9%8BPermission-0644-for-are-too-open%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/01/Gitee%E4%B9%8BPermission-0644-for-are-too-open%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Gitee之Permission-0644-for-are-too-open错误解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-01 01:37:49" itemprop="dateCreated datePublished" datetime="2024-08-01T01:37:49+08:00">2024-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>近期由于我的U盘仓库<code>BNU-FZH</code>的<code>U盘</code>损坏，所以不得不升级<code>zugit.sh</code>脚本,
-添加一键搬家功能，这可以方便的将仓库同步到新的<code>U盘</code>.
-然而在更新后将新版本的<code>zugit.sh</code>推送到<code>gitee</code>时，发现报错：</p>
-<figure>
-<img src="http://imgos.cn/2024/08/01/66aa7642afbca.jpeg"
-alt="推送至Gitee报错" />
-<figcaption aria-hidden="true">推送至Gitee报错</figcaption>
-</figure>
-<p>看日志报出的错误，<code>It is required that your private key files are NOT accessible by others</code>，翻译就是需要私钥文件不能被其他人所访问。私钥是访问linux服务器的凭证，如果被别人获取到，就可能对服务器安全造成影响，这可能也就是这个问题的初衷吧。</p>
-<p>按照错误提示，该文件不能被其他人访问，只要将所属组和其他人的read权限取消即可.
-于是将<code>Gitee</code>对使用的<code>ssh</code>密钥<code>~/.ssh/id_ed25519_1</code>更改权限为<code>600</code>，即</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/id_ed25519_1</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/31/GIT%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/31/GIT%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/" class="post-title-link" itemprop="url">GIT本地仓库关联远程仓库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-31 22:19:36" itemprop="dateCreated datePublished" datetime="2024-07-31T22:19:36+08:00">2024-07-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="方式一远程仓库没有文件">方式一：远程仓库没有文件</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init（初始化git仓库）；</span><br><span class="line">git remote add 地址（设置remote地址）；</span><br><span class="line">git add . （将所有变更提交到本地仓库）；</span><br><span class="line">git commit -m <span class="string">&#x27;&#x27;</span> （提交注释）；</span><br><span class="line">git push（本地仓库推送到远程仓库）</span><br></pre></td></tr></table></figure>
-<h2 id="方式二远程仓库有文件">方式二：远程仓库有文件</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git init（初始化git仓库）；</span><br><span class="line">git remote add origin 地址（设置远程remote地址）；</span><br><span class="line">git pull origin master（拉取远程仓库master的文件）</span><br><span class="line">git branch --set-upstream-to=origin/master master（将本地master设置为远程master分支）</span><br><span class="line">git add . （将所有变更提交到本地仓库）；</span><br><span class="line">git commit -m <span class="string">&#x27;&#x27;</span> （提交注释）；</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h2 id="方式三">方式三：</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 地址（克隆远程仓库） <span class="built_in">test</span></span><br><span class="line"><span class="built_in">cp</span> -r 项目文件  <span class="built_in">test</span></span><br><span class="line">git add . （将所有变更提交到本地仓库）；</span><br><span class="line">git commit -m <span class="string">&#x27;&#x27;</span> （提交注释）；</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h2 id="设置用户和邮箱">设置用户和邮箱</h2>
-<h3 id="一全局">一：全局</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;you name&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;you email&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="二局部单个项目">二：局部（单个项目）</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name <span class="string">&quot;you name&quot;</span></span><br><span class="line">git config user.email <span class="string">&quot;you email&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="强制推送">强制推送</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/27/API%E6%98%AF%E4%BB%80%E4%B9%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/27/API%E6%98%AF%E4%BB%80%E4%B9%88/" class="post-title-link" itemprop="url">API是什么</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-27 20:03:40" itemprop="dateCreated datePublished" datetime="2024-07-27T20:03:40+08:00">2024-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote class="blockquote-center">
-<p><code>API</code>（<code>Application Programming Interface</code>,
-应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。
-——<a
-target="_blank" rel="noopener" href="https://baike.baidu.com/item/应用程序编程接口/3350958">百度百科(应用程序编程接口播报)</a></p>
-
-</blockquote>
-<h2 id="api-的工作原理是什么">API 的工作原理是什么？</h2>
-<p>通过
-API，您无需了解实施原理，也能将您的产品或服务与其他的互通。这样可以简化应用的开发，节省时间和成本。在您开发新的工具和产品，或<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/management">管理</a>现有工具和产品时，强大灵活的
-API 可以帮助您简化<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/api/what-is-api-design">设计</a>、管理和使用，并带来更多创新机遇。</p>
-<p>API
-有时被视为合同，而合同文本则代表了各方之间的协议：如果一方以特定方式发送远程请求，该协议规定了另一方的软件将如何做出响应。</p>
-<p>由于 API 简化了开发人员将新应用组件<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/integration">集成</a>到现有<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps/what-is-an-application-architecture">基础架构</a>中的方式，继而也对业务和
-IT
-团队之间的协作提供了帮助。随着数字市场日新月异，业务需求通常也会出现迅速变化，新的竞争对手利用新的应用即可改变整个行业。为了保持竞争力，支持快速开发和部署创新服务尤为重要。<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps">云原生应用</a>开发是提高开发速度的一个明确办法，依赖于通过
-API 连接<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/microservices">微服务</a>应用架构。</p>
-<p>API
-是通过云原生应用开发来连接您自己的基础架构的一个简化方式，此外还支持您向客户和其他外部用户分享您的数据。公共
-API
-有着独特的商业价值，因其可以简化和扩展您与合作伙伴的联系方式，并有望支持您从数据中实现盈利（Google
-Maps API 便是其中一个广为人知的案例）。</p>
-<figure>
-<img
-src="https://www.redhat.com/rhdc/managed-files/styles/wysiwyg_full_width/private/API-page-graphic.png?itok=RRsvST-_"
-title="API的工作原理" alt="API的工作原理" />
-<figcaption aria-hidden="true">API的工作原理</figcaption>
-</figure>
-<p>例如，我们假设有这样一家图书发行公司：该发行商可以提供一个<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps/what-are-cloud-applications">云应用</a>，供书店店员查看书的库存情况。这款应用的开发成本高昂、有平台限制、开发周期较长，还需进行日常维护。</p>
-<p>或者，该发行商也可以提供一个 API
-来查询库存情况。这一方法有以下几个好处：</p>
-<ul>
-<li>API
-可以帮助他们将所有库存相关信息汇集到一处，供客户方便地访问数据。</li>
-<li>只要 API
-的行为不发生变化，该图书发行商就能在不影响客户的情况下更改内部系统。</li>
-<li>借助公开可用的
-API，开发人员可为该图书发行商、图书销售商或第三方开发一个应用，帮助客户查找所需的图书。这样不仅能提高销量，还能带来其他的商机。</li>
-</ul>
-<p>简而言之，API 既能让您开放自己的资源访问权限，又能确保<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/security">安全性并让您继续握有控制权</a>。如何以及向谁开放访问权限由您自己决定。<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/security/api-security">API
-安全防护</a>离不开良好的 API 管理，其中包括对 <a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/api/what-does-an-api-gateway-do">API
-网关</a>的使用。借助通联各种资源（包括传统系统和<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/internet-of-things/what-is-iot">物联网，IoT</a>）的分布式集成平台，您可以连接至
-API 并创建使用 API 提供的数据或功能的应用。</p>
-<h3 id="api-发行政策">API 发行政策</h3>
-<h4 id="私有">私有</h4>
-<p>这类 API 仅供内部使用，能让公司最大限度地控制自己的 API。</p>
-<h4 id="合作伙伴">合作伙伴</h4>
-<p>您会和特定的业务合作伙伴共享这类
-API。它能在不影响质量的情况下带来额外收益。</p>
-<h4 id="公共">公共</h4>
-<p>这类 API 可供所有人使用。第三方可以使用这类 API
-来开发应用，以便与您的 API 进行互动或实现某种创新。</p>
-<h2 id="如何利用-api-实现创新">如何利用 API 实现创新？</h2>
-<p>通过向合作伙伴或公众提供您的 API，可以：</p>
-<ul>
-<li>创造新的收入渠道，或拓展现有收入渠道。</li>
-<li>扩大您的品牌覆盖范围。</li>
-<li>通过外部开发和协作，推动开放创新或提高效率。</li>
-</ul>
-<p>听上去还不错，对吗？但是，API 是如何做到上述几点的呢？</p>
-<p>我们继续以刚才的那个图书发行公司为例。</p>
-<p>假设该公司的某个合作伙伴开发了一个应用，可以帮助人们查找书店书架上的图书。这种体验的改进为书店带来了更多的客户（该发行商的客户），并拓展了现有的收入渠道。</p>
-<p>或许会有第三方使用某个公共 API
-来开发应用，以便人们直接从该发行商处（而非书店）购书。这样就能为该图书发行商打开新的收入渠道。</p>
-<p>与特定合作伙伴或全世界共享 API
-能带来积极的影响。除了自己公司的营销活动之外，每一个合作关系都能帮助您提高品牌辨识度。以公共
-API 的形式向所有人开放技术，可以激励开发人员以您的 API
-为中心构建应用生态系统。有更多的人使用您的技术，就意味着可能会有更多的人与您做生意。</p>
-<p>公开技术可以带来意外之喜。有时，这些惊喜更会颠覆整个行业。对于这家图书发行公司而言，新形态的公司（比如图书出借服务）可能会完全改变他们的业务模式。借助合作伙伴和公共
-API，您可以激发社区成员的创意（其人数远超您的内部开发团队）。各种奇思妙想会源源不断地涌现，公司只需明辨市场的变化情况并做好相应的准备。API
-大有用处。</p>
-<h2 id="api-简史">API 简史</h2>
-<p>API
-概念的出现，始于计算机时代的初期，远远早于个人电脑诞生之前。当时，API
-常被当作操作系统的库，而且基本上都在本地系统上运行，仅偶尔用于大型机之间传递消息。将近
-30 年后，API 走出了它们的本地环境。到了 21 世纪初，API
-成为了用于实现数据远程集成的一种重要技术。</p>
-<h2 id="远程-api">远程 API</h2>
-<p>远程 API 旨在通过通信网络进行互动。这里的_远程_是指 API
-操控的资源不在提出请求的计算机上。由于互联网是应用最广泛的通信网络，所以大多数
-API 都是基于 Web 标准来设计的。并非所有的远程 API 都是 Web
-API，但可以认为 Web API 都是远程 API。</p>
-<p>Web API 通常会使用 HTTP
-来传输请求消息，并提供响应消息的结构定义。这些响应消息通常都会以 XML 或
-JSON 文件的形式来提供。XML 和 JSON
-都是首选格式，因为它们会以易于其他应用操纵的方式来呈现数据。</p>
-<h2 id="soap-和-rest">SOAP 和 REST</h2>
-<p>随着 Web API
-的不断普及，相应的协议规范也随之产生了，从而推动了信息交换的标准化：简单对象访问协议，简称
-SOAP。使用 SOAP 设计的 API 会使用 XML 格式来收发消息，并通过 HTTP 或
-SMTP 来接收请求。使用 SOAP
-时，在不同环境中运行的应用或使用不同语言编写的应用能够更加轻松地共享信息。</p>
-<p>相关的规范还有一个，即<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/api/what-is-a-rest-api">表述性状态传递（REST）</a>。遵循
-REST 架构约束的 Web API 被称为 RESTful API。REST 与 SOAP
-有着根本区别：SOAP 是一种协议，而 REST 是一种架构风格。这意味着 RESTful
-Web API 没有官方标准。正如 Roy Fielding 在论文“Architectural Styles and
-the Design of Network-based Software
-Architectures”（架构模式以及基于网络的软件架构的设计）中定义的那样，只要
-API 符合 RESTful 系统的 6 个导向性约束，就算作 RESTful API：</p>
-<ul>
-<li><strong>客户端/服务器架构：</strong>REST
-架构由客户端、服务器和资源构成，通过 HTTP 来处理请求。</li>
-<li><strong>无状态：</strong>请求所经过的服务器上不会存储任何客户端内容。与会话状态相关的信息会存储在客户端上。</li>
-<li><strong>可缓存性：</strong>通过缓存，可免去客户端与服务器之间的某些交互。</li>
-<li><strong>分层系统：</strong>客户机与服务器之间的交互可以通过额外的层来进行调解。这些层可以提供额外的功能，如负载均衡、共享缓存或安全防护。</li>
-<li><strong>按需代码（可选）：</strong>服务器可通过传输可执行代码来扩展客户端的功能。</li>
-<li><strong>统一接口：</strong>这项约束是 RESTful API 的设计核心，共涵盖
-4 个层面：
-<ul>
-<li><strong>识别请求中的资源：</strong>请求中的资源会被识别，并与返回给客户端的表示内容分离开来。</li>
-<li><strong>通过不同的表示内容来操纵资源：</strong>客户端会收到表示不同资源的文件。这些表示内容必须提供足够的信息，以便执行修改或删除操作。</li>
-<li><strong>自描述消息：</strong>返回给客户端的每个消息都包含充足的信息，用于指明客户端应该如何处理所收到的信息。</li>
-<li><strong>将超媒体作为应用状态的引擎：</strong>在访问某个资源后，REST
-客户端应该能够通过超链接来发现当前可用的所有其他操作。</li>
-</ul></li>
-</ul>
-<p>虽然看似有很多约束需要遵循，但是这些约束遵循起来要比遵循规定的协议容易得多。因此，RESTful
-API 现在变得比 SOAP 更为普及。</p>
-<p>近年来，OpenAPI 规范已发展成为定义 REST API 的通用标准。OpenAPI
-为开发人员提供了一种与语言无关的方式来构建 REST API
-接口，从而最大程度减少不确定的因素，让用户安心工作。</p>
-<p>另一个新兴的 API 标准是 <a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/api/what-is-graphql">GraphQL</a>，这是一种可替代
-REST 的查询语言和服务器端运行时。GraphQL
-可优先让客户端准确地获得所需的数据，没有任何冗多余。作为 REST
-的替代方案，GraphQL 允许开发人员构建相应的请求，从而通过单个 API
-调用从多个数据源中提取数据。</p>
-<h2 id="soa-与微服务架构">SOA 与微服务架构</h2>
-<p>最常使用远程 API 的 2 种架构方案分别是：<a
-target="_blank" rel="noopener" href="https://www.redhat.com/zh/topics/cloud-native-apps/what-is-service-oriented-architecture">面向服务的架构（SOA）</a>和微服务架构。在这
-2 种方案中，SOA
-的历史更为久远一些。最初，它是在单体式应用的基础上经过改进而形成的。虽然单个单体式应用也可以完成各种操作，但通过某种集成模式（如企业服务总线（ESB））在不同应用间实现松散耦合后，即可获得某些功能。</p>
-<p>从大多数层面来看，SOA
-都要比单体式架构更简单；但是，如果无法明确理解各种组件交互，SOA
-也可能会进一步加剧整个环境的复杂性。这种复杂性的加剧会重新引发 SOA
-想要解决的某些问题。</p>
-<p>对于专用松散耦合服务的使用，微服务架构与 SOA
-模式类似。但是，微服务架构会对传统架构进行进一步细分。在微服务架构中，服务会采用通用消息传递框架，如
-RESTful API。它们会使用 RESTful API
-来实现相互通信，且无需执行繁琐的数据转换处理或使用其他的集成层。使用
-RESTful API 可以加速新功能和新更新的交付；甚至还可以说，是这类 API
-促进了这种速度的提升。该架构中的每一个服务都呈离散状态。一个服务可以被取代、增强或丢弃，而不会影响架构中的任何其他服务。这种轻量级架构有助于优化分布式资源或云资源，而且能够支持个别服务的动态扩展。</p>
-<h2 id="api-和-webhook">API 和 Webhook</h2>
-<p>Webhook 是一种基于 HTTP 的回调函数，可在 2 个 API
-之间实现轻量级的事件驱动通信。许多种类的应用使用 Webhook
-来从其他应用接收少量数据，但 Webhook 也可用于在 GitOps
-环境中触发自动化工作流。</p>
-<p>Webhook 通常被称为逆向 API 或推送
-API，因为它们让通信责任落在了服务器而不是客户端身上。不再是客户端发送
-HTTP
-请求来索取数据，直到服务器响应为止，而是服务器等到数据可用时向客户端发送一个
-HTTP POST 请求。虽然有这样的昵称，但 Webhook 不是
-API；两者相互配合。应用必须具有 API 才能使用 Webhook。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/27/%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E7%9A%84%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7Veusz/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/27/%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E7%9A%84%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7Veusz/" class="post-title-link" itemprop="url">免费开源的科研绘图工具Veusz</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-27 12:11:13" itemprop="dateCreated datePublished" datetime="2024-07-27T12:11:13+08:00">2024-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介">简介</h2>
-<p><code>Veusz</code>是一个具有用户界面的科研绘图集成软件，能够绘制符合出版要求的<code>2D</code>和<code>3D</code>可视化图表。其能够在<code>Windows</code>、<code>Linux/Unix</code>和<code>macOS</code>上运行，支持矢量和位图结果输出，最重要的是<code>Veusz</code>是一款免费软件，<code>Veusz</code>支持从文本、<code>CSV</code>、<code>HDF5</code>和<code>FITS</code>文件格式中导入数据，更多关于Veusz的介绍可参考：<a
-target="_blank" rel="noopener" href="https://veusz.github.io">Veusz官网</a></p>
-<figure>
-<img src="http://imgos.cn/2024/07/27/66a476468cf82.png"
-alt="Veusz操作界面" />
-<figcaption aria-hidden="true">Veusz操作界面</figcaption>
-</figure>
-<h2 id="绘图教程">绘图教程</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://veusz.github.io/examples/">Veusz 2D Examples (also
-see 3D)</a></li>
-<li><a target="_blank" rel="noopener" href="https://veusz.github.io/docs/manual/">Veusz
-documentation</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/details/89428567">CSDN
-Veusz教程</a>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/details/89428567">导入数据</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/details/89481657">创建数据库</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/details/89503839">源码编译</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/details/89513485">文本标注</a></li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.modb.pro/db/135704">告别Origin之Veusz系列教程</a>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.modb.pro/db/135696">点线图</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.modb.pro/db/135698">等高图</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.modb.pro/db/135699">柱状图</a></li>
-</ul></li>
-</ul>
-<h2 id="如何绘制高质量的科学图表">如何绘制高质量的科学图表</h2>
-<p>绘制科学图表有很多技巧，本部分将介绍几个小技巧：</p>
-<ul>
-<li>图表的标题要简洁明了，能够清晰地表达图表的主题和目的。</li>
-<li>使用合适的颜色和字体，避免过度花哨或冗杂的设计。</li>
-<li>在图例中使用相同的颜色和线型，使其易于阅读和理解。</li>
-<li>使用清晰的坐标轴标签和单位。</li>
-<li>在图表中突出显示关键数据和结果。</li>
-</ul>
-<p>通过上述技巧和 <code>veusz</code>
-工具，可以轻松地制作出高质量的科学图表，在科学研究和学术交流中发挥重要的作用。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/27/Matplotlib%E4%BB%8E%E5%9B%BE%E4%B8%AD%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/27/Matplotlib%E4%BB%8E%E5%9B%BE%E4%B8%AD%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Matplotlib从图中提取数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-27 00:04:00" itemprop="dateCreated datePublished" datetime="2024-07-27T00:04:00+08:00">2024-07-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在数据可视化领域，Matplotlib是Python中最常用的绘图库之一。既然它被用于数据可视化，那么从图中提取数据也是Matplotlib的一个重要应用场景。在本文中，我们将介绍如何使用Matplotlib从图中提取数据并利用这些数据进行进一步的处理。</p>
-<h2 id="一个简单实例">一个简单实例</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成500个0~1之间的随机数作为x轴数据</span></span><br><span class="line">x = np.random.rand(<span class="number">500</span>)</span><br><span class="line"><span class="comment"># 生成与x轴数据数量相同的随机数作为y轴数据</span></span><br><span class="line">y = np.random.rand(<span class="number">500</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制散点图</span></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置横轴标签和纵轴标签</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置图表的标题</span></span><br><span class="line">plt.title(<span class="string">&quot;Scatter Plot&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图表</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>上述代码通过<code>numpy</code>库生成了<code>500</code>个<code>0~1</code>之间的随机数，并将这些随机数分别作为<code>x轴</code>和<code>y轴</code>的数据，最终绘制出了一个散点图。其中，<code>plt.scatter()</code>函数是用于绘制散点图的函数，<code>plt.xlabel()</code>和<code>plt.ylabel()</code>函数是用于设置横轴标签和纵轴标签的函数，<code>plt.title()</code>函数是用于设置图表标题的函数。</p>
-</div>
-<h2 id="如何从matplotlib图中提取数据">如何从Matplotlib图中提取数据</h2>
-<p>在Matplotlib中，要提取图中的数据，最常见的方式是获取图中的Artist对象，然后从这些对象中获取数据。Artist是所有绘图元素的基类，包括坐标轴、文字、点、线等。因此，从Artist对象中获取数据可以获取到图表中所有的信息。</p>
-<h3 id="获取散点图的数据">获取散点图的数据</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成500个0~1之间的随机数作为x轴数据</span></span><br><span class="line">x = np.random.rand(<span class="number">500</span>)</span><br><span class="line"><span class="comment"># 生成与x轴数据数量相同的随机数作为y轴数据</span></span><br><span class="line">y = np.random.rand(<span class="number">500</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制散点图</span></span><br><span class="line">plt.scatter(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取散点图的Artist对象</span></span><br><span class="line">scatter_plot = plt.gca().collections[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印每个散点的x轴坐标和y轴坐标</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(scatter_plot._offsets)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x: &quot;</span>, scatter_plot._offsets[i][<span class="number">0</span>], <span class="string">&quot;y: &quot;</span>, scatter_plot._offsets[i][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>上述代码中，<code>plt.gca()</code>函数返回当前的<code>Axes</code>对象，我们通过对这个对象调用<code>collections</code>属性获取到了散点图的<code>Artist</code>对象。获取到这个对象后，我们可以从<code>_offsets</code>属性中获取到每个散点的坐标信息。上述代码中使用了一个<code>for</code>循环打印出了每个散点的<code>x轴</code>坐标和<code>y轴</code>坐标。</p>
-</div>
-<h3 id="获取拆线图数据">获取拆线图数据</h3>
-<p>折线图是绘制曲线最常见的方式之一。在<code>Matplotlib</code>中，使用<code>plt.plot()</code>函数可以方便地绘制折线图。为了演示从折线图中获取数据的方法，我们来生成一个简单的折线图。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成0~10之间的100个数作为x轴数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line"><span class="comment"># 生成sin函数在0~10之间的值作为y轴数据</span></span><br><span class="line">y = np.sin(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制折线图</span></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置横轴标签和纵轴标签</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置图表的标题</span></span><br><span class="line">plt.title(<span class="string">&quot;Line Plot&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图表</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>在得到了折线图之后，我们可以通过如下代码从折线图中获取数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成0~10之间的100个数作为x轴数据</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">100</span>)</span><br><span class="line"><span class="comment"># 生成sin函数在0~10之间的值作为y轴数据</span></span><br><span class="line">y = np.sin(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制折线图</span></span><br><span class="line">plt.plot(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取折线的Artist对象</span></span><br><span class="line">line_plot = plt.gca().lines[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印每个点的x轴坐标和y轴坐标</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(line_plot.get_xdata())):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x: &quot;</span>, line_plot.get_xdata()[i], <span class="string">&quot;y: &quot;</span>, line_plot.get_ydata()[i])</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>在上述代码中，<code>plt.gca()</code>函数获取到当前的<code>Axes</code>对象，我们通过对这个对象调用<code>lines</code>属性获取到了折线图的<code>Artist</code>对象。获取到这个对象后，我们可以通过<code>get_xdata()</code>和<code>get_ydata()</code>方法获取到折线图上每个点的<code>x轴</code>坐标和<code>y轴</code>坐标。上述代码中使用了一个<code>for循环</code>将获取到的<code>x轴</code>坐标和<code>y轴</code>坐标打印出来。</p>
-</div>
-<h3 id="取柱状图数据">取柱状图数据</h3>
-<p>柱状图是绘制分布最常见的方式之一。在<code>Matplotlib</code>中，使用<code>plt.bar()</code>函数可以方便地绘制柱状图。为了演示从柱状图中获取数据的方法，我们来生成一个简单的柱状图。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成5个0~1之间的随机数作为x轴数据</span></span><br><span class="line">x = np.random.rand(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 生成5个0~1之间的随机数作为y轴数据</span></span><br><span class="line">y = np.random.rand(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制柱状图</span></span><br><span class="line">plt.bar(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置横轴标签和纵轴标签</span></span><br><span class="line">plt.xlabel(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置图表的标题</span></span><br><span class="line">plt.title(<span class="string">&quot;Bar Plot&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示图表</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>在得到了柱状图之后，我们可以通过如下代码从柱状图中获取数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成5个0~1之间的随机数作为x轴数据</span></span><br><span class="line">x = np.random.rand(<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 生成5个0~1之间的随机数作为y轴数据</span></span><br><span class="line">y = np.random.rand(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制柱状图</span></span><br><span class="line">plt.bar(x, y)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取柱状图的Artist对象</span></span><br><span class="line">bar_plot = plt.gca().patches</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印每个柱子的x轴坐标和y轴坐标</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(bar_plot)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x: &quot;</span>, bar_plot[i].get_x(), <span class="string">&quot;y: &quot;</span>, bar_plot[i].get_height())</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>在上述代码中，<code>plt.gca()</code>函数获取到当前的<code>Axes</code>对象，我们通过对这个对象调用<code>patches</code>属性获取到了柱状图的<code>Artist</code>对象。获取到这个对象后，我们可以通过<code>get_x()</code>和<code>get_height()</code>方法获取到柱状图的每个柱子的<code>x轴</code>坐标和<code>y轴</code>坐标。上述代码中使用了一个<code>for循环</code>将获取到的<code>x轴</code>坐标和<code>y轴</code>坐标打印出来。</p>
-</div>
-<h2 id="总结">总结</h2>
-<p>本文介绍了如何使用<code>Matplotlib</code>从图中提取数据的方法，包括散点图、折线图和柱状图的例子。通过这些例子，我们可以发现从<code>Matplotlib</code>图中获取数据的办法都是类似的，都是获取到图中的<code>Artist</code>对象，然后从这些对象中获取需要的数据。在实际使用中，我们还可以通过定制<code>Artist</code>对象来控制绘图过程，更好地实现我们的数据可视化需求。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/26/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/Python%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E7%A8%8B%E5%BA%8F%E5%BA%93/" class="post-title-link" itemprop="url">Python科学计算程序库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 21:46:03" itemprop="dateCreated datePublished" datetime="2024-07-26T21:46:03+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="numpy库">NumPy库</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://numpy.org">NumPy官网</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/numpy/numpy-tutorial.html">NumPy教程</a></li>
-</ul>
-<p><code>NumPy</code>(Numerical Python) 是 <code>Python</code>
-语言的一个扩展程序库，支持大量的维度数组与矩阵运算，此外也针对数组运算提供大量的数学函数库。</p>
-<p><code>NumPy</code> 的前身 Numeric 最早是由 Jim Hugunin
-与其它协作者共同开发，2005 年，Travis Oliphant 在 Numeric
-中结合了另一个同性质的程序库 Numarray 的特色，并加入了其它扩展而开发了
-NumPy。NumPy 为开放源代码并且由许多协作者共同维护开发。</p>
-<p>NumPy 是一个运行速度非常快的数学库，主要用于数组计算，包含：</p>
-<ul>
-<li>一个强大的N维数组对象 <code>ndarray</code></li>
-<li>广播功能函数</li>
-<li>整合 <code>C/C++/Fortran</code> 代码的工具</li>
-<li>线性代数、傅里叶变换、随机数生成等功能</li>
-</ul>
-<h2 id="scipy库">SciPy库</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://scipy.org">SciPy官网</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/scipy/scipy-tutorial.html">Scipy教程</a></li>
-</ul>
-<p><code>SciPy</code> 是一个开源的 Python 算法库和数学工具包。</p>
-<p><code>Scipy</code> 是基于 <code>Numpy</code>
-的科学计算库，用于数学、科学、工程领域的常用软件包，可以处理最优化、线性代数、积分、插值、拟合、特殊函数、快速傅里叶变换、信号处理、图像处理、常微分方程求解器等。
-。</p>
-<p><code>SciPy</code>
-包含的模块有最优化、线性代数、积分、插值、特殊函数、快速傅里叶变换、信号处理和图像处理、常微分方程求解和其他科学与工程中常用的计算。</p>
-<p><code>NumPy</code> 和 <code>SciPy</code>
-的协同工作可以高效解决很多问题，在天文学、生物学、气象学和气候科学，以及材料科学等多个学科得到了广泛应用。</p>
-<h2 id="matplotlib库">Matplotlib库</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://matplotlib.org">Matplotlib官网</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/matplotlib-tutorial.html">Matplotlib教程</a></li>
-</ul>
-<p>Matplotlib 可能是 Python
-2D-绘图领域使用最广泛的套件。它能让使用者很轻松地将数据图形化，并且提供多样化的输出格式。</p>
-<h3 id="ipython-以及-pylab-模式">IPython 以及 pylab 模式</h3>
-<p>IPython 是 Python
-的一个增强版本。它在下列方面有所增强：命名输入输出、使用系统命令（shell
-commands）、排错（debug）能力。我们在命令行终端给 IPython 加上参数
--pylab （0.12 以后的版本是 --pylab）之后，就可以像 Matlab 或者
-Mathematica 那样以交互的方式绘图。</p>
-<h3 id="pylab">pylab</h3>
-<p>pylab 是 matplotlib 面向对象绘图库的一个接口。它的语法和 Matlab
-十分相近。也就是说，它主要的绘图命令和 Matlab
-对应的命令有相似的参数。</p>
-<h2 id="pandas-库">Pandas 库</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.runoob.com/pandas/pandas-tutorial.html">Pandas教程</a></p>
-<ul>
-<li><p>Pandas 是 Python 语言的一个扩展程序库，用于数据分析。</p></li>
-<li><p>Pandas 名字衍生自术语 "panel data"（面板数据）和 "Python data
-analysis"（Python 数据分析）。</p></li>
-<li><p>Pandas 是一个开放源码、BSD
-许可的库，提供高性能、易于使用的数据结构和数据分析工具。</p></li>
-<li><p>Pandas 一个强大的分析结构化数据的工具集，基础是
-Numpy（提供高性能的矩阵运算）。</p></li>
-</ul>
-<h2 id="seaborn-库">Seaborn 库</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.runoob.com/matplotlib/seaborn-tutorial.html">Seaborn
-教程</a></p>
-<ul>
-<li><p>Seaborn 是一个基于 Matplotlib
-的数据可视化库，专注于统计图形的绘制，旨在简化数据可视化的过程。</p></li>
-<li><p>Seaborn
-提供了一些简单的高级接口，可以轻松地绘制各种统计图形，包括散点图、折线图、柱状图、热图等，而且具有良好的美学效果。</p></li>
-</ul>
-<p>例如：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个示例数据框</span></span><br><span class="line">data = &#123;<span class="string">&#x27;A&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], <span class="string">&#x27;B&#x27;</span>: [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 Pearson 相关系数</span></span><br><span class="line">correlation_matrix = df.corr()</span><br><span class="line"><span class="comment"># 使用热图可视化 Pearson 相关系数</span></span><br><span class="line">sns.heatmap(correlation_matrix, annot=<span class="literal">True</span>, cmap=<span class="string">&#x27;coolwarm&#x27;</span>, fmt=<span class="string">&quot;.2f&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>这段代码将生成一个热图，用颜色表示相关系数的强度，其中正相关用温暖色调表示，负相关用冷色调表示。annot=True
-参数在热图上显示具体的数值。</p>
-</div>
-<figure>
-<img
-src="https://www.runoob.com/wp-content/uploads/2024/02/38fa14c44f0cc4f315a3dd4d5597d2b1_w.png"
-alt="示例热图" />
-<figcaption aria-hidden="true">示例热图</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/Python%E4%B8%AD%E7%9A%84%E6%B5%B7%E8%B1%A1%E8%BF%90%E7%AE%97%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/25/Python%E4%B8%AD%E7%9A%84%E6%B5%B7%E8%B1%A1%E8%BF%90%E7%AE%97%E7%AC%A6/" class="post-title-link" itemprop="url">Python中的海象运算符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-25 19:16:21" itemprop="dateCreated datePublished" datetime="2024-07-25T19:16:21+08:00">2024-07-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 Python 3.8
-及更高版本中，引入了一种新的语法特性，称为"海象运算符"（ Walrus Operator
-），它使用 <code>:=</code>
-符号。这个运算符的主要目的是在表达式中同时进行赋值和返回赋值的值。使用海象运算符可以在一些情况下简化代码，尤其是在需要在表达式中使用赋值结果的情况下。这对于简化循环条件或表达式中的重复计算很有用。</p>
-<figure class="highlight python"><figcaption><span>演示海象运算符的使用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 传统写法</span></span><br><span class="line">n = <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> n &gt; <span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用海象运算符</span></span><br><span class="line"><span class="keyword">if</span> (n := <span class="number">10</span>) &gt; <span class="number">5</span>:</span><br><span class="line">    <span class="built_in">print</span>(n)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>if (n := 10) &gt; 5:</code>：这是使用海象运算符（<code>:=</code>）的写法。海象运算符在表达式中进行赋值操作。
-<ul>
-<li><code>(n := 10)</code>：将变量 n 赋值为
-10，同时返回这个赋值结果。</li>
-<li><code>&gt; 5</code>：检查赋值后的 n 是否大于
-5。如果条件为真，则执行接下来的代码块。</li>
-</ul></li>
-<li><code>print(n)</code>：如果条件为真，打印变量 n 的值（即 10）。</li>
-</ul>
-<p>海象运算符的优点：</p>
-<ul>
-<li>海象运算符（<code>:=</code>）允许在表达式内部进行赋值，这可以减少代码的重复，提高代码的可读性和简洁性。</li>
-<li>在上述例子中，传统写法需要单独一行来赋值 n， 然后在 if
-语句中进行条件检查。而使用海象运算符的写法可以在 if
-语句中直接进行赋值和条件检查。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B3%A8%E9%87%8A%E7%AC%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/25/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E7%9A%84%E6%B3%A8%E9%87%8A%E7%AC%A6/" class="post-title-link" itemprop="url">各种语言的注释符</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-25 18:38:32" itemprop="dateCreated datePublished" datetime="2024-07-25T18:38:32+08:00">2024-07-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>编程注释是程序中用来解释代码功能和作用的文字内容，它们对于代码的可读性和可维护性非常重要。不同的编程语言对注释符号有不同的要求和规范，下面将介绍一些常见的编程语言中常用的注释符号。</p>
-<p>C/C++、Java、C#等类C语言风格的注释：</p>
-<ul>
-<li>单行注释：使用双斜线（//）开头，注释文字直至该行结束。</li>
-<li>多行注释：使用斜线加星号（/）开头，星号加斜线（/）结尾，中间的内容都会被注释掉。</li>
-</ul>
-<p>Python风格的注释：</p>
-<ul>
-<li>单行注释：使用井号（#）开头，注释文字直至该行结束。</li>
-</ul>
-<p>JavaScript风格的注释：</p>
-<ul>
-<li>单行注释：使用双斜线（//）开头，注释文字直至该行结束。</li>
-<li>多行注释：使用斜线加星号（/）开头，星号加斜线（/）结尾，中间的内容都会被注释掉。</li>
-</ul>
-<p>Shell脚本风格的注释：</p>
-<ul>
-<li>单行注释：使用井号（#）开头，注释文字直至该行结束。</li>
-</ul>
-<p>HTML、CSS风格的注释：</p>
-<ul>
-<li>单行注释：使用斜线加星号（/）开头，星号加斜线（/）结尾，中间的内容都会被注释掉。</li>
-</ul>
-<p>SQL风格的注释：</p>
-<ul>
-<li>单行注释：使用双连字符（–）开头，注释文字直至该行结束。</li>
-<li>多行注释：使用斜线加星号（/）开头，星号加斜线（/）结尾，中间的内容都会被注释掉。</li>
-</ul>
-<p>需要注意的是，不同编程语言中注释的使用方式可能会有所不同，因此在具体的编程项目中，需要遵循对应编程语言的注释规范来使用注释符号。同时，良好的注释应该准确、清晰地解释代码的意图和功能，避免在注释中出现笔误或误导性的信息，以提高代码的可读性和可维护性。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/21/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/23/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/21/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/23/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

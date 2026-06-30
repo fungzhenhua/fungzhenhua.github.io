@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,978 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">LaTeX中插入图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-28 00:54:48" itemprop="dateCreated datePublished" datetime="2024-05-28T00:54:48+08:00">2024-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在科研论文中，图片是一个非常重要的组成部分。LaTeX
+提供了许多定制化图片的功能。这篇文章将会介绍如何用最常见的格式插入图片、缩放图片、旋转图片，以及如何在文档中引用这些图片。实现插入图片的功能需要在导言引用<code>graphics</code>或<code>graphicx</code>,
+下面就一些重要的点展开讨论。</p>
+<h2 id="图片的路径">图片的路径</h2>
+<p>当你的文档拥有很多个图片的时候，创建多个文件夹来存储图片是一个规划项目的好办法。</p>
+<p>命令<code>\graphicspath&#123; &#123;images/&#125; &#125;</code>告诉 LaTeX
+在_images_文件夹中寻找图片。这个路径是当前工作文件夹的<strong>相对</strong>路径，所以，编译器会在当前文档所在的目录中开始寻找文件。文件夹的路径默认情况下是相对路径，如果没有一个初始的目录被指定，例如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%Path relative to the .tex file containing the \includegraphics command</span></span><br><span class="line"><span class="keyword">\graphicspath</span>&#123; &#123;images/&#125; &#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/28/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/27/LaTeX%E4%B8%AD%E6%8F%92%E5%85%A5%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">LaTeX中插入网络图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-27 21:59:01" itemprop="dateCreated datePublished" datetime="2024-05-27T21:59:01+08:00">2024-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>有时候在编写LaTeX文件时需要插入图片，但是图片源自网络，这时可以使用<code>\write18</code>调用外部命令，下载图片，然后再插入到文件中，引用网络上的一个具体例子为：</p>
+<figure class="highlight tex"><figcaption><span>\write18 插入图片</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphix&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">    <span class="keyword">\write</span>18&#123;wget http://www.some-site.com/path/to/image.png&#125;</span><br><span class="line">    <span class="keyword">\includegraphic</span>&#123;image.png&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>参考：<a
+target="_blank" rel="noopener" href="https://www.latexstudio.net/archives/8040.html">LaTeX技巧427：LaTeX如何插入网络上的图片？</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/27/Linux%E7%BB%88%E7%AB%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/27/Linux%E7%BB%88%E7%AB%AF%E4%B8%8B%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Linux终端下使用默认程序打开文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-27 16:17:15" itemprop="dateCreated datePublished" datetime="2024-05-27T16:17:15+08:00">2024-05-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在日常编写脚本的过程中，不可避免的可打开一些文件进行编辑，对于一些特定的文件可以使用某相应的软件打开。但是，若脚本需要处理的有各种各样的文件，若针对每一个文件都设计一个对应程序来打开，原理上可行，但是比较麻烦。现在的<code>Linux</code>基本都内置了命令<code>xdg-open</code>,
+它可以自动调用系统的默认程序打开文件，可以大大提高脚本的效率。为了方便查询，此贴出它的帮助文件：</p>
+<figure class="highlight txt"><figcaption><span>xdg-open --help</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   xdg-open -- opens a file or URL in the user&#x27;s preferred</span><br><span class="line">   application</span><br><span class="line"></span><br><span class="line">Synopsis</span><br><span class="line"></span><br><span class="line">   xdg-open &#123; file | URL &#125;</span><br><span class="line"></span><br><span class="line">   xdg-open &#123; --help | --manual | --version &#125;</span><br><span class="line"></span><br><span class="line">Use &#x27;man xdg-open&#x27; or &#x27;xdg-open --manual&#x27; for additional info.</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>提出这个要求是因为我今天在脚本<code>xugit.sh</code>中加入了根据选项打开文件，避免每次都切换路径的麻烦。尽管有<code>z-lua</code>等路径切换插件，但是在连接<code>U盘</code>时，使用<code>ugit -l</code>选择文件再打开，更加直接。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/26/Shell%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%8F%AF%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/26/Shell%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%8F%AF%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95/" class="post-title-link" itemprop="url">Shell脚本编写可选择菜单</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-26 16:27:03" itemprop="dateCreated datePublished" datetime="2024-05-26T16:27:03+08:00">2024-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用<code>diary.sh</code>写博客已经有近两年了，对于菜单一直没有细致的设计，这主要是因为对<code>Shell</code>理解的不够透彻。今天实现了真正意义上的可选择菜单，实现原理是：不再使用<code>clear</code>每次按键后清屏，改用指定行输出来输出菜单！这样就可以避免每按一次键就闪烁一次的不好体验，同时对于一屏的信息，当只有一二行发生变化时，整体上看很流畅：</p>
+<h2 id="运行截图展示">运行截图展示</h2>
+<figure>
+<img src="https://img2.imgtp.com/2024/05/26/0mRbEkkk.gif"
+alt="可选择菜单" />
+<figcaption aria-hidden="true">可选择菜单</figcaption>
+</figure>
+<div class="note primary"><p>可选择菜单支持<code>vim</code>的快捷键，即<code>j</code>向下，<code>k</code>向上，同时<code>J</code>向下一页，<code>K</code>向上一页.</p>
+</div>
+<h2 id="shell源代码">shell源代码</h2>
+<figure class="highlight sh"><figcaption><span>可选择菜单shell源码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br></pre></td><td class="code"><pre><span class="line">DY_FILES=($(<span class="built_in">ls</span> /home/<span class="variable">$USER</span>/))  <span class="comment">#设置用来列表输出的数组, 此处可以改为您自己的路径</span></span><br><span class="line"><span class="function"><span class="title">DY_SET_SIZE</span></span>()&#123;</span><br><span class="line">    TTY_H=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line">    <span class="built_in">let</span> TTY_H-=2</span><br><span class="line">    TTY_W=$(<span class="built_in">stty</span> size|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">DY_LINE=<span class="string">&quot;-&quot;</span></span><br><span class="line"><span class="function"><span class="title">DY_MKLINE</span></span>()&#123;</span><br><span class="line">    l=0</span><br><span class="line">    <span class="keyword">while</span> [ <span class="variable">$l</span> -lt <span class="variable">$TTY_W</span> ]; <span class="keyword">do</span> </span><br><span class="line">        <span class="built_in">echo</span> -n <span class="string">&quot;<span class="variable">$DY_LINE</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> l+=1</span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line">NEO_FORMAT=7    <span class="comment"># 高亮行的格式，可以自行修改</span></span><br><span class="line"><span class="comment"># 参数： 输出行，行号，数组号， 高亮行号</span></span><br><span class="line"><span class="function"><span class="title">NEO_PRINT</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span> [[ <span class="variable">$3</span> -eq <span class="variable">$4</span> ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;\033[<span class="variable">$1</span>;1H\033[?25l\033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m[<span class="variable">$2</span>] <span class="variable">$&#123;NEO_ARR[$3-1]&#125;</span>\033[0m\033[K\033&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">&quot;\033[<span class="variable">$1</span>;1H\033[?25l[<span class="variable">$2</span>] <span class="variable">$&#123;NEO_ARR[$3-1]&#125;</span>\033[K&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数：$1 起始点 $2 列表长度 $3 高亮行</span></span><br><span class="line"><span class="function"><span class="title">NEO_LIA</span></span>()&#123;</span><br><span class="line">    k=0 ; i=<span class="variable">$1</span></span><br><span class="line">    <span class="keyword">while</span> [[ <span class="variable">$k</span> -lt <span class="variable">$TTY_H</span> ]]; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> k+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt -<span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">let</span> i+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -gt <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>-<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt 1 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> j=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j=<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        NEO_PRINT <span class="variable">$k</span> <span class="variable">$j</span> <span class="variable">$i</span> <span class="variable">$3</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_SELECT</span></span>()&#123;</span><br><span class="line">    <span class="built_in">echo</span> -ne <span class="string">&quot;\r\033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m[s] 选择\033[0m &quot;</span>; <span class="built_in">echo</span> -ne <span class="string">&quot;\033[K&quot;</span> ; <span class="built_in">read</span> TLS_SNum</span><br><span class="line">    <span class="built_in">expr</span> <span class="string">&quot;<span class="variable">$TLS_SNum</span>&quot;</span> + 0 &amp;&gt; /dev/null</span><br><span class="line">    <span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$TLS_SNum</span> -lt <span class="variable">$1</span> -o <span class="variable">$TLS_SNum</span> -gt  <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">&quot;编号超出范围，请重新选择编号！&quot;</span></span><br><span class="line">            <span class="built_in">exit</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            NEO_OUT_H=<span class="variable">$TLS_SNum</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;输入非数字，请重新输入编号！&quot;</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数： 输出行，光标所在行</span></span><br><span class="line"><span class="function"><span class="title">NEO_MENUE</span></span>()&#123;</span><br><span class="line">    <span class="built_in">let</span> r=<span class="variable">$1</span>+2</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -ne <span class="string">&quot;\033[<span class="variable">$r</span>;1H[j] 向下 [k] 向上 [s] 选择 [q] 退出 \033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m<span class="variable">$2</span>\033[0m\033[K\033[?25h&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> -ne <span class="string">&quot;\033[<span class="variable">$r</span>;1H[j] 向下 [k] 向上 [q] 退出 \033[<span class="variable">$&#123;NEO_FORMAT&#125;</span>m<span class="variable">$2</span>\033[0m\033[K\033[?25h&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LISA</span></span>()&#123;</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    p=<span class="variable">$1</span> ; <span class="built_in">let</span> q=<span class="variable">$p</span>+<span class="variable">$TTY_H</span>; m=<span class="variable">$3</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$q</span> -gt <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> q=<span class="variable">$q</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> p=<span class="variable">$p</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$m</span>-<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$p</span> -le <span class="string">&quot;-<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> q=<span class="variable">$q</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> p=<span class="variable">$p</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$m</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_LIA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">    DY_MKLINE</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -le 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> NEO_CURRENT=<span class="variable">$m</span>+<span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        NEO_CURRENT=<span class="variable">$m</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_MENUE <span class="string">&quot;<span class="variable">$TTY_H</span>&quot;</span> <span class="string">&quot;<span class="variable">$NEO_CURRENT</span>&quot;</span></span><br><span class="line">    <span class="built_in">read</span> -s -n 1 ListDo</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$ListDo</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        j)</span><br><span class="line">            <span class="built_in">let</span> m+=1</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$m</span> -gt <span class="variable">$q</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">let</span> p+=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        J)</span><br><span class="line">            <span class="built_in">let</span> p+=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="built_in">let</span> m=<span class="variable">$p</span>+1</span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        k)</span><br><span class="line">            <span class="built_in">let</span> m-=1</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$m</span> -le <span class="variable">$p</span> ]; <span class="keyword">then</span></span><br><span class="line">                <span class="built_in">let</span> p-=<span class="variable">$TTY_H</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        K)</span><br><span class="line">            <span class="built_in">let</span> m=<span class="variable">$p</span></span><br><span class="line">            <span class="built_in">let</span> p-=<span class="variable">$TTY_H</span></span><br><span class="line">            NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        <span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_OUT_H=<span class="variable">$m</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">exit</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        s)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_SELECT <span class="variable">$p</span> <span class="variable">$q</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                NEO_LISA <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        q)</span><br><span class="line">            <span class="built_in">exit</span> </span><br><span class="line">            ;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LIB</span></span>()&#123;</span><br><span class="line">    k=0 ; i=<span class="variable">$1</span></span><br><span class="line">    <span class="keyword">while</span> [[ <span class="variable">$k</span> -lt <span class="variable">$2</span> ]]; <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> k+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt -<span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="built_in">let</span> i+=1</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -gt <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> i=<span class="variable">$i</span>-<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$i</span> -lt 1 ]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">let</span> j=<span class="variable">$i</span>+<span class="variable">$2</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j=<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        NEO_PRINT <span class="variable">$k</span> <span class="variable">$j</span> <span class="variable">$i</span> <span class="variable">$3</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">NEO_LISB</span></span>()&#123;</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    p=<span class="variable">$1</span> ; q=<span class="variable">$2</span> ; m=<span class="variable">$3</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -gt <span class="variable">$q</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">let</span> m=<span class="variable">$p</span>+1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$m</span> -le <span class="variable">$p</span> ]; <span class="keyword">then</span></span><br><span class="line">        m=<span class="variable">$q</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    NEO_LIB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">    DY_MKLINE</span><br><span class="line">    NEO_MENUE <span class="variable">$q</span> <span class="variable">$m</span></span><br><span class="line">    <span class="built_in">read</span> -s -n 1 ListDo</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&quot;<span class="variable">$ListDo</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">        j)</span><br><span class="line">            <span class="built_in">let</span> m+=1</span><br><span class="line">            NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        k)</span><br><span class="line">            <span class="built_in">let</span> m-=1</span><br><span class="line">            NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            ;;</span><br><span class="line">        s)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_SELECT <span class="variable">$p</span> <span class="variable">$q</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                NEO_LISB <span class="variable">$p</span> <span class="variable">$2</span> <span class="variable">$m</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        <span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="keyword">if</span> [ <span class="variable">$NEO_SEL_ON</span> -eq 1 ]; <span class="keyword">then</span></span><br><span class="line">                NEO_OUT_H=<span class="variable">$m</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">exit</span></span><br><span class="line">            <span class="keyword">fi</span></span><br><span class="line">            ;;</span><br><span class="line">        q)</span><br><span class="line">            <span class="built_in">exit</span></span><br><span class="line">            ;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 参数：列出的数组， 1开启选择，0关闭选择</span></span><br><span class="line"><span class="function"><span class="title">NEO_LIST</span></span>()&#123;</span><br><span class="line">    NEO_ARR=(<span class="variable">$1</span>) ; NEO_SEL_ON=<span class="variable">$2</span></span><br><span class="line">    clear</span><br><span class="line">    DY_SET_SIZE</span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> -gt <span class="variable">$TTY_H</span> ]; <span class="keyword">then</span></span><br><span class="line">        NEO_LISA 0 <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> 1</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        NEO_LISB 0 <span class="string">&quot;<span class="variable">$&#123;#NEO_ARR[*]&#125;</span>&quot;</span> 1</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$NEO_OUT_H</span>  <span class="comment"># 目标是获得光标所在的行</span></span><br><span class="line">&#125;</span><br><span class="line">NEO_LIST <span class="string">&quot;<span class="variable">$&#123;DY_FILES[*]&#125;</span>&quot;</span> 1  <span class="comment"># 测试程序命令</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/25/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/25/%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">编程中的函数命名规范</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-25 16:24:26" itemprop="dateCreated datePublished" datetime="2024-05-25T16:24:26+08:00">2024-05-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在对函数进行命名时，每个人都有自己的标准。本书会推荐两种，希望这两种标准成为读者以后编程时的命名规范。比较著名的命名规则首推匈牙利命名法，这种命名方法是由Microsoft
+程序员查尔斯·西蒙尼(Charles
+Simonyi)提出的。其主要思想是“在变量和函数名中加入前缀，以增进人们对程序的理解”。匈牙利命名法的关键是：标识符的名字以一个或者多个小写字母开头作为前缀；前缀之后的是首字母大写的一个单词或多个单词组合，该单词要指明变量的用途。骆驼(Camel)命名法近年来越来越流行，在许多新的函数库和
+Java
+开发平台下使用得相当多。正如它的名称所表示的那样，骆驼命名法指的是混合使用大小写字母来构成标识符的名字，其中的第一个单词首字母小写，余下的单词首字母大写。帕斯卡(Pascal)命名法与骆驼命名法类似。只不过骆驼命名法是第一个单词首字母小写，而帕斯卡命名法则是第一个单词首字母大写。</p>
+<p>对于以上的几种命名规则，本书认为对变量或函数进行描述时常用的是骆驼命名法和匈牙利命名法，因此，我们推荐使用这两种命名标准。</p>
+<p>对于函数来说，一般是根据函数的功能来进行命名，通常有两种命名方式：</p>
+<ul>
+<li>对于一些复杂点的函数操作，可以使用“操作对象+操作”的形式命名，如<code>array_sort()</code>函数，从字面上就可以看出，该函数用于对数字进行排序。</li>
+<li>对于简单的函数，可以直接使用操作名作为函数名，但要注意不要和系统的命令相同，否则容易造成不必要的错误，如<code>address()</code>,对该函数进行操作。</li>
+</ul>
+<p>对于变量来说， 一般通过匈牙利命名法命名：</p>
+<ul>
+<li>对于单个英文单词就可命名，可直接用该单词进行命名，如变量<code>average</code>可用于对变量“平均数”的命名。</li>
+<li>对于单个单词无法命名的单词，可通过双单词或多单词形式的缩略词进行命名，如<code>dir_num</code>可用于命名变量“目录个数”</li>
+</ul>
+<p>对于常量来说，可通过将该变量全部设置为大写与变量形成区别，下面是常量的命名方式：</p>
+<ul>
+<li>对于单个单词可以名句的，可直接使用该单词的全部大写形式进行命名，如：常量<code>TOTAL</code>可对常量“总数”进行命名。</li>
+<li>对于单个单词无法表达清晰的常数，可以通过加下画线的形式命名，如<code>GLOBAL_CON</code>可以常量“全局常量”进行命名。</li>
+</ul>
+<div class="note primary"><p>注：上述引用自《LINUX SHELL 编程从初学到精通》</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/24/Shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/24/Shell%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Shell常用快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-24 23:24:23" itemprop="dateCreated datePublished" datetime="2024-05-24T23:24:23+08:00">2024-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>为了提高我们使用 Bash Shell 的效率，本文总结了一些 Bash
+中常用的高效快捷键，可以帮助我们在快节奏的学习和工作环境中提高生产力。熟悉了这些常用的快捷键之后，将会极大的提升我们与终端交互的速度，从而有效利用时间。</p>
+<h3 id="光标移动">光标移动</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>对应功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + a 或 Home</td>
+<td>将光标移动到整行命令的开头 (#)</td>
+</tr>
+<tr>
+<td>Ctrl + e 或 End</td>
+<td>将光标移动到整行命令的末尾 (#)</td>
+</tr>
+<tr>
+<td>Ctrl + b 或 &lt;-</td>
+<td>将光标向左移动一个字符 (#)</td>
+</tr>
+<tr>
+<td>Ctrl + f 或 -&gt;</td>
+<td>将光标向右移动一个字符 (#)</td>
+</tr>
+<tr>
+<td>Alt + b 或 Ctrl + &lt;-</td>
+<td>将光标向左移动到当前单词或前一个单词的第一个字母上 (#)</td>
+</tr>
+<tr>
+<td>Alt + f 或 Ctrl + -&gt;</td>
+<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处 (#)</td>
+</tr>
+<tr>
+<td>Alt + c</td>
+<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的首字母大写</td>
+</tr>
+<tr>
+<td>Alt + u</td>
+<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的所有字母大写</td>
+</tr>
+<tr>
+<td>Alt + l</td>
+<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处，并将对应单词的所有字母小写</td>
+</tr>
+<tr>
+<td>Alt + -&gt;</td>
+<td>将光标向右移动到当前单词或后一个单词的末尾的第一个空格处 (#)</td>
+</tr>
+<tr>
+<td>Alt + &lt;-</td>
+<td>将光标向左移动到当前单词或前一个单词的首字母处 (#)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="终端编辑">终端编辑</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>对应功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + u</td>
+<td>删除从命令开始位置到当前光标所在位置之前的所有字符（会保留当前光标所在位置的字符）
+(#))</td>
+</tr>
+<tr>
+<td>Ctrl + k</td>
+<td>删除从当前光标位置到结尾的所有字符（不保留当前光标所在位置的字符）
+(#)</td>
+</tr>
+<tr>
+<td>Ctrl + w</td>
+<td>删除当前光标之前的第一个命令行参数或从光标位置往左删除至上一个空字符处（会保留当前光标位置的字符）
+(#)</td>
+</tr>
+<tr>
+<td>Ctrl + t</td>
+<td>交换当前光标之前和之后的两个字符</td>
+</tr>
+<tr>
+<td>Ctrl + h 或 Backspace</td>
+<td>删除光标之前的单个字符 (#)</td>
+</tr>
+<tr>
+<td>Ctrl + d 或 Delete</td>
+<td>往后删除当前光标所在位置的字符 (#)</td>
+</tr>
+<tr>
+<td>Alt + d 或 Ctrl + Delete</td>
+<td>往右删除从当前光标到下一个单词结尾的所有字符（不会保留当前光标所在位置的字符）</td>
+</tr>
+<tr>
+<td>Alt + Backspace</td>
+<td>往左删除从当前光标到上一个单词开头的所有字符（会保留当前光标所在位置的字符）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="任务处理">任务处理</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>快捷键或命令</th>
+<th>对应功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + c</td>
+<td>通过向当前前台进程发送SIGINT信号来中断当前前台进程。默认行为是终止进程
+(#)</td>
+</tr>
+<tr>
+<td>Ctrl + z</td>
+<td>向进程发送SIGTSTP信号，并挂起当前前台进程。可以使用fg命令将重新将进程拉回到前台
+(#)</td>
+</tr>
+<tr>
+<td>[Command] &amp;</td>
+<td>将Command命令放到后台执行，一般和nohup一起使用（eg: nohup ping <a
+target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> &amp;） (#)</td>
+</tr>
+<tr>
+<td>jobs 或 jobs -l</td>
+<td>查看当前终端后台所执行的用户提交任务 (#)</td>
+</tr>
+<tr>
+<td>kill -9 PID</td>
+<td>杀掉进程ID号为PID的进程 (#)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="其他">其他</h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>对应功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ctrl + l</td>
+<td>清除整个屏幕，与clear命令作用相同 (#)</td>
+</tr>
+<tr>
+<td>Ctrl + s</td>
+<td>暂停终端屏幕的显示</td>
+</tr>
+<tr>
+<td>Ctrl + q</td>
+<td>终止Ctr</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/23/Gnome3%E8%AE%BE%E7%BD%AE%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/23/Gnome3%E8%AE%BE%E7%BD%AE%E6%89%93%E5%BC%80%E7%BB%88%E7%AB%AF%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Gnome3设置打开终端快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-23 15:55:25" itemprop="dateCreated datePublished" datetime="2024-05-23T15:55:25+08:00">2024-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>旧版的Gnome3默认的终端叫<code>gnome-terminal</code>,
+新版（2023年5月之后)的新终端控制台启动命令叫<code>kgx</code>,
+于是解决方法为:
+<code>设置</code>→<code>键盘</code>→<code>自定义键盘</code>→<code>设置自定义快捷键</code></p>
+<figure>
+<img src="/Picture/kgx.png" title="Console 设置快捷键"
+alt="Console 设置启动快捷键" />
+<figcaption aria-hidden="true">Console 设置启动快捷键</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/23/KDE-Plasma%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/23/KDE-Plasma%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">KDE-Plasma桌面环境提高效率的快捷键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-23 12:38:39" itemprop="dateCreated datePublished" datetime="2024-05-23T12:38:39+08:00">2024-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天有同学遇到一个问题，她的KDE-Plasma
+桌面莫名其妙的变大了，一直不能设置回来，调显示器分辨率也不行。由于我平时使用Gnome作为主力，好久不使用KDE-Plasma了，所以一时也找不到症结所在。最初的判断是她误删除了配置文件，同时Endavour
+也很长时间没有升级了，所以决定把系统升级到Plasma6.0,
+如果是配置文件删除了的话，那系统升级后会重新建立的，但是重启后仍然不行！一时间解决不了问题，但是突然想起来，有可能是她误触了某些键导致开启了KDE-Plasma的<code>屏幕缩放</code>功能,
+于是按这个思路百度了一下，发现确实是她误触了。解决方法是：
+<code>Meta+=</code> 放大屏幕， <code>Meta+-</code>缩小屏幕，
+<code>Meta+0</code>恢复到初始，
+真是”踏破铁鞋无密处，得来全不费工夫“！为了方便大家，特附上可以提高工作效率的快捷键如下：</p>
+<h2 id="应用程序启动器元">1.<strong>应用程序启动器（元）</strong></h2>
+<ul>
+<li><strong>功能</strong>：打开应用程序启动器，这是所有已安装程序的门户。</li>
+<li><strong>优点</strong>：无需使用鼠标导航来启动应用程序，从而节省时间。</li>
+</ul>
+<h2 id="运行命令界面altspacealtf2">2.
+<strong>运行命令界面（Alt+Space/Alt+F2）</strong></h2>
+<ul>
+<li><strong>功能</strong>：激活命令框以快速启动程序或执行命令。</li>
+<li><strong>优点</strong>：简化运行应用程序或命令的过程，无需导航菜单。</li>
+</ul>
+<h2 id="系统活动ctrlesc">3.<strong>系统活动（Ctrl+Esc）</strong></h2>
+<ul>
+<li><strong>功能</strong>：显示正在进行的系统活动和资源使用情况的概述。</li>
+<li><strong>优点</strong>：对于监控系统性能和识别资源密集型进程至关重要。</li>
+</ul>
+<h2 id="关闭窗口altf4">4.<strong>关闭窗口(Alt+F4)</strong></h2>
+<ul>
+<li><strong>功能</strong>：立即关闭活动窗口，快速退出程序。</li>
+<li><strong>优点</strong>：通过允许快速关闭应用程序来增强窗口管理。</li>
+</ul>
+<h2 id="退出应用程序ctrlq">5.<strong>退出应用程序(Ctrl+Q)</strong></h2>
+<ul>
+<li><strong>功能</strong>：退出当前应用程序，是跨多个程序的常用快捷方式。</li>
+<li><strong>好处</strong>：提供统一的退出方法，增强用户体验。</li>
+</ul>
+<h2 id="强制退出ctrlaltesc">6.
+<strong>强制退出（Ctrl+Alt+Esc）</strong></h2>
+<ul>
+<li><strong>功能</strong>：启动强制关闭无响应应用程序的工具。</li>
+<li><strong>好处</strong>：对于重新获得对无响应应用程序的控制至关重要。</li>
+</ul>
+<h2 id="显示窗口-ctrlf10">7. <strong>显示窗口 (Ctrl+F10)</strong></h2>
+<ul>
+<li><strong>功能</strong>：一次显示所有打开的窗口，以便于导航。</li>
+<li><strong>好处</strong>：通过允许快速窗口选择，极大地改进了多任务处理。</li>
+</ul>
+<h2 id="显示桌面ctrlf12">8. <strong>显示桌面(Ctrl+F12)</strong></h2>
+<ul>
+<li><strong>功能</strong>：最小化所有窗口以显示桌面，提供对文件和小部件的访问。</li>
+<li><strong>优点</strong>：提供整洁的工作空间并快速访问桌面项目。</li>
+</ul>
+<h2 id="窗口导航alttabaltshifttab">9.
+<strong>窗口导航（Alt+Tab/Alt+Shift+Tab）</strong></h2>
+<ul>
+<li><strong>功能</strong>：能够在打开的窗户中快速循环，向前和向后。</li>
+<li><strong>好处</strong>：促进任务之间的平滑过渡并提高工作流程效率。</li>
+</ul>
+<h2 id="放大缩小metameta-">10.
+<strong>放大/缩小（Meta+=/Meta+-）</strong></h2>
+<ul>
+<li><strong>功能</strong>：允许放大和缩小桌面视图。</li>
+<li><strong>优点</strong>：增强可视性和可访问性，特别是对于有视力障碍的用户。</li>
+</ul>
+<h2 id="恢复缩放meta0">11. <strong>恢复缩放（Meta+0）</strong></h2>
+<ul>
+<li><strong>功能</strong>：将桌面缩放级别重置为默认设置。</li>
+<li><strong>优点</strong>：快速标准化视图，在放大细节或辅助功能后特别有用。</li>
+</ul>
+<h2 id="下一个活动metatab">12.
+<strong>下一个活动（Meta+Tab）</strong></h2>
+<ul>
+<li><strong>功能</strong>：切换到下一个 KDE
+活动，这是工作区组织的独特功能。</li>
+<li><strong>优点</strong>：通过允许在针对特定任务定制的不同工作区之间轻松导航来提高工作效率。</li>
+</ul>
+<h2
+id="上一个活动metashifttab">13.<strong>上一个活动（Meta+Shift+Tab）</strong></h2>
+<ul>
+<li><strong>功能</strong>：返回到上一个活动，有助于高效的工作区管理。</li>
+<li><strong>优点</strong>：可以快速反转到以前使用的工作区，保持流畅的工作流程。</li>
+</ul>
+<h2 id="切换到桌面-1-4ctrlf1-至-ctrlf4">14. <strong>切换到桌面
+1-4（Ctrl+F1 至 Ctrl+F4）</strong></h2>
+<ul>
+<li><strong>功能</strong>：直接切换到前四个虚拟桌面之一。</li>
+<li><strong>优点</strong>：便于在多个桌面之间轻松快速地导航，从而增强多任务处理能力。</li>
+</ul>
+<h2 id="添加小部件手动方法">15.
+<strong>添加小部件（手动方法）</strong></h2>
+<ul>
+<li><strong>功能</strong>：提供一种通过桌面上下文菜单或面板选项手动添加小部件的方法。</li>
+<li><strong>优点</strong>：允许对工作区进行定制和个性化，以满足个人需求。</li>
+</ul>
+<h2 id="锁定屏幕ctrlaltl">16.
+<strong>锁定屏幕（Ctrl+Alt+L）</strong></h2>
+<ul>
+<li><strong>功能</strong>：安全锁定屏幕，防止未经授权的访问。</li>
+<li><strong>好处</strong>：对于离开计算机时维护隐私和安全至关重要。</li>
+</ul>
+<h2 id="平移元箭头键">17. <strong>平移（元+箭头键）</strong></h2>
+<ul>
+<li><strong>功能</strong>：按照箭头键的方向导航放大的桌面视图。</li>
+<li><strong>优点</strong>：放大细节或可访问性时，可用于探索桌面的不同区域。</li>
+</ul>
+<h2 id="打开窗口操作菜单altf3">18.
+<strong>打开窗口操作菜单(Alt+F3)</strong></h2>
+<ul>
+<li><strong>功能</strong>：显示带有各种窗口管理选项的菜单。</li>
+<li><strong>优点</strong>：提供对窗口大小调整、移动和其他管理功能的快速访问。</li>
+</ul>
+<h2
+id="面板小部件管理面板选项">19.<strong>面板小部件管理（面板选项）</strong></h2>
+<ul>
+<li><strong>功能</strong>：通过上下文菜单或面板控制器提供对面板中小部件管理的访问。</li>
+<li><strong>优点</strong>：支持自定义面板，为用户界面添加功能和效率。</li>
+</ul>
+<h2
+id="最小化全部显示桌面ctrlf12">20.<strong>最小化全部/显示桌面(Ctrl+F12)</strong></h2>
+<ul>
+<li><strong>功能</strong>：快速最小化所有打开的窗口，露出桌面。</li>
+<li><strong>优点</strong>：对于快速访问桌面项目或从干净的工作区开始非常有用。</li>
+</ul>
+<p>通过将这些快捷方式融入到您的日常使用中，您可以更轻松、更高效地导航和控制
+KDE
+Plasma。无论您是在处理复杂的项目还是只是浏览，这些快捷方式都旨在增强您在
+KDE 环境中的整体体验。</p>
+<h2 id="结论">结论</h2>
+<p>掌握 KDE Plasma 的键盘快捷键是提高工作效率并简化与 Linux
+桌面环境交互的有效方法。通过熟悉这 20
+个最重要的快捷方式，您可以显着提高从简单的应用程序启动到复杂的工作区管理等任务的效率。这些知识不仅可以节省时间，还可以丰富您的整体用户体验，使
+KDE Plasma
+成为满足您日常计算需求的更强大且用户友好的界面。无论您是新用户还是经验丰富的
+Linux 爱好者，这些快捷方式都是您更熟练、更愉快地使用 KDE Plasma
+的宝贵工具。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -743,941 +1715,8 @@ style="text-align: center;">\item[&lt;+biblabel+&gt;]{&lt;+bibkey+&gt;}
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/13/%E5%BE%AE%E8%BD%AF%E6%BF%80%E6%B4%BB%E5%B7%A5%E5%85%B7HEUKMS/" class="post-title-link" itemprop="url">微软激活工具HEU KMS Activator</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-13 13:55:56" itemprop="dateCreated datePublished" datetime="2024-05-13T13:55:56+08:00">2024-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>HEU KMS
-Activator是知彼而知己开发的KMS激活工具，最新版增加了OEM激活功能，支持Vista/Win7/Server
-2008/2012等系统的永久激活，无需联网即可一键激活Windows和Office
-VL版本。新增Win10数字许可证激活，可用于系统封装后完美激活。此工具无广告、无捆绑、无后门，完全出自“知彼而知己”的正版，适合系统封装爱好者使用。</p>
-<figure>
-<img
-src="https://p6-tt-ipv6.byteimg.com/origin/pgc-image/657af6a5c10c47c888550a851f5d1d7b"
-alt="HEU KMS Activator" />
-<figcaption aria-hidden="true">HEU KMS Activator</figcaption>
-</figure>
-<div class="note primary"><p>注意：高级功能的按钮以“灰色”图标显示，建议详细阅读<a
-target="_blank" rel="noopener" href="https://github.hscsec.cn/zbezj/HEU_KMS_Activator">《用户使用手册》</a>后再行使用。</p>
-</div>
-<h3 id="数字许可证激活简介"><strong>数字许可证激活简介</strong></h3>
-<ol type="1">
-<li><p>Windows10可以通过Windows 7 /
-8.1升级、购买的零售版、或OEM等的方式激活，微软会收集计算机的硬件信息并上传到服务器，将其转化为数字许可证，下次重装系统时，联网后微软服务器将重新比对硬件信息，若主要硬件信息不变，系统就会自动予以激活。</p></li>
-<li><p>例如已永久激活的Windows7升级到Windows10后，会自动永久激活，基于这种思路，通过从微软服务器获取数字门票(GenuineTicket.xml)，完成数字许可证激活(又名数字权利激活)。</p></li>
-<li><p>综上，数字许可证激活的方式必须连接到互联网，一旦激活成功，以后重装系统联网后即自动永久激活。</p></li>
-</ol>
-<div class="note primary"><p>假如使用软件永久激活了Windows7，目前来看，升级到Windows10后会自动激活。此时这台计算机就已经获取到了“数字许可证”，不需要任何其他软件，也不需要安装密钥，只要以后在这台计算机上安装Windows10，联网自动激活。数字许可证激活方式，微软只需一个系统更新即可轻易封杀，然而为了扩大Windows10的市场占有率，此方式被默许。</p>
-</div>
-<h3 id="kms-激活简介"><strong>KMS 激活简介</strong></h3>
-<ol type="1">
-<li><p>通常企业、学校等拥有多台计算机，设想如果安装了
-Windows，然后管理员一台一台的去激活，管理起来十分不方便。为了解决这种问题，微软定制了一种
-批量授权（Volume）的方法：局域网内的一台计算机作为服务器首先连接到微软的服务器进行激活，然后局域网内的其他计算机向局域网内的这台服务器请求激
-活。这种方法即为 Key Management Service，简称 KMS，是微软定制的一种正规
-激活方式，下面简要介绍一下激活流程。</p></li>
-<li><p>大客户首先购买微软正版“CSVLK”密钥，然后将一台计算机永久激活（联网
-或者拨打微软客服电话），这台计算机即可作为服务器（KMS Host），始终保持
-开机联网（局域网连接通畅即可）的状态。局域网内的其他计算机（KMS
-Client）向服务器请求激活，当达到一定数量（激活 Windows 需要 25
-台计算机、激活 Office 需要 5
-台计算机）的客户端计算机请求激活后，服务器就向客户端注入激
-活信息。</p></li>
-<li><p>KMS 激活后有效期 180 天。默认设置下 KMS Client 会自动向可用的 KMS
-Host 请求激活（未激活的客户端尝试连接 KMS 的时间间隔为 2 小时，已激活的
-客户端尝试连接 KMS 的续订时间间隔为 7 天）。即 KMS Client 激活有效期会始
-终保持 173 天以上，前提是 KMS Host 是可用的。</p></li>
-</ol>
-<h3 id="下载地址"><strong>下载地址</strong></h3>
-<ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://github.com/zbezj/HEU_KMS_Activator/releases/">HEU KMS
-Activator(GitHub)</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://url84.ctfile.com/d/12480284-33192731-fe6932">HEU
-KMS Activator(城通网盘 访问密码：wrfou)</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1a2dqow1c7GuZkIKYwCGgpg">HEU KMS
-Activator(百度网盘 提取码: nizy)</a></p></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/11/iVentoy%E9%80%9A%E8%BF%87%E7%BD%91%E7%BB%9C%E5%90%8C%E6%97%B6%E7%BB%99%E5%A4%9A%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/11/iVentoy%E9%80%9A%E8%BF%87%E7%BD%91%E7%BB%9C%E5%90%8C%E6%97%B6%E7%BB%99%E5%A4%9A%E5%8F%B0%E6%9C%BA%E5%99%A8%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">iVentoy通过网络同时给多台机器安装操作系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-11 21:03:52" itemprop="dateCreated datePublished" datetime="2024-05-11T21:03:52+08:00">2024-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>之前为大家推荐过软件<a
-target="_blank" rel="noopener" href="https://www.ventoy.net/cn/index.html">Ventoy</a>,
-实现了一个U盘在手同时安装多个操作系统的强大功能，大大方便了日常工作。今天升级我的Ventoy
-后在主页发现原作者又开发了一款神器 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/index.html">iVentoy</a>,
-用于通过网络给多台机器启动安装操作系统，现引用其官方的说明，推荐给大家。</p>
-<p>简单来说，iVentoy 可以看成是一个增强版的 PXE 服务器。iVentoy
-使用极其简单，无需复杂的配置，直接把 ISO
-文件放到指定位置，客户机在启动时根据菜单选择要启动的ISO文件即可。iVentoy
-同时支持 x86 Legacy BIOS、IA32 UEFI、x86_64 UEFI 和 ARM64 UEFI
-模式。iVentoy 支持 110 多种常见类型的操作系统
-（Windows/WinPE/Linux/VMware）(<a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/isolist.html">列表</a>)。</p>
-<h2 id="iventoy-特点">iVentoy 特点</h2>
-<ul>
-<li>软件使用非常简单 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_start.html">(使用说明)</a></li>
-<li>软件跨平台，支持运行在 Windows 和 Linux 系统中。</li>
-<li>软件专门针对PXE场景优化设计，功能灵活。</li>
-<li>支持ISO文件直接启动，无需提取内部文件。</li>
-</ul>
-<details>
-<summary>
-其他特点
-</summary>
-<ul>
-<li><p>保留原始ISO文件的启动菜单风格。</p></li>
-<li><p>启动菜单和文件目录结构一一对应。</p></li>
-<li><p>同时支持 Legacy BIOS 以及 IA32/X86_64/ARM64 的 UEFI
-模式。</p></li>
-<li><p>支持 110 多种常见的操作系统
-（Windows/WinPE/Linux/VMware）。</p></li>
-<li><p>支持整体及单个ISO文件的启动密码保护。</p></li>
-<li><p>支持多台设备同时安装不同操作系统。</p></li>
-<li><p>支持和第三方 DHCP Server 配合工作。<a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_ext_dhcp.html">说明</a></p></li>
-<li><p>支持通过 MAC 地址进行设备过滤。</p></li>
-<li><p>支持查询 MAC 地址过滤状态。</p></li>
-<li><p>支持 MAC 地址归属查询。</p></li>
-<li><p>支持客户端设备信息查询。（厂商名、产品名、序列号等）</p></li>
-<li><p>提供 HTTP 直接获取 ISO 内部文件的功能。<a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_http_url.html">说明</a></p></li>
-<li><p>支持启动文件注入功能。 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_injection.html">说明</a></p></li>
-<li><p>支持注入并自动执行脚本的功能。 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_injection.html">说明</a></p></li>
-<li><p>支持 Windows 系统的自动安装部署 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_autoinstall.html">说明</a></p></li>
-<li><p>支持 Linux 系统的自动安装部署 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_autoinstall.html">说明</a></p></li>
-<li><p>Windows/Linux 自动安装脚本中支持变量扩展 <a
-target="_blank" rel="noopener" href="https://www.iventoy.com/cn/doc_autoinstall.html">说明</a></p></li>
-<li><p>自动解决Linux安装过程中缺少网卡驱动的问题。</p></li>
-</ul>
-</details>
-<figure>
-<img src="https://www.iventoy.com/static/img/screen/boot_ground.png?v=4"
-alt="iVentoy启动截图" />
-<figcaption aria-hidden="true">iVentoy启动截图</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/11/Nautilus%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E9%A2%9C%E8%89%B2%E6%A0%87%E8%AE%B0%E6%96%87%E4%BB%B6%E5%A4%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/11/Nautilus%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E9%A2%9C%E8%89%B2%E6%A0%87%E8%AE%B0%E6%96%87%E4%BB%B6%E5%A4%B9/" class="post-title-link" itemprop="url">Nautilus使用不同的颜色标记文件夹</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-11 15:23:20" itemprop="dateCreated datePublished" datetime="2024-05-11T15:23:20+08:00">2024-05-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在日常工作中，通过改变文件夹的颜色为某个特定颜色可以使其醒目，因此一些重要的或有特定用途的文件夹可以采用此方案。在<code>Gnome3</code>
-上我们有一个 <code>Nautilus</code> 的插件<a
-target="_blank" rel="noopener" href="https://github.com/costales/folder-color">folder-color-nautilus</a>来实现，但是它并没有被<code>Archlinux</code>官方收录到<code>pacman</code>仓库，因此大家需要在<code>aur</code>中安装。</p>
-<ul>
-<li><p><code>ArchLinux</code>中安装插件 <figure class="highlight sh"><figcaption><span>for nautilus</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S --noconfirm folder-color-nautilus</span><br></pre></td></tr></table></figure></p></li>
-<li><p>其他文件管理器<code>nemo</code>和<code>caja</code>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">paru -S --noconfirm folder-color-nemo</span><br><span class="line">paru -S --noconfirm folder-color-caja</span><br></pre></td></tr></table></figure></p></li>
-</ul>
-<p>安装完成后，你可以进入文件管理器，右键单击文件夹或文件。你会在上下文菜单中看到
-Folder Color 的选项。你将在此处看到颜色和标志选项。</p>
-<figure>
-<img
-src="https://pic2.zhimg.com/v2-cb8e2020894b4426657e08b50380e619_b.jpg"
-alt="右键菜单" />
-<figcaption aria-hidden="true">右键菜单</figcaption>
-</figure>
-<p>你还可以通过在菜单<strong>通过选择“默认”恢复原始文件夹颜色</strong>。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/10/%E4%BD%BF%E7%94%A8Shields%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E5%BE%AE%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/10/%E4%BD%BF%E7%94%A8Shields%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0%E5%BE%AE%E6%A0%87/" class="post-title-link" itemprop="url">使用Shields为自己的项目添加微标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-10 20:05:50" itemprop="dateCreated datePublished" datetime="2024-05-10T20:05:50+08:00">2024-05-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a
-target="_blank" rel="noopener" href="https://shields.io/badges">Shieldsio</a>是一个提供简洁、一致和易读的徽章服务，可以轻松地包含在GitHub的readmes或其他网页中。该服务支持数十种持续集成服务、软件包注册表、分发、应用商店、社交网络、代码覆盖服务和代码分析服务。它被一些世界上最流行的开源项目使用。</p>
-<p>根据提示，在左侧选择相关服务，
-后根据实例填写右侧的信息，再按右下角<code>Execute</code>生成相应的链接，比如我的博客需要<code>Markdown</code>，则生成<code>Markdown</code>链接后贴到博客中即可。比如我开发的项目有：</p>
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/diary.sh-V9.6-purple"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/xugit.sh-V5.2-purple"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/neogit.sh-V4.0-green"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/ugit.sh-V2.1-green"
-alt="Static Badge" /></a></td>
-</tr>
-<tr>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/archsetup.sh-V1.4-green"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/updatehost.sh-V1.1-green"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/ParuAxel.sh-V1.2-green"
-alt="Static Badge" /></a></td>
-<td style="text-align: left;"><a
-target="_blank" rel="noopener" href="https://gitee.com/fengzhenhua/script"><img
-src="https://img.shields.io/badge/makepkg.sh-V1.1-green"
-alt="Static Badge" /></a></td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/Linux%E9%98%B2%E6%AD%A2%E8%AF%AF%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/08/Linux%E9%98%B2%E6%AD%A2%E8%AF%AF%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">Linux防止误删除文件或目录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-08 12:41:34" itemprop="dateCreated datePublished" datetime="2024-05-08T12:41:34+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>为了防止在 Linux
-系统中意外删除一些重要文件或目录，除了必要的备份之外，还有一个好方法，就是使用<code>chattr</code>命令。</p>
-<h3 id="chattrchange-attribute命令"><strong>chattr（Change
-Attribute）命令</strong></h3>
-<p>在类 Unix
-等发行版中，该命令能够有效防止文件和目录被意外的删除或修改。file 文件在
-Linux 中被描述为一个数据结构，chattr 命令在大多数现代 Linux
-操作系统中是可用的，可以修改file属性，一旦定义文件的隐藏属性，那么该文件的拥有者和
-root 用户也无权操作该文件，只能解除文件的隐藏属性。</p>
-<h3 id="命令语法"><strong>命令语法</strong></h3>
-<p><code>chattr [operator] [switch] [file]</code></p>
-<p>operator 具有如下操作符：</p>
-<ul>
-<li>操作符 <code>+</code>，追加指定属性到文件已存在属性中</li>
-<li>操作符<code>-</code>， 删除指定属性</li>
-<li>操作符<code>=</code>，直接设置文件属性为指定属性</li>
-</ul>
-<h3 id="switch-常用属性指令如下"><strong>switch
-常用属性指令如下</strong></h3>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a：让文件或目录仅供附加用途；</span><br><span class="line">b：不更新文件或目录的最后存取时间；</span><br><span class="line">c：将文件或目录压缩后存放；</span><br><span class="line">d：将文件或目录排除在倾倒操作之外；</span><br><span class="line">i：不得任意更动文件或目录；</span><br><span class="line">s：保密性删除文件或目录；</span><br><span class="line">S：即时更新文件或目录；</span><br><span class="line">u：预防意外删除。</span><br></pre></td></tr></table></figure>
-<h3 id="其它参数"><strong>其它参数</strong></h3>
-<ul>
-<li>-R：递归处理，将指令目录下的所有文件及子目录一并处理；</li>
-<li>-v<版本编号>：设置文件或目录版本；</li>
-<li>-V：显示指令执行过程</li>
-</ul>
-<h3
-id="设置文件不能被改名移动删除增删数据"><strong>设置文件不能被改名,移动删除,增删数据</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lsattr rumenz.txt </span><br><span class="line">---------------- rumenz.txt</span><br><span class="line"></span><br><span class="line">chattr +i rumenz.txt</span><br><span class="line">lsattr rumenz.txt </span><br><span class="line">----i----------- rumenz.txt</span><br></pre></td></tr></table></figure>
-<h3 id="尝试修改文件"><strong>尝试修改文件</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;rumenz.com&quot;</span> rumenz.txt</span><br><span class="line">-bash: rumenz.txt: Permission denied</span><br></pre></td></tr></table></figure>
-<p>提示没有权限</p>
-<h3 id="删除特殊i权限"><strong>删除特殊<code>i</code>权限</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr -i rumenz.txt</span><br></pre></td></tr></table></figure>
-<h3
-id="设置目录不能建立移动和删除文件"><strong>设置目录不能建立,移动和删除文件</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> rumenz &amp;&amp; <span class="built_in">touch</span> rumenz/1.txt</span><br><span class="line">tree </span><br><span class="line">.</span><br><span class="line">└── rumenz</span><br><span class="line">    └── 1.txt</span><br><span class="line">lsattr rumenz/</span><br><span class="line">---------------- rumenz/1.txt</span><br><span class="line">chattr +i -R rumenz/</span><br><span class="line">lsattr rumenz/</span><br><span class="line">----i----------- rumenz/1.txt</span><br></pre></td></tr></table></figure>
-<h3
-id="在rumenz目录下创建目录"><strong>在<code>rumenz</code>目录下创建目录</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> rumenz/one</span><br><span class="line"><span class="built_in">mkdir</span>: cannot create directory ‘rumenz/one’: Permission denied</span><br></pre></td></tr></table></figure>
-<p>提示权限不足</p>
-<h3
-id="在rumenz1.txt文件中添加数据"><strong>在<code>rumenz/1.txt</code>文件中添加数据</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;rumenz.com&quot;</span> rumenz/1.txt </span><br><span class="line">-bash: rumenz/1.txt: Permission denied</span><br></pre></td></tr></table></figure>
-<h3
-id="删除特殊i权限-1"><strong>删除特殊<code>i</code>权限</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr -i -R rumenz</span><br></pre></td></tr></table></figure>
-<h3
-id="设置文件只能添加数据不能修改删除移动该文件"><strong>设置文件只能添加数据,不能修改,删除,移动该文件</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsattr rumenz.txt</span><br><span class="line">---------------- rumenz.txt</span><br><span class="line">chattr +a rumenz.txt</span><br><span class="line">lsattr rumenz.txt</span><br><span class="line">-----a---------- rumenz.txt</span><br></pre></td></tr></table></figure>
-<h3
-id="修改rumenz.txt文件内容"><strong>修改rumenz.txt文件内容</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;rumenz.com&quot;</span> rumenz.txt</span><br><span class="line">-bash: rumenz.txt: Operation not permitted</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;rumenz.com&quot;</span> &gt;rumenz.txt</span><br></pre></td></tr></table></figure>
-<p>修改覆盖<code>rumenz.txt</code>文件内容不行,向后追加可以。</p>
-<h3 id="修改文件名"><strong>修改文件名</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> rumenz.txt one.txt</span><br><span class="line"><span class="built_in">mv</span>: cannot move ‘rumenz.txt’ to ‘one.txt’: Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>提示权限不足</p>
-<h3
-id="设置rumenz目录下只能添加目录文件但是不能对里面的文件夹文件修改移动删除"><strong>设置<code>rumenz</code>目录下只能添加目录,文件,但是不能对里面的文件夹,文件修改,移动,删除。</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chattr +a -R rumenz</span><br><span class="line">lsattr rumenz/</span><br><span class="line">-----a---------- rumenz/1.txt</span><br></pre></td></tr></table></figure>
-<h3
-id="在rumenz目录下创建one"><strong>在<code>rumenz</code>目录下创建<code>one</code></strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> rumenz/one</span><br></pre></td></tr></table></figure>
-<h3
-id="将rumenzone目录重命名"><strong>将<code>rumenz/one</code>目录重命名</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> rumenz/one rumenz/tow</span><br><span class="line"><span class="built_in">mv</span>: cannot move ‘rumenz/one’ to ‘rumenz/tow’: Operation not permitted</span><br></pre></td></tr></table></figure>
-<h3
-id="在rumenz目录下创建文件"><strong>在<code>rumenz</code>目录下创建文件</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> rumenz/3.txt</span><br><span class="line"><span class="built_in">ls</span> rumenz/</span><br><span class="line">1.txt  3.txt  one</span><br></pre></td></tr></table></figure>
-<h3
-id="不能删除rumenz3.txt文件"><strong>不能删除<code>rumenz/3.txt</code>文件</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf rumenz/3.txt </span><br><span class="line"><span class="built_in">rm</span>: cannot remove ‘rumenz/3.txt’: Operation not permitted</span><br></pre></td></tr></table></figure>
-<p>不能被删除</p>
-<h3
-id="可以修改rumenz3.txt文件内容"><strong>可以修改<code>rumenz/3.txt</code>文件内容</strong></h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;rumenz.com&quot;</span> rumenz/3.txt</span><br><span class="line"><span class="built_in">cat</span> rumenz/3.txt </span><br><span class="line">rumenz.com</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/08/U%E7%9B%98GIT%E4%BB%93%E5%BA%93%E5%90%8C%E6%AD%A5%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/08/U%E7%9B%98GIT%E4%BB%93%E5%BA%93%E5%90%8C%E6%AD%A5%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E8%A7%84%E5%88%92/" class="post-title-link" itemprop="url">U盘GIT仓库同步系统开发规划</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-08 11:28:26" itemprop="dateCreated datePublished" datetime="2024-05-08T11:28:26+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="增强版xugitv5.2发布">增强版<code>xugit</code>(V5.2)发布</h2>
-<ul>
-<li><p>2024-05-09 16:37 完成增强版<code>xugit.sh</code>,
-安装后命令仍然为<code>ugit</code>. 后期如果没有重大<code>bug</code>,
-尽量不再升级了，因为科研工作紧张。欢迎大家使用增强版<code>xugit.sh</code>,
-欢迎反馈您的意见.</p></li>
-<li><p>2024年05月09日,
-完成了增强版<code>U盘</code>同步程序<code>xugit.sh</code>.
-写这支程序的动机是为了解决文件夹误删除，同时如果被改名时能够智能找回或重建，此版采用<code>uudi</code>来唯一识别主机上的<code>HOME</code>挂载硬盘和相应的<code>U盘</code>,
-它不依赖于<code>U盘</code>和仓库的名称来识别设备，所以可以自动校准电脑和U盘上的仓库，所以我称之为增强版。同时在实现逻辑上比之前的版本也进步了一大截，所以无特别需求的话，您应当下载使用增强版<code>xugit.sh</code>,
-安装后其命令仍然为<code>ugit</code>,
-使用<code>ugit -h</code>查看帮助信息。</p></li>
-<li><p>此版，将同步网络的配置内容保存于<code>U盘</code>仓库，不受主机限制，所以配置一次即可走遍天下。同时，也取消了对本地<code>~/.ugitmap</code>的引用，专而将其建立在<code>U盘</code>端，这也可以避免受限于本地，所以更加合理。</p></li>
-<li><p>增强版还优化了命令，强调易用性，对于同步的和操作实现自动化，仅保留几项常用的操作，所以它更加实用。</p></li>
-<li><p>为了保留近二十多天的劳动成果，所以同时保存了三个版本的程序，也可以作为大家学习之用,但是未来本人将只维护<code>xugi.sh</code>，同时由于实现逻辑上的巨大差异，增强版<code>xugit.sh</code>直接升级至<code>V5.0</code>,
-2024年05月09日版本号<code>V5.2</code>.</p></li>
-</ul>
-<h2 id="ugit-v4.0-存在的问题">ugit V4.0 存在的问题</h2>
-<p>已经开发成功了<code>ugit</code>软件，基本实现U盘上建立<code>GIT</code>仓库，并且同步到不同电脑。其实现原理为：在U盘上建立仓库，然后在本地电脑写入<code>本地目录</code>与<code>U盘仓库</code>的对应关系，然后实现同步。但是这种情况存在问题也是比较严重的，下面说明：</p>
-<ul>
-<li><p>本地仓库名称有可能被用户改变，这种情况下导致本地记录文件<code>.ugitmap</code>的一系列记录失效，因为这些路径不存在。</p></li>
-<li><p>最初对本地仓库命名时，使用<code>U盘名称@UGIT</code>的模式，如果用户使用了另一个同名的<code>U盘</code>,
-尽管通过比对<code>U盘的UUID</code>可以识别出这不是之前的源仓库，但是在本地建立仓库时就会和之前的<code>U盘名称@UGIT</code>冲突。</p></li>
-<li><p>如果某用户误删除了<code>.ugitmap</code>文件，但是原来建立的仓库还存在，于是在执行同步的时候<code>ugit</code>就无法取得本地和源仓库的对应关系。</p></li>
-</ul>
-<h2 id="ugit-v4.1-的改进计划">ugit V4.1 的改进计划</h2>
-<p>硬件设备的唯一识别编号为<code>UUID</code>, Linux
-让的所有文件识别的唯一编号为 <code>inode</code>,
-于是通过这两者建立一一对应关系，就不会存在<code>ugit V4.0</code>的问题。需要做的应当是将<code>.ugitmap</code>删除，同时根据硬盘<code>UUID</code>和U盘<code>UUID</code>取得一一对应关系，同时将系统中的<code>inode</code>自动和<code>U盘仓库</code>建立一一对应关系。实现流程为：</p>
-<ol type="1">
-<li><p>读取<code>U盘</code>信息，将所有插入电脑的<code>U盘</code>的<code>UUID</code>和<code>路径</code>存入数组变量待用。</p></li>
-<li><p>新的<code>U盘仓库</code>为空时，在该<code>U盘</code>建立映射文件<code>.ugitmap</code>,
-加入防删除权限。如果在<code>U盘仓库</code>中已经存在仓库，则使用<code>ls</code>命令，建立<code>仓库路径</code>存入数组变量待用。
-<div class="note primary"><p><code>.ugitmap</code>
-中记录了克隆过<code>U盘仓库</code>的电脑硬盘<code>UUID</code>和目标文件夹的<code>inode</code></p>
-</div></p></li>
-<li><p>读对主机的硬盘信息，如果其不在<code>.ugitmap</code>内，此硬盘没有克隆过<code>U盘仓库</code>,
-执行克隆操作，同时将本地上的文件夹<code>inode</code>记录到<code>U盘</code>中的<code>.ugitmap</code>.
-如果其在<code>.ugitmap</code>内，则使用<code>find</code>按<code>inode</code>在<code>/home/$USER</code>内查找路径，建立本地<code>map</code>,
-执行同步操作。</p></li>
-<li><p>剩下的工作交给<code>ugit V4.0</code>原始程序处理。</p></li>
-<li><p>2024-05-08 12:22 暂时记录到此。</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E8%BF%98%E6%98%AF%E6%9C%8990%E5%A4%9AM%E7%9A%84%E5%B7%B2%E7%94%A8%E7%A9%BA%E9%97%B4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/07/%E4%B8%BA%E4%BB%80%E4%B9%88%E7%A3%81%E7%9B%98%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E%E8%BF%98%E6%98%AF%E6%9C%8990%E5%A4%9AM%E7%9A%84%E5%B7%B2%E7%94%A8%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">为什么磁盘格式化后还是有90多M的已用空间</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-07 22:34:52" itemprop="dateCreated datePublished" datetime="2024-05-07T22:34:52+08:00">2024-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>格式化一个磁盘，
-操作系统就知道您要在磁盘上存放文件了，于是系统为您将建立一个文件指针的一个结构。这个结构存放在磁盘上的起始区中的。</p>
-<p>先前的FAT16系统占用的空间相当小，但是它所能支持的最大空间也很小的。</p>
-<p>从WIN98后，支持的FAT32系统支持大于4G的空间。为什么会支持这样大么？就是因为它占用了更大的磁盘空间来支持文件的存储表。它是按照磁盘的空间来决定的。</p>
-<p>我的磁盘一般是用 NTFS
-系统的。因为它的安全性高一些。如果您要在局域网中存放相关的安全信息的话，那都是<label style="color:red">需要占用空间的</label>。而这些根目录的总体信息等等都存放在这里的。下面列出一组数据：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">U 盘容量</th>
-<th style="text-align: left;">空白占用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">105G</td>
-<td style="text-align: left;">93M</td>
-</tr>
-<tr>
-<td style="text-align: left;">148G</td>
-<td style="text-align: left;">93.8M</td>
-</tr>
-<tr>
-<td style="text-align: left;">223G</td>
-<td style="text-align: left;">96.7M</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/07/Git%E6%95%B4%E5%90%88%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/07/Git%E6%95%B4%E5%90%88%E5%88%86%E6%94%AF%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Git整合分支的两种方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-07 10:44:53" itemprop="dateCreated datePublished" datetime="2024-05-07T10:44:53+08:00">2024-05-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>git merge</code> 和<code>git rebase</code>的区别, 如图</p>
-<figure>
-<img
-src="https://pic2.zhimg.com/v2-73db63a5abb3cac70f913155a854cf29_r.jpg"
-alt="merge和rebase的区别" />
-<figcaption aria-hidden="true">merge和rebase的区别</figcaption>
-</figure>
-<p>一个事情很容易判断，使用<code>merge</code>会得到一个复杂的路线图，但是<code>rebase</code>会生成一条清晰的发展路线，所以还是建议使用<code>rebase</code>.</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/29/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/31/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/29/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/31/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,1053 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/04/paru%E7%9A%84%E6%9C%AA%E7%9F%A5%E9%80%89%E9%A1%B9%E9%94%99%E8%AF%AFFileManager/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/04/paru%E7%9A%84%E6%9C%AA%E7%9F%A5%E9%80%89%E9%A1%B9%E9%94%99%E8%AF%AFFileManager/" class="post-title-link" itemprop="url">paru的未知选项错误FileManager</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-04 22:55:13" itemprop="dateCreated datePublished" datetime="2024-07-04T22:55:13+08:00">2024-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前几天配置好的新电脑后，逐步完成<code>ArchLinux</code>的使用细节配置，但是在使用<code>paru</code>安装软件时会出现一个提示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">错误：选项节 [options] 中有未知的选项 <span class="string">&#x27;FileManager&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>这源自于<code>paru</code>的配置文件<code>/etc/paru.conf</code>中出现了错误，即将<code>[bin]</code>前的注释去掉，即修改为：</p>
+<figure class="highlight sh"><figcaption><span>/etc/paru.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Binary OPTIONS</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">[bin]</span><br><span class="line">FileManager = vifm</span><br></pre></td></tr></table></figure>
+<p>注意：在之前的配置中我的<code>[bin]</code>是被注释掉的，但是能正常工作，或许是升级后作者修复了这个<code>bug</code>，因些需要严格的启动这个选项。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/03/%E8%89%BE%E8%BE%BE%E8%89%BEPPT%E7%94%9F%E6%88%90%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/03/%E8%89%BE%E8%BE%BE%E8%89%BEPPT%E7%94%9F%E6%88%90%E5%99%A8/" class="post-title-link" itemprop="url">艾达艾PPT生成器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-03 21:32:40" itemprop="dateCreated datePublished" datetime="2024-07-03T21:32:40+08:00">2024-07-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>工作和学习中编写<code>PPT</code>是一件很平常的事情，但是做的多了就需要提高效率。目前网络上的<code>AI</code>生成<code>PPT</code>的工具有很多，但是大多需要注册或者有使用次数限制，这非常不方便。本文隆重介绍一个永久免费的，免注册的工具<label style="color:red">艾达艾PPT生成器</label>。点击官网直接进入：</p>
+<blockquote class="blockquote-center">
+<p><a
+target="_blank" rel="noopener" href="https://aippt.antdanceai.com">https://aippt.antdanceai.com</a></p>
+
+</blockquote>
+<p>官方的介绍：</p>
+<p>adAI 艾达艾ai一键生成ppt工具，是adAI
+艾达艾旗下一个通过ai能力，一键全自动生成图文信息的ppt工具。adAI 艾达艾ai
+ppt工具，可以在2分钟内，根据用户输入的对ppt制作的要求，一键生成精美页面的ppt文字内容和针对性配图。</p>
+<p>adAI
+艾达艾ai一键生成ppt工具，通过针对数十万种ppt生成格式的训练，用户只需要通过简洁清晰描述需求，即可转化为高质量的ppt文字结构的内容。并且通过针对每页的ppt标题，智能理解标题语义并根据语义，智能匹配对应的配图。实现了一键自动化生成图文并茂的ppt。并且支持一键免费下载生成的ppt。如果对生成的ppt需要进行编辑和调整，只需要通过wps
+或PowerPoint打开后即可编辑。</p>
+<p>adAI 艾达艾ai
+ppt还创新的采用了新的商业模式。对于用户而言，这是一个真正免费的
+，并且免注册登录的，也无需科学上网即可使用的ai
+ppt生成工具。只是在生成的ppt最后一页带有
+广告。用户可以随时删除。这个广告是通过adAI
+艾达艾的千人千面ai算法实现基于用户输入的ppt提示词智能匹配的。比如用户输入如果策划一场车展，那么匹配的广告会跟：车、展会、策划相关。做到精准广告匹配。</p>
+<p>adAI 艾达艾人工智能科技有限公司，致力于通过ai重构传统营销模式，除了ai
+ppt工具以外，还提供基于 ai的全自动内容营销服务。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/Hexo%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/02/Hexo%E4%B8%AD%E8%BE%93%E5%85%A5%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">Hexo中输入数学公式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-02 17:04:41" itemprop="dateCreated datePublished" datetime="2024-07-02T17:04:41+08:00">2024-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>根据<code>Next</code>主题官方文档<a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/math-equations.html?highlight=latex">Math
+Equation</a>配置好<code>Hexo</code>对数学公式的支持，对于一些小问题可以写成<code>LaTeX</code>记录在博客中。但是这里面遇到的问题是，<code>MarkDown</code>毕竟不是针对<code>LaTeX</code>设计的，所以一些特殊的宏包在博客中是不能使用的，对于一些特殊复杂的公式需要撰写<code>tex</code>文件编译，而不是发表在博客上。对于一些简单的公式，如果在<code>Hexo</code>博客上编写，应当注意使用原始的<code>LaTeX</code>命令，以增强其兼容性，对于一些数学符号的输入，请参考：<a
+target="_blank" rel="noopener" href="https://www.latexlive.com/help#d15">关于LaTeX公式编辑
+Introduce</a>,
+而对于<code>Hexo</code>支持的数学公式格式，为了方便使用，直接引用其官方的例子。</p>
+<h2 id="支持的数学公式">支持的数学公式</h2>
+<p>在<code>Hexo</code>中开启数学支持，有两种插件支持，其中<code>MathJax</code>依赖<code>JavaScript</code>,但其支持的数学公式更多，而<code>KaTeX</code>不依赖<code>JavaScript</code>,
+同时速度更快，但是其持的数学公式少一些，因些根据<code>Next</code>主题官方，推荐使用<code>MathJax</code>.它们支持的<code>TeX/LaTeX</code>命令参考:</p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://docs.mathjax.org/en/latest/input/tex/macros/index.html">MathJax支持的TeX/LaTeX命令</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://katex.org/docs/supported.html">KaTeX支持的TeX/LaTeX命令</a></li>
+</ul>
+<h2 id="simple-equations">Simple Equations</h2>
+<p>For simple equations, use the following form to give a tag,</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;equation&#125; <span class="keyword">\label</span>&#123;eq1&#125;</span><br><span class="line">e=mc<span class="built_in">^</span>2</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{equation} \label{eq1}
+e=mc^2
+\end{equation}\]</span></p>
+<p>Then, you can refer to this equation in your text easily by using
+something like:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The famous matter-energy equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq1&#125;<span class="built_in">$</span> proposed by Einstein...</span><br></pre></td></tr></table></figure>
+<p>The famous matter-energy equation <span
+class="math inline">\(\eqref{eq1}\)</span> proposed by Einstein...</p>
+<h2 id="multi-line-equations">Multi-line Equations</h2>
+<p>For multi-line equations, inside the <code>equation</code>
+environment, you can use the <code>aligned</code> environment to split
+it into multiple lines:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;equation&#125; <span class="keyword">\label</span>&#123;eq2&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= d + e + f + g <span class="keyword">\\</span></span><br><span class="line">  <span class="built_in">&amp;</span>= h + i</span><br><span class="line"><span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{equation} \label{eq2}
+\begin{aligned}
+a &amp;= b + c \\
+  &amp;= d + e + f + g \\
+  &amp;= h + i
+\end{aligned}
+\end{equation}\]</span></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq2&#125;<span class="built_in">$</span> is a multi-line equation.</span><br></pre></td></tr></table></figure>
+<p>Equation <span class="math inline">\(\eqref{eq2}\)</span> is a
+multi-line equation.</p>
+<h2 id="multiple-aligned-equations">Multiple Aligned Equations</h2>
+<p>We can use <code>align</code> environment to align multiple
+equations. Each of these equations will get its own numbers.</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">a <span class="built_in">&amp;</span>= b + c <span class="keyword">\label</span>&#123;eq3&#125; <span class="keyword">\\</span></span><br><span class="line">x <span class="built_in">&amp;</span>= yz <span class="keyword">\label</span>&#123;eq4&#125; <span class="keyword">\\</span></span><br><span class="line">l <span class="built_in">&amp;</span>= m - n <span class="keyword">\label</span>&#123;eq5&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{align}
+a &amp;= b + c \label{eq3} \\
+x &amp;= yz \label{eq4} \\
+l &amp;= m - n \label{eq5}
+\end{align}\]</span></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There are three aligned equations: equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq3&#125;<span class="built_in">$</span>, equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq4&#125;<span class="built_in">$</span> and equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq5&#125;<span class="built_in">$</span>.</span><br></pre></td></tr></table></figure>
+<p>There are three aligned equations: equation <span
+class="math inline">\(\eqref{eq3}\)</span>, equation <span
+class="math inline">\(\eqref{eq4}\)</span> and equation <span
+class="math inline">\(\eqref{eq5}\)</span>.</p>
+<p>Since <code>align</code> in and of itself is a complete equation
+environment (read <a
+target="_blank" rel="noopener" href="https://tex.stackexchange.com/questions/95402/what-is-the-difference-between-aligned-in-displayed-mode-and-starred-align">here</a>
+about the difference between <code>aligned</code> and <code>align</code>
+in LaTeX). You do not need to wrap it with equation environment.</p>
+<h2 id="exclude-equations-from-numbering">Exclude Equations from
+Numbering</h2>
+<p>In the <code>align</code> environment, if you do not want to number
+one or some equations, just use <code>\nonumber</code> right behind
+these equations. Like the following:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span><span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">-4 + 5x <span class="built_in">&amp;</span>= 2 + y <span class="keyword">\nonumber</span> <span class="keyword">\\</span></span><br><span class="line">w + 2 <span class="built_in">&amp;</span>= -1 + w <span class="keyword">\\</span></span><br><span class="line">ab <span class="built_in">&amp;</span>= cb</span><br><span class="line"><span class="keyword">\end</span>&#123;align&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{align}
+-4 + 5x &amp;= 2 + y \nonumber \\
+w + 2 &amp;= -1 + w \\
+ab &amp;= cb
+\end{align}\]</span></p>
+<h2 id="use-tag-to-tag-equations">Use <code>\tag</code> to Tag
+Equations</h2>
+<p>Sometimes, you want to use more «exotic» style to refer your
+equation. You can use <code>\tag&#123;&#125;</code> to achieve this. For
+example:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="built_in">$</span>x+1<span class="keyword">\over</span><span class="keyword">\sqrt</span>&#123;1-x<span class="built_in">^</span>2&#125; <span class="keyword">\tag</span>&#123;i&#125;<span class="keyword">\label</span>&#123;eq<span class="built_in">_</span>tag&#125;<span class="built_in">$</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[x+1\over\sqrt{1-x^2}
+\tag{i}\label{eq_tag}\]</span></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Equation <span class="built_in">$</span><span class="keyword">\eqref</span>&#123;eq<span class="built_in">_</span>tag&#125;<span class="built_in">$</span> use `<span class="keyword">\tag</span>&#123;&#125;` instead of automatic numbering.</span><br></pre></td></tr></table></figure>
+<p>Equation <span class="math inline">\(\eqref{eq_tag}\)</span> use
+<code>\tag&#123;&#125;</code> instead of automatic numbering.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/02/%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3%E4%BB%8E%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83%E5%88%B0%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83/" class="post-title-link" itemprop="url">如何深刻理解从二项分布到泊松分布</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-02 15:57:50" itemprop="dateCreated datePublished" datetime="2024-07-02T15:57:50+08:00">2024-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="二项分布和泊松分布的表达式">二项分布和泊松分布的表达式</h2>
+<ul>
+<li><p>二项分布： <span class="math display">\[
+P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p></li>
+<li><p>泊松分布： <span
+class="math display">\[P(x=k)=\frac{\lambda^k}{k!}e^{-\lambda}\]</span></p></li>
+</ul>
+<h2 id="一个现实生活中的例子">一个现实生活中的例子</h2>
+<p>一条汽车单向行驶的公路边有个便利店，店家经过一周的统计，得到数据：上个周一共有100辆次的车从这个便利店通过，其中有5辆次的车来买了东西。那么，店家现在想用这个数据来推测，下周，有6辆次的车会在这个便利店买东西的概率是多少？</p>
+<h3
+id="现在假设我们只知道二项分布而对泊松分布一无所知我们如何通过构建二项分布的数学模型来解决这个问题呢">现在，假设我们只知道二项分布而对泊松分布一无所知，我们如何通过构建二项分布的数学模型来解决这个问题呢？</h3>
+<p>这是二项分布的经典场景。对于通过的每一辆车，它只有两种可能的观测结果，那就是买东西和不买东西。这是一个
+<code>0-1</code>
+分布。现在我们做一个假设，假设每辆车通过时停下来买东西的概率是一样的（这样做假设不会影响整体的推测，因为做统计时，我们只统计了通过的车的总辆次和停下来买东西的车的总次数，也就是说做统计时每辆车是没有区别的）。通过买东西的车的总辆次
+<code>/</code> 通过的车的总辆次，我们能得到每一辆车的 <code>0-1</code>
+分布，任意一辆车停下来买东西的概率 <code>P</code> 为： <span
+class="math inline">\(\frac{5}{100}=0.05\)</span></p>
+<table>
+<thead>
+<tr>
+<th>行为</th>
+<th>买东西</th>
+<th>不买东西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td>0.05</td>
+<td>0.95</td>
+</tr>
+</tbody>
+</table>
+<p>现在，我们已经通过对之前统计的数据的分析，知道了任意一辆车通过时停下来买东西的概率。如何通过这个<code>0-1</code>分布来做预测？那就做独立重复实验（也就是伯努利试验），假设有
+<code>n</code> 辆车在下个周通过该路口，每辆车停下来买东西的概率都是
+<code>p</code>，则有 <code>k</code> 辆车到商店买东西的概率为：</p>
+<p><span class="math display">\[P(x=k)=C_n^kp^k(1-p)^{n-k}\]</span></p>
+<p>为此，我们必须颇为无奈地对下个周通过这条路的车的总辆次做个假设，那就是也通过<code>100</code>辆。现在我们就能做预测啦！</p>
+<p><span
+class="math display">\[P(x=6)=C_{100}^{6}\times-.005^6\times(1-0.05)^{100-6}\approx0.15\]</span></p>
+<h3
+id="如果以时间为维度来考量二项分布就会出问题">如果以时间为维度来考量，二项分布就会出问题</h3>
+<p>上一种通过二项分布来做预测的方法，依赖于我们需要做一个假设，即下一个周通过这条路的车的总辆次是<code>100</code>辆。现在我们想绕过需要对总辆次做假设这一障碍，用时间来作为观察的基准。但是因为二项分布所对应的伯努利实验的每一次实验是零散的，所以不得不将连续的时间进行分割。这就要涉及到单位时间，我们不妨把单位时间设置成小时，<span
+class="math inline">\(1周=7\times24=168小时\)</span>。根据之前的观察，一共有
+<code>5</code>
+辆车次的车去到商店买东西，也就是说，每小时有车进商店买东西的概率为 <span
+class="math inline">\(P=\frac{5}{168}\approx
+0.02976\)</span>。好像，我们又可以像上面那样去建立一个关于单位时间的<code>0-1</code>分布了。但是其实这个模型缺陷就出来了，由于考察的对象是单位时间，它的结果不再只有两个，即该时间段进入商店买东西的车的数量除了<code>0</code>、<code>1</code>，还可能是<code>2、3、4、…</code>，所以其实用<code>0-1</code>分布来对单位时间进入商店的车的数量进行模拟是不太科学的。</p>
+<p>那怎么办呢？自然而然，会想到将单位时间继续分割为更小的单位时间，如果把小时分割为分钟，那每小时就可以做<code>60</code>次独立重复实验，也就是说这下每小时最多可以有<code>60</code>辆车进入商店买东西了。但是这样仍然不满足时间这个连续的度量，要是出现极端情况，每小时有<code>70</code>辆车进入商店呢，这个模型又没法满足了。自然而然，我们想到将时间无限的分割下去。在非常非常小的一段时间里，我们就能做<code>0-1</code>分布的假设了，即在这段时间里只有
+<code>0</code> 或 <code>1</code>
+辆车进入商店买东西。但是无限的分割时间之后，我们还怎么计算这个无穷小的单位时间里车进入商店的概率呢？答案是，根本就不用去计算。因为我们的观测量是一个周汽车进入商店的辆次的总数，不妨把它记为
+<span class="math inline">\(\lambda\)</span>，它满足下面的等式：</p>
+<p><span class="math display">\[ \lambda = np \]</span></p>
+<p>其中 <code>n</code>
+为将一周的时间无限分割成的无穷小的单位时间的总份数，而 <code>p</code>
+是分割成这么多份数之后，根据观测值 <span
+class="math inline">\(\lambda\)</span>
+所计算出来的该单位时间里有车辆进入商店的概率。</p>
+<h3 id="从二项式公式推导泊松公式">从二项式公式推导泊松公式</h3>
+<p><span class="math display">\[\begin{equation}\label{eq:poisson}
+\begin{aligned}
+P(X=k)&amp;=\lim_{n\to\infty} C_n^kp^k(1-p)^{n-k} \\
+    &amp;= \lim_{n\to\infty}
+C_n^k(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^{n-k}\\
+    &amp;=\lim_{n\to\infty}
+\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}(\frac{\lambda}{n})^k(1-\frac{\lambda}{n})^n(1-\frac{\lambda}{n})^{-k}\\
+    &amp;=\lim_{n\to\infty}
+\frac{n\times(n-1)\times\cdots\times(n-k+1)}{k!}\frac{\lambda^k}{n^k}(1-\frac{\lambda}{n})^{-k}(1-\frac{\lambda}{n})^{n}\\
+    &amp;=1\times\frac{\lambda^k}{k!}\times 1\times e^{-\lambda}\\
+    &amp;=\frac{\lambda^k}{k!}e^{-\lambda}
+\end{aligned}
+\end{equation}\]</span></p>
+<p>推导之后我们发现，其实根本不需要用到 <code>n</code> 和 <code>p</code>
+这两个数据，而只有观测值 <span
+class="math inline">\(\lambda\)</span>。到这里是不是觉得泊松大大干了一件非常有价值的事情！</p>
+<h3
+id="通过泊松分布来对这个问题进行预测">通过泊松分布来对这个问题进行预测</h3>
+<p>根据之前的统计， <span class="math inline">\(\lambda = 5\)</span>
+<span class="math display">\[P(X=6) = \frac{5^6}{6!}e^{-5} \approx
+0.1462\]</span></p>
+<h3 id="总结">总结</h3>
+<p>根据二项分布推导出了泊松分布，并不代表二项分布就没有泊松分布先进，只是对于解决连续时间的这种问题，显然泊松分布更好用。但是有些情况下，二项分布会更好用。</p>
+<h2 id="声明">声明</h2>
+<p>本文引用自：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40064300/article/details/134628610">如何深刻理解从二项式分布到泊松分布</a>,
+只是对数学公式部分重新编写以适应<code>Next</code>主题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/02/Nvidia-ArchLinux-Wayland%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/02/Nvidia-ArchLinux-Wayland%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Nvidia-ArchLinux-Wayland安装教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-02 13:43:09" itemprop="dateCreated datePublished" datetime="2024-07-02T13:43:09+08:00">2024-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>As you know, the transition to Wayland from the traditional Xorg
+server in the Linux ecosystem has been a hot topic that caused much
+controversy and, admittedly, a fair share of troubleshooting.</p>
+<p>While Wayland promises a more streamlined and secure interface than
+its predecessor, Xorg, users have often encountered hurdles,
+particularly regarding compatibility with NVIDIA graphics cards.</p>
+<p>In other words, the journey hasn’t always been without bumps, from
+rendering issues to compatibility quirks. However, it’s becoming
+increasingly clear that the NVIDIA and Wayland combo, while not yet a
+perfect match, is evolving into a viable, working solution for many.</p>
+<p>Still, with the proper guidance and a bit of patience, using NVIDIA
+with Wayland on Arch is not just a possibility but a largely workable
+solution. You can approach this transition with confidence.</p>
+<p>This guide is designed to do precisely this: usher you through the
+setup process and offer solutions to ensure you can take most of your
+NVIDIA and Wayland experience on Arch Linux. So, let’s get started.</p>
+<h2 id="install-nvidia-driver">1、Install NVIDIA Driver</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nvidia nvidia-settings</span><br></pre></td></tr></table></figure>
+<h2 id="set-environment-variables">2、Set Environment Variables</h2>
+<p>With NVIDIA’s introduction of GBM (Generic Buffer Management)
+support, a crucial component of the Linux graphics stack that provides
+an API for allocating buffers for graphics rendering and display, many
+compositors have adopted it as their default. So, to force GBM as a
+backend, we need to set some environment variables.</p>
+<p>Open the “<em>/etc/environment</em>” file, paste the following two
+lines, then save the file and exit.</p>
+<figure class="highlight sh"><figcaption><span>/etc/environment</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GBM_BACKEND=nvidia-drm</span><br><span class="line">__GLX_VENDOR_LIBRARY_NAME=nvidia</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland07.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland07-1024x396.jpg"
+alt="Set environment variables." /></a></p>
+<h2 id="loading-the-nvidia-modules-at-system-boot">3、Loading the NVIDIA
+Modules at System Boot</h2>
+<p>To ensure that the NVIDIA modules are loaded at the earliest possible
+stage, i.e., on the system boot, we need to add the ‘<em>nvidia</em>,’
+‘<em>nvidia_modeset</em>,’ ‘<em>nvidia_uvm</em>,’ and
+‘<em>nvidia_drm</em>‘ modules to the initramfs – a temporary root file
+system loaded into memory as part of the boot process before the real
+root file system is mounted.</p>
+<p>This is possible by entering them in the “<em>MODULES</em>” section
+of the “<em>/etc/mkinitcpio.conf</em>” file. This is a configuration
+file for mkinitcpio, a tool Arch uses to generate initial ramdisk
+images.</p>
+<p>So, open the “<em>/etc/mkinitcpio.conf</em>” file. Then, enter the
+modules mentioned above, as the final version should look like this:</p>
+<figure class="highlight sh"><figcaption><span>/etc/mkinitcpio.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland03.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland03.jpg"
+alt="Loading the NVIDIA modules at system boot." /></a></p>
+<p>Great, but we’re not done with this file yet. Scroll down and remove
+the “<em>kms</em>” from the “<em>HOOKS</em>” section. This ensures that
+the initramfs will avoid including the open-source “<em>nouveau</em>”
+driver to mess with the work of the proprietary NVIDIA one we have
+installed and rely on.</p>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland04.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland04.jpg"
+alt="Removing KMS from the Hooks." /></a></p>
+<p>We’ve finished modifying “<em>/etc/mkinitcpio.conf</em>“. Save your
+changes and close the file. Next, we’ll proceed to regenerate the
+initramfs. To do this, execute the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> mkinitcpio -P</span><br></pre></td></tr></table></figure>
+<p>In the command’s output, you might notice messages like “<em>WARNING:
+Possibly missing firmware for module…</em>” These shouldn’t cause
+concern and are unrelated to the modifications we are currently
+implementing.</p>
+<h2 id="enable-drm">4、Enable DRM</h2>
+<p>DRM (Direct Rendering Manager) is a subsystem of the Linux kernel
+responsible for interfacing with GPUs. It provides a framework for
+graphics drivers to enable direct access to the graphics hardware, which
+is crucial for performance in rendering tasks, 3D graphics, video
+playback, and more.</p>
+<p>NVIDIA provides proprietary graphics drivers for Linux that use the
+DRM subsystem to interact with their GPUs. These drivers are essential
+for getting the best performance and feature support on NVIDIA hardware
+under Linux.</p>
+<p>Enabling the DRM kernel mode setting is required for Wayland
+compositors to function properly. So, we will pass it as a parameter to
+the Linux kernel during its initial boot through the GRUB
+bootloader.</p>
+<p>Open its configuration file<code>/etc/default/grub</code>. Locate the
+line that begins with “<em>GRUB_CMDLINE_LINUX_DEFAULT</em>” and append
+“<em>nvidia-drm.modeset=1</em>” to its end. The completed line should
+resemble the example provided below.</p>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland05.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland05-1024x501.jpg"
+alt="Enabling DRM (Direct Rendering Manager) via GRUB." /></a></p>
+<p>Finally, regenerate the GRUB configuration by running:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland06.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland06-1024x396.jpg"
+alt="Regenerating the main GRUB configuration file." /></a></p>
+<h2 id="testing-wayland-with-nvidia-on-arch-linux">5、Testing Wayland
+with NVIDIA on Arch Linux</h2>
+<p>You are all set up. Now, reboot your Arch system. At the login screen
+of the display manager you’re using, choose the Wayland Session
+option.</p>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland09.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland09-1024x640.jpg"
+alt="Switching to Wayland session on Arch." /></a></p>
+<p>Log in and enjoy a seamless Wayland experience with NVIDIA and your
+beloved Arch Linux.</p>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland10.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland10-1024x640.jpg"
+alt="Arch Linux is running on Wayland with NVIDIA GPU." /></a></p>
+<p>In addition, to verify that the NVIDIA DRM settings were correctly
+applied after a reboot, execute the following command; in response, you
+should get “<em>Y</em>.”</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cat</span> /sys/module/nvidia_drm/parameters/modeset</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://linuxiac.b-cdn.net/wp-content/uploads/2024/04/nvidia-arch-wayland11.jpg"><img
+src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/linuxiac.com/wp-content/uploads/2024/04/nvidia-arch-wayland11.jpg"
+alt="Verifying the NVIDIA DRM settings." /></a></p>
+<h2 id="设置-nvidia-电源管理">6、设置 nvidia 电源管理</h2>
+<ol type="1">
+<li><p>Create a file
+<code>/etc/modprobe.d/nvidia-power-management.conf</code> with the
+following content: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp</span><br></pre></td></tr></table></figure></p></li>
+<li><p><code>sudo update-initramfs -c -k all</code> to re-generate the
+kernels.
+此处我没有执行成功命令，但是并没有影响，系统正常配置成功。</p></li>
+<li><p>Reboot</p></li>
+<li><p>Go to suspend mode.</p></li>
+<li><p>Get an error when trying to load a saved state.</p></li>
+</ol>
+<h2 id="配置wayland">7、配置wayland</h2>
+<p>经过上述配置后，我发现重启系统将会默认进入到<code>x11</code>,
+它是可以正常工作的，效果良好。但是，既然有强大的独立<code>nvidia</code>显卡，我们还是需要设置好<code>nvidia</code>.
+下述根据 <a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/GDM#Wayland_and_the_proprietary_NVIDIA_driver">Wayland
+and the proprietary NVIDIA driver</a>主操作，详细信息可以参考。</p>
+<ul>
+<li><p>启用<code>nvidia</code>相关服务 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> nvidia-suspend.service nvidia-hibernate.service nvidia-resume.service</span><br></pre></td></tr></table></figure> 此项参考：<a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend">Preserve
+video memory after suspend</a></p></li>
+<li><p>强制启用<code>Wayland</code>, As of GDM 42 and NVIDIA driver 510,
+GDM defaults to Wayland. For older NVIDIA drivers (in between version
+470 and 510), GDM has chipset-dependent udev rules to use Xorg rather
+than Wayland. To force-enable Wayland, override these rules by creating
+the following symlink: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /dev/null /etc/udev/rules.d/61-gdm.rules</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<p>注意：如果没有第<code>6</code>到<code>7</code>步，在<code>GNOME</code>桌面环境启动后，<code>GDM</code>不能显示<code>wayland</code>启动选项，而只是默认启动<code>Xorg</code>,
+设置好<code>6</code>和<code>7</code>后，系统正常进入到<code>wayland</code>。</p>
+<h2 id="bottom-line">8、Bottom Line</h2>
+<p>In the end, it’s essential to clarify a key point. Our guide has
+confidently demonstrated that Wayland can operate smoothly with NVIDIA
+on an Arch system. This, however, does not extend to guaranteeing that
+every application, game, or desktop environment will also function
+flawlessly.</p>
+<p>The compatibility of these components with Wayland varies and is
+dependent on the extent to which they have integrated support for
+it.</p>
+<p>For example, desktop environments like KDE Plasma and GNOME offer
+very good support for Wayland, ensuring a seamless experience. On the
+other hand, environments like Cinnamon, with only basic Wayland support,
+may not deliver the same smoothness. So, it’s important to consider
+these differences.</p>
+<p>Similarly, using the Hyprland dynamic tiling Wayland compositor would
+result in a smooth user experience, whereas others that are still
+dependent on Xorg may not offer the necessary support for Wayland. This
+variability in compatibility applies to individual applications too, so
+it’s important to be aware of potential issues when using specific
+software.</p>
+<p>In conclusion, navigating the complexities of setting up Wayland on
+Arch can seem daunting, especially for those wielding the power of
+NVIDIA GPUs, who have historically faced hurdles ranging from rendering
+glitches to compatibility concerns.</p>
+<p>Yet, with the proper knowledge, a dash of perseverance, and our
+guidance, the hurdles that once seemed impossible begin to shrink to the
+level that, with the correct setup, NVIDIA and Wayland can indeed create
+a synergy that brings out the best in your Arch setup.</p>
+<p>Finally, we recommend referring to the specific <a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Wayland">Wayland</a> and <a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA">NVIDIA</a> sections on
+the official Arch wiki for a more comprehensive understanding. They
+provide detailed information on setting up and troubleshooting Wayland
+and NVIDIA on Arch, making them valuable resources for further
+exploration.</p>
+<p>And, of course, we’d love to hear your feedback or thoughts, so
+please don’t hesitate to share them in the comment box below.</p>
+<h2 id="references">9、References</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://linuxiac.com/nvidia-with-wayland-on-arch-setup-guide/">NVIDIA
++ Wayland on Arch: A Comprehensive Setup Guide</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.maketecheasier.com/wayland-work-with-nvidia-graphics-cards/">How
+to Get Wayland to Work on Nvidia Graphics Cards</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv25617874/">ArchLinux
+安装Nvidia 驱动使用Wayland</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Wayland">Wayland-ArchWiki</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA">Nvidia-ArchWiki</a></li>
+<li><a target="_blank" rel="noopener" href="https://sh.alynx.one/posts/NVIDIA-GNOME-Wayland/">NVIDIA
+驱动和 GNOME 和 Wayland</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%98%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Shell脚本截取字符串变量</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-29 22:58:45" itemprop="dateCreated datePublished" datetime="2024-06-29T22:58:45+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>对于一个数组，使用<code>#</code>表示删除左侧的部分，<code>%</code>表示删除右侧的部分，同时支持正则表达式。例如:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">url=<span class="string">&quot;https://gitlab.com/fengzhenhua/script/-/raw/<span class="variable">$USB_REMORT_SH</span>\?inline\=false&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$url</span> |sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> |grep <span class="string">&quot;/&quot;</span> |<span class="built_in">wc</span> -l</span><br><span class="line">&gt; 7 <span class="comment"># $url中一共有7个`/`</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;url#*//*/*/*/&#125;</span></span><br><span class="line">&gt;</span><br><span class="line">-/raw/<span class="variable">$USB_REMORT_SH</span>\?inline\=<span class="literal">false</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;url%/<span class="variable">$&#123;url#*//*/*/*/&#125;</span>&#125;</span></span><br><span class="line">&gt;</span><br><span class="line">https://gitlab.com/fengzhenhua/script</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：此处不同与网上的教程，网上的一些教程如<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/jined/article/details/124196546">Shell
+8种字符串截取方法</a>等，指明了截取字符串时某一个字符的方法，但是对于<code>*</code>的理解没有做深入分析，而本文指出其代表若干字符，是正则表达式的一部分。于是在截取网址时，使用正则表达式给出<code>*//*/*/*/</code>方便的取得了相要的地址部分。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%96%E6%96%87%E4%BB%B6%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/29/Shell%E8%84%9A%E6%9C%AC%E7%BB%9F%E8%AE%A1%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%96%E6%96%87%E4%BB%B6%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="post-title-link" itemprop="url">Shell脚本统计字符串或文件中特定字符出现的次数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-29 22:38:15" itemprop="dateCreated datePublished" datetime="2024-06-29T22:38:15+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在编写<code>Shell</code>脚本中需要判断网址中的<code>/</code>出现的次数，进而获取网址的结构，然后根据需要可以截取部分网址。假设我们有一个字符串“Hello
+Bash”：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ STRING=<span class="string">&quot;Hello Bash&quot;</span></span><br><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span></span><br><span class="line">Hello Bash</span><br></pre></td></tr></table></figure>
+<p>使用 bash
+shell，我们现在可以计算任何给定字符的出现次数。例如，让我们计算字符
+<code>l</code> 出现的次数：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p><code>sed</code>
+命令首先将任何给定的字符串分成多行。其中每行包含一个字符：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> </span><br><span class="line">H</span><br><span class="line">e</span><br><span class="line">l</span><br><span class="line">l</span><br><span class="line">o</span><br><span class="line"> </span><br><span class="line">B</span><br><span class="line">a</span><br><span class="line">s</span><br><span class="line">h</span><br></pre></td></tr></table></figure>
+<p>之后我们可以使用<code>grep</code>命令来仅搜索特定字符。在本例中，我们仅打印字符
+<code>l</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l</span><br><span class="line">l</span><br><span class="line">l</span><br></pre></td></tr></table></figure>
+<p>剩下的就是使用 wc -l 来简单地计算行数：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$STRING</span> | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>相同的策略也可用于计算文件中字符的出现次数。下面的 bash shell
+命令计算字符 <code>l</code> 在文件 <code>/etc/services</code>
+中出现的次数：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> $ <span class="built_in">cat</span> /etc/services | sed -e <span class="string">&#x27;s/\(.\)/\1\n/g&#x27;</span> | grep l | <span class="built_in">wc</span> -l</span><br><span class="line">9298</span><br></pre></td></tr></table></figure>
+<p>然而，计算字符出现次数的另一种方法是使用 grep 的
+<code>--only-matching</code> 或 <code>-o</code>
+选项仅打印匹配的字符：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -o l /etc/services | <span class="built_in">wc</span> -l</span><br><span class="line">9298</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/28/RS232%E4%B8%B2%E8%A1%8C%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/28/RS232%E4%B8%B2%E8%A1%8C%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">RS232串行接口</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-28 11:13:47" itemprop="dateCreated datePublished" datetime="2024-06-28T11:13:47+08:00">2024-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>  <strong>RS232是一种通用的串行接口，可以用来连接不同的设备，比如计算机、打印机、终端设备等。</strong>它可以传输数据、控制信号和电源，但是它有一定的缺点，比如传输速率较慢，最高只能达到115200bps，而且它也不能支持高级功能，比如多点控制和网络通信。那么，RS232能接显示器吗？</p>
+<figure>
+<img
+src="https://images-na.ssl-images-amazon.com/images/I/81VUdVo2kLL._AC_SL1500_.jpg"
+alt="RS232" />
+<figcaption aria-hidden="true">RS232</figcaption>
+</figure>
+<p>  RS232接口是一种标准的串行接口，它由25个接口针组成，每个接口针都有一个不同的功能，比如接收和发送数据，控制信号等。它的接口针分为4组，每组有5个接口针，第一组是信号线，第二组是控制线，第三组是电源线，第四组是用于接收和发送数据的线。</p>
+<h2 id="rs232能接显示器吗">RS232能接显示器吗？</h2>
+<p>  RS232接口可以用来连接显示器，但是需要使用一个转换器，它可以将RS232接口转换成显示器接口，如VGA接口、DVI接口等。这样，就可以使用RS232接口来连接显示器，但是由于RS232接口的传输速率较慢，所以只能用来传输低分辨率的画面，比如640×480或800×600，而不能用来传输高分辨率的画面，比如1920×1080。</p>
+<h2 id="总结">总结</h2>
+<p>  <strong>RS232是一种通用的串行接口，可以用来连接不同的设备，比如计算机、打印机、终端设备等。</strong>它由25个接口针组成，每个接口针都有一个不同的功能，比如接收和发送数据，控制信号等。RS232接口可以用来连接显示器，但是需要使用一个转换器，它可以将RS232接口转换成显示器接口，如VGA接口、DVI接口等，但是由于RS232接口的传输速率较慢，所以只能用来传输低分辨率的画面，而不能用来传输高分辨率的画面。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://tech.sina.com.cn/roll/2020-07-27/doc-iivhvpwx7717284.shtml">终于有人把常用的三种通讯方式：RS485、RS232、RS422讲明白了</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1584849703749891078">台式机主机背面接口全介绍
+各种接口知识扫盲（收藏）</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.techphant.cn/blog/63665.html">RS232能接显示器吗？</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -595,868 +1642,8 @@ src="https://img.picui.cn/free/2024/06/25/667aa80136df2.png" /></p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/25/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA%E8%BF%9E%E6%8E%A5%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/25/%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%BB%E6%9C%BA%E8%BF%9E%E6%8E%A5%E5%8F%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">一台电脑主机连接双显示器的连接方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-25 10:58:53" itemprop="dateCreated datePublished" datetime="2024-06-25T10:58:53+08:00">2024-06-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3
-id="一先与电脑连接好两个显示器"><strong>一、先与电脑连接好两个显示器</strong></h3>
-<figure>
-<img src="https://img.picui.cn/free/2024/06/25/667a3407b0810.png"
-alt="显示器插口" />
-<figcaption aria-hidden="true">显示器插口</figcaption>
-</figure>
-<ol type="1">
-<li><p>电脑必须要有两个显示器插口，如<code>HDMI</code>、<code>DVI</code>、<code>VGA</code>都可以，其他参考<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/didi_ya/article/details/122241863">【科普】显示器VGA、DVI、HDMI、DP等各种接口详细科普</a></p></li>
-<li><p>使用相应线材连接显示器，可以一个连接<code>DVI</code>一个连接<code>VGA</code>，或是<code>HDMI</code>。使用什么线，取决于你的显示器支持什么接口。</p></li>
-<li><p>连接完成，开机一般两个显示器可以正常显示。</p></li>
-</ol>
-<div class="note primary"><p>注意事项：使用两个信号线分别将两个显示器连接到显卡上两个视频输出接口。电脑显卡必须支持双输出，有两个用于连接不同显示器的视频接口。</p>
-</div>
-<h3
-id="二linuxgnome连接两个显示器设置方法"><strong>二、Linux(Gnome)连接两个显示器设置方法</strong></h3>
-<figure>
-<img src="https://img.picui.cn/free/2024/06/25/667a85c5bb977.png"
-alt="Archlinux Gnome 双屏设置" />
-<figcaption aria-hidden="true">Archlinux Gnome 双屏设置</figcaption>
-</figure>
-<ol type="1">
-<li><p>打开<code>设置</code>→<code>显示器</code></p></li>
-<li><p>选择<code>加入</code>或<code>镜像</code>等设置.
-其中<code>加入</code>是指两个屏显示不同内容，而<code>镜像</code>是副屏与主屏完全一样，适合教学演示之用。</p></li>
-</ol>
-<h3
-id="三win7连接两个显示器设置方法"><strong>三、WIN7连接两个显示器设置方法</strong></h3>
-<ol type="1">
-<li><p>在桌面空白处右击鼠标选择“屏幕分辨率”选项;
-进入分辨率设置对话框。</p></li>
-<li><p>如果电脑主机显卡连接有两台显示器的，就会有显示。单击“检测”进行检测。然后点击多显示器后面的按钮框，就可以看到“复制这些显示”和“扩展这些显示”两个选项。</p></li>
-<li><p>选择的“复制这些显示”，那么在两个显示器上你会看到一模一样的<code>Windows</code>
-窗口。适合教学演示、为多人展示相同内容的场所，也适合会场和户外等商业展示。</p></li>
-</ol>
-<h3
-id="四win10连接两个显示器设置方法"><strong>四、WIN10连接两个显示器设置方法</strong></h3>
-<ol type="1">
-<li><p>在<code>Windows 10</code>桌面上单击右键，选择“显示设置”。或通过快捷键<code>Win + I</code>打开设置，然后导航至“系统”&gt;“显示”。</p></li>
-<li><p>检测并配置显示器：系统将自动检测到两个显示器。在“显示”页面，你可以看到显示器的代表图标，点击“标识”按钮帮助区分哪个是显示器1，哪个是2。随后，选择“多显示器设置”，设定为“扩展这些显示器”，以实现不同内容的显示。</p></li>
-<li><p>自定义布局：通过拖动显示器图标，你可以根据实际摆放位置调整虚拟布局，确保操作顺畅。</p></li>
-<li><p>调整分辨率与方向：进一步个性化每个显示器的显示设置，包括分辨率和方向调整，确保最佳视觉效果。</p></li>
-<li><p>保存设置：调整完毕后，设置会自动保存，无需额外确认，你可以立即体验双屏带来的便捷</p></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/%E4%B8%89%E6%98%9F%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4%E4%BA%AE%E5%BA%A6%E5%92%8C%E5%AF%B9%E6%AF%94%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/24/%E4%B8%89%E6%98%9F%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4%E4%BA%AE%E5%BA%A6%E5%92%8C%E5%AF%B9%E6%AF%94%E5%BA%A6/" class="post-title-link" itemprop="url">三星显示器调整亮度和对比度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-24 21:03:53" itemprop="dateCreated datePublished" datetime="2024-06-24T21:03:53+08:00">2024-06-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天终于使用上了双屏显示器，其中主屏使用的是三星<code>S27D590</code>,
-副屏是<code>DELL</code>的一个<code>22寸</code>的屏幕。其中，主屏通过<code>VGA</code>接口直接与主机连接，同时副屏通过<code>HDMI</code>接口也直接与主机相连，顺利使用上了双显示器。测试通过三星<code>S27D590</code>上的<code>HDMI</code>转接到副屏上没有成功，这留待以后再研究。连接两块屏幕后，一个最显著的地方是它们的亮度不同，于是需要调整屏幕的亮度，而这个三星<code>S27D590</code>只有一个按键，一时有点让人琢磨不透。经过一翻百度，获得答案，原来三星显示器的按键是一个叫做<code>五维式按键</code>的东西，百度问答给出了答案：</p>
-<p>根据三星显示器的不同型号，调整屏幕亮度的方法，请参考以下方式：</p>
-<ol type="1">
-<li>普通按（或触摸）键：按（或触摸）机身的【MENU】键，依次选择【图像】-【亮度】
-， 根据个人的需求调整亮度数值即可。</li>
-<li>五维式按键：按【电源】键，将摇杆向上拔动，光标移至菜单位置，按【电源】键，依次选择【图像】-【亮度】，进行调整。</li>
-<li>没有菜单选择的显示器，需要在电脑上安装MagicTune（魔调软件），通过此软件进行调整。</li>
-</ol>
-<p>参考网址：<a
-target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1706498937311098820.html">三星显示器亮度在显示器上怎么调</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90JASON%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90JASON%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Shell脚本解析JASON数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-24 10:36:20" itemprop="dateCreated datePublished" datetime="2024-06-24T10:36:20+08:00">2024-06-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="jason-语言简介">JASON 语言简介</h2>
-<ul>
-<li>JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）</li>
-<li>JSON 是轻量级的文本数据交换格式</li>
-<li>JSON 独立于语言：JSON 使用 Javascript语法来描述数据对象，但是 JSON
-仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。
-目前非常多的动态（PHP，JSP，.NET）编程语言都支持 JSON</li>
-<li>JSON 具有自我描述性，更易理解</li>
-</ul>
-<p>详细参考：<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/cserchen/article/details/6232341">jason数据格式</a></p>
-<h2 id="shell脚本解析jason数据">Shell脚本解析JASON数据</h2>
-<h3 id="使用jq解析jason数据">使用<code>jq</code>解析JASON数据</h3>
-<p><code>jq</code>
-是一个小型跨平台解决方案，用于以更短、更简单、更轻松的方式管理 JSON
-数据。安装<code>jq</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S jq</span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li><code>jq .</code> 命令美化 json 数据。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq .</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 1,</span><br><span class="line">      &quot;title&quot;: &quot;delectus aut autem&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 2,</span><br><span class="line">      &quot;title&quot;: &quot;quis ut nam facilis et officia qui&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;userId&quot;: 1,</span><br><span class="line">      &quot;id&quot;: 3,</span><br><span class="line">      &quot;title&quot;: &quot;fugiat veniam minus&quot;,</span><br><span class="line">      &quot;completed&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">    ... // remaining list of data</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>从 JSON 获取特定字段的值</li>
-</ol>
-<p>我们可以使用 <code>jq.[].field_name</code> 从 JSON
-数据数组中获取任何特定字段的值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq <span class="string">&#x27;.[].id&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>从 JSON 中获取第一个项目的标题</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | jq <span class="string">&#x27;.[0].title&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;delectus aut autem&quot;</span></span><br></pre></td></tr></table></figure>
-<h2
-id="使用grep解析json">使用<code>grep</code>解析<code>JSON</code></h2>
-<p><code>grep</code> 命令也可用于解析 JSON 数据。</p>
-<p>示例 JSON 文件：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Andres Gustov&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;andddy7@gmail.com&quot;</span></span><br><span class="line">     <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Anthony Marklov&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;email&quot;</span><span class="punctuation">:</span> <span class="string">&quot;antman33@gmail.com&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-<p>示例脚本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -o <span class="string">&#x27;&quot;email&quot;: &quot;[^&quot;]*&#x27;</span> examplejsonfile.json | grep -o <span class="string">&#x27;[^&quot;]*$&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>我们使用 <code>-o</code>
-选项仅选择与给定模式匹配的行。然后，我们指定模式<code>'"email": "[^"]*'</code>，这意味着我们想要键
-<code>email</code> 的所有值。之后，我们传递 JSON
-文件来查找模式。最后，我们使用另一个 <code>grep -o</code>
-命令将结果通过管道输出，以删除除值之外的所有内容。</p>
-<p>输出：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">andddy7@gmail.com </span><br><span class="line">antman33@gmail.com</span><br></pre></td></tr></table></figure>
-<h2 id="使用python3解析json">使用<code>python3</code>解析JSON</h2>
-<p>我们还可以使用 python 的 <code>json</code> 模块来处理 JSON 操作。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s <span class="string">&#x27;https://jsonplaceholder.typicode.com/posts&#x27;</span> | \ python3 -c <span class="string">&quot;import sys, json; print(json.load(sys.stdin))&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取特定字段值">获取特定字段值</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | \ </span><br><span class="line">    python3 -c <span class="string">&quot;import sys, json; data=json.load(sys.stdin); print([d[&#x27;id&#x27;] for d in data])&quot;</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="获取第一个项目的标题">获取第一个项目的标题</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl <span class="string">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span> | \ </span><br><span class="line">    python3 -c <span class="string">&quot;import sys, json; print(json.load(sys.stdin)[0][&#x27;title&#x27;])&quot;</span></span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;delectus aut autem&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90YAML%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/24/Shell%E8%84%9A%E6%9C%AC%E8%A7%A3%E6%9E%90YAML%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Shell脚本解析YAML数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-24 10:14:06" itemprop="dateCreated datePublished" datetime="2024-06-24T10:14:06+08:00">2024-06-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="yaml语言简介">YAML语言简介</h2>
-<p><code>AML</code> 是"YAML Ain't a Markup Language"（<code>YAML</code>
-不是一种标记语言）的递归缩写。在开发的这种语言时，<code>YAML</code>
-的意思其实是："Yet Another Markup Language"（仍是一种标记语言）。</p>
-<p><code>YAML</code> 的语法和其他高级语言类似，
-并且可以简单表达清单、散列表， 标量等数据形态。
-它使用空白符号缩进和大量依赖外观的特色，
-特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲（例如：许多电子邮件标题格式和<code>YAML</code>非常接近）。</p>
-<p><code>YAML</code>常在<code>Linux</code>作为一种配置文件出现，详细使用规则参考：<a
-target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/yaml-intro.html">YAML入门教程</a></p>
-<h2 id="shell中解析yaml">Shell中解析YAML</h2>
-<p>在 Bash 中直接操作 YAML 需要一点创造性，因为 Bash 没有内置支持解析
-YAML。然而，你可以使用外部工具，如
-<code>yq</code>（一个轻量级且便携的命令行 YAML 处理器），来高效地与 YAML
-文件交互。</p>
-<h3 id="安装yaml解析器">安装YAML解析器</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S yq</span><br></pre></td></tr></table></figure>
-<p>假设你有一个名为 <code>config.yaml</code> 的文件，内容如下：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">database:</span> </span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span> </span><br><span class="line">    <span class="attr">port:</span> <span class="number">5432</span> </span><br><span class="line"><span class="attr">user:</span> </span><br><span class="line">    <span class="attr">name:</span> <span class="string">admin</span> </span><br><span class="line">    <span class="attr">password:</span> <span class="string">secret</span></span><br></pre></td></tr></table></figure>
-<ol type="1">
-<li>要读取数据库主机，你可以如下使用 <code>yq</code>：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.database.host&#x27;</span> config.yaml</span><br><span class="line">&gt;localhost</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li>要在 <code>config.yaml</code> 中更新用户的名称，使用带
-<code>-i</code>（就地）选项的 <code>yq eval</code> 命令：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.user.name = &quot;newadmin&quot;&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
-<p>用以下命令验证更改：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.user.name&#x27;</span> config.yaml</span><br><span class="line">&gt; newadmin</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li>要在数据库部分下添加一个新字段 <code>timeout</code>：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;.database.timeout = 30&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>要移除用户下的密码：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yq e <span class="string">&#x27;del(.user.password)&#x27;</span> -i config.yaml</span><br></pre></td></tr></table></figure>
-<p>此操作将从配置中删除密码字段。</p>
-<div class="note primary"><p>记住，<code>yq</code> 是一款强大的工具，具有更多功能，包括将 YAML
-转换为 JSON、合并文件，甚至更复杂的操作。请参考 <code>yq</code>
-文档以进一步探索。</p>
-</div>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://lyyao09.github.io/2019/08/02/tools/The-usage-of-yq-read-write/">YAML处理工具yq之读写篇</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2357396">linux下轻量级工具：yq（json,yaml）格式转换工具安装和使用</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/mikefarah/yq">yq官网</a></li>
-<li><a target="_blank" rel="noopener" href="https://mikefarah.gitbook.io/yq">yq-gitbook</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Shell脚本替换字符串的几种方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-23 21:08:07" itemprop="dateCreated datePublished" datetime="2024-06-23T21:08:07+08:00">2024-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>变量<code>a</code>是一个带空格的字符串，现在用"hdpusr400"替换变量<code>a</code>中的"hduser302"：</p>
-<h2 id="字符串变量的替换方式">字符串变量的替换方式</h2>
-<figure class="highlight bash"><figcaption><span>定义变量a</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span></span><br><span class="line">hduser302 hduser302 /apps/hduser302/student/</span><br></pre></td></tr></table></figure>
-<h3 id="用变量替换a做字符替换">用变量替换${a//}做字符替换</h3>
-<figure class="highlight sh"><figcaption><span>用变量替换$&#123;a//&#125;做字符替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$&#123;a/hduser302/hdpusr400&#125;</span> </span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$&#123;a//hduser302/hdpusr400&#125;</span>　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
-<h3 id="用-sed-做字符串替换">用 sed 做字符串替换</h3>
-<figure class="highlight sh"><figcaption><span>用sed做字符串替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | sed <span class="string">&#x27;s/hduser302/hdpusr400/&#x27;</span> 　　</span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | sed <span class="string">&#x27;s/hduser302/hdpusr400/&#x27;</span> 　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
-<h3 id="用-awk-做字符串替换">用 awk 做字符串替换</h3>
-<figure class="highlight sh"><figcaption><span>用awk做字符串替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#替换第一个匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | awk <span class="string">&#x27;&#123;gsub(/hduser302/,&quot;hdpusr400&quot;,$3);print $0&#125;&#x27;</span></span><br><span class="line">hdpusr400 hduser302 /apps/hduser302/student/</span><br><span class="line"></span><br><span class="line"><span class="comment">#替换所有匹配的字符串　</span></span><br><span class="line">[liusiyi@localhost ~]$ <span class="built_in">echo</span> <span class="variable">$a</span> | awk <span class="string">&#x27;&#123;gsub(/hduser302/,&quot;hdpusr400&quot;);print $0&#125;&#x27;</span> 　　</span><br><span class="line">hdpusr400 hdpusr400 /apps/hdpusr400/student/</span><br></pre></td></tr></table></figure>
-<h2 id="数组所有元中的字符串替换">数组所有元中的字符串替换</h2>
-<figure class="highlight sh"><figcaption><span>数组所有元替换</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Arr=($(<span class="built_in">ls</span> -d /run/media/<span class="variable">$USER</span>/*/*))</span><br><span class="line">Brr=(<span class="variable">$&#123;Arr[*]//&quot;/run/media/$USER&quot;/&quot;$HOME&quot;&#125;</span>)</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p><code>Arr</code>数组元中，所有元包括绝对路径<code>/run/media/$USER</code>,
-而<code>Brr</code>数组将其全部替换为<code>$HOME</code>.</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8ls%E8%8E%B7%E5%8F%96%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/23/Shell%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8ls%E8%8E%B7%E5%8F%96%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">Shell脚本使用ls获取绝对路径</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-23 20:12:50" itemprop="dateCreated datePublished" datetime="2024-06-23T20:12:50+08:00">2024-06-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>已经完成了<code>ugit.sh</code>程序，利用它可以方便的将仓库建立在<code>U盘</code>上，这也就达成了随身携带<code>U盘</code>仓库而不依赖网络的问题。但是在最初实现时，对<code>Shell</code>的理解不够深入，一些基础的命令没有用好，从而增加了一些循环判断，尽管在使用体验上不会有什么影响，但是仔细测试效率时还是有差别的，同时从维护脚本的角度讲不是足够简洁。本着精益求精的原则，决定进一步精简脚本，实现<code>Shell</code>层次上的效率极大化！在所有的问题中，一步列出所有<code>U盘</code>并且将<code>U盘</code>中的目录都添加绝对路径是一个重要的步骤，本文实现了这个一步操作。代码如下:</p>
-<figure class="highlight sh"><figcaption><span>列出子目录并添加绝对路径</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ls</span> -d /run/media/<span class="variable">$USER</span>/*/*</span><br><span class="line"><span class="comment"># 运行结果</span></span><br><span class="line">/run/media/feng/BNU-FZH/article.git</span><br><span class="line">/run/media/feng/BNU-FZH/cexam.git</span><br><span class="line">/run/media/feng/BNU-FZH/config.git</span><br><span class="line">/run/media/feng/BNU-FZH/document.git</span><br><span class="line">/run/media/feng/BNU-FZH/latex.git</span><br><span class="line">/run/media/feng/BNU-FZH/python.git</span><br><span class="line">/run/media/feng/BNU-FZH/script.git</span><br><span class="line">/run/media/feng/BNU-FZH/System Volume Information</span><br><span class="line">/run/media/feng/feng/20230203_094347.jpg</span><br><span class="line">/run/media/feng/feng/2023_07_19 17_25 Office Lens (1).jpg</span><br><span class="line">/run/media/feng/feng/2023_07_19 17_25 Office Lens.jpg</span><br><span class="line">/run/media/feng/feng/截图 2024-06-18 18-03-16.png</span><br><span class="line">/run/media/feng/feng/截图 2024-06-18 18-06-42.png</span><br><span class="line">/run/media/feng/feng/PDF文件</span><br><span class="line">/run/media/feng/feng/System Volume Information</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>可以看到在路径<code>/run/media/feng/</code>下有两个<code>U盘</code>,分别是<code>BNU-FZH</code>和<code>feng</code>,
-这是路径<code>/run/media/$USER/*/*</code>中左起第一个<code>*</code>所代表的，而最后一个<code>*</code>表示列出此目录下的内容。<code>-d</code>选项，则控制<code>ls</code>命令列出路径。一条命令实现了列出所有<code>U盘</code>目录的功能，极大的提高了效率！</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/22/Rust%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E8%AF%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/22/Rust%E7%BC%96%E7%A8%8B%E7%AC%AC%E4%B8%80%E8%AF%BE/" class="post-title-link" itemprop="url">Rust编程第一课</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-22 16:03:29" itemprop="dateCreated datePublished" datetime="2024-06-22T16:03:29+08:00">2024-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>Rust</code>的官方网站是<a
-target="_blank" rel="noopener" href="https://www.rust-lang.org">https://www.rust-lang.org</a>,
-它是一门赋予每个人构建可靠且高效软件能力的语言.
-按官方介绍，选择<code>Rust</code>的原因主要为：</p>
-<ul>
-<li>高性能：<code>Rust</code>
-速度惊人且内存利用率极高。由于没有运行时和垃圾回收，它能够胜任对性能要求特别高的服务，可以在嵌入式设备上运行，还能轻松和其他语言集成。</li>
-<li>可靠性：<code>Rust</code>
-丰富的类型系统和所有权模型保证了内存安全和线程安全，让您在编译期就能够消除各种各样的错误。</li>
-<li>生产力：<code>Rust</code>
-拥有出色的文档、友好的编译器和清晰的错误提示信息，
-还集成了一流的工具——包管理器和构建工具，
-智能地自动补全和类型检验的多编辑器支持， 以及自动格式化代码等等。</li>
-</ul>
-<p>学习<code>Rust</code>语言，本博客提供以下几个途径：</p>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.rust-lang.org/zh-CN/learn">Rust官方教程</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/rust/rust-tutorial.html">Rust
-教程|菜鸟教程</a></li>
-<li><a target="_blank" rel="noopener" href="https://course.rs/basic/intro.html">Rust语言圣经</a></li>
-<li><a target="_blank" rel="noopener" href="https://rustwiki.org/docs/">Rust 中文文档</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://kaisery.github.io/trpl-zh-cn/ch00-00-introduction.html">Rust
-程序设计语言 简体中文版</a></li>
-</ul>
-<p>本博客决定边学习边记录，以期完成一篇入门级的简洁实用教程。第一课当然是编写<code>Hello World</code>程序，其源码为：</p>
-<figure class="highlight rust"><figcaption><span>hello_world.rs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hello_world.rs</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">s</span> = <span class="string">&quot;hello world!&quot;</span>;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由于其没有复杂的依赖关系，直接使用<code>rustc</code>编译即可，其他所有选项使用默认值：</p>
-<figure class="highlight rust"><figcaption><span>编译hello_world.rs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc hello_world.rs</span><br></pre></td></tr></table></figure>
-<p>编译完成后，在本地文件夹中生成了可执行程序：<code>hello_world</code>,
-执行程序<code>./hello_world</code>,
-控制台上输出了<code>hello world!</code>字符串，
-第一个<code>Rust</code>程序已经成功！
-根据这个最简单的例子，我们得到一些基本的规则：</p>
-<ul>
-<li><p>一般<code>Rust</code>源代码的后缀名使用<code>.rs</code>表示。源码一定要注意使用<code>utf-8</code>编码。</p></li>
-<li><p>第一行是注释语句，<code>Rust</code>的注释是<code>C语言</code>系列风格的，行注释采用<code>//</code>开头，块注释使用<code>/*</code>和<code>*/</code>包围。它还支持更高级的文档注释，将在后文中详细展开说明。</p></li>
-<li><p><code>fn</code>是一个关键字（<code>key word</code>），函数定义必须以这个关键字开头。函数体使用大括号来包含。<code>fn</code>是单词<code>function</code>的缩写，在<code>Rust</code>中，设计者比较偏向使用单词缩写，即使是关键字也不例外。在代码风格上，某些读者可能开始会有点不习惯。但总体而言，这只是个审美偏好而已，不必过于纠结，习惯就好。</p></li>
-<li><p>默认情况下，<code>main</code>函数是可执行程序的入口点，它是一个无参数，无返回值的函数。如果我们要定义的函数有参数和返回值，可以使用以下语法（参数列表使用逗号分开，冒号后面是类型，返回值类型使用<code>-&gt;</code>符号分隔）：
-<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">Foo</span>( input1 : <span class="type">i32</span>, input2 : <span class="type">u32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
-<li><p>局部变量声明使用<code>let</code>关键字开头，用双引号包含起来的部分是字符串常量。<code>Rust</code>是静态强类型语言，所有的变量都有严格的编译期语法检查。关于<code>Rust</code>的变量和类型系统将在后文详细说明。</p></li>
-<li><p>每条语句使用分号结尾。语句块使用大括号。空格、换行和缩进不是语法规则的一部分。这都是明显的<code>C语言</code>系列的风格。</p></li>
-</ul>
-<div class="note primary"><p>最简单的标准输出是使用<code>println！</code>宏来完成。请大家一定注意<code>println</code>后面的感叹号，它代表这是一个宏，而不是一个函数。<code>Rust</code>中的宏与<code>C/C++</code>中的宏是完全不一样的东西。简单点说，可以把它理解为一种安全版的编译期语法扩展。这里之所以使用宏，而不是函数，是因为标准输出宏可以完成编译期格式检查，更加安全。</p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/22/Shell%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%AB%E5%90%8D%E5%91%BD%E4%BB%A4alias/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/22/Shell%E8%84%9A%E6%9C%AC%E5%92%8C%E5%88%AB%E5%90%8D%E5%91%BD%E4%BB%A4alias/" class="post-title-link" itemprop="url">Shell脚本和别名命令alias</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-22 13:32:35" itemprop="dateCreated datePublished" datetime="2024-06-22T13:32:35+08:00">2024-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>linux shell</code>有交互式与非交互式两种工作模式。我们日常使用<code>shell</code>输入命令得到结果的方式是交互式的方式，而<code>shell</code>脚本使用的是非交互式方式。</p>
-<p><code>shell</code>提供了<code>alias</code>功能来简化我们的日常操作，使得我们可以为一个复杂的命令取一个简单的名字，从而提高我们的工作效率。在<label style="color:red">交互式模式下</label>，<code>shell</code>的<code>alias</code>扩展功能是<label style="color:red">打开的</label>，因此我们可以键入自己定义的alias别名来执行对应的命令。</p>
-<p>在<label style="color:red">非交互式模式下</label><code>alias</code>扩展功能<label style="color:red">默认是关闭的</label>，此时仍然可以定义<code>alias</code>别名，但是<code>shell</code>不会将<code>alias</code>别名扩展成对应的命令，而是将<code>alias</code>别名本身当作命令执行，如果<code>shell</code>内置命令和<code>PATH</code>中均没有与<code>alias</code>别名同名的命令，则<code>shell</code>会“抱怨”找不到指定的命令。</p>
-<div class="note default"><p>在编写脚本时为了提高脚本的通用性，一般使用<code>linux</code>内置的通用命令，例如<code>ls</code>,<code>cat</code>等.
-由于脚本是<label style="color:red">非交互模式</label>，
-所以在脚本中直接使用系统命令即可。</p>
-</div>
-<p>现在有人要问了，在非交互模式的脚本中如何启用<code>alias</code>扩展呢？
-答案是可以使用<code>shell</code>的内置命令<code>shopt</code>来开启<code>alias</code>扩展选项。</p>
-<figure class="highlight sh"><figcaption><span>shopt的使用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shopt</span> -s opt_name                 Enable (<span class="built_in">set</span>) opt_name.</span><br><span class="line"><span class="built_in">shopt</span> -u opt_name                 Disable (<span class="built_in">unset</span>) opt_name.</span><br><span class="line"><span class="built_in">shopt</span> opt_name                    Show current status of opt_name.</span><br></pre></td></tr></table></figure>
-<p><code>alias</code>扩展功能的选项名称是<code>expand_aliases</code>，我们可以在交互式模式下查看此选项是否开启：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sw@gentoo ~ $ <span class="built_in">shopt</span> expand_aliases</span><br><span class="line">expand_aliases  on</span><br><span class="line">sw@gentoo ~ $</span><br></pre></td></tr></table></figure>
-<p>可见在交互式模式下<code>alias</code>扩展功能的确是开启的，因此我们才能使用<code>alias</code>别名。我们编写一个脚本来验证一下非交互式模式下<code>alias</code>扩展的设置：</p>
-<figure class="highlight sh"><figcaption><span>验证alias扩展</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash --login</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">alias</span> echo_hello=<span class="string">&quot;echo Hello!&quot;</span></span><br><span class="line"><span class="built_in">shopt</span> expand_aliases  </span><br><span class="line">echo_hello</span><br><span class="line"> </span><br><span class="line"><span class="built_in">shopt</span> -s  expand_aliases </span><br><span class="line"><span class="built_in">shopt</span> expand_aliases  </span><br><span class="line">echo_hello</span><br></pre></td></tr></table></figure>
-<p>执行结果为：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sw@gentoo ~ $ ./test.sh</span><br><span class="line">expand_aliases  off</span><br><span class="line">./test.sh: line 5: echo_hello: <span class="built_in">command</span> not found</span><br><span class="line">expand_aliases  on</span><br><span class="line">Hello!</span><br><span class="line">sw@gentoo ~ $</span><br></pre></td></tr></table></figure>
-<p>另外，<code>alias</code>别名只在当前<code>shell</code>有效，不能被子<code>shell</code>继承，也不能像环境变量一样<code>export</code>。可以把<code>alias</code>别名定义写在<code>.bashrc</code>文件中，这样如果启动交互式的子<code>shell</code>，则子<code>shell</code>会读取<code>.bashrc</code>，从而得到<code>alias</code>别名定义。但是执行<code>shell</code>脚本时，启动的子<code>shell</code>处于非交互式模式，是不会读取<code>.bashrc</code>的。</p>
-<p>如果你一定要让执行<code>shell</code>脚本的子<code>shell</code>读取<code>.bashrc</code>的话，可以给<code>shell</code>脚本第一行的解释器加上参数：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash --login</span></span><br></pre></td></tr></table></figure></p>
-<p>我们有三种方法可以使脚本变成交互式：</p>
-<ul>
-<li><code>--login</code>使得执行脚本的子<code>shell</code>成为一个<code>login shell</code>，<code>login shell</code>会读取系统和用户的<code>profile</code>及<code>rc</code>文件，因此用户自定义的<code>.bashrc</code>文件中的内容将在执行脚本的子<code>shell</code>中生效。</li>
-<li>让执行脚本的<code>shell</code>读取<code>.bashrc</code>，在脚本中主动<code>source ~/.bashrc</code>即可。</li>
-<li><code>bash</code>脚本首行加上<code>-i</code>参数就变成交互式了，即<code>#!/bin/bash -i</code>.</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/27/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/27/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,992 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/01/windows%E5%85%B3%E9%97%ADms-gamingoverlay/" class="post-title-link" itemprop="url">windows关闭ms-gamingoverlay</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-09-01 09:59:31" itemprop="dateCreated datePublished" datetime="2024-09-01T09:59:31+08:00">2024-09-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>ms-gamingoverlay</code>是系统中的一项游戏叠加功能，且系统默认启用了此功能，这会导致电脑老是弹出关于<code>ms-gamingoverlay</code>的提示窗,
+于是本文提供关闭<code>ms-gamingoverlay</code>弹窗的提示。</p>
+<figure>
+<img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-water.jpg"
+alt="msgamingoverlay一直跳出来的解决方法" />
+<figcaption
+aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
+</figure>
+<h2 id="windows10-关闭弹窗">Windows10 关闭弹窗</h2>
+<ol type="1">
+<li>首先点击开始菜单，进入系统设置。</li>
+</ol>
+<figure>
+<img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-50-water.jpg"
+alt="msgamingoverlay一直跳出来的解决方法" />
+<figcaption
+aria-hidden="true">msgamingoverlay一直跳出来的解决方法</figcaption>
+</figure>
+<ol start="2" type="1">
+<li>然后在设置中进入“游戏设置”。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92151-51_water.jpg?time=1667870521" /></p>
+<ol start="3" type="1">
+<li>然后在游戏栏中将“使用游戏栏录制游戏剪辑.
+屏幕截图和广播”关闭即可。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152_water.jpg?time=1667870526" /></p>
+<h2 id="windows11-关闭弹窗">Windows11 关闭弹窗</h2>
+<h3 id="方法一">方法一</h3>
+<ol type="1">
+<li>打开运行（<code>Win+R</code>），并输入<code>regedit</code>命令，按确定或回车。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411-50_water.png?time=1663653859" /></p>
+<ol start="2" type="1">
+<li>定位如下位置：<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR</code></li>
+</ol>
+<p>找到<code>AppCaptureEnabled</code>这个键值，把值改为<code>0</code>。</p>
+<ol start="3" type="1">
+<li>定位如下位置：<code>HKEY_CURRENT_USER\System\GameConfigStore</code></li>
+</ol>
+<p>找到<code>GameDVR_Enabled</code>这个键值，把值改为<code>0</code>。</p>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/220920/141-220920140411_water.png?time=1663653875" /></p>
+<p>之后打开任意游戏应该就不会弹窗了，如果还弹窗就看看你在设置里有没有关闭<code>xbox</code>相关设置。</p>
+<h3 id="方法二">方法二</h3>
+<ol type="1">
+<li>首先同样是进入系统“设置”。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-50_water.jpg?time=1667870532" /></p>
+<ol start="2" type="1">
+<li>然后进入左侧的“游戏”。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-51_water.jpg?time=1667870539" /></p>
+<ol start="3" type="1">
+<li>再进入右侧的“屏幕截图”。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-52_water.jpg?time=1667870545" /></p>
+<ol start="4" type="1">
+<li>接着在录制偏好设置中关闭“录制游戏过程”就可以了。</li>
+</ol>
+<p><img
+src="https://img5.xitongzhijia.net/allimg/221108/141-22110P92152-53_water.jpg?time=1667870552" /></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/27/%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E7%99%BB%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/27/%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%85%8D%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">使用路由器实现校园网免登录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-27 10:02:56" itemprop="dateCreated datePublished" datetime="2024-08-27T10:02:56+08:00">2024-08-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在大学校园里一般都会为学生提供免费的校园网，但是由于学生众多，一般当电脑关机时它会自动断开以释放<code>ip</code>给下一个学生使用。然而，对于办公室的台式机，每次开机都要打开校园网登录页面，输入一遍学号和密码，显然这不友好。即使是让游览器记住登录密码，每天重复这一动作也让人心情不好。</p>
+<p>网络上有一个开放的脚本，可以实现免登录操作，但是操作起来有点麻烦，同时安全性和合法性有待商榷。相关参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Freedomisgood/NjuptCmcc">NjuptCmcc
+校园网一键上网脚本</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv16042718/">(理论上)各大高校都适用的
+全平台校园网自动登录实现方法</a></li>
+</ul>
+<p>为了实现合法稳定的使用校园网，我们可以借助于路由器。本文推荐一款好用的路由器：<a
+target="_blank" rel="noopener" href="https://www.tp-link.com.cn/product_1941.html">TP-Link
+5660易展版</a>， 如下图所示</p>
+<figure>
+<img src="https://img.picui.cn/free/2024/08/27/66cd35538fc10.jpg"
+alt="TP-Link 5660 易展版" />
+<figcaption aria-hidden="true">TP-Link 5660 易展版</figcaption>
+</figure>
+<p>将校园网的网线连接路由器的<code>LAN</code>口（易展版无需区分<code>WAN</code>和<code>LAN</code>口）,
+然后使用另一网线连接电脑的网口，使用电脑浏览器打开校园网登录界面，输入学号和密码。然后在浏览器输入<code>192.168.1.1</code>按回车，进入到路由器设置界面，选择<code>DHCP服务器</code>
+，将<code>地址租期</code>设置为最大的<code>2880</code>分钟，这样连网后在<code>2880</code>分钟内就不会断开了。同时，路由器所附加的无线网络功能也可以实现手机和笔记本的连网。</p>
+<figure>
+<img src="https://img.picui.cn/free/2024/08/27/66cd398526e3d.png"
+alt="设置DHCP服务器" />
+<figcaption aria-hidden="true">设置<code>DHCP</code>服务器</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/16/%E6%97%A0%E7%BA%BF%E9%94%AE%E7%9B%98%E5%92%8C%E9%BC%A0%E6%A0%87%E6%80%8E%E4%B9%88%E9%80%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/16/%E6%97%A0%E7%BA%BF%E9%94%AE%E7%9B%98%E5%92%8C%E9%BC%A0%E6%A0%87%E6%80%8E%E4%B9%88%E9%80%89/" class="post-title-link" itemprop="url">无线键盘和鼠标怎么选</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-16 00:44:09" itemprop="dateCreated datePublished" datetime="2024-08-16T00:44:09+08:00">2024-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>无线键盘和鼠标 <code>2.4G</code> 和蓝牙到底哪个好？</p>
+<p>有人说，无线肯定蓝牙好，功耗低够省电；有人说肯定是 <code>2.4G</code>
+好，延迟比蓝牙要低多了；也有人说两个都不好，抗干扰能力都很弱......看似常用的东西，一说到谁更好用，大家都说不上来个但是所以然。</p>
+<p>所以今天 der 就和大家聊聊，都是无线，<code>2.4G</code>
+和蓝牙到底哪个好？</p>
+<p>首先我们要知道，大家常说的蓝牙是“标准版”的蓝牙技术，即
+<code>Bluetooth</code>。</p>
+<p>由于手机厂商觉得标准版的蓝牙技术功耗还是很高，于是就整了个低功耗蓝牙技术，也就是
+<code>BLE</code>。在蓝牙 <code>4.0</code>
+发布后，标准版蓝牙技术和低功耗蓝牙技术都统称蓝牙
+<code>4.0</code>，以至于很多人一时半会分不清。</p>
+<p>好在这两种蓝牙技术的应用场景不同，像标准版蓝牙技术主要应用在蓝牙电话接听，蓝牙耳机、蓝牙音箱等；而低功耗蓝牙技术则应用在可穿戴设备，<code>IoT</code>
+智能设备、鼠标键盘等电池供应的场合。虽说标准版蓝牙技术也支持用电池供电，但低功耗版蓝牙技术对电池的要求更低，续航也更长，有的几年也不在话下。</p>
+<p>而我们常说的 <code>2.4G</code> 无线连接技术，也就是
+<code>2.4G</code>Hz 频段，它的发射频率一般低于
+1W，以免对其他频段造成干扰。</p>
+<p>由于 <code>2.4G</code>Hz 这个频段是美国 FCC
+设立的，还是一个专门为工业、科学、医用开放的免许可频段，简单来说就是可以免费使用。反正不收钱，各国自然也共用这个频段，渐渐的就形成了个庞大的市场，像我们日常用的蓝牙、无线键鼠、无线网络也都支持这个频段。</p>
+<p>于是在功耗方面，自从蓝牙协议 <code>4.0</code>
+发布后，低功耗蓝牙技术的加入使其支持了省电，不再像以前需要占用太多带宽的设备进行连接。</p>
+<p>像现在比较好的智能家居，我们只需开启蓝牙就能连接多个设备，像温度传感器之类的还能进行数据传输，查看温度与记录......只需低功耗蓝牙技术即可实现。还有我们常用的无线蓝牙键盘、鼠标，由于低功耗蓝牙技术的限制，鼠标的回报率、带宽等会限制的很低，这样较低性能的模式去运行，自然会比较省电。</p>
+<p>而 <code>2.4G</code>
+无线连接技术占用的频宽大，像鼠标的回报率要求高，响应速度快，相较于低功耗蓝牙技术会更耗电一点。所以低功耗蓝牙技术相比
+<code>2.4G</code>
+无线连接技术更省电，像很多外设的相关描述中说的都是蓝牙更持久。</p>
+<p>而很多小伙伴关注的稳定性与传输距离的问题，<code>2.4G</code>
+无线连接技术也依旧比不过蓝牙。</p>
+<p>由于 <code>2.4G</code>Hz
+是“公共频段”，当附近有较多该频段的无线产品时，也容易受到干扰，甚至有时候中间放个手机也会造成
+<code>2.4G</code>Hz 设备卡顿。再说了，很多支持 <code>2.4G</code>Hz
+的设备不过 10 米左右，距离相对受限。</p>
+<p>虽说低功耗蓝牙技术也同属 <code>2.4G</code>Hz
+频段，但它支持的频段会更多一些，而且还支持跳频技术错开干扰，稳定性方面会更为稳定。传输距离方面，蓝牙
+<code>4.0</code> 协议理论上最高支持 50 米的传输距离，但实际民用基本为
+8~30 米，也足以比 <code>2.4G</code>
+无线连接技术要强得多，同时这也是为什么有个段子说手机被偷了那么久，蓝牙耳机依旧在播放。</p>
+<p>这时候就有大聪明发话了：既然蓝牙比 <code>2.4G</code>
+更省电，稳定性和传输距离又更好，那 <code>2.4G</code>
+到底有什么用呢？</p>
+<p>der 觉得，<code>2.4G</code>
+无线连接技术最大的优点莫过于它传输速度快很多，而且延迟更低，像一些喜欢玩游戏的小伙伴，对设备有着较高的响应速度，例如鼠标、键盘等，<code>2.4G</code>
+无线连接技术则能提供更好的体验，仅此而已。</p>
+<p>不过有的厂商见蓝牙与 <code>2.4G</code>
+这堆兄弟的优缺点可以互补，推出所谓的蓝牙 + <code>2.4G</code>
+双模无线设备，如果你想玩游戏就用 <code>2.4G</code>
+无线连接；如果只是日常使用省点电，则可以用蓝牙；这样办公娱乐都能用。</p>
+<p>最后总结一下，无论是功耗、稳定性、传输距离等方面，蓝牙确实比
+<code>2.4G</code> 要实用的多，用于办公再适合不过了。</p>
+<p>但如果你喜欢玩游戏，那 <code>2.4G</code>
+速度快且延迟低的特性更适合你。</p>
+<p>再说了，很多主机电脑、其它设备并没自带蓝牙功能，所以很多游戏玩家看不起也用不上蓝牙，只能配备
+USB 解码器对码使用 <code>2.4G</code>
+无线连接技术，祈祷着解码器千万别丢哪不见了。</p>
+<div class="note primary"><p>注：引用自<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv22828241/">买鼠标键盘，选无线 2.4G
+和蓝牙哪个好？看完你就明白了</a></p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/%E5%B0%86Windows%E7%94%B5%E8%84%91%E7%94%A8%E4%BD%9C%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/13/%E5%B0%86Windows%E7%94%B5%E8%84%91%E7%94%A8%E4%BD%9C%E7%A7%BB%E5%8A%A8%E7%83%AD%E7%82%B9/" class="post-title-link" itemprop="url">将Windows电脑用作移动热点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-13 23:11:01" itemprop="dateCreated datePublished" datetime="2024-08-13T23:11:01+08:00">2024-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过 <strong>Wi-Fi</strong> 与其他设备共享 <strong>Internet</strong>
+连接，将 <strong>Windows</strong> 电脑变成移动热点。 你可以共享
+<strong>WLAN</strong>、<strong>以太网</strong>或<strong>手机网络</strong>数据连接。
+如果你的电脑具有手机网络数据连接并且共享该连接，它将使用流量套餐数据。</p>
+<h2 id="设置移动热点">设置移动热点</h2>
+<ol type="1">
+<li><p>选择<strong>开始</strong>，然后选择<strong>设置</strong>→<strong>网络&amp;
+Internet</strong>→<strong>移动热点</strong>。</p></li>
+<li><p>对于<strong>从中共享我的 Internet 连接</strong>，选择要共享的
+<strong>Internet</strong> 连接。</p></li>
+<li><p>对于 <strong>共享方式</strong>，请选择希望如何通过
+<strong>Wi-Fi</strong> 或 <strong>蓝牙</strong>共享连接。
+<strong>Wi-Fi</strong>通常更快，默认选择。</p></li>
+<li><p>(可选) 展开 <strong>属性</strong>
+部分，然后选择<strong>编辑</strong> 并输入新的网络名称、密码和网络带。
+选择<strong>保存</strong>。</p></li>
+<li><p>打开<strong>移动热点</strong>
+设置页顶部的<strong>移动热点</strong>切换。</p>
+<div class="note primary"><p><strong>注意:</strong>
+如果你的电脑具有手机网络，则可以远程打开移动热点。 若要允许
+<strong>Windows</strong>
+电脑打开移动热点，这两个设备都必须具有蓝牙并已配对。</p>
+</div></li>
+<li><p>若要在其他设备上进行连接，请转到该设备的 <strong>WLAN</strong>
+设置、查找并选择网络名称、输入密码，然后进行连接。</p></li>
+</ol>
+<h2 id="快速启动移动热点">快速启动移动热点</h2>
+<p>如果每次启动电脑都进行一遍上述设置，实在太过麻烦。对于<code>Win11</code>,
+在右下角可以找到<code>移动热点</code>按钮，启动电脑，连接校园网然后点击<code>右下角网络图标</code>，再点击<code>移动热点</code>就可以快速启动无线<code>wifi</code>快速上网了。</p>
+<p>win10在通知面板预设了移动热点按钮，但win11的快速启用面板默认没有。在快速启用面板点击右下角铅笔按钮（如图），添加移动热点即可。</p>
+<figure>
+<img src="https://imgos.cn/2024/08/16/66becced1a3d5.png"
+alt="添加移动热点" />
+<figcaption aria-hidden="true">添加移动热点</figcaption>
+</figure>
+<h2 id="阻止无设备连接热点时自动关闭">阻止无设备连接热点时自动关闭</h2>
+<p>在<code>设置移动热点</code>小节，<code>移动热点</code>选项卡，会看到一个<code>节能</code>选项，默认是开启的，点击右侧按钮关闭它即可。</p>
+<p><img src="https://imgos.cn/2024/08/16/66bed050af319.png" /></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/13/MacOS%E4%B8%8ELinux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/13/MacOS%E4%B8%8ELinux/" class="post-title-link" itemprop="url">MacOS与Linux</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-13 14:53:21" itemprop="dateCreated datePublished" datetime="2024-08-13T14:53:21+08:00">2024-08-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure>
+<img src="https://imgos.cn/2024/08/13/66bb031616a73.jpg"
+alt="MacOS与Linux" />
+<figcaption aria-hidden="true">MacOS与Linux</figcaption>
+</figure>
+<h2 id="macos与linux简史">MacOS与Linux简史</h2>
+<p>macOS 和 Linux 的主要部分是内核、核心实用程序、GUI
+或桌面环境以及应用程序。</p>
+<p>macOS 基于名为 Darwin 的开源 BSD Unix 内核。 macOS 的其他部分（例如
+GUI 和核心应用程序）是闭源且专有的。 Apple
+构建并维护这些软件系统，它们作为 Mac 设备的一部分提供。</p>
+<p>Apple 在 2000 年代初将 Unix 引入了 macOS。在此之前，macOS 基于非 Unix
+操作系统。</p>
+<p>另一方面，Linux 最初是 Linus Torvalds 于 90 年代初作为个人项目和 Unix
+操作系统的克隆版本。严格来说，Linux只是内核。操作系统本身由 GNU
+实用程序等核心部分和 GNOME、KDE 等桌面环境组成。</p>
+<h2 id="开源软件与专有软件">开源软件与专有软件</h2>
+<p>Linux 和 macOS 都大量使用开源软件，但虽然 Linux 发行版完全开源，但
+macOS 的部分内容是闭源且专有的。</p>
+<p>从开源内核到核心 GNU 实用程序和 GUI 环境，Linux
+是自由和开源软件的缩影。您可以根据自己的喜好自由修改和重新打包整个操作系统。您甚至可以将其商业化并从中赚钱，就像红帽企业
+Linux 的情况一样。</p>
+<p>在大多数情况下，Linux 的许可条款要求您所做的修改也向社区公开。</p>
+<p>对于
+macOS，主要是内核是开源的。桌面和应用程序等其他部分不是开源的。当然，Apple
+的其他组件（例如 Swift 编程语言）也是开源的。</p>
+<p>与可以在您选择的任何硬件上使用的 Linux 不同，macOS 旨在在 Mac
+设备上使用。当您从 Apple 购买 PC 时，您需要为软件和硬件付费。</p>
+<h2 id="软件管理">软件管理</h2>
+<p>Linux
+长期以来一直采用中央软件存储库的概念，用户可以使用命令行或图形工具轻松下载和安装应用程序。</p>
+<p>大多数 Linux 发行版都附带软件包管理器，例如基于 Debian 的发行版上的
+APT、Fedora 和 Red Hat Enterprise Linux 上的 DNF 或 Yum，以及基于 Arch
+的发行版上的 Pacman。使用包管理器，您可以在 PC
+上轻松安装、删除、更新和管理软件应用程序。</p>
+<p>在 macOS
+上安装应用程序的传统方法是通过应用程序文件夹。您从互联网下载要安装的应用程序，然后将其拖到应用程序文件夹中，macOS
+将处理剩下的事情。</p>
+<p>另一个更新的选项是使用 Mac App Store 安装软件应用程序。</p>
+<p>您还可以使用 Homebrew，这是一个包管理器，它在 macOS 上的工作方式与
+APT 等 Linux 包管理器非常相似。 Homebrew 也可以在 Linux 上运行。</p>
+<h2 id="终端">终端</h2>
+<p>Linux 的真正威力在于终端或命令行。 macOS
+有一个类似的终端模拟器，但大部分注意力都集中在精美的 Mac 桌面上。</p>
+<p>该终端允许您以高效、轻松的方式与您的 PC
+和软件资源进行交互。此外，它还可以让您轻松自动化和安排任务。运行 Linux
+的软件工程师、高级用户和系统管理员在他们的工作流程中大量使用终端。</p>
+<p>大多数 Linux 发行版使用 Bash (GNU Bourne Again Shell) 作为终端的默认
+shell。 2019 年，Apple 将 Bash shell 替换为 Zsh（Z shell）。 Z shell
+是高度可定制的，并且与 Bash、ksh 和 tcsh 有许多相似之处。</p>
+<p>由于 Linux 和 macOS 主要使用类似的 shell，因此您在 Linux PC
+上运行的核心命令也可以在 Mac 上运行，反之亦然。</p>
+<h3 id="终端命令大部分相似">终端命令大部分相似</h3>
+<p>macOS 终端命令和 Linux 的命令有很多是相似的，因为 macOS 是基于 UNIX
+的操作系统。这意味着大部分的常用终端命令在 macOS 和 Linux
+上可以通用。</p>
+<ul>
+<li>ls：查看文件和目录的列表</li>
+<li>cd：改变当前工作目录</li>
+<li>mkdir：创建新目录</li>
+<li>rm：删除文件和目录</li>
+<li>cp：复制文件和目录</li>
+<li>mv：移动文件和目录</li>
+<li>cat：查看文件内容</li>
+<li>grep：在文件中搜索匹配的文本</li>
+<li>chmod：修改文件权限</li>
+<li>chown：修改文件所有者</li>
+<li>cat: 查看文件内容</li>
+<li>vi/vim/neovim: 编辑文件</li>
+<li>netstat: 查看网络连接状态</li>
+<li>ifconfig: 查看网络配置</li>
+<li>ps: 查看正在运行的程序</li>
+<li>kill: 杀死进程</li>
+</ul>
+<h3 id="终端命令的不同之处">终端命令的不同之处</h3>
+<ul>
+<li>安装软件包管理器：在 Linux 上，常用的软件包管理器是 apt、yum 和
+dnf，而 macOS 使用的是 Homebrew 或 MacPorts</li>
+<li>文件树结构：macOS 使用的文件树结构与 Linux
+不完全相同，导致一些目录的路径和名称略有不同</li>
+<li>网络工具：一些网络工具命令在两个系统上有所不同，例如，macOS 使用
+ifconfig 命令而 Linux 使用 ip 命令来配置网络接口</li>
+<li>系统服务管理：在 Linux 上，使用 systemctl 命令来管理系统服务，而在
+macOS 上使用 launchctl 命令</li>
+<li>打包和解压缩文件：在 Linux 上，常用的打包和解压缩命令是 tar 和
+gzip，而在 macOS 上常用的是 tar 和 unzip</li>
+<li>查看系统信息：macOS 使用 <code>system_profiler</code> 命令，Linux
+使用 <code>uname</code> 命令</li>
+<li>查看网络配置：macOS 使用 <code>ifconfig</code> 命令，Linux 使用
+<code>ifconfig</code> 或 <code>ip</code> 命令</li>
+</ul>
+<h2 id="桌面环境">桌面环境</h2>
+<p>在 Linux 的早期，基于内核的操作系统没有附带 GUI，大多数 Linux
+服务器仍然没有。您必须通过终端与操作系统交互。随着时间的推移，桌面环境的发展是为了帮助用户以更直观和友好的方式与操作系统交互，以便操作系统能够满足高级和非技术用户的需求。</p>
+<p>与 Linux
+的所有事物一样，您可以选择多种桌面环境，所有这些环境都为您提供了与系统交互的独特方式。一些著名的桌面环境包括
+GNOME、XFCE、KDE、Deepin 等。您可以在 Linux
+上自由安装多个桌面环境，但是一次只能使用一个。</p>
+<p>macOS 上的 GUI
+是标准的，对于所有用户来说都是相同的。除了更改壁纸、主题和类似的调整之外，您无法选择安装另一个桌面管理器来改变
+macOS 的外观和感觉。</p>
+<h2 id="多重分布">多重分布</h2>
+<p>在 Linux 上，发行版或发行版是一种特定类型的
+Linux，附带一组特定的应用程序、桌面环境和系统实用程序。不同的发行版通常针对一组特定的用户，例如道德黑客、艺术家、程序员、软件开发人员等。</p>
+<p>实际上有数千种 Linux 发行版可供您根据您的工作流程进行选择。例如，基于
+Debian 的 Kali Linux
+发行版主要用于道德黑客攻击和渗透测试。它配备了大量适合道德黑客的工具和实用程序。</p>
+<p>Arch Linux 是轻量级 Linux
+发行版的另一个例子，它配备了最少的工具。它被喜欢从头开始定制操作系统的
+Linux 爱好者和极客广泛使用。</p>
+<p>另一方面，有了
+macOS，每个人都可以获得相同类型的操作系统，无论他们的热情或工作是什么。这是因为苹果是唯一开发和控制操作系统的公司。对于苹果来说，维持单一操作系统的多个变体将会适得其反。</p>
+<p>Linux 发行版之所以如此之多，归根结底是因为 Linux
+内核及其核心组件都是开源的。这使得用户可以轻松创建针对特定受众的新 Linux
+风格。</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-15010-1.html">macOS 和 Linux
+有什么区别？</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12628">macOS 与
+Linux：您应该了解的 5 个主要区别</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://worktile.com/kb/ask/498880.html">macos终端命令和linux一样吗</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/12/%E8%A7%A3%E5%86%B3Ubuntu%E7%9A%84%E5%86%85%E9%83%A8%E9%94%99%E8%AF%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/12/%E8%A7%A3%E5%86%B3Ubuntu%E7%9A%84%E5%86%85%E9%83%A8%E9%94%99%E8%AF%AF/" class="post-title-link" itemprop="url">解决Ubuntu的内部错误</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-12 15:50:58" itemprop="dateCreated datePublished" datetime="2024-08-12T15:50:58+08:00">2024-08-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述">问题描述</h2>
+<p><a
+target="_blank" rel="noopener" href="https://ubuntu.com/">ubuntu</a>是大多数人步入<code>Linux</code>世界的入门级系统，其易用性使得多数对系统配置不高的人容易接受这一系统。在我使用<code>Linux</code>的早期，也是使用了一段时间的<code>ubuntu</code>,
+但是直到有一天，它经常出现<label style="color:red">内部错误</label>，不得不让早期的我认为它不友好，于是转入<code>Debian</code>.它的错误对话框如下：</p>
+<figure>
+<img src="https://imgos.cn/2024/08/12/66b9bf1b3db54.png"
+alt="Ubuntu提示出现了内部错误" />
+<figcaption aria-hidden="true">Ubuntu提示出现了内部错误</figcaption>
+</figure>
+<h2 id="原因分析">原因分析</h2>
+<p>Ubuntu桌面版预装了Apport，它是一个错误收集系统，会收集软件崩溃、未处理异常和其他，包括程序bug，并为调试目的生成崩溃报告。当一个应用程序崩溃或者出现Bug时候，Apport就会通过弹窗警告用户并且询问用户是否提交崩溃报告:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">“Sorry, the application XXXX has closed unexpectedly.”   </span><br><span class="line">“对不起，应用程序XXXX意外关闭了。”   </span><br><span class="line">“Sorry, Ubuntu XX.XX has experienced an internal error.”   </span><br><span class="line">“对不起，Ubuntu XX.XX 发生了一个内部错误。”   </span><br><span class="line">“System program problem detected.”   </span><br><span class="line">“检测到系统程序问题。”</span><br></pre></td></tr></table></figure>
+<p>实际情况并不是Ubuntu容易出现内部错误，而是一旦程序崩溃过一次，就会生成一个.crash文件，记录着崩溃信息，这些崩溃信息保存在目录: <code>/var/crash/</code></p>
+<p>只要你不去处理，每次开机都会提示你有错误。也就是说：报错并不一定是出现了什么错误，而是曾经出现过错误，而你没有处理。通常情况下，到/var/crash/目录查看崩溃文件，如果不是什么大问题(通常都没什么大问题)，删除该目录下的崩溃文件，之后就不会再报错误了.。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="永久关闭apport错误报告">永久关闭Apport错误报告</h3>
+<p>修改Apport配置文件<code>/etc/default/apport</code></p>
+<figure class="highlight sh"><figcaption><span>/etc/default/apport</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enabled=0</span><br></pre></td></tr></table></figure>
+<p>重启你的Ubuntu系统，Apport将会自动关闭 </p>
+<h3 id="完全移除apport">完全移除Apport</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge apport</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/10/Linux%E7%BB%88%E7%AB%AF%E6%89%93%E5%8D%B0Unicode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/10/Linux%E7%BB%88%E7%AB%AF%E6%89%93%E5%8D%B0Unicode/" class="post-title-link" itemprop="url">Linux终端打印Unicode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-10 16:32:02" itemprop="dateCreated datePublished" datetime="2024-08-10T16:32:02+08:00">2024-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>编写<code>Shell</code>脚本的过程中，使用常用的图标符号增加美观的同时也增强了易用性,
+比如使用软盘符💾、个人电脑符💻 等。
+本文总结在<code>Shell</code>脚本中显示<code>Unicode</code>符号的方法：</p>
+<h2 id="查询-unicode-编码">查询 Unicode 编码</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.unicodery.com/">https://www.unicodery.com/</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.lddgo.net/string/unicode-chart">在线Unicode编码字符查看</a></li>
+<li><a target="_blank" rel="noopener" href="https://unicodeplus.com/">https://unicodeplus.com/</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.rapidtables.org/zh-CN/code/text/unicode-characters.html">Unicode字符表</a></li>
+<li><a target="_blank" rel="noopener" href="https://symbl.cc/cn/">https://symbl.cc/cn/</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.nerdfonts.com/cheat-sheet">https://www.nerdfonts.com/cheat-sheet</a></li>
+</ul>
+<h2 id="使用-echo-命令">使用 echo 命令</h2>
+<p>例如查询到💾的Unicode编码为<code>U+1F4BE</code>,
+则使用<code>echo</code>应当开启<code>-e</code>选项，即：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\u0001F4BE&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用-printf-命令">使用 printf 命令</h2>
+<p>同样输出💾，使用<code>printf</code>命令为:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span> <span class="string">&quot;\u0001F4BE&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用-python-脚本">使用 Python 脚本</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">u&quot;\U0001F4BE&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="使用-perl-脚本">使用 Perl 脚本</h2>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">print</span> <span class="string">&quot;\x&#123;1F4BE&#125;\n&quot;</span> ;</span><br></pre></td></tr></table></figure>
+<h2 id="在-html-中使用-unicode">在 Html 中使用 Unicode</h2>
+<p><code>Html</code>中使用<code>Unicode</code>应当使用其专用的格式，例如<a
+target="_blank" rel="noopener" href="https://www.unicodery.com/">https://www.unicodery.com/</a>会直接给出。输出💾的源码为<code>&amp;#x1F4BE;</code>.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/07/Python%E4%B9%8Bpandas%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%99%E4%BF%AE%E5%A4%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/07/Python%E4%B9%8Bpandas%E6%A8%A1%E5%9D%97%E6%8A%A5%E9%94%99%E4%BF%AE%E5%A4%8D/" class="post-title-link" itemprop="url">Python之pandas模块报错修复</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-07 13:59:27" itemprop="dateCreated datePublished" datetime="2024-08-07T13:59:27+08:00">2024-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2
+id="attributeerror-partially-initialized-module-pandas-has-no-attribute-dataframe-most-likely-due-to-a-circular-import">AttributeError:
+partially initialized module 'pandas' has no attribute 'DataFrame' (most
+likely due to a circular import)</h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.runoob.com/pandas/pandas-tutorial.html">Pandas</a> 是
+<code>Python</code>
+语言的一个扩展程序库，用于数据分析。但是今天在使用<code>pandas</code>导出数据时，发现它报错了：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: partially initialized module <span class="string">&#x27;pandas&#x27;</span> has no attribute <span class="string">&#x27;DataFrame&#x27;</span> (most likely due to a circular import)</span><br></pre></td></tr></table></figure>
+<p>经过研究发现它是由于我把同目录下的另一个测试程序改名为<code>pandas.py</code>导致的，然后修改了那个程序后，问题解决。</p>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://pandashowto.com/partially-initialized-module-pandas-has-no-attribute/">How
+to fix AttributeError: partially initialized module ‘pandas’ has no
+attribute ‘DataFrame’ (most likely due to a circular import)</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42989041/article/details/111991311">AttributeError:
+module ‘pandas‘ has no attribute ‘DataFrame‘ 报错解决 Python
+Pandas</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -537,960 +1523,8 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/ouening/article/detai
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/04/Python2%E5%88%B0Python3%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B72to3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/04/Python2%E5%88%B0Python3%E7%9A%84%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B72to3/" class="post-title-link" itemprop="url">Python2到Python3的转换工具2to3</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-04 02:11:03" itemprop="dateCreated datePublished" datetime="2024-08-04T02:11:03+08:00">2024-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>近期在研究使用<code>Python</code>绘图，但是<code>veusz</code>官方网站上给出的例子好多都是<code>Python2</code>格式.
-如果代码量比较少，则按照<a
-target="_blank" rel="noopener" href="https://www.runoob.com/python/python-2x-3x.html">Python2.x与Python3.x版本区别</a>一点一点的修改即可，
-但是如果代码量比较大，那这一点一点的修改显然效率太低了。好在，<code>Python3</code>内置了一个转换工具<code>2to3</code>,
-可以方便的完成从<code>Python2.x</code>到<code>Python3.x</code>的转换工作。</p>
-<h2 id="to3-简介">2to3 简介</h2>
-<p>2to3 是一个 Python 程序，它可以用来读取 Python 2.x
-版本的代码，并使用一系列的 修复器 来将其转换为合法的 Python 3.x
-代码。标准库中已经包含了丰富的修复器，这足以处理绝大多数代码。不过 2to3
-的支持库 lib2to3 是一个很灵活通用的库，所以你也可以为 2to3
-编写你自己的修复器。lib2to3 也可以用在那些需要自动处理 Python
-代码的应用中。</p>
-<h2 id="使用方法">使用方法</h2>
-<p>2to3
-的基本调用参数是一个需要转换的文件或目录列表。对于目录，会递归地寻找其中的
-Python 源码。例如，一个<code>Python2.x</code>的源文件为：</p>
-<figure class="highlight python"><figcaption><span>python2.x:example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span> <span class="string">&quot;Hello, &#123;0&#125;!&quot;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;What&#x27;s your name?&quot;</span></span><br><span class="line">name = raw_input()</span><br><span class="line">greet(name)</span><br></pre></td></tr></table></figure>
-<p>它可以在命令行中使用 2to3 转换成 Python 3.x 版本的代码：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 example.py</span><br></pre></td></tr></table></figure>
-<p>这个命令会打印出和源文件的区别。通过传入 -w 参数，2to3
-也可以把需要的修改写回到原文件中（除非传入了 -n
-参数，否则会为原始文件创建一个副本）：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -w example.py</span><br></pre></td></tr></table></figure>
-<p>转换完成后，example.py 看起来像是这样：</p>
-<figure class="highlight python"><figcaption><span>python3.x:example.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, &#123;0&#125;!&quot;</span>.<span class="built_in">format</span>(name))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;What&#x27;s your name?&quot;</span>)</span><br><span class="line">name = <span class="built_in">input</span>()</span><br><span class="line">greet(name)</span><br></pre></td></tr></table></figure>
-<p>注释和缩进都会在转换过程中保持不变。默认情况下，2to3 会执行
-预定义修复器 的集合。使用 -l 参数可以列出所有可用的修复器。使用 -f
-参数可以明确指定需要使用的修复器集合。而使用 -x
-参数则可以明确指定不使用的修复器。下面的例子会只使用 imports 和
-<code>has_key</code> 修复器运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -f imports -f has_key example.py</span><br></pre></td></tr></table></figure>
-<p>这个命令会执行除了 apply 之外的所有修复器：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -x apply example.py</span><br></pre></td></tr></table></figure>
-<p>有一些修复器是需要 显式指定
-的，它们默认不会执行，必须在命令行中列出才会执行。比如下面的例子，除了默认的修复器以外，还会执行
-idioms 修复器：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -f all -f idioms example.py</span><br></pre></td></tr></table></figure>
-<p>注意这里使用 all 来启用所有默认的修复器。</p>
-<p>--add-suffix
-选项接受一个字符串，用来作为后缀附加在输出文件名后面的后面。由于写入的文件名与原始文件不同，所以没有必要创建副本，因此
--n 选项也是必要的。举个例子：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 -n -W --add-suffix=3 example.py</span><br></pre></td></tr></table></figure>
-<p>这样会把转换后的文件写入 example.py3
-文件。将整个项目从一个目录转换到另一个目录可以用这样的命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2to3 --output-dir=python3-version/mycode -W -n python2-version/mycode</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.7/library/2to3.html#to3-automated-python-2-to-3-code-translation">2to3
-- 自动将 Python 2 代码转为 Python 3 代码</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.cnblogs.com/qftd/p/11508586.html">Python代码2转3、3转2的方法</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/Python%E6%8E%A8%E5%AF%BC%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/03/Python%E6%8E%A8%E5%AF%BC%E5%BC%8F/" class="post-title-link" itemprop="url">Python推导式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-03 15:16:58" itemprop="dateCreated datePublished" datetime="2024-08-03T15:16:58+08:00">2024-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Python
-推导式是一种强大且简洁的语法，适用于生成列表、字典、集合和生成器。在使用推导式时，需要注意可读性，尽量保持表达式简洁，以免影响代码的可读性和可维护性。</p>
-<h2 id="语法格式">语法格式</h2>
-<figure class="highlight python"><figcaption><span>语法格式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">结果值<span class="number">1</span> <span class="keyword">if</span> 判断条件 <span class="keyword">else</span> 结果<span class="number">2</span>  <span class="keyword">for</span> 变量名 <span class="keyword">in</span> 原列表</span><br></pre></td></tr></table></figure>
-<h2 id="举例说明">举例说明</h2>
-<h3 id="代码">代码</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;test1&#x27;</span>, <span class="string">&#x27;test2&#x27;</span>]</span><br><span class="line">list2 = [word.title() <span class="keyword">if</span> word.startswith(<span class="string">&#x27;p&#x27;</span>) <span class="keyword">else</span> word.upper() <span class="keyword">for</span> word <span class="keyword">in</span> list1]</span><br><span class="line"><span class="built_in">print</span>(list2)</span><br></pre></td></tr></table></figure>
-<h3 id="结果">结果</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;Python&#x27;</span>, <span class="string">&#x27;TEST1&#x27;</span>, <span class="string">&#x27;TEST2&#x27;</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/python3/python-comprehensions.html">Python
-推导式</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32727095/article/details/118959610">【Python】推导式（列表推导式、元组推导式、字典推导式、集合推导式）详解</a></li>
-<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000018183488">Python
-进阶之路 (八) 最用心的推导式详解 (附简单实战及源码)</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/veusz%E7%BB%98%E5%88%B6mandelbrot%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/03/veusz%E7%BB%98%E5%88%B6mandelbrot%E9%9B%86/" class="post-title-link" itemprop="url">veusz绘制mandelbrot集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-03 01:10:09" itemprop="dateCreated datePublished" datetime="2024-08-03T01:10:09+08:00">2024-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="python2到python3的问题修复">Python2到Python3的问题修复</h2>
-<p>本文测试<code>veusz</code>绘制<code>2D</code>图形的能力，于是在官方网站下载了<code>mandelbrot</code>的经典例子：<a
-target="_blank" rel="noopener" href="https://veusz.github.io/examples/mandelbrot.vsz">mandelbrot.vsz</a>,
-但是官方的例子是以<code>python2</code>构建的，而本文希望切换到<code>python3</code>解决问题。由于语法的兼容，需要做出少许修改：</p>
-<ul>
-<li>指明<code>python2</code>可以直接运行程序，但不是目前我想要的。</li>
-<li><code>print</code>函数，在<code>python2</code>中不需要加括号，但是<code>python3</code>中需要加括号，即<code>print "hello world"</code>→<code>print ("hello world")</code></li>
-<li><code>python2</code>中使用<code>xrange</code>函数，在<code>python3</code>中已经取消，合并到<code>range</code>函数。所以需要修改：<code>xrange()</code>→<code>range()</code></li>
-<li>错误：<code>TypeError: ‘float‘ object cannot be interpreted as an integer</code>.
-造成错误的原因是<code>range</code>里面使用了小数，所以解决方法有两个：
-<ul>
-<li><code>python2</code>中的<code>/</code>只保留整数部分，是<code>int</code>型。在<code>python3</code>中的<code>/</code>的结果是真正意义上的除法，得到的是一个小数，所以是<code>float</code>型，所以改用<code>python3</code>中的<code>//</code>得到一个整数，则问题解决。即：<code>/</code>→<code>//</code></li>
-<li>如果不想任何改变仍要使用<code>range</code>的功能，则可以使用<code>numpy</code>中提供的<code>arange</code>，即
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> numpy.arange(<span class="number">0.0</span>, <span class="number">4.1</span>, <span class="number">0.8</span>)</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure></li>
-</ul></li>
-</ul>
-<h2
-id="python3下的mandelbrot.vsz">Python3下的<code>mandelbrot.vsz</code></h2>
-<figure class="highlight python"><figcaption><span>mandelbrot.vsz for pyton3</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Veusz script (version 0.7 or later)</span></span><br><span class="line"><span class="comment"># Jeremy Sanders (2005)</span></span><br><span class="line"><span class="comment"># for python3</span></span><br><span class="line"><span class="comment"># computes the Mandelbrot set in real time</span></span><br><span class="line"></span><br><span class="line">size = <span class="number">300</span></span><br><span class="line">maxiters = <span class="number">20</span></span><br><span class="line">image = zeros( (size, size) )</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;This takes some time, please wait&quot;</span>)</span><br><span class="line"></span><br><span class="line">minx = <span class="number">100000</span></span><br><span class="line">maxx = -<span class="number">100000</span></span><br><span class="line">miny = <span class="number">100000</span></span><br><span class="line">maxy = -<span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(size//<span class="number">2</span>):</span><br><span class="line">        c1 = -<span class="number">2</span>+<span class="number">4.</span>*i/size</span><br><span class="line">        c2 = <span class="number">2</span>-<span class="number">4.</span>*j/size</span><br><span class="line">        x = c1</span><br><span class="line">        y = c2</span><br><span class="line"></span><br><span class="line">        minx=<span class="built_in">min</span>(x, minx)</span><br><span class="line">        maxx=<span class="built_in">max</span>(x, maxx)</span><br><span class="line">        miny=<span class="built_in">min</span>(y, miny)</span><br><span class="line">        maxy=<span class="built_in">max</span>(y, maxy)</span><br><span class="line"></span><br><span class="line">        n = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> n &lt; maxiters <span class="keyword">and</span> x**<span class="number">2</span>+y**<span class="number">2</span> &lt; <span class="number">4.</span>:</span><br><span class="line">            x1 = x**<span class="number">2</span>-y**<span class="number">2</span>+c1</span><br><span class="line">            y1 = <span class="number">2</span>*x*y+c2</span><br><span class="line">            x = x1</span><br><span class="line">            y = y1</span><br><span class="line"></span><br><span class="line">            n += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        image[j, i] = n</span><br><span class="line">        image[size-j-<span class="number">1</span>, i] = n</span><br><span class="line"></span><br><span class="line"><span class="comment"># set output data into veusz</span></span><br><span class="line">SetData2D(<span class="string">&#x27;image&#x27;</span>, image, xrange=(minx, maxx), yrange=(miny, maxy))</span><br><span class="line"></span><br><span class="line"><span class="comment"># construct the graph</span></span><br><span class="line">To(Add(<span class="string">&#x27;page&#x27;</span>))</span><br><span class="line">To(Add(<span class="string">&#x27;graph&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add a label</span></span><br><span class="line">Add(<span class="string">&#x27;label&#x27;</span>, label=<span class="string">&#x27;The Mandelbrot Set&#x27;</span>, yPos=<span class="number">0.95</span>,</span><br><span class="line">    alignHorz=<span class="string">&#x27;centre&#x27;</span>, alignVert=<span class="string">&#x27;top&#x27;</span>,</span><br><span class="line">    Text__size=<span class="string">&#x27;30pt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add colorbar in front of image</span></span><br><span class="line">Add(<span class="string">&#x27;colorbar&#x27;</span>, name=<span class="string">&#x27;colorbar1&#x27;</span>, image=<span class="string">&#x27;image1&#x27;</span>,</span><br><span class="line">    direction=<span class="string">&#x27;vertical&#x27;</span>, vertPosn=<span class="string">&#x27;top&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add image</span></span><br><span class="line">Add(<span class="string">&#x27;image&#x27;</span>, name=<span class="string">&#x27;image1&#x27;</span>, data=<span class="string">&#x27;image&#x27;</span>, <span class="built_in">min</span>=<span class="number">1</span>,</span><br><span class="line">    colorScaling=<span class="string">&#x27;log&#x27;</span>, colorMap=<span class="string">&#x27;heat&#x27;</span>, colorInvert=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># adjust axes</span></span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;x/min&#x27;</span>, -<span class="number">2.2</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;x/max&#x27;</span>, <span class="number">1.2</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;y/min&#x27;</span>, <span class="number">0.3</span>)</span><br><span class="line"><span class="type">Set</span>(<span class="string">&#x27;y/max&#x27;</span>, <span class="number">1.9</span>)</span><br><span class="line"></span><br><span class="line">To(<span class="string">&#x27;/&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="运行结果">运行结果</h2>
-<figure>
-<img src="https://veusz.github.io/examples/mandelbrot.png"
-alt="mandelbrot 集(python3 实现)" />
-<figcaption aria-hidden="true">mandelbrot 集(python3 实现)</figcaption>
-</figure>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45653050/article/details/107306665">SyntaxError:
-Missing parentheses in call to ‘print‘. 正解</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/zag666/article/details/124782019">成功解决TypeError:
-‘float‘ object cannot be interpreted as an integer</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.runoob.com/python/python-2x-3x.html"><label style="color:red">Python2.x
-与 Python3.x 版本区别</label></a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/Matplotlib%E6%8C%87%E5%AE%9A%E5%9B%BE%E5%BD%A2%E5%A4%A7%E5%B0%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/03/Matplotlib%E6%8C%87%E5%AE%9A%E5%9B%BE%E5%BD%A2%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">Matplotlib指定图形大小</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-03 00:44:12" itemprop="dateCreated datePublished" datetime="2024-08-03T00:44:12+08:00">2024-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="matplotlib-指定图形大小单位厘米">Matplotlib
-指定图形大小（单位厘米）</h2>
-<p>Matplotlib是Python中最常用的绘图工具之一。它可以用来画各种类型的图表，从简单的折线图到复杂的3D图。在Matplotlib中，可以指定图像的大小和分辨率。</p>
-<p>本文将介绍如何在Matplotlib中指定图形大小，以及如何使用厘米单位。</p>
-<h2 id="确定图形大小">确定图形大小</h2>
-<p>在Matplotlib中，可以使用<code>plt.figure()</code>函数来创建一个新的图像。该函数包括几个参数，其中一个是<code>figsize</code>，它可以用来指定图像的大小。</p>
-<p>默认情况下，Matplotlib中的<code>figsize</code>参数是以英寸为单位的。但是，我们可以通过将<code>figsize</code>参数设置为一个包含两个数字的元组来指定图像的大小。第一个数字是图像的宽度，第二个数字是图像的高度。</p>
-<p>例如，下面的代码将创建一个大小为4英寸x4英寸的图像：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个大小为4英寸x4英寸的图像</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">4</span>, <span class="number">4</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在图像中绘制一个正弦波</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">ax.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>你可以看到，这个图像略微有些小，无法清晰地显示。如果我们需要一个更大的图像，我们可以通过增加<code>figsize</code>参数中的数字来实现。例如，如果我们需要一个8英寸x8英寸的图像，我们可以将<code>figsize</code>参数设置为<code>(8,8)</code>。</p>
-<p>但是，如果我们想要以厘米为单位指定图像的大小，该怎么办呢？</p>
-<h2 id="使用厘米单位">使用厘米单位</h2>
-<p>默认情况下，Matplotlib使用英寸作为图像大小的单位。但是，我们可以使用其他单位来指定图像的大小，包括厘米。</p>
-<p>要在Matplotlib中指定图像大小为厘米，我们需要使用<code>Figure.set_size_inches()</code>函数。该函数包括两个参数，分别是图像的宽度和高度，以英寸为单位。我们可以将这些参数转换为厘米，然后将它们传递给<code>set_size_inches()</code>函数。</p>
-<p>例如，下面的代码将创建一个大小为8厘米x8厘米的图像：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个大小为8英寸x8英寸的图像</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">8</span>/<span class="number">2.54</span>, <span class="number">8</span>/<span class="number">2.54</span>))</span><br><span class="line">ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在图像中绘制一个正弦波</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>*np.pi, <span class="number">100</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line">ax.plot(x, y)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p>你可以看到，这个图像与上面的图像相同，只是现在它的大小是以厘米为单位的。我们将<code>figsize</code>参数设置为<code>(8/2.54, 8/2.54)</code>，其中<code>8/2.54</code>是以厘米为单位的8英寸。</p>
-<p>注意，如果你使用的是Python2，你需要在<code>8/2.54</code>前面加上一个小数点，即<code>.8/2.54</code>。</p>
-<h2 id="总结">总结</h2>
-<p>在Matplotlib中，我们可以使用<code>plt.figure()</code>函数来创建一个新的图像，并使用<code>figsize</code>参数指定它的大小。默认情况下，<code>figsize</code>的大小是以英寸为单位的。我们可以通过将<code>figsize</code>设置为一个包含两个值的元组来调整它的大小。要使用厘米作为单位指定图像大小，我们需要使用<code>Figure.set_size_inches()</code>函数，并将宽度和高度转换为厘米。</p>
-<h2 id="文章参考">文章参考</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://geek-docs.com/matplotlib/matplotlib-ask-answer/65_matplotlib_specify_figure_size_in_centimeter_in_matplotlib.html">Matplotlib
-指定图形大小（单位厘米）</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://geek-docs.com/matplotlib/matplotlib-tutorial/matplotlib-tutorial.html">Matplotlib
-教程</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/03/%E4%BD%BF%E7%94%A8Python%E7%94%BB%E5%88%86%E5%BD%A2%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/03/%E4%BD%BF%E7%94%A8Python%E7%94%BB%E5%88%86%E5%BD%A2%E5%9B%BE/" class="post-title-link" itemprop="url">使用Python画分形图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-03 00:03:05" itemprop="dateCreated datePublished" datetime="2024-08-03T00:03:05+08:00">2024-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于不想受限于<code>MatLab</code>，于是全面转入到<code>Python</code>工作，同时绘图工具使用免费开源的<code>veusz</code>,
-在实现<code>python</code>导出数据，再使用<code>veusz</code>绘图时，第一步就是使用<code>python</code>正确的绘图，而分形图就是练习画这类图的绝佳素材。</p>
-<h2 id="koch曲线">Koch曲线</h2>
-<h3 id="代码">代码</h3>
-<figure class="highlight python"><figcaption><span>Koch</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line">Division = <span class="number">3.0</span> </span><br><span class="line">DirectionAangle = [(<span class="string">&#x27;left&#x27;</span>,<span class="number">60</span>),(<span class="string">&#x27;right&#x27;</span>,<span class="number">120</span>),(<span class="string">&#x27;left&#x27;</span>,<span class="number">60</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">call</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">if</span> name == <span class="string">&#x27;left&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> turtle.left</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> turtle.right</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">koch</span>(<span class="params">n, length</span>):</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span>:</span><br><span class="line">        turtle.forward(length)   </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> DA <span class="keyword">in</span> DirectionAangle:</span><br><span class="line">            koch(n-<span class="number">1</span>,length/Division)</span><br><span class="line">            call(DA[<span class="number">0</span>])(DA[<span class="number">1</span>])</span><br><span class="line">        koch(n-<span class="number">1</span>,length/Division)   </span><br><span class="line">            </span><br><span class="line">koch(n=<span class="number">4</span>, length=<span class="number">400</span>)</span><br><span class="line">turtle.done()        </span><br></pre></td></tr></table></figure>
-<h3 id="运行结果">运行结果</h3>
-<figure>
-<img src="http://imgos.cn/2024/08/03/66ad037f9fd02.png" alt="koch" />
-<figcaption aria-hidden="true">koch</figcaption>
-</figure>
-<h2 id="julia-集">Julia 集</h2>
-<h3 id="代码-1">代码</h3>
-<figure class="highlight python"><figcaption><span>Julia</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">p=<span class="number">0.45</span> <span class="comment">#初始值c的实部</span></span><br><span class="line">q=-<span class="number">0.1428</span> <span class="comment">#初始值c的虚部</span></span><br><span class="line">N=<span class="number">800</span> <span class="comment">#最大迭代次数</span></span><br><span class="line">M=<span class="number">100</span> <span class="comment">#迭代区域的界值</span></span><br><span class="line">a=<span class="number">3.0</span> <span class="comment">#绘制图的横轴大小</span></span><br><span class="line">b=<span class="number">3.0</span> <span class="comment">#绘制图的纵轴大小</span></span><br><span class="line">step=<span class="number">0.005</span> <span class="comment">#绘制点的步长</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">z,N,M</span>):</span><br><span class="line">    z=z*z+c</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(z)&gt;M:</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        z=z*z+c</span><br><span class="line">    <span class="keyword">return</span> N</span><br><span class="line"></span><br><span class="line">c=p+q*<span class="number">1j</span></span><br><span class="line">i=np.arange(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,step)</span><br><span class="line">j=np.arange(b/<span class="number">2.0</span>,-b/<span class="number">2.0</span>,-step)</span><br><span class="line">I,J=np.meshgrid(i, j)</span><br><span class="line">ufunc=np.frompyfunc(iterate,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">Z=ufunc(I+<span class="number">1j</span>*J,N,M).astype(np.float64)</span><br><span class="line">plot.imshow(Z,extent=(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,-b/<span class="number">2</span>,b/<span class="number">2.0</span>))</span><br><span class="line">cb = plot.colorbar(orientation=<span class="string">&#x27;vertical&#x27;</span>,shrink=<span class="number">1</span>)</span><br><span class="line">cb.set_label(<span class="string">&#x27;iteration counts&#x27;</span>)</span><br><span class="line">plot.show()</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果-1">运行结果</h3>
-<figure>
-<img src="http://imgos.cn/2024/08/03/66ad043fc8b4f.png" alt="Julia集" />
-<figcaption aria-hidden="true">Julia集</figcaption>
-</figure>
-<h2 id="mandelbrot-集">Mandelbrot 集</h2>
-<h3 id="代码-2">代码</h3>
-<figure class="highlight python"><figcaption><span>Mandelbrot</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plot </span><br><span class="line"></span><br><span class="line">x0=<span class="number">0</span> <span class="comment">#初始值z0的x0</span></span><br><span class="line">y0=<span class="number">0</span> <span class="comment">#初始值z0的y0</span></span><br><span class="line">zoom=<span class="number">1.0</span> <span class="comment">#放大倍率</span></span><br><span class="line">N=<span class="number">100</span> <span class="comment">#最大迭代次数</span></span><br><span class="line">R=<span class="number">2</span> <span class="comment">#迭代半径</span></span><br><span class="line">a=<span class="number">4.0</span> <span class="comment">#绘制图的横轴大小</span></span><br><span class="line">b=<span class="number">3.0</span> <span class="comment">#绘制图的纵轴大小</span></span><br><span class="line">step=<span class="number">0.005</span> <span class="comment">#绘制点的步长</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">iterate</span>(<span class="params">c,N,R</span>):</span><br><span class="line">    z=c</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(z)&gt;R: </span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">        z = z*z+c</span><br><span class="line">    <span class="keyword">return</span> N</span><br><span class="line"></span><br><span class="line">x=np.arange(-a/(<span class="number">2.0</span>*zoom)+x0,a/(<span class="number">2.0</span>*zoom)+x0,step)</span><br><span class="line">y=np.arange(b/(<span class="number">2.0</span>*zoom)+y0,-b/(<span class="number">2.0</span>*zoom)+y0,-step)</span><br><span class="line">cx,cy=np.meshgrid(x, y)</span><br><span class="line">c = cx + cy*<span class="number">1j</span></span><br><span class="line">ufunc=np.frompyfunc(iterate,<span class="number">3</span>,<span class="number">1</span>)</span><br><span class="line">Z=ufunc(c,N,R).astype(np.float64)</span><br><span class="line">plot.imshow(Z,extent=(-a/<span class="number">2.0</span>,a/<span class="number">2.0</span>,-b/<span class="number">2</span>,b/<span class="number">2.0</span>))</span><br><span class="line">cb = plot.colorbar(orientation=<span class="string">&#x27;vertical&#x27;</span>,shrink=<span class="number">1</span>)</span><br><span class="line">cb.set_label(<span class="string">&#x27;iteration counts&#x27;</span>)</span><br><span class="line">plot.show()</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果-2">运行结果</h3>
-<figure>
-<img src="http://imgos.cn/2024/08/03/66ad043fac140.png"
-alt="Mandelbrot 集" />
-<figcaption aria-hidden="true">Mandelbrot 集</figcaption>
-</figure>
-<h2 id="说明">说明</h2>
-<p>本文参考文章： <a
-target="_blank" rel="noopener" href="https://www.chenshaowen.com/blog/drawing-2d-fractal-graph-using-python.html">使用
-Python 绘制分形: Koch 曲线、Julia 集、Mandelbrot 集</a>,
-文章发布于2017年1月25日， 比较早。其使用的是<code>python2</code>,
-而当前使用更加先进的<code>python3</code>更加合理，于是切换为<code>python3</code>代码后，出现几处错误，本文逐一更正。</p>
-<h3 id="python3-xrange-报错">python3 xrange 报错</h3>
-<p>由于<code>python3</code>取消了在<code>python2</code>中定义的<code>xrange</code>函数，取而代之的是<code>range</code>,
-于是在修改后的代码中改<code>xrange</code>为<code>range</code>.</p>
-<h3
-id="attributeerror-module-numpy-has-no-attribute-float.">AttributeError:
-module 'numpy' has no attribute 'float'.</h3>
-<p>直接运行程序时，会提示：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: module <span class="string">&#x27;numpy&#x27;</span> has no attribute <span class="string">&#x27;float&#x27;</span>.</span><br><span class="line">`np.float` was a deprecated <span class="built_in">alias</span> <span class="keyword">for</span> the <span class="built_in">builtin</span> `<span class="built_in">float</span>`. To avoid this error <span class="keyword">in</span> existing code, use `<span class="built_in">float</span>` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar <span class="built_in">type</span>, use `np.float64` here.</span><br><span class="line">The aliases was originally deprecated <span class="keyword">in</span> NumPy 1.20; <span class="keyword">for</span> more details and guidance see the original release note at:</span><br><span class="line">    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations. Did you mean: <span class="string">&#x27;float16&#x27;</span>?</span><br></pre></td></tr></table></figure>
-<p>于是根据提示：将<code>np.float</code>修改为<code>np.float64</code>解决问题。</p>
-<h3
-id="importerror-libtk8.6.so-cannot-open-shared-object-file-no-such-file-or-directory">ImportError:
-libtk8.6.so: cannot open shared object file: No such file or
-directory</h3>
-<p>造成这个问题的原因是系统没有安装程序<code>tk</code>,安装即可解决问题：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S tk</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p><code>Tkinter</code> 模块(<code>Tk</code> 接口)是 <code>Python</code>
-的标准 <code>Tk GUI</code> 工具包的接口 <code>.Tk</code> 和
-<code>Tkinter</code> 可以在大多数的 <code>Unix</code>
-平台下使用,同样可以应用在 <code>Windows</code> 和 <code>Macintosh</code>
-系统里。<code>Tk8.0</code> 的后续版本可以实现本地窗口风格,
-并良好地运行在绝大多数平台中。详情参考：<a
-target="_blank" rel="noopener" href="https://www.runoob.com/python/python-gui-tkinter.html">Python
-GUI编程(Tkinter)</a></p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACNode%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/02/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACNode%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">不同版本Node的区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-02 23:18:56" itemprop="dateCreated datePublished" datetime="2024-08-02T23:18:56+08:00">2024-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>Node.js</code> 是一个流行的服务器端 JavaScript
-运行时环境，用于构建高性能、可扩展的网络应用程序。<code>Node.js</code>
-有两个主要的版本发布频道，分别是 <code>Current</code> 版本和
-<code>LTS</code> 版本，它们之间有一些重要的区别。在本文中，我将详细介绍
-<code>Node.js</code> 的 <code>Current</code> 版本和 <code>LTS</code>
-版本的区别，并通过示例来说明这些区别。</p>
-<h2 id="node.js-的版本发布周期"><code>Node.js</code> 的版本发布周期</h2>
-<p>首先，让我们了解一下 <code>Node.js</code>
-的版本发布周期，以便更好地理解 <code>Current</code> 版本和
-<code>LTS</code> 版本之间的差异。</p>
-<ul>
-<li><code>Current</code> 版本：<code>Current</code> 版本是
-<code>Node.js</code>
-的最新开发版本，通常每隔几个月发布一次。它包含最新的功能、改进和实验性特性，但不太稳定。<code>Current</code>
-版本的目标是提供给开发人员一个平台来尝试新的功能和实验性特性，以便反馈和测试。</li>
-<li><code>LTS</code> 版本：<code>LTS</code>（Long-Term Support）版本是
-<code>Node.js</code>
-的长期支持版本，通常每隔两年发布一次。<code>LTS</code>
-版本的主要特点是稳定性和可靠性。它们接受持续的维护和安全更新，以确保企业和生产环境的稳定性。</li>
-</ul>
-<h2 id="区别一稳定性和可靠性">区别一：稳定性和可靠性</h2>
-<p>最明显的区别是 <code>Current</code> 版本和 <code>LTS</code>
-版本的稳定性和可靠性。<code>LTS</code>
-版本在发布后会接受长达几年的维护和安全更新，因此非常适合用于生产环境，特别是对于企业应用程序。相比之下，<code>Current</code>
-版本可能包含实验性特性和较新的代码，可能会引入不稳定性或潜在的问题，因此不建议在生产环境中使用。</p>
-<p>示例：假设你正在开发一个在线电子商务网站，该网站需要高度稳定性和可靠性。在这种情况下，你可能会选择使用
-<code>LTS</code>
-版本，因为它提供了经过验证的稳定性和长期支持，有助于确保你的网站在生产环境中保持高可用性。另一方面，如果你正在开发一个实验性的新功能，可以选择
-<code>Current</code> 版本，以便尝试最新的功能和改进。</p>
-<h2 id="区别二新特性和改进">区别二：新特性和改进</h2>
-<p><code>Current</code> 版本是 <code>Node.js</code>
-的最新开发版本，因此包含了最新的功能、改进和实验性特性。这使得它成为了尝试新技术和构建原型的理想选择。如果你想要访问最新的
-ECMAScript 版本、<code>Node.js</code> API
-或其他功能，<code>Current</code> 版本可能会更适合你。</p>
-<p>示例：假设你需要使用最新的 ECMAScript
-模块系统，以便更好地组织你的代码。在这种情况下，你可以选择
-<code>Current</code>
-版本，因为它可能会提供对这些新特性的更好支持。另外，如果你想尝试
-<code>Node.js</code> 中的实验性功能，例如 Web Streams API，也可以选择
-<code>Current</code> 版本来体验这些新功能。</p>
-<h2 id="区别三性能优化">区别三：性能优化</h2>
-<p><code>Current</code>
-版本通常包含了性能优化和改进，以提高应用程序的性能。这些优化可以包括更快的执行速度、更低的内存消耗和更好的并发处理能力。如果你对应用程序的性能有较高的要求，那么可能会考虑使用
-<code>Current</code> 版本来获得这些优势。</p>
-<p>示例：假设你正在开发一个实时多人游戏服务器，需要处理大量并发连接和快速响应时间。在这种情况下，你可能会选择
-<code>Current</code>
-版本，因为它可能包含了性能改进，有助于提高服务器的响应速度和并发处理能力，从而提供更好的游戏体验。</p>
-<h2 id="区别四维护和安全更新">区别四：维护和安全更新</h2>
-<p><code>LTS</code>
-版本的一个关键优势是它们接受长期的维护和安全更新。这意味着即使在发布后的几年内，<code>Node.js</code>
-社区仍然会修复潜在的安全漏洞和问题，以确保应用程序的安全性。对于企业和生产环境来说，这是一个非常重要的因素。</p>
-<p>示例：假设你的公司运行着一个在线支付平台，处理大量敏感用户数据。在这种情况下，安全性至关重要。你可能会选择
-<code>LTS</code>
-版本，因为它提供了长期的维护和安全更新，帮助你保持应用程序的安全性，同时避免潜在的安全威胁。</p>
-<h2 id="区别五社区支持">区别五：社区支持</h2>
-<p>由于 <code>LTS</code>
-版本在生命周期内接受长期的维护，因此通常拥有更广泛的社区支持。这意味着你可以更容易地找到解决问题的资源、文档和社区支持。相比之下，<code>Current</code>
-版本可能会更加小众，社区支持可能有限。</p>
-<p>示例：假设你在开发过程中遇到了一个复杂的问题，需要寻求帮助和支持。如果你使用的是
-<code>LTS</code>
-版本，你可能会更容易地在社区中找到有经验的开发者来帮助你解决问题，因为这个版本有更广泛的社区支持。</p>
-<h2 id="区别六升级频率">区别六：升级频率</h2>
-<p><code>LTS</code> 版</p>
-<p>本的升级频率较低，通常每隔两年发布一个新的 <code>LTS</code>
-版本。这使得企业可以更轻松地规划和管理升级过程。相比之下，<code>Current</code>
-版本的升级频率较高，可能每隔几个月就会发布一个新版本，需要更频繁的升级和迁移工作。</p>
-<p>示例：如果你的公司有一个严格的升级策略，并且希望最小化升级带来的风险和工作量，那么你可能会更倾向于选择
-<code>LTS</code>
-版本。这样，你可以更轻松地规划升级，并确保稳定性和可靠性。</p>
-<h2 id="如何选择适合的版本">如何选择适合的版本？</h2>
-<p>选择 <code>Node.js</code>
-的版本取决于你的具体需求和项目的性质。以下是一些指导原则，帮助你决定是使用
-<code>Current</code> 版本还是 <code>LTS</code> 版本：</p>
-<ol type="1">
-<li>生产环境 vs.
-开发环境：如果你的应用程序将在生产环境中运行，特别是对于企业级应用程序，通常建议使用
-<code>LTS</code>
-版本，以确保稳定性和安全性。对于开发和测试环境，你可以考虑使用
-<code>Current</code> 版本来尝试最新的功能和改进。</li>
-<li>功能需求：如果你需要访问最新的 ECMAScript 版本、<code>Node.js</code>
-API 或其他功能，<code>Current</code>
-版本可能更适合你。如果你的应用程序对稳定性要求较高，那么应该优先选择
-<code>LTS</code> 版本。</li>
-<li>性能需求：如果你对应用程序的性能有较高的要求，可以考虑使用
-<code>Current</code>
-版本，因为它可能包含性能优化。但要确保你有充分的测试和性能监控，以确保新版本不会引入性能问题。</li>
-<li>安全性：如果你处理敏感数据或对安全性有严格要求，<code>LTS</code>
-版本是更安全的选择，因为它接受长期的维护和安全更新。</li>
-<li>社区支持：如果你需要广泛的社区支持，特别是在解决问题时，<code>LTS</code>
-版本通常会有更多的资源和支持可用。</li>
-<li>升级策略：考虑你的公司或项目的升级策略。如果你希望最小化升级工作量，<code>LTS</code>
-版本可能更适合你。</li>
-</ol>
-<h2 id="结论">结论</h2>
-<p><code>Node.js</code> 的 <code>Current</code> 版本和 <code>LTS</code>
-版本之间存在明显的区别，涵盖了稳定性、新特性、性能、维护、社区支持和升级频率等方面。在选择适合你的版本时，需要综合考虑你的项目需求和优先级。无论你选择哪个版本，都要确保了解该版本的特性和限制，并采取适当的测试和监控措施，以确保应用程序的稳定性和性能。在任何情况下，<code>Node.js</code>
-的强大生态系统和活跃的社区都将为你提供支持和资源，帮助你构建出色的应用程序。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87%E5%B9%B6%E9%9D%9E%E8%B6%8A%E9%AB%98%E8%B6%8A%E5%A5%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/02/%E5%86%85%E5%AD%98%E9%A2%91%E7%8E%87%E5%B9%B6%E9%9D%9E%E8%B6%8A%E9%AB%98%E8%B6%8A%E5%A5%BD/" class="post-title-link" itemprop="url">内存频率并非越高越好</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-02 14:51:47" itemprop="dateCreated datePublished" datetime="2024-08-02T14:51:47+08:00">2024-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>很多人觉得内存频率越高速度越快，尤其是在英特尔12代酷睿处理器支持DDR5之后，不少人都想升级到DDR5，以为升级到DDR5就能获得更高的性能。事实真的是这样吗？如下图两内存，都是同样的芝奇的DDR4
-3600MHz
-16GBx2的内存，为什么会有500+的价格差？因为它们有不同的CL时序，一个是18-22-22-42，另一个是16-19-19-39，这点区别就值500+。那么内存CL时序到底是什么？对性能又有什么影响？</p>
-<p><img src="https://thumbsnap.com/i/rpssrcWZ.jpg" /></p>
-<p>内存在存取数据时是以行列的方式进行，跟Excel表格类似，通过行列的方式定位数据。内存时序代表的是行列访问所需要的周期数（周期数不等于时间），主要有四个分别是CL，tRCD，tRP，tRAS。CL代表内存访问一次列所需的周期数，下图为16，tRCD表示内存访问一次行所需的最小周期数，下图中的19，tRP表示打开下一行的最小周期数，下图中为19，tRAS代表的是行活动到发出打开下一行的最小周期数。看起来很复杂，最重要的就是第一个，即CL。</p>
-<p><img src="https://thumbsnap.com/i/Tm3zwE8v.jpg" /></p>
-<p>CL全称CAS
-latency，内存访问一次列的延迟时间，在频率相同的情况下，CL值越小内存速度越快。就跟我们看小说一样，只要定位到了行，剩下的就是读行中的每一列，直到读完一行才会读下一行。内存只要定位到了数据所在的行，剩下的基本就是列操作，直到读完一行才会进行一次行操作。所以CL值对内存来说非常重要。</p>
-<p><img src="https://thumbsnap.com/i/PPyvUBcU.jpg" /></p>
-<p>从下表中可以发现CL（表中的CAS
-Latency）的值是随着内存频率的增加而增大的。DDR5
-4800MHz的CL值为40个时钟周期，比DDR4更大。这也是为什么DDR5比DDR4提升不大的原因，频率高了延迟更大。由于CL是时钟周期与内存频率相关不好比较，所以要换成时间。CL延迟时时间=1/（DDR频率/2）*
-CL周期数*1000。</p>
-<p><img src="https://thumbsnap.com/i/nQRdzqHh.jpg" /></p>
-<p>公式中的1代表1秒钟，内存频率除以2，是因为DDR的全称是Double Data
-Rate即双倍数据传输速率，如下图SDR不用除，QDR要除以4才是内存的时钟频率，因此上图的DDR4，DDR5都要除以2
-。乘1000是为了把微秒换成纳秒。所以上图DDR5
-4800MHz的CL延迟时间=1/（4800/2）*40*1000=16.67ns。</p>
-<p><img src="https://thumbsnap.com/i/68eD9NZA.jpg" /></p>
-<p>内存的CL，tRCD等都是可以通过BIOS修改的，如下图修改成1600MHz
-16CL和1500MHz
-15CL哪个更快？用上面的公式算CL延迟都是10ns，所以几乎一样快。决定内存速度的除了CL延迟以外，还有其它几个。但CL影响更大。</p>
-<p><img src="https://thumbsnap.com/i/7RhG2BXY.jpg" /></p>
-<p>现在我们来解决第一张图为什么后者比前者更贵的问题。2099的CL延迟时间为8.89ns，而1549的CL延迟时间为10ns，2099的存取速度更快，也因此更贵。</p>
-<p>引用：<a
-target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1722749333299450599">对内存频率的误解！以为频率越高速度就越快，真相未必是这样</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/08/02/ArchLinux%E8%A7%A3%E5%86%B3%E8%93%9D%E7%89%99%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/08/02/ArchLinux%E8%A7%A3%E5%86%B3%E8%93%9D%E7%89%99%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">ArchLinux解决蓝牙无法打开的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-08-02 13:12:56" itemprop="dateCreated datePublished" datetime="2024-08-02T13:12:56+08:00">2024-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p>今天突然发现台式机上的蓝牙无法启动，按钮开启后蓝牙仍然处于关闭状态。如图所示：</p>
-<figure>
-<img src="http://imgos.cn/2024/08/02/66ac6a9d9002b.png"
-alt="蓝牙无法打开" />
-<figcaption aria-hidden="true">蓝牙无法打开</figcaption>
-</figure>
-<h2 id="解决方案">解决方案</h2>
-<h3 id="卸载并重新加载btusb内核模块支持蓝牙设备的内核模块">1.
-卸载并重新加载<code>btusb</code>内核模块（支持蓝牙设备的内核模块）</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> rmmod btintel</span><br><span class="line"><span class="built_in">sudo</span> rmmod btusb</span><br><span class="line"><span class="built_in">sudo</span> modprobe btusb</span><br><span class="line"><span class="built_in">sudo</span> modprobe btintel</span><br></pre></td></tr></table></figure>
-<div class="note primary"><ul>
-<li>2024年08月29日, 升级ArchLinux后发现蓝牙再次无法打开，根据文章<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38305523/article/details/131031379">在Archlinux
-下蓝牙突然无法打开的解决办法</a> 修复此问题，于是做出如上修改。</li>
-<li>2024年12月08日, 升级ArchLinux后发现问题复现，但是这次我注意到是
-Linux 内核有更新。使用本方法仍然解决问题。</li>
-</ul>
-</div>
-<p>当蓝牙总是不能开启时，查看蓝牙服务， 得到如下信息:</p>
-<figure class="highlight sh"><figcaption><span>sudo systemctl status bluetooth.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support bap plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support bass plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support mcp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support vcp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: profiles/audio/micp.c:micp_init() D-Bus experimental not enabled</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support micp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support ccp plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support csip plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: src/plugin.c:init_plugin() System does not support asha plugin</span><br><span class="line">12月 08 21:08:03 archlinux bluetoothd[648]: Bluetooth management interface 1.23 initialized</span><br></pre></td></tr></table></figure>
-<p>因此判断蓝牙无法启动的原因是内核升级造成的，因此使用此法成功解决问题。</p>
-<h3 id="安装蓝牙工具和工具包">2. 安装蓝牙工具和工具包</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S --needed --noconfirm bluez bluez-utils pipewire-pulse bluedevil blueman</span><br></pre></td></tr></table></figure>
-<h3 id="启动蓝牙服务">3. 启动蓝牙服务</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service bluetooth start</span><br></pre></td></tr></table></figure>
-<h3 id="重新解除蓝牙设备的阻止">4. 重新解除蓝牙设备的阻止</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rfkill block bluetooth</span><br><span class="line">rfkill unblock bluetooth</span><br></pre></td></tr></table></figure>
-<h2 id="蓝牙设备可被检测到">蓝牙设备可被检测到</h2>
-<figure>
-<img src="http://imgos.cn/2024/08/02/66ac6c85e6835.png"
-alt="蓝牙启动成功" />
-<figcaption aria-hidden="true">蓝牙启动成功</figcaption>
-</figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/20/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/22/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/20/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/22/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

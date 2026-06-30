@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,840 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/20/Bash%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E9%80%92%E5%A2%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/20/Bash%E8%84%9A%E6%9C%AC%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E9%80%92%E5%A2%9E/" class="post-title-link" itemprop="url">Bash脚本中的变量递增</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-20 15:53:51" itemprop="dateCreated datePublished" datetime="2025-02-20T15:53:51+08:00">2025-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Bash脚本中，<code>let i+=1</code> 和 <code>((i++))</code>
+都是用来对变量进行递增操作的，但它们有一些关键的区别.</p>
+<h1 id="let-i1"><code>let i+=1</code></h1>
+<ul>
+<li><p><strong>语法</strong>：<code>let</code>
+是一个内置命令，用于执行算术运算。使用 <code>let</code>
+时，后面跟着的是算术表达式。</p></li>
+<li><p><strong>示例</strong>： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> i+=1</span><br></pre></td></tr></table></figure> 这行代码将变量
+<code>i</code> 的值增加<code>1</code>。</p></li>
+<li><p><strong>特点</strong>：</p>
+<ul>
+<li>必须使用空格分隔 <code>let</code> 和表达式。</li>
+<li>可以在一个 <code>let</code> 命令中执行多个算术运算，用逗号分隔：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> i+=1, j+=2</span><br></pre></td></tr></table></figure></li>
+<li>如果变量未初始化，默认值为<code>0</code>.</li>
+</ul></li>
+</ul>
+<h1 id="i"><code>((i++))</code></h1>
+<ul>
+<li><p><strong>语法</strong>：双括号 <code>(( ... ))</code> 结构是 Bash
+中的算术运算扩展。它允许更简洁地编写算术表达式。</p></li>
+<li><p><strong>示例</strong>： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((i++))</span><br></pre></td></tr></table></figure> 这行代码也是将变量
+<code>i</code> 的值增加<code>1</code>，但是它的行为和 <code>i+=1</code>
+略有不同（后置递增）。</p></li>
+<li><p><strong>特点</strong>:</p>
+<ul>
+<li>允许直接在双括号内写算术表达式，无需 <code>let</code> 关键字。</li>
+<li>支持所有<code>C</code>语言风格的算术运算符，包括前置递增
+<code>++i</code> 和后置递增 <code>i++</code>。</li>
+<li>更加直观和易于阅读，特别是对于熟悉<code>C</code>或类似编程语言的人来说。</li>
+<li>同样支持在一个表达式中执行多个算术运算，用逗号分隔：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((i++,j+=<span class="number">2</span>))</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h2 id="区别总结">区别总结</h2>
+<h3 id="递增行为">递增行为：</h3>
+<ul>
+<li><code>let i+=1</code> 直接将 <code>i</code> 的值增加1。</li>
+<li><code>((i++))</code> 是后置递增操作，在当前语句中使用 <code>i</code>
+的原始值，然后才增加 <code>i</code> 的值。
+<ul>
+<li>对比 <code>((++i))</code>，这是前置递增操作，先增加 <code>i</code>
+的值，再使用新的值。</li>
+</ul></li>
+</ul>
+<h3 id="语法简洁性">语法简洁性：</h3>
+<ul>
+<li><code>let</code> 需要关键字 <code>let</code>
+并且需要遵循特定的语法格式。</li>
+<li><code>((...))</code>
+更简洁，不需要额外的关键字，并且更接近于编程语言中的算术运算表达式。</li>
+</ul>
+<h3 id="多操作支持">多操作支持：</h3>
+<ul>
+<li>两者都支持在同一表达式中执行多个算术运算，但 <code>((...))</code>
+更加灵活和直观。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/19/%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E5%9C%A8%E7%A7%91%E7%A0%94%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/19/%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E5%9C%A8%E7%A7%91%E7%A0%94%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">隐式蒙特卡洛方法在科研中的应用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-19 17:34:50" itemprop="dateCreated datePublished" datetime="2025-02-19T17:34:50+08:00">2025-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>隐式蒙特卡洛（Implicit Monte Carlo,
+IMC）方法最初由Fleck和Canfield在1971年提出，主要用于解决辐射传输问题。IMC方法通过结合传统的蒙特卡洛模拟与隐式时间积分的优点，允许更有效地模拟复杂的辐射输运过程。以下是一些科研领域中的具体应用。</p>
+<h1 id="高能量密度物理">1. 高能量密度物理</h1>
+<h2 id="背景">背景</h2>
+<p>高能量密度物理研究物质在极端条件下的行为，例如高温高压环境，这些条件常见于<a
+href="#fleck1971implicit">核爆炸、激光聚变实验等</a>。</p>
+<h2 id="应用">应用</h2>
+<p>在这种环境下，材料会经历快速的能量吸收和释放过程，导致温度和状态的急剧变化。IMC方法能够准确模拟辐射如何在这类环境中传播，并与物质发生相互作用，从而为设计实验提供理论支持。</p>
+<h1 id="惯性约束聚变icf">2. 惯性约束聚变（ICF）</h1>
+<h2 id="背景-1">背景</h2>
+<p>惯性约束聚变是一种利用强激光或粒子束加热并压缩一个小燃料球（通常包含氘和氚），以达到<a
+href="#rosen1996inertial">核聚变条件的技术</a>。</p>
+<h2 id="应用-1">应用</h2>
+<p>在这个过程中，精确控制辐射场对于实现高效聚变至关重要。IMC方法可用于模拟不同阶段的辐射传输情况，帮助科学家优化激光脉冲形状、靶设计等关键参数，提高聚变效率。</p>
+<h1 id="天体物理学">3. 天体物理学</h1>
+<h2 id="背景-2">背景</h2>
+<p>天体物理学中常常需要研究恒星内部或星际介质中的<a
+href="#mihalas1984radiation">辐射过程</a>。</p>
+<h2 id="应用-2">应用</h2>
+<p>IMC方法可以用来模拟恒星内部的能量传输机制，了解恒星演化的过程；也可以用于研究星际尘埃对背景辐射的吸收和再发射效应，增进我们对宇宙微波背景辐射的理解。</p>
+<h1 id="核工程">4. 核工程</h1>
+<h2 id="背景-3">背景</h2>
+<p>在核电站的设计和运行中，<a
+href="#duderstadt1976nuclear">确保反应堆安全稳定地工作是至关重要的</a>。</p>
+<h2 id="应用-3">应用</h2>
+<p>IMC方法可以用于模拟反应堆内的辐射分布，评估不同材料对辐射的屏蔽效果，以及预测长期运行条件下结构材料的老化情况，从而指导新材料的选择和现有设施的安全评估。</p>
+<h1 id="参考文献">参考文献</h1>
+<p><a id="fleck1971implicit">[1]</a> Fleck Jr, J. A., &amp; Canfield, T.
+R. (1971). Implicit Monte Carlo radiation transport in shock
+hydrodynamics. <em>Journal of Computational Physics</em>, 8(3),
+313-342.</p>
+<p><a id="rosen1996inertial">[2]</a> Rosen, M. D. (1996). Inertial
+confinement fusion: Recent experimental and theoretical developments.
+<em>Physics Today</em>, 49(5), 40-45.</p>
+<p><a id="mihalas1984radiation">[3]</a> Mihalas, D., &amp;
+Weibel-Mihalas, B. (1984). <em>Foundations of Radiation
+Hydrodynamics</em>. Dover Publications.</p>
+<p><a id="duderstadt1976nuclear">[4]</a> Duderstadt, J. J., &amp;
+Hamilton, L. J. (1976). <em>Nuclear Reactor Analysis</em>. Wiley.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/19/%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/19/%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E9%80%9A%E4%BF%97%E8%A7%A3%E9%87%8A/" class="post-title-link" itemprop="url">隐式蒙特卡洛方法通俗解释</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-19 17:07:29" itemprop="dateCreated datePublished" datetime="2025-02-19T17:07:29+08:00">2025-02-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="隐式蒙特卡洛方法通俗解释">隐式蒙特卡洛方法通俗解释</h1>
+<p>隐式蒙特卡洛（Implicit Monte Carlo,
+IMC）方法是一种处理复杂系统中随机过程的高级数值模拟技术。为了帮助大家更好地理解IMC的核心思想，本文通过三个贴近生活的例子进行解释。</p>
+<h2 id="例子一烤面包">例子一：烤面包</h2>
+<p>想象你在做一个实验，目的是了解如何最有效地用烤箱烤好一片面包。在这个过程中，你有两个关键因素需要考虑：烤箱的温度和面包吸收热量并变热的速度。</p>
+<h3 id="传统方法的问题">传统方法的问题</h3>
+<p>如果按照传统的方法来做这个实验，你可能会频繁地检查面包的状态，并根据当前面包的热度调整烤箱的温度。这样做可能导致难以控制面包的加热过程，尤其是在快速加热而不让它烧焦的时候。</p>
+<h3 id="隐式蒙特卡洛方法">隐式蒙特卡洛方法</h3>
+<p>在每个步骤中，除了观察当前面包的热度外，你还尝试估计接下来一段时间内面包将会变得多么热。基于这种预估，你调整烤箱的温度设置或加热时间。比如，如果预估到面包很快就会太热，你就降低烤箱的温度；反之，如果觉得加热不够快，你就增加温度或延长加热时间。</p>
+<hr />
+<h2 id="例子二加热游泳池">例子二：加热游泳池</h2>
+<p>假设你有一个室外的大型游泳池，你想通过太阳能加热系统来加热水温。</p>
+<h3 id="传统方法的挑战">传统方法的挑战</h3>
+<p>如果你使用传统的加热方法，你会根据当前水温来决定是否需要更多的热量。这种方法难以适应快速变化的环境条件，如天气突然变冷或变暖。</p>
+<h3 id="隐式蒙特卡洛方法的应用">隐式蒙特卡洛方法的应用</h3>
+<p>首先，你不会只看当前的水温来做决策。相反，你会考虑未来的天气预报、一天中不同时间段的太阳强度等因素，预测接下来几个小时甚至几天内水温的变化趋势。基于这些预测，你可以更智能地调整太阳能加热系统的运行，以实现更加稳定和高效的加热过程。</p>
+<hr />
+<h2 id="例子三和面">例子三：和面</h2>
+<p>假设你需要准备2斤和好的面团，但是仅凭经验和直觉来加水和面粉（即传统的方法），可能会遇到以下问题：</p>
+<h3 id="传统方法">传统方法</h3>
+<p>当你发现面团太湿时，就加面粉；如果面团太干，则加水。这样反复调整可能导致最终使用的材料远超过最初计划的量。</p>
+<h3 id="隐式蒙特卡洛方法-1">隐式蒙特卡洛方法</h3>
+<p>在开始和面前，你可以先做一个小规模的实验或根据经验预估，比如，如果你加了一定量的水后，估计需要多少面粉才能达到理想的湿度。基于上述预估，你可以做出更精确的调整，少量多次地添加面粉，并随时观察面团的状态，避免过度纠正带来的问题。</p>
+<hr />
+<p>这三个例子共同展示了隐式蒙特卡洛方法的核心思想：<strong>不仅仅是基于当前状态做决策，还要考虑到未来可能的状态及其对当前决策的影响</strong>。这种方法允许我们在面对复杂系统时做出更加稳定和有效的调整，无论是物理模拟还是日常生活中的应用。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/18/%E4%BB%8E%E6%95%B0%E5%80%BC%E6%96%B9%E6%B3%95%E5%88%B0%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/18/%E4%BB%8E%E6%95%B0%E5%80%BC%E6%96%B9%E6%B3%95%E5%88%B0%E9%9A%90%E5%BC%8F%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">从数值方法到隐式蒙特卡洛方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-18 16:49:16" itemprop="dateCreated datePublished" datetime="2025-02-18T16:49:16+08:00">2025-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>隐式（Implicit）这一概念在不同的领域有着不同的应用和含义，但总体来说，它指的是那些依赖于未来状态或间接定义的过程，而不是直接明确地给出解决方案。下面我们将从数值分析、编程及隐式蒙特卡洛方法三个角度来探讨隐式的含义。</p>
+<h2 id="数值分析中的隐式方法">数值分析中的隐式方法</h2>
+<h3 id="定义与对比">定义与对比</h3>
+<p>在数值分析中，特别是在解决微分方程时，隐式方法是指那些在计算下一个时间步的解时需要用到该时间步未知解的方法。这意味着为了求得下一时刻的状态，我们需要通过求解一个方程组来获得结果，因为方程中包含了待求解的变量。</p>
+<ul>
+<li><p><strong>显式方法</strong>：基于当前已知的信息预测下一时间步的状态。例如，在向前欧拉法中，我们利用当前时刻的状态直接计算出下一时刻的状态。</p></li>
+<li><p><strong>隐式方法</strong>：考虑了未来时间点的信息。例如，在向后欧拉法中，为了确定下一时刻的状态，不仅需要当前时刻的状态信息，还需要该状态自身的未来值。这就导致了需要求解一个包含未知数的方程来找到确切的值。隐式方法的一个主要优点是可以使用较大的时间步长而不牺牲稳定性，特别适用于处理刚性问题。</p></li>
+</ul>
+<h2 id="编程中的隐式">编程中的隐式</h2>
+<p>在编程领域，“隐式”通常指不需要开发者直接指定所有细节的行为。这些行为由编译器、解释器或其他机制自动推断或执行。</p>
+<ul>
+<li><p><strong>隐式类型转换</strong>：比如在某些语言中，当两个不同类型的数值进行运算时，可能会自动将一种类型转换为另一种类型以完成操作，而无需程序员手动指定转换过程。例如，在JavaScript中，数字和字符串可以直接相加，其中数字会自动转换为字符串再进行连接。</p></li>
+<li><p><strong>隐式函数声明</strong>：在一些编程语言中，如果函数没有预先声明，编译器或解释器会根据函数调用的方式自动为其生成一个默认的声明。</p></li>
+</ul>
+<h2 id="隐式蒙特卡洛方法">隐式蒙特卡洛方法</h2>
+<p>隐式蒙特卡洛（Implicit Monte Carlo,
+IMC）是一种专门设计用来解决辐射传输问题的高级蒙特卡洛技术。IMC方法通过引入隐式时间离散化，显著提升了数值模拟的稳定性和准确性，尤其适用于处理复杂的辐射与物质相互作用问题。</p>
+<ul>
+<li><p><strong>传统蒙特卡洛方法</strong>：粒子（如光子）的轨迹是根据当前物理状态逐次随机抽样得到的。这种方法对于线性问题非常有效，但在处理非线性问题时可能遇到困难。</p></li>
+<li><p><strong>隐式蒙特卡洛方法</strong>：通过对粒子行为的概率分布进行调整，使得计算过程能够更准确地反映真实的物理过程。具体来说，IMC通过考虑未来时间点的状态信息，即在计算下一时刻的状态时，不仅依赖于当前已知的信息，还考虑到该状态自身的未来值，从而提高了计算的稳定性和准确性。</p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E6%B1%82%E8%A7%A3%E5%AE%9A%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E6%B1%82%E8%A7%A3%E5%AE%9A%E7%A7%AF%E5%88%86/" class="post-title-link" itemprop="url">使用蒙特卡洛方法求解定积分</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-18 14:15:10" itemprop="dateCreated datePublished" datetime="2025-02-18T14:15:10+08:00">2025-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="基本原理">基本原理</h1>
+<p>蒙特卡洛方法求解定积分的理论依据是积分中值定理和大数定理。即</p>
+<p><span
+class="math display">\[\int_a^bf(x)dx=f(\xi)\cdot(b-a)\]</span></p>
+<p>其中<span class="math inline">\(a\leq\xi\leq b\)</span>.
+蒙特卡洛方法是随机在<span
+class="math inline">\((a,b)\)</span>区间取点，然后将这个点当作<span
+class="math inline">\(\xi\)</span>来计算面积，但是由于点<span
+class="math inline">\(\xi\)</span>当前是随机的，这个积分值就不是准确的，但是当大量取点时，由于函数<span
+class="math inline">\(f(x)\)</span>本身的作用，根据大数定量最终会稳定到准确值的附近，因为接近真实值的情况出现的概率更大。</p>
+<h1 id="一维函数的定积分">一维函数的定积分</h1>
+<p>假设我们想要计算如下函数在区间 <span class="math inline">\([0,
+1]\)</span> 上的积分:</p>
+<p><span class="math display">\[\int_0^1x^2dx\]</span></p>
+<p>该积分的解析解是<span class="math inline">\(\frac{1}{3}\)</span>.
+使用Python代码实现蒙特卡洛积分的代码为:</p>
+<figure class="highlight python"><figcaption><span>一维函数积分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_integral</span>(<span class="params">f, a, b, N</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    使用蒙特卡洛方法估计函数f在[a,b]上的积分。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        f: 要积分的函数。</span></span><br><span class="line"><span class="string">        a (float): 积分下限。</span></span><br><span class="line"><span class="string">        b (float): 积分上限。</span></span><br><span class="line"><span class="string">        N (int): 随机样本的数量。</span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">        float: 积分的蒙特卡洛估计值。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    samples = np.random.uniform(a, b, N)  <span class="comment"># 在[a, b]上生成N个均匀分布的随机数</span></span><br><span class="line">    evaluations = f(samples)  <span class="comment"># 计算每个随机样本点处函数的值</span></span><br><span class="line">    integral_estimate = (b - a) * np.mean(evaluations)  <span class="comment"># 积分估计</span></span><br><span class="line">    <span class="keyword">return</span> integral_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义要积分的函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行蒙特卡洛积分</span></span><br><span class="line">a, b = <span class="number">0</span>, <span class="number">1</span>  <span class="comment"># 积分范围</span></span><br><span class="line">N = <span class="number">100000</span>   <span class="comment"># 样本数量</span></span><br><span class="line">integral = monte_carlo_integral(f, a, b, N)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;蒙特卡洛积分估计值: <span class="subst">&#123;integral&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;真实值: <span class="subst">&#123;<span class="number">1</span>/<span class="number">3</span>&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="二维函数的定积分">二维函数的定积分</h1>
+<p>二维函数的定积分同样也满足积分中值定理，所以蒙特卡洛方法是求解定积分的有效工具。本节我们求解定义在<span
+class="math inline">\([0,1]\times[0,1]\)</span>上的二重积分:</p>
+<p><span
+class="math display">\[\iint_{[0,1]\times[0,1]]}(x^2+y^2)dxdy\]</span></p>
+<p>该积分的解可以直接解析求得为<span
+class="math inline">\(\frac{2}{3}\)</span>. 其 Python 代码实现为:</p>
+<figure class="highlight python"><figcaption><span>二维函数定积分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_double_integral</span>(<span class="params">f, a1, b1, a2, b2, N</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    使用蒙特卡洛方法估计函数f在[a1,b1] x [a2,b2]上的二重积分。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        f: 要积分的函数，接受两个参数x和y。</span></span><br><span class="line"><span class="string">        a1, b1 (float): 第一维的积分下限和上限。</span></span><br><span class="line"><span class="string">        a2, b2 (float): 第二维的积分下限和上限。</span></span><br><span class="line"><span class="string">        N (int): 随机样本的数量。</span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">        float: 积分的蒙特卡洛估计值。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 在[a1, b1]和[a2, b2]上生成N个均匀分布的随机数对</span></span><br><span class="line">    x_samples = np.random.uniform(a1, b1, N)</span><br><span class="line">    y_samples = np.random.uniform(a2, b2, N)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算每个随机样本点处函数的值</span></span><br><span class="line">    evaluations = f(x_samples, y_samples)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 积分估计</span></span><br><span class="line">    area = (b1 - a1) * (b2 - a2)</span><br><span class="line">    integral_estimate = area * np.mean(evaluations)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> integral_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义要积分的函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">integrand</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span> + y**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行蒙特卡洛二重积分</span></span><br><span class="line">a1, b1 = <span class="number">0</span>, <span class="number">1</span>  <span class="comment"># 第一维积分范围</span></span><br><span class="line">a2, b2 = <span class="number">0</span>, <span class="number">1</span>  <span class="comment"># 第二维积分范围</span></span><br><span class="line">N = <span class="number">100000</span>     <span class="comment"># 样本数量</span></span><br><span class="line"></span><br><span class="line">integral = monte_carlo_double_integral(integrand, a1, b1, a2, b2, N)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;蒙特卡洛积分估计值: <span class="subst">&#123;integral&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;真实值: <span class="subst">&#123;<span class="number">2</span>/<span class="number">3</span>&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>通过增加样本数量
+<code>N</code>，可以提高积分估计的精度。尽管对于这个简单的二重积分问题，传统数值积分方法可能更高效且准确，但对于更高维度或复杂形状的积分区域，蒙特卡洛方法就显得尤为重要了。这种方法提供了一种通用的方法来解决那些难以通过常规手段求解的积分问题。</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E6%B1%82%E8%A7%A3%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E6%B1%82%E8%A7%A3%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="post-title-link" itemprop="url">使用蒙特卡洛方法求解一阶微分方程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-18 13:43:16" itemprop="dateCreated datePublished" datetime="2025-02-18T13:43:16+08:00">2025-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1
+id="使用蒙特卡洛方法求解一阶线性常微分方程">使用蒙特卡洛方法求解一阶线性常微分方程</h1>
+<p>在这个例子中，我们将展示如何使用蒙特卡洛方法来近似求解一个简单的一阶线性常微分方程，并与解析解进行比较。</p>
+<h2 id="问题描述">问题描述</h2>
+<p>考虑如下形式的初值问题：</p>
+<p><span class="math display">\[\frac{dy}{dx}=-2xy,\quad y(0)=
+1\]</span></p>
+<p>其解析解为 <span class="math inline">\(y(x) =
+e^{-x^2}\)</span>。我们将使用蒙特卡洛方法来近似这个解。</p>
+<h2 id="python代码实现">Python代码实现</h2>
+<p>以下是基于Python的简单实现，演示了如何使用蒙特卡洛方法来近似上述问题的解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">monte_carlo_ode_solver</span>(<span class="params">f, x0, y0, x_end, num_samples=<span class="number">1000</span>, dx=<span class="number">0.05</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    使用蒙特卡洛方法求解一阶常微分方程。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        f: 函数，定义了dy/dx = f(x, y)</span></span><br><span class="line"><span class="string">        x0 (float): 初始x值。</span></span><br><span class="line"><span class="string">        y0 (float): 初始y值。</span></span><br><span class="line"><span class="string">        x_end (float): x的最大值。</span></span><br><span class="line"><span class="string">        num_samples (int): 每一步中使用的样本数量。</span></span><br><span class="line"><span class="string">        dx (float): x方向上的步长。</span></span><br><span class="line"><span class="string">    返回:</span></span><br><span class="line"><span class="string">        x_points (numpy.ndarray): x坐标点。</span></span><br><span class="line"><span class="string">        y_estimated (numpy.ndarray): 对应每个x点估计的y值。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    x_points = np.arange(x0, x_end+dx, dx)</span><br><span class="line">    y_estimated = np.zeros_like(x_points)</span><br><span class="line">    y_estimated[<span class="number">0</span>] = y0  <span class="comment"># 设置初始条件</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(x_points)):</span><br><span class="line">        current_x = x_points[i-<span class="number">1</span>]</span><br><span class="line">        current_y = y_estimated[i-<span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">        dy_samples = []</span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(num_samples):</span><br><span class="line">            <span class="comment"># 随机扰动dx</span></span><br><span class="line">            delta_x = dx * (np.random.rand() - <span class="number">0.5</span>)</span><br><span class="line">            <span class="comment"># 根据当前点的斜率计算dy</span></span><br><span class="line">            delta_y = f(current_x, current_y) * (dx + delta_x)</span><br><span class="line">            dy_samples.append(delta_y)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 计算平均dy并更新y值</span></span><br><span class="line">        avg_dy = np.mean(dy_samples)</span><br><span class="line">        y_estimated[i] = current_y + avg_dy</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> x_points, y_estimated</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义导数函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">2</span> * x * y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行求解器</span></span><br><span class="line">x, y_mc = monte_carlo_ode_solver(f, x0=<span class="number">0</span>, y0=<span class="number">1</span>, x_end=<span class="number">2</span>, num_samples=<span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算真实解用于比较</span></span><br><span class="line">y_true = np.exp(-x**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制结果</span></span><br><span class="line">plt.plot(x, y_mc, label=<span class="string">&#x27;Monte Carlo Approximation&#x27;</span>)</span><br><span class="line">plt.plot(x, y_true, label=<span class="string">&#x27;True Solution&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show() </span><br></pre></td></tr></table></figure>
+<h2 id="分析">分析</h2>
+<p>在使用蒙特卡洛方法求解微分方程时，最关键的一步是
+<code>delta_x = dx * (np.random.rand() - 0.5)</code>,
+这表示对于步长<span
+class="math inline">\(dx\)</span>在其中心附近扰动，并且保存每次扰动的所造成的<span
+class="math inline">\(dy\)</span>值，当完成大量的数据采样时，根据大数定理，<span
+class="math inline">\(dy\)</span>值会稳定到真实的<span
+class="math inline">\(dy\)</span>的情况。进一步将此值追加到<span
+class="math inline">\(y\)</span>，同时<span
+class="math inline">\(dx\)</span>追加到<span
+class="math inline">\(x\)</span>后，再进行下一个点的判断。所以蒙特卡洛方法基于大数定理是一个有效的方法。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/18/%E4%BD%BF%E7%94%A8%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/" class="post-title-link" itemprop="url">使用蒙特卡洛方法计算圆周率</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-18 10:38:17" itemprop="dateCreated datePublished" datetime="2025-02-18T10:38:17+08:00">2025-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="使用蒙特卡洛方法估算圆周率">使用蒙特卡洛方法估算圆周率</h1>
+<p>在这篇博客文章中，我们将探讨如何使用蒙特卡洛方法来估算圆周率 <span
+class="math inline">\(\pi\)</span>
+的值，并提供一个简单的Python代码示例以及详细的代码解析。</p>
+<h2 id="蒙特卡洛方法简介">蒙特卡洛方法简介</h2>
+<p>蒙特卡洛方法是一种通过随机抽样进行数值计算的方法。它广泛应用于物理、工程、金融等领域。本文将演示如何利用这种方法估算圆周率
+<span class="math inline">\(\pi\)</span>。</p>
+<h2 id="python代码实现与解析">Python代码实现与解析</h2>
+<h3 id="完整代码及解析">完整代码及解析</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入random模块，用于生成伪随机数</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义函数estimate_pi，接受参数num_samples表示要生成的随机点的数量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">estimate_pi</span>(<span class="params">num_samples</span>):</span><br><span class="line">    <span class="comment"># 初始化计数器变量num_points_in_circle为0，用于记录落在单位圆内的点的数量</span></span><br><span class="line">    num_points_in_circle = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 使用for循环迭代num_samples次，下划线_表示我们不关心循环变量的具体值</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(num_samples):</span><br><span class="line">        <span class="comment"># 在每次循环中，使用random.uniform(-1, 1)生成两个介于-1到1之间的随机浮点数，分别赋给变量x和y</span></span><br><span class="line">        x, y = random.uniform(-<span class="number">1</span>, <span class="number">1</span>), random.uniform(-<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 如果该点位于半径为1的单位圆内（即检查x^2 + y^2 &lt;= 1），则增加num_points_in_circle计数器的值</span></span><br><span class="line">        <span class="keyword">if</span> x**<span class="number">2</span> + y**<span class="number">2</span> &lt;= <span class="number">1</span>:</span><br><span class="line">            num_points_in_circle += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 根据公式4 * num_points_in_circle / num_samples来估算π的值</span></span><br><span class="line">    pi_estimate = <span class="number">4</span> * num_points_in_circle / num_samples</span><br><span class="line">    <span class="comment"># 返回计算出的π的估计值</span></span><br><span class="line">    <span class="keyword">return</span> pi_estimate</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置模拟次数为100,000</span></span><br><span class="line">num_samples = <span class="number">100000</span></span><br><span class="line"><span class="comment"># 调用estimate_pi函数获取π的估计值</span></span><br><span class="line">pi_estimate = estimate_pi(num_samples)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果，显示使用了多少个样本以及基于这些样本估计得到的π的值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Estimated value of Pi using <span class="subst">&#123;num_samples&#125;</span> samples: <span class="subst">&#123;pi_estimate&#125;</span>&quot;</span>) </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/16/%E8%A7%A3%E5%86%B3ArchLinux%E4%B8%8EWindows11%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%88%87%E6%8D%A2%E5%90%8E%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/02/16/%E8%A7%A3%E5%86%B3ArchLinux%E4%B8%8EWindows11%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%88%87%E6%8D%A2%E5%90%8E%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决ArchLinux与Windows11双系统切换后无线网卡无法启动的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-02-16 17:14:52" itemprop="dateCreated datePublished" datetime="2025-02-16T17:14:52+08:00">2025-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当用户从Windows 10/11切换到Arch
+Linux时，如果发现无线网卡不见了，这通常是由于Windows的快速启动特性导致的。快速启动会使得某些硬件（如无线网卡）处于一种休眠状态，这样当你切换到Linux系统时，这些硬件可能不会被正确唤醒。</p>
+<h1 id="解决方案">解决方案</h1>
+<ul>
+<li><p><strong>对于双系统的用户</strong>：建议去Windows那边执行一次真正的重启（而不是简单地关机再开机），因为Windows的“关机”选项实际上可能是快速启动，它并不会完全关闭计算机而是让系统进入一个类似休眠的状态。通过在Windows中选择“重启”，可以确保所有设备都被正确重置，包括无线网卡。</p>
+<ul>
+<li>进入Windows，然后点击“重启”而非“关机”。这通常能解决无线网卡在Linux中不显示的问题。</li>
+</ul></li>
+<li><p><strong>对于只有Arch
+Linux的用户</strong>：如果您的机器只安装了Arch
+Linux并且也遇到了同样的问题，那么问题的原因可能与其他因素有关，比如驱动程序、内核版本或者是电源管理设置等。需要进一步检查系统日志或尝试更新系统及固件。</p></li>
+<li><p><strong>一劳永逸的解决方案</strong>：虽然通过重启Windows可以暂时解决问题，但为了从根本上避免这种情况的发生，您可以考虑在Windows中禁用快速启动功能。这样每次从Windows切换到Linux时都不会受到快速启动的影响，从而避免无线网卡无法被识别的问题。</p>
+<ul>
+<li>在管理员命令提示符窗口，输入：<code>powercfg /h on</code>命令,启用Windows快速启动；</li>
+<li>输入：<code>powercfg /h off</code>命令,
+关闭<code>Windows</code>快速启动。</li>
+</ul></li>
+</ul>
+<div class="note primary"><p>综上所述，针对（Arch Linux + Windows
+11），最直接有效的解决办法是通过Windows进行一次真正的重启来唤醒无线网卡。同时，考虑到长期使用的便利性，建议您在Windows中禁用快速启动功能。</p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://bbs.archlinuxcn.org/viewtopic.php?id=10875">Arch
+Linux中文论坛讨论</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1785808633144735310">如何关闭或禁用Windows
+10或11的快速启动！</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/9faa72318667aa473c28cbe6.html">Windows10系统启用和关闭快速启动的两种方法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -604,818 +1438,8 @@ class="math inline">\(n\)</span>赋值给矩阵<code>escape_time[j,i]</code>.</l
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/02/09/%E4%BF%AE%E5%A4%8Dveusz%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/02/09/%E4%BF%AE%E5%A4%8Dveusz%E4%B8%8D%E8%83%BD%E5%90%AF%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">修复veusz不能启动的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-02-09 17:52:35" itemprop="dateCreated datePublished" datetime="2025-02-09T17:52:35+08:00">2025-02-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天需要使用 veusz 处理一个 julia 集的二维图形，但是发现 veusz
-不能正常启动了。由于 veusz 是一个使用 python 写的软件， 所以由于
-archlinux 升级导致的问题可能性还是比较大的, 于是卸载 veusz
-后重新安装，得到了错误提示：</p>
-<figure class="highlight sh"><figcaption><span>paru -S veusz</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 389, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    main()</span><br><span class="line">    ~~~~^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 373, <span class="keyword">in</span> main</span><br><span class="line">    json_out[<span class="string">&quot;return_val&quot;</span>] = hook(**hook_input[<span class="string">&quot;kwargs&quot;</span>])</span><br><span class="line">                             ~~~~^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/pyproject_hooks/_in_process/_in_process.py&quot;</span>, line 143, <span class="keyword">in</span> get_requires_for_build_wheel</span><br><span class="line">    <span class="built_in">return</span> hook(config_settings)</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 332, <span class="keyword">in</span> get_requires_for_build_wheel</span><br><span class="line">    <span class="built_in">return</span> self._get_build_requires(config_settings, requirements=[])</span><br><span class="line">           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 302, <span class="keyword">in</span> _get_build_requires</span><br><span class="line">    self.run_setup()</span><br><span class="line">    ~~~~~~~~~~~~~~^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 516, <span class="keyword">in</span> run_setup</span><br><span class="line">    super().run_setup(setup_script=setup_script)</span><br><span class="line">    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;/usr/lib/python3.13/site-packages/setuptools/build_meta.py&quot;</span>, line 318, <span class="keyword">in</span> run_setup</span><br><span class="line">    <span class="built_in">exec</span>(code, locals())</span><br><span class="line">    ~~~~^^^^^^^^^^^^^^^^</span><br><span class="line">  File <span class="string">&quot;&lt;string&gt;&quot;</span>, line 38, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">&quot;/home/feng/.cache/paru/clone/veusz/src/veusz-3.6.2/pyqt_setuptools.py&quot;</span>, line 11, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    import tomli</span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;tomli&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>显然提示缺少 python 库 <code>tomli</code>, 于是使用 archlinux
-自带的包管理器 <code>pacman</code> 安装 <code>tomli</code></p>
-<figure class="highlight sh"><figcaption><span>install tomli</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S python-tomli</span><br></pre></td></tr></table></figure>
-<p>之后再安装 <code>veusz</code>, 则问题解决。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/20/shell%E5%8F%98%E9%87%8F%E4%B8%8Eawk%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/20/shell%E5%8F%98%E9%87%8F%E4%B8%8Eawk%E5%8F%98%E9%87%8F%E5%86%B2%E7%AA%81%E7%9A%84%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">shell变量与awk变量冲突的处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-20 15:02:02" itemprop="dateCreated datePublished" datetime="2025-01-20T15:02:02+08:00">2025-01-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="shell-中的特殊变量">Shell 中的特殊变量</h1>
-<p>Shell
-预定义了一些特殊变量，它们通常包含一个或两个连字符作为前缀：</p>
-<ul>
-<li><code>$0</code> - 当前脚本的名字。</li>
-<li><code>$1</code>, <code>$2</code>, ... -
-传递给脚本或函数的位置参数。</li>
-<li><code>$#</code> - 传递给脚本或函数的参数个数。</li>
-<li><code>$*</code> - 所有参数作为一个字符串。</li>
-<li><code>$@</code> - 参数列表（与 <code>$*</code>
-类似，但在引号中有区别）。</li>
-<li><code>$?</code> - 上一条命令的退出状态。</li>
-<li><code>$$</code> - 当前 Shell 的进程 ID。</li>
-<li><code>$!</code> - 最后一个后台进程的 PID。</li>
-</ul>
-<h1 id="awk-内置变量">awk 内置变量</h1>
-<p><code>awk</code> 提供了多个内置变量来访问输入数据和其他特性：</p>
-<ul>
-<li><strong><code>$n</code></strong> - 表示当前行的第 n
-个字段（列），其中 <code>$1</code> 是第一列，<code>$2</code>
-是第二列，依此类推。</li>
-<li><strong><code>$0</code></strong> - 表示整个当前行的内容。</li>
-<li><strong><code>NF</code></strong> - 当前行的字段数（列数）。</li>
-<li><strong><code>NR</code></strong> -
-到目前为止处理的总行数（全局行号）。</li>
-<li><strong><code>FNR</code></strong> -
-当前文件中的行号（对于多文件输入，每个新文件计数会重新开始）。</li>
-<li><strong><code>FILENAME</code></strong> - 当前正在读取的文件名。</li>
-<li><strong><code>FS</code></strong> -
-字段分隔符，默认为空白字符（空格或制表符）。可以设置为其他值以改变字段划分规则。</li>
-<li><strong><code>OFS</code></strong> -
-输出字段分隔符，默认为空格。当使用逗号 <code>,</code>
-分隔输出字段时，<code>awk</code> 会用这个值替换逗号。</li>
-<li><strong><code>ORS</code></strong> - 输出记录分隔符，默认为换行符
-<code>\n</code>。</li>
-<li><strong><code>RS</code></strong> -
-输入记录分隔符，默认为换行符，即每行作为一个记录。</li>
-<li><strong><code>ARGC</code> 和 <code>ARGV</code></strong> - 类似于
-Shell 的特殊变量，分别表示命令行参数的数量和数组。</li>
-</ul>
-<p>这些内置变量提供了对输入数据结构、格式以及程序运行环境的强大控制能力。</p>
-<h1 id="冲突和解决">冲突和解决</h1>
-<p>Shell 和 awk 同时内置了 <code>$n</code> 变量，在 Shell
-脚本中使用变量会造成混乱。但是注意到：Shell 中使用双引号括起来的变量
-<code>"$n"</code>
-表示变量，而使用单引号<code>'$n'</code>不表示变量，但是 awk
-在单引号<code>'$n'</code>中表示 awk 变量，
-所以在任何情况下都使用单引号将 awk 的命令引起来就可以避免冲突。</p>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1960760332238490100.html">awk中使用$0与shell脚本$1有冲突怎么办</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/ask/sof/116316122">awk参数$1，$2与bash输入参数冲突</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/19/%E4%BD%BF%E7%94%A8dig%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2IP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/19/%E4%BD%BF%E7%94%A8dig%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2IP/" class="post-title-link" itemprop="url">使用dig批量查询IP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-19 19:27:24" itemprop="dateCreated datePublished" datetime="2025-01-19T19:27:24+08:00">2025-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="dig-命令简介"><code>dig</code> 命令简介</h1>
-<p><code>dig</code>（Domain Information Groper）是 Linux 和 Unix
-系统中用于查询 DNS（域名系统）的强大工具。它提供了对 DNS
-查询的详细控制，并且可以用来执行各种类型的 DNS 查询，包括但不限于 A
-记录、MX 记录、NS 记录、CNAME 记录、TXT 记录等。<code>dig</code>
-是网络管理员和开发者调试 DNS
-问题、验证域名配置以及获取有关互联网资源信息的重要工具。</p>
-<h2 id="主要特点">主要特点</h2>
-<ul>
-<li><strong>多功能性</strong>：支持多种查询类型和选项，能够满足复杂的
-DNS 查询需求。</li>
-<li><strong>详细的输出</strong>：提供详尽的查询结果信息，默认情况下输出格式易于阅读，同时也支持简洁模式（如
-<code>+short</code>）。</li>
-<li><strong>灵活性</strong>：用户可以通过命令行参数自定义查询行为，例如指定
-DNS 服务器、设置查询超时时间、递归查询等。</li>
-<li><strong>批处理能力</strong>：支持从文件批量读取域名进行查询（使用
-<code>-f</code> 参数），适合自动化脚本或大规模 DNS 数据收集。</li>
-</ul>
-<h2 id="基本用法">基本用法</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig [选项] [域名] [记录类型] </span><br></pre></td></tr></table></figure>
-<h3 id="查询特定dns服务器">查询特定DNS服务器</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @8.8.8.8 www.baidu.com</span><br></pre></td></tr></table></figure>
-<h3 id="批量查询文件">批量查询文件</h3>
-<p>创建一个包含域名列表的文本文件，并使用<code>-f</code>参数进行批量查询。</p>
-<div class="tabs" id="批量查询"><ul class="nav-tabs"><li class="tab active"><a href="#批量查询-1">批量查询文件</a></li><li class="tab"><a href="#批量查询-2">domains.txt</a></li></ul><div class="tab-content"><div class="tab-pane active" id="批量查询-1"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig -f domains.txt</span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="批量查询-2"><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">www.baidu.com</span><br><span class="line">www.bing.com</span><br><span class="line">www.sina.com</span><br></pre></td></tr></table></figure></div></div></div>
-<h3 id="批量查询数组">批量查询数组</h3>
-<p>创建一个包含域名列表的数组，并使用<code>-f</code>参数进行批量查询。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MH=(</span><br><span class="line">www.baidu.com</span><br><span class="line">www.bing.com</span><br><span class="line">www.sina.com</span><br><span class="line">)</span><br><span class="line"><span class="built_in">printf</span> <span class="string">&quot;%s\n&quot;</span> <span class="string">&quot;<span class="variable">$&#123;MH[@]&#125;</span>&quot;</span> | dig @119.29.29.29 -f /dev/stdin +noall +answer | awk <span class="string">&#x27;&#123;print $5, $1&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/14/%E9%98%B2%E6%AD%A2resolve%E6%96%87%E4%BB%B6%E8%A2%AB%E8%87%AA%E5%8A%A8%E4%BF%AE%E6%94%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/14/%E9%98%B2%E6%AD%A2resolve%E6%96%87%E4%BB%B6%E8%A2%AB%E8%87%AA%E5%8A%A8%E4%BF%AE%E6%94%B9/" class="post-title-link" itemprop="url">防止resolve文件被自动修改</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-14 04:02:50" itemprop="dateCreated datePublished" datetime="2025-01-14T04:02:50+08:00">2025-01-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过dnsmasq 实现了本地 DNS
-服务的功能，这大大加速的域名解析速度。但是最近在连接校园网时，发现每次连网配置文件<code>/etc/resolv.conf</code>都会被修改为校园网默认的配置，但是这样就无法设置为自动<code>dnsmasq</code>接管服务。</p>
-<h1 id="具体原因">具体原因</h1>
-<p>当在<code>eth</code>接口启用<code>DHCP</code>后，本地<code>resolv.conf</code>文件将被修改，<code>resolv.conf</code>文件中的<code>DNS</code>地址将被改为从<code>DHCP</code>获取到的地址。这种从<code>DHCP</code>获得的<code>DNS</code>即是<code>Peer DNS</code>
-启用<code>DHCP</code>后即便修改<code>/etc/resolv.conf</code>，不久又恢复成原样.</p>
-<h1 id="解决方法">解决方法</h1>
-<ol type="1">
-<li>断开网络</li>
-<li>将<code>/etc/resolv.conf</code>修改为 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generated by syndns</span></span><br><span class="line">nameserver 127.0.0.1</span><br><span class="line">nameserver 119.29.29.29</span><br><span class="line">nameserver 180.76.76.76</span><br><span class="line">nameserver 1.2.4.8</span><br></pre></td></tr></table></figure></li>
-<li>设置文件锁 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> chattr +i /etc/resolv.conf</span><br></pre></td></tr></table></figure></li>
-<li>再次修改<code>/etc/resolv.conf</code>必须先解锁，命令为
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> chattr -i /etc/resolv.conf</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/hclhcl12/article/details/119767855">resolv.conf文件被自动修改解决方法</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30682043/article/details/116984821">linux
-resolve 自动生成,resolve.conf总是被自动修改</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43445867/article/details/142874167">linux解决resolv.conf重启之后会自动还原的问题的几种方法</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-chattr.html">Linux
-chattr命令</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/13/Shell%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/13/Shell%E4%BA%A7%E7%94%9F%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Shell产生随机数的几种方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-13 19:47:31" itemprop="dateCreated datePublished" datetime="2025-01-13T19:47:31+08:00">2025-01-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一问题">一、问题</h2>
-<p>Shell下有时需要使用随机数，在此总结产生随机数的方法。计算机产生的的只是“伪随机数”，不会产生绝对的随机数（是一种理想随机数）。伪随机数在大量重现时也并不一定保持唯一，但一个好的伪随机产生算法将可以产生一个非常长的不重复的序列。</p>
-<h2 id="二随机数">二、随机数</h2>
-<h2 id="生成随机数的七种方法">1、生成随机数的七种方法</h2>
-<h3 id="通过内部系统变量random">（1）通过内部系统变量（$RANDOM）</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$RANDOM</span></span><br></pre></td></tr></table></figure>
-<p>生成0-32767之间的整数随机数，若超过5位可以加个固定10位整数，然后进行求余。</p>
-<figure class="highlight sh"><figcaption><span>生成400000~500000的随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash  </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123; </span><br><span class="line">min=<span class="variable">$1</span> </span><br><span class="line">max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>)) </span><br><span class="line">num=$((<span class="variable">$RANDOM</span>+<span class="number">1000000000</span>)) <span class="comment">#增加一个10位的数再求余 </span></span><br><span class="line"><span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>)) </span><br><span class="line">&#125;  </span><br><span class="line">rnd=$(rand 400000 500000) </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span>  </span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
-<h3 id="使用awk的随机函数">（2）使用awk的随机函数</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;BEGIN&#123;srand();print rand()*1000000&#125;&#x27;</span> <span class="comment">#可以加上if判断</span></span><br></pre></td></tr></table></figure>
-<h3 id="openssl-rand产生随机数">（3）openssl rand产生随机数</h3>
-<p><code>openssl rand</code>
-用于产生指定长度个bytes的随机字符。<code>-base64</code>或<code>-hex</code>对随机字符串进行base64编码或用hex格式显示。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl rand -<span class="built_in">base64</span> 8 | <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8 <span class="comment">#八位字母和数字的组合，3a61800e</span></span><br><span class="line">openssl rand -<span class="built_in">base64</span> 8 | <span class="built_in">cksum</span> | <span class="built_in">cut</span> -c1-8  <span class="comment">#八位数字，10784736</span></span><br></pre></td></tr></table></figure>
-<h3 id="通过时间获得随机数date">（4）通过时间获得随机数（date）</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">date</span> +%s%N <span class="comment">#生成19位数字，1287764807051101270</span></span><br><span class="line"><span class="built_in">date</span> +%s%N | <span class="built_in">cut</span> -c6-13 <span class="comment">#取八位数字，21793709</span></span><br><span class="line"><span class="built_in">date</span> +%s%N | <span class="built_in">md5sum</span> | <span class="built_in">head</span> -c 8 <span class="comment">#八位字母和数字的组合，87022fda</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><figcaption><span>生成1~50的随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123;</span><br><span class="line"> min=<span class="variable">$1</span> </span><br><span class="line"> max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>))</span><br><span class="line"> num=$(<span class="built_in">date</span> +%s%N)</span><br><span class="line"> <span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>))</span><br><span class="line">&#125;</span><br><span class="line">rnd=$(rand 1 50)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
-<h3
-id="通过系统内唯一数据生成随机数devrandom及devurandom">（5）通过系统内唯一数据生成随机数（/dev/random及/dev/urandom）</h3>
-<p><code>/dev/random</code>存储系统当前运行环境的实时数据，可看作系统某时的唯一值，提供优质随机数。</p>
-<p><code>/dev/urandom</code>是非阻塞随机数产生器，读取时不会产生阻塞，速度更快、安全性较差。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#32f1e953ac</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | <span class="built_in">head</span> -n 10 | <span class="built_in">md5sum</span> | <span class="built_in">head</span> -c 10</span><br><span class="line"><span class="comment">#生成全字符的随机字符串，08?WU$ZU</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | strings -n 8 | <span class="built_in">head</span> -n 1</span><br><span class="line"><span class="comment">#生成数字加字母的随机字符串，Ql2q9CXS，其中 strings -n设置字符串的字符数，head -n设置输出的行数。</span></span><br><span class="line"><span class="built_in">cat</span> /dev/urandom | sed -e <span class="string">&#x27;s/[^a-zA-Z0-9]//g&#x27;</span> | strings -n 8 | <span class="built_in">head</span> -n 1</span><br><span class="line"><span class="comment">#urandom的数据很多使用cat会比较慢，在此使用head读200行，cksum将读取文件内容生成唯一的表示整型数据，cut以” “分割然后得到分割的第一个字段数据</span></span><br><span class="line">head-200/dev/urandom| <span class="built_in">cksum</span> |cut-d<span class="string">&quot; &quot;</span> -f1</span><br></pre></td></tr></table></figure>
-<h3 id="读取linux的uuid码">（6）读取linux的uuid码</h3>
-<p>UUID码全称是通用唯一识别码 (Universally Unique Identifier,
-UUID)，UUID格式是：包含32个16进制数字，以“-”连接号分为五段，形式为8-4-4-4-12的32个字符。linux的uuid码也是有内核提供的，在/proc/sys/kernel/random/uuid这个文件内。cat/proc/sys/kernel/random/uuid每次获取到的数据都会不同。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /proc/sys/kernel/random/uuid| <span class="built_in">cksum</span> | <span class="built_in">cut</span> -f1 -d<span class="string">&quot; &quot;</span> <span class="comment">#获取不同的随机整数，1675034933</span></span><br><span class="line"><span class="built_in">cat</span> /proc/sys/kernel/random/uuid| <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8    <span class="comment">#数字加字母的随机数，d69a7ebf</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><figcaption><span>使用linux uuid 生成100~500随机数</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">rand</span></span>()&#123;</span><br><span class="line"> min=<span class="variable">$1</span></span><br><span class="line"> max=$((<span class="variable">$2</span>-<span class="variable">$min</span>+<span class="number">1</span>))</span><br><span class="line"> num=$(<span class="built_in">cat</span> /proc/sys/kernel/random/uuid | <span class="built_in">cksum</span> | awk -F <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line"> <span class="built_in">echo</span> $((<span class="variable">$num</span>%<span class="variable">$max</span>+<span class="variable">$min</span>))</span><br><span class="line">&#125;</span><br><span class="line">rnd=$(rand 100 500)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$rnd</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
-<h3 id="从元素池中随机抽取取">（7）从元素池中随机抽取取</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pool=(a b c d e f g h i j k l m n o p q r s t 1 2 3 4 5 6 7 8 9 10)</span><br><span class="line">num=<span class="variable">$&#123;#pool[*]&#125;</span></span><br><span class="line">result=<span class="variable">$&#123;pool[$((RANDOM%num))]&#125;</span></span><br></pre></td></tr></table></figure>
-<p>用于生成一段特定长度的有数字和字母组成的字符串，字符串中元素来自自定义的池子。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line">length=8 </span><br><span class="line">i=1 </span><br><span class="line"><span class="built_in">seq</span>=(0 1 2 3 4 5 6 7 8 9 a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) </span><br><span class="line">num_seq=<span class="variable">$&#123;#seq[@]&#125;</span> </span><br><span class="line">  </span><br><span class="line"><span class="keyword">while</span> [ <span class="string">&quot;<span class="variable">$i</span>&quot;</span> -le <span class="string">&quot;<span class="variable">$length</span>&quot;</span> ] </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> seqrand[<span class="variable">$i</span>]=<span class="variable">$&#123;seq[$((RANDOM%num_seq))]&#125;</span> </span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;i=i+1&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The random string is:&quot;</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="variable">$&#123;seqrand[@]&#125;</span> </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="built_in">echo</span> -n <span class="variable">$j</span> </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
-<h2 id="随机数应用">2、随机数应用</h2>
-<ol type="1">
-<li><p>随机数在互联网中应用广泛如计算机仿真模拟、数据加密、网络游戏等，在登录某些论坛或游戏时，系统会产生一个由随机数字和字母组成的图片，用户必须正确输入，这是防止恶意攻击的很好的方法，因比较难破解图片格式的字符。其关键技术就是产生随机数，再使用ASP.NET等工具将这些字符串封装成图片格式以作为验证图片。</p></li>
-<li><p>网络游戏中也常利用随机数完成一些功能，比如掷骰子、发扑克牌等。以下是连续掷1000次骰子，然后统计出1～6点的次数：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#RANDOM=$$ </span></span><br><span class="line">PIPS=6 </span><br><span class="line">MAX=1000 </span><br><span class="line">throw=1 </span><br><span class="line">  </span><br><span class="line">one=0 </span><br><span class="line">two=0 </span><br><span class="line">three=0 </span><br><span class="line">four=0 </span><br><span class="line">five=0 </span><br><span class="line">six=0 </span><br><span class="line"><span class="function"><span class="title">count</span></span>() </span><br><span class="line">&#123; </span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line"> 0) <span class="built_in">let</span> <span class="string">&quot;one=one+1&quot;</span>;; </span><br><span class="line"> 1) <span class="built_in">let</span> <span class="string">&quot;two=two+1&quot;</span>;; </span><br><span class="line"> 2) <span class="built_in">let</span> <span class="string">&quot;three=three+1&quot;</span>;; </span><br><span class="line"> 3) <span class="built_in">let</span> <span class="string">&quot;four=four+1&quot;</span>;; </span><br><span class="line"> 4) <span class="built_in">let</span> <span class="string">&quot;five=five+1&quot;</span>;; </span><br><span class="line"> 5) <span class="built_in">let</span> <span class="string">&quot;six=six+1&quot;</span>;; </span><br><span class="line"><span class="keyword">esac</span> </span><br><span class="line">&#125; </span><br><span class="line">  </span><br><span class="line"><span class="keyword">while</span> [ <span class="string">&quot;<span class="variable">$throw</span>&quot;</span> -le <span class="string">&quot;<span class="variable">$MAX</span>&quot;</span> ] </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;dice=RANDOM % <span class="variable">$PIPS</span>&quot;</span></span><br><span class="line"> count <span class="variable">$dice</span> </span><br><span class="line"> <span class="built_in">let</span> <span class="string">&quot;throw=throw+1&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;The statistics results are as follows:&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;one=<span class="variable">$one</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;two=<span class="variable">$two</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;three=<span class="variable">$three</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;four=<span class="variable">$four</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;five=<span class="variable">$five</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;six=<span class="variable">$six</span>&quot;</span></span><br></pre></td></tr></table></figure>
-RANDOM产生的随机数基本在平均值左右浮动（即方差较小）。</p></li>
-<li><p>批量创建10个系统帐号，密码随机 先看看指定用户密码的脚本：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#批量创建10个系统帐号并设置密码，帐号和密码相同 </span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> `<span class="built_in">seq</span> -w 10` </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="comment">#非交互式的输入密码 </span></span><br><span class="line"> useradd linux<span class="variable">$name</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;linux<span class="variable">$name</span>&quot;</span> | passwd --stdin linux<span class="variable">$name</span> </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-10个用户用户名和密码相同都从linux-01到linux-10，再看看用户密码随机生成的脚本：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash </span></span><br><span class="line"><span class="comment">#批量创建10个系统帐号并设置密码 </span></span><br><span class="line"><span class="built_in">rm</span> -f user.log </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> `<span class="built_in">seq</span> -w 10` </span><br><span class="line"><span class="keyword">do</span></span><br><span class="line"> <span class="comment">#非交互式的输入随机密码 </span></span><br><span class="line"> password=`<span class="built_in">echo</span> <span class="variable">$RANDOM</span> | <span class="built_in">md5sum</span> | <span class="built_in">cut</span> -c1-8` </span><br><span class="line"> <span class="comment">#可以使用password=`echo &quot;date $RANDOM&quot; | md5sum | cut -c3-11` </span></span><br><span class="line"> <span class="comment">#也可以使用password=`penssl rand -base64 8 | md5sum | cut -c1-8` </span></span><br><span class="line"> useradd linux<span class="variable">$name</span> &amp;&amp; <span class="built_in">echo</span> password | passwd --stdin linux<span class="variable">$name</span> </span><br><span class="line"> <span class="built_in">echo</span> -e <span class="string">&quot;user=linux<span class="variable">$name</span> \t passwd=<span class="variable">$password</span>&quot;</span> &gt;&gt; user.log <span class="comment">#保存用户名密码以查阅 </span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-对比可以看出，随机生成密码的灵活性和保密性，管理员可以打开user.log文件，记录刚创建的十个用户的信息。</p></li>
-</ol>
-<h2 id="三总结">三、总结</h2>
-<ol type="1">
-<li>Shell产生伪随机数的函数$RANDOM，能方便地产生分布较平均的伪随机数，能满足大部分应用的需求。</li>
-<li>产生随机数的方法还有很多并且可以扩展，扩展思路才能选择最近的方式。</li>
-<li>完全引用自: <a
-target="_blank" rel="noopener" href="https://www.cnblogs.com/cnhack/articles/17164650.html">shell产生随机数七种方法的实现</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/11/Linux%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%ADqq%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/11/Linux%E5%BD%BB%E5%BA%95%E5%85%B3%E9%97%ADqq%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Linux彻底关闭qq的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-11 21:54:07" itemprop="dateCreated datePublished" datetime="2025-01-11T21:54:07+08:00">2025-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于 <a target="_blank" rel="noopener" href="https://im.qq.com/linuxqq/index.shtml">linuxqq</a> 是用
-electron 写的，而且目前还有一些 bug,
-当点击关闭按钮后程序仍然在后台运行。但是，想重新登录一下，却提示已经登录，而原来的聊天界面又找不到，所以必须完全关闭，然后再重新启动才行。
-解决方法是借助<code>pgrep</code>打印所有相关进程，然后一同<code>kill</code>,
-命令为</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">kill</span> $(pgrep qq)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/10/Github-cli%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E5%B8%90%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/10/Github-cli%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E5%B8%90%E5%8F%B7/" class="post-title-link" itemprop="url">Github-cli同时管理多个帐号</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-10 01:29:53" itemprop="dateCreated datePublished" datetime="2025-01-10T01:29:53+08:00">2025-01-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于工作和学习的需要，可能需要同时在一台电脑上维护多个 github
-帐号，这时使用 Github-cli 同时使用多个帐号的 Token
-认证后，然后就可以随时切换了。具体方法为：</p>
-<h1 id="登录认证帐号">登录认证帐号</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth login -p ssh --skip-ssh-key --with-token &lt; your_token_here &gt;</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意: 这条命令选择了 <code>ssh</code>的认证方式，所以需要提前配置好
-<code>ssh</code>. 同时按 <a
-href="/2025/01/07/使用Github-Cli管理仓库">使用Github-Cli管理仓库</a>
-取得 <code>Token</code>.</p>
-</div>
-<h1 id="切换帐号">切换帐号</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gh auth switch -u &lt; your_name_here &gt;</span><br></pre></td></tr></table></figure>
-<h1 id="gh-auth-选项详解">gh auth 选项详解</h1>
-<figure class="highlight sh"><figcaption><span>gh help auth login</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">Authenticate with a GitHub host.</span><br><span class="line"></span><br><span class="line">The default hostname is `github.com`. This can be overridden using the `--hostname`</span><br><span class="line">flag.</span><br><span class="line"></span><br><span class="line">The default authentication mode is a web-based browser flow. After completion, an</span><br><span class="line">authentication token will be stored securely <span class="keyword">in</span> the system credential store.</span><br><span class="line">If a credential store is not found or there is an issue using it gh will fallback</span><br><span class="line">to writing the token to a plain text file. See `gh auth status` <span class="keyword">for</span> its</span><br><span class="line">stored location.</span><br><span class="line"></span><br><span class="line">Alternatively, use `--with-token` to pass <span class="keyword">in</span> a personal access token (classic) on standard input.</span><br><span class="line">The minimum required scopes <span class="keyword">for</span> the token are: `repo`, `<span class="built_in">read</span>:org`, and `gist`.</span><br><span class="line"></span><br><span class="line">Fine-grained personal access tokens are not supported.</span><br><span class="line"></span><br><span class="line">Alternatively, gh will use the authentication token found <span class="keyword">in</span> environment variables.</span><br><span class="line">This method is most suitable <span class="keyword">for</span> <span class="string">&quot;headless&quot;</span> use of gh such as <span class="keyword">in</span> automation. See</span><br><span class="line">`gh <span class="built_in">help</span> environment` <span class="keyword">for</span> more info.</span><br><span class="line"></span><br><span class="line">To use gh <span class="keyword">in</span> GitHub Actions, add `GH_TOKEN: <span class="variable">$&#123;&#123; github.token &#125;</span>&#125;` to `<span class="built_in">env</span>`.</span><br><span class="line"></span><br><span class="line">The git protocol to use <span class="keyword">for</span> git operations on this host can be <span class="built_in">set</span> with `--git-protocol`,</span><br><span class="line">or during the interactive prompting. Although login is <span class="keyword">for</span> a single account on a host, setting</span><br><span class="line">the git protocol will take effect <span class="keyword">for</span> all <span class="built_in">users</span> on the host.</span><br><span class="line"></span><br><span class="line">Specifying `ssh` <span class="keyword">for</span> the git protocol will detect existing SSH keys to upload,</span><br><span class="line">prompting to create and upload a new key <span class="keyword">if</span> one is not found. This can be skipped with</span><br><span class="line">`--skip-ssh-key` flag.</span><br><span class="line"></span><br><span class="line">For more information on OAuth scopes, &lt;https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps/&gt;.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">USAGE</span><br><span class="line">  gh auth login [flags]</span><br><span class="line"></span><br><span class="line">FLAGS</span><br><span class="line">  -p, --git-protocol string   The protocol to use <span class="keyword">for</span> git operations on this host: &#123;ssh|https&#125;</span><br><span class="line">  -h, --hostname string       The hostname of the GitHub instance to authenticate with</span><br><span class="line">      --insecure-storage      Save authentication credentials <span class="keyword">in</span> plain text instead of credential store</span><br><span class="line">  -s, --scopes strings        Additional authentication scopes to request</span><br><span class="line">      --skip-ssh-key          Skip generate/upload SSH key prompt</span><br><span class="line">  -w, --web                   Open a browser to authenticate</span><br><span class="line">      --with-token            Read token from standard input</span><br><span class="line"></span><br><span class="line">INHERITED FLAGS</span><br><span class="line">  --<span class="built_in">help</span>   Show <span class="built_in">help</span> <span class="keyword">for</span> <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">EXAMPLES</span><br><span class="line">  <span class="comment"># Start interactive setup</span></span><br><span class="line">  $ gh auth login</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Authenticate against github.com by reading the token from a file</span></span><br><span class="line">  $ gh auth login --with-token &lt; mytoken.txt</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># Authenticate with specific host</span></span><br><span class="line">  $ gh auth login --hostname enterprise.internal</span><br><span class="line"></span><br><span class="line">LEARN MORE</span><br><span class="line">  Use `gh &lt;<span class="built_in">command</span>&gt; &lt;subcommand&gt; --<span class="built_in">help</span>` <span class="keyword">for</span> more information about a <span class="built_in">command</span>.</span><br><span class="line">  Read the manual at https://cli.github.com/manual</span><br><span class="line">  Learn about <span class="built_in">exit</span> codes using `gh <span class="built_in">help</span> exit-codes`</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://cli.githubdocs.cn/manual/">GitHub CLI 手册</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/09/shell%E5%87%A0%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/09/shell%E5%87%A0%E7%A7%8D%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">shell几种字符串加密解密的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-09 14:41:59" itemprop="dateCreated datePublished" datetime="2025-01-09T14:41:59+08:00">2025-01-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在编写脚本时避免不了使用密码，所以为了增强安全性，需要使用加密解密技术。本文记录几种加密解密的方法。</p>
-<h1 id="python-与-bash-shell-的结合">Python 与 Bash Shell 的结合</h1>
-<p>这个命令会让你输入一个字符串，然后会再输出一串加密了的数字.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码[照直输入]:</span></span><br><span class="line">python -c <span class="string">&#x27;print reduce(lambda a,b: a*256+ord(b), raw_input(&quot;string: &quot;), 0)&#x27;</span></span><br><span class="line"><span class="comment"># 解密代码[数字后+P]：</span></span><br><span class="line">dc -e 输出的数字P</span><br></pre></td></tr></table></figure>
-<h1 id="纯-bash-shell-含-vim-的xxd">纯 Bash Shell, 含 VIM 的xxd</h1>
-<p>用 gtalk@gmail.com 作为明文，加密分两步也可以一步。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gtalk@gmail.com&quot;</span> |xxd -ps -u</span><br><span class="line"><span class="comment"># 得到：6774616C6B40676D61696C2E636F6D0A</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;ibase=16; 6774616C6B40676D61696C2E636F6D0A&quot;</span> |bc</span><br><span class="line"><span class="comment"># 得到：137514765985002236391382606438443478282</span></span><br><span class="line">一步加密代码：</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;ibase=16; <span class="subst">$(echo <span class="string">&quot;gtalk@gmail.com&quot;</span> |xxd -ps -u)</span>&quot;</span> |bc</span><br><span class="line"><span class="comment"># 得到：137514765985002236391382606438443478282</span></span><br></pre></td></tr></table></figure>
-<h1 id="base64-编码">Base64 编码</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;gtalk@gmail.com&quot;</span> |<span class="built_in">base64</span> -i</span><br><span class="line"><span class="comment"># 得到：Z3RhbGtAZ21haWwuY29tCg==</span></span><br><span class="line"><span class="comment"># 解密代码：</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Z3RhbGtAZ21haWwuY29tCg==&quot;</span> |<span class="built_in">base64</span> -d</span><br><span class="line"><span class="comment"># 得到：gtalk@gmail.com</span></span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>Base64 编码，这个很好很强大，适合写加密脚本</p>
-</div>
-<p>实现使用 base64 加密、解密字符串并赋值给变量。网上绝大多数是使用 echo
-管道实现 加密和解密字符串的输出。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span>=$( <span class="built_in">base64</span> -d &lt;&lt;&lt; <span class="string">MQo= )  # 解码</span></span><br><span class="line"><span class="string">in=$( base64 &lt;&lt;&lt; &quot;123456&quot;)  # 加密</span></span><br><span class="line"><span class="string"># 或者</span></span><br><span class="line"><span class="string">test=$(printf &quot;%s&quot;&quot;123456&quot; | base64)      # 加密</span></span><br><span class="line"><span class="string">test=$(printf &quot;%s&quot; MTIzNDU2| base64 -d)   # 解密</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/qichangjian/article/details/103769468">shell几种字符串加密解密的方法</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

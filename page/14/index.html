@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,1073 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Grep%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/30/Grep%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Grep过滤文件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-30 20:46:29" itemprop="dateCreated datePublished" datetime="2024-11-30T20:46:29+08:00">2024-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在Linux中，可以使用grep命令去除重复行。grep命令是一个强大的文本搜索工具，但是默认情况下它只会输出匹配的行，而不会去除重复的行。要去除重复行，可以使用grep命令的<code>-v</code>选项结合<code>sort</code>和<code>uniq</code>命令来实现。</p>
+<p>下面是使用grep命令去除重复行的步骤：</p>
+<ol type="1">
+<li>使用grep命令搜索匹配的行，将输出重定向到一个临时文件。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep “pattern” file.txt &gt; temp.txt  </span><br></pre></td></tr></table></figure>
+<p>其中，<code>pattern</code>是你要匹配的模式，<code>file.txt</code>是要搜索的文件。</p>
+<ol start="2" type="1">
+<li>使用sort命令对临时文件进行排序。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sort</span> temp.txt &gt; sorted.txt  </span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>使用uniq命令去除重复行。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uniq</span> sorted.txt &gt; result.txt  </span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>可选：删除临时文件。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> temp.txt sorted.txt  </span><br></pre></td></tr></table></figure>
+<p>这样，就可以得到一个去除重复行的结果文件result.txt。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/Hexo%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/30/Hexo%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Hexo配置博客实战教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-30 17:34:43" itemprop="dateCreated datePublished" datetime="2024-11-30T17:34:43+08:00">2024-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-29 14:41:06" itemprop="dateModified" datetime="2025-03-29T14:41:06+08:00">2025-03-29</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本博客已经持续写了三四年了，最初根据网上的教程安装好后就把各种配置写到了自动化脚本
+<code>diary.sh</code>
+中，然而最近发现升级脚本后会有一串由<code>node.js</code>发出的错误。为了解决这个错误，不断的排除各种小问题，最终决定重新写一下配置博客的基本教程。</p>
+<h1 id="node.js-和-hexo-简介">Node.js 和 Hexo 简介</h1>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn">Node.js</a>是作为
+<code>Hexo</code>程序的依赖而安装的，但是它报错了，经过网络搜索后发现，这是由于我的电脑中安装了最新的<code>Node.js</code>导致的。官网介绍：Node.js®
+是一个免费、开源、跨平台的 JavaScript 运行时环境,
+它让开发人员能够创建服务器 Web 应用、命令行工具和脚本。 而
+<code>Hexo</code> 是一个部署博客的工具，而博客也是发布于网络上的一个 Web
+页，所认这个依赖关系就清楚了。</p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 的作用是: 把作者写好的 <a
+target="_blank" rel="noopener" href="https://markdown.com.cn/basic-syntax/">Markdown</a>
+文件，使用<code>Node.js</code>渲染成 <code>Web</code>
+页，进而可以在网站服务器上部署，实现网络访问的目标。</p>
+<h1 id="安装依赖软件">安装依赖软件</h1>
+<h2 id="使用-pacman-安装的软件">使用 pacman 安装的软件</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S nodejs-lts-jod npm git pandoc</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>git</code>
+是一个在<code>github</code>上管理源码的必备工具，详细使用请稳步： <a
+target="_blank" rel="noopener" href="https://www.runoob.com/git/git-tutorial.html">Git 教程</a></li>
+<li><code>nodejs</code>共有三个版本，分别是<code>nodejs 23.1.0-1</code>(最新版)、<code>nodejs-lts-iron</code>（最新长期支持版）、<code>nodejs-lts-hydrogen</code>(旧的长期支持版).
+由于最新版不断有功能添加，其相当不稳定，今天的错误就是由它造成的。旧的长期支持版，又可能不兼容最新的软件，所以安装最新长期支持版就是一个最佳选择。</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a>
+是一个<code>nodejs</code>包管理器，使用它可以安装各种模块，这就很容易为博客添加新的功能。</li>
+<li><a target="_blank" rel="noopener" href="https://pandoc.org/">pandoc</a> If you need to convert
+files from one markup format into another, pandoc is your swiss-army
+knife.</li>
+<li>2025年03月29日,
+<code>nodejs-lts-iron</code>维护进入倒计时，因此今天升级到新的长期支持版<code>nodejs-lts-jod</code>.</li>
+</ul>
+<h2 id="使用-nodejs-包管理器安装的软件">使用 nodejs
+包管理器安装的软件</h2>
+<h3 id="npm-切换国内源">npm 切换国内源</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>阿里更换了淘宝镜像的域名，原域名<code>https://registry.npm.taobao.org</code>的
+SSL 证书已经过期了（2024/01/22），所以我们需要更换最新的源.</p>
+</div>
+<h3 id="安装更好用的包管理器-yarn">安装更好用的包管理器 yarn</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 pacman 安装</span></span><br><span class="line"><span class="built_in">sudo</span> pacman -S yarn</span><br><span class="line"><span class="comment"># 通过 npm 安装</span></span><br><span class="line"><span class="built_in">sudo</span> npm install yarn -g</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：<code>npm</code>是<code>JavaScript</code>自带的包管理器，拥有庞大的包注册表，但在性能和安全性方面相对较弱,
+特别是下载安装模块的速度相当感人。<code>Yarn</code> 是由
+Facebook、Google 等公司共同创建的，旨在解决 npm
+的一些痛点，提供更快、更安全、更可靠的包管理体验,
+其下载模块非常迅速，所以值得推荐。此外还有<code>pnpm</code>包管理器，但是由于它为了节省硬盘空间而做出了相当大的改变，这导致一些依赖问题不是很好解决，因此不推荐。这三个的区别和优缺点细节，请大家参考本文末的参考文章。</p>
+</div>
+<h2 id="配置-hexo">配置 hexo</h2>
+<h3 id="设置-yarn-的国内源">设置 yarn 的国内源</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国内 淘宝 镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br><span class="line"><span class="comment"># 官方镜像源</span></span><br><span class="line">yarn config <span class="built_in">set</span> registry https://registry.yarnpkg.com/</span><br></pre></td></tr></table></figure>
+<h3 id="安装-nrm-镜像源工具">安装 nrm 镜像源工具</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yarn global add nrm</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p><code>nrm</code>使用方法，请参考本文末参考文章。使用<code>nrm test</code>列出各源，并给出源的网速，使用<code>nrm use huawei</code>切换到速度最快的华为源。</p>
+</div>
+<h3 id="安装-hexo-命令">安装 hexo 命令</h3>
+<figure class="highlight sh"><figcaption><span>推荐使用速度更快的 yarn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用yarn 安装</span></span><br><span class="line"><span class="built_in">sudo</span> yarn global add hexo-cli</span><br><span class="line"><span class="comment"># 使用 npm 安装</span></span><br><span class="line"><span class="built_in">sudo</span> npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h1 id="设置本地博客站点">设置本地博客站点</h1>
+<h2 id="配置-hexo-默认站点">配置 hexo 默认站点</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo-source</span><br><span class="line"><span class="built_in">cd</span> ./hexo-source</span><br><span class="line">hexo init</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>完成上面的操作后，在浏览器地址栏输入上述命令生成的本地地址
+localhost:4000 就可以看到默认的博客了。</p>
+</div>
+<h2 id="安装-next-主题">安装 Next 主题</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/next-theme/hexo-theme-next themes/next</span><br><span class="line"><span class="built_in">cd</span> themes/next</span><br><span class="line">git checkout $(git describe --tags $(git rev-list --tags --max-count=1))</span><br></pre></td></tr></table></figure>
+<h2 id="切换为-next-主题">切换为 Next 主题</h2>
+<p>Like all Hexo themes, after you download it, open Hexo config file,
+find theme option, and change its value to next (or another theme
+directory name).</p>
+<figure class="highlight sh"><figcaption><span>hexo-source/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>2024年11月30日, 在测试上述步骤时，发现 <a
+target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next/issues/759">启动报错
+Cannot find module 'css'</a>,
+据<code>github</code>上的信息，解决方法是：css 应该被作为 stylus
+的依赖包安装。你可以试试重新安装 hexo-renderer-stylus</p>
+</div>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-source</span><br><span class="line">yarn add hexo-renderer-stylus</span><br><span class="line"><span class="comment"># 也可以使用 npm</span></span><br><span class="line">npm i hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
+<h2 id="本地启动检测">本地启动检测</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2408483">你真的知道
+NPM、Yarn 与 PNPM 这三个前端包管理器之间的区别吗？</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://ksh7.com/posts/npm-registry/index.html">npm、yarn、pnpm
+设置最新国内镜像源（附官方镜像源和最新阿里源），以及 nrm
+的使用教程</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/installation.html">Next
+Installation</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://theme-next.js.org/docs/getting-started/#Enabling-NexT">Next
+Getting Started</a></li>
+<li><a href="2021/05/18/使用Hexo搭建博客">使用Hexo搭建博客</a></li>
+<li><a
+href="/2022/09/15/Gitlab上部署Hexo博客">Gitlab上部署Hexo博客</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/30/ArchLinux%E5%AE%89%E8%A3%85%E5%90%8E%E6%B2%A1%E6%9C%89dig%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/30/ArchLinux%E5%AE%89%E8%A3%85%E5%90%8E%E6%B2%A1%E6%9C%89dig%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">ArchLinux安装后没有dig命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-30 01:50:05" itemprop="dateCreated datePublished" datetime="2024-11-30T01:50:05+08:00">2024-11-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="命令安装">命令安装</h1>
+<p>以前net-tools属于base组，装base时自动就装上了，现在哪个组都不属于了，这些工具需要单独安装。其中ifconfig、route在net-tools包中，nslookup、dig在dnsutils包中，ftp、telnet等在inetutils包中，ip命令在iproute2包中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S net-tools dnsutils inetutils iproute2</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="http://ivo-wang.github.io/2018/06/02/archlinux%E6%B2%A1%E6%9C%89dig-nslookup%E7%AD%89%E7%BD%91%E7%BB%9C%E5%91%BD%E4%BB%A4/">archlinux安装后没有ifconfig命令</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://man.archlinux.org/man/dig.1.zh_CN">dig-ArchWiki</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/smile_YangYue/article/details/105074197">dig命令查询结果解析</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/REVTEX4%E6%92%B0%E5%86%99%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/29/REVTEX4%E6%92%B0%E5%86%99%E7%A7%91%E7%A0%94%E8%AE%BA%E6%96%87/" class="post-title-link" itemprop="url">REVTEX4撰写科研论文</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-29 12:03:07" itemprop="dateCreated datePublished" datetime="2024-11-29T12:03:07+08:00">2024-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="简介">简介</h1>
+<p>《REVTEX 4 作者指南》是美国物理学会（APS）提供的，用于指导如何使用
+REVTEX 4 来准备向 APS 期刊提交的手稿。在 <a
+target="_blank" rel="noopener" href="https://tug.org/texlive/">TexLive</a>已经收录，所以安装<code>TexLive</code>后，直接调用模板就可以了。</p>
+<h1 id="模板">模板</h1>
+<p>这个模板是我写作时采用的，列在此处大家可以直接调用。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[aps,pre,showpacs,preprint,superscriptaddress]&#123;revtex4-1&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;subfigure&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;ulem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;bm&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amssymb&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;color&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;epstopdf&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;epsfig,dsfont,multirow&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;physics&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;tikz&#125;</span><br><span class="line"><span class="keyword">\usetikzlibrary</span>&#123;fadings,patterns&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;float&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[</span><br><span class="line">    pdfborder=&#123;0 0 0&#125;,</span><br><span class="line">    bookmarksnumbered=true,</span><br><span class="line">    pagebackref,</span><br><span class="line">    pdftex</span><br><span class="line">]&#123;hyperref&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;orcidlink&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\title</span>&#123;Your Article Title&#125;</span><br><span class="line"><span class="keyword">\author</span>&#123;YourName<span class="keyword">\,</span><span class="keyword">\orcidlink</span>&#123;0000-0000-0000-0000&#125;&#125;</span><br><span class="line"><span class="keyword">\email</span>[Contact author:]&#123;YourEmail@xxx.com&#125;</span><br><span class="line"><span class="keyword">\homepage</span>[Visit:]&#123;https://YourHomePageSite&#125;</span><br><span class="line"><span class="keyword">\affiliation</span>&#123;School of Physics and Astronomy, Beijing Normal University, Beijing 100875, China&#125;</span><br><span class="line"><span class="comment">% \thanks&#123;miscellaneous text&#125;</span></span><br><span class="line"><span class="keyword">\date</span>&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\preprint</span>&#123;Preprint&#125;</span><br><span class="line"><span class="keyword">\keywords</span>&#123;electron-positron; laser&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;abstract&#125;</span><br><span class="line">Your abstract</span><br><span class="line"><span class="keyword">\end</span>&#123;abstract&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">% \pacs&#123;05.45.-a; 02.60.-x; preprint&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\maketitle</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Introduction&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>&#123;Reference&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">\bibliographystyle</span>&#123;unsrt&#125;</span><br><span class="line"><span class="keyword">\bibliography</span>&#123;Reference.bib&#125;</span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% 直接写引用信息，不推荐</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \appendix</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \begin&#123;thebibliography&#125;&#123;99&#125;\suppressfloats</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;ComDyn&#125;</span></span><br><span class="line"><span class="comment">%         L. Carleson, T. W. Gamelin, Complex Dynamics, Springer, New York,</span></span><br><span class="line"><span class="comment">%         NY, 1993.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;AITJF&#125;</span></span><br><span class="line"><span class="comment">%         S. Sutherland, An Introduction to Julia and Fatou Sets, in: C. Bandt,</span></span><br><span class="line"><span class="comment">%         M. Barnsley, R. Devaney, K. J. Falconer, V. Kannan, V. Kumar P.B.</span></span><br><span class="line"><span class="comment">%         (Eds.), Fractals, Wavelets, and their Applications, Springer Proceedings</span></span><br><span class="line"><span class="comment">%         in Mathematics $\&amp;$ Statistics, Springer International Publishing, Cham,</span></span><br><span class="line"><span class="comment">%         pp. 37-60, 2014.</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;MJFO&#125;</span></span><br><span class="line"><span class="comment">%         M.-F. Danca, M. Fečkan, Mandelbrot set and Julia sets of fractional order, Nonlinear Dynamics 111(10), 9555-9570 (2023).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;MSPPCRF&#125;</span></span><br><span class="line"><span class="comment">%         A. J. Mitchell, Existence of the Mandelbrot Set in the Parameter Planes of Certain Rational Functions, Theses and Dissertations, University of Wisconsin-Milwaukee (2016).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">%     \bibitem&#123;GBBM&#125;</span></span><br><span class="line"><span class="comment">%         H. Jang, Y. So, S. M. Marotta, Generalized baby Mandelbrot sets adorned with halos in families of rational maps, Journal of Difference Equations and Applications 23(3), 503-520 (2017).</span></span><br><span class="line"><span class="comment">%</span></span><br><span class="line"><span class="comment">% \end&#123;thebibliography&#125;</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="重要宏包">重要宏包</h1>
+<h2 id="orcidlink">1. orcidlink</h2>
+<p>用来插入作者的<a target="_blank" rel="noopener" href="https://orcid.org/">orcid</a>, 调用和命令
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;orcidlink&#125;</span><br><span class="line"><span class="keyword">\orcidlink</span>&#123;0000-0000-0000-0000&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="float">2. float</h2>
+<p>在LaTex中，<code>\begin&#123;figure&#125;[htbp]</code>是图片环境，常用选择项<code>[htbp]</code>是浮动格式：</p>
+<ul>
+<li><code>[h]</code>
+here，当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩页面不够，这一参数将不起作用。<br />
+</li>
+<li><code>[t]</code> top，顶部。将图形放置在页面的顶部。<br />
+</li>
+<li><code>[b]</code> bottom，底部。将图形放置在页面的底部。<br />
+</li>
+<li><code>[p]</code> page of its
+own，浮动页。将图形放置在一个允许有浮动对象的页面上。</li>
+</ul>
+<p>一般使用<code>[htb]</code>这样的组合，只用<code>[h]</code>是没有用的。这样组合的意思就是<code>LaTex</code>会尽量满足排在前面的浮动格式，就是<code>h-t-b</code>这个顺序，让排版的效果尽量好。</p>
+<p><code>[!h]</code>只是试图放在当前位置。如果页面剩下的部分放不下，还是会跑到下一页的。一般而言，用<code>[!h]</code>选项通常会出现不能正确放置的问题，所以常用<code>[ht]</code>、<code>[htbp]</code>等,
+这里加感叹号的意思是 忽略 “美学” 标准。</p>
+<p>如果你确实需要把图片放在当前位置，不容改变，可以用
+<code>\usepackege&#123;float&#125;</code>
+宏包的<code>[H]</code>选项。不过如果这样做，出现放不下的问题时需要手工调整。使用格式如下。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;float&#125; </span><br><span class="line"><span class="comment">% ... </span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[H] </span><br><span class="line">foo </span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>特别强调，当表格或者图片占据双栏模板的两栏时(即在<code>\begin{table*}</code>时），这些控制选项就失效了。其他情况请参考
+<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/LeonSUST/article/details/89332744">技能提升之Latex控制图片位置</a></p>
+</div>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://7id.xray.aps.anl.gov/journals/revtex4/auguide.pdf">revtex4-auguide.pdf</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36654593/article/details/108369354">LaTeX如何插入作者的ORCID</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/LeonSUST/article/details/89332744">技能提升之Latex控制图片位置</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/Linux%E4%BD%BF%E7%94%A8dnsmasq%E5%BC%80%E5%90%AF%E6%9C%AC%E5%9C%B0dns%E7%BC%93%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/29/Linux%E4%BD%BF%E7%94%A8dnsmasq%E5%BC%80%E5%90%AF%E6%9C%AC%E5%9C%B0dns%E7%BC%93%E5%AD%98/" class="post-title-link" itemprop="url">Linux使用dnsmasq开启本地dns缓存</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-29 10:36:25" itemprop="dateCreated datePublished" datetime="2024-11-29T10:36:25+08:00">2024-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="通俗解释-dns">通俗解释 DNS</h1>
+<p>DNS (Domain Name System) 是域名系统的缩写，它作为可以将域名和 IP
+地址相互映射的一个分布式数据库。通俗来讲，互联网上每台电脑都会有一个<code>身份证号</code>来标记电脑，然后电脑相互访问时就需要知道这个身份证号才能到达指定的电脑，这个身份证号就是<code>IP</code>地址。但是，如果仅仅是有限的几台电脑，这个方法足够应对了，然而互联网上有无数的电脑，每次访问某台电脑，就需要查询这台电脑的
+<code>IP</code>,
+显然一个人不可能记住那么多的<code>IP</code>地址。为了方便人的记忆，我们可以为
+<code>IP</code>
+起一个别名,也就是域名，比如<code>www.baidu.com</code>，同时把<code>IP</code>和<code>www.baidu.com</code>的对应关系保存在<code>/etc/hosts</code>文件中。
+这样每次电脑访问这台电脑时就直接访问<code>www.baidu.com</code>,
+然后电脑就会去<code>/etc/hosts</code>查询这个域名对应的<code>IP</code>,
+然后根据查到的<code>IP</code>访问对应的电脑。
+然而，这样做以后，每个人的电脑就会保存不同的<code>hosts</code>文件，同时也需要每次访问新的电脑都要编辑这个<code>hosts</code>文件，世界很大，维护<code>hosts</code>会耽误大量的时间，同时若自己换了电脑，那必然也要带上这个自己习惯的<code>hosts</code>文件到新的电脑。为了解决这个问题，网络上出现了专门同步<code>IP</code>与域名对应关系的分布式服务器（也是一台电脑）,
+这台电脑就叫做 DNS 服务器。当我们知道了 DNS 服务器的
+<code>IP</code>以后，把这个
+<code>IP</code>告诉我们自己的电脑，这样每次访问互联网，我们自己的电脑就会向
+DNS 服务器发出申请，返回相应域名的
+<code>IP</code>地址，然后再通过这个<code>IP</code>访问域名对应的电脑,
+于是<code>hosts</code>文件实现了全网同步。但是，随之而来的问题是 DNS
+服务器的性能会因不同的设备而有差异，同时不同 DNS
+服务器也会因为通信线路和地理位置等造成访问速度不同，我们肯定希望速度越快越好，于是人们就需要选择那些可靠的大厂
+DNS 服务器。</p>
+<h1 id="提升网络访问速度">提升网络访问速度</h1>
+<p>随着互联网的发展，全球的电脑越来越多，同一个网站为了更好的展示效果和更强大的功能而链接到多个网站。有时候，我们可以快速打开一个网站，但是它会花相当长的时间来打开完整的网站，这个体验就不是很好了。
+事实上，DNS
+服务器再快也不会比自己电脑上保存了<code>hosts</code>文件快，似乎问题又回到了最初，但是又不一样。为了提高访问速度，我们可以通过某些软件记录下每次访问过的域名和相应的<code>IP</code>地址，这样第二次以后速度会实现质的飞越。同时，现在的硬盘价格也是相当便宜，我们平时游览的网站通常也是和自己相关领域的有限数目的网站，因此使用软件自动缓存下这些访问过的记录也是一件相当容易的事情，这会给我们网上冲浪带来质的飞越。</p>
+<h1 id="全自动安装脚本">全自动安装脚本</h1>
+<p>如果您使用的是<code>ArchLinux</code>,
+同时不想关注细节，请直接保存脚本<code>syndns.sh</code>后，执行<code>sudo chmod +x syndns.sh &amp;&amp; ./syndns -i</code>
+, 即可一键配置好本地<code>dns</code>缓存。</p>
+<figure class="highlight sh"><figcaption><span>syndns.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : syndns.sh</span></span><br><span class="line"><span class="comment"># Version  : v1.1</span></span><br><span class="line"><span class="comment"># Date     : 2024-11-30 00:52</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 检测软件依懒, 若未检测到，则自动安装</span></span><br><span class="line"><span class="function"><span class="title">SYNDNS_DEPEND</span></span>()&#123;</span><br><span class="line">    <span class="keyword">for</span> VAR <span class="keyword">in</span> <span class="variable">$1</span> ;<span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [[ <span class="string">&quot;<span class="subst">$(pacman -Q |grep $VAR)</span>&quot;</span> = <span class="string">&quot;&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">            <span class="built_in">sudo</span> pacman -S <span class="variable">$VAR</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">&#125;</span><br><span class="line">SYN_EXE=<span class="string">&quot;/usr/local/bin/<span class="variable">$&#123;0%.sh&#125;</span>&quot;</span></span><br><span class="line">SYN_AUTO=<span class="string">&quot;<span class="variable">$HOME</span>/.config/autostart/<span class="variable">$&#123;0%.sh&#125;</span>.desktop&quot;</span></span><br><span class="line">SYN_SUDO=<span class="string">&quot;/etc/sudoers.d/01_<span class="variable">$USER</span>&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -gt 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$1</span> == <span class="string">&quot;-i&quot;</span> -o <span class="variable">$1</span> == <span class="string">&quot;-I&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        SYNDNS_DEPEND <span class="string">&quot;inetutils dnsmasq&quot;</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">cp</span> -f <span class="variable">$0</span> <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="built_in">sudo</span> <span class="built_in">chmod</span> +x <span class="variable">$SYN_EXE</span></span><br><span class="line">        <span class="keyword">if</span> [ ! -e <span class="variable">$SYN_AUTO</span> ]; <span class="keyword">then</span></span><br><span class="line">           <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_AUTO</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="variable">$SYN_AUTO</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Desktop Entry]</span></span><br><span class="line"><span class="string">Name=SynDns</span></span><br><span class="line"><span class="string">TryExec=syndns</span></span><br><span class="line"><span class="string">Exec=$SYN_EXE</span></span><br><span class="line"><span class="string">Type=Application</span></span><br><span class="line"><span class="string">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span></span><br><span class="line"><span class="string">StartupNotify=true</span></span><br><span class="line"><span class="string">X-Desktop-File-Install-Version=0.22</span></span><br><span class="line"><span class="string">X-GNOME-Autostart-enabled=true</span></span><br><span class="line"><span class="string">Hidden=false</span></span><br><span class="line"><span class="string">NoDisplay=false</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; /etc/dnsmasq.conf&quot;</span> &lt;&lt;<span class="string">EOA</span></span><br><span class="line"><span class="string">domain-needed</span></span><br><span class="line"><span class="string">bogus-priv</span></span><br><span class="line"><span class="string">resolv-file=/etc/resolv.conf</span></span><br><span class="line"><span class="string">no-poll</span></span><br><span class="line"><span class="string">interface=lo</span></span><br><span class="line"><span class="string">listen-address=127.0.0.1</span></span><br><span class="line"><span class="string">bind-interfaces</span></span><br><span class="line"><span class="string">no-hosts</span></span><br><span class="line"><span class="string">addn-hosts=/dev/shm/dnsrecord.txt</span></span><br><span class="line"><span class="string">cache-size=9999</span></span><br><span class="line"><span class="string">port=53</span></span><br><span class="line"><span class="string">EOA</span></span><br><span class="line"><span class="keyword">if</span> [ ! -e <span class="variable">$SYN_SUDO</span> ]; <span class="keyword">then</span></span><br><span class="line">   <span class="built_in">sudo</span> <span class="built_in">touch</span> <span class="variable">$SYN_SUDO</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt; <span class="variable">$SYN_SUDO</span>&quot;</span> &lt;&lt;<span class="string">EOB</span></span><br><span class="line"><span class="string">$USER ALL=(ALL) NOPASSWD: /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span></span><br><span class="line"><span class="string">EOB</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">SYN_REC=$(grep <span class="string">&quot;addn-hosts&quot;</span> /etc/dnsmasq.conf)</span><br><span class="line">SYN_REC=<span class="variable">$&#123;SYN_REC#*=&#125;</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts &gt; <span class="variable">$SYN_REC</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="subst">$(hostname -i)</span>                 localhost:&quot;</span> &gt;&gt; <span class="variable">$SYN_REC</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>本脚本全自动配置好了<code>dnsmasq</code>,
+但是若想达到自己快速访问自己习惯的网站，请在<code>/etc/hosts</code>文件中加入<code>IP</code>和域名映射，具体操作参见：<a
+href="/2024/11/29/Linux解决无法访问学术网站的问题/">Linux解决无法访问学术网站的问题</a></p>
+</div>
+<h1 id="屏蔽广告">屏蔽广告</h1>
+<ul>
+<li>建立屏蔽文件存放目录：<code>sudo mkdir /etc/dnsmasq.d</code></li>
+<li>下载<code>anti-Ad</code>广告列表: <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -o /etc/dnsmasq.d/anti-ad-for-dnsmasq.conf https://anti-ad.net/anti-ad-for-dnsmasq.conf</span><br></pre></td></tr></table></figure></li>
+<li>修改配置文件<code>/etc/dnsmasq.conf</code>: <figure class="highlight sh"><figcaption><span>/etc/dnsmasq.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">domain-needed</span><br><span class="line">bogus-priv</span><br><span class="line">resolv-file=/etc/resolv.conf</span><br><span class="line">no-poll</span><br><span class="line">interface=lo</span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line">bind-interfaces</span><br><span class="line">no-hosts</span><br><span class="line">addn-hosts=/dev/shm/dnsrecord.txt</span><br><span class="line">addn-hosts=/etc/dnsmasq.d</span><br><span class="line">cache-size=9999</span><br><span class="line">port=53</span><br></pre></td></tr></table></figure></li>
+<li>重启<code>dnsmasq.service</code>服务 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart dnsmasq.service</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="技术细节">技术细节</h1>
+<h2 id="linux-使用-dnsmasq-开启本地-dns-缓存">Linux 使用 dnsmasq
+开启本地 dns 缓存</h2>
+<p><a target="_blank" rel="noopener" href="https://dnsmasq.org/doc.html">dnsmasq</a> 是一个轻量组 <a
+target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows-server/troubleshoot/dynamic-host-configuration-protocol-basics">DHCP</a>
+和缓存 <a
+target="_blank" rel="noopener" href="https://www.pcmag.com/how-to/what-is-dns-how-it-works-domain-name-system">DNS</a>
+服务器。</p>
+<h3 id="安装-dnsmasq">1. 安装 dnsmasq</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S dnsmasq</span><br></pre></td></tr></table></figure>
+<h3 id="配置-dnsmasq">2. 配置 dnsmasq</h3>
+<p><code>dnsmasq</code>
+的主配置文件为<code>/etc/dnsmasq.conf</code>。一些配置 <code>dns</code>
+缓存相关参数（更多参数说明见 <a
+target="_blank" rel="noopener" href="https://thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example">https://thekelleys.org.uk/dnsmasq/docs/dnsmasq.conf.example</a>
+或 <code>/etc/dnsmasq.conf</code> 内说明）</p>
+<h4 id="配置文件设置">配置文件设置</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/dnsmasq.conf</span><br><span class="line"></span><br><span class="line">domain-needed</span><br><span class="line"></span><br><span class="line">port=53</span><br><span class="line"></span><br><span class="line">bogus-priv</span><br><span class="line"></span><br><span class="line">interface=lo</span><br><span class="line"></span><br><span class="line">bind-interfaces</span><br><span class="line"></span><br><span class="line">listen-address=127.0.0.1</span><br><span class="line"></span><br><span class="line">cache-size=4000</span><br><span class="line"></span><br><span class="line">resolv-file=/etc/resolv.dnsmasq</span><br><span class="line"></span><br><span class="line">no-poll</span><br></pre></td></tr></table></figure>
+<h4 id="参数说明">参数说明</h4>
+<p><strong>（1）domain-needed</strong></p>
+<p>如果没有域名后缀的请求（即单个主机名的查询）会被忽略，不会被转发到上游
+DNS 服务器。防止将无效的主机名查询发送到外部 DNS 服务器。</p>
+<p><strong>（2）port</strong></p>
+<p>绑定指定端口</p>
+<p><strong>（3）bogus-priv</strong></p>
+<p>阻止将私有 IP 地址范围的查询结果返回给客户端。如果上游 DNS
+服务器返回的结果是私有 IP 地址，dnsmasq 会将其丢弃。防止意外将私有 IP
+地址暴露在外部网络。</p>
+<p><strong>（4）interface=lo</strong></p>
+<p>指定 dnsmasq 仅监听在本地回环接口 lo 上。限制 dnsmasq
+只在本机的回环接口上工作，不对外提供 DNS 服务，增加安全性。</p>
+<p><strong>（5）bind-interfaces</strong></p>
+<p>强制 dnsmasq 只绑定到配置中明确指定的接口（例如 lo）。确保 dnsmasq
+只监听指定接口，防止不必要的接口绑定，增强控制和安全性。</p>
+<p><strong>（6）listen-address</strong></p>
+<p>指定 dnsmasq 应该监听 DNS 查询的 IP 地址。如果使用 dnsmasq 作为本地
+DNS 缓存服务，设置为 127.0.0.1。</p>
+<p><strong>（7）resolv-file</strong></p>
+<p>设置包含上游 DNS 服务器的文件的路径，不打开的话，默认用
+/etc/resolv.conf ，也可以直接指定，例如，我们在 /etc 中创建一个名为
+resolv.dnsmasq 的文件，其内容如下：</p>
+<p>cat /etc/resolv.dnsmasq</p>
+<p>nameserver 8.8.8.8</p>
+<p>这些配置将使 dnsmasq 能够从 8.8.8.8 查询 DNS 记录并在本地缓存。</p>
+<p><strong>（8）cache-size</strong></p>
+<p>定义要缓存的最大 DNS 记录数。</p>
+<p><strong>（9）no-resolv</strong></p>
+<p>dnsmasq不使用 /etc/resolv.conf 或者其他文件，不做上游DNS查询。取消注释此行以防止
+dnsmasq 使用 /etc/resolv.conf 文件。</p>
+<p><strong>（10）no-poll</strong></p>
+<p>禁用 dnsmasq 对 /etc/resolv.dnsmasq 文件的持续轮询检查。提高<a
+target="_blank" rel="noopener" href="https://marketing.csdn.net/p/3127db09a98e0723b83b2914d9256174?pId=2782?utm_source=glcblog&amp;spm=1001.2101.3001.7020">性能</a>，避免频繁检查该文件的变动。如果不经常修改该文件，这个选项可以避免不必要的文件系统访问。</p>
+<h3 id="启用-dnsmasq-服务">3. 启用 dnsmasq 服务</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now dnsmasq.service</span><br></pre></td></tr></table></figure>
+<h3 id="将默认-dns-设置为-dnsmasq">4. 将默认 DNS 设置为 dnsmasq</h3>
+<p>如果已经取消注释 dnsmasq 配置中的 no-resolv 选项，则无需编辑
+<code>/etc/resolv.conf</code>。</p>
+<p>注释掉所有涉及 nameserver 的行，并写入127.0.0.1到
+<code>/etc/resolv.conf</code>，如下示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/resolv.conf</span><br><span class="line"><span class="comment"># nameserver 8.8.8.8</span></span><br><span class="line">nameserver 127.0.0.1</span><br></pre></td></tr></table></figure>
+<hr />
+<center>
+<i class="fa fa-flag" style="font-size:52px;color:red"></i><font color="DarkViolet" size="8" >
+dnsmasq 性能优化</font>
+</center>
+<hr />
+<p>我们都知道<code>Bind</code>不配合数据库的情况下，经常需要重新载入并读取配置文件，这是造成性能低下的原因。根据这点教训，我们可以考虑不读取<code>/etc/hosts</code>文件。而是另外指定一个在共享内存里的文件，比如<code>/dev/shm/dnsrecord.txt</code>
+，这样就不费劲了，又由于内存的非持久性，重启就消失，可以设置为开机启动服务，实现每次开机自动同步<code>/etc/hosts</code>文件到内存中。</p>
+<h3 id="配置-dnsmasq-1">1. 配置 dnsmasq</h3>
+<figure class="highlight sh"><figcaption><span>/etc/dnsmasq.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">no-hosts</span><br><span class="line">addn-hosts=/dev/shm/dnsrecord.txt</span><br></pre></td></tr></table></figure>
+<h3 id="创建同步脚本-syndns.sh">2. 创建同步脚本 syndns.sh</h3>
+<figure class="highlight sh"><figcaption><span>/usr/local/bin/syndns</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># syndns.sh</span></span><br><span class="line"><span class="comment"># Copyright (C) 2024 Zhen-hua Feng &lt;fengzhenhua@outlook.com&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="built_in">cat</span> /etc/hosts &gt; /dev/shm/dnsrecord.txt</span><br><span class="line"><span class="built_in">sudo</span> systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
+<h3 id="提升权限">3. 提升权限</h3>
+<figure class="highlight sh"><figcaption><span>/etc/sudoers.d/01_feng</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">feng ALL=(ALL) NOPASSWD: /bin/systemctl restart dnsmasq.service, /bin/systemctl start dnsmasq.service</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>提升启动<code>dnsmasq.service</code>的开启权限后，开机启动服务就不再需要<code>sudo</code>输入密码了，这样做更加合理。</p>
+</div>
+<h3 id="设置开机时启动">4. 设置开机时启动</h3>
+<figure class="highlight sh"><figcaption><span>~/.config/autostart/syndns.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=SynDns</span><br><span class="line">TryExec=syndns</span><br><span class="line">Exec=/usr/local/bin/syndns</span><br><span class="line">Type=Application</span><br><span class="line">Categories=GNOME;GTK;System;Utility;TerminalEmulator;</span><br><span class="line">StartupNotify=<span class="literal">true</span></span><br><span class="line">X-Desktop-File-Install-Version=0.22</span><br><span class="line">X-GNOME-Autostart-enabled=<span class="literal">true</span></span><br><span class="line">Hidden=<span class="literal">false</span></span><br><span class="line">NoDisplay=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>由于本人的桌面环境是<code>Gnome</code>,
+所以推荐使用此处的<code>ArchLinux</code>配置自启动程序的方法。同时，在尝试使用<code>systemctl</code>方案时并求成功，原因在于<code>systemctl</code>是系统级服务，启动时<code>cat</code>写入内存的文件<code>dnsrecord.txt</code>就属于具备<code>root</code>权限，因此由于<code>cat</code>权限不足而失败。</p>
+</div>
+<h2 id="针对网站提速">针对网站提速</h2>
+<p>将常用网站的域名和<code>IP</code>放置到 <code>/etc/hosts</code>
+文件可以缩短主机访问
+<code>DNS</code>服务器的时间，前面将这些常用网站添加到内存文件
+<code>/dev/shm/dnsrecord.txt</code>
+中，这极大的提高了电脑访问的速度，因为即使是固态硬盘，它的读取速度也是与内存无法相比的，而这个文件却占据很小内存，甚至可以忽略不计。但是，在访问某一网站时，由于网站会借助
+<code>cdn</code>
+等添加一些<code>js</code>组件，而这一部分会零星的占用不少时间去访问
+<code>DNS</code>服务器。为了进一步提速，就需要我们将这些后台访问的网址域名也添加到<code>/etc/hosts</code>文件中。方法是：打开
+<code>firefox</code>
+→<code>更多工具</code>→<code>Web 开发者工具</code>→<code>网络</code>,
+然后就可以看到后台访问的许多网站，手动把这些域名解析后有可能获取多个<code>IP</code>,
+将这些<code>IP</code>使用<code>Ping</code>工具测速后，把最快的<code>IP</code>添加到<code>hosts</code>中。下次访问主网站，速度就飞起了。</p>
+<p>另外需要注意的是：<code>firefox</code>→<code>设置</code>→<code>隐私和安全</code>→取消<code>关闭Firfox时删除Cookie与网站数据</code>.
+这样设置后，下次在访问此网站，那些缓存好的图片等就不需要再次下载了，网站只下载那些发生变动的部分，因此这又可以进一步的提升访问速度。</p>
+<h1 id="参考文章">参考文章</h1>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/zh-tw/Dnsmasq">dnsmasq-ArchWiki</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/xaioxiaotutunuo/article/details/143356372">dnsmasq本地缓存dns方案</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1174717">DNSmasq详细解析及详细配置</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51251861">linux基本服务系列之DNSmasq的使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lps365/p/3366497.html">archlinux
+DNS缓存建立</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gaoyanbing/p/13030111.html">利用
+Dnsmasq 部署 DNS 服务</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/XDG_Autostart">XDG
+Autostart-Wiki</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/29/Linux%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/29/Linux%E8%A7%A3%E5%86%B3%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E5%AD%A6%E6%9C%AF%E7%BD%91%E7%AB%99%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Linux解决无法访问学术网站的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-29 01:06:49" itemprop="dateCreated datePublished" datetime="2024-11-29T01:06:49+08:00">2024-11-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>科研工作中需要经常访问学术网站，然而有时候却无法访问或速度太慢，以致于论文无法下载。为解决这一问题，本文提出修改<code>/etc/hosts</code>文件的方法。</p>
+<h2 id="解决追加内容到-hosts-时无权限问题">解决追加内容到 hosts
+时无权限问题</h2>
+<h3 id="使用子命令">1. 使用子命令</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> bash -c <span class="string">&quot;cat &gt;&gt; /etc/hosts&quot;</span> &lt;&lt; <span class="string">EOF</span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用tee命令">2. 使用tee命令</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> -a /etc/hosts &gt; /dev/null &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+<h2 id="ip-查询">Ip 查询</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://zh-hans.ipshu.com/">https://zh-hans.ipshu.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ip138.com/">https://www.ip138.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://uutool.cn/nslookup/">https://uutool.cn</a></li>
+<li><a target="_blank" rel="noopener" href="https://ip.cn/">https://ip.cn</a></li>
+<li><a target="_blank" rel="noopener" href="https://iplark.com/search">https://iplark.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ipuu.net/Home">https://www.ipuu.net</a></li>
+<li><a target="_blank" rel="noopener" href="https://ip.weirain.com/">https://ip.weirain.com/</a></li>
+</ul>
+<div class="note primary"><p>注意：选择上述任意的一个网站，然后输入你要访问的学术网站的域名，查询到对应的<code>IP</code>地址，保存下来。</p>
+</div>
+<h2 id="写入到-hosts">写入到 hosts</h2>
+<figure class="highlight sh"><figcaption><span>updatehost.sh</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Program  : updatehost.sh</span></span><br><span class="line"><span class="comment"># Version  : v1.1</span></span><br><span class="line"><span class="comment"># Date     : 2023-10-08</span></span><br><span class="line"><span class="comment"># Author   : fengzhenhua</span></span><br><span class="line"><span class="comment"># Email    : fengzhenhua@outlook.com</span></span><br><span class="line"><span class="comment"># CopyRight: Copyright (C) 2022-2025 FengZhenhua(冯振华)</span></span><br><span class="line"><span class="comment"># License  : Distributed under terms of the MIT license.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">OutHost=<span class="string">&quot;/etc/hosts&quot;</span></span><br><span class="line"><span class="built_in">sudo</span> curl -o <span class="variable">$OutHost</span> https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts\?inline\=<span class="literal">false</span></span><br><span class="line"><span class="built_in">sudo</span> sh -c <span class="string">&quot;cat &gt;&gt; <span class="variable">$OutHost</span>&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">172.67.9.71                  journals.aps.org</span></span><br><span class="line"><span class="string">104.26.5.132                 doi.org</span></span><br><span class="line"><span class="string">66.22.61.221                 iopscience.iop.org</span></span><br><span class="line"><span class="string">104.20.229.70                orcid.org</span></span><br><span class="line"><span class="string">172.64.146.247               www.researchgate.net</span></span><br><span class="line"><span class="string">151.101.3.42                 arxiv.org</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+<h2 id="windows下修改hosts">Windows下修改hosts</h2>
+<ul>
+<li>打开文本编辑器:
+在<code>管理员权限</code>下打开你选择的文本编辑器。</li>
+<li>打开hosts文件:
+在文本编辑器中，选择<code>文件</code>→<code>打开</code>，找到的<code>hosts</code>文件
+<br> <code>C:\Windows\System32\drivers\etc\hosts</code>。</li>
+<li>编辑hosts文件:
+在<code>hosts</code>文件的最后一行，添加你需要的域名和对应的IP地址。例如，你想将
+<br>
+<code>www.example.com</code>指向本地的<code>127.0.0.1</code>，那么可以在<code>hosts</code>文件中添加以下内容：
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1       www.example.com</span><br></pre></td></tr></table></figure>
+每个映射关系应该占据一行，IP地址和域名之间使用制表符或空格进行分隔。</li>
+<li>保存文件: 在编辑完成后，保存hosts文件。</li>
+<li>刷新DNS缓存
+<ul>
+<li>打开命令提示符：
+在开始菜单中搜索“命令提示符”，并以管理员权限打开。</li>
+<li>执行命令： 在命令提示符中输入以下命令，并按下回车键：
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig/flushdns</span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.amjun.com/1628.html">Linux 执行 cat
+命令往文件写入内容提示 Permission denied</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/438447914">如何修改hosts文件？几种修改hosts文件的方法</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_55846296/article/details/131451501">一步步教你修改Windows本地hosts文件，轻松修改域名指向！</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/28/Linux%E7%94%A8%E6%88%B7%E7%BB%84%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Linux用户组管理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-28 23:38:56" itemprop="dateCreated datePublished" datetime="2024-11-28T23:38:56+08:00">2024-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在<code>ArchLinux</code>的<a
+target="_blank" rel="noopener" href="https://arch.icekylin.online/guide/rookie/desktop-env-and-app.html#_2-%E5%87%86%E5%A4%87%E9%9D%9E-root-%E7%94%A8%E6%88%B7">安装教程</a>和<a
+target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Sudo">Sudo-ArchWiki</a>中都默认建立了<code>wheel</code>组，并且赋予其<code>sudo</code>权限，这个操作就不是太安全了，因此在安装系统时您应当建立自己的组，而不是使用网上所统一使用的<code>wheel</code>，所以本文就来更正这个错误。</p>
+<h2 id="查看本机建立的组">查看本机建立的组</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span></span><br><span class="line">&gt;</span><br><span class="line">wheel yourname</span><br></pre></td></tr></table></figure>
+<h2
+id="建立自己的组并将当前帐号移到自己的组">建立自己的组并将当前帐号移到自己的组</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupadd yourgrp</span><br><span class="line"><span class="built_in">sudo</span> usermod -aG yourgrp yourname</span><br></pre></td></tr></table></figure>
+<h2 id="删除-wheel-组">删除 wheel 组</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupdel wheel</span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>注意：删除<code>wheel</code>后，需要修改<code>/etc/sudoers</code>文件，将其中的<code>wheel</code>全部替换成<code>yourgrp</code>，这样您的<code>yourgrp</code>才能具备<code>sudo</code>的权限。</p>
+</div>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/MrWangHao/article/details/131334000">21.Linux把用户加入或移除用户组</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://wenku.csdn.net/answer/mag01q5150">linux创建组并添加用户</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.idc.net/help/149347/">Linux用户组及其命令：id
+groups (linux id groups)</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/Linux%E4%B8%AD4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%BE%E5%87%BA%E8%BF%9B%E7%A8%8BID%EF%BC%88PID%EF%BC%89%E7%9A%84%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/28/Linux%E4%B8%AD4%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%BE%E5%87%BA%E8%BF%9B%E7%A8%8BID%EF%BC%88PID%EF%BC%89%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Linux中4个简单的找出进程ID（PID）的方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-11-28 15:57:42" itemprop="dateCreated datePublished" datetime="2024-11-28T15:57:42+08:00">2024-11-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>每个人都知道 PID，究竟什么是 PID？为什么你想要 PID？你打算用 PID
+做什么？你脑子里有同样的问题吗？如果是这样，你就找对地方了解这些细节了。</p>
+<p>我们查询 PID 主要是用来杀死一个没有响应的程序，它类似于 Windows
+任务管理器一样。 Linux GUI 也提供相同的功能，但 CLI 是执行
+<code>kill</code> 操作的有效方法。</p>
+<h3 id="什么是进程-id">什么是进程 ID?</h3>
+<p><code>PID</code>
+代表进程标识号<code>process identification</code>，它在大多数操作系统内核（如
+Linux、Unix、macOS 和
+Windows）中使用。它是在操作系统中创建时自动分配给每个进程的唯一标识号。一个进程是一个正在运行的程序实例。</p>
+<p>除了 init 进程外其他所有的进程 ID 每次都会改变，因为 init
+始终是系统上的第一个进程，并且是所有其他进程的父进程。它的 PID 是
+1。</p>
+<p>PID 默认的最大值是 <code>32768</code>。可以在你的系统上运行
+<code>cat /proc/sys/kernel/pid_max</code> 来验证。在 32
+位系统上，<code>32768</code> 是最大值，但是我们可以在 64
+位系统上将其设置为最大 2<sup>22（约</sup> 4 百万）内的任何值。</p>
+<p>你可能会问，为什么我们需要这么多的 PID？因为我们不能立即重用
+PID，这就是为什么。另外为了防止可能的错误。</p>
+<p>系统正在运行的进程的 PID 可以通过使用
+<code>pidof</code>、<code>pgrep</code>、<code>ps</code> 和
+<code>pstree</code> 命令找到。</p>
+<h3 id="方法-1使用-pidof-命令">方法 1：使用 pidof 命令</h3>
+<p><code>pidof</code> 用于查找正在运行的程序的进程
+ID。它在标准输出上打印这些 id。为了演示，我们将在 Debian
+9（stretch）系统中找出 Apache2 的进程 ID。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pidof apache2</span><br><span class="line">3754 2594 2365 2364 2363 2362 2361</span><br></pre></td></tr></table></figure>
+<p>从上面的输出中，你可能会遇到难以识别进程 ID
+的问题，因为它通过进程名称显示了所有的
+PID（包括父进程和子进程）。因此，我们需要找出父
+PID（PPID），这是我们要查找的。它可能是第一个数字。在本例中，它是
+<code>3754</code>，并按降序排列。</p>
+<h3 id="方法-2使用-pgrep-命令">方法 2：使用 pgrep 命令</h3>
+<p><code>pgrep</code> 遍历当前正在运行的进程，并将符合选择条件的进程 ID
+列到标准输出中。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pgrep apache2</span><br><span class="line">2361</span><br><span class="line">2362</span><br><span class="line">2363</span><br><span class="line">2364</span><br><span class="line">2365</span><br><span class="line">2594</span><br><span class="line">3754</span><br></pre></td></tr></table></figure>
+<p>这也与上面的输出类似，但是它将结果从小到大排序，这清楚地说明父 PID
+是最后一个。在本例中，它是 <code>3754</code>。</p>
+<p><strong>注意：</strong> 如果你有多个进程的进程 ID，那么在使用
+<code>pidof</code> 和 <code>pgrep</code> 识别父进程 ID
+时就可能不会很顺利。</p>
+<h3 id="方法-3使用-pstree-命令">方法 3：使用 pstree 命令</h3>
+<p><code>pstree</code> 将运行的进程显示为一棵树。树的根是某个
+pid，如果省略了 pid 参数，那么就是 init。如果在 <code>pstree</code>
+命令中指定了用户名，则显示相应用户拥有的所有进程。</p>
+<p><code>pstree</code>
+会将相同的分支放在方括号中，并添加重复计数的前缀来可视化地合并到一起。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pstree -p | grep <span class="string">&quot;apache2&quot;</span></span><br><span class="line">|- apache2(3754) -|-apache2(2361)</span><br><span class="line">| |-apache2(2362)</span><br><span class="line">| |-apache2(2363)</span><br><span class="line">| |-apache2(2364)</span><br><span class="line">| |-apache2(2365)</span><br><span class="line">| `-apache2(2594)</span><br></pre></td></tr></table></figure>
+<p>要单独获取父进程，请使用以下格式。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pstree -p | grep <span class="string">&quot;apache2&quot;</span> | <span class="built_in">head</span> -1</span><br><span class="line">|- apache2(3754) -|-apache2(2361)</span><br></pre></td></tr></table></figure>
+<p><code>pstree</code>
+命令非常简单，因为它分别隔离了父进程和子进程，但这在使用
+<code>pidof</code> 和 <code>pgrep</code> 时命令不容易做到。</p>
+<h3 id="方法-4使用-ps-命令">方法 4：使用 ps 命令</h3>
+<p><code>ps</code> 显示活动进程的选择信息。它显示进程
+ID（<code>pid</code>=PID）、与进程关联的终端（<code>tname</code>=TTY）、以
+<code>[DD-]hh:mm:ss</code> 格式（<code>time</code>=TIME）显示的累计 CPU
+时间、以及执行名（<code>ucmd</code> = CMD）。输出默认是未排序的。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep <span class="string">&quot;apache2&quot;</span></span><br><span class="line">www-data 2361 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2362 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2363 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2364 0.0 0.4 302652 9732 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2365 0.0 0.4 302652 8400 ? S 06:25 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">www-data 2594 0.0 0.4 302652 8400 ? S 06:55 0:00 /usr/sbin/apache2 -k start</span><br><span class="line">root 3754 0.0 1.4 302580 29324 ? Ss Dec11 0:23 /usr/sbin/apache2 -k start</span><br><span class="line">root 5648 0.0 0.0 12784 940 pts/0 S+ 21:32 0:00 grep apache2</span><br></pre></td></tr></table></figure>
+<p>从上面的输出中，我们可以根据进程的启动日期轻松地识别父进程
+ID（PPID）。在此例中，apache2 启动于
+<code>Dec 11</code>，它是父进程，其他的是子进程。apache2 的 PID 是
+<code>3754</code>。</p>
+<h2 id="引用">引用</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-9344-1.html">Linux 中 4
+个简单的找出进程 ID（PID）的方法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -521,1196 +1588,8 @@ target="_blank" rel="noopener" href="https://dev59.com/askubuntu/iUPXs4cB2Jgan1z
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/28/SCI%E6%8A%95%E7%A8%BF7%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/28/SCI%E6%8A%95%E7%A8%BF7%E4%B8%AA%E9%98%B6%E6%AE%B5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF/" class="post-title-link" itemprop="url">SCI投稿7个阶段的邮件模板</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-28 00:19:59" itemprop="dateCreated datePublished" datetime="2024-11-28T00:19:59+08:00">2024-11-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="最初投稿coverletter">1.最初投稿Coverletter</h2>
-<p>DearEditors:<br />
-We would like to submit the enclosed manuscript entitled“Paper Title”,
-which we wish to be considered forpublication in “Journal Name”. No
-conflict of interestexits in the submission of this manuscript, and
-manuscript isapproved by all authors for publication. I would like to
-declare onbehalf of my co-authors that the work described was original
-researchthat has not been published previously, and not under
-considerationfor publication elsewhere, in whole or in part. All the
-authorslisted have approved the manuscript that is enclosed.</p>
-<p>In thiswork, we evaluated …… (简要介绍一下论文的创新性).I hope this
-paper is suitable for “Journal Name”.</p>
-<p>Thefollowing is a list of possible reviewers for your
-consideration:</p>
-<p>1)Name A E-mail: ××××@××××</p>
-<p>2)Name B E-mail: ××××@××××</p>
-<p>Wedeeply appreciate your consideration of our manuscript, and we
-lookforward to receiving comments from the reviewers. If you have
-anyqueries, please don’t hesitate to contact me at the addressbelow.</p>
-<p>Thank you and best regards.</p>
-<p>Yourssincerely,<br />
-××××××<br />
-Correspondingauthor: <br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2 id="催稿信">2.催稿信</h2>
-<p>DearProf. ×××:</p>
-<p>Sorry for disturbing you. I am notsure if it is the right time to
-contact you to inquire about thestatus of my submitted manuscript titled
-“Paper Title”.(ID: 文章稿号),although the status of “With Editor” has
-been lasting formore than two months, since submitted to journal three
-months ago. Iam just wondering that my manuscript has been sent to
-reviewers ornot?</p>
-<p>I would be greatly appreciated if you could spend some ofyour time
-check the status for us. I am very pleased to hear from youon the
-reviewer’s comments.</p>
-<p>Thank you very much for yourconsideration.</p>
-<p>Best regards! <br />
-Yourssincerely,<br />
-××××××<br />
-Correspondingauthor: <br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2 id="修改稿coverletter">3.修改稿Coverletter</h2>
-<p>DearDr/
-Prof..（写上负责你文章编辑的姓名，显得尊重，因为第一次的投稿不知道具体负责的编辑，只能用通用的Editors）:</p>
-<p>Onbehalf of my co-authors, we thank you very much for giving us
-anopportunity to revise our manuscript, we appreciate editor
-andreviewers very much for their positive and constructive comments
-andsuggestions on our manuscript entitled “Paper
-Title”.(ID: 文章稿号).</p>
-<p>Wehave studied reviewer’s comments carefully and have maderevision
-which marked in red in the paper. We have tried our best torevise our
-manuscript according to the comments. Attached please findthe revised
-version, which we would like to submit for your kindconsideration.</p>
-<p>We would like to express our great appreciation toyou and reviewers
-for comments on our paper. Looking forward tohearing from you.<br />
-Thank you and best regards.</p>
-<p>Yourssincerely,<br />
-××××××<br />
-Correspondingauthor:<br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2
-id="修改稿回答审稿人意见最重要的部分">4.修改稿回答审稿人意见（最重要的部分）</h2>
-<p>Listof Responses<br />
-Dear Editors and Reviewers:<br />
-Thank you for yourletter and for the reviewers’ comments concerning
-ourmanuscript entitled “Paper Title” (ID: 文章稿号).Those comments are
-all valuable and very helpful for revising andimproving our paper, as
-well as the important guiding significance toour researches. We have
-studied comments carefully and have madecorrection which we hope meet
-with approval. Revised portion aremarked in red in the paper. The main
-corrections in the paper and theresponds to the reviewer’s comments are
-as flowing:</p>
-<p>Respondsto the reviewer’s comments:</p>
-<p>Reviewer #1: <br />
-1. Response tocomment: (……简要列出意见……)<br />
-Response:××××××<br />
-2. Response to comment:(……简要列出意见……)<br />
-Response:××××××<br />
-。。。。。。逐条意见回答，切忌一定不能有遗漏</p>
-<p>针对不同的问题有下列几个礼貌术语可适当用用：<br />
-Weare very sorry for our negligence of ……...<br />
-We arevery sorry for our incorrect writing ……...<br />
-It isreally true as Reviewer suggested that……<br />
-We havemade correction according to the Reviewer’s comments.<br />
-Wehave re-written this part according to the Reviewer’ssuggestion<br />
-As Reviewer suggested that……<br />
-Consideringthe Reviewer’s suggestion, we have ……</p>
-<p>最后特意感谢一下这个审稿人的意见：<br />
-Specialthanks to you for your good comments. </p>
-<p>Reviewer #2:</p>
-<p>同上述</p>
-<p>Reviewer#3:<br />
-××××××<br />
-Other changes:<br />
-1. Line 60-61, the statements of “……”were corrected as “…………”<br />
-2.Line 107, “……” was added <br />
-3. Line 129,“……” was deleted<br />
-××××××</p>
-<p>Wetried our best to improve the manuscript and made some changes in
-themanuscript. These changes will not influence the content andframework
-of the paper. And here we did not list the changes butmarked in red in
-revised paper.</p>
-<p>We appreciate forEditors/Reviewers’ warm work earnestly, and hope
-that thecorrection will meet with approval.</p>
-<p>Once again, thank you verymuch for your comments and suggestions.</p>
-<h2
-id="文章接收后感谢信根据需要感谢负责文章的编辑或主编">5.文章接收后感谢信（根据需要感谢负责文章的编辑或主编）</h2>
-<p>DearProf. ××××××:</p>
-<p>Thanks very muchfor your kind work and consideration on publication
-of our paper. Onbehalf of my co-authors, we would like to express our
-greatappreciation to editor and reviewers.</p>
-<p>Thank you and bestregards.</p>
-<p>Yours sincerely,<br />
-××××××<br />
-Correspondingauthor:<br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2 id="询问校稿信件">6.询问校稿信件</h2>
-<p>Dear×××:</p>
-<p>Sorry for disturbing you. I am not sure ifit is the right time to
-contact you to inquire about the status ofour accepted manuscript titled
-“Paper Title” (ID: 文章稿号),since the copyright agreement for
-publication has been sent to youtwo months ago. I am just wondering that
-how long I can receive theproof of our manuscript from you?<br />
-I would be greatly appreciatedif you could spend some of your time for a
-reply. I am very pleasedto hear from you.</p>
-<p>Thank you very much for yourconsideration.</p>
-<p>Yours sincerely,<br />
-××××××<br />
-Correspondingauthor:<br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2 id="文章校稿信件">7.文章校稿信件</h2>
-<p>DearMr. ×××:</p>
-<p>Thanks very much for your kind letterabout the proof of our paper
-titled “Paper Title” (ID:文章稿号)for publication in “Journal Name”. We
-have finished theproof reading and checking carefully, and some
-corrections about theproof and the answers to the queries are provided
-below.</p>
-<p>Corrections:<br />
-1. In ****** should be **** (Page ***, Rightcolumn, line***)<br />
-2. In **** the “*****” should be“****” (Page ****, Right column,
-line****)</p>
-<p>Answers for“author queries”:<br />
-1. *********************.<br />
-2.**********************<br />
-3. **********************</p>
-<p>We greatlyappreciate the efficient, professional and rapid processing
-of ourpaper by your team. If there is anything else we should do, please
-donot hesitate to let us know.</p>
-<p>Thank you and best regards.<br />
-Yourssincerely,<br />
-××××××<br />
-Correspondingauthor:<br />
-Name: ×××<br />
-E-mail: ××××@××××</p>
-<h2 id="引用">引用</h2>
-<p>全文引用自：<a
-target="_blank" rel="noopener" href="https://blog.csdn.net/Angelina_Jolie/article/details/131838025">SCI投稿7个阶段的邮件模板</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/27/Linux%E5%AE%89%E8%A3%85%E8%8F%9C%E5%8D%95%E5%90%AF%E5%8A%A8%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/27/Linux%E5%AE%89%E8%A3%85%E8%8F%9C%E5%8D%95%E5%90%AF%E5%8A%A8%E5%99%A8/" class="post-title-link" itemprop="url">Linux安装菜单启动器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-27 20:01:31" itemprop="dateCreated datePublished" datetime="2024-11-27T20:01:31+08:00">2024-11-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用 Linux
-办公的过程中不可避免的要手动安装一些自定义的软件，或者在仓库中无法找到的软件。此时在菜单中安装一个程序启动器就显得尤为必要，在此之前制作<code>.desktop</code>文件,
-请参考文章：<a
-href="/2024/11/14/Linux桌面创建启动器">Linux桌面创建启动器</a></p>
-<h1 id="安装程序图标">安装程序图标</h1>
-<p>如果你已经获得了对应程序的<code>icons</code>,
-那么相当于获得了一个含有图标的目录： <figure class="highlight sh"><figcaption><span>ls ./icons/hicolor</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">16x16     48x48       192x192@2</span><br><span class="line">16x16@2   48x48@2     256x256</span><br><span class="line">20x20     64x64       256x256@2</span><br><span class="line">22x22     64x64@2     384x384</span><br><span class="line">22x22@2   72x72       512x512</span><br><span class="line">24x24     72x72@2     512x512@2</span><br><span class="line">24x24@2   96x96       icon-theme.cache</span><br><span class="line">32x32     96x96@2     index.theme</span><br><span class="line">32x32@2   128x128     scalable</span><br><span class="line">36x36     128x128@2   symbolic</span><br><span class="line">36x36@2   192x192</span><br></pre></td></tr></table></figure></p>
-<p>此时需要递归的把各目录中的图标复制到系统的相应图标目录中，只需要<code>cp</code>命令添加<code>-r</code>选项,
-即 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r ./icons  /usr/share/icons/</span><br><span class="line"><span class="built_in">sudo</span> gtk-update-icon-cache /usr/share/icons/hicolor</span><br><span class="line"><span class="built_in">sudo</span> update-mime-datebase -V /usr/share/mime</span><br></pre></td></tr></table></figure></p>
-<div class="note primary"><p>其中<code>hicolor</code>是当前的主题，不同的机器使用不同的主题。</p>
-</div>
-<h1 id="安装-.desktop-文件">安装 .desktop 文件</h1>
-<h2 id="命令安装">命令安装</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xdg-desktop-menu install path/to/file.desktop</span><br></pre></td></tr></table></figure>
-<h2 id="手动安装">手动安装</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> path/to/file.desktop /usr/share/applications/file.desktop</span><br><span class="line"><span class="built_in">sudo</span> xdg-desktop-menu forceupdate</span><br></pre></td></tr></table></figure>
-<h1 id="例子-安装-zlibrary">例子: 安装 Zlibrary</h1>
-<ul>
-<li>下载<a
-target="_blank" rel="noopener" href="https://s3proxy.cdn-zlib.sk/te_public_files/soft/linux/zlibrary-setup-latest.gz">Zlibrary
-For any linux</a></li>
-<li>解压后安装到<code>/opt/Z-Library</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unar zlibrary-setup-latest.gz </span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r zlibrary-setup-latest  /opt/Z-Library</span><br></pre></td></tr></table></figure></li>
-<li>下载<a
-target="_blank" rel="noopener" href="https://s3proxy.cdn-zlib.sk/te_public_files/soft/linux/zlibrary-setup-latest.deb">Zlibrary
-For debian/ubuntu</a>, 以获取<code>icons</code>和<code>.desktop</code>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">unar zlibrary-setup-latest.deb</span><br><span class="line"><span class="built_in">cd</span> zlibrary-setup-latest</span><br><span class="line">unar data.tar.xz</span><br><span class="line"><span class="built_in">cd</span> data/usr/share/icons</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> ./usr/share/icons/hicolor /usr/share/icons/hicolor</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> ./usr/share/applications/z-library.desktop /usr/share/applications/z-library.desktop</span><br><span class="line"><span class="built_in">sudo</span> gtk-update-icon-cache /usr/share/icons/hicolor</span><br><span class="line"><span class="built_in">sudo</span> xdg-desktop-menu forceupdate</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/quantum7/article/details/101014538">LINUX更改图标后生效</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://dev59.com/unix/CY5aRYkBhS1WtX2rSZPX">为什么我的application.desktop文件在Linux应用菜单中没有显示出来？</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://wiki.deepin.org/zh/03_技术规范/02_XDG规范/XDG桌面菜单项">XDG桌面菜单项</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://portland.freedesktop.org/doc/xdg-desktop-menu.html">https://portland.freedesktop.org/doc/xdg-desktop-menu.html</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://commandmasters.com/commands/xdg-desktop-menu-linux/">How
-to use the command xdg-desktop-menu (with examples)</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/20/%E9%BB%8E%E6%9B%BC%E6%9B%B2%E7%8E%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/20/%E9%BB%8E%E6%9B%BC%E6%9B%B2%E7%8E%87/" class="post-title-link" itemprop="url">黎曼曲率</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-20 10:21:27" itemprop="dateCreated datePublished" datetime="2024-11-20T10:21:27+08:00">2024-11-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>现在我们来关注黎曼曲率。总的来说，黎曼曲率提供了一种方案，让身处空间内部的人也能计算自身所处空间的弯曲程度。俗话说，“不识庐山真面目，只缘身在此山中”，还有“当局者迷，旁观者清”，等等，因此，能够身处空间之中而发现空间中的弯曲与否，是一件很了不起的事情，就好像我们已经超越了我们现有的空间，到了更高维的空间去“居高临下”那样。真可谓“心有多远，路就有多远，世界就有多远”。</p>
-<p>如果站在更高维空间的角度看，就容易发现空间的弯曲。比如弯曲空间中有一条测地线，从更高维的空间看，它就是一条曲线，可以计算曲率等，但是在原来的空间看，它就是直的，测地线就是直线概念的一般化，因此不可能通过这种途径发现空间的弯曲性，必须有一些迂回的途径。可能一下子不容易想到，但是各种途径都殊途同归后，就感觉它是显然的了。</p>
-<p>怎么更好地导出黎曼曲率来，使得它能够明显地反映出弯曲空间跟平直空间的本质区别呢？为此笔者思考了很长时间，看了不少参考书（《引力与时空》、《场论》、《引力论》等），比较了几种导出黎曼曲率的方式，简要叙述如下.</p>
-<h1 id="求导顺序不能乱">求导顺序不能乱</h1>
-<p>一般的张量分析或者黎曼几何教材中，导出黎曼曲率的方式是考虑二阶协变导数顺序的差别：
-<span class="math display">\[\begin{equation}\label{eq:reimann0}
-A^\mu_{;\alpha;\beta}-A^\mu_{;\beta;\alpha}=-R^\mu_{\nu\alpha\beta}A^\nu
-\end{equation}\]</span></p>
-<p>由此可以分离出黎曼曲率张量<span
-class="math inline">\(R^\mu_{\nu\alpha\beta}\)</span>来，这确实是一种爽快的途径，但它的几何意义并不明显，很难看出它是怎么反映空间是曲还是直的。而且我们现在还没有定义二阶协变导数（一次协变导数后有两个指标，即相当于一个矩阵而不是向量了，定义高阶协变导数需要细节上的跟进），而这个定义基本上是纯粹代数演算，目前对我们来说意义不大，因此我们这里不作定义，读者直接参考教材即可，所以我们也不对这种方案多作讨论。</p>
-<h1 id="在弯曲空间邂逅">在弯曲空间邂逅</h1>
-<p>此外，还有通过测地线偏离（在广义相对论中对应于潮汐力）来导出黎曼曲率的，那也算是一种几何意义和物理意义都很明确的方案，但是涉及到的计算比较繁琐。主要思路是：考虑测地线方程
-<span class="math display">\[\begin{equation}\label{eq:cedixian0}
-\frac{d^2x^\mu}{ds^2}+\Gamma^\mu_{\alpha\beta}(x)\frac{dx^\alpha}{ds}\frac{dx^\beta}{ds}=0
-\end{equation}\]</span> 假设有另一条测地线<span
-class="math inline">\(x(s)+\delta{x}(s)\)</span>, 那么定满足方程 <span
-class="math display">\[\begin{equation}\label{eq:cedixian1}
-\frac{d^2(x^\mu+\delta{x^\mu})}{ds^2}+\Gamma^\mu_{\alpha\beta}(x+\delta{x})\frac{d(x^\alpha+\delta{x^\alpha})}{ds}\frac{d(x^\beta+\delta{x^\beta})}{ds}=0
-\end{equation}\]</span> 假设<span
-class="math inline">\(\delta{x}\)</span>和<span
-class="math inline">\(d\delta{x}/ds\)</span>都是无穷小量，两式作差，得到
-<span class="math display">\[\begin{equation}\label{eq:cedixian2}
-\frac{d^2\delta{x^\mu}}{ds^2}+\frac{\partial\Gamma^\mu_{\alpha\beta}}{\partial{x^\nu}}\delta{x^\nu}\frac{dx^\alpha}{ds}\frac{x^\beta}{ds}+2\Gamma^\mu_{\alpha\beta}\frac{d\delta{x^\alpha}}{ds}\frac{dx^\beta}{ds}=0
-\end{equation}\]</span> 其中<span
-class="math inline">\(\delta{x}\)</span>就被称为测地线偏离,在黎曼几何中，称之为“雅可比向量场”。上述形式已经足够简单，然而，我们倾向于写成协变导数的形式，因为协变导数才是在弯曲空间中合理的导数，前面我们已经定义了沿测地线的导数<span
-class="math inline">\(\frac{DA^\mu}{Ds}\)</span>,
-重复一次，我们就能够得到沿测地线的二阶导数<span
-class="math inline">\(\frac{D^2A^\mu}{Ds^2}=\frac{D}{Ds}\left(\frac{DA^\mu}{Ds}\right)\)</span>,
-这是容易办到的，但因为我们这里不是特别关心这种方案，因此就不写出<span
-class="math inline">\(\frac{D^2A^\mu}{Ds^2}\)</span>的具体形式了，读者可以自己推导。经过计算后，就会发现
-<span class="math display">\[\begin{equation}\label{eq:cedixian3}
-\frac{D^2\delta{x^\mu}}{Ds^2}=-R^\mu_{\nu\alpha\beta}\delta{x^\alpha}\frac{dx^\nu}{ds}\frac{dx^\beta}{ds}
-\end{equation}\]</span> 这就出现了曲率张量<span
-class="math inline">\(R^\mu_{\nu\alpha\beta}\)</span>。从数学来看，非零的<span
-class="math inline">\(R^\mu_{\nu\alpha\beta}\)</span>实际上表明了测地线分布的不均匀，这就是弯曲空间的体现之一。</p>
-<div class="note primary"><p>这种方案让笔者想起了几米的漫画作品《向左走·向右走》，说的是男女主角一个习惯向左走，一个习惯向右走，于是他们两个看起来永远不会相遇。但有一天他们在圆形喷水池相遇了——在圆的一端背向行走，最终在圆的另一端相遇了。而在弯曲空间中，比如在球面上，即便两条平行线也有相交的机会。这其实表明，“弯曲”其实更为深刻和有趣，它给予了我们世界更多的可能性。</p>
-</div>
-<h1 id="溜达回来的变化">"溜达"回来的变化</h1>
-<p>最后还有一种分析向量沿着闭合曲线平移后的变化的方案，我们在这里详细分析它。事实上它跟测地线偏离是等价的，只是它的几何意义更加明显，有助于导出更为深刻的结果。它表明，如果一个向量“溜达”一圈回来之后，它就不一定是原来的向量了。下图的例子就清晰表明了这一点。
-<img src="https://spaces.ac.cn/usr/uploads/2016/10/3490364498.gif"
-alt="溜达回来的变化" /></p>
-<p>假设<span class="math inline">\(x^\mu\)</span>处有任意一个向量<span
-class="math inline">\(A_\mu\)</span>，从<span
-class="math inline">\(x^\mu\)</span>出发，先平移无穷小量<span
-class="math inline">\(dx^\mu\)</span>，再平移无穷小量<span
-class="math inline">\(\delta{x^\mu}\)</span>，然后再平移无穷小量<span
-class="math inline">\(−dx^\mu\)</span>，最后平移无穷小量<span
-class="math inline">\(-\delta{x^\mu}\)</span>，也就是沿着一个无穷小的平行四边形走了一圈，回到原点：
-<span class="math display">\[\begin{equation}\label{eq:cedixian4}
-x^\mu\to x^\mu+dx^\mu \to x^\mu+dx^\mu+\delta{x^\mu} \to
-x^\mu+\delta{x^\mu} \to x^\mu
-\end{equation}\]</span></p>
-<p>我们逐步计算平移过程中<span
-class="math inline">\(A^\mu\)</span>的变化，从<span
-class="math inline">\(x^\mu\)</span>到<span
-class="math inline">\(x^\mu+dx^\mu\)</span>，<span
-class="math inline">\(A_\mu\)</span>变为 <span
-class="math display">\[\begin{equation}\label{eq:cedixian5}
-A^\mu-\Gamma^\mu_{\alpha\beta}(x)A^\alpha dx^\beta
-\end{equation}\]</span> 接着从<span
-class="math inline">\(x^\mu+dx^\mu\)</span>到<span
-class="math inline">\(x^\mu+dx^\mu+\delta{x^\mu}\)</span>, <span
-class="math inline">\(A^\mu\)</span>变为 <span
-class="math display">\[\begin{align}\label{eq:cedixian6}
-A^\mu&amp;-\Gamma^\mu_{\alpha\beta}(x)A^\alpha
-dx^\beta-\Gamma^\mu_{\nu\gamma}(x+dx)\left[A^\nu-\Gamma^\nu_{\alpha\beta}(x)A^\alpha
-dx^\beta\right]\delta{x^\gamma} \notag \\
-&amp;=A^\mu-\Gamma^\mu_{\alpha\beta}(x)A^\alpha
-dx^\beta-\Gamma^\mu_{\nu\gamma}(x)A^\nu\delta{x^\gamma}-\frac{\partial\Gamma^\mu_{\nu\gamma}(x)}{\partial
-x^\beta}A^\nu d{x^\beta}\delta{x^\gamma} \notag \\
-&amp;\quad +\Gamma^\mu_{\nu\gamma}(x)\Gamma^\nu_{\alpha\beta}(x)A^\alpha
-dx^\beta \delta{x^\gamma}
-\end{align}\]</span> 这里我们只精确到二阶项。类似地，如果考虑路径<span
-class="math inline">\(x^\mu\to x^\mu+\delta{x^\mu}\to
-x^\mu+dx^\mu+\delta{x^\mu}\)</span>所带来的变化，则只需要将<span
-class="math inline">\(dx\)</span>和<span
-class="math inline">\(\delta{x}\)</span>交换 <span
-class="math display">\[\begin{equation}\label{eq:cedixian7}
-A^\mu-\Gamma^\mu_{\alpha\beta}(x)A^\alpha
-\delta{x^\beta}-\Gamma^\mu_{\nu\gamma}(x)A^\nu d{x^\gamma}
--\frac{\partial\Gamma^\mu_{\nu\gamma}(x)}{\partial x^\beta}A^\nu
-\delta{x^\beta}d{x^\gamma}+\Gamma^\mu_{\nu\gamma}(x)\Gamma^\nu_{\alpha\beta}(x)A^\alpha
-\delta{x^\beta} d{x^\gamma}
-\end{equation}\]</span> 那么很自然地，路径<span
-class="math inline">\(x^\mu+dx^\mu +\delta{x^\mu}\to x^\mu+\delta{x^\mu}
-\to x^\mu\)</span>所造成的变化就是上式的相反数。于是，整条闭合路径<span
-class="math inline">\(x^\mu \to x^\mu+dx^\mu \to
-x^\mu+dx^\mu+\delta{x^\mu} \to x^\mu+\delta{x^\mu}\to
-x^\mu\)</span>所带来的变化就是两式这差。调整一下求和指标，然后作差，不难得到
-<span class="math display">\[\begin{align}\label{eq:cedixian8}
-\Delta{A^\mu}&amp;=-\left(\frac{\partial\Gamma^\mu_{\alpha\gamma}}{\partial
-x^\beta}-\frac{\partial \Gamma^\mu_{\alpha\beta}}{\partial
-x^\gamma}+\Gamma^\mu_{\nu\beta}\Gamma^\nu_{\alpha\gamma}-\Gamma^\mu_{\nu\gamma}\Gamma^\nu_{\alpha\beta}\right)A^\alpha
-dx^\beta\delta{x^\gamma} \notag \\
-&amp;=-R^\mu_{\alpha\beta\gamma}A^\alpha dx^\beta\delta{x^\gamma}
-\end{align}\]</span> 这里 <span
-class="math display">\[\begin{equation}\label{eq:cedixian9}
-R^\mu_{\alpha\beta\gamma}=\frac{\partial\Gamma^\mu_{\alpha\gamma}}{\partial
-x^\beta}-\frac{\partial \Gamma^\mu_{\alpha\beta}}{\partial
-x^\gamma}+\Gamma^\mu_{\nu\beta}\Gamma^\nu_{\alpha\gamma}-\Gamma^\mu_{\nu\gamma}\Gamma^\nu_{\alpha\beta}
-\end{equation}\]</span>
-就是黎曼曲率张量的定义式了，它有4个指标，是一个非常“宏伟”的量。</p>
-<h1 id="一句话来说">一句话来说</h1>
-<p>三种不同的黎曼曲率张量的导出方式，分别从三个角度表明了弯曲空间与平直空间的区别：平直空间中，协变导数的次序是可以交换的，弯曲空间则不是；平直空间中，测地线分布的均匀的、线性的，弯曲空间则不是；平直空间中，一个向量去“溜达”一圈回来之后，并没有变化，而弯曲空间中，向量去“溜达”完之后，可能就不是原来的向量了。</p>
-<p><label style="color:red">转载声明:本文除格式上略作调整外，全文转自</label>
-<a
-target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/4014">https://spaces.ac.cn/archives/4014</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/16/Linux%E4%B8%8BLogitech%E8%AE%BE%E5%A4%87%E7%9A%84%E7%BB%88%E6%9E%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Solaar/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/16/Linux%E4%B8%8BLogitech%E8%AE%BE%E5%A4%87%E7%9A%84%E7%BB%88%E6%9E%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Solaar/" class="post-title-link" itemprop="url">Linux下Logitech设备的终极管理工具Solaar</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-16 20:24:49" itemprop="dateCreated datePublished" datetime="2024-11-16T20:24:49+08:00">2024-11-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于最近入手了一款Logitech的无线机械键盘k865,
-在Archlinux下使用非常好，所幸使用<code>pacman</code>和<code>paru</code>查询了一下关于Logitech在Archlinux下相关的软件，然后就发现了这款Archlinux官方仓库中的软件<code>solaar</code>.</p>
-<h1 id="简介">简介</h1>
-<p>Solaar 是一款专为 Linux 系统设计的 Logitech 设备管理工具，支持多种
-Logitech 键盘、鼠标及其他无线设备。无论是通过 Unifying、Bolt、Lightspeed
-或 Nano 接收器连接的设备，还是通过 USB 线缆或蓝牙连接的设备，Solaar
-都能轻松管理。Solaar 并非设备驱动程序，而是通过响应 Linux
-输入系统忽略的特殊消息来实现其功能。</p>
-<h1 id="使用场景">使用场景</h1>
-<ol type="1">
-<li><strong>多设备管理</strong>：对于拥有多款 Logitech
-设备的用户，Solaar
-提供了一个集中管理平台，方便用户统一管理所有设备。</li>
-<li><strong>设备配置</strong>：用户可以通过 Solaar
-轻松配置设备的各项设置，如按键映射、灵敏度调整等。</li>
-<li><strong>自动化规则</strong>：Solaar
-支持根据设备消息自动运行预设规则，适用于需要自动化操作的场景。</li>
-<li><strong>设备维护</strong>：Solaar
-可以帮助用户快速诊断和解决设备连接问题，提升设备使用体验。</li>
-</ol>
-<h1 id="项目特点">项目特点</h1>
-<ul>
-<li><strong>多设备支持</strong>：Solaar 支持多种 Logitech
-设备，无论是无线还是有线设备，都能轻松管理。</li>
-<li><strong>灵活配置</strong>：用户可以根据个人需求自定义设备设置，满足不同使用场景的需求。</li>
-<li><strong>自动化规则</strong>：通过设置自动化规则，Solaar
-能够根据设备状态自动执行特定操作，提升工作效率。</li>
-<li><strong>跨平台兼容</strong>：Solaar 完全兼容 Linux 系统，适用于各种
-Linux 发行版。</li>
-<li><strong>开源免费</strong>：Solaar
-是一款开源软件，用户可以免费使用并参与项目开发。</li>
-</ul>
-<h1 id="archlinux-下安装和使用">Archlinux 下安装和使用</h1>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S solaar</span><br><span class="line"><span class="built_in">sudo</span> solaar</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>虽然<code>solaar</code>建立了启动器图标，但是默认并没有<code>root</code>权限，在使用的时候请在命令行中使用<code>sudo solaar</code>命令打开软件，这样才能看到电脑连接的
-Logitech 设备，并设置。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/pwr-Solaar/Solaar">https://github.com/pwr-Solaar/Solaar</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/gitblog_00402/article/details/142239279">Solaar：Linux
-下 Logitech 设备的终极管理工具</a></li>
-<li><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ar6zn29x/">Solaar —-
-不一般的罗技接收器linux应用</a></li>
-<li><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=12375">如何在 Linux 上管理
-Logitech Unifying 接收器和设备</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/14/Linux%E6%A1%8C%E9%9D%A2%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/14/Linux%E6%A1%8C%E9%9D%A2%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E5%99%A8/" class="post-title-link" itemprop="url">Linux桌面创建启动器</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-14 11:12:03" itemprop="dateCreated datePublished" datetime="2024-11-14T11:12:03+08:00">2024-11-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介">简介</h1>
-<p>在 Linux 中，一个 <code>.desktop</code>
-文件就是一个用来运行程序的快捷方式。没有 <code>.desktop</code>
-的话，你的应用就不会在应用菜单中显示了，也无法使用像 Synapse 和 Albert
-这样的第三方启动起启动了。</p>
-<p>大多数应用在安装后都会自动创建 <code>.desktop</code>
-文件，并将自己放入应用菜单中以方便访问。然而，如果是你自己从源代码中编译的程序或者自己下载的压缩格式的应用，那就不会做这些事情了，每次你都需要打开终端来执行它的二进制文件。显然这个过程很无聊也很麻烦。</p>
-<p>本文将会告诉你如何为应用创建 <code>.desktop</code>
-文件，从而让你能在应用菜单中启动该应用。</p>
-<h1 id="创建启动器">创建启动器</h1>
-<p><code>.desktop</code>
-文件基本上就是一个包含程序信息的纯文本文件，通常根据是自己可见还是所有用户可见的不同而放在
-<code>~/.local/share/applications</code> 或者
-<code>/usr/share/applications/</code>
-目录中。你在文件管理器中访问这两个目录，都会看到很多系统中已安装应用对应的
-<code>.desktop</code> 文件存在。</p>
-<p>为了演示，我将会为 Super Tux Kart 创建一个 <code>.desktop</code>
-文件，这是一个我很喜欢玩的卡丁车竞赛游戏。Ubuntu
-仓库中带了这个游戏，但版本一般不新。</p>
-<p>要获得最新的版本就需要下载 tar 包，解压并执行其中的游戏启动文件。</p>
-<p>你可以仿照这个步骤来为任何程序创建启动器。</p>
-<p><strong>注意</strong>：下面步骤假设程序压缩包放在 “Downloads”
-目录下。</p>
-<ol type="1">
-<li>跳转到存放压缩包的目录，右击然后选择 “Extract here”。</li>
-</ol>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153912p0nch8znz16x0h7v.png"
-title="application-launcher-5" alt="application-launcher-5" />
-<figcaption aria-hidden="true">application-launcher-5</figcaption>
-</figure>
-<ol start="2" type="1">
-<li>解压后，进入新创建的目录然后找到可执行的文件。之后右击文件选择 “Run”
-来启动程序，确定程序运行正常。</li>
-</ol>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153912zypi7075b57fy07f.png"
-title="application-launcher-6" alt="application-launcher-6" />
-<figcaption aria-hidden="true">application-launcher-6</figcaption>
-</figure>
-<ol start="3" type="1">
-<li>有时候，你在右键菜单中找不到 “Run”
-选项。这通常是因为这个可执行文件是一个文本文件。你可以在终端中执行它，如果你使用
-GNOME 的话，可以点击上面菜单栏中的 Files 菜单，然后选择
-“Preferences”。</li>
-</ol>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153913j9zf5z9cef6495p6.png"
-title="application-launcher-linux-1"
-alt="application-launcher-linux-1" />
-<figcaption aria-hidden="true">application-launcher-linux-1</figcaption>
-</figure>
-<ol start="4" type="1">
-<li>选择 “Behavior” 标签页然后选择 “Executable Text Files” 下的 “Run
-them”。现在右击可执行文本文件后也能出现 “Run” 选项了。</li>
-</ol>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153913pnz3zhi2wgn5w0gg.png"
-title="application-launcher-31" alt="application-launcher-31" />
-<figcaption aria-hidden="true">application-launcher-31</figcaption>
-</figure>
-<ol start="5" type="1">
-<li>确认应用运行正常后，就可以退出它了。然后运行你的文本编辑器并将下面内容粘贴到空文本文件中：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Terminal=<span class="literal">false</span></span><br><span class="line">Exec=/path/to/executable</span><br><span class="line">Name=Name of Application</span><br><span class="line">Icon=/path/to/icon</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>你需要更改 “Exec” 域的值为可执行文件的路径，并且将 “Name”
-域的值改成应用的名称。大多数的程序都在压缩包中提供了一个图标，不要忘记把它也填上哦。在我们这个例子中，Super
-Tux Kart 的启动文件看起来是这样的：</p>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153913l7xppz2z9dgr81zz.png"
-title="application-launcher-supertuxkart"
-alt="application-launcher-supertuxkart" />
-<figcaption
-aria-hidden="true">application-launcher-supertuxkart</figcaption>
-</figure>
-<ol start="6" type="1">
-<li>将文件以 <code>application-name.desktop</code> 为名保存到
-<code>~/.local/share/applications</code> 目录中。<code>.local</code>
-目录位于你的家目录下，是一个隐藏目录，你需要启用 “Show Hidden Files”
-模式才能看到它。如果你希望这个应用所有人都能访问，则在终端中运行下面命令：
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> ~/.local/share/applications/&lt;application-name`.desktop`&gt; /usr/share/applications/</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>当然，别忘了把命令中的 <code>&lt;application-name.desktop&gt;</code>
-改成真实的 <code>.desktop</code> 文件名。</p>
-<ol start="7" type="1">
-<li>完成后，打开应用菜单，就能看到应用出现在其中，可以使用了。</li>
-</ol>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153914euasg9q06j6qqa0w.jpg"
-title="application-launcher-2" alt="application-launcher-2" />
-<figcaption aria-hidden="true">application-launcher-2</figcaption>
-</figure>
-<p>这个方法应该适用于所有主流的 Linux 操作系统。下面是另一张 Super Tux
-Kart 在 elementary OS 的应用启动器 (slingshot) 上的截图</p>
-<figure>
-<img
-src="https://img.linux.net.cn/data/attachment/album/201801/03/153914xrfdtb38s8sy3sc1.jpg"
-title="application-launcher-4" alt="application-launcher-4" />
-<figcaption aria-hidden="true">application-launcher-4</figcaption>
-</figure>
-<div class="note primary"><p>文章引用自：<a target="_blank" rel="noopener" href="https://linux.cn/article-9199-1.html">为你的
-Linux 应用创建 .desktop 文件</a></p>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/13/%E4%B8%80%E6%AC%BE%E5%BC%BA%E5%A4%A7%E7%9A%84PDF%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7StirlingPDF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/13/%E4%B8%80%E6%AC%BE%E5%BC%BA%E5%A4%A7%E7%9A%84PDF%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7StirlingPDF/" class="post-title-link" itemprop="url">一款强大的PDF处理工具StirlingPDF</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-13 22:25:02" itemprop="dateCreated datePublished" datetime="2024-11-13T22:25:02+08:00">2024-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介">简介</h1>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/Stirling-Tools/Stirling-PDF">Stirling-PDF</a>
-是一个基于 spring-boot 开发的开源项目，旨在提供一个功能强大本地托管的
-PDF 操作工具。它使您能够对 PDF
-文件进行多种操作，包括拆分、合并、转换、重新组织、添加图片、旋转、压缩等。该本地托管应用最初由
-ChatGPT 完全开发，并已发展成一个功能齐全的工具，可满足您的各种 PDF
-需求。</p>
-<p>日常生活中经常需要处理 PDF 文件， 当前也有好多处理 PDF
-的在线工具，但要么需要会员，要么需要登录等繁琐操作，而且我们的文件也存在泄漏等安全隐患。由于
-Stirling-PDF 是一个可以托管到本地的操作工具，对于不习惯使用 <a
-href="/2023/03/22/pdftk常用命令">pdftk</a>
-命令的朋友，安装此软件将是一个相当正确的选择。</p>
-<h1 id="linux-下的安装使用">Linux 下的安装使用</h1>
-<h2 id="使用-paru-安装">使用 paru 安装</h2>
-<p>在 ArchLinux 下安装 Stirling-PDF 是一件相当容易的事情，因为
-Stirling-PDF 可以在 Aur 仓库找到，只需要一条命令即可：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S stirling-pdf-bin</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：Stirling-PDF 依赖于最新版的 libreoffice-fresh, 所以安装前把
-libreoffice-still 替换为 libreoffice-fresh.</p>
-</div>
-<h2 id="手动启动">手动启动</h2>
-<h3 id="起动停止和重启服务">起动、停止和重启服务</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl status stirlingpdf.service</span><br><span class="line"><span class="built_in">sudo</span> systemctl start stirlingpdf.service</span><br><span class="line"><span class="built_in">sudo</span> systemctl stop stirlingpdf.service</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart stirlingpdf.service</span><br></pre></td></tr></table></figure>
-<h3 id="使用">使用</h3>
-<ul>
-<li>启动服务<code>sudo systemctl start stirlingpdf.service</code></li>
-<li>游览器打开：<a
-target="_blank" rel="noopener" href="http://localhost:8080">http://localhost:8080</a></li>
-<li>关闭服务<code>sudo systemctl stop stirlingpdf.service</code></li>
-<li>因为处理<code>PDF</code>文件对于个人来讲不是高频率操作，所以手动操作即可。如查想设置为默认启动，请执行
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> stirlingpdf.service</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="安装到启动器">安装到启动器</h2>
-<div class="note primary"><p>注意：按照官方的安装方法<a
-target="_blank" rel="noopener" href="https://github.com/Stirling-Tools/Stirling-PDF/blob/main/LocalRunGuide.md">LocalRunGuide</a>配置好启动器，经过测试是无法运行的。原因是<label style="color:red">
-Exec
-键必须包含命令行。命令行由可选的可执行程序组成，后面跟着一个或多个参数。</label>,
-如果使用 <code>&amp;&amp;</code> 或<code>||</code>
-等一次写入多条命令，则第二个可执行文件被读取为一个参数。所以，最佳方式是单独建立一个运行脚本，然后在
-<code>Stirling-PDF.desktop</code>文件中直接调用。</p>
-</div>
-<h3 id="查看软件安装位置">查看软件安装位置</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -Ql stirling-pdf-bin</span><br></pre></td></tr></table></figure>
-<h3 id="获取图标文件">获取图标文件</h3>
-<p>由于使用<code>paru</code>安装的<code>stirling-pdf-bin</code>，其并不包括创建<code>.desktop</code>文件，所以也就没有<code>icons</code>图标。因此，需要从<code>github</code>上获取<code>icons</code>图标.
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/Stirling-Tools/Stirling-PDF.git</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r ./Stirling-PDF/docs /usr/share/icons/stirling</span><br></pre></td></tr></table></figure></p>
-<h3 id="编写程序脚本">编写程序脚本</h3>
-<figure class="highlight sh"><figcaption><span>/usr/local/bin/stirling</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"><span class="built_in">nohup</span> java -jar /usr/share/java/stirling-pdf.jar &amp;&gt; /dev/null</span><br><span class="line">xdg-open http://localhost:8080</span><br></pre></td></tr></table></figure>
-<h3 id="编写启动器文件">编写启动器文件</h3>
-<figure class="highlight sh"><figcaption><span>~/.local/share/applications/Stirling-PDF.desktop</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Type=Application</span><br><span class="line">Name=Stirling PDF</span><br><span class="line">GenericName=Launch StirlingPDF and open its WebGUI</span><br><span class="line">Categories=Office</span><br><span class="line">Exec=stirling</span><br><span class="line">Icon=/usr/share/icons/stirling/stirling-transparent.svg</span><br><span class="line">Keywords=pdf</span><br><span class="line">Type=Application</span><br><span class="line">NoDisplay=<span class="literal">false</span></span><br><span class="line">Terminal=fals</span><br></pre></td></tr></table></figure>
-<h2 id="参考网站">参考网站</h2>
-<p>此处给出几个测试网站，可以使用，但是<label style="color:red">为了保护隐私，请安装到本地使用</label>。</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stirlingpdf.io">https://stirlingpdf.io</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://pdf.tplant.com.au">https://pdf.tplant.com.au</a></li>
-<li><a target="_blank" rel="noopener" href="https://pdf.hi.sy/">https://pdf.hi.sy/</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://stirlingpdf.blablalinux.be/">https://stirlingpdf.blablalinux.be/</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://stirling-pdf.framalab.org/">https://stirling-pdf.framalab.org/</a></li>
-<li><a target="_blank" rel="noopener" href="https://pdf.3n1tech.com/">https://pdf.3n1tech.com/</a></li>
-</ul>
-<h1 id="windows-下安装使用">Windows 下安装使用</h1>
-<h2 id="下载windows版">下载Windows版</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/Stirling-Tools/Stirling-PDF?tab=readme-ov-file">Stirling-PDF-with-login.exe
-或 Stirling-PDF.exe</a></li>
-<li>按 Windows 安装程序的标准步骤双击安装。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/09/Python%E4%BD%BF%E7%94%A8Odeint%E8%A7%A3%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%B9%B6%E4%BF%9D%E5%AD%98csv%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/09/Python%E4%BD%BF%E7%94%A8Odeint%E8%A7%A3%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%B9%B6%E4%BF%9D%E5%AD%98csv%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Python使用Odeint解微分方程并保存csv数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-09 21:10:28" itemprop="dateCreated datePublished" datetime="2024-11-09T21:10:28+08:00">2024-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本节研究使用<code>Odeint</code>解微分方程，并保存为csv数据的方法。本节以官网<a
-target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">odeint</a>上的一个例子，写出添加保存数据后的代码。所求解的微分方程为</p>
-<p><span class="math display">\[\begin{equation}\label{eq:odeint}
-\theta&#39;&#39;(t)+b\theta&#39;(t)+c\sin(\theta) = 0
-\end{equation}\]</span></p>
-<h1 id="代码">代码</h1>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> sympy <span class="keyword">as</span> sym</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> odeint</span><br><span class="line"><span class="keyword">from</span> sympy.abc <span class="keyword">import</span> t</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">b = <span class="number">0.25</span></span><br><span class="line">c = <span class="number">5.0</span></span><br><span class="line">y0 = [np.pi-<span class="number">0.1</span>, <span class="number">0.0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">spend</span>(<span class="params">y, t, b, c</span>):</span><br><span class="line">    theta, omega = y</span><br><span class="line">    dydt = [ omega, -b*omega-c*np.sin(theta)]</span><br><span class="line">    <span class="keyword">return</span> dydt</span><br><span class="line"></span><br><span class="line">t = np.linspace(<span class="number">0</span>, <span class="number">15</span>, <span class="number">1001</span>)</span><br><span class="line">sol = odeint(spend, y0, t, args=(b,c))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存数据</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">u = pd.DataFrame(sol)</span><br><span class="line">u.to_csv(<span class="string">&#x27;func.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 及时绘图</span></span><br><span class="line">plt.plot(t, sol[:, <span class="number">0</span>], <span class="string">&#x27;b&#x27;</span>, label=<span class="string">&#x27;theta(t)&#x27;</span>)</span><br><span class="line">plt.plot(t, sol[:, <span class="number">1</span>], <span class="string">&#x27;g&#x27;</span>, label=<span class="string">&#x27;omega(t)&#x27;</span>)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;best&#x27;</span>)</span><br><span class="line">plt.grid()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<div class="note primary"><p>注意：使用<code>odeint</code>求解完微分方程后，返回结果<code>sol</code>,
-其为 <span class="math inline">\(1001\times 2\)</span>
-的数组，可以直接使用<code>DataFrame</code>生成表格数据并保存为<code>func.csv</code>文件，之后再使用<code>veusz</code>绘图。</p>
-</div>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html">SciPy-odeint-example</a></li>
-<li><a href="/2023/11/08/Python解微分方程组">Python解微分方程组</a></li>
-<li><a
-href="/2024/11/09/Python绘制函数图像并保存为csv数据">Python绘制函数图像并保存为csv数据</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/09/Python%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAcsv%E6%95%B0%E6%8D%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/09/Python%E7%BB%98%E5%88%B6%E5%87%BD%E6%95%B0%E5%9B%BE%E5%83%8F%E5%B9%B6%E4%BF%9D%E5%AD%98%E4%B8%BAcsv%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Python绘制函数图像并保存为csv数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-11-09 19:35:19" itemprop="dateCreated datePublished" datetime="2024-11-09T19:35:19+08:00">2024-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="简介">简介</h1>
-<p>在科研工作中需要求解一些方程，这些方程除了数值解法外没有更好的求解方式，所以通过
-Python 或其他程序将函数的映射关系保存为一个 <code>csv</code>
-文件，然后随时都可以用绘图软件作图显示。如果不保存数据，每次分析或交流时都要重新跑一遍程序，显然在时间上是不合算的，所以必须将复杂方程的结果保存下来。本文介绍使用
-Python 保存函数图象为 <code>csv</code>文件的操作流程。</p>
-<h1 id="实例">实例</h1>
-<h2 id="python3-源码">python3 源码</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /usr/bin/env python3</span></span><br><span class="line">from os import walk</span><br><span class="line">import numpy as np</span><br><span class="line">import matplotlib.pyplot as plot</span><br><span class="line">from pylab import *</span><br><span class="line">import pandas as pd</span><br><span class="line">import math</span><br><span class="line">import tkinter as tk</span><br><span class="line"></span><br><span class="line">x0=-0.2 <span class="comment">#初始值z0的x0</span></span><br><span class="line">y0=0 <span class="comment">#初始值z0的y0</span></span><br><span class="line">a=4 <span class="comment">#绘制图的横轴大小</span></span><br><span class="line">step=0.01 <span class="comment">#绘制点的步长</span></span><br><span class="line">zoom=1.0 <span class="comment">#放大倍率</span></span><br><span class="line"></span><br><span class="line">x=np.arange(-a/(2.0*zoom)+x0,a/(2.0*zoom)+x0,step)</span><br><span class="line">y=x**2+2*x+1</span><br><span class="line">z=3*np.sin(x)</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    `xd<span class="string">&#x27;: x ,</span></span><br><span class="line"><span class="string">    &#x27;</span>yd<span class="string">&#x27;: y ,</span></span><br><span class="line"><span class="string">    &#x27;</span>zd<span class="string">&#x27;: z</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">u = pd.DataFrame(data)</span></span><br><span class="line"><span class="string">u.to_csv(&#x27;</span>func.csv<span class="string">&#x27;)</span></span><br></pre></td></tr></table></figure>
-<h2 id="编程思路">编程思路</h2>
-<ul>
-<li><code>x=np.arange(-a/(2.0*zoom)+x0,a/(2.0*zoom)+x0,step)</code>
-建立自变量等间隔划分的一个列向量.</li>
-<li><code>y=x**2+2*x+1</code>
-根据自变量建立了一个二元函数映射列向量.</li>
-<li><code>z=3*np.sin(x)</code>
-根据自变量建立了一个三解函数映射列向量.</li>
-<li>使用三组列向量构建数据表格 <code>data</code>.</li>
-<li>使用<code>pandas</code>的<code>DataFrame</code>函数建立<code>data</code>对应的数据，并保存为<code>func.csv</code>文件.</li>
-<li>使用<code>veusz</code>导入<code>func.csv</code>，选择对应的列数据便可以绘制相应的函数图象.</li>
-</ul>
-<h1 id="参考文章">参考文章</h1>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.runoob.com/pandas/pandas-dataframe.html">Pandas
-数据结构 - DataFrame</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://pythonjishu.com/pandas-dataframe/">详解pandas.DataFrame()（创建二维表格）函数使用方法</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/TeFuirnever/article/details/93708964">pd.DataFrame()函数解析（最清晰的解释）</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

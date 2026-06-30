@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,1163 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/07/%E5%8D%A0%E4%BD%8D%E7%AC%A6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/07/%E5%8D%A0%E4%BD%8D%E7%AC%A6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">占位符使用指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-05-07 11:51:00 / 修改时间：12:21:50" itemprop="dateCreated datePublished" datetime="2025-05-07T11:51:00+08:00">2025-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="概述">概述</h2>
+<p>在编程和软件开发领域，占位符是一种用于表示后续将被替换为特定值的符号或字符串。<code>&#123;&#125;</code>作为最常见的占位符之一，广泛应用于多种编程语言和框架中，如Python、JavaScript等，尤其是在字符串格式化方面。</p>
+<h2 id="用途">用途</h2>
+<p><code>&#123;&#125;</code>占位符主要用于以下场景：</p>
+<ul>
+<li>字符串格式化：允许开发者在运行时动态地插入变量值。</li>
+<li>国际化与本地化：简化文本翻译流程，便于不同语言环境下的内容替换。</li>
+<li>数据绑定：在模板引擎中，用于数据展示前的临时占位。</li>
+</ul>
+<h2 id="使用方法">使用方法</h2>
+<h3 id="python-示例">Python 示例</h3>
+<p>在Python中，<code>&#123;&#125;</code>占位符常与<code>str.format()</code>方法结合使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;Alice&quot;</span></span><br><span class="line">age = <span class="number">25</span></span><br><span class="line">formatted_string = <span class="string">&quot;My name is &#123;&#125; and I&#x27;m &#123;&#125; years old.&quot;</span>.<span class="built_in">format</span>(name, age)</span><br><span class="line"><span class="built_in">print</span>(formatted_string)  <span class="comment"># 输出: My name is Alice and I&#x27;m 25 years old. </span></span><br></pre></td></tr></table></figure>
+<h3 id="javascript-示例">JavaScript 示例</h3>
+<p>在ES6及以上版本中，通过反引号创建的模板字符串可以使用<code>$&#123;&#125;</code>来替代传统的<code>&#123;&#125;</code>占位符，实现类似的功能。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> name = <span class="string">&#x27;Bob&#x27;</span>;</span><br><span class="line"><span class="built_in">let</span> age = 30;</span><br><span class="line"><span class="built_in">let</span> sentence = `Hello, my name is <span class="variable">$&#123;name&#125;</span> and I<span class="string">&#x27;m $&#123;age&#125; years old.`;</span></span><br><span class="line"><span class="string">console.log(sentence); // 输出: Hello, my name is Bob and I&#x27;</span>m 30 years old.</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项">注意事项</h3>
+<ul>
+<li>确保提供的参数数量与占位符匹配，避免出现格式错误。</li>
+<li>根据具体的应用场景选择合适的占位符语法，以提高代码的可读性和维护性。</li>
+</ul>
+<h1 id="结论">结论</h1>
+<p><code>&#123;&#125;</code>占位符提供了一种灵活且强大的方式来处理字符串中的动态数据。正确理解和使用它可以极大地增强代码的功能性和灵活性。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/05/07/%E4%B8%BA%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E7%9A%84%E5%89%8D%E7%BC%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/05/07/%E4%B8%BA%E6%96%87%E4%BB%B6%E6%B7%BB%E5%8A%A0%E7%BB%9F%E4%B8%80%E7%9A%84%E5%89%8D%E7%BC%80/" class="post-title-link" itemprop="url">为文件添加统一的前缀</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-05-07 11:08:02 / 修改时间：11:41:05" itemprop="dateCreated datePublished" datetime="2025-05-07T11:08:02+08:00">2025-05-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当管理大量的PDF电子书时，对于某一系列的书籍而言，统一添加上相应系列的前缀或后缀是一个非常好的习惯，这特别有利于检索。在Linux下，有几种方法可以方便的实现这个功能。</p>
+<h1 id="通用命令解决方案">通用命令解决方案</h1>
+<figure class="highlight sh"><figcaption><span>xargs 和 mv 组成管道命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> | xargs -I &#123;&#125; <span class="built_in">mv</span> &#123;&#125; prefix_&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这段命令的工作原理是：首先列出当前目录下的所有文件名，然后对每个文件名执行mv命令，将其重命名为带有前缀的新名称。</p>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>上面的例子不会处理隐藏文件（以<code>.</code>开头的文件）。如果需要包括隐藏文件，请相应地调整通配符或命令。</li>
+<li>在执行这些命令之前，建议先备份重要数据，以防不测发生误操作。</li>
+<li>如果你的文件名中包含空格或其他特殊字符，可能需要对上述命令进行适当的修改，例如使用find结合-print0和xargs
+-0来安全处理这些文件名。</li>
+</ul>
+<h1 id="使用-rename-命令perl版本">使用 rename 命令（Perl版本）</h1>
+<p>对于大多数Linux发行版，你可以直接使用Perl版本的rename命令，它非常适合这类任务。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename <span class="string">&#x27;s/^/prefix_/&#x27;</span> *</span><br></pre></td></tr></table></figure>
+<h1 id="使用-shell-脚本">使用 Shell 脚本</h1>
+<h2 id="为当前目录下所有文件添加前缀">为当前目录下所有文件添加前缀</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;prefix_<span class="variable">$file</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意事项-1">注意事项</h3>
+<ul>
+<li>这个命令不会重命名目录本身。</li>
+<li>如果有子目录，这个命令也不会进入子目录。</li>
+<li>不会重命名隐藏文件（以 . 开头的文件），如需包括，请看进阶用法。</li>
+</ul>
+<h2
+id="只为普通文件添加前缀跳过目录">只为普通文件添加前缀（跳过目录）</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *; <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;prefix_<span class="variable">$file</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="为指定类型文件添加前缀如-.txt-文件">为指定类型文件添加前缀（如
+.txt 文件）</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *.txt; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;prefix_<span class="variable">$file</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2
+id="递归为当前目录及其子目录中的文件添加前缀">递归为当前目录及其子目录中的文件添加前缀</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">find . -<span class="built_in">type</span> f | <span class="keyword">while</span> <span class="built_in">read</span> file; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">dir</span>=$(<span class="built_in">dirname</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span>)</span><br><span class="line">    base=$(<span class="built_in">basename</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;<span class="variable">$dir</span>/prefix_<span class="variable">$base</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="添加时间戳作为前缀">添加时间戳作为前缀</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">prefix=$(<span class="built_in">date</span> +%Y%m%d)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *; <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$file</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;<span class="variable">$&#123;prefix&#125;</span>_<span class="variable">$file</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h1 id="特别注意">特别注意！</h1>
+<p>在进行大规模文件重命名之前，建议先备份重要数据，并考虑在一个小样本上测试你的命令。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/21/%E7%9E%AC%E5%8F%91%E4%B8%AD%E5%AD%90%E5%92%8C%E7%BC%93%E5%8F%91%E4%B8%AD%E5%AD%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/21/%E7%9E%AC%E5%8F%91%E4%B8%AD%E5%AD%90%E5%92%8C%E7%BC%93%E5%8F%91%E4%B8%AD%E5%AD%90/" class="post-title-link" itemprop="url">瞬发中子和缓发中子</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-21 20:53:52 / 修改时间：20:54:04" itemprop="dateCreated datePublished" datetime="2025-04-21T20:53:52+08:00">2025-04-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在核反应过程中，中子的释放可以分为两类：<strong>瞬发中子</strong>和<strong>缓发中子</strong>。它们的主要区别在于释放的时间尺度以及来源。</p>
+<h2 id="瞬发中子-prompt-neutrons">1. 瞬发中子 (Prompt Neutrons)</h2>
+<ul>
+<li><strong>定义</strong>:
+瞬发中子是指在核裂变发生后几乎立即释放出来的中子。</li>
+<li><strong>时间尺度</strong>: 它们通常在裂变发生后的 <span
+class="math inline">\(10^{-14}\)</span> 秒到 <span
+class="math inline">\(10^{-4}\)</span> 秒之间被释放。</li>
+<li><strong>特点</strong>:
+<ul>
+<li>数量较多，占裂变中子总数的绝大部分（约 99%）。</li>
+<li>能量分布较广，从几 keV 到十几 MeV 不等。</li>
+<li>对于维持链式反应至关重要，因为它们能够迅速引发新的裂变事件。</li>
+</ul></li>
+<li><strong>作用</strong>:
+<ul>
+<li>在核反应堆中，瞬发中子是维持链式反应的主要驱动力。</li>
+<li>由于其快速释放特性，瞬发中子对反应堆的动力学行为影响显著。</li>
+</ul></li>
+</ul>
+<h2 id="缓发中子-delayed-neutrons">2. 缓发中子 (Delayed Neutrons)</h2>
+<ul>
+<li><strong>定义</strong>:
+缓发中子是指由裂变产物（裂变碎片）经过一段时间衰变后释放出来的中子。</li>
+<li><strong>时间尺度</strong>:
+它们的释放时间比瞬发中子长得多，通常在几毫秒到几十秒之间。</li>
+<li><strong>特点</strong>:
+<ul>
+<li>数量较少，仅占裂变中子总数的约
+0.6%-1%（具体比例取决于裂变材料）。</li>
+<li>能量较低，一般在 0.1 MeV 左右。</li>
+<li>来源于特定的裂变产物（如某些放射性同位素），这些同位素在衰变过程中释放中子。</li>
+</ul></li>
+<li><strong>作用</strong>:
+<ul>
+<li>尽管数量较少，缓发中子在核反应堆控制中起着关键作用。</li>
+<li>它们延长了链式反应的时间响应，使得操作人员有足够的时间调整控制棒等参数，从而避免失控。</li>
+<li>缓发中子的存在大大提高了核反应堆的可控性。</li>
+</ul></li>
+</ul>
+<h2 id="比较">3. 比较</h2>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 39%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>特性</th>
+<th>瞬发中子</th>
+<th>缓发中子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>释放时间</strong></td>
+<td><span class="math inline">\(10^{-14}\)</span> 秒到 <span
+class="math inline">\(10^{-4}\)</span> 秒</td>
+<td>几毫秒到几十秒</td>
+</tr>
+<tr>
+<td><strong>占比</strong></td>
+<td>约 99%</td>
+<td>约 0.6%-1%</td>
+</tr>
+<tr>
+<td><strong>能量范围</strong></td>
+<td>几 keV 到十几 MeV</td>
+<td>0.1 MeV 左右</td>
+</tr>
+<tr>
+<td><strong>来源</strong></td>
+<td>直接来自核裂变过程</td>
+<td>来自裂变产物的放射性衰变</td>
+</tr>
+<tr>
+<td><strong>对反应堆的影响</strong></td>
+<td>维持链式反应</td>
+<td>提高反应堆的可控性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="总结">4. 总结</h2>
+<p>瞬发中子和缓发中子在核裂变过程中扮演着不同的角色。瞬发中子是链式反应的主要驱动力，而缓发中子虽然数量少，但对反应堆的稳定性和控制至关重要。理解这两者的特性和差异，对于核能工程和反应堆设计具有重要意义。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/19/%E5%85%B1%E6%8C%AF%E8%83%BD%E5%8C%BA%E7%9A%84%E6%95%A3%E5%B0%84%E6%88%AA%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/19/%E5%85%B1%E6%8C%AF%E8%83%BD%E5%8C%BA%E7%9A%84%E6%95%A3%E5%B0%84%E6%88%AA%E9%9D%A2/" class="post-title-link" itemprop="url">共振能区的散射截面</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-19 20:52:05 / 修改时间：21:17:28" itemprop="dateCreated datePublished" datetime="2025-04-19T20:52:05+08:00">2025-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在共振能量范围内，中子与原子核发生的弹性散射是中子在反应堆中发生慢化的主要途径，超过百分之九十九的裂变中子都是快中子，所以这些快中子对共振能量范围内的能谱影响较小，故可以忽略。在简化计算中子输运方程中，弹性散射截面可以视为各向同性的，所以可以近似认为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:tanxing}
+\int_{E}^{E&#39;}\sigma_{s,k}(E&#39;\to E)dE=\sigma_{s,k}(E&#39;)
+\end{equation}\]</span></p>
+<p>设原子核初始处于静止状态，中子的初始速度为<span
+class="math inline">\(v_0^\prime\)</span>, 碰后的速度大小为<span
+class="math inline">\(v\)</span>,
+则对心正碰时中子传递给原子核的能量最多，也就是中子损失的能量最多。按对心正碰计算碰后的最小能量与碰前的能量之比，设中子质量为<span
+class="math inline">\(m\)</span>, 原子核质量为<span
+class="math inline">\(M\)</span>, 则弹性碰撞的质心速度为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:tanxing0}
+v_c=\frac{mv_0^\prime+0}{m+M}
+\end{equation}\]</span></p>
+<p>对于中子而言，其碰后速度容易根据牛顿碰撞定律获得为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:tanxing1}
+v=2v_c-v_0^\prime=\frac{m-M}{m+M}v_0^\prime
+\end{equation}\]</span></p>
+<p>于是可得，碰后和碰前的中子能量比为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:tanxing2}
+\frac{E}{E&#39;}=\frac{v^2}{v_0^{\prime2}}=\left(\frac{m-M}{m+M}\right)^2
+\end{equation}\]</span></p>
+<p>令<span class="math inline">\(A_k=\frac{M}{m}\)</span>, 则<span
+class="math inline">\(\eqref{eq:tanxing2}\)</span>可以进一步写为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:tanxing3}
+\frac{E}{E&#39;}=\left(\frac{A_k-1}{A_k+1}\right)^2=\alpha_k
+\end{equation}\]</span></p>
+<p>于是式<span
+class="math inline">\(\eqref{eq:tanxing}\)</span>可以近似写为 <span
+class="math display">\[\begin{equation}\label{eq:tanxing4}
+\sigma_{s,k}(E&#39;\to E)(E&#39;-E)=\sigma_{s,k}(E&#39;\to
+E)(1-\alpha_k)E&#39;=\sigma_{s,k}(E&#39;)
+\end{equation}\]</span></p>
+<p>进一步可得 <span
+class="math display">\[\begin{equation}\label{eq:tanxing5}
+\sigma_{s,k}(E&#39;\to
+E)=\frac{\sigma_{s,k}(E&#39;)}{(1-\alpha_k)E&#39;}
+\end{equation}\]</span></p>
+<p>式<span
+class="math inline">\(\eqref{eq:tanxing5}\)</span>正是共振能区的散射截面，此式的建立可以使中子输运方程得以进一步简化。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/19/Word%E4%B8%AD%E4%BD%BF%E7%94%A8zotero%E6%8F%92%E5%85%A5%E6%96%87%E7%8C%AE%E6%8C%87%E5%8D%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/19/Word%E4%B8%AD%E4%BD%BF%E7%94%A8zotero%E6%8F%92%E5%85%A5%E6%96%87%E7%8C%AE%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Word中使用zotero插入文献指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-19 01:58:37 / 修改时间：15:20:43" itemprop="dateCreated datePublished" datetime="2025-04-19T01:58:37+08:00">2025-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="准备工作">准备工作</h2>
+<ol type="1">
+<li><strong>安装 Zotero 和 Zotero Connector</strong>：
+<ul>
+<li>下载并安装 Zotero 客户端（<a
+target="_blank" rel="noopener" href="https://www.zotero.org/">Zotero官网</a>）。</li>
+<li>安装 Zotero Connector 浏览器插件，用于从网页上抓取文献信息。</li>
+</ul></li>
+<li><strong>安装 Zotero Word 插件</strong>：
+<ul>
+<li>安装 Zotero 时，默认会附带一个 Word 插件（适用于 Microsoft Word 和
+LibreOffice）。</li>
+<li>确保在安装 Zotero 时勾选了“安装 Word 插件”选项。</li>
+<li>如果没有自动安装插件，可以手动下载 Zotero 的 Word 插件（<a
+target="_blank" rel="noopener" href="https://www.zotero.org/support/word_processor_plugin_installation">Zotero
+Word Plugin</a>）。</li>
+</ul></li>
+<li><strong>配置 Zotero 引文样式</strong>：
+<ul>
+<li>打开 Zotero 客户端，点击菜单栏中的
+<code>编辑 &gt; 首选项 &gt; 引文</code>。</li>
+<li>在“默认输出格式”中选择你需要的引用格式（如 APA、MLA、Chicago
+等）。</li>
+<li>如果需要的格式未列出，可以点击“获取更多样式”链接，选择并安装其他引文样式。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="在-word-中插入文献">在 Word 中插入文献</h2>
+<h3 id="步骤-1打开-zotero-word-插件">步骤 1：打开 Zotero Word 插件</h3>
+<ol type="1">
+<li>打开 Microsoft Word 文档。</li>
+<li>在 Word 的功能区（Ribbon）中找到 <strong>Zotero</strong> 或
+<strong>Add-ins</strong> 选项卡（具体名称可能因版本不同而异）。</li>
+<li>点击该选项卡，你会看到 Zotero 插件工具栏。</li>
+</ol>
+<h3 id="步骤-2插入引文">步骤 2：插入引文</h3>
+<ol type="1">
+<li>将光标放在文档中需要插入引文的位置。</li>
+<li>在 Zotero 工具栏中，点击 <strong>“添加/编辑引文”</strong>
+按钮（通常是一个小引号图标）。</li>
+<li>第一次使用时，可能会弹出一个对话框，要求你选择引文样式。选择适合你文档的样式后，点击
+<strong>OK</strong>。</li>
+<li>Zotero
+会弹出一个搜索框，输入关键词（如作者姓名、标题等）来查找你要引用的文献。</li>
+<li>从搜索结果中选择目标文献，按 Enter 键确认。</li>
+</ol>
+<h3 id="步骤-3插入参考文献列表">步骤 3：插入参考文献列表</h3>
+<ol type="1">
+<li>在文档末尾或其他需要放置参考文献列表的地方，点击 Zotero 工具栏中的
+<strong>“添加/编辑参考文献列表”</strong>
+按钮（通常是一个带有三条横线的图标）。</li>
+<li>Zotero
+会自动生成参考文献列表，并根据你在文档中引用的文献进行更新。</li>
+</ol>
+<hr />
+<h2 id="注意事项">注意事项</h2>
+<ol type="1">
+<li><strong>实时更新</strong>：
+<ul>
+<li>如果你在 Zotero 客户端中修改了某篇文献的信息（如作者、标题等），Word
+文档中的引文和参考文献列表会自动更新。</li>
+<li>更新方法：点击 Zotero 工具栏中的 <strong>“刷新”</strong> 按钮。</li>
+</ul></li>
+<li><strong>更改引文样式</strong>：
+<ul>
+<li>如果需要更改引文样式，可以在 Zotero 工具栏中点击
+<strong>“文档首选项”</strong> 按钮，然后选择新的样式。</li>
+</ul></li>
+<li><strong>删除引文</strong>：
+<ul>
+<li>如果需要删除某个引文，直接在 Word
+文档中删除即可。参考文献列表会自动更新。</li>
+</ul></li>
+<li><strong>兼容性问题</strong>：
+<ul>
+<li>确保 Zotero 和 Word
+的版本兼容。如果遇到插件无法加载的问题，尝试重新安装 Zotero 或更新
+Word。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="常见问题及解决方法">常见问题及解决方法</h2>
+<ol type="1">
+<li><strong>插件未显示</strong>：
+<ul>
+<li>检查 Zotero 是否已正确安装。</li>
+<li>确保 Word 的宏功能已启用。</li>
+<li>如果插件仍不显示，尝试重新安装 Zotero 和 Word 插件。</li>
+</ul></li>
+<li><strong>引文样式缺失</strong>：
+<ul>
+<li>在 Zotero 客户端中，进入
+<code>编辑 &gt; 首选项 &gt; 引文</code>，点击“获取更多样式”链接，下载所需的样式。</li>
+</ul></li>
+<li><strong>参考文献列表未更新</strong>：
+<ul>
+<li>点击 Zotero 工具栏中的 <strong>“刷新”</strong>
+按钮，强制更新参考文献列表。</li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/16/%E5%BF%AB%E4%B8%AD%E5%AD%90%E5%92%8C%E6%85%A2%E4%B8%AD%E5%AD%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/16/%E5%BF%AB%E4%B8%AD%E5%AD%90%E5%92%8C%E6%85%A2%E4%B8%AD%E5%AD%90/" class="post-title-link" itemprop="url">快中子和慢中子</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-16 15:43:02 / 修改时间：15:43:48" itemprop="dateCreated datePublished" datetime="2025-04-16T15:43:02+08:00">2025-04-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在核反应堆物理和中子物理学中，<strong>快中子</strong>和<strong>慢中子</strong>是根据中子能量（或速度）分类的两种主要中子类型。它们的能量范围、行为特点以及在核反应中的作用有显著差异。</p>
+<hr />
+<h2 id="快中子fast-neutrons">1. 快中子（Fast Neutrons）</h2>
+<h3 id="定义">定义</h3>
+<p>快中子是指能量较高（通常 &gt; <strong>0.1 MeV</strong>，约对应速度
+&gt; 1.4×10⁷ m/s）的中子。</p>
+<h3 id="典型能量范围">典型能量范围</h3>
+<ul>
+<li>0.1 MeV – 10 MeV（裂变中子平均能量约 <strong>2 MeV</strong>）</li>
+<li>某些场景下（如聚变反应），能量可达 14 MeV 以上</li>
+</ul>
+<h3 id="特点">特点</h3>
+<ul>
+<li><strong>产生来源</strong>：
+<ul>
+<li>核裂变（如铀-235、钚-239裂变时直接释放的快中子）</li>
+<li>聚变反应（如D-T反应释放的14.1 MeV中子）</li>
+</ul></li>
+<li><strong>相互作用</strong>：
+<ul>
+<li>与原子核的相互作用以<strong>非弹性散射</strong>和<strong>弹性散射</strong>为主</li>
+<li>由于能量高，不易被大多数核素直接吸收，但可能引发<strong>阈能反应</strong></li>
+</ul></li>
+<li><strong>应用</strong>：
+<ul>
+<li><strong>快中子反应堆</strong>（如钠冷快堆）</li>
+<li>中子活化分析、材料辐照测试等</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="慢中子slow-neutrons">2. 慢中子（Slow Neutrons）</h2>
+<h3 id="定义-1">定义</h3>
+<p>慢中子指能量较低（通常 &lt; <strong>1
+eV</strong>）的中子，根据具体能量进一步分为：</p>
+<h4 id="分类">分类</h4>
+<ul>
+<li><strong>热中子（Thermal Neutrons）</strong>：
+<ul>
+<li>能量 ≈ <strong>0.025 eV</strong>（速度约 2200 m/s）</li>
+</ul></li>
+<li><strong>超热中子（Epithermal Neutrons）</strong>：
+<ul>
+<li>能量 0.1 eV – 1 eV</li>
+</ul></li>
+<li><strong>冷中子（Cold Neutrons）</strong>：
+<ul>
+<li>能量 &lt; 0.025 eV</li>
+</ul></li>
+</ul>
+<h3 id="特点-1">特点</h3>
+<ul>
+<li><strong>产生来源</strong>：
+<ul>
+<li>快中子通过<strong>慢化剂</strong>（如水、石墨、重水）的弹性散射逐渐减速而来</li>
+</ul></li>
+<li><strong>相互作用</strong>：
+<ul>
+<li>与核素的<strong>吸收截面显著增大</strong></li>
+<li>易引发<strong>裂变反应</strong>或<strong>俘获反应</strong></li>
+</ul></li>
+<li><strong>应用</strong>：
+<ul>
+<li><strong>热中子反应堆</strong>（如压水堆、沸水堆）</li>
+<li>中子衍射、医学治疗（如硼中子俘获疗法BNCT）</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="快中子-vs.-慢中子对比">3. 快中子 vs. 慢中子对比</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 36%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>快中子</strong></th>
+<th><strong>慢中子</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>能量范围</strong></td>
+<td>&gt; 0.1 MeV</td>
+<td>&lt; 1 eV（热中子≈0.025 eV）</td>
+</tr>
+<tr>
+<td><strong>速度</strong></td>
+<td>~10⁷ m/s</td>
+<td>~10³ m/s</td>
+</tr>
+<tr>
+<td><strong>主要反应类型</strong></td>
+<td>非弹性散射、阈能裂变</td>
+<td>俘获、热中子裂变</td>
+</tr>
+<tr>
+<td><strong>截面（吸收概率）</strong></td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>慢化需求</strong></td>
+<td>无需慢化</td>
+<td>需慢化剂</td>
+</tr>
+<tr>
+<td><strong>典型应用</strong></td>
+<td>快堆、增殖燃料</td>
+<td>热堆、中子散射实验</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="中子慢化过程">4. 中子慢化过程</h2>
+<p>快中子通过<strong>弹性散射</strong>（与轻核如氢、氘、碳碰撞）逐渐损失能量，最终变为热中子：</p>
+<ul>
+<li><strong>平均对数能降（ξ）</strong>：每次碰撞的平均能量损失</li>
+<li><strong>慢化长度</strong>：快中子减速为热中子所需的平均距离</li>
+</ul>
+<hr />
+<h2 id="实际意义">5. 实际意义</h2>
+<ul>
+<li><strong>反应堆设计</strong>：
+<ul>
+<li>热中子堆需优化慢化剂与燃料比例</li>
+<li>快中子堆需避免慢化，使用高密度燃料</li>
+</ul></li>
+<li><strong>屏蔽设计</strong>：
+<ul>
+<li>快中子屏蔽需先慢化，再用吸收剂捕获热中子</li>
+</ul></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/15/%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE%E4%B8%8E%E6%95%B4%E4%BD%93%E6%96%B9%E5%B7%AE%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/15/%E6%A0%B7%E6%9C%AC%E6%96%B9%E5%B7%AE%E4%B8%8E%E6%95%B4%E4%BD%93%E6%96%B9%E5%B7%AE%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">样本方差与整体方差的关系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-15 18:53:53 / 修改时间：20:27:13" itemprop="dateCreated datePublished" datetime="2025-04-15T18:53:53+08:00">2025-04-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="期望和方差定义">期望和方差定义</h1>
+<p>设整体样本数为<span class="math inline">\(N\)</span>,
+则期望定义为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:qiwang}
+E(x)=\overline{x}=\frac{1}{N}\sum_{i=1}^Nx_i
+\end{equation}\]</span></p>
+<p>方差定义为</p>
+<p><span class="math display">\[\begin{equation}\label{eq:fangcha}
+Var(x)=\frac{1}{N}\sum_{i=1}^N(x_i-\overline{x})^2
+\end{equation}\]</span></p>
+<h1 id="基本关系">基本关系</h1>
+<h2 id="方差与期望的关系">方差与期望的关系</h2>
+<p>仍然取任意的两个常数<span class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>, 则</p>
+<p><span class="math display">\[\begin{equation}\label{eq:fangcha0}
+Var(x)=\frac{1}{N}\sum_{i=1}^N(x_i-\overline{x})^2=\frac{1}{N}\sum_{i=1}^Nx_i^2-2\frac{1}{N}\sum_{i=1}^Nx_i\overline{x}+\overline{x}^2
+=E(x^2)-[E(x)]^2
+\end{equation}\]</span></p>
+<h2 id="期望线性关系">期望线性关系</h2>
+<p>取任意的两个常数<span class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>, 则</p>
+<p><span class="math display">\[\begin{equation}\label{eq:qiwang0}
+E(ax+b)=\frac{1}{N}\sum_{i=1}^N (ax_i+b)=a(\frac{1}{N}\sum_{i=1}^N
+x_i)+b=aE(x)+b
+\end{equation}\]</span></p>
+<h2 id="方差线性关系">方差线性关系</h2>
+<p>取任意的两个常数<span class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>, 则</p>
+<p><span class="math display">\[\begin{equation}\label{eq:fangcha1}
+Var(ax+b)=\frac{1}{N}\sum_{i=1}^N \{(ax_i+b)-(a\overline{x}+b)\}^2
+=a^2\frac{1}{N}\sum_{i=1}^N(x_i-\overline{x})^2=a^2Var(x)
+\end{equation}\]</span></p>
+<h2 id="独立分布的期望">独立分布的期望</h2>
+<p>取任意的一个变量<span class="math inline">\(x_i\)</span>,
+它的期望等于无穷次取样后的平均值，即<span
+class="math inline">\(E(x_i)=\overline{x}\)</span>, 于是可得</p>
+<p><span class="math display">\[\begin{equation}\label{eq:dlqw}
+E(\sum_{i=1}^nx_i)=\sum_{i=1}^nE(x_i)=n\overline{x}
+\end{equation}\]</span></p>
+<h2 id="独立分布的方差">独立分布的方差</h2>
+<p><span class="math display">\[\begin{align}
+Var(\sum_{i=1}^nx_i)
+&amp;=\frac{1}{N}\sum_{k=1}^N (\sum_{i=1}^nx_{ki} -n\overline{x})^2
+\notag \\
+&amp;=\frac{1}{N}\sum_{k=1}^N [\sum_{i=1}^n(x_{ki} -\overline{x})]^2
+\notag \\
+&amp;=\sum_{i=1}^n\frac{1}{N}\sum_{k=1}^N (x_{ki}
+-\overline{x})^2+\frac{1}{N}\sum_{k=1}^N\sum_{j=1}^N(x_{ki}
+-\overline{x})(x_{ji} -\overline{x}) \notag \\
+&amp;=\sum_{i=1}^n\frac{1}{N}\sum_{k=1}^N (x_{ki} -\overline{x})^2
+\notag \\
+&amp;=nVar(x)
+\label{eq:dlfc}
+\end{align}\]</span></p>
+<h1 id="样本方差与整体方差的关系">样本方差与整体方差的关系</h1>
+<p>取样本数<span class="math inline">\(n\)</span>, 记样本期望记为<span
+class="math inline">\(\overline{x}\)</span>, 整体期望记为<span
+class="math inline">\(\mu\)</span>, 样本方差记为<span
+class="math inline">\(s^2\)</span>, 整体方差记为<span
+class="math inline">\(\sigma^2\)</span>, 则</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{i=1}^n(x_i-\overline{x})^2
+=\sum_{i=1}^nx_i^2-n\overline{x}^2
+\label{eq:ybzt}
+\end{equation}\]</span></p>
+<p>对式<span class="math inline">\(\eqref{eq:ybzt}\)</span>求期望得
+<span class="math display">\[\begin{equation}\label{eq:ybzt1}
+E[\sum_{i=1}^n(x_i-\overline{x})^2]
+=E[\sum_{i=1}^nx_i^2]-nE[\overline{x}^2]
+\end{equation}\]</span></p>
+<p>由式<span class="math inline">\(\eqref{eq:fangcha0}\)</span>和式<span
+class="math inline">\(\eqref{eq:dlfc}\)</span>可得 <span
+class="math display">\[\begin{equation}\label{eq:ybzt2}
+E[\sum_{i=1}^nx_i^2]=nE(x_i^2)=n\sigma^2+n\mu^2
+\end{equation}\]</span></p>
+<p>再由式<span
+class="math inline">\(\eqref{eq:fangcha0}\)</span>和式<span
+class="math inline">\(\eqref{eq:dlqw}\)</span>可得 <span
+class="math display">\[\begin{equation}\label{eq:ybzt3}
+E[\overline{x}^2]=Var(\overline{x})+[E(\overline{x})]^2=\frac{1}{n}\sigma^2+\mu^2
+\end{equation}\]</span></p>
+<p>将式<span class="math inline">\(\eqref{eq:ybzt2}\)</span>与式<span
+class="math inline">\(\eqref{eq:ybzt3}\)</span>代入到式<span
+class="math inline">\(\eqref{eq:ybzt1}\)</span>得 <span
+class="math display">\[\begin{equation}\label{eq:ybzt4}
+E[\sum_{i=1}^n(x_i-\overline{x})^2]
+=(n-1)\sigma^2
+\end{equation}\]</span></p>
+<p>进一步可以写为 <span
+class="math display">\[\begin{equation}\label{eq:ybzt5}
+\sigma^2=E[\frac{1}{n-1}\sum_{i=1}^n(x_i-\overline{x})^2]
+\end{equation}\]</span></p>
+<p>式<span
+class="math inline">\(\eqref{eq:ybzt5}\)</span>表明，总体方差<span
+class="math inline">\(\sigma^2\)</span>可以由样本方差<span
+class="math inline">\(s^2\)</span>求期望获得。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/14/%E5%9E%82%E7%9B%B4%E7%9B%98%E5%92%8C%E5%8F%A0%E7%93%A6%E7%9B%98%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/14/%E5%9E%82%E7%9B%B4%E7%9B%98%E5%92%8C%E5%8F%A0%E7%93%A6%E7%9B%98%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">垂直盘和叠瓦盘详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-14 10:34:00 / 修改时间：10:34:40" itemprop="dateCreated datePublished" datetime="2025-04-14T10:34:00+08:00">2025-04-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>随着存储技术的不断发展，硬盘的存储密度和性能也在不断提升。垂直盘（CMR，Conventional
+Magnetic Recording）和叠瓦盘（SMR，Shingled Magnetic
+Recording）是两种常见的硬盘存储技术。本文将详细介绍这两种技术，并通过对比列表帮助读者更好地理解它们的区别。</p>
+<hr />
+<h2 id="什么是垂直盘cmr">什么是垂直盘（CMR）？</h2>
+<p><strong>垂直盘</strong>，即传统磁记录（Conventional Magnetic
+Recording），是一种经典的硬盘存储技术。在这种技术中，数据以垂直方向写入磁盘表面，每个磁道之间保持一定的间隔，避免数据之间的干扰。</p>
+<h3 id="特点">特点：</h3>
+<ul>
+<li><strong>独立磁道</strong>：每个磁道是独立的，读写操作不会影响相邻磁道。</li>
+<li><strong>高性能</strong>：由于磁道之间无重叠，随机写入和改写速度较快。</li>
+<li><strong>高可靠性</strong>：数据修改时无需重新整理邻近磁道的数据，降低了出错概率。</li>
+<li><strong>适用场景</strong>：适合需要频繁读写操作的场景，如数据库、虚拟机和视频编辑。</li>
+</ul>
+<hr />
+<h2 id="什么是叠瓦盘smr">什么是叠瓦盘（SMR）？</h2>
+<p><strong>叠瓦盘</strong>，即叠瓦式磁记录（Shingled Magnetic
+Recording），是一种提高存储密度的技术。在这种技术中，数据磁道像瓦片一样部分重叠，从而在相同物理空间内存储更多的数据。</p>
+<h3 id="特点-1">特点：</h3>
+<ul>
+<li><strong>高存储密度</strong>：通过磁道重叠显著提升了单位面积的存储容量。</li>
+<li><strong>写入性能较低</strong>：由于磁道重叠，改写数据时需要先将受影响的邻近磁道数据迁移到缓存，再重新写入，导致写入速度较慢。</li>
+<li><strong>成本较低</strong>：相比垂直盘，叠瓦盘在相同容量下成本更低。</li>
+<li><strong>适用场景</strong>：适合以顺序写入为主的场景，如冷数据存储、备份和归档。</li>
+</ul>
+<hr />
+<h2 id="垂直盘cmr与叠瓦盘smr对比">垂直盘（CMR）与叠瓦盘（SMR）对比</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>垂直盘（CMR）</th>
+<th>叠瓦盘（SMR）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技术原理</strong></td>
+<td>数据以垂直方向写入，磁道独立</td>
+<td>数据以部分重叠的方式写入，磁道相互覆盖</td>
+</tr>
+<tr>
+<td><strong>存储密度</strong></td>
+<td>较低</td>
+<td>较高</td>
+</tr>
+<tr>
+<td><strong>写入性能</strong></td>
+<td>高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>随机写入能力</strong></td>
+<td>强</td>
+<td>弱</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>较高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>可靠性</strong></td>
+<td>高</td>
+<td>较低</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>数据库、虚拟机、视频编辑等高频读写场景</td>
+<td>冷数据存储、备份、归档等顺序写入场景</td>
+</tr>
+<tr>
+<td><strong>优点</strong></td>
+<td>高性能、高可靠性</td>
+<td>高存储密度、低成本</td>
+</tr>
+<tr>
+<td><strong>缺点</strong></td>
+<td>存储密度有限，成本较高</td>
+<td>写入性能低，随机写入效率差</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="总结">总结</h2>
+<p>垂直盘（CMR）和叠瓦盘（SMR）各有优劣，选择哪种技术取决于具体的应用场景。如果您的需求是高性能和高可靠性，例如运行数据库或虚拟机，那么垂直盘是更好的选择。如果您更关注存储密度和成本，且主要进行顺序写入操作，例如数据备份或归档，那么叠瓦盘会更适合。</p>
+<p>希望本文能帮助您更好地理解这两种硬盘技术，并根据实际需求做出明智的选择！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -518,1308 +1675,8 @@ class="math inline">\(mol/m^3\)</span>；</li>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/07/%E5%B8%83%E4%B8%B0%E6%8A%95%E9%92%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E5%8E%9F%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/07/%E5%B8%83%E4%B8%B0%E6%8A%95%E9%92%88%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87%E7%9A%84%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">布丰投针计算圆周率的原理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-07 21:45:04 / 修改时间：21:46:43" itemprop="dateCreated datePublished" datetime="2025-04-07T21:45:04+08:00">2025-04-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>布丰投针（Buffon's Needle）是一种通过概率实验估算圆周率 <span
-class="math inline">\(\pi\)</span>
-的方法。这种方法基于几何概率模型，属于蒙特卡罗方法的一种应用。</p>
-<hr />
-<h2 id="实验设定">实验设定</h2>
-<ul>
-<li>平面上画有许多平行线，这些线之间的距离为 <span
-class="math inline">\(d\)</span>。</li>
-<li>针的长度为 <span class="math inline">\(l\)</span>，并且假设 <span
-class="math inline">\(l \leq
-d\)</span>（即针的长度不超过平行线间的距离）。</li>
-<li>当针被随机投掷到平面上时，考虑以下变量：
-<ul>
-<li><span
-class="math inline">\(x\)</span>：针的中点到最近一条线的距离，取值范围为
-<span class="math inline">\([0, d/2]\)</span>。</li>
-<li><span
-class="math inline">\(\theta\)</span>：针与线的夹角，取值范围为 <span
-class="math inline">\([0, \pi]\)</span>。</li>
-</ul></li>
-</ul>
-<hr />
-<h2 id="相交条件">相交条件</h2>
-<p>针与线相交的条件是：针的一个端点到底边界的垂直距离小于等于 <span
-class="math inline">\((l/2)\sin(\theta)\)</span>。换句话说，如果针的中点到最近线的距离满足以下关系，则针会与至少一条线相交：</p>
-<p><span class="math display">\[
-x \leq \frac{l}{2} \sin(\theta)
-\]</span></p>
-<hr />
-<h2 id="概率计算">概率计算</h2>
-<h3 id="确定相交区域">1. 确定相交区域</h3>
-<p>对于任意给定的 <span class="math inline">\(\theta\)</span>，当 <span
-class="math inline">\(x\)</span> 在 <span
-class="math inline">\(0\)</span> 到 <span
-class="math inline">\((l/2)\sin(\theta)\)</span>
-之间时，针与线相交。因此，对于每个固定的 <span
-class="math inline">\(\theta\)</span>，针与线相交的概率为：</p>
-<p><span class="math display">\[
-P_{\text{single}} = \frac{\frac{l}{2} \sin(\theta)}{\frac{d}{2}} =
-\frac{l \sin(\theta)}{d}
-\]</span></p>
-<h3 id="积分求平均概率">2. 积分求平均概率</h3>
-<p>由于 <span class="math inline">\(\theta\)</span> 在 <span
-class="math inline">\([0, \pi]\)</span>
-范围内均匀分布，我们需要对所有可能的 <span
-class="math inline">\(\theta\)</span>
-进行积分，并取平均值得到总的相交概率：</p>
-<p><span class="math display">\[
-P = \frac{2}{\pi} \int_{0}^{\pi} \frac{l \sin(\theta)}{d} \, d\theta
-\]</span></p>
-<h3 id="解积分">3. 解积分</h3>
-<p>上述积分可以简化为：</p>
-<p><span class="math display">\[
-P = \frac{2l}{\pi d} \int_{0}^{\pi} \sin(\theta) \, d\theta
-\]</span></p>
-<p>该积分的结果为：</p>
-<p><span class="math display">\[
-\int_{0}^{\pi} \sin(\theta) \, d\theta = [-\cos(\theta)]_{0}^{\pi} =
--\cos(\pi) + \cos(0) = 2
-\]</span></p>
-<h3 id="代入结果">4. 代入结果</h3>
-<p>将积分结果代回原公式，得到针与线相交的概率：</p>
-<p><span class="math display">\[
-P = \frac{2l}{\pi d} \times 2 = \frac{2l}{\pi d}
-\]</span></p>
-<hr />
-<h2 id="圆周率估算">圆周率估算</h2>
-<p>通过大量实验，记下针与线相交的次数 <span
-class="math inline">\(N_{\text{hit}}\)</span> 和总的投针次数 <span
-class="math inline">\(N_{\text{total}}\)</span>。根据大数定律，可以用频率估计概率：</p>
-<p><span class="math display">\[
-P \approx \frac{N_{\text{hit}}}{N_{\text{total}}}
-\]</span></p>
-<p>结合概率公式 <span class="math inline">\(P = \frac{2l}{\pi
-d}\)</span>，我们可以解出 <span class="math inline">\(\pi\)</span>
-的近似值：</p>
-<p><span class="math display">\[
-\pi \approx \frac{2l N_{\text{total}}}{d N_{\text{hit}}}
-\]</span></p>
-<hr />
-<h2 id="总结">总结</h2>
-<p>布丰投针实验通过简单的几何概率模型和随机实验，提供了一种估算圆周率
-<span class="math inline">\(\pi\)</span>
-的方法。随着实验次数的增加，估算结果的精度也会提高。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/04/05/Shell%E5%8F%82%E6%95%B0%E6%8B%93%E5%B1%95%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/04/05/Shell%E5%8F%82%E6%95%B0%E6%8B%93%E5%B1%95%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Shell参数拓展详解：`${1:-}` 的作用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-04-05 14:22:17 / 修改时间：15:16:08" itemprop="dateCreated datePublished" datetime="2025-04-05T14:22:17+08:00">2025-04-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在编写 Shell 脚本时，参数扩展是一个非常实用的功能。本文将详细讲解
-<code>$&#123;1:-&#125;</code> 的含义、使用场景以及实际应用中的注意事项。</p>
-<hr />
-<h2 id="语法解析">语法解析</h2>
-<p><code>$&#123;1:-&#125;</code> 是一种参数扩展的语法，具体含义如下：</p>
-<ul>
-<li><strong><code>$&#123;1&#125;</code></strong>：引用第一个位置参数（<code>$1</code>），即脚本或函数的第一个命令行参数。</li>
-<li><strong><code>:-</code></strong>：这是一个默认值操作符，表示如果
-<code>$&#123;1&#125;</code> 为空或者未设置，则使用 <code>:</code>
-后面的值作为默认值。</li>
-</ul>
-<p>因此，<code>$&#123;1:-&#125;</code> 的作用可以总结为：</p>
-<ul>
-<li>如果 <code>$1</code> 已被设置且非空，则直接使用 <code>$1</code>
-的值。</li>
-<li>如果 <code>$1</code>
-未被设置或为空，则使用一个空字符串作为默认值。</li>
-</ul>
-<hr />
-<h2 id="使用场景">使用场景</h2>
-<p>在实际脚本中，<code>$&#123;1:-&#125;</code> 常用于处理用户的输入参数。例如，在
-<code>case</code> 语句中，它可以帮助我们优雅地处理未提供参数的情况：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$&#123;1:-&#125;</span> <span class="keyword">in</span></span><br><span class="line">    start)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Starting the service...&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    stop)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Stopping the service...&quot;</span></span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Usage: <span class="variable">$0</span> &#123;start|stop&#125;&quot;</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-<h2 id="解释">解释</h2>
-<h3 id="用户提供了参数">用户提供了参数：</h3>
-<p>如果用户运行脚本时提供了参数（如
-<code>./script.sh start</code>），<code>$&#123;1:-&#125;</code>
-会使用提供的参数值。 在这种情况下，<code>case</code> 语句会匹配到
-<code>start</code> 分支并执行相应的代码。</p>
-<h3 id="用户未提供参数">用户未提供参数：</h3>
-<p>如果用户未提供任何参数（如直接运行
-<code>./script.sh</code>），<code>$&#123;1:-&#125;</code> 会返回空字符串。
-此时，<code>case</code> 语句会匹配到 <code>*</code>
-分支，并提示用户正确的用法。</p>
-<p>通过这种方式，我们可以确保脚本在没有参数的情况下不会报错，同时还能给出友好的提示信息。</p>
-<hr />
-<h2 id="总结">总结</h2>
-<p>通过使用
-<code>$&#123;1:-&#125;</code>，我们可以确保脚本更加健壮和容错。这种参数扩展方式不仅适用于
-<code>$1</code>，还可以扩展到其他变量，例如
-<code>$&#123;var:-default&#125;</code>，用来为任意变量设置默认值。</p>
-<h3 id="优点">优点</h3>
-<ul>
-<li><strong>提高脚本的健壮性</strong>：避免因未定义变量而导致的错误。</li>
-<li><strong>简化逻辑</strong>：无需额外检查变量是否为空。</li>
-<li><strong>增强用户体验</strong>：当用户未提供参数时，能够给出清晰的提示。</li>
-</ul>
-<h3 id="注意事项">注意事项</h3>
-<ul>
-<li>如果需要为变量设置非空的默认值，可以直接在 <code>:-</code>
-后面指定，例如 <code>$&#123;1:-default_value&#125;</code>。</li>
-<li>如果只想在变量未定义时设置默认值，而不包括变量为空的情况，可以使用
-<code>$&#123;1-default_value&#125;</code>。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/31/LaTeX%E6%96%87%E6%A1%A3%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BA%94%E7%A7%8D%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/31/LaTeX%E6%96%87%E6%A1%A3%E7%BB%84%E7%BB%87%E6%96%B9%E5%BC%8F%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90%EF%BC%9A%E4%BA%94%E7%A7%8D%E6%96%B9%E6%B3%95%E7%9A%84%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">LaTeX文档组织方式全面解析：五种方法的综合评价与使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-31 10:09:15 / 修改时间：10:21:05" itemprop="dateCreated datePublished" datetime="2025-03-31T10:09:15+08:00">2025-03-31</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 <code>LaTeX</code>
-中，文档组织是提高效率、维护清晰结构的关键。本文将详细讲解五种常见的文档组织方式（<code>\input</code>、<code>import</code>
-宏包、<code>\include</code>、<code>\subfile</code> 和
-<code>standalone</code>
-宏包），并按功能和使用便捷程度进行综合评价排名，帮助你选择最适合的方法。</p>
-<h2 id="input">1. <code>\input</code></h2>
-<h3 id="功能">功能</h3>
-<ul>
-<li><code>\input&#123;filename&#125;</code>
-将指定文件的内容直接插入到当前文档中。</li>
-<li>文件名不需要扩展名（默认是 <code>.tex</code>）。</li>
-</ul>
-<h3 id="优点">优点</h3>
-<ul>
-<li><strong>简单易用</strong>：适合将小段内容或代码片段嵌入主文档。</li>
-<li><strong>灵活轻便</strong>：不会引入额外的结构，适用于任何规模的文档。</li>
-<li><strong>无额外开销</strong>：不会生成额外的辅助文件，也不会影响编译流程。</li>
-</ul>
-<h3 id="使用场景">使用场景</h3>
-<ul>
-<li>插入公式、表格、代码片段等较小的内容。</li>
-<li>将章节或部分拆分为多个文件以便于管理，但不涉及复杂的文档结构。</li>
-</ul>
-<h3 id="推荐目录结构">推荐目录结构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">│</span><br><span class="line">├── main.tex                <span class="comment"># 主文档文件</span></span><br><span class="line">├── introduction.tex         <span class="comment"># 引言部分</span></span><br><span class="line">├── methods.tex              <span class="comment"># 方法论部分</span></span><br><span class="line">├── results.tex              <span class="comment"># 结果分析部分</span></span><br><span class="line">└── conclusion.tex           <span class="comment"># 结论部分</span></span><br></pre></td></tr></table></figure>
-<h2 id="import-宏包">2. <code>import</code> 宏包</h2>
-<h3 id="功能-1">功能</h3>
-<ul>
-<li><code>import</code>
-宏包提供了更强大的文件包含功能，尤其是对于嵌套目录结构的支持。</li>
-<li>提供了两个主要命令：<code>\import&#123;path&#125;&#123;filename&#125;</code> 和
-<code>\subimport&#123;path&#125;&#123;filename&#125;</code>。</li>
-</ul>
-<h3 id="优点-1">优点</h3>
-<ul>
-<li><strong>支持相对路径引用</strong>：使得在复杂的项目中管理不同目录下的文件更加方便。</li>
-<li><strong>自动调整路径</strong>：<code>\subimport</code>
-命令会自动调整路径，使其相对于当前文件而不是主文档。</li>
-</ul>
-<h3 id="使用场景-1">使用场景</h3>
-<ul>
-<li>当项目中有多个层次的子目录时，使用 <code>import</code>
-可以简化文件路径的管理。</li>
-<li>在团队合作或者大型项目中，有助于维护清晰的文档结构。</li>
-</ul>
-<h3 id="示例目录结构">示例目录结构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">│</span><br><span class="line">├── main.tex                <span class="comment"># 主文档文件</span></span><br><span class="line">├── sections/               <span class="comment"># 存放章节文件的目录</span></span><br><span class="line">│   ├── chapter1/           <span class="comment"># 章节1的目录</span></span><br><span class="line">│   │   ├── section1.tex    <span class="comment"># 章节1的部分1</span></span><br><span class="line">│   │   └── section2.tex    <span class="comment"># 章节1的部分2</span></span><br><span class="line">│   └── chapter2.tex        <span class="comment"># 章节2</span></span><br><span class="line">└── images/                 <span class="comment"># 图片资源目录（可选）</span></span><br></pre></td></tr></table></figure>
-<p>在 <code>main.tex</code> 中使用：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;import&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\import</span>&#123;sections/chapter1/&#125;&#123;section1&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="使用-include">3. 使用 <code>\include</code></h2>
-<h3 id="功能-2">功能</h3>
-<ul>
-<li><code>\include&#123;filename&#125;</code>
-用于将指定文件的内容插入到主文档中，同时强制分页（会自动在插入点开始新一页）。</li>
-<li>需要配合 <code>\includeonly</code> 使用来选择性编译某些部分。</li>
-</ul>
-<h3 id="好处">好处</h3>
-<ul>
-<li><strong>模块化管理</strong>：适合将文档按章节或部分划分为独立的文件。</li>
-<li><strong>选择性编译</strong>：通过
-<code>\includeonly&#123;filename1, filename2&#125;</code>
-可以只编译指定的部分，从而加快编译速度。</li>
-<li><strong>自动生成辅助文件</strong>：每个 <code>\include</code>
-的文件都会生成独立的 <code>.aux</code>
-文件，便于管理交叉引用和书签。</li>
-</ul>
-<h3 id="使用场景-2">使用场景</h3>
-<ul>
-<li>编写长篇文档（如书籍、论文、报告），需要按章节划分文件。</li>
-<li>需要频繁修改某一部分内容时，可以通过 <code>\includeonly</code>
-提高编译效率。</li>
-</ul>
-<h3 id="注意事项">注意事项</h3>
-<ul>
-<li>强制分页可能不适合某些布局需求。</li>
-<li>不能在 <code>\input</code> 文件中嵌套使用
-<code>\include</code>。</li>
-</ul>
-<h3 id="推荐目录结构-1">推荐目录结构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">│</span><br><span class="line">├── main.tex                <span class="comment"># 主文档文件</span></span><br><span class="line">├── chapters/               <span class="comment"># 存放章节文件的目录</span></span><br><span class="line">│   ├── introduction.tex    <span class="comment"># 引言部分</span></span><br><span class="line">│   ├── methods.tex         <span class="comment"># 方法论部分</span></span><br><span class="line">│   ├── results.tex         <span class="comment"># 结果分析部分</span></span><br><span class="line">│   └── conclusion.tex      <span class="comment"># 结论部分</span></span><br><span class="line">└── images/                 <span class="comment"># 图片资源目录（可选）</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用-subfile">4. 使用 <code>\subfile</code></h2>
-<h3 id="功能-3">功能</h3>
-<ul>
-<li><code>\subfile&#123;filename&#125;</code> 是 <code>subfiles</code>
-宏包提供的命令，允许子文件既可以作为独立文档编译，也可以被主文档包含。</li>
-<li>子文件需要使用 <code>\documentclass[main]&#123;subfiles&#125;</code>
-来指定主文档。</li>
-</ul>
-<h3 id="优点-2">优点</h3>
-<ul>
-<li><strong>独立编译</strong>：子文件可以单独编译，方便调试和查看效果。</li>
-<li><strong>统一管理</strong>：子文件继承主文档的设置（如页眉、页脚、宏包等），无需重复定义。</li>
-<li><strong>灵活性高</strong>：既能作为整体的一部分，又能独立运行，适合团队协作或复杂文档。</li>
-</ul>
-<h3 id="使用场景-3">使用场景</h3>
-<ul>
-<li>多人协作编写文档，每个人负责一个子文件。</li>
-<li>需要频繁单独查看某个部分的效果（如单个章节或附录）。</li>
-</ul>
-<h3 id="注意事项-1">注意事项</h3>
-<ul>
-<li>需要加载 <code>subfiles</code> 宏包。</li>
-<li>子文件需要正确配置
-<code>\documentclass[main]&#123;subfiles&#125;</code>，否则无法正常编译。</li>
-</ul>
-<h3 id="推荐目录结构-2">推荐目录结构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">│</span><br><span class="line">├── main.tex                <span class="comment"># 主文档文件</span></span><br><span class="line">├── subfiles/               <span class="comment"># 存放子文件的目录</span></span><br><span class="line">│   ├── introduction.tex    <span class="comment"># 引言部分</span></span><br><span class="line">│   ├── methods.tex         <span class="comment"># 方法论部分</span></span><br><span class="line">│   ├── results.tex         <span class="comment"># 结果分析部分</span></span><br><span class="line">│   └── conclusion.tex      <span class="comment"># 结论部分</span></span><br><span class="line">└── preamble.tex            <span class="comment"># 预定义宏包、设置等（可选）</span></span><br></pre></td></tr></table></figure>
-<h2 id="standalone-宏包">5. <code>standalone</code> 宏包</h2>
-<h3 id="功能-4">功能</h3>
-<ul>
-<li><code>standalone</code>
-宏包允许你创建独立编译的小文档，并且这些小文档可以被包含到更大的文档中。</li>
-<li>它与 <code>\subfile</code>
-类似，但提供了更多的选项来控制输出格式和内容。</li>
-</ul>
-<h3 id="优点-3">优点</h3>
-<ul>
-<li><strong>独立编译</strong>：小文档可以单独编译成 PDF 或者 PNG
-等格式，方便快速查看效果。</li>
-<li><strong>灵活输出</strong>：可以通过设置选项来决定是否包含前言、页眉页脚等元素。</li>
-</ul>
-<h3 id="使用场景-4">使用场景</h3>
-<ul>
-<li>当你需要生成单个图形、表格或其他元素作为独立文件时非常有用。</li>
-<li>对于需要频繁预览特定部分结果的工作流程来说，<code>standalone</code>
-提供了极大的便利。</li>
-</ul>
-<h3 id="示例目录结构-1">示例目录结构</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">project/</span><br><span class="line">│</span><br><span class="line">├── main.tex                <span class="comment"># 主文档文件</span></span><br><span class="line">├── figures/                <span class="comment"># 存放图表文件的目录</span></span><br><span class="line">│   ├── figure1.tex         <span class="comment"># 图表1</span></span><br><span class="line">│   └── figure2.tex         <span class="comment"># 图表2</span></span><br><span class="line">└── preamble.tex            <span class="comment"># 预定义宏包、设置等（可选）</span></span><br></pre></td></tr></table></figure>
-<p>在 <code>figure1.tex</code> 中：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[beamer,convert=&#123;density=300,size=1080x800,outext=.png&#125;]&#123;standalone&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="comment">% Your TikZ or other drawing code here</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>然后，在 <code>main.tex</code> 中包含：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;standalone&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">\includestandalone</span>&#123;figures/figure1&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="综合排名">综合排名</h2>
-<table>
-<colgroup>
-<col style="width: 4%" />
-<col style="width: 13%" />
-<col style="width: 10%" />
-<col style="width: 70%" />
-</colgroup>
-<thead>
-<tr>
-<th>排名</th>
-<th>方法</th>
-<th>便捷性</th>
-<th>功能特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><code>\input</code></td>
-<td>高</td>
-<td>简单直接，适合包含小段内容或代码片段。</td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>import</code> 宏包</td>
-<td>中到高</td>
-<td>支持复杂的目录结构，简化路径管理，适合多级子目录项目。</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>\include</code></td>
-<td>中等</td>
-<td>强制分页，支持选择性编译，适合长篇文档按章节划分。</td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>\subfile</code></td>
-<td>中等</td>
-<td>子文件既可以独立编译也可以被主文档包含，适合团队协作和频繁单独查看部分内容。</td>
-</tr>
-<tr>
-<td>5</td>
-<td><code>standalone</code> 宏包</td>
-<td>中等</td>
-<td>适合生成独立的图表或其他元素，但在普通文档组织中略显复杂。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="总结">总结</h2>
-<p>尽管 <code>\input</code>、<code>\include</code> 和
-<code>\subfile</code> 是最常用的三种组织 LaTeX
-文档的方式，但在某些特定情况下，<code>import</code> 和
-<code>standalone</code>
-宏包也能够提供独特的解决方案，帮助更好地管理和组织文档。选择哪种方法取决于你的具体需求，包括项目的规模、复杂性以及是否需要对部分内容进行独立编译等。</p>
-<p>希望这篇文章能帮助你找到最适合自己的 LaTeX 文档组织方式！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/30/%E5%B9%B3%E5%9D%87%E8%87%AA%E7%94%B1%E7%A8%8B%E4%B8%8E%E5%B9%B3%E5%9D%87%E7%9B%B8%E5%AF%B9%E9%80%9F%E5%BA%A6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8E%A8%E5%AF%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/30/%E5%B9%B3%E5%9D%87%E8%87%AA%E7%94%B1%E7%A8%8B%E4%B8%8E%E5%B9%B3%E5%9D%87%E7%9B%B8%E5%AF%B9%E9%80%9F%E5%BA%A6%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8E%A8%E5%AF%BC/" class="post-title-link" itemprop="url">平均自由程与平均相对速度的完整推导</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-30 13:32:43 / 修改时间：22:55:58" itemprop="dateCreated datePublished" datetime="2025-03-30T13:32:43+08:00">2025-03-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="基本假设">1. 基本假设</h2>
-<p>为了推导平均自由程 <span
-class="math inline">\(\lambda\)</span>，我们采用理想气体模型，并做以下假设：</p>
-<ul>
-<li>气体分子是刚性球体，直径为 <span
-class="math inline">\(d\)</span>。</li>
-<li>分子之间的碰撞是完全弹性碰撞。</li>
-<li>气体分子均匀分布，且运动方向随机。</li>
-<li>只考虑两个分子之间的二体碰撞。</li>
-</ul>
-<hr />
-<h2 id="碰撞截面">2. 碰撞截面</h2>
-<p>当一个气体分子与其他分子发生碰撞时，分子的有效碰撞范围可以看作一个圆柱体，其横截面面积称为<strong>碰撞截面</strong>
-<span class="math inline">\(\sigma\)</span>。对于直径为 <span
-class="math inline">\(d\)</span> 的分子，碰撞截面为： <span
-class="math display">\[
-\sigma = \pi d^2
-\]</span></p>
-<hr />
-<h2 id="单位时间内碰撞次数初步推导">3.
-单位时间内碰撞次数（初步推导）</h2>
-<p>假设一个目标分子以速度 <span class="math inline">\(v\)</span>
-运动，则在单位时间内，该分子扫过的体积是一个圆柱体，其底面积为 <span
-class="math inline">\(\sigma\)</span>，高为 <span
-class="math inline">\(v\)</span>，因此扫过的体积为： <span
-class="math display">\[
-V_{\text{collision}} = \sigma v
-\]</span></p>
-<p>如果气体分子数密度为 <span
-class="math inline">\(n\)</span>（即单位体积内的分子数），那么单位时间内与目标分子发生碰撞的分子数为：
-<span class="math display">\[
-Z = n V_{\text{collision}} = n \sigma v
-\]</span> 其中，<span class="math inline">\(Z\)</span>
-表示单位时间内的碰撞次数。</p>
-<hr />
-<h2 id="平均自由程的定义">4. 平均自由程的定义</h2>
-<p>平均自由程 <span class="math inline">\(\lambda\)</span>
-定义为分子在两次连续碰撞之间移动的平均距离。根据定义，平均自由程等于分子的总路程除以碰撞次数。在单位时间内，分子的总路程为
-<span class="math inline">\(v\)</span>，而碰撞次数为 <span
-class="math inline">\(Z\)</span>，因此： <span class="math display">\[
-\lambda = \frac{\text{总路程}}{\text{碰撞次数}} = \frac{v}{Z}
-\]</span></p>
-<p>将 <span class="math inline">\(Z = n \sigma v\)</span>
-代入上式，得到： <span class="math display">\[
-\lambda = \frac{v}{n \sigma v} = \frac{1}{n \sigma}
-\]</span></p>
-<p>进一步代入碰撞截面 <span class="math inline">\(\sigma = \pi
-d^2\)</span>，最终得到： <span class="math display">\[
-\lambda = \frac{1}{n \pi d^2}
-\]</span></p>
-<hr />
-<h2 id="考虑分子间的相对运动">5. 考虑分子间的相对运动</h2>
-<p>上述推导假设目标分子静止，而其他分子以速度 <span
-class="math inline">\(v\)</span>
-运动。实际上，所有分子都在运动，因此需要考虑分子之间的相对速度。</p>
-<h3 id="平均相对速度的推导">5.1 平均相对速度的推导</h3>
-<p>假设两个分子的速度分别为 <span
-class="math inline">\(\vec{v}_A\)</span> 和 <span
-class="math inline">\(\vec{v}_B\)</span>，它们的相对速度为： <span
-class="math display">\[
-\vec{v}_{rel} = \vec{v}_A - \vec{v}_B
-\]</span></p>
-<p>我们需要计算的是这些相对速度的大小 <span
-class="math inline">\(v_{rel} = |\vec{v}_{rel}|\)</span> 的平均值 <span
-class="math inline">\(\langle v_{rel} \rangle\)</span>。</p>
-<p>由于分子的速度遵循麦克斯韦-玻尔兹曼分布，且每个方向上的速度分量独立同分布，可以通过统计力学的方法得出：
-<span class="math display">\[
-\langle v_{rel} \rangle = \sqrt{\langle (\vec{v}_A - \vec{v}_B)^2
-\rangle}
-\]</span></p>
-<p>展开后，利用 <span class="math inline">\(\langle \vec{v}_A \cdot
-\vec{v}_B \rangle = 0\)</span>（因为不同分子的速度不相关）以及 <span
-class="math inline">\(\langle v_A^2 \rangle = \langle v_B^2 \rangle =
-\frac{3kT}{m}\)</span> （麦克斯韦分布的结果），可得： <span
-class="math display">\[
-\langle v_{rel} \rangle = \sqrt{2 \langle v \rangle^2} = \sqrt{2}
-\langle v \rangle
-\]</span></p>
-<p>其中，单个分子的平均速度 <span class="math inline">\(\langle v
-\rangle\)</span> 为： <span class="math display">\[
-\langle v \rangle = \sqrt{\frac{8kT}{\pi m}}
-\]</span></p>
-<p>因此，平均相对速度为： <span class="math display">\[
-\langle v_{rel} \rangle = \sqrt{2} \cdot \sqrt{\frac{8kT}{\pi m}}
-\]</span></p>
-<h3 id="修正后的碰撞频率">5.2 修正后的碰撞频率</h3>
-<p>由于分子间的相对速度为 <span class="math inline">\(\sqrt{2} \langle v
-\rangle\)</span>，碰撞频率 <span class="math inline">\(Z\)</span>
-应修正为： <span class="math display">\[
-Z = n \sigma \langle v_{rel} \rangle = n \sigma \sqrt{2} \langle v
-\rangle
-\]</span></p>
-<p>将 <span class="math inline">\(\langle v \rangle =
-\sqrt{\frac{8kT}{\pi m}}\)</span> 代入，得到： <span
-class="math display">\[
-Z = n \sigma \sqrt{2} \sqrt{\frac{8kT}{\pi m}}
-\]</span></p>
-<hr />
-<h2 id="最终平均自由程公式">6. 最终平均自由程公式</h2>
-<p>根据平均自由程的定义 <span class="math inline">\(\lambda =
-\frac{v}{Z}\)</span>，并用相对速度代替单个分子的速度，得到修正后的平均自由程：
-<span class="math display">\[
-\lambda = \frac{\langle v \rangle}{Z} = \frac{\langle v \rangle}{n
-\sigma \sqrt{2} \langle v \rangle} = \frac{1}{\sqrt{2} n \sigma}
-\]</span></p>
-<p>代入碰撞截面 <span class="math inline">\(\sigma = \pi
-d^2\)</span>，最终得到： <span class="math display">\[
-\lambda = \frac{1}{\sqrt{2} n \pi d^2}
-\]</span></p>
-<hr />
-<h2 id="总结">总结</h2>
-<p>通过以上推导，我们得到了考虑分子间相对运动后的平均自由程公式： <span
-class="math display">\[
-\lambda = \frac{1}{\sqrt{2} n \pi d^2}
-\]</span> 其中：</p>
-<ul>
-<li><span class="math inline">\(n\)</span> 是气体分子数密度；</li>
-<li><span class="math inline">\(d\)</span> 是分子的有效直径；</li>
-<li><span class="math inline">\(\pi d^2\)</span> 是碰撞截面；</li>
-<li><span class="math inline">\(\sqrt{2}\)</span>
-来源于分子间的平均相对速度。</li>
-</ul>
-<p>这个公式表明，平均自由程与气体分子数密度成反比，与分子直径的平方成反比。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/30/%E5%85%B3%E9%97%ADFirefox%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BF%BB%E8%AF%91%E6%8F%90%E7%A4%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/30/%E5%85%B3%E9%97%ADFirefox%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BF%BB%E8%AF%91%E6%8F%90%E7%A4%BA/" class="post-title-link" itemprop="url">关闭Firefox浏览器的翻译提示</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-30 11:32:34 / 修改时间：11:36:12" itemprop="dateCreated datePublished" datetime="2025-03-30T11:32:34+08:00">2025-03-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在使用Firefox浏览网页时，您可能会遇到页面翻译提示弹出的情况。虽然这是一个实用的功能，但有时它可能会影响您的浏览体验。如果您希望彻底关闭这一提示，本文将为您提供详细的步骤指导。</p>
-<hr />
-<h2 id="临时关闭翻译提示">临时关闭翻译提示</h2>
-<ul>
-<li>打开Firefox浏览器。</li>
-<li>在地址栏输入
-<code>about:preferences#general</code>，然后按回车键。这将打开“常规设置”页面。</li>
-<li>向下滚动到“语言”部分。在这里，您可以查看和更改当前的显示语言以及其他的语言偏好设置。</li>
-</ul>
-<h2 id="完全禁用翻译提示">完全禁用翻译提示</h2>
-<p>如果您想完全禁用翻译提示，需要通过实验性配置项来完成：</p>
-<ul>
-<li>在Firefox浏览器的地址栏中输入 <code>about:config</code>
-并按下回车键。</li>
-<li>您可能会看到一个警告页面，提示您慎重对待这些设置。点击“我接受风险！”以继续。</li>
-<li>在搜索框中输入 <code>browser.translation.ui.show</code>。</li>
-<li>找到对应的结果后，双击它将其值更改为
-<code>false</code>。这样就可以关闭翻译提示。</li>
-</ul>
-<p><strong>注意</strong>：<br />
-根据您的Firefox版本不同，上述步骤中的某些细节可能略有不同。此外，由于浏览器更新频繁，建议检查是否有新的设置或方法来管理这一功能。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/29/%E7%BB%9F%E4%B8%80Linux%E5%8C%85%E7%AE%A1%E7%90%86%EF%BC%9A%E8%AE%BE%E8%AE%A1%E8%B7%A8%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E5%91%BD%E4%BB%A4%E6%98%A0%E5%B0%84%E4%B8%8E%E9%80%8F%E6%98%8E%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/29/%E7%BB%9F%E4%B8%80Linux%E5%8C%85%E7%AE%A1%E7%90%86%EF%BC%9A%E8%AE%BE%E8%AE%A1%E8%B7%A8%E5%8F%91%E8%A1%8C%E7%89%88%E7%9A%84%E5%91%BD%E4%BB%A4%E6%98%A0%E5%B0%84%E4%B8%8E%E9%80%8F%E6%98%8E%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">统一Linux包管理：设计跨发行版的命令映射与透明化解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-29 15:31:35 / 修改时间：15:40:48" itemprop="dateCreated datePublished" datetime="2025-03-29T15:31:35+08:00">2025-03-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="背景与问题">背景与问题</h2>
-<p>Linux世界的多样性带来了极大的灵活性，但也因为不同发行版之间的差异（如包管理器、仓库、更新频率等），导致用户在迁移或跨平台操作时面临较高的学习成本。特别是对于新手用户或专注于工作的开发者来说，这些差异显得不必要且繁琐。</p>
-<p>为了降低用户的迁移门槛并简化操作流程，设计一个能够屏蔽不同发行版差异的统一包管理接口变得尤为重要。通过提供命令映射功能和透明化的底层命令输出，可以让用户既享受一致的操作体验，又能逐步了解底层实现细节。</p>
-<hr />
-<h2 id="聚焦主流发行版的理由">聚焦主流发行版的理由</h2>
-<h3 id="初学者的需求">初学者的需求</h3>
-<ul>
-<li><strong>接触渠道</strong>：初学者更容易接触到的是像Ubuntu、Debian、Fedora、CentOS、Arch
-Linux等著名的发行版。</li>
-<li><strong>用户体验</strong>：专注于这些主流发行版可以最大化地简化初学者的学习曲线，因为他们不需要处理小众发行版可能带来的额外复杂性。</li>
-</ul>
-<h3 id="小众发行版用户的特点">小众发行版用户的特点</h3>
-<ul>
-<li><strong>已有经验</strong>：使用小众发行版的用户通常已经具备了一定的Linux使用经验，他们对特定的系统配置和包管理有更深的理解。</li>
-<li><strong>定制需求</strong>：这类用户往往寻求高度定制化的解决方案，因此统一脚本对他们来说并不是必需品。</li>
-</ul>
-<p>基于上述理由，在设计初期仅需考虑主流发行版即可满足大多数用户的需求。</p>
-<hr />
-<h2 id="核心思路">核心思路</h2>
-<ul>
-<li><strong>统一接口</strong>：为用户提供一个简单的命令行工具，屏蔽不同主流发行版的包管理器差异。<br />
-</li>
-<li><strong>命令映射</strong>：允许用户选择自己喜欢的包管理器风格（如<code>apt-get</code>或<code>pacman</code>），并将输入翻译为当前系统实际使用的包管理器命令。<br />
-</li>
-<li><strong>透明化执行</strong>：在执行每个命令后，打印底层实际运行的命令，帮助用户理解工具的行为并便于调试。</li>
-</ul>
-<hr />
-<h2 id="可行性分析">可行性分析</h2>
-<h3 id="技术可行性">技术可行性</h3>
-<ul>
-<li>主流Linux发行版大多遵循一定的标准（如<code>/etc/os-release</code>文件），可以通过这些信息判断系统类型。<br />
-</li>
-<li>不同包管理器的基本功能相似，可以通过条件分支逻辑实现命令映射。<br />
-</li>
-<li>使用配置文件或映射表可以轻松扩展支持更多主流发行版和包管理器。</li>
-</ul>
-<h3 id="用户体验提升">用户体验提升</h3>
-<ul>
-<li>对新手友好：无需记忆不同发行版的包管理器命令。<br />
-</li>
-<li>对老手友好：支持自定义命令风格，减少切换成本。<br />
-</li>
-<li>提供透明化的底层命令输出，增强信任感和可调试性。</li>
-</ul>
-<hr />
-<h2 id="现有工具的局限性">现有工具的局限性</h2>
-<p>尽管已有一些工具尝试解决跨发行版的包管理问题，但它们的功能和适用范围各有不足：</p>
-<ul>
-<li><strong>Nix/Guix</strong>：专注于环境隔离和声明式配置，但未提供命令映射功能。<br />
-</li>
-<li><strong>Flatpak/Snap</strong>：解决了应用层面的跨平台问题，但无法替代系统级包管理。<br />
-</li>
-<li><strong>Linuxbrew/AppImage</strong>：提供了独立于系统包管理器的解决方案，但对系统级软件的支持有限。</li>
-</ul>
-<p>这些工具虽然强大，但并未完全满足“统一接口+命令映射”的需求。</p>
-<hr />
-<h2 id="命令映射功能的设计">命令映射功能的设计</h2>
-<h3 id="映射机制">映射机制</h3>
-<ul>
-<li>使用配置文件（如YAML或JSON）定义不同包管理器之间的命令映射关系。<br />
-</li>
-<li>动态检测当前系统的包管理器，并根据用户输入翻译为相应的底层命令。</li>
-</ul>
-<h3 id="用户偏好设置">用户偏好设置</h3>
-<ul>
-<li>允许用户通过环境变量或配置文件选择自己喜欢的包管理器风格。<br />
-</li>
-<li>提供默认风格（如<code>apt-get</code>），以降低入门门槛。</li>
-</ul>
-<hr />
-<h2 id="透明化执行的实际意义">透明化执行的实际意义</h2>
-<h3 id="增强透明性">增强透明性</h3>
-<ul>
-<li>打印底层实际执行的命令，让用户清楚地知道工具做了什么。<br />
-</li>
-<li>避免黑盒操作，建立用户对工具的信任感。</li>
-</ul>
-<h3 id="便于调试">便于调试</h3>
-<ul>
-<li>如果某些操作失败或行为不符合预期，用户可以直接复制并运行底层命令进行排查。<br />
-</li>
-<li>提供错误上下文信息，帮助用户快速定位问题。</li>
-</ul>
-<h3 id="教育作用">教育作用</h3>
-<ul>
-<li>为用户提供一种从高层次抽象到低层次实现的学习路径。<br />
-</li>
-<li>新手可以从使用统一接口开始，逐渐熟悉底层命令。</li>
-</ul>
-<hr />
-<h2 id="潜在影响与优势">潜在影响与优势</h2>
-<h3 id="提升用户体验">提升用户体验</h3>
-<ul>
-<li>简化操作流程，降低学习成本。<br />
-</li>
-<li>支持跨发行版操作，减少迁移障碍。</li>
-</ul>
-<h3 id="推动linux普及">推动Linux普及</h3>
-<ul>
-<li>吸引更多用户尝试Linux，尤其是那些担心复杂性的潜在用户。<br />
-</li>
-<li>增强企业采用的信心，简化IT管理流程。</li>
-</ul>
-<h3 id="社区贡献">社区贡献</h3>
-<ul>
-<li>开源社区可以通过协作不断完善工具，支持更多主流发行版和包管理器。</li>
-</ul>
-<hr />
-<h2 id="改进建议">改进建议</h2>
-<ol type="1">
-<li><strong>日志记录</strong>：将底层命令保存到日志文件中，方便后续查阅。<br />
-</li>
-<li><strong>颜色高亮</strong>：使用颜色区分普通输出和底层命令，提升可读性。<br />
-</li>
-<li><strong>静默模式</strong>：提供选项关闭底层命令的打印功能，适用于批量脚本或自动化任务。<br />
-</li>
-<li><strong>错误提示</strong>：在命令失败时提供常见解决方案，帮助用户快速解决问题。</li>
-</ol>
-<hr />
-<h2 id="总结">总结</h2>
-<p>设计一个支持命令映射和透明化执行的跨发行版包管理工具，不仅可以大幅降低用户的迁移成本，还能提升操作的一致性和效率。通过聚焦于主流发行版，我们能够确保为最广泛的用户群体提供最大的价值。这种工具不仅有助于简化Linux的使用体验，还能推动Linux在更广泛的用户群体中的普及。通过结合社区的力量，我们可以共同打造一个更加统一、灵活且易用的Linux生态系统。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/29/%E5%BE%AE%E8%A7%82%E6%88%AA%E9%9D%A2%E4%B8%8E%E5%AE%8F%E8%A7%82%E6%88%AA%E9%9D%A2%E7%9A%84%E5%85%B3%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/29/%E5%BE%AE%E8%A7%82%E6%88%AA%E9%9D%A2%E4%B8%8E%E5%AE%8F%E8%A7%82%E6%88%AA%E9%9D%A2%E7%9A%84%E5%85%B3%E7%B3%BB/" class="post-title-link" itemprop="url">微观截面 ($\sigma$) 与宏观截面 ($\Sigma$) 的关系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-29 12:02:35 / 修改时间：12:06:22" itemprop="dateCreated datePublished" datetime="2025-03-29T12:02:35+08:00">2025-03-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="微观截面-sigma">微观截面 <span
-class="math inline">\(\sigma\)</span></h2>
-<ul>
-<li><strong>定义</strong>:
-单个原子核与中子发生相互作用的等效“靶面积”（单位：<span
-class="math inline">\(cm^2\)</span>）。</li>
-<li><strong>物理意义</strong>:
-中子通过该面积时才会与原子核发生碰撞，概率上等效为作用可能性。</li>
-</ul>
-<h2 id="宏观截面-sigma">宏观截面 <span
-class="math inline">\(\Sigma\)</span></h2>
-<ul>
-<li><strong>定义</strong>: <span class="math inline">\(\Sigma = N \cdot
-\sigma\)</span>，其中：
-<ul>
-<li><span class="math inline">\(N =\)</span>
-材料中单位体积的原子核数（<span
-class="math inline">\(cm^{-3}\)</span>），</li>
-<li><span class="math inline">\(\sigma =\)</span>
-单个原子核的总微观截面（<span
-class="math inline">\(cm^2\)</span>）。</li>
-</ul></li>
-<li><strong>单位推导</strong>: <span class="math inline">\(\Sigma =
-[cm^{-3}] \cdot [cm^2] = cm^{-1}\)</span>。</li>
-<li><strong>物理意义</strong>: 单位长度（1
-cm）内中子与材料中所有原子核发生碰撞的概率密度。</li>
-</ul>
-<h2 id="为什么单位是长度的倒数">为什么单位是“长度的倒数”？</h2>
-<ul>
-<li><strong>概率密度的本质</strong>:
-<ul>
-<li>若 <span class="math inline">\(\Sigma = 0.1 \,
-cm^{-1}\)</span>，表示中子每移动1 cm，平均有10%的概率发生碰撞。</li>
-<li>单位距离的碰撞概率：直接由<span
-class="math inline">\(\Sigma\)</span>的数值给出（<span
-class="math inline">\(\Sigma =\)</span> 概率/cm）。</li>
-</ul></li>
-<li><strong>与微观截面的联系</strong>:
-<ul>
-<li>宏观截面是微观截面在单位体积内的“总和”，但通过单位体积（<span
-class="math inline">\(cm^{-3}\)</span>）的归一化，最终转换为单位长度（<span
-class="math inline">\(cm^{-1}\)</span>）的概率密度。</li>
-</ul></li>
-</ul>
-<h2 id="名称中保留截面一词的原因">名称中保留“截面”一词的原因</h2>
-<ul>
-<li><strong>历史传承</strong>:
-<ul>
-<li>核物理中，“截面”最初描述单个原子核的等效靶面积（<span
-class="math inline">\(\sigma\)</span>）。</li>
-<li>当扩展到宏观材料时（<span class="math inline">\(\Sigma =
-N\sigma\)</span>），名称沿用“截面”，强调其源于微观相互作用的本质。</li>
-</ul></li>
-<li><strong>物理逻辑一致性</strong>:
-<ul>
-<li>微观截面 <span
-class="math inline">\(\sigma\)</span>：面积单位（<span
-class="math inline">\(cm^2\)</span>），描述单个原子核的相互作用概率。</li>
-<li>宏观截面 <span
-class="math inline">\(\Sigma\)</span>：概率密度单位（<span
-class="math inline">\(cm^{-1}\)</span>），但名称保留“截面”以体现其物理根源。</li>
-</ul></li>
-</ul>
-<h2 id="碰撞概率的数学表达">碰撞概率的数学表达</h2>
-<ul>
-<li><strong>单位距离内的概率</strong>:
-<ul>
-<li>移动距离<span class="math inline">\(L\)</span>时的总碰撞概率为：
-<span class="math display">\[
-P = 1 - e^{-\Sigma L}
-\]</span></li>
-<li>当 <span class="math inline">\(\Sigma L \ll 1\)</span>
-时，可近似为： <span class="math display">\[
-P \approx \Sigma L \quad (\text{例如: } \Sigma = 0.1 \, cm^{-1}, L = 0.5
-\, cm \Rightarrow P \approx 5\%)
-\]</span></li>
-</ul></li>
-</ul>
-<hr />
-<h3 id="实际应用示例">5. 实际应用示例</h3>
-<ul>
-<li><strong>计算宏观截面</strong>：
-<ul>
-<li>若材料密度 <span class="math inline">\(N = 10^{22} \,
-atoms/cm^3\)</span>，单个原子核的微观截面 <span
-class="math inline">\(\sigma_t = 10^{-24} \, cm^2\)</span>，则： <span
-class="math display">\[
-\Sigma_t = N \cdot \sigma_t = 10^{22} \times 10^{-24} = 0.01 \, cm^{-1}
-\]</span></li>
-<li>平均自由程 <span class="math inline">\(\lambda = \frac{1}{\Sigma_t}
-= \frac{1}{0.01} = 100 \, cm\)</span></li>
-</ul></li>
-<li><strong>物理意义</strong>：
-<ul>
-<li>中子需平均移动 100 cm 才会发生一次碰撞，每 1 cm 有 1%
-的碰撞概率。</li>
-</ul></li>
-</ul>
-<hr />
-<h3 id="中子输运方程中的体现">6. 中子输运方程中的体现</h3>
-<ul>
-<li><strong>未碰撞中子数的演化</strong>： <span class="math display">\[
-  N(r + \Omega v \Delta t, \Omega, E, t + \Delta t) = N(r, \Omega, E, t)
-[1 - \Sigma_t v \Delta t]
-  \]</span>
-<ul>
-<li><strong>物理逻辑</strong>：未碰撞的中子从位置 <span
-class="math inline">\(r\)</span> 移动到 <span class="math inline">\(r +
-\Omega v \Delta t\)</span>，其数量因碰撞概率 <span
-class="math inline">\(\Sigma_t v \Delta t\)</span> 而衰减。</li>
-</ul></li>
-</ul>
-<hr />
-<h3 id="总结">总结</h3>
-<ul>
-<li>宏观截面 <span class="math inline">\(\Sigma_t\)</span>
-是单位体积内原子核的等效总截面，单位为 <span
-class="math inline">\(cm^{-1}\)</span>，直接对应单位距离内的碰撞概率密度。</li>
-<li>名称中的“截面”保留了微观物理（<span
-class="math inline">\(\sigma\)</span>
-的靶面积）的基因，尽管在宏观尺度下单位已转换为概率密度。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/27/%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8EGitHub-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/03/27/%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99%E7%94%9F%E6%88%90%E5%99%A8%E4%B8%8EGitHub-Pages%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">使用静态网站生成器与GitHub-Pages部署个人博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-03-27 17:47:17 / 修改时间：17:47:24" itemprop="dateCreated datePublished" datetime="2025-03-27T17:47:17+08:00">2025-03-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1
-id="使用静态网站生成器与github-pages轻松部署个人博客">使用静态网站生成器与GitHub
-Pages轻松部署个人博客</h1>
-<p>无论你是技术爱好者还是专业开发者，拥有一个展示自己作品和个人见解的平台总是非常有价值的。本文将介绍如何通过静态网站生成器（如Hexo、Hugo）和GitHub
-Pages服务来轻松部署你自己的博客。</p>
-<h2 id="静态网站生成器简介">静态网站生成器简介</h2>
-<p>静态网站生成器能够将Markdown文件（或其他格式的内容）转换为HTML文件，并生成一个完整的静态网站目录。这个目录通常包含HTML、CSS、JavaScript和其他静态资源文件。流行的静态网站生成器包括Hexo和Hugo等。</p>
-<ul>
-<li><strong>Hexo</strong>：运行<code>hexo generate</code>。</li>
-<li><strong>Hugo</strong>：运行<code>hugo</code>。</li>
-</ul>
-<p>生成的静态网站文件通常会保存在<code>public</code>目录中（对于Hexo而言），或类似的目录中（根据所使用的工具不同而有所变化）。</p>
-<h2 id="github-pages简介">GitHub Pages简介</h2>
-<p>GitHub
-Pages是一个由GitHub提供的服务，它允许用户托管和发布静态网站。只需将静态网站目录上传到GitHub仓库的特定分支（通常是<code>gh-pages</code>分支或<code>main</code>分支下的<code>docs</code>文件夹），GitHub
-Pages就能自动将其发布为一个网页。</p>
-<h2 id="步骤详解">步骤详解</h2>
-<h3 id="生成静态网站目录">1. 生成静态网站目录</h3>
-<p>使用你喜欢的静态网站生成器生成静态网站文件。例如，如果你选择Hexo，可以通过命令行运行<code>hexo generate</code>。</p>
-<h3 id="准备github仓库">2. 准备GitHub仓库</h3>
-<p>创建一个新的GitHub仓库或使用现有的仓库，并确保启用了GitHub
-Pages功能： - 在仓库的<strong>Settings</strong> &gt;
-<strong>Pages</strong>中，选择要发布的分支（如<code>main</code>或<code>gh-pages</code>）以及目录（如<code>/root</code>或<code>/docs</code>）。</p>
-<h3 id="上传静态文件">3. 上传静态文件</h3>
-<p>将生成的静态网站目录中的所有文件上传到GitHub的指定分支。如果是<code>gh-pages</code>分支，则推送整个目录内容；如果是<code>main</code>分支下的<code>docs</code>文件夹，则需要将静态文件放置于该文件夹中并提交。</p>
-<h3 id="发布网站">4. 发布网站</h3>
-<p>提交代码后，GitHub
-Pages会自动检测并部署你的网站。部署完成后，你可以通过GitHub提供的URL（通常是<code>https://&lt;username&gt;.github.io/&lt;repository&gt;</code>）访问你的网站。</p>
-<h3 id="自定义域名可选">5. 自定义域名（可选）</h3>
-<p>如果你有自己的域名，可以在GitHub
-Pages设置中添加自定义域名，并配置DNS解析。</p>
-<h2 id="总结">总结</h2>
-<p>无论是通过静态网站生成器还是手动生成HTML文件，只要最终能获得一个完整的静态网站目录，就可以通过GitHub
-Pages发布为网页。这种方法简单、免费且高效，非常适合个人博客、项目展示等场景。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

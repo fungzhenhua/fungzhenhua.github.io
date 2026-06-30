@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">566</span>
+          <span class="site-state-item-count">574</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,835 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/21/ArchLinux%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%A0%87%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/21/ArchLinux%E7%BD%91%E7%BB%9C%E5%9B%BE%E6%A0%87%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">ArchLinux网络图标问题的解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-21 18:27:37 / 修改时间：18:50:29" itemprop="dateCreated datePublished" datetime="2026-04-21T18:27:37+08:00">2026-04-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我的主力办公系统是 <code>ArchLinux</code>
+，最近由于无法访问外网，<code>Gnome</code>
+任务栏上的网络小图标显示为一个小问号，虽然可以访问内网，但这个问号总是让人看着不爽。这通常是
+<code>NetworkManager</code> 的连接性检查（
+<code>Connectivity Check</code> ）功能无法成功访问其验证服务器导致的,
+所以将检查服务器更换为一个在自己网络下总是能访问的地址将是最优雅的解决办法。解决方法为：</p>
+<h2
+id="方案一修改连通性检查的服务器地址推荐">方案一：修改连通性检查的服务器地址（推荐）</h2>
+<ul>
+<li>创建或编辑配置文件</li>
+</ul>
+<figure class="highlight sh"><figcaption><span>需使用sudo权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nvim /etc/NetworkManager/conf.d/20-connectivity.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加或修改为以下内容</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[connectivity]</span><br><span class="line">enabled=<span class="literal">true</span></span><br><span class="line"><span class="comment"># uri=http://connectivitycheck.platform.hicloud.com/generate_204</span></span><br><span class="line"><span class="comment"># uri=http://connect.rom.miui.com/generate_204</span></span><br><span class="line"><span class="comment"># uri=http://wifi.vivo.com.cn/generate_204</span></span><br><span class="line">uri=http://www.qualcomm.cn/generate_204</span><br><span class="line">response=</span><br><span class="line">interval=300</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>uri</code> 指向连通性检查的地址</p></li>
+<li><p><code>response</code> 留空，<code>NetworkManager</code>
+将只检查<code>HTTP</code>状态码(<code>204</code>表示成功),
+这很适合此处使用</p></li>
+<li><p><code>interval</code>是检查间隔(秒)</p></li>
+<li><p>重启<code>NetworkManager</code>服务使配置生效</p></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+<h2 id="方案二完全禁用连通性检查">方案二：完全禁用连通性检查</h2>
+<ul>
+<li>创建或编辑配置文件</li>
+</ul>
+<figure class="highlight sh"><figcaption><span>需使用sudo权限</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nvim /etc/NetworkManager/conf.d/20-connectivity.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加或修改为以下内容</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[connectivity]</span><br><span class="line">enabled=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启<code>NetworkManager</code>服务使配置生效</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/20/%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/20/%E4%BD%BF%E7%94%A8Caddy%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%AC%E5%9C%B0%E5%9F%9F%E5%90%8D/" class="post-title-link" itemprop="url">使用Caddy反向代理本地域名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-04-20 14:59:36" itemprop="dateCreated datePublished" datetime="2026-04-20T14:59:36+08:00">2026-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-06-11 10:37:23" itemprop="dateModified" datetime="2026-06-11T10:37:23+08:00">2026-06-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于网络限制，我们升级了脚本
+<code>diary.sh</code>，使其能够在无法访问 <code>GitHub</code>
+的电脑上本地托管博客，这样在办公环境中可以使用高度定制化的博客系统，从而提高工作效率和规范性。尽管通过
+Python3 实现的博客可以在本地域名 <code>127.0.0:4000</code> 或
+<code>http://localhost:4000</code>
+上运行，但在浏览器地址栏中看起来不够美观，并且需要在
+<code>Firefox</code> 中手动设置代理为
+<code>http://localhost:4000</code>。为此，本节介绍了一项锦上添花的技术：使用
+<code>Caddy</code> 反向代理并生成自签名证书，这样当访问
+<code>https://fungzhenhua.github.io</code> 时，实际上是在访问
+<code>http://localhost:4000</code> 的内容。</p>
+<h2 id="配置caddy">配置Caddy</h2>
+<h3 id="安装caddy">安装Caddy</h3>
+<figure class="highlight sh"><figcaption><span>Install Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S caddy</span><br></pre></td></tr></table></figure>
+<h3 id="配置caddy-使用自签名证书">配置Caddy, 使用自签名证书</h3>
+<figure class="highlight sh"><figcaption><span>/etc/caddy/conf.d/fungzhenhua.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fungzhenhua.github.io &#123;</span><br><span class="line">    tls internal</span><br><span class="line">    reverse_proxy localhost:4000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="测试配置是否正确">测试配置是否正确</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> caddy validate --config /etc/caddy/Caddyfile</span><br></pre></td></tr></table></figure>
+<p>如果看到<code>Valid configuration</code>字样，说明配置正确，字样通常在最后一行。</p>
+<h3 id="启动caddy">启动Caddy</h3>
+<figure class="highlight sh"><figcaption><span>启动Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> caddy</span><br><span class="line"><span class="built_in">sudo</span> systemctl start caddy</span><br></pre></td></tr></table></figure>
+<h3 id="重启caddy">重启Caddy</h3>
+<figure class="highlight sh"><figcaption><span>重启Caddy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart caddy</span><br></pre></td></tr></table></figure>
+<h2 id="firefox导入证书">Firefox导入证书</h2>
+<p>在完成上述Caddy设置后，发现每次打开Firefox后总是有风险提示，为了应对这个麻烦需要使用Firefox导入由Caddy生成的证书。由于使用<code>tls internal</code>方式，则Caddy默认生成的证书存放于<code>/var/lib/caddy/pki/authorities/local/root.crt</code>,
+访问它需要<code>root</code>权限，于是解决方案是将其复制到家目录，然后赋于读写权限，再导入到<code>Firefox</code>的<code>证书分布机构</code>则问题可解决。</p>
+<h3 id="具体操作">具体操作</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 复制到当前目录</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> /var/lib/caddy/pki/authorities/local/root.crt ~/caddy-root.crt</span><br><span class="line"><span class="comment"># 修改权限</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> <span class="variable">$USER</span>:<span class="variable">$USER</span> ~/caddy-root.crt</span><br></pre></td></tr></table></figure>
+<p>如果是其他的<code>Linux</code>发行版，则需确认具体<code>root.crt</code>的路径。</p>
+<h3 id="在firefox中导入">在Firefox中导入</h3>
+<ul>
+<li>打开<code>about:preferences#privacy</code></li>
+<li>点击<code>查看证书...</code></li>
+<li>切换到<code>证书颁发机构</code>标签页（注意：不是<code>您的证书</code>标签页）</li>
+<li>点击<code>导入</code></li>
+<li>选择<code>~/caddy-root.crt</code></li>
+<li>勾选三个信任 → 确定</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/20/%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/04/20/%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">本地博客搭建教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-04-20 03:25:11 / 修改时间：03:56:59" itemprop="dateCreated datePublished" datetime="2026-04-20T03:25:11+08:00">2026-04-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="需求分析及工作原理">需求分析及工作原理</h2>
+<p>近期由于网络的原因需要在本地搭建博客，最初的方案是借用<code>Github Pages</code>
+实现了自定义博客，但是并非所有的地方都能访问<code>Github</code>,
+因此在这些地方可以采用本地博客的方式，实现原理为：</p>
+<ul>
+<li>将<code>Github</code>博客源码库同步到<code>Gitee</code>,
+因为<code>Gitee</code>属于国内的开发平台，所认其速度非常快。</li>
+<li>将<code>Gitee</code>上的源码<code>hexosurce</code>克隆到本地。</li>
+<li>如果本机可以访问<code>Github</code>，
+则同步克隆其上源码到本地。</li>
+<li>编辑<code>Gitee</code>上克隆下来的源码，如果本机不可访问外网，则启动本机<code>http</code>服务，直接访问
+<a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a></li>
+<li>编辑<code>Gitee</code>上克隆下来的源码，如果本机可访问外网，将编辑好的源码复制到<code>Github</code>库一份，并<code>Push</code>到<code>Github</code>上，实现同步备份之目的。</li>
+</ul>
+<h2 id="使用-python-内置服务器本地托管博客">使用 Python
+内置服务器本地托管博客</h2>
+<h3 id="安装-python3">安装 Python3</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S python3</span><br></pre></td></tr></table></figure>
+<h3 id="创建服务文件">创建服务文件</h3>
+<figure class="highlight sh"><figcaption><span>/etc/systemd/system/blog.service</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Hexo Blog Static Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=你的用户名</span><br><span class="line">WorkingDirectory=/home/你的用户名/hexo-blog/public   <span class="comment"># 直接指向 public 目录</span></span><br><span class="line">ExecStart=/usr/bin/python3 -m http.server 4000 --<span class="built_in">bind</span> 127.0.0.1</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<h4 id="重要">重要</h4>
+<ul>
+<li><p><code>WorkingDirectory</code> 必须是博客根目录（即包含
+<code>public</code> 文件夹的目录），而不是 <code>public</code>
+本身。</p></li>
+<li><p><code>User</code> 建议填写你的普通用户名，不要用
+<code>root</code>。</p></li>
+</ul>
+<h3 id="重新加载并启动">重新加载并启动</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start blog</span><br><span class="line"><span class="built_in">sudo</span> systemctl status blog</span><br></pre></td></tr></table></figure>
+<p>如果状态为 <code>active (running)</code>，即可通过
+<code>http://localhost:4000</code> 访问。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/03/24/Wacom%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/24/Wacom%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Wacom的配置和使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-24 13:01:02 / 修改时间：13:45:02" itemprop="dateCreated datePublished" datetime="2026-03-24T13:01:02+08:00">2026-03-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天网购的数位板Wacom PTK670
+收到了，做工相当精制，铝合金机身，超薄设计，厚度仅有4mm,
+使用体验了一下，相当好用。我的电脑装配的是 ArchLinux 系统，而 Linux
+内核默认是包含 Wacom 驱动的，这也构成了我选择 Wacom 的理由，同时在使用
+Gnome+wayland 的组合中不需要任何设置就能完美运行。</p>
+<h2 id="archlinux-的设置">ArchLinux 的设置</h2>
+<ul>
+<li><p>安装支持手写的软件 <code>xournall++</code> 和
+<code>Openboard</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S xournalpp openboard</span><br></pre></td></tr></table></figure></p></li>
+<li><p>配置快捷键，支持更高效的工作。Wacom PTK670
+左右各有一个滚轮和四个方向键，根据操作的频繁程度，我规划了自定义键：</p>
+<ul>
+<li>打开设置：设置→ 数位板→自定义功能</li>
+<li>左侧：转轮逆时针向上，顺时针向下, 上键对应<code>PgUp</code>,
+下键<code>PgDn</code>,
+左键<code>Ctrl Z</code>撤销，右键<code>Ctrl y</code>,</li>
+<li>右侧：转轮逆时针缩小，顺时针放大,
+上键对应<code>Ctrl+Shift+Delte</code> 删除当前页,
+下键<code>Ctrl+D</code>新增一页, 左键保留，右键保留.</li>
+</ul></li>
+</ul>
+<h2 id="设置触控笔">设置触控笔</h2>
+<ul>
+<li>压力感应设置，启动<code>xournalpp</code>,
+然后依次点击：编辑→触控笔→最小压力<code>0.01</code>→压力增强<code>4.00</code>.</li>
+<li>触控笔按钮：按钮1<code>手形工具</code>, 按钮2<code>高亮</code>,
+按钮3<code>橡皮</code>.</li>
+</ul>
+<p>目前暂做上述设定，在使用中再逐步改善。</p>
+<h2 id="书定文件转打印体">书定文件转打印体</h2>
+<p>将书写的内容复制图片，粘贴到通义千问或DeepSeek中，让Ai帮助识别成打印体，实验的结果是只要字不是非常草，文字和公式都能正确识别，然后让Ai以LaTeX源格式输出，只需复制粘贴到LaTeX文件中即可实现编译成PDF文档。这个方法对于大规模的写解答题的答案等是相当可高效的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/03/17/ArchLinux%E4%BD%BF%E7%94%A8PcamanHooks%E8%A7%A3%E5%86%B3GDM%E6%81%A2%E5%A4%8D%E9%BB%98%E8%AE%A4%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/17/ArchLinux%E4%BD%BF%E7%94%A8PcamanHooks%E8%A7%A3%E5%86%B3GDM%E6%81%A2%E5%A4%8D%E9%BB%98%E8%AE%A4%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">ArchLinux使用PcamanHooks解决GDM恢复默认的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-03-17 14:26:09 / 修改时间：14:41:18" itemprop="dateCreated datePublished" datetime="2026-03-17T14:26:09+08:00">2026-03-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ArchLinux 是我的主力办公系统，我配置了完整的 WhiteSur
+主题，当然也细致到了使用 WhiteSur 的 GDM 主题。但是我发现有时候系统使用
+Pacman 升级后 GDM 主题会恢复到默认状态，其根源在于 GDM （GNOME
+显示管理器）的主题是通过直接替换系统文件<code>/usr/share/gnome-shell/gnome-shell-theme.gresource</code>
+来实现的。当<code>gnome-shell</code>
+软件包升级时，这个文件会被包管理器自动恢复为默认版本，所以美化的登录界面就消失了。</p>
+<p>永久解决这个问题的核心思路是让系统在每次<code>gnome-shell</code>更新后，自动重新应用一次<code>WhiteSur</code>主题。在ArchLinux上，最优雅的方式就是使用<code>Pacman钩子(hook)</code>,
+具体步骤为：</p>
+<ul>
+<li><p>创建钩子文件：使用<code>root</code>权限在<code>/usr/share/libalpm/hooks/</code>目录下创建一个新的钩子文件，例如命名为<code>reapply-whitesur-gdm.hook</code>,
+如果你按装了<code>nvim</code>则执行 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nvim /usr/share/libalpm/hooks/reapply-whitesur-gdm.hook</span><br></pre></td></tr></table></figure></p></li>
+<li><p>编写钩子内容： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Trigger]</span><br><span class="line">Operation = Upgrade</span><br><span class="line">Type = Package</span><br><span class="line">Target = gnome-shell</span><br><span class="line"></span><br><span class="line">[Action]</span><br><span class="line">Description = Reapplying WhiteSur GDM theme after gnome-shell upgrade...</span><br><span class="line">When = PostTransaction</span><br><span class="line">Exec = /bin/sh -c <span class="string">&#x27;cd /路径/你的/WhiteSur-gtk-theme &amp;&amp; sudo ./tweaks.sh -g&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>[Trigger]</code>部分：定义了钩子的触发条件,
+即<code>gnome-shell</code>或<code>gdm</code>包升级(<code>Upgrade</code>)后触发。</li>
+<li><code>[Action]</code>部分：定义了要执行的动作。</li>
+<li><code>Exec</code>:
+最关键的一行。它需要指定一个完整的<code>shell</code>命令来重新应用主题。</li>
+</ul></li>
+<li><p>原理验证：保存文件后，这个钩子就生效了。下一次当你运行
+<code>sudo pacman -Syu</code> 并且更新列表里包含
+<code>gnome-shell</code>或<code>gdm</code>
+时，你会在升级输出中看到你设置的 <code>Description</code>
+文字，随后主题会被自动重新应用。升级完成后，你的 <code>GDM</code>
+登录界面将保持为 <code>WhiteSur 主题</code>，再也不会被重置了。</p></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/01/27/ArchLinux%E5%AE%89%E8%A3%85%E5%85%84%E5%BC%9FDCP7180DN%E6%89%93%E5%8D%B0%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/01/27/ArchLinux%E5%AE%89%E8%A3%85%E5%85%84%E5%BC%9FDCP7180DN%E6%89%93%E5%8D%B0%E6%9C%BA/" class="post-title-link" itemprop="url">ArchLinux安装兄弟DCP7180DN打印机</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-01-27 08:38:43 / 修改时间：09:07:38" itemprop="dateCreated datePublished" datetime="2026-01-27T08:38:43+08:00">2026-01-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近期更换了办公室，所以需要安装该办公室的打印机兄弟DCP7180DN打印机，但是我的ArchLinux
+上没有相应的驱动，所以需要安装。</p>
+<h2 id="安装打印机配置程序">安装打印机配置程序</h2>
+<p>安装<code>system-config-printer</code>, 打开终端运行命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S system-config-printer</span><br></pre></td></tr></table></figure>
+<h2 id="安装brother-dcp7180dn驱动">安装brother-dcp7180dn驱动</h2>
+<ul>
+<li>使用<code>paru</code>检索驱动 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -Ss brother |grep 7180</span><br></pre></td></tr></table></figure></li>
+<li>确定驱动的全称<code>brother-dcp7180dn</code>, 执行安装
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paru -S brother-dcp7180dn</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="配置打印机">配置打印机</h2>
+<ul>
+<li><p>在菜单中找到<code>打印机设置</code>→<code>解锁</code>→<code>添加</code>→<code>网络打印机</code>.</p></li>
+<li><p>选择局域网内的打印机，此时输入打印机的<code>IP</code>和使用默认<code>端口9100</code>,
+同时下方显示连接<code>AppSocket/HP JetDirect</code>, 点击转发,
+然后等待搜索驱动.</p></li>
+<li><p>由于已经安装了<code>brother-dcp7180dn</code>驱动，所以点击<code>确定</code>后就可以使用了。</p></li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a
+href="./2025/09/27/ArchLinux安装奔图P3370DN打印机驱动">ArchLinux安装奔图P3370DN打印机驱动</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/01/17/Linux%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F%E5%91%BD%E4%BB%A4sort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/01/17/Linux%E4%B8%AD%E7%9A%84%E6%8E%92%E5%BA%8F%E5%91%BD%E4%BB%A4sort/" class="post-title-link" itemprop="url">Linux中的排序命令sort</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-01-17 16:57:22 / 修改时间：17:09:01" itemprop="dateCreated datePublished" datetime="2026-01-17T16:57:22+08:00">2026-01-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在给学生上完课后，我需要将希沃白板的板书保存下来，合成为一个 PDF
+文件，发送给学生，以便学生能够及时复习。但是，在板书超过10页后，发现直接使用
+<code>magick</code> 命令合成，那第
+10页会跑到第1页前面，于是我修改文件名后完成了操作。但是这也太麻烦了，于是决定编写一个脚本自动处理合成任务，其中的关键是根据
+seewo
+白板按时间加页码命名的默认方式进行排序。为了完成正确的排序，需要借助<code>sort</code>
+命令。</p>
+<h2 id="sort-命令简介">sort 命令简介</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">排序需求</th>
+<th style="text-align: left;">命令示例</th>
+<th style="text-align: left;">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">默认字典序（ASCII顺序）</td>
+<td style="text-align: left;"><code>ls \| sort</code></td>
+<td
+style="text-align: left;">最基本排序，大写字母（A-Z）排在小写字母（a-z）之前。</td>
+</tr>
+<tr>
+<td style="text-align: left;">智能版本序(含数字时推荐)</td>
+<td style="text-align: left;"><code>ls \| sort -V</code></td>
+<td style="text-align: left;">能识别数字并按数值大小排，将 1, 2, 10 排成
+1, 2, 10（而不是 1, 10, 2）。</td>
+</tr>
+<tr>
+<td style="text-align: left;">忽略大小写</td>
+<td style="text-align: left;"><code>ls \| sort -f</code></td>
+<td style="text-align: left;">将 a.png 和 B.png 视为相同字母排序。</td>
+</tr>
+<tr>
+<td style="text-align: left;">按修改时间（时间倒序）</td>
+<td style="text-align: left;"><code>ls -t</code></td>
+<td style="text-align: left;">注意：这是 ls 命令的参数 (-t)，不是 sort
+的功能。</td>
+</tr>
+<tr>
+<td style="text-align: left;">反转排序结果</td>
+<td style="text-align: left;"><code>ls \| sort -r</code></td>
+<td style="text-align: left;">-r 参数可与其他参数组合，如 sort -Vr
+为版本序反转。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="核心用法">核心用法</h2>
+<p>sort
+通常不直接操作文件，而是对它接收到的文本输入流进行排序。因此，你需要先用
+ls、find 或 echo 生成文件列表，再通过管道 | 传给 sort。</p>
+<h3 id="图片合成-pdf-命令">图片合成 pdf 命令</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">magick $(<span class="built_in">ls</span> *.png | <span class="built_in">sort</span> -V) output.pdf</span><br></pre></td></tr></table></figure>
+<h3 id="进阶技巧">进阶技巧</h3>
+<p>如果你想获得类似文件管理器那种“按名称排序，但文件夹在前”的列表，可以结合
+ls 和 sort：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -la | <span class="built_in">sort</span> -k 9  <span class="comment"># 按第9列（默认文件名列）排序</span></span><br></pre></td></tr></table></figure>
+<p>注：这种方法比较脆弱，因为 ls -l
+的输出格式固定，列位置可能因系统而异。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/01/06/Linux%E4%B8%8EWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E9%87%8D%E5%90%AF%E5%AF%BC%E8%87%B4%E6%97%A0%E7%BA%BF%E7%BD%91%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Linux与Windows双系统重启导致无线网消失的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-01-06 15:15:33 / 修改时间：15:26:30" itemprop="dateCreated datePublished" datetime="2026-01-06T15:15:33+08:00">2026-01-06</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>近期重新安装了双系统中的Windows11,
+但是发现重启后Linux的无线网居然消失了。使用命令 <code>rfkill list</code>
+排查，发现 <code>Hard blocked: yes</code> 且
+<code>Soft blocked: yes</code>,
+这表明驱动层面是没有问题的。导致ArchLinux中无线网消失的根本原因通常是
+Windows的“快速启动”功能改变了硬件的电源状态，导致Arch
+Linux无法正确识别或重置无线网卡.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>禁用Windows快速启动可以根治切换操作系统时导致的无线网消失问题，具体操作如下：</p>
+<ul>
+<li><p><code>在Windows系统</code>中，进入“控制面板” → “硬件和声音” →
+“电源选项” → “选择电源按钮的功能”。</p></li>
+<li><p>点击“更改当前不可用的设置”，然后将 “启用快速启动（推荐）”
+前面的勾选<code>取消</code>。</p></li>
+<li><p><code>保存修改</code>，然后正常重启进入 ArchLinux
+再测试。</p></li>
+</ul>
+<h2 id="为什么是windows的锅">为什么是Windows的锅？</h2>
+<p>Windows的“快速启动”（混合睡眠）在关机时会将系统状态（包括一些硬件状态）保存到硬盘。当你在这种“伪关机”后启动Arch时，硬件可能还处于Windows设定的某种低功耗或禁用状态，而Linux内核无法完全重置它。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -487,797 +1316,8 @@ smtp.office365.com，关闭对话框，然后重试，以便出现 OAuth 窗口�
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/19/LaTeX%E4%B8%AD%E7%9A%84%E7%A1%AC%E7%A9%BA%E6%A0%BC/" class="post-title-link" itemprop="url">LaTeX中的硬空格</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-19 09:24:13 / 修改时间：09:30:59" itemprop="dateCreated datePublished" datetime="2025-11-19T09:24:13+08:00">2025-11-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="latex-中-符号的含义">LaTeX 中 <code>~</code> 符号的含义</h2>
-<p>在 LaTeX 中，<strong><code>~</code></strong>
-符号表示一个<strong>不可断行的空格</strong>（non-breaking
-space），也称为硬空格。</p>
-<h2 id="主要功能">主要功能</h2>
-<h3 id="禁止换行">1. 禁止换行</h3>
-<ul>
-<li>使用 <code>~</code>
-连接的两个单词或元素<strong>不会被分开在两行</strong></li>
-<li>示例：<code>Prof.~Smith</code> 会确保 "Prof." 和 "Smith"
-始终在同一行显示</li>
-</ul>
-<h3 id="与普通空格的区别">2. 与普通空格的区别</h3>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>是否可断行</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通空格</td>
-<td>可断行</td>
-<td><code>Mr. Smith</code> 可能换行为 "Mr." 和 "Smith"</td>
-</tr>
-<tr>
-<td><code>~</code> 空格</td>
-<td>不可断行</td>
-<td><code>Mr.~Smith</code> 强制 "Mr. Smith" 在同一行</td>
-</tr>
-</tbody>
-</table>
-<h2 id="常见使用场景">常见使用场景</h2>
-<h3 id="人名与头衔">人名与头衔</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dr.~White, Prof.~Anderson </span><br></pre></td></tr></table></figure>
-<h3 id="图表编号引用">图表编号引用</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fig.~<span class="keyword">\ref</span>&#123;fig:example&#125;, Table~<span class="keyword">\ref</span>&#123;tab:data&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="章节和公式的引用">章节和公式的引用</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chapter~<span class="keyword">\ref</span>&#123;chap:intro&#125;, Section~<span class="keyword">\ref</span>&#123;sec:method&#125;, Eq.~(<span class="keyword">\ref</span>&#123;eq:1&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="固定搭配单词">固定搭配单词</h3>
-<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pH~value, Apple~Inc., 100~km/h</span><br></pre></td></tr></table></figure>
-<h2 id="注意事项">注意事项</h2>
-<ul>
-<li>在 LaTeX
-源码中，<code>~</code>会渲染为一人空格，但禁止在此处换行</li>
-<li>数学模式中<code>$a~b$</code>也会产生空格，但是要注意与相似符号<code>$\sim$</code>的区别</li>
-<li><code>~</code>是LaTeX中用于保持内容连贯、防止意外换行我重要符号。同时，<code>expl3</code>会自动去除代码中的空格，但是这导致了在<code>expl3</code>中使用<code>source2e</code>中的代码时，如果其中含有空格，就需要使用<code>~</code>取代，这样可以保证代码正常运行。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/expl3%E8%AF%AD%E6%B3%95%E4%B8%8Etikz%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/18/expl3%E8%AF%AD%E6%B3%95%E4%B8%8Etikz%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">expl3语法与tikz冲突的解决</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-18 21:25:08 / 修改时间：21:34:22" itemprop="dateCreated datePublished" datetime="2025-11-18T21:25:08+08:00">2025-11-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近计划使用<code>source3</code>的原生命令编写一个答题卡宏包，目标是实现高考答题卡的仿真，用于中学生日常测试的规范答题中。但是，在绘制圆角矩形时，由于借助了<code>tikz</code>宏包，这导致了系统报错，报错的代码是</p>
-<figure class="highlight tex"><figcaption><span>报错的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tikzpicture&#125;</span><br><span class="line">        <span class="keyword">\int_while_do:nNnn</span> &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int&#125; &#123;&lt;&#125; &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>column<span class="built_in">_</span>int&#125;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">\draw</span> [color=red, rounded corners] (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim,0) rectangle (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim,<span class="keyword">\gksheet</span><span class="built_in">_</span>ht<span class="built_in">_</span>dim);</span><br><span class="line">            <span class="keyword">\dim_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim+<span class="keyword">\gkcolumnspace</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\dim_set:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim&#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim+<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\int_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int &#123;1&#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;tikzpicture&#125;</span><br></pre></td></tr></table></figure>
-<p>当我去掉圆角括号<code>rounded corners</code>后发现可以正常工作，但是追加上这人括号后系统再次报错。经过研究发现，主要是<code>rounded corners</code>中包含了一个空格，这会导致问题的产生，因为在<code>expl3</code>语法中，空格会被忽略，而在<code>tikz</code>中空格被解释为参数分隔符，这导致了<code>tikz</code>实际获得的是<code>roundedcorners</code>，
-于是错误出现了。而<code>~</code>是不可忽略的空格，于是切换成<code>rounded~corners</code>后问题立刻解决。这是<code>expl3</code>与<code>tikz</code>集成时的一个隐蔽陷阱，所以本文的方案为解决这一问题提供了最佳实践。</p>
-<figure class="highlight tex"><figcaption><span>正确的代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;tikzpicture&#125;</span><br><span class="line">        <span class="keyword">\int_while_do:nNnn</span> &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int&#125; &#123;&lt;&#125; &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>column<span class="built_in">_</span>int&#125;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">\draw</span> [color=red, rounded~corners] (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim,0) rectangle (<span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim,<span class="keyword">\gksheet</span><span class="built_in">_</span>ht<span class="built_in">_</span>dim);</span><br><span class="line">            <span class="keyword">\dim_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim &#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim+<span class="keyword">\gkcolumnspace</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\dim_set:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>end<span class="built_in">_</span>dim&#123;<span class="keyword">\gkcolumn</span><span class="built_in">_</span>start<span class="built_in">_</span>dim+<span class="keyword">\gkcolumn</span><span class="built_in">_</span>wd<span class="built_in">_</span>dim&#125;</span><br><span class="line">            <span class="keyword">\int_add:Nn</span> <span class="keyword">\gkcolumn</span><span class="built_in">_</span>columnx<span class="built_in">_</span>int &#123;1&#125;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;tikzpicture&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/18/PPT%E4%B8%AD%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/11/18/PPT%E4%B8%AD%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">PPT中视频无法播放的解决方案</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-11-18 16:16:52 / 修改时间：16:21:42" itemprop="dateCreated datePublished" datetime="2025-11-18T16:16:52+08:00">2025-11-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="问题描述">问题描述</h1>
-<p>在日常使用PowerPoint制作演示文稿时，很多人可能都遇到过这样的困扰：精心准备的视频在PPT中无法播放，只显示黑色框框或错误提示。这种情况往往并非PowerPoint软件本身的问题，而是系统缺少相应的<strong>视频编解码器</strong>所致。今天，我们就来探讨如何通过安装K-Lite
-Codec Pack这一强大工具，彻底解决PPT中视频无法播放的难题。</p>
-<h2 id="为什么ppt中的视频无法播放">为什么PPT中的视频无法播放？</h2>
-<p>在深入解决方案之前，我们首先需要理解问题的根源。PowerPoint并非独立的媒体播放器，它依赖于操作系统中的<strong>编解码器</strong>来播放视频和音频文件。</p>
-<p>编解码器（Codec）是一种能够对视频或音频流进行编码和解码的软件，它压缩大尺寸的媒体文件以便存储和传输，然后在播放时解压缩。当你尝试在PPT中插入一个视频时，如果系统没有安装相应的编解码器，就会出现无法播放的情况。</p>
-<p>导致PPT媒体播放问题的常见原因包括：</p>
-<ul>
-<li><strong>不支持的视频格式</strong>：PPT对视频格式有特定要求，某些特殊格式无法直接嵌入</li>
-<li><strong>缺少合适的编解码器</strong>：系统没有安装相应的解码器来解析视频文件</li>
-<li><strong>文件损坏</strong>：视频文件本身可能已损坏或不完整</li>
-<li><strong>兼容性问题</strong>：使用不同版本的PowerPoint可能导致兼容性问题</li>
-<li><strong>链接断开</strong>：如果是链接到外部视频文件，文件被移动或删除会导致无法播放</li>
-</ul>
-<p>值得注意的是，WPS演示同样需要调用系统中的视频解码器来播放视频，出现此问题也是由于系统中缺乏相应的解码器导致的。</p>
-<h2 id="什么是k-lite-codec-pack">什么是K-Lite Codec Pack？</h2>
-<p>K-Lite Codec
-Pack被广泛认为是<strong>解码器包的鼻祖</strong>，功能非常强大且便捷实用。它在编解码器领域有着悠久的历史和良好的声誉，支持绝大多数你在网络上常见的影音格式。</p>
-<h3 id="k-lite-codec-pack的主要特点">K-Lite Codec Pack的主要特点：</h3>
-<ul>
-<li><strong>兼容性好</strong>：与各种媒体播放器和应用程序良好兼容</li>
-<li><strong>资源占用小</strong>：不插启动项，不拖慢系统速度</li>
-<li><strong>安装简便</strong>：安装和卸载都不用重启计算机</li>
-<li><strong>全面支持</strong>：包含绝大多数常见影音格式的解码器</li>
-</ul>
-<h2 id="如何安装k-lite-codec-pack">如何安装K-Lite Codec Pack？</h2>
-<p>安装K-Lite Codec Pack并不复杂，以下是基本步骤：</p>
-<ol type="1">
-<li><p><strong>下载和解压</strong>：从<a
-target="_blank" rel="noopener" href="https://www.codecguide.com/download_kl.htm">K-Lite Codec Pack
-官网</a>下载安装程序，解压压缩文件并运行安装程序</p></li>
-<li><p><strong>选择安装模式</strong>：共有三种模式可选：</p>
-<ul>
-<li><strong>简单模式</strong>：提供较少的自定义选项，多数选项按照默认设置</li>
-<li><strong>一般模式</strong>：提供所有选项，可选择是否安装Media Player
-Classic播放器</li>
-<li><strong>高级模式</strong>：所有选项可选，并可选择安装位置</li>
-</ul></li>
-<li><p><strong>完成安装</strong>：点击"Install"开始安装，等待进度条完成即可</p></li>
-</ol>
-<p>对于大多数用户，选择<strong>简单模式</strong>即可满足需求。安装过程中，确保勾选与Windows
-Media Player相关的选项，因为PowerPoint依赖Windows Media
-Player的编解码能力。</p>
-<h2 id="总结">总结</h2>
-<p>PowerPoint中视频无法播放是一个常见但令人沮丧的问题，大多数情况下根源在于<strong>缺少适当的编解码器</strong>。通过安装K-Lite
-Codec
-Pack，你可以为系统提供全面的解码支持，解决绝大多数视频播放问题。</p>
-<p>记住，在重要的演示之前，务必在目标设备上<strong>提前测试</strong>所有媒体文件的播放情况，避免出现尴尬的技术故障。同时，考虑将视频转换为兼容性更好的格式（如MP4），并使用PowerPoint的"优化兼容性"功能，进一步确保演示的顺利进行。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/10/28/4k%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4Geogebra%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/10/28/4k%E6%98%BE%E7%A4%BA%E5%99%A8%E8%B0%83%E6%95%B4Geogebra%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F/" class="post-title-link" itemprop="url">4k显示器调整Geogebra字体大小</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-10-28 19:42:47 / 修改时间：19:45:05" itemprop="dateCreated datePublished" datetime="2025-10-28T19:42:47+08:00">2025-10-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在 4K 显示器上使用 GeoGebra
-时，由于高分辨率可能导致界面元素（包括字体）显得过小，你可以通过以下方法来调整字体大小，使其更清晰易读：</p>
-<ul>
-<li>打开 <code>GeoGebra</code>（桌面版，如 <code>Classic 5</code> 或
-<code>Classic 6</code>）。</li>
-<li>点击菜单栏的 “选项”（<code>Options</code>）。</li>
-<li>选择 “字体大小”（<code>Font Size</code>）。</li>
-<li>在弹出的子菜单中选择一个更大的字号（如
-<code>16</code>、<code>20</code>、<code>24</code> 等）。</li>
-<li>这会同时影响图形视图中的标签、坐标轴、代数区等的字体大小。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/30/Word%E4%BD%BF%E7%94%A8%E5%88%86%E8%8A%82%E7%AC%A6%E5%88%86%E6%88%90%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86%E5%B9%B6%E5%88%86%E5%88%AB%E7%BC%96%E5%8F%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/30/Word%E4%BD%BF%E7%94%A8%E5%88%86%E8%8A%82%E7%AC%A6%E5%88%86%E6%88%90%E4%B8%8D%E5%90%8C%E9%83%A8%E5%88%86%E5%B9%B6%E5%88%86%E5%88%AB%E7%BC%96%E5%8F%B7/" class="post-title-link" itemprop="url">Word使用分节符分成不同部分并分别编号</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-09-30 09:05:45" itemprop="dateCreated datePublished" datetime="2025-09-30T09:05:45+08:00">2025-09-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-28 09:34:33" itemprop="dateModified" datetime="2025-10-28T09:34:33+08:00">2025-10-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于工作的需要不得不再次使用<code>word</code>,
-本文针对使用<code>word</code>出题给出模板，将整个<code>word</code>分成试题和答案两部分，并且两部分分别统计页数和分别从1开始编号，也即是在Word中实现分节页码并显示<code>第x页 共X页</code>和<code>第x页 共Y页</code>.</p>
-<h1 id="一正确插入分节符并设置页码">一、正确插入分节符并设置页码</h1>
-<ul>
-<li>插入分节符：
-<ul>
-<li>将光标放在第一节的最后一页的末尾（即需要分节的位置）</li>
-<li>点击<code>布局</code>（或<code>页面布局</code>）选项卡</li>
-<li>在<code>页面设置</code>组中点击<code>分隔符</code></li>
-<li>选择<code>下一页</code>（这样会在新页开始新节）</li>
-</ul></li>
-<li>设置页码：
-<ul>
-<li>双击页脚区域进入页脚编辑模式</li>
-<li>在<code>页眉和页脚工具</code>选项卡中，取消<code>链接到前一节</code>的勾选（确保两节的页脚独立）</li>
-<li>在第一节的页脚中插入页码（设置为<code>第1页</code>）</li>
-<li>在第二节的页脚中插入页码（设置为从1开始）</li>
-</ul></li>
-</ul>
-<h1 id="二插入-sectionpages-域统计各节数量">二、插入 SectionPages
-域统计各节数量</h1>
-<ul>
-<li><p>在第一节最后一页的页脚中：</p>
-<ul>
-<li>双击页脚区域进入编辑模式</li>
-<li>在页脚中输入：<code>第x页 共x页</code></li>
-<li>按<code>Alt + F9</code>打开域代码视图（或点击<code>插入</code> →
-<code>文档部件</code>→<code>域</code>）</li>
-<li>在域代码对话框中，选择<code>SectionPages</code>域</li>
-<li>点击<code>确定</code>，域代码会显示为<code>&#123; SECTIONPAGES &#125;</code></li>
-<li>输入页，完成输入：第<code>&#123; PAGE &#125;</code>页
-共<code>&#123; SECTIONPAGES &#125;</code>页</li>
-<li>按<code>Alt + F9</code>切换回正常视图，显示为<code>第3页 共5页</code>（假设第一节有5页）</li>
-<li>按<code>F9</code>更新域，显示正确的页数</li>
-</ul></li>
-<li><p>在第二节最后一页的页脚中：</p>
-<ul>
-<li>双击页脚区域进入编辑模式</li>
-<li>在页脚中输入：<code>第x页 共y页</code></li>
-<li>按<code>Alt + F9</code>打开域代码视图</li>
-<li>插入<code>&#123; PAGE &#125;</code>域</li>
-<li>插入<code>&#123; SECTIONPAGES &#125;</code>域</li>
-<li>输入页，完成输入：第<code>&#123;PAGE&#125;</code>页
-共<code>&#123; SECTIONPAGES &#125;</code>页</li>
-<li>按<code>F9</code>更新域，显示正确的页数</li>
-</ul></li>
-</ul>
-<h1 id="三重要说明">三、重要说明</h1>
-<ul>
-<li><p>域代码更新：<code>Word</code>的域代码在文档内容变化后不会自动更新。每次修改文档后，需要按<code>F9</code>更新域，或在打印预览时自动更新。</p></li>
-<li><p>域代码格式：您看到的<code>&#123; SECTIONPAGES &#125;</code>是域代码，实际显示时会自动替换为当前节的总页数。</p></li>
-<li><p>通常情况下使用分节可以分别生成第一节为试题，第二节为答案，用于简单的命题工作。</p></li>
-</ul>
-<h1 id="四总结">四、总结</h1>
-<p>使用<code>Word</code>的域代码<code>&#123; SECTIONPAGES &#125;</code>，您可以在每节的最后一页自动显示<code>第x页 共X页</code>和<code>第x页 共Y页</code>，无需手动计算和输入。只需在每节的最后一页页脚中插入相应的域代码，然后按<code>F9</code>更新即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/29/%E7%A6%81%E7%94%A8win11%E6%9B%B4%E6%96%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/29/%E7%A6%81%E7%94%A8win11%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">禁用win11更新</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-29 10:18:47 / 修改时间：10:29:37" itemprop="dateCreated datePublished" datetime="2025-09-29T10:18:47+08:00">2025-09-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>windows 11
-会强制更新，这给需要稳定工作的人造成了麻烦，甚至是损失。一般情况下不允许永久关闭，所以本文介绍一个变通的方法，超长时间禁用更新以达到稳定使用系统的目标。</p>
-<h2 id="暂停更新">暂停更新</h2>
-<p>创建一个 <code>txt</code> 文件导入以下代码</p>
-<figure class="highlight txt"><figcaption><span>暂停更新至2042年</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]</span><br><span class="line">&quot;FlightSettingsMaxPauseDays&quot;=dword:00001b58</span><br><span class="line">&quot;PauseFeatureUpdatesStartTime&quot;=&quot;2023-07-07T10:00:52Z&quot;</span><br><span class="line">&quot;PauseFeatureUpdatesEndTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br><span class="line">&quot;PauseQualityUpdatesStartTime&quot;=&quot;2023-07-07T10:00:52Z&quot;</span><br><span class="line">&quot;PauseQualityUpdatesEndTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br><span class="line">&quot;PauseUpdatesStartTime&quot;=&quot;2023-07-07T09:59:52Z&quot;</span><br><span class="line">&quot;PauseUpdatesExpiryTime&quot;=&quot;2042-09-05T09:59:52Z&quot;</span><br></pre></td></tr></table></figure>
-<p>另存为 .reg 文件即可双击使用.</p>
-<h2 id="恢复更新">恢复更新</h2>
-<p>同理可以建立恢复默认，即</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]</span><br><span class="line">&quot;FlightSettingsMaxPauseDays&quot;=-</span><br><span class="line">&quot;PauseFeatureUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseFeatureUpdatesEndTime&quot;=-</span><br><span class="line">&quot;PauseQualityUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseQualityUpdatesEndTime&quot;=-</span><br><span class="line">&quot;PauseUpdatesStartTime&quot;=-</span><br><span class="line">&quot;PauseUpdatesExpiryTime&quot;=-</span><br></pre></td></tr></table></figure>
-<p>另存为 .reg 文件即可双击使用.</p>
-<h2 id="参考文章">参考文章</h2>
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://www.disktool.cn/content-center/win11-do-not-turn-off-automatic-update-method-1016.html">win11千万要关闭系统更新！附4种彻底关闭系统更新的方法</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/642914883">唯一无副作用禁用Win10/11更新方法，一键暂停1000周</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/ArchLinux%E5%AE%89%E8%A3%85%E5%A5%94%E5%9B%BEP3370DN%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/27/ArchLinux%E5%AE%89%E8%A3%85%E5%A5%94%E5%9B%BEP3370DN%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8/" class="post-title-link" itemprop="url">ArchLinux安装奔图P3370DN打印机驱动</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-27 19:44:48 / 修改时间：19:58:38" itemprop="dateCreated datePublished" datetime="2025-09-27T19:44:48+08:00">2025-09-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="问题描述">问题描述</h1>
-<p>办公室配置的奔图P3370DN打印机，在其<a
-target="_blank" rel="noopener" href="https://www.pantum.cn/search/download-driver/?s=3370">奔图官网驱动下载</a>站点可以看到该打印机是有Linux驱动的，但是它是针对Debian系列的Linux设计的，在ArchLinux上就无法直接安装了。</p>
-<h1 id="解决方案">解决方案</h1>
-<ul>
-<li>安装<code>system-config-printer</code>, 即运行命令</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S system-config-printer</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>在菜单中找到<code>打印机设置</code>→<code>解锁</code>→<code>添加</code>→<code>网络打印机</code>.</p></li>
-<li><p>选择局域网内的打印机，此时默认会显示打印机的<code>IP</code>和<code>端口</code>,
-同时下方显示连接<code>AppSocket/HP JetDirect</code>,
-点击转发,然后等待搜索驱动.</p></li>
-<li><p>在上方选中<code>从数据库中选择打印机</code>,下方选中<code>Generic(推荐)</code>,
-然后点转发。</p></li>
-<li><p>进一步<code>选择驱动程序</code>→<code>PostScript</code>,
-然后在右侧显示驱动程序<code>Generic PostScript Printer（推荐）</code>,
-再点转发，设置成功。</p></li>
-</ul>
-<h1 id="注意">注意</h1>
-<p>由于奔图打印机在github上没有公开驱动程序，所以使用paru也无法实现驱动安装，通过一系列测试，使用Linux系统的通用打印驱动即可实现完美打印。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/27/Seewo%E7%94%B5%E8%84%91%E5%AE%89%E8%A3%85win10%E5%90%8E%E6%98%BE%E5%8D%A1%E5%92%8C%E8%8A%AF%E7%89%87%E7%BB%84%E9%A9%B1%E5%8A%A8%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Seewo电脑安装win10后显卡和芯片组驱动安装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-27 15:58:37 / 修改时间：16:44:41" itemprop="dateCreated datePublished" datetime="2025-09-27T15:58:37+08:00">2025-09-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="问题描述">问题描述</h2>
-<p>单位配置了国产电脑，牌子是 Seewo
-的。但是其安装的系统是银河麒麟系统和win10家庭版，它们同时占据了一块512的固态硬盘，这给不经常使用Linux的用户造成麻烦，因此有必要将Linux去除，同时只安装LTSC版本的Win10.
-但是我在安装完成LTSC版win10后，发现右键我的电脑后发现还有若干硬件出现黄色感叹号，也就是这些硬件没有被win10识别，同时由于缺失显卡驱动，也无法将分辨率调成1080p。本文给出解决方案。</p>
-<h2 id="解决方案">解决方案</h2>
-<h3 id="芯片硬件驱动">芯片硬件驱动</h3>
-<ul>
-<li>下载海光3350驱动<a
-target="_blank" rel="noopener" href="https://www.cancon.com.cn/download/files/drivers/driversNEW/Chipset/HygonSoCDriver-1.0.3.msi">HygonSoCDriver-1.0.3.msi</a>.</li>
-<li>双击安装.</li>
-<li>参考文章：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/8852505469#">海光c86
-3250 装的win10驱动打不上</a></li>
-</ul>
-<h3 id="显卡驱动">显卡驱动</h3>
-<ul>
-<li>下载<a
-target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Oq7rm9q1IvYtovkX37hKFA?pwd=lkkk">国产风华2号win10/win11驱动</a></li>
-<li>解压缩文件到你的电脑</li>
-<li>以管理员身份运行命令
-<code>pnputil.exe /add-driver innogpu.inf /install</code></li>
-<li>你可以看到驱动立刻安装完成。</li>
-<li>参考文章：<a
-target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1-1.html">国产显卡风华2号Windows10/11驱动</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/">57</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/">58</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
