@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">574</span>
+          <span class="site-state-item-count">575</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,109 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/21/Shell%E4%BD%BF%E7%94%A8expr%E5%91%BD%E4%BB%A4%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B4%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/21/Shell%E4%BD%BF%E7%94%A8expr%E5%91%BD%E4%BB%A4%E5%88%A4%E6%96%AD%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B4%E6%95%B0/" class="post-title-link" itemprop="url">Shell使用expr命令判断变量是否为整数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-21 19:27:57" itemprop="dateCreated datePublished" datetime="2024-06-21T19:27:57+08:00">2024-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在编写<code>shell</code>脚本时往往需要判断变量是否为整数，然后根据其类型执行不同的操作,
+借助<code>expr</code>命令可以方便的实现此功能。<code>expr</code>命令是一个手工命令行计数器，用于在<code>UNIX/LINUX</code>下求表达式变量的值，一般用于整数值，也可用于字符串。</p>
+<h2 id="语法">语法</h2>
+<figure class="highlight sh"><figcaption><span>语法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">expr</span> 表达式</span><br></pre></td></tr></table></figure>
+<h2 id="表达说明">表达说明</h2>
+<ul>
+<li>用空格隔开每个项；</li>
+<li>用反斜杠 <code>\</code> 放在 <code>shell</code>
+特定的字符前面；</li>
+<li>对包含空格和其他特殊字符的字符串要用引号括起来</li>
+</ul>
+<h2 id="使用举例">使用举例</h2>
+<h3 id="计算字符串长度">计算字符串长度</h3>
+<figure class="highlight sh"><figcaption><span>计算字符串长度</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">expr</span> length “this is a <span class="built_in">test</span>”</span><br><span class="line"> 14</span><br></pre></td></tr></table></figure>
+<h3 id="抓取字符串">抓取字符串</h3>
+<figure class="highlight sh"><figcaption><span>抓取字符串</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">expr</span> substr “this is a <span class="built_in">test</span>” 3 5</span><br><span class="line">is is</span><br></pre></td></tr></table></figure>
+<h3
+id="抓取第一个字符数字串出现的位置">抓取第一个字符数字串出现的位置</h3>
+<figure class="highlight sh"><figcaption><span>抓取第一个字符数字串出现的位置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">expr</span> index <span class="string">&quot;sarasara&quot;</span>  a</span><br><span class="line"> 2</span><br></pre></td></tr></table></figure>
+<h3 id="整数运算">整数运算</h3>
+<figure class="highlight sh"><figcaption><span>整数运算</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> &gt; <span class="built_in">expr</span> 14 % 9</span><br><span class="line"> 5</span><br><span class="line"> &gt; <span class="built_in">expr</span> 10 + 10</span><br><span class="line"> 20</span><br><span class="line"> &gt; <span class="built_in">expr</span> 1000 + 900</span><br><span class="line"> 1900</span><br><span class="line"> &gt; <span class="built_in">expr</span> 30 / 3 / 2</span><br><span class="line"> 5</span><br><span class="line"> &gt; <span class="built_in">expr</span> 30 \* 3 (使用乘号时，必须用反斜线屏蔽其特定含义。因为shell可能会误解显示星号的意义)</span><br><span class="line"> 90</span><br><span class="line"> &gt; <span class="built_in">expr</span> 30 * 3</span><br><span class="line"> <span class="built_in">expr</span>: Syntax error</span><br><span class="line"> &gt; <span class="built_in">expr</span> a + 1  (当使用一个字符与整数1相加时会返回提示“<span class="built_in">expr</span>: 参数不是整数”)</span><br><span class="line"><span class="built_in">expr</span>: 参数不是整数</span><br><span class="line"> &gt; <span class="built_in">echo</span> $?     (检测返回码，得到1, 这是后面进行整数判断的依据。)</span><br><span class="line"> 1</span><br></pre></td></tr></table></figure>
+<h2 id="判断整数的实现">判断整数的实现</h2>
+<figure class="highlight sh"><figcaption><span>整数判断</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">expr</span> <span class="string">&quot;<span class="variable">$TLS_SNum</span>&quot;</span> + 1 &amp;&gt; /dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$TLS_SNum</span> -lt <span class="variable">$1</span> -o <span class="variable">$TLS_SNum</span> -gt  <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;编号超出范围，请重新选择编号！&quot;</span></span><br><span class="line">        <span class="built_in">exit</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        NEO_OUT_H=<span class="variable">$TLS_SNum</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;输入非数字，请重新输入编号！&quot;</span></span><br><span class="line">    <span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<div class="note primary"><p>上述代码源于<code>diary.sh</code>脚本，其使用<code>expr</code>计算变量<code>TLS_SNum</code>与<code>1</code>之和，如果变量<code>TLS_SNum</code>是数字，则变量<code>$?=0</code>,
+否则<code>$?=1</code>,
+只有当变量是整数时才能比较它与其他数字的大小关系。这里需要特别注意，网络上一些教程计算<code>TLS_SNum</code>与<code>0</code>的和，但是当<code>TLS_SNum=0</code>时，返回的<code>$?=1</code>,
+这会导致误判！！所以，我修改其为<code>$TLS_SNum +1</code>.</p>
+</div>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1700,102 +1803,6 @@ target="_blank" rel="noopener" href="https://cloud.tencent.com/solution/database
 <code>\</code> 符进行注释 .
 当存在<code>$</code>变量过多，或存在赋值命令的时候可直接在<code>EOF</code>上加上双引号就行。</p>
 <figure class="highlight sh"><figcaption><span>EOF处理变量</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt; <span class="string">&quot;EOF&quot;</span> &gt; ~/.gitconfig</span><br><span class="line"><span class="comment"># Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.</span></span><br><span class="line"><span class="comment"># Initialization code that may require console input (password prompts, [y/n]</span></span><br><span class="line"><span class="comment"># confirmations, etc.) must go above this block; everything else may go below.</span></span><br><span class="line"><span class="keyword">if</span> [[ -r <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">source</span> <span class="string">&quot;<span class="variable">$&#123;XDG_CACHE_HOME:-<span class="variable">$HOME</span>/.cache&#125;</span>/p10k-instant-prompt-<span class="variable">$&#123;(%):-%n&#125;</span>.zsh&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br><span class="line"><span class="built_in">source</span> /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/09/ping%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%87%E7%BA%A7%E7%89%88gping/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/09/ping%E5%8F%AF%E8%A7%86%E5%8C%96%E5%8D%87%E7%BA%A7%E7%89%88gping/" class="post-title-link" itemprop="url">ping可视化升级版gping</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-06-09 22:52:31" itemprop="dateCreated datePublished" datetime="2024-06-09T22:52:31+08:00">2024-06-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="简介">简介</h2>
-<p>ping （Packet Internet
-Groper）是一种因特网包探索器，用于测试网络连接量的程序。Ping是工作在
-TCP/IP网络体系结构中应用层的一个服务命令，
-但是缺点很明显，不够直观。可使用gping继续替代。gping是一个跨平台的命令行程序，当您尝试ping主机或网站时，该程序会在终端内部显示漂亮的图形。</p>
-<h2 id="github地址">github地址</h2>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/orf/gping">https://github.com/orf/gping</a></p>
-<h2 id="安装方式">安装方式</h2>
-<figure class="highlight sh"><figcaption><span>install gping</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S gping</span><br></pre></td></tr></table></figure>
-<h2 id="使用方式">使用方式</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gping --<span class="built_in">help</span> <span class="comment">#查看帮助文档</span></span><br><span class="line">gping -V     <span class="comment">#查看版本信息</span></span><br></pre></td></tr></table></figure>
-<h2 id="实际运用">实际运用</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gping www.google.com</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://thumbsnap.com/i/HRmS8tx1.gif" title="gping"
-alt="gping" />
-<figcaption aria-hidden="true">gping</figcaption>
-</figure>
-<h2 id="取代ping">取代ping</h2>
-<figure class="highlight sh"><figcaption><span>~/.zshrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> ping=<span class="string">&quot;gping&quot;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

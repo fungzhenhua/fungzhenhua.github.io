@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">574</span>
+          <span class="site-state-item-count">575</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,101 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/11/23/Thunderbird%E9%85%8D%E7%BD%AEOutlook%E9%82%AE%E7%AE%B1/" class="post-title-link" itemprop="url">Thunderbird配置Outlook邮箱</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-11-23 10:50:04 / 修改时间：10:56:49" itemprop="dateCreated datePublished" datetime="2025-11-23T10:50:04+08:00">2025-11-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近在一台新电脑上使用Thunderbird配置Outlook邮箱，明明密码都是正确的，但是就无法登录成功。因为
+Thunderbird 自动设置 Outlook 邮箱时尝试使用 Exchange 或应用程序密码登录,
+而Microsoft 阻止 Exchange 的基本身份验证和应用程序密码，Thunderbird 的
+Exchange 选项对于 Outlook 来说并不可靠。修复方法是使用 OAuth2 在
+Thunderbird 中使用 IMAP 和 SMTP 设置帐户，以便 Microsoft 登录页面在
+Thunderbird 中打开。</p>
+<p>删除 Thunderbird 中配置失败的帐户。添加新的邮件帐户并输入您的 Outlook
+地址。当 Thunderbird 提供设置时，打开手动设置配置并确保：</p>
+<ul>
+<li>传入是<code>IMAP</code>，服务器<code>outlook.office365.com</code>、端口<code>993</code>、<code>SSL/TLS</code>身份验证设置为
+OAuth2，用户名是您的完整电子邮件。</li>
+<li>传出是带有服务器<code>smtp.office365.com</code>、端口<code>587</code>、
+<code>STARTTLS</code> 身份验证<code>OAuth2</code>、用户名的
+<code>SMTP</code> 是您的完整电子邮件。</li>
+</ul>
+<p>此时应该会出现一个 Microsoft 登录窗口。登录并完成 MFA。接受
+Thunderbird 的权限。邮件将开始同步。</p>
+<p>如果 Thunderbird 仍然要求输入密码而不是显示 Microsoft Web
+登录，请打开帐户设置&gt;服务器设置和传出服务器。将两者的身份验证方法更改为
+OAuth2
+。然后前往<strong>“设置”&gt;“隐私和安全”&gt;“已保存的密码”</strong>并删除
+或 的所有存储条目 outlook.office365.com
+smtp.office365.com，关闭对话框，然后重试，以便出现 OAuth 窗口。</p>
+<p>如果你的帐户是工作或学校 Microsoft 365 邮箱，并且显示 OAuth
+窗口，但登录被拒绝，请要求租户管理员为邮箱启用 IMAP 和 SMTP
+身份验证，然后重复这些步骤。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1164,142 +1259,6 @@ target="_blank" rel="noopener" href="https://bbs.pcbeta.com/viewthread-1995169-1
 <h2 id="实例">实例</h2>
 <figure class="highlight sh"><figcaption><span>错误的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个命令会解析错误，很可能认证失败</span></span><br><span class="line">curlftpfs user:p@ssw@rd@ftp.example.com /mnt/ftp_mount</span><br></pre></td></tr></table></figure>
 <figure class="highlight sh"><figcaption><span>正确的写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将密码中的 ‘@’ 替换为 ‘%40’</span></span><br><span class="line">curlftpfs user:p%40ssw%40rd@ftp.example.com /mnt/ftp_mount</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/26/Neovim%E4%B8%AD%E7%9A%84lspconfig%E5%8D%87%E7%BA%A7%E4%BF%AE%E5%A4%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/26/Neovim%E4%B8%AD%E7%9A%84lspconfig%E5%8D%87%E7%BA%A7%E4%BF%AE%E5%A4%8D/" class="post-title-link" itemprop="url">Neovim中的lspconfig升级修复</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2025-09-26 15:16:34 / 修改时间：15:28:19" itemprop="dateCreated datePublished" datetime="2025-09-26T15:16:34+08:00">2025-09-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2025-09-26 15:16
-在更新<code>ArchLinux</code>后，再打开<code>Neovim</code>后提示</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The `require(<span class="string">&#x27;lspconfig&#x27;</span>)` <span class="string">&quot;framework&quot;</span> is deprecated, use vim.lsp.config (see :<span class="built_in">help</span> lspconfig-nvim-0.11) instead.</span><br><span class="line">Feature will be removed <span class="keyword">in</span> nvim-lspconfig v3.0.0</span><br></pre></td></tr></table></figure>
-<h1 id="问题解读">问题解读</h1>
-<p>你遇到的这个提示意味着你正在使用的 <code>nvim-lspconfig</code>
-插件版本已经弃用了旧的配置方式，需要迁移到新的 <code>Neovim</code>
-内置接口。新旧语法对照如下：</p>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;">配置方面</th>
-<th style="text-align: left;">旧语法（己弃用)</th>
-<th style="text-align: left;">新语法(Neovim 0.11+)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">基本服务器配置</td>
-<td
-style="text-align: left;">require('lspconfig').pyright.setup({...})</td>
-<td style="text-align: left;">vim.lsp.config('pyright',{...})</td>
-</tr>
-<tr>
-<td style="text-align: left;">启用服务器</td>
-<td style="text-align: left;">在setup后自动或通过其他机制</td>
-<td style="text-align: left;">调用vim.lsp.enable('server_name')</td>
-</tr>
-<tr>
-<td style="text-align: left;">通用配置(如按键映射)</td>
-<td style="text-align: left;">在单个服务器的setup的on_attach中定义</td>
-<td
-style="text-align: left;">使用vim.api.nvim_create_autocmd监听"LspAttach"事件</td>
-</tr>
-</tbody>
-</table>
-<h1 id="迁移步骤与示例">迁移步骤与示例</h1>
-<ol type="1">
-<li><p>更新Neovim和插件: 确保你的 Neovim 版本在 0.11.0 或以上，因为新的
-vim.lsp.config API 是从这个版本开始引入的。同时，将你的 nvim-lspconfig
-插件更新到最新版本。</p></li>
-<li><p>重写配置语法：找到你配置文件中所有使用
-require('lspconfig').XX.setup({...}) 的地方，将其改为新的格式。</p></li>
-<li><p>迁移实例：</p></li>
-</ol>
-<figure class="highlight lua"><figcaption><span>旧配置示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 这是已弃用的旧写法</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;lspconfig&#x27;</span>).pyright.setup(&#123;</span><br><span class="line">  settings = &#123;</span><br><span class="line">    python = &#123;</span><br><span class="line">      analysis = &#123;</span><br><span class="line">        typeCheckingMode = <span class="string">&quot;strict&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  on_attach = <span class="function"><span class="keyword">function</span><span class="params">(client, bufnr)</span></span></span><br><span class="line">    <span class="comment">-- 一些按键映射...</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight lua"><figcaption><span>新配置示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 使用新的 API 进行配置</span></span><br><span class="line">vim.lsp.<span class="built_in">config</span>(<span class="string">&#x27;pyright&#x27;</span>, &#123;</span><br><span class="line">  settings = &#123;</span><br><span class="line">    python = &#123;</span><br><span class="line">      analysis = &#123;</span><br><span class="line">        typeCheckingMode = <span class="string">&quot;strict&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">-- 启用这个服务器</span></span><br><span class="line">vim.lsp.enable(<span class="string">&#x27;pyright&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>处理全局设置（如按键映射) :
-在新的模式中，建议将通用的、不针对特定语言服务器的设置（如按键映射）通过全局的
-LspAttach 自动命令来设置。这可以避免为每个服务器重复编写 on_attach
-函数。</li>
-</ol>
-<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 定义一个通用的附加回调函数</span></span><br><span class="line"><span class="keyword">local</span> my_on_attach = <span class="function"><span class="keyword">function</span><span class="params">(client, bufnr)</span></span></span><br><span class="line">  <span class="comment">-- 在这里设置你的按键映射等通用配置</span></span><br><span class="line">  vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;gd&#x27;</span>, vim.lsp.buf.definition, &#123; buffer = bufnr, desc = <span class="string">&#x27;Goto Definition&#x27;</span> &#125;)</span><br><span class="line">  vim.keymap.set(<span class="string">&#x27;n&#x27;</span>, <span class="string">&#x27;K&#x27;</span>, vim.lsp.buf.hover, &#123; buffer = bufnr, desc = <span class="string">&#x27;Hover Documentation&#x27;</span> &#125;)</span><br><span class="line">  <span class="comment">-- ... 其他映射</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 使用自动命令在LSP客户端附加到缓冲区时应用这个函数</span></span><br><span class="line">vim.api.nvim_create_autocmd(<span class="string">&quot;LspAttach&quot;</span>, &#123;</span><br><span class="line">  callback = <span class="function"><span class="keyword">function</span><span class="params">(args)</span></span></span><br><span class="line">    <span class="keyword">local</span> client = vim.lsp.get_client_by_id(args.data.client_id)</span><br><span class="line">    <span class="keyword">local</span> bufnr = args.buf</span><br><span class="line">    my_on_attach(client, bufnr)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="验证与排查">验证与排查</h1>
-<p>完成修改后，你可以通过以下方式验证配置是否正确：</p>
-<ul>
-<li><p>重新加载你的配置文件（例如执行 :source $MYVIMRC）。</p></li>
-<li><p>打开一个相关类型的文件（如 .lua 文件），使用 :LspInfo
-命令查看对应的语言服务器（如 lua_ls）是否正常启动。</p></li>
-<li><p>如果服务器没有启动，检查 Neovim 的 :messages 或 LSP 日志（通过
-:LspLog）来排查错误。</p></li>
-</ul>
 
       
     </div>

@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">574</span>
+          <span class="site-state-item-count">575</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,113 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/08/%E5%A6%82%E4%BD%95%E5%9C%A8Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E8%84%9A%E6%9C%AC%E5%81%9C%E5%9C%A8%E5%93%AA%E9%87%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/01/08/%E5%A6%82%E4%BD%95%E5%9C%A8Shell%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%88%A4%E6%96%AD%E8%84%9A%E6%9C%AC%E5%81%9C%E5%9C%A8%E5%93%AA%E9%87%8C/" class="post-title-link" itemprop="url">如何在Shell脚本中判断脚本停在哪里</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-01-08 17:15:02" itemprop="dateCreated datePublished" datetime="2025-01-08T17:15:02+08:00">2025-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>当编写复杂的 Shell
+脚本时，了解脚本在何处停止执行可以极大地帮助调试和优化。本文将介绍几种在
+Shell 脚本中判断脚本停止位置的方法。</p>
+<h2 id="目录">目录</h2>
+<ul>
+<li><a href="#添加日志记录">添加日志记录</a></li>
+<li><a href="#启用调试模式">启用调试模式</a></li>
+<li><a href="#错误捕获和通知">错误捕获和通知</a></li>
+<li><a href="#检查退出状态">检查退出状态</a></li>
+</ul>
+<h2 id="添加日志记录">添加日志记录</h2>
+<p>通过在脚本的关键位置添加日志记录，可以帮助跟踪脚本的执行进度。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Script has reached step 1&quot;</span> &gt;&gt; script.log </span><br></pre></td></tr></table></figure>
+<p>这行命令会在每次执行到该行时向 <code>script.log</code>
+文件追加一条消息。</p>
+<h2 id="启用调试模式">启用调试模式</h2>
+<p>你可以使用 <code>-x</code> 选项来启用 <code>bash</code>
+的调试模式，这会让它打印出执行的每个命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -x ./your_script.sh</span><br></pre></td></tr></table></figure>
+<p>或者在脚本内部临时开启调试：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -x</span><br><span class="line"><span class="comment"># 你的代码</span></span><br><span class="line"><span class="built_in">set</span> +x</span><br></pre></td></tr></table></figure>
+<p>这样可以在脚本的特定部分开启或关闭调试输出。</p>
+<h2 id="错误捕获和通知">错误捕获和通知</h2>
+<p>使用 <code>trap</code>
+命令可以在发生错误时执行特定的命令，比如发送通知或写入日志：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">trap</span> <span class="string">&#x27;echo &quot;Error at line $LINENO: $BASH_COMMAND&quot;&#x27;</span> ERR</span><br></pre></td></tr></table></figure>
+<p>这将在任何命令失败时触发，并打印出错误发生的行号和命令。</p>
+<h2 id="检查退出状态">检查退出状态</h2>
+<p>每个命令执行后都会返回一个退出状态码，通常<code>0</code>表示成功，非零值表示错误。可以通过检查
+<code>$?</code> 变量来决定是否继续执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">command</span></span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Command failed&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>这种方式确保只有当上一条命令成功时才会继续执行。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1342,242 +1449,6 @@ target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34243930/article/d
 Pages+Hexo搭建博客之(七)如何删除一篇已经发布的文章
 #成功解决：同时删除掉.deploy_git文件夹</a></li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/01/01/%E7%9B%AE%E5%89%8D%E5%8F%AF%E7%94%A8%E7%9A%84%E5%89%8D%E7%AB%AFCDN%E9%95%9C%E5%83%8F%E7%AB%99%E6%B1%87%E6%80%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/01/01/%E7%9B%AE%E5%89%8D%E5%8F%AF%E7%94%A8%E7%9A%84%E5%89%8D%E7%AB%AFCDN%E9%95%9C%E5%83%8F%E7%AB%99%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">目前可用的前端CDN镜像站汇总</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-01-01 22:49:41" itemprop="dateCreated datePublished" datetime="2025-01-01T22:49:41+08:00">2025-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="大厂运营">大厂运营</h2>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th>厂商</th>
-<th>网址</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>cdnjs</td>
-<td>cdnjs.com</td>
-<td>cdnjs</td>
-</tr>
-<tr>
-<td>jsdelivr</td>
-<td>www.jsdelivr.com</td>
-<td>jsdelivr</td>
-</tr>
-<tr>
-<td>饿了么</td>
-<td>npm.elemecdn.com</td>
-<td>阿里云境内 CDN；未公开发布，曾经有段时间暂停回源；仅包含
-npm(unpkg)</td>
-</tr>
-<tr>
-<td>360奇舞团</td>
-<td>cdn.baomitu.com</td>
-<td>北京联通+上海电信；包含 cdnjs 以及 Google
-Fonts；好像有段时间没有更新了</td>
-</tr>
-<tr>
-<td>字节跳动</td>
-<td>cdn.bytedance.com</td>
-<td>字节自家
-CDN，电信：北京电信，移动：河北廊坊移动，联通：河北廊坊联通；境外：北京（但是依然很快）；仅包含
-cdnjs</td>
-</tr>
-<tr>
-<td>又拍云赞助</td>
-<td>www.zstatic.net</td>
-<td>又拍云 CDN；仅同步 cdnjs</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<h2 id="个人运营">个人运营</h2>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th>个人</th>
-<th>网址</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>7ED Services</td>
-<td>www.7ed.net</td>
-<td>非常全的镜像站，几乎啥都有；前端文件镜像 CDN 为境内华为云，境外
-Vercel</td>
-</tr>
-<tr>
-<td>jsdelivr mirror site / China Jsdelivr</td>
-<td>cdn.jsdmirror.com blog.jsdmirror.com</td>
-<td>境内腾讯云 EdgeOne / 百度云，境外CF；反代 jsdelivr；挺好</td>
-</tr>
-<tr>
-<td>webcache</td>
-<td>webcache.cn</td>
-<td>fonts: HK 单节点 反代
-（电信绕日NTT，线路爆炸，不可用；移动CMI-&gt;HE，勉强能用；联通绕日NTT，勉强能用）；ajax
-阿里云CDN/CF；cdnjs 阿里云境内CDN/HK单节点；npm
-阿里云境内CDN/HK单节点；github 阿里云境内</td>
-</tr>
-<tr>
-<td>晓白/AKASS</td>
-<td>cdn.akass.cn</td>
-<td>境内多吉云 CDN，境外 Cloudflare；回源使用自建 CDN；npm(unpkg),
-cdnjs, Github Raw, jsd；自建 CDN 偶有污染，被刷绕自建 CDN</td>
-</tr>
-<tr>
-<td>玉兔/未闻花名静态资源加速</td>
-<td>cdnjs.snrat.com</td>
-<td>境内白山云 CDN，境外301官方；回源南方科技大</td>
-</tr>
-<tr>
-<td>GamerNoTitle</td>
-<td>cdn.bili33.top</td>
-<td>Vercel反代jsdelivr</td>
-</tr>
-<tr>
-<td>烧饼</td>
-<td>u.sb/css-cdn</td>
-<td>Cloudflare
-自选，速度一般，污染比官方严重，除了被墙的Gravatar，其他基本不如使用官方原版；cdnjs,
-Google Fonts, Gravatar</td>
-</tr>
-<tr>
-<td>zkeq</td>
-<td>cdn.onmicrosoft.cn</td>
-<td>全部使用cloudflare，打赢复活赛了。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="gravatar-镜像">Gravatar 镜像</h2>
-<table>
-<thead>
-<tr>
-<th>镜像</th>
-<th>网址</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Gravatar</td>
-<td><a target="_blank" rel="noopener" href="https://cravatar.cn/">https://cravatar.cn/</a></td>
-<td>速度快</td>
-</tr>
-<tr>
-<td>Weavatar</td>
-<td><a target="_blank" rel="noopener" href="https://weavatar.com/">https://weavatar.com/</a></td>
-<td>速度快</td>
-</tr>
-</tbody>
-</table>
-<h2 id="知名院校">知名院校</h2>
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th>镜像</th>
-<th>网址</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>南方科技大学</td>
-<td><a
-target="_blank" rel="noopener" href="https://mirrors.sustech.edu.cn/help/cdnjs.html">https://mirrors.sustech.edu.cn/help/cdnjs.html</a></td>
-<td>速度快</td>
-</tr>
-</tbody>
-</table>
 
       
     </div>

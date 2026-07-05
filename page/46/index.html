@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">574</span>
+          <span class="site-state-item-count">575</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -307,6 +307,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/21/Neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/21/Neovim%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Neovim配置教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-21 00:04:22" itemprop="dateCreated datePublished" datetime="2023-06-21T00:04:22+08:00">2023-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>2023年 06月 21日 星期三 00:04:33 CST , 今天在核科院办公电脑上成功使用
+Lua 脚本配置好了基本的 Neovim , 所以准备逐步完善 Neovim 配置教程。</p>
+<h1 id="neovim-的依懒">Neovim 的依懒</h1>
+<p>在配置好 Neovim
+后发现有的插件并不能正确运行，这可能是系统需要的依懒没有都装上。此时运行命令
+<code>：checkhealth</code> ，Neovim
+便可以进行健康检测，对于缺失的软件则对应报告安装即可。这里需要注意，有的软件并不是直接就是命令，而是某个软件提供的命令，例如<code>javac</code>
+这条命令就无法使用<code>pacman -Ss javac</code>找到，经过百度发现这条命令是由软件<code>jdk17-openjdk</code>提供，此源于
+<code>archwiki</code> ,于是安装软件问题解决，即：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pacman -S jdk17-openjdk</span><br></pre></td></tr></table></figure>
+<h1 id="neovim配置vim-latex">Neovim配置vim-latex</h1>
+<p>在使用nvim编辑latex文件时，首先需要建立对应的模板，这里有两个插件一个是vim-latex本身就自带模板功能，一个是vim-templates
+,但是后者提供的关于Latex的模板并不好用，所以决定使用vim-latex处理所有的latex文件。但是从vim转移到nvim后，发现模板功能并不能使用，于是将原来vim配置插件时的latex模板，完全复制到packer插件管理器中的对应位置即可，即</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ~/.vim/bundle/vim-latex/ftplugin/latex-suite/templates/*</span><br><span class="line">   ~/.local/share/nvim/site/pack/packer/start/vim-latex/ftplugin/latex-suite/templates</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1341,128 +1430,6 @@ Modern 数学字体）。</li>
 <p>那么这一类有理分式的所有不动点处的参数关系就完全确定了。但是当n在5次及5次以上时已经无法用通常的加减乘除及开根号来表达方程的根，其原因是很复杂的。所以对于超5次的情况，等到我期末考完试后再做研究，暂时考虑需要计算机做一个近似计算。对于高次方程不可解的原因，请参考：
 <a
 target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77583443">如何证明五次及以上方程无根式解？|解方程系列5</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/18/Python%E4%B9%8B%E7%BE%8E%E6%95%B0%E5%80%BC%E6%A8%A1%E6%8B%9F%E6%8A%9B%E4%BD%93%E8%BF%90%E5%8A%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/18/Python%E4%B9%8B%E7%BE%8E%E6%95%B0%E5%80%BC%E6%A8%A1%E6%8B%9F%E6%8A%9B%E4%BD%93%E8%BF%90%E5%8A%A8/" class="post-title-link" itemprop="url">Python之美数值模拟抛体运动</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-18 00:42:46" itemprop="dateCreated datePublished" datetime="2023-05-18T00:42:46+08:00">2023-05-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-26 18:21:20" itemprop="dateModified" datetime="2025-03-26T18:21:20+08:00">2025-03-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2023年05月18日星期四多云北京市北京师范大学,顺利完成Python之美作业，由我完成了Linux版本，程国栋负责完成Windows版本。</p>
-<h2 id="设计思路">设计思路</h2>
-<div class="note success"><ol type="1">
-<li>据Ip获取本地城市名</li>
-<li>根据城市由高德地图获取纬度</li>
-<li>由纬度计算本地的g值</li>
-<li>输入初速度大小</li>
-<li>输入阻尼大小</li>
-<li>绘制最大水平位移与夹角的关系</li>
-<li>绘制海平面存在风阻时的模拟图像</li>
-<li>绘制海平面上100米处存在风阻时的模拟图像</li>
-<li>绘制海平面上200米处存在风阻时的模拟图像</li>
-</ol>
-</div>
-<h2 id="代码实现">代码实现</h2>
-<div class="tabs" id="pythonbeauty"><ul class="nav-tabs"><li class="tab active"><a href="#pythonbeauty-1">作业展示.pdf</a></li><li class="tab"><a href="#pythonbeauty-2">nspp_linux.py</a></li><li class="tab"><a href="#pythonbeauty-3">nspp_windows.py</a></li></ul><div class="tab-content"><div class="tab-pane active" id="pythonbeauty-1"><div class="pdf-container" data-target="/PDF/抛体运动.pdf"
-data-height="500px">
-
-</div></div><div class="tab-pane" id="pythonbeauty-2"><figure class="highlight python">
-<figcaption>
-<span>nspp_linux.py</span>
-</figcaption>
-<table>
-<tr>
-<td class="gutter">
-<pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre>
-</td>
-<td class="code">
-<pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment"># Author:        冯振华 &amp; 程国栋 </span></span><br><span class="line"><span class="comment"># StudentNumber: 202221140015 &amp; 202221140011</span></span><br><span class="line"><span class="comment"># Version:       v2.2  for linux</span></span><br><span class="line"><span class="comment"># Linux:         冯振华</span></span><br><span class="line"><span class="comment"># Windows:       程国栋 </span></span><br><span class="line"><span class="comment"># Date:          2023年05月18日星期四多云北京市北京师范大学</span></span><br><span class="line"><span class="comment"># Copyright © 2023 feng &lt;feng@archlinux&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># !!注意：本脚本在linux编写，vim编辑器下</span></span><br><span class="line"><span class="comment">#       :set ff      #查看文件格式</span></span><br><span class="line"><span class="comment">#       :set ff=dos  #设置为dos格式</span></span><br><span class="line"><span class="comment">#       :set ff=unix #设置为unix格式</span></span><br><span class="line"><span class="comment"># 如果不设置正确的格式地，运行程序会报错</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 输入初速度大小和空气阻力系数</span></span><br><span class="line">v_0 = <span class="built_in">input</span>(<span class="string">&quot;请输入初速度大小: &quot;</span>)</span><br><span class="line">v_0 = <span class="built_in">float</span>(v_0)</span><br><span class="line">k = <span class="built_in">input</span>(<span class="string">&quot;请输入空气阻力系数: &quot;</span>)</span><br><span class="line">k = <span class="built_in">float</span>(k)</span><br><span class="line"><span class="comment"># 获取本机Ip对应的地理位置</span></span><br><span class="line">Ip_data=os.popen(<span class="string">&#x27;curl -s  cip.cc&#x27;</span>).readlines()</span><br><span class="line">Ip_local=Ip_data[<span class="number">1</span>].split(<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">city=Ip_local[-<span class="number">1</span>].strip()</span><br><span class="line"><span class="comment"># 从高德地图获取纬度</span></span><br><span class="line">GaoDeKey = <span class="string">&#x27;79e3576b80e0b544d0d17dd643e4654e&#x27;</span></span><br><span class="line">url = <span class="string">&#x27;https://restapi.amap.com/v3/geocode/geo&#x27;</span></span><br><span class="line">params = &#123;<span class="string">&#x27;key&#x27;</span>: GaoDeKey,</span><br><span class="line">    <span class="string">&#x27;address&#x27;</span>: city&#125;</span><br><span class="line">res = requests.get(url,params)</span><br><span class="line">jd = json.loads(res.text)</span><br><span class="line">coords = jd[<span class="string">&#x27;geocodes&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;location&#x27;</span>]</span><br><span class="line">jd_value = coords.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">latitude=<span class="built_in">float</span>(jd_value[<span class="number">1</span>])</span><br><span class="line">latitude = latitude/<span class="number">180</span>*math.pi</span><br><span class="line"><span class="comment"># 根据纬度计算本地的重力加速度g</span></span><br><span class="line">g=<span class="number">9.7803</span>*(<span class="number">1</span>+<span class="number">0.005324</span>*((math.sin(latitude))**<span class="number">2</span>)-<span class="number">0.000005</span>*((math.sin(<span class="number">2</span>*latitude))**<span class="number">2</span>))</span><br><span class="line"><span class="comment"># 计算最大水平位移和初速度与水平方向夹角的关系</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">x_max</span>(<span class="params">theta</span>):</span><br><span class="line">    rad = math.radians(theta)</span><br><span class="line">    <span class="keyword">return</span> (v_0**<span class="number">2</span>* math.sin(<span class="number">2</span>*rad)/ g)</span><br><span class="line">    angles = <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">91</span>, <span class="number">1</span>)</span><br><span class="line">    x = [x_max(angle) <span class="keyword">for</span> angle <span class="keyword">in</span> angles]</span><br><span class="line"><span class="comment">#with the drag force</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simulate</span>(<span class="params">v_1, theta,y_height</span>):</span><br><span class="line">    theta = math.radians(theta)</span><br><span class="line">    v_x = v_1 * math.cos(theta)</span><br><span class="line">    v_y = v_1 * math.sin(theta)</span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    y = <span class="built_in">float</span>(y_height)</span><br><span class="line">    t = <span class="number">0</span></span><br><span class="line">    delta_t = <span class="number">0.01</span></span><br><span class="line">    traj = [(x, y)]</span><br><span class="line">    <span class="keyword">while</span> y &gt;= <span class="number">0</span>:</span><br><span class="line">        a_x = -k * v_x ** <span class="number">2</span> / (<span class="number">2</span> * v_1)</span><br><span class="line">        a_y = -g - k * v_y ** <span class="number">2</span> / (<span class="number">2</span> * v_1)</span><br><span class="line">        v_x += a_x * delta_t</span><br><span class="line">        v_y += a_y * delta_t</span><br><span class="line">        x += v_x * delta_t</span><br><span class="line">        y += v_y * delta_t</span><br><span class="line">        t += delta_t</span><br><span class="line">        traj.append((x, y))</span><br><span class="line">    <span class="keyword">return</span> traj</span><br><span class="line"><span class="comment"># 将各种情况集中于一张图上</span></span><br><span class="line">plt.figure(figsize=(<span class="number">200</span>,<span class="number">200</span>),dpi=<span class="number">100</span>)</span><br><span class="line">plt.subplots_adjust(left=<span class="literal">None</span>,bottom=<span class="literal">None</span>,right=<span class="literal">None</span>,top=<span class="literal">None</span>,wspace=<span class="literal">None</span>,hspace=<span class="number">0.5</span>)</span><br><span class="line">plt.figure(<span class="number">1</span>)</span><br><span class="line">ax1 = plt.subplot(<span class="number">221</span>)</span><br><span class="line">ax1.margins(<span class="number">0.15</span>)</span><br><span class="line">ax1.plot(angles, x)</span><br><span class="line">ax1.set_title(<span class="string">&quot;$\\theta$ with $x_&#123;max&#125;$ Free&quot;</span>)</span><br><span class="line">ax1.set_xlabel(<span class="string">&quot;$\\theta$(degrees)&quot;</span>)</span><br><span class="line">ax1.set_ylabel(<span class="string">&quot;$x_&#123;max&#125;$(meters)&quot;</span>)</span><br><span class="line">ax2 = plt.subplot(<span class="number">222</span>)</span><br><span class="line">ax2.margins(<span class="number">0.15</span>)</span><br><span class="line">angles = <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">91</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> theta <span class="keyword">in</span> angles:</span><br><span class="line">    traj = simulate(v_0, theta,<span class="number">0</span>) <span class="comment"># 地表</span></span><br><span class="line">    x_s = [t[<span class="number">0</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    y_s = [t[<span class="number">1</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    ax2.plot(x_s, y_s, label=<span class="string">f&quot;$<span class="subst">&#123;theta&#125;</span>^\circ$&quot;</span>)</span><br><span class="line">ax2.legend(loc=<span class="string">&quot;upper left&quot;</span>)</span><br><span class="line">ax2.set_title(<span class="string">f&quot;Projectile Motion with Air Resistance ($v_0=<span class="subst">&#123;v_0&#125;</span> m/s$)&quot;</span>)</span><br><span class="line">ax2.set_xlabel(<span class="string">&quot;Distance (meters)&quot;</span>)</span><br><span class="line">ax2.set_ylabel(<span class="string">&quot;Height (meters)&quot;</span>)</span><br><span class="line">ax3 = plt.subplot(<span class="number">223</span>)  </span><br><span class="line">ax3.margins(<span class="number">0.15</span>)</span><br><span class="line">angles = <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">91</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> theta <span class="keyword">in</span> angles:</span><br><span class="line">    traj = simulate(v_0, theta,<span class="number">1</span>)  <span class="comment"># 100m高塔</span></span><br><span class="line">    x_s = [t[<span class="number">0</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    y_s = [t[<span class="number">1</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    ax3.plot(x_s, y_s, label=<span class="string">f&quot;$<span class="subst">&#123;theta&#125;</span>^\circ$&quot;</span>)</span><br><span class="line">ax3.legend(loc=<span class="string">&quot;upper left&quot;</span>)</span><br><span class="line">ax3.set_title(<span class="string">f&quot;Projectile Motion with Air Resistance ($v_0=<span class="subst">&#123;v_0&#125;</span> m/s$)&quot;</span>)</span><br><span class="line">ax3.set_xlabel(<span class="string">&quot;Distance (meters)&quot;</span>)</span><br><span class="line">ax3.set_ylabel(<span class="string">&quot;Height (meters)&quot;</span>)</span><br><span class="line">ax4 = plt.subplot(<span class="number">224</span>)</span><br><span class="line">ax4.margins(<span class="number">0.15</span>)</span><br><span class="line">angles = <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">91</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> theta <span class="keyword">in</span> angles:</span><br><span class="line">    traj = simulate(v_0, theta,<span class="number">2</span>)  <span class="comment"># 200m高塔</span></span><br><span class="line">    x_s = [t[<span class="number">0</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    y_s = [t[<span class="number">1</span>] <span class="keyword">for</span> t <span class="keyword">in</span> traj]</span><br><span class="line">    ax4.plot(x_s, y_s, label=<span class="string">f&quot;$<span class="subst">&#123;theta&#125;</span>^\circ$&quot;</span>)</span><br><span class="line">ax4.legend(loc=<span class="string">&quot;upper left&quot;</span>)</span><br><span class="line">ax4.set_title(<span class="string">f&quot;Projectile Motion with Air Resistance ($v_0=<span class="subst">&#123;v_0&#125;</span> m/s$)&quot;</span>)</span><br><span class="line">ax4.set_xlabel(<span class="string">&quot;Distance (meters)&quot;</span>)</span><br><span class="line">ax4.set_ylabel(<span class="string">&quot;Height (meters)&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre>
-</td>
-</tr>
-</table>
-</figure></div><div class="tab-pane" id="pythonbeauty-3"><figure class="highlight python">
-<figcaption>
-<span>nspp_windows.py</span>
-</figcaption>
-<table>
-<tr>
-<td class="gutter">
-<pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre>
-</td>
-<td class="code">
-<pre><span class="line"><span class="comment">#! /usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># vim:fenc=utf-8</span></span><br><span class="line"><span class="comment"># Author:        冯振华 &amp; 程国栋 </span></span><br><span class="line"><span class="comment"># StudentNumber: 202221140015 &amp; 202221140011</span></span><br><span class="line"><span class="comment"># Version:       v2.2  for windows</span></span><br><span class="line"><span class="comment"># Linux:         冯振华</span></span><br><span class="line"><span class="comment"># Windows:       程国栋 </span></span><br><span class="line"><span class="comment"># Date:          2023年05月18日星期四多云北京市北京师范大学</span></span><br><span class="line"><span class="comment"># Copyright © 2023 feng &lt;feng@archlinux&gt;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># !!注意：本脚本在linux编写，vim编辑器下</span></span><br><span class="line"><span class="comment">#       :set ff      #查看文件格式</span></span><br><span class="line"><span class="comment">#       :set ff=dos  #设置为dos格式</span></span><br><span class="line"><span class="comment">#       :set ff=unix #设置为unix格式</span></span><br><span class="line"><span class="comment"># 如果不设置正确的格式地，运行程序会报错</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> odeint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入初速度大小和空气阻力系数</span></span><br><span class="line">v_0 = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入初速度大小: &quot;</span>))</span><br><span class="line">k = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入空气阻力系数: &quot;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取本机Ip对应的地理位置</span></span><br><span class="line">url = <span class="string">&#x27;http://www.cip.cc/&#x27;</span></span><br><span class="line">header = &#123;<span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0&#x27;</span>&#125;</span><br><span class="line">html = requests.get(url, headers=header)  <span class="comment"># 访问网址</span></span><br><span class="line">bsObj = BeautifulSoup(html.content, <span class="string">&#x27;lxml&#x27;</span>)  <span class="comment"># 使用lxml解析器</span></span><br><span class="line">msg = bsObj.find(<span class="string">&#x27;div&#x27;</span>, class_=<span class="string">&quot;data kq-well&quot;</span>)</span><br><span class="line">msg = [i <span class="keyword">for</span> i <span class="keyword">in</span> msg]</span><br><span class="line">city = msg[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从高德地图获取纬度</span></span><br><span class="line">GaoDeKey = <span class="string">&#x27;79e3576b80e0b544d0d17dd643e4654e&#x27;</span></span><br><span class="line">url = <span class="string">&#x27;https://restapi.amap.com/v3/geocode/geo&#x27;</span></span><br><span class="line">params = &#123;<span class="string">&#x27;key&#x27;</span>: GaoDeKey,</span><br><span class="line">          <span class="string">&#x27;address&#x27;</span>: city&#125;</span><br><span class="line">res = requests.get(url, params)</span><br><span class="line">jd = json.loads(res.text)</span><br><span class="line">coords = jd[<span class="string">&#x27;geocodes&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;location&#x27;</span>]</span><br><span class="line">jd_value = coords.split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">latitude = <span class="built_in">float</span>(jd_value[<span class="number">1</span>])</span><br><span class="line">latitude = latitude/<span class="number">180</span>*math.pi  <span class="comment"># 转换成弧度</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据纬度计算本地的重力加速度g</span></span><br><span class="line">g = <span class="number">9.7803</span>*(<span class="number">1</span>+<span class="number">0.005324</span>*((math.sin(latitude))**<span class="number">2</span>)-<span class="number">0.000005</span>*((math.sin(<span class="number">2</span>*latitude))**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simulate</span>(<span class="params">v_1, theta, y_height</span>):</span><br><span class="line">    <span class="comment"># 轨迹图</span></span><br><span class="line">    theta = math.radians(theta)</span><br><span class="line">    v_x0 = v_1 * math.cos(theta)</span><br><span class="line">    v_y0 = v_1 * math.sin(theta)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">motion1</span>(<span class="params">w, t, k</span>):</span><br><span class="line">        v_x, v_y = w</span><br><span class="line">        <span class="keyword">return</span>[-k * v_x ** <span class="number">2</span>, -g - k * v_y ** <span class="number">2</span>]</span><br><span class="line">    t = np.linspace(<span class="number">0</span>, <span class="number">20</span>, <span class="number">300000</span>)</span><br><span class="line">    track1 = odeint(motion1, (v_x0, v_y0), t, args=(k, ))</span><br><span class="line">    v_x1 = [i <span class="keyword">for</span> i <span class="keyword">in</span> track1[:, <span class="number">0</span>]]</span><br><span class="line">    v_y1 = [j <span class="keyword">for</span> j <span class="keyword">in</span> track1[:, <span class="number">1</span>] <span class="keyword">if</span> j &gt; <span class="number">0</span>]</span><br><span class="line">    v_x1 = v_x1[:<span class="built_in">len</span>(v_y1)]</span><br><span class="line">    delta_t = (<span class="number">20</span> - <span class="number">0</span>) / <span class="number">300000</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    x = <span class="number">0</span></span><br><span class="line">    y = y_height</span><br><span class="line">    y_list1 = [y]</span><br><span class="line">    x_list1 = [<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">while</span> i &lt; <span class="built_in">len</span>(v_y1) - <span class="number">1</span>:</span><br><span class="line">        x += ((v_x1[i] + v_x1[i-<span class="number">1</span>]) / <span class="number">2</span>) * delta_t</span><br><span class="line">        y += ((v_y1[i] + v_y1[i-<span class="number">1</span>]) / <span class="number">2</span>) * delta_t</span><br><span class="line">        <span class="keyword">if</span> y &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        x_list1.append(x)</span><br><span class="line">        y_list1.append(y)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">motion2</span>(<span class="params">w, t, k</span>):</span><br><span class="line">        v_x, v_y = w</span><br><span class="line">        <span class="keyword">return</span>[-k * v_x ** <span class="number">2</span>, -g + k * v_y ** <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">    track2 = odeint(motion2, (v_x1[-<span class="number">1</span>], <span class="number">0</span>), t, args=(k, ))</span><br><span class="line">    v_x2 = [i <span class="keyword">for</span> i <span class="keyword">in</span> track2[:, <span class="number">0</span>]]</span><br><span class="line">    v_y2 = [j <span class="keyword">for</span> j <span class="keyword">in</span> track2[:, <span class="number">1</span>] <span class="keyword">if</span> j &lt; <span class="number">0</span>]</span><br><span class="line">    j = <span class="number">1</span></span><br><span class="line">    x = x_list1[-<span class="number">1</span>]</span><br><span class="line">    y = y_list1[-<span class="number">1</span>]</span><br><span class="line">    y_list2 = [y]</span><br><span class="line">    x_list2 = [x]</span><br><span class="line">    <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(v_y2) - <span class="number">1</span>:</span><br><span class="line">        x += ((v_x2[j] + v_x2[j-<span class="number">1</span>]) / <span class="number">2</span>) * delta_t</span><br><span class="line">        y += ((v_y2[j] + v_y2[j-<span class="number">1</span>]) / <span class="number">2</span>) * delta_t</span><br><span class="line">        <span class="keyword">if</span> y &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        x_list2.append(x)</span><br><span class="line">        y_list2.append(y)</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">    x_list = x_list1 + x_list2</span><br><span class="line">    y_list = y_list1 + y_list2</span><br><span class="line">    <span class="keyword">return</span> x_list, y_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">x_MaxTheta</span>(<span class="params">v, height</span>):</span><br><span class="line">    x_max = []</span><br><span class="line">    <span class="keyword">for</span> angle <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">91</span>, <span class="number">1</span>):</span><br><span class="line">        x_list, y_list = simulate(v_1=v, theta=angle, y_height=height)</span><br><span class="line">        x_max.append(x_list[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> x_max</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">heght = <span class="built_in">float</span>(<span class="built_in">input</span>(<span class="string">&#x27;输入初始高度:&#x27;</span>))</span><br><span class="line">x_max = x_MaxTheta(v=v_0, height=heght)</span><br><span class="line">plt.plot(<span class="built_in">range</span>(<span class="number">1</span>, <span class="number">91</span>, <span class="number">1</span>), x_max, <span class="string">&#x27;g-&#x27;</span>)</span><br><span class="line">plt.show()</span><br><span class="line">x = <span class="number">0</span></span><br><span class="line">j = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> x_max:</span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i &gt; x:</span><br><span class="line">        x = i</span><br><span class="line">        num = j - <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;当前初始条件下抛得最远的角度是&#123;&#125;,最远距离是&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(num, x))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;输入要模拟的轨迹的抛出角度:&#x27;</span>)</span><br><span class="line">a = <span class="built_in">float</span>(<span class="built_in">input</span>())</span><br><span class="line">x, y = simulate(v_1=v_0, theta=a, y_height=heght)</span><br><span class="line">plt.plot(x, y, <span class="string">&#x27;r-&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre>
-</td>
-</tr>
-</table>
-</figure></div></div></div>
 
       
     </div>

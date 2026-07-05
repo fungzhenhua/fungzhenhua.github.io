@@ -140,7 +140,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">574</span>
+          <span class="site-state-item-count">575</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -390,6 +390,116 @@ target="_blank" rel="noopener" href="https://endeavouros.com">Endeavour</a>
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2026/07/05/Windows10LTSC2021%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | BNU-FZH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/07/05/Windows10LTSC2021%E8%BE%93%E5%85%A5%E6%B3%95%E5%AF%B9%E8%AF%9D%E6%A1%86%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Windows10LTSC2021输入法对话框消失的解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-07-05 21:05:55 / 修改时间：21:30:41" itemprop="dateCreated datePublished" datetime="2026-07-05T21:05:55+08:00">2026-07-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天决定把我的 <code>Thinkpad T490</code> 的双系统改为单一的
+<code>Windows10LTSC2021</code>, 原因是我的台式机已经配置了
+<code>ArchLinux</code> + <code>Windows11</code> 双系统，平时的办公主力为
+<code>ArchLinux</code> , 如果笔记本使用 <code>Windows10LTSC2021</code>,
+则在 <code>Windows</code>
+下的工作直接使用笔记本办公即可。但是，在安装完成
+<code>Windows10LTSC2021</code> 后发现输入法的候选框不显示，这是
+<code>Windows10LTSC2021</code> 的一个已知的 <code>Bug</code>,
+其根本原因在于，微软在精简这个版本时，不小心删除了新版自由软件拼音输入法所依赖的
+<code>桌面桥运动时(Desktop Bridge Runtime)</code>
+组件。因为缺少必要的运行库，所以输入法就无法正常显示候选框。</p>
+<h1 id="方案一切换到旧版输入法">方案一：切换到旧版输入法</h1>
+<p>这是最快捷的临时解决方案，能让输入法立刻恢复正常，操作步骤为：</p>
+<ul>
+<li>在任务栏右下角右键点击“中/英”输入法图标，选择<code>设置</code></li>
+<li>在设置窗口中点击<code>常规</code></li>
+<li>找到<code>兼容性</code>部分，打开<code>使用以前版本的微软拼音输入法</code>开关。</li>
+</ul>
+<h1
+id="方案二安装缺失的依赖库更彻底">方案二：安装缺失的依赖库（更彻底）</h1>
+<p>这是从根源上解决问题的该当，并且已经被广泛验证有效。其步骤为：</p>
+<ol type="1">
+<li>下载文件：依赖库文件<code>Microsoft.VCLibs</code> <a
+target="_blank" rel="noopener" href="https://dl.lancdn.com/landian/soft/vclibs">https://dl.lancdn.com/landian/soft/vclibs</a></li>
+<li>解压文件：将下载的压缩包解压，你会得到两个<code>.Appx</code>格式的文件。</li>
+<li>放置文件：将这两个<code>.Appx</code>文件复制到<code>C:</code>盘的目录下。</li>
+<li>安装文件：
+<ul>
+<li>右键点击<code>开始</code>菜单，选择<code>Windows PowerShell(管理员)</code>或<code>终端(管理员)</code></li>
+<li>在打开的窗口中，根据你的系统类型，输入以下命令并回车
+<ul>
+<li>64位系统 <figure class="highlight sh"><figcaption><span>PowerShell</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add-AppxPackage -Path <span class="string">&quot;C:\Microsoft.VCLibs.140.00_14.0.30704.0_x64__8wekyb3d8bbwe.Appx&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>32位系统 <figure class="highlight sh"><figcaption><span>PowerShell</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Add-AppxPackage -Path <span class="string">&quot;C:\Microsoft.VCLibs.140.00_14.0.30704.0_x86__8wekyb3d8bbwe.Appx&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul></li>
+</ul></li>
+<li>重启电脑：命令执行成功后，重启电脑即可生效。</li>
+</ol>
+<blockquote>
+<p>[!WARNING]
+如果提示“部署失败”或“资源正在使用中”，可以重启电脑后再试一次。</p>
+</blockquote>
+
       
     </div>
 
@@ -1323,93 +1433,6 @@ style="text-align: left;">始终以<code>A</code>为准覆盖<code>B</code></td>
 </tr>
 </tbody>
 </table>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2026/04/25/Firefox%E7%A6%81%E7%94%A8%E7%BF%BB%E8%AF%91%E5%8A%9F%E8%83%BD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | BNU-FZH">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/04/25/Firefox%E7%A6%81%E7%94%A8%E7%BF%BB%E8%AF%91%E5%8A%9F%E8%83%BD/" class="post-title-link" itemprop="url">Firefox禁用翻译功能</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-04-25 23:53:00 / 修改时间：23:59:41" itemprop="dateCreated datePublished" datetime="2026-04-25T23:53:00+08:00">2026-04-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Firefox 的网页翻译功能我不需要，所以需要彻底关闭它。操作路径为：</p>
-<ul>
-<li><p>在地址栏输入 <code>about:config</code>
-并回车，点击“接受风险并继续”。</p></li>
-<li><p>在搜索框内，将以下两个配置项的值分别双击，修改为
-<code>false</code></p>
-<ul>
-<li><code>browser.translations.enable</code>：将此值设为
-<code>false</code>，会完全禁用整个翻译功能，包括地址栏的翻译按钮.</li>
-<li><code>browser.translations.automaticallyPopup</code>：将此值设为
-<code>false</code>，仅禁止翻译面板自动弹出，但翻译功能仍可用（不会经常跳出来打扰你）.</li>
-</ul></li>
-</ul>
-<blockquote>
-<p>注意：<code>about:config</code> 是 <code>Firefox</code>
-的高级设置，修改前请确认你了解其作用。不过，这两个翻译相关的选项非常安全，可以随时改回
-<code>true</code> 恢复功能。</p>
-</blockquote>
 
       
     </div>
