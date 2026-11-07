@@ -1,0 +1,579 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#9400D3" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.169.0"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="Manjaro配置2021版"><meta itemprop=description content><meta name=description content><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://fungzhenhua.github.io/"><meta itemprop=keywords content="Hugo,Linux,Hexo,Physics"><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.css><link rel=stylesheet href="/css/main.min.css?=1794040315"><style type=text/css>.post-footer hr:after{content:""}.flinks-list-footer hr:after{content:""}</style><link rel=stylesheet type=text/css href="/css/custom_style.css?=1794040315"><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return 0[0];const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),0[0]):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>Manjaro配置2021版 - BNU-FZH</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BNU-FZH</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>fengzhenhua@outlook.com</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-导航"><a href=/%E5%AF%BC%E8%88%AA/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-paper-plane hvr-icon"></i>导航</a></li><li class="menu-item menu-item-软件"><a href=/%E8%BD%AF%E4%BB%B6/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-briefcase hvr-icon"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href=/%E6%94%B6%E8%97%8F/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href=/%E5%B7%A5%E4%BD%9C/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>工作</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#自动部署>自动部署</a></li><li><a href=#手动部署>手动部署</a></li><li><a href=#删除本人不想使用的manjaro内置软件>删除本人不想使用的Manjaro内置软件</a></li><li><a href=#安装必备工具>安装必备工具</a></li><li><a href=#设置fcitx5>设置fcitx5</a><ul><li><a href=#对于以xorg作为显示服务器的系统设置fcitx5>对于以xorg作为显示服务器的系统设置fcitx5</a></li><li><a href=#对于以wayland作为显示服务器的系统设置fcitx5>对于以wayland作为显示服务器的系统设置fcitx5</a></li><li><a href=#vim-nvim-下-fcitx5-中英文自动切换>vim （nvim) 下 Fcitx5 中英文自动切换</a></li></ul></li><li><a href=#设置zsh主题>设置zsh主题</a></li><li><a href=#安装字体>安装字体</a></li><li><a href=#安装微信>安装微信</a></li><li><a href=#安装下载工具xtreme>安装下载工具xtreme</a></li><li><a href=#安装wps-office>安装wps-office</a></li></ul><ul><li><a href=#安装配置hexo>安装配置Hexo</a></li><li><a href=#安装texlive>安装TexLive</a><ul><li><a href=#使用texlive镜像安装texlive>使用texlive镜像安装TexLive</a></li><li><a href=#使用pacman安装texlive>使用pacman安装TexLive</a></li></ul></li><li><a href=#vim编辑markdown>vim编辑markdown</a></li><li><a href=#配置vim编辑器>配置vim编辑器</a></li><li><a href=#使用latex编译文档时-latex-hooks-warning>使用latex编译文档时<code> LaTeX hooks Warning</code></a><ul><li><a href=#解决方法一>解决方法一</a></li><li><a href=#解决方法二>解决方法二</a></li></ul></li><li><a href=#manjaro-升级后出现无声音现像>Manjaro 升级后出现无声音现像</a></li><li><a href=#关闭警告提示声音>关闭警告提示声音</a></li></ul><ul><li><a href=#gnome3默认快捷揵的设置>Gnome3默认快捷揵的设置</a></li><li><a href=#配置neovim>配置neovim</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><p class=site-author-name itemprop=name></p><div class=site-description itemprop=description></div></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href=https://www.zxxk.com/ title="学科资源 → https://www.zxxk.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+学科资源
+</a></span><span class=links-of-social-item><a href=https://zujuan.xkw.com/ title="组卷题库 → https://zujuan.xkw.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+组卷题库
+</a></span><span class=links-of-social-item><a href=http://192.168.1.14/ title="实验信息 → http://192.168.1.14/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+实验信息
+</a></span><span class=links-of-social-item><a href=https://www.yjzhixue.com title="智学阅卷 → https://www.yjzhixue.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+智学阅卷
+</a></span><span class=links-of-social-item><a href=https://chat.deepseek.com/ title="深度求索 → https://chat.deepseek.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+深度求索
+</a></span><span class=links-of-social-item><a href=https://www.tongyi.com/ title="通义千问 → https://www.tongyi.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+通义千问
+</a></span><span class=links-of-social-item><a href=https://www.scnet.cn/ui/chatbot/ title="国家超算 → https://www.scnet.cn/ui/chatbot/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+国家超算
+</a></span><span class=links-of-social-item><a href=https://yuanbao.tencent.com/chat title="腾讯元宝 → https://yuanbao.tencent.com/chat" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+腾讯元宝
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com title="必应搜索 → https://cn.bing.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+必应搜索
+</a></span><span class=links-of-social-item><a href=https://www.hao268.com title="网址之家 → https://www.hao268.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+网址之家
+</a></span><span class=links-of-social-item><a href=https://ac.scmor.com title="思谋学术 → https://ac.scmor.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+思谋学术
+</a></span><span class=links-of-social-item><a href=https://search.essclick.com title="爱思学术 → https://search.essclick.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+爱思学术
+</a></span><span class=links-of-social-item><a href=https://xmsoushu.com/ title="熊猫搜书 → https://xmsoushu.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+熊猫搜书
+</a></span><span class=links-of-social-item><a href=https://scholar.lanfanshu.cn/ title="番薯学术 → https://scholar.lanfanshu.cn/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+番薯学术
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com/translator title="必应翻译 → https://cn.bing.com/translator" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+必应翻译
+</a></span><span class=links-of-social-item><a href=https://fanyi.baidu.com/#zh/en title="百度翻译 → https://fanyi.baidu.com/#zh/en" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+百度翻译
+</a></span><span class=links-of-social-item><a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https://fanyi.youdao.com/?keyfrom=fanyi.logo" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+有道翻译
+</a></span><span class=links-of-social-item><a href=https://www.oxfordlearnersdictionaries.com/definition/english/ title="牛津翻译 → https://www.oxfordlearnersdictionaries.com/definition/english/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+牛津翻译
+</a></span><span class=links-of-social-item><a href=https://wx.qq.com title="网页微信 → https://wx.qq.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-weixin fa-fw hvr-icon"></i>
+网页微信
+</a></span><span class=links-of-social-item><a href=https://login.partner.microsoftonline.cn title="微软办公 → https://login.partner.microsoftonline.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软办公
+</a></span><span class=links-of-social-item><a href=https://mathsolver.microsoft.com title="微软数学 → https://mathsolver.microsoft.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软数学
+</a></span><span class=links-of-social-item><a href=https://www.mail.bnu.edu.cn title="师大邮箱 → https://www.mail.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+师大邮箱
+</a></span><span class=links-of-social-item><a href=https://mail.sina.com.cn title="新浪邮箱 → https://mail.sina.com.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+新浪邮箱
+</a></span><span class=links-of-social-item><a href=https://www.aliyundrive.com/sign/in title="阿里云盘 → https://www.aliyundrive.com/sign/in" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+阿里云盘
+</a></span><span class=links-of-social-item><a href=https://yun.139.com/w/#/ title="移动云盘 → https://yun.139.com/w/#/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+移动云盘
+</a></span><span class=links-of-social-item><a href=https://www.jianguoyun.com/d/login title="坚果网盘 → https://www.jianguoyun.com/d/login" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+坚果网盘
+</a></span><span class=links-of-social-item><a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https://efss.qloud.my/index.php/login?clear=1" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+Next云盘
+</a></span><span class=links-of-social-item><a href=https://www.123pan.com/ title="123 网盘 → https://www.123pan.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+123 网盘
+</a></span><span class=links-of-social-item><a href=https://annas-archive.org/ title="安娜档案 → https://annas-archive.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+安娜档案
+</a></span><span class=links-of-social-item><a href=https://book.sciencereading.cn title="科学文库 → https://book.sciencereading.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+科学文库
+</a></span><span class=links-of-social-item><a href=https://ylibrary.org/ title="Ylibrary → https://ylibrary.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Ylibrary
+</a></span><span class=links-of-social-item><a href=https://www.tboxn.com/sites/320.html title="Zlibrary → https://www.tboxn.com/sites/320.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Zlibrary
+</a></span><span class=links-of-social-item><a href=https://www.koushare.com title="蔻享官网 → https://www.koushare.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe-asia fa-fw hvr-icon"></i>
+蔻享官网
+</a></span><span class=links-of-social-item><a href=https://www.duolingo.cn title="多邻国官 → https://www.duolingo.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-school fa-fw hvr-icon"></i>
+多邻国官
+</a></span><span class=links-of-social-item><a href=https://www.bnu.edu.cn title="师大官网 → https://www.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+师大官网
+</a></span><span class=links-of-social-item><a href=https://one.bnu.edu.cn title="数字京师 → https://one.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+数字京师
+</a></span><span class=links-of-social-item><a href=https://www.runoob.com/font-awesome/fontawesome-icons-brand.html title="图站图标 → https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+图站图标
+</a></span><span class=links-of-social-item><a href=https://shields.io/badges title="项目微标 → https://shields.io/badges" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+项目微标
+</a></span><span class=links-of-social-item><a href=https://cpho.pku.edu.cn title="中国物理 → https://cpho.pku.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+中国物理
+</a></span><span class=links-of-social-item><a href=http://www.wlxh.sdu.edu.cn title="山东物理 → http://www.wlxh.sdu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+山东物理
+</a></span><span class=links-of-social-item><a href=https://www.jd.com/ title="京东购物 → https://www.jd.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+京东购物
+</a></span><span class=links-of-social-item><a href=https://www.taobao.com/ title="淘宝购物 → https://www.taobao.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+淘宝购物
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com title="LaTeXLiv → https://www.latexlive.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXLiv
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com/help title="LaTeXHel → https://www.latexlive.com/help" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXHel
+</a></span><span class=links-of-social-item><a href=https://p2t.breezedeus.com title="Pix2Text → https://p2t.breezedeus.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Pix2Text
+</a></span><span class=links-of-social-item><a href=https://simpletex.cn title="Simplete → https://simpletex.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Simplete</a></span></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-i18n-translate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><a href=https://github.com/fungzhenhua rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://fungzhenhua.github.io/post/manjaro%E9%85%8D%E7%BD%AE2021%E7%89%88/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content><meta itemprop=name content></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content><meta itemprop=description content></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="Manjaro配置2021版"><meta itemprop=description content="2021年 10月 25日 星期一 19:28:12 CST 我在升级Manjaro的拓展插件后，发现这些插件都出现了问题，不能正常工作。这个工作是在浏览器中借助
+
+    GNOME Shell Extensions
+    
+    
+    
+ 来安装的，同时如果这些插件有更新，则系统会给出提示。然而此次系统故障使我意识到不能轻易使用这个方法，因为有些插件会不兼容当前系统，所以不得已又重新安装了一遍系统。虽然之前写过一篇Manjaro配置指南，但是不够简洁，所以本文记录一下直接配置，而不做说明。直接复制代码在终端下执行就可以了，同时日后会逐步完善此文以期更好的服务大众。"></span><header class=post-header><h1 class=post-title itemprop="name headline">Manjaro配置2021版</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="fas fa-solid fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2021-10-25 18:45:23 +08:00" itemprop="dateCreated datePublished" datetime="2021-10-25 18:45:23 +0800 CST">2021-10-25</time></span></div><div class=post-meta-items></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>2021年 10月 25日 星期一 19:28:12 CST 我在升级Manjaro的拓展插件后，发现这些插件都出现了问题，不能正常工作。这个工作是在浏览器中借助
+<a href=https://extensions.gnome.org/ title="GNOME Shell Extensions" rel="noopener external nofollow noreferrer" target=_blank class=exturl>GNOME Shell Extensions
+<i class="fa fa-external-link-alt"></i>
+</a>来安装的，同时如果这些插件有更新，则系统会给出提示。然而此次系统故障使我意识到不能轻易使用这个方法，因为有些插件会不兼容当前系统，所以不得已又重新安装了一遍系统。虽然之前写过一篇Manjaro配置指南，但是不够简洁，所以本文记录一下直接配置，而不做说明。直接复制代码在终端下执行就可以了，同时日后会逐步完善此文以期更好的服务大众。</p><a id=more></a><h2 id=自动部署>自动部署
+<a class=header-anchor href=#%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2></a></h2><p>在实际工作中，不可避免的需要重新安装系统，虽然Linux足够稳定，但是有时候会滚挂了，此时就需要重新安装系统才能解决。为了节省时间，我制作了自动化配置脚本，目前为初版，后期会不断加强改进。只需要做如下工作：</p><p>{% code manjaro配置脚本 %}
+sudo pacman -S git
+git clone
+<a href=https://gitee.com/fengzhenhua/script title=https://gitee.com/fengzhenhua/script rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/script
+<i class="fa fa-external-link-alt"></i>
+</a>./script
+cd ./script
+chmod 755 vflh.sh
+./vflh.sh
+{% endcode %}</p><h2 id=手动部署>手动部署
+<a class=header-anchor href=#%e6%89%8b%e5%8a%a8%e9%83%a8%e7%bd%b2></a></h2><p>{% tabs manjaro配置 %}</p><ol><li>登录
+<a href=https://manjaro.org/get-manjaro/ title=Manjaro官网 rel="noopener external nofollow noreferrer" target=_blank class=exturl>Manjaro官网
+<i class="fa fa-external-link-alt"></i>
+</a>下载<code>xface</code>、<code>gnome</code>或<code>kde</code>版本的安装镜像。</li><li>参考
+<a href="https://fengzhenhua.gitee.io/2021/07/10/Ventoy%e5%88%b6%e4%bd%9c%e5%a4%9a%e7%b3%bb%e7%bb%9f%e5%90%af%e5%8a%a8%e7%9b%98/?highlight=ventoy" title=Ventoy制作多系统启动盘 rel="noopener external nofollow noreferrer" target=_blank class=exturl>Ventoy制作多系统启动盘
+<i class="fa fa-external-link-alt"></i>
+</a>使用Ventoy安装系统。</li><li>切换国内镜像源</li></ol><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-2>2</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>sudo pacman-mirrors -c China
+</span></span><span style=display:flex><span>sudo pacman -Syu</span></span></code></pre></td></tr></table></div></div><h2 id=删除本人不想使用的manjaro内置软件>删除本人不想使用的Manjaro内置软件
+<a class=header-anchor href=#%e5%88%a0%e9%99%a4%e6%9c%ac%e4%ba%ba%e4%b8%8d%e6%83%b3%e4%bd%bf%e7%94%a8%e7%9a%84manjaro%e5%86%85%e7%bd%ae%e8%bd%af%e4%bb%b6></a></h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-1-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-1-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-2>2</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>sudo pacman -R gnome-contacts  gnome-maps gnome-weather gnome-todo lollypop onlyoffice-desktopeditors  webapp-manager totem
+</span></span><span style=display:flex><span>sudo pacman -Rns $(pacman -Qtdq)</span></span></code></pre></td></tr></table></div></div><h2 id=安装必备工具>安装必备工具
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e5%bf%85%e5%a4%87%e5%b7%a5%e5%85%b7></a></h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-2-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-2-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span>sudo pacman <span style=color:#f92672>-</span>S vim unarchiver pdftk cups<span style=color:#f92672>-</span>pdf poppler<span style=color:#f92672>-</span>data nodejs  npm  git pandoc mpv  sof<span style=color:#f92672>-</span>firmware fcitx5 fcitx5<span style=color:#f92672>-</span>qt fcitx5<span style=color:#f92672>-</span>gtk fcitx5<span style=color:#f92672>-</span>configtool fcitx5<span style=color:#f92672>-</span>chinese<span style=color:#f92672>-</span>addons fcitx5<span style=color:#f92672>-</span>material<span style=color:#f92672>-</span>color  fcitx5<span style=color:#f92672>-</span>nord</span></span></code></pre></td></tr></table></div></div><p>{% note warning %}
+2021年12月10日升级完成manjaro之后，发现电脑没有声音,这个问题之前也是遇到过，所以这次一定得解决，经过两天查找工作，发现新版的Manjaro不知道什么原因没有安装sof-firmware ,这导致了系统没有声音，于2021年12月12日安装此软件，解决问题。
+{% endnote %}</p><h2 id=设置fcitx5>设置fcitx5
+<a class=header-anchor href=#%e8%ae%be%e7%bd%aefcitx5></a></h2><h3 id=对于以xorg作为显示服务器的系统设置fcitx5>对于以xorg作为显示服务器的系统设置fcitx5
+<a class=header-anchor href=#%e5%af%b9%e4%ba%8e%e4%bb%a5xorg%e4%bd%9c%e4%b8%ba%e6%98%be%e7%a4%ba%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e7%b3%bb%e7%bb%9f%e8%ae%be%e7%bd%aefcitx5></a></h3><p>{% code 针对xorg，编辑文件/etc/profile 在最后面添加以下内容 %}
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
+fcitx5 &
+{% endcode %}</p><h3 id=对于以wayland作为显示服务器的系统设置fcitx5>对于以wayland作为显示服务器的系统设置fcitx5
+<a class=header-anchor href=#%e5%af%b9%e4%ba%8e%e4%bb%a5wayland%e4%bd%9c%e4%b8%ba%e6%98%be%e7%a4%ba%e6%9c%8d%e5%8a%a1%e5%99%a8%e7%9a%84%e7%b3%bb%e7%bb%9f%e8%ae%be%e7%bd%aefcitx5></a></h3><p>{% code 针对wayland(manjaro默认)，编辑文件/etc/environment （全局）或 ~/.pam_environment （用户）在最后面添加以下内容 %}
+GTK_IM_MODULE DEFAULT=fcitx5
+QT_IM_MODULE DEFAULT=fcitx5
+XMODIFIERS DEFAULT=@im=fcitx5
+{% endcode %}</p><p>{% note warning %}
+针对Fcitx5 遇到问题时参考
+<a href=https://wiki.archlinux.org/title/Fcitx5 title="Fcitx5 Wiki" rel="noopener external nofollow noreferrer" target=_blank class=exturl>Fcitx5 Wiki
+<i class="fa fa-external-link-alt"></i>
+</a>或者
+<a href=https://wiki.archlinux.org/title/Fcitx5_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29 title=Fcitx5(简体中文) rel="noopener external nofollow noreferrer" target=_blank class=exturl>Fcitx5(简体中文)
+<i class="fa fa-external-link-alt"></i>
+</a>目前(2021年 12月 12日 星期日 15:43:46 CST) Manjaro默认起用的是wayland,所以第二个设置方案在此之后的版本中是有效的。
+{% endnote %}</p><h3 id=vim-nvim-下-fcitx5-中英文自动切换>vim （nvim) 下 Fcitx5 中英文自动切换
+<a class=header-anchor href=#vim-nvim-%e4%b8%8b-fcitx5-%e4%b8%ad%e8%8b%b1%e6%96%87%e8%87%aa%e5%8a%a8%e5%88%87%e6%8d%a2></a></h3><p>{% code .vimrc 中关于Fcitx5 的配置 %}
+&ldquo;##### auto fcitx5 ###########
+let g:input_toggle = 0
+function! Fcitx2en()
+let s:input_status = system(&ldquo;fcitx5-remote&rdquo;)
+if s:input_status == 2
+let g:input_toggle = 1
+let l:a = system(&ldquo;fcitx5-remote -c&rdquo;)
+endif
+endfunction</p><p>function! Fcitx2zh()
+let s:input_status = system(&ldquo;fcitx5-remote&rdquo;)
+if s:input_status != 2 && g:input_toggle == 1
+let l:a = system(&ldquo;fcitx5-remote -o&rdquo;)
+let g:input_toggle = 0
+endif
+endfunction</p><p>set ttimeoutlen=150
+&ldquo;退出插入模式
+autocmd InsertLeave * call Fcitx2en()
+&ldquo;进入插入模式
+autocmd InsertEnter * call Fcitx2zh()
+&ldquo;##### auto fcitx end ######
+{% endcode %}</p><p>以上代码取自于互联网，其中做的修改第二行： <code>let g:input_toggle = 1</code> 改为<code>let g:input_toggle = 0</code> 。做出此修改的依据为：当打开一个文件时，vim处于命令模式，则必为英文，此时进入编辑模式时由于<code>input_toggle = 0</code>所以在调用 <code>Fcitx2zh</code>后不切换输入法，如果此文件一直输入的是英文，则不需要切换输入法，所以其一直就是英文输入法。当我们需要输入中文，则按<code>Ctrl+Space</code>后切换为中文，此时<code>system("fcitx5-remote")=2</code> 所以退出编辑模式后调用<code>Fcitx2en</code> 则输入法切换为英文，同时<code>let g:input_toggle = 1</code> ，当再进入编辑模式时调用<code>Fcitx2zh</code> 时就切换输入法。如果在编辑过程中需要输入英文，则按<code>Ctrl+Space</code>后切换输入法后就有，<code>system("fcitx5-remote")=2</code> 重复上述过程。于是我们实现了功能：</p><ol><li><p>当在编辑模式时处于<code>英文输入法</code>时，退出后自动切换为<code>英文输入法</code>，再进入编辑模式仍然是<code>英文输入法</code>。</p></li><li><p>当在编辑模式时处于<code>中文输入法</code>时，退出后自动切换为<code>英文输入法</code>, 再进入编辑模式仍然是<code>中文输入法</code>。</p></li></ol><h2 id=设置zsh主题>设置zsh主题
+<a class=header-anchor href=#%e8%ae%be%e7%bd%aezsh%e4%b8%bb%e9%a2%98></a></h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-2>2</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span> pacman -S manjaro-zsh-config
+</span></span><span style=display:flex><span> cp /etc/skel/.zshrc ~/.zshrc</span></span></code></pre></td></tr></table></div></div><h2 id=安装字体>安装字体
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e5%ad%97%e4%bd%93></a></h2><p>{% code 安装windows10字体 %}
+sudo cp ./Fonts/windows10/ /usr/share/fonts/windows10/
+sudo fc-cache -vf
+{% endcode %}</p><h2 id=安装微信>安装微信
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e5%be%ae%e4%bf%a1></a></h2><p>有时候我们需要软件在Manjaro中不包括，此时我们可以借助yay来安装，比如深度的微信，如果不安装<code>base-devel</code>则 <code>yay</code>不能正常工作，所以需要安装此基础软件。</p><p>{% code 使用Aur源安装软件 %}
+sudo pacman -S yay base-devel
+yay -S deepin-wine-wechat
+{% endcode %}</p><h2 id=安装下载工具xtreme>安装下载工具xtreme
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e4%b8%8b%e8%bd%bd%e5%b7%a5%e5%85%b7xtreme></a></h2><p>Linux下最好的下载工具当属于xtreme,首先我们到
+<a href=https://xtremedownloadmanager.com/# title=xtreme官网 rel="noopener external nofollow noreferrer" target=_blank class=exturl>xtreme官网
+<i class="fa fa-external-link-alt"></i>
+</a>下载xtreme,然后解压缩，执行安装脚本即可。</p><h2 id=安装wps-office>安装wps-office
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85wps-office></a></h2><p>目前在国内使用msoffice办公的人太多了，如果在linux下办公，则必须解决这个兼容办公的问题。时间来到2021年11月19日，今天测试了wps-office 11.1.0.10702 版，其已经可以在linux下流畅办公了，于是重新优化了简化脚本，完成了去除pdf组件及无关的网络组件，还原了一个纯净的办公软件，但是此修改限于测试之用，请尊重版权，使用官方版本。</p><p>由于Linux默认没有安装wps-office需要的字体，所以需要我们自己安装，请在我的百度网盘中下载：
+<a href=https://pan.baidu.com/s/1Yg6WE12PWkXM5eieLw-pjA title=wps_symbol_fonts rel="noopener external nofollow noreferrer" target=_blank class=exturl>wps_symbol_fonts
+<i class="fa fa-external-link-alt"></i>
+</a>提取码: a4mr</p><p>{% code 安装wps-office和字体 %}
+yay -S wps-office
+sudo cp ./wps_symbol_fonts/* /usr/share/fonts/wps-office
+sudo fc-cache -vf
+{% endcode %}</p><p>{% code 优化脚本RMwpspdf.sh %}
+#!/bin/bash
+#2021年 12月 06日 星期一 22:59:50 CST
+echo &ldquo;version: 1.4 for wps-office 11.1.0.10702&rdquo;
+echo &ldquo;Author: Feng Zhenhua(冯振华)&rdquo;
+printf &ldquo;Date: "
+date
+#检测系统版本
+printf &ldquo;System Information:&rdquo;
+uname -a</p><h1 id=发出执行命令>发出执行命令
+<a class=header-anchor href=#%e5%8f%91%e5%87%ba%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4></a></h1><p>echo &ldquo;wps-office pdf component removing &mldr;&mldr;&rdquo;</p><h1 id=remove-wps-office-pdfdesktop>remove wps-office-pdf.desktop
+<a class=header-anchor href=#remove-wps-office-pdfdesktop></a></h1><p>if [ -f /usr/share/applications/wps-office-pdf.desktop ];
+then
+echo &ldquo;1.removing /usr/share/applications/wps-office-pdf.desktop&rdquo;
+sudo rm /usr/share/applications/wps-office-pdf.desktop
+else
+echo &ldquo;1./usr/share/applications/wps-office-pdf.desktop had been removed.&rdquo;
+fi</p><h1 id=remove-wpspdf>remove wpspdf
+<a class=header-anchor href=#remove-wpspdf></a></h1><p>if [ -f /usr/bin/wpspdf ];
+then
+echo &ldquo;2.removing /usr/bin/wpspdf&rdquo;
+sudo rm /usr/bin/wpspdf
+else
+echo &ldquo;2./usr/bin/wpspdf had been removed.&rdquo;
+fi</p><h1 id=删除主程序中的wpspdf>删除主程序中的wpspdf
+<a class=header-anchor href=#%e5%88%a0%e9%99%a4%e4%b8%bb%e7%a8%8b%e5%ba%8f%e4%b8%ad%e7%9a%84wpspdf></a></h1><p>if [ -f /usr/lib/office6/wpspdf ];
+then
+echo &ldquo;3.removing /usr/lib/office6/wpspdf&rdquo;
+sudo rm /usr/lib/office6/wpspdf
+else
+echo &ldquo;3./usr/lib/office6/wpspdf had been removed.&rdquo;
+fi
+if [ -f /usr/lib/office6/libpdfmain.so ];
+then
+echo &ldquo;4.removing /usr/lib/office6/libpdfmain.so&rdquo;
+sudo rm /usr/lib/office6/libpdfmain.so
+else
+echo &ldquo;4./usr/lib/office6/libpdfmain.so had been removed.&rdquo;
+fi</p><h1 id=删除wps-officepdf-图标>删除wps-office<em>pdf</em> 图标
+<a class=header-anchor href=#%e5%88%a0%e9%99%a4wps-officepdf-%e5%9b%be%e6%a0%87></a></h1><p>if [ -f /usr/share/icons/hicolor/16x16/apps/wps-office2019-pdfmain.png ];
+then
+sudo rm /usr/share/icons/hicolor/<em>/apps/wps-office</em>pdf*
+echo &ldquo;5.All /usr/share/icons/hicolor/<em>/apps/wps-office</em>pdf* had been removed&rdquo;
+else
+echo &ldquo;5.All /usr/share/icons/hicolor/<em>/apps/wps-office</em>pdf* had been removed&rdquo;
+fi</p><h1 id=删除关联图标>删除关联图标
+<a class=header-anchor href=#%e5%88%a0%e9%99%a4%e5%85%b3%e8%81%94%e5%9b%be%e6%a0%87></a></h1><p>if [ -f /usr/share/icons/hicolor/16x16/mimetypes/wps-office-pdf.png ];
+then
+sudo rm /usr/share/icons/hicolor/<em>/mimetypes/wps-office</em>pdf*
+echo &ldquo;6.All /usr/share/icons/hicolor/<em>/mimetypes/wps-office</em>pdf* had been removed.&rdquo;
+else
+echo &ldquo;6.All /usr/share/icons/hicolor/<em>/mimetypes/wps-office</em>pdf* had been removed.&rdquo;
+fi</p><h1 id=删除配置文件中的pdf信息>删除配置文件中的pdf信息
+<a class=header-anchor href=#%e5%88%a0%e9%99%a4%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e4%b8%ad%e7%9a%84pdf%e4%bf%a1%e6%81%af></a></h1><p>if [ -f /usr/lib/office6/mui/zh_CN/pdf.qm ];
+then
+sudo rm /usr/lib/office6/mui/zh_CN/<em>pdf</em>
+echo &ldquo;7.All pdf related file which in the mui folder had been removed&rdquo;
+else
+echo &ldquo;7.All pdf related file which in the mui folder had been removed&rdquo;
+fi</p><h1 id=禁用轻办公>禁用轻办公
+<a class=header-anchor href=#%e7%a6%81%e7%94%a8%e8%bd%bb%e5%8a%9e%e5%85%ac></a></h1><p>if [ -f /usr/lib/office6/wpscloudsvr ];
+then
+sudo mv /usr/lib/office6/wpscloudsvr /usr/lib/office6/wpscloudsvr_bak
+echo &ldquo;8. /usr/lib/office6/wpscloudsvr had been renamed&rdquo;
+else
+echo &ldquo;8. /usr/lib/office6/wpscloudsvr had been renamed&rdquo;
+fi
+if [ -f /usr/lib/office6/cfgs/product.dat ];
+then</p><h1 id=去除国际版侧边栏中的团队和会议>去除国际版侧边栏中的”团队“和”会议“
+<a class=header-anchor href=#%e5%8e%bb%e9%99%a4%e5%9b%bd%e9%99%85%e7%89%88%e4%be%a7%e8%be%b9%e6%a0%8f%e4%b8%ad%e7%9a%84%e5%9b%a2%e9%98%9f%e5%92%8c%e4%bc%9a%e8%ae%ae></a></h1><pre><code>sudo sed -i 's/rz8f5btwwRveXzQbE1BceItXQPz7r5gLNWXNGWkK_Hs.=WHfH10HHgeQrW2N48LfXrA..//g' /usr/lib/office6/cfgs/product.dat
+</code></pre><h1 id=去除您正在使用访客账号>去除“您正在使用访客账号”
+<a class=header-anchor href=#%e5%8e%bb%e9%99%a4%e6%82%a8%e6%ad%a3%e5%9c%a8%e4%bd%bf%e7%94%a8%e8%ae%bf%e5%ae%a2%e8%b4%a6%e5%8f%b7></a></h1><pre><code>sudo sed -i 's/JYcm_wejKY0DbtmzYoUk5Q..=WHfH10HHgeQrW2N48LfXrA..//g' /usr/lib/office6/cfgs/product.dat
+</code></pre><h1 id=去除未保存和协作>去除“未保存”和“协作”
+<a class=header-anchor href=#%e5%8e%bb%e9%99%a4%e6%9c%aa%e4%bf%9d%e5%ad%98%e5%92%8c%e5%8d%8f%e4%bd%9c></a></h1><pre><code>sudo sed -i 's/vMVENEUpsDRRrn9w2_8R4g..=WHfH10HHgeQrW2N48LfXrA..//g' /usr/lib/office6/cfgs/product.dat
+echo &quot;9.团队、会议、账号登录、未保存、协作 had been removed.&quot;
+</code></pre><p>else
+echo &ldquo;9.There is no file product.dat&rdquo;
+fi</p><h1 id=发出确认信息>发出确认信息
+<a class=header-anchor href=#%e5%8f%91%e5%87%ba%e7%a1%ae%e8%ae%a4%e4%bf%a1%e6%81%af></a></h1><p>echo &ldquo;We have removed the pdf component of wps-office&rdquo;
+echo &ldquo;<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>&rdquo;
+echo &ldquo;* <em>&rdquo;
+echo &ldquo;</em> <em>&rdquo;
+echo &ldquo;</em> Happy wps-office Writing! <em>&rdquo;
+echo &ldquo;</em> <em>&rdquo;
+echo &ldquo;</em> *&rdquo;
+echo &ldquo;</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>&rdquo;
+{% endcode %}</p><h2 id=安装配置hexo>安装配置Hexo
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%aehexo></a></h2><p>{% code Hexo安装及配置数学支持 %}
+sudo pacman -S nodejs npm git
+sudo npm install -g cnpm &ndash;registry=https://registry.npm.taobao.org
+sudo cnpm install -g hexo-cli
+sudo npm uninstall hexo-renderer-marked &ndash;save
+sudo npm uninstall hexo-math &ndash;save
+sudo cnpm install hexo-filter-mathjax &ndash;save
+sudo cnpm install hexo-renderer-pandoc &ndash;save
+sudo pacman -S pandoc
+{% endcode %}</p><h2 id=安装texlive>安装TexLive
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85texlive></a></h2><h3 id=使用texlive镜像安装texlive>使用texlive镜像安装TexLive
+<a class=header-anchor href=#%e4%bd%bf%e7%94%a8texlive%e9%95%9c%e5%83%8f%e5%ae%89%e8%a3%85texlive></a></h3><ol><li><p>下载
+<a href=https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/ title=texlive2021.iso rel="noopener external nofollow noreferrer" target=_blank class=exturl>texlive2021.iso
+<i class="fa fa-external-link-alt"></i></a></p></li><li><p>挂载ISO镜像</p></li></ol><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-3>3</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>sudo mount -o loop texlive2021.iso  /mnt/
+</span></span><span style=display:flex><span>cd /mnt
+</span></span><span style=display:flex><span>sudo ./install-tl	</span></span></code></pre></td></tr></table></div></div><p>出现选项后，输入 I 直接安装（也可以更改选项）。不出意外的话，5 分钟应该就 OK 了， 然后退出 root 用户。</p><ol start=3><li>设置环境变量</li></ol><p>根据texlive-en.pdf文件（texdoc texlive 可以调出）介绍，如果在安装过程中选择了建立超链接，则不必考虑环境变量，所以在安装时要建立超链接，这样子可方便一些。texlive-en.pdf 中原文如下：</p><p>{% note warning %}
+If you elected to create symlinks in standard directories (described in section 3.2.4), then there is no need to edit environment variables. Otherwise, on Unix systems, the directory of the binaries for your platform must be added to the search path. (On Windows, the installer takes care of this.)
+{% endnote %}</p><ol start=4><li>卸载ISO镜像并更新texlive</li></ol><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-5-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-5-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-5-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-5-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-5-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-5-3>3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-5-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-5-4>4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-5-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-5-5>5</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>sudo umount /mnt/
+</span></span><span style=display:flex><span>#更新 TeXLive 包管理器 tlmgr
+</span></span><span style=display:flex><span>sudo tlmgr update --self
+</span></span><span style=display:flex><span>#更新 TeXLive 的全部包
+</span></span><span style=display:flex><span>sudo tlmgr update --all</span></span></code></pre></td></tr></table></div></div><ol start=5><li>字体设置</li></ol><p>TeXLive 2021 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下， 都使用自带的 Fandol 字体。如果想要使用 Windows 字体，可以将字体文件复制到 ~/.fonts 目录下，并在 tex 源码中 指定字体选项即可。</p><p>XeTeX和LuaTeX可以直接使用系统字体.然而texlive自带的字体不在系统的字体目录中,所以当使用XeLaTeX 编译文件时,如果使用了texlive里面带的字体,就会出错,这时需要进行如下配置,让系统可以识别texlive所带的字体就可以了.</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-6-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-6-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-6-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-6-2>2</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-gdscript3 data-lang=gdscript3><span style=display:flex><span>sudo cp <span style=color:#f92672>/</span>usr<span style=color:#f92672>/</span>local<span style=color:#f92672>/</span>texlive<span style=color:#f92672>/</span><span style=color:#ae81ff>2021</span><span style=color:#f92672>/</span>texmf<span style=color:#f92672>-</span><span style=color:#66d9ef>var</span><span style=color:#f92672>/</span>fonts<span style=color:#f92672>/</span>conf<span style=color:#f92672>/</span>texlive<span style=color:#f92672>-</span>fontconfig<span style=color:#f92672>.</span>conf   <span style=color:#f92672>/</span>etc<span style=color:#f92672>/</span>fonts<span style=color:#f92672>/</span>conf<span style=color:#f92672>.</span>d<span style=color:#f92672>/</span><span style=color:#ae81ff>09</span><span style=color:#f92672>-</span>texlive<span style=color:#f92672>.</span>conf
+</span></span><span style=display:flex><span>sudo fc<span style=color:#f92672>-</span>cache <span style=color:#f92672>-</span>fsv</span></span></code></pre></td></tr></table></div></div><h3 id=使用pacman安装texlive>使用pacman安装TexLive
+<a class=header-anchor href=#%e4%bd%bf%e7%94%a8pacman%e5%ae%89%e8%a3%85texlive></a></h3><p>{% code 安装所有Texlive包 %}
+sudo pamac install texlive*
+{% endcode %}</p><p>这样子可以快速的安装texlive的宏包，但是不能用texdoc来查看,因为根据
+<a href=https://wiki.archlinux.org/title/User:Ms/TeX_Live_Manual_Installation title="ArcLinux wiki" rel="noopener external nofollow noreferrer" target=_blank class=exturl>ArcLinux wiki
+<i class="fa fa-external-link-alt"></i>
+</a>说明，这并不包括说明字体/宏包的文档或源文件，所以需要安装AUR上的texlive-most-doc包，即</p><p>{% code 安装texlive-most-doc 包 %}
+yay &ndash;aururl &ldquo;
+<a href=https://aur.tuna.tsinghua.edu.cn title=https://aur.tuna.tsinghua.edu.cn rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://aur.tuna.tsinghua.edu.cn
+<i class="fa fa-external-link-alt"></i>
+</a>&rdquo; &ndash;save
+yay -S texlive-most-doc
+{% endcode %}</p><p>上述第一条命令切换为yay的清华镜像源，速度快一些,依据的信息来源为
+<a href=https://mirrors.tuna.tsinghua.edu.cn/help/AUR/ title="AUR 镜像使用帮助" rel="noopener external nofollow noreferrer" target=_blank class=exturl>AUR 镜像使用帮助
+<i class="fa fa-external-link-alt"></i>
+</a>。虽然通过以上设置可以完成LaTeX的配置，但是经过在Dell Latitude 3510上的实验，安装texlive-most-doc的命令消耗的时间太长，综合研判直接安装iso镜像也是一个比较好的方案。</p><h2 id=vim编辑markdown>vim编辑markdown
+<a class=header-anchor href=#vim%e7%bc%96%e8%be%91markdown></a></h2><p>由于使用Hexo编写独立博客，我需要编写markdown文件，尽管我会用LaTex,但是编辑markdown时也需要折叠及语法高亮等，这是产生配置vim使其支持markdown的想法来源。</p><p>配置vim支持markdown需要三个插件，即</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-7-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-7-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-7-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-7-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-7-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-7-3>3</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>Plugin &#39;plasticboy/vim-markdown&#39;
+</span></span><span style=display:flex><span>Plugin &#39;iamcco/mathjax-support-for-mkdp&#39;
+</span></span><span style=display:flex><span>Plugin &#39;iamcco/markdown-preview.vim&#39;</span></span></code></pre></td></tr></table></div></div><p>其中<code>vim-markdown</code>提供对md文件的折叠及语法高亮支持，而<code>markdown-preview.vim</code> 提供预览功能，如果markdown中含有数学公式，则需要<code>iamcco/mathjax-support-for-mkdp</code> 支持，这三个插件已经在vim的配置文件<code>~/.vimrc</code>中加入了，只需要执行</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-8-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-8-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>vim +PluginInstall</span></span></code></pre></td></tr></table></div></div><p>即可安装。同时配置了vim绑定快捷键，这也在<code>～/.vimrc</code>中做了设置，不需要自己再动手了。对于<code>markdown-prview.vim</code>的配置可以参考<code>~/.vim/bundle/markdown-preview.vim/README_cn.md</code>设置即可,本博客不再多做说明。</p><h2 id=配置vim编辑器>配置vim编辑器
+<a class=header-anchor href=#%e9%85%8d%e7%bd%aevim%e7%bc%96%e8%be%91%e5%99%a8></a></h2><p>{% code clone Vundle插件管理 %}
+git clone
+<a href=https://github.com/VundleVim/Vundle.vim.git title=https://github.com/VundleVim/Vundle.vim.git rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://github.com/VundleVim/Vundle.vim.git
+<i class="fa fa-external-link-alt"></i>
+</a><del>/.vim/bundle/Vundle.vim
+{% endcode %}
+{% code 配置文件 <del>/.vimrc %}
+" ====vimrc====
+" Version : v1.3
+" Author : Feng Zhenhua
+" Email :
+<a href=mailto:fengzhenhua@outlook.com title=fengzhenhua@outlook.com>fengzhenhua@outlook.com
+</a>" Date : 2021年 12月 12日 星期日 21:36:41 CST
+"
+" 基础设置
+set nocompatible " be iMproved, required
+filetype off " required
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+filetype indent on
+syntax enable
+set bg=dark
+set nu
+&ldquo;设置配色方案
+&ldquo;colorscheme murphy
+colorscheme pablo
+&ldquo;设置列高亮
+set cursorcolumn
+&ldquo;设置行线
+set cursorline
+&ldquo;显示未执行的命令
+set showcmd
+&ldquo;设置自动备份
+&ldquo;set backup
+&ldquo;set backupext=.bak
+&ldquo;保存一个原始文件
+&ldquo;set patchmode=.orig
+&ldquo;设置用命令行版stardict(sdcv)查询单词
+&ldquo;set keywordprg=sdcv
+&ldquo;设定字符编码20180320加入
+set encoding=utf-8
+set fileencodings=utf-8,cp936
+set termencoding=utf-8
+&ldquo;设置缩进
+set autoindent shiftwidth=3
+&ldquo;设定软tab键,用来产生四个空格20180323
+set softtabstop=4
+&ldquo;取消vim编辑时滴滴声
+set noeb vb t_vb=
+"
+&ldquo;##### Vundle ###########
+" set the runtime path to include Vundle and initialize
+" 由于git速度比较慢，所以将github上的源同步到我的gitee上来2021年 12月 12日 星期日 20:58:28 CST
+set rtp+=</del>/.vim/bundle/Vundle.vim
+call vundle#begin()
+#Plugin &lsquo;VundleVim/Vundle.vim&rsquo;
+#Plugin &lsquo;vim-latex/vim-latex&rsquo;
+#Plugin &lsquo;aperezdc/vim-template&rsquo;
+#Plugin &lsquo;plasticboy/vim-markdown&rsquo;
+#Plugin &lsquo;iamcco/mathjax-support-for-mkdp&rsquo;
+#Plugin &lsquo;iamcco/markdown-preview.vim&rsquo;
+Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/Vundle.vim%27 title="https://gitee.com/fengzhenhua/Vundle.vim'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/Vundle.vim'
+<i class="fa fa-external-link-alt"></i>
+</a>Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/vim-latex%27 title="https://gitee.com/fengzhenhua/vim-latex'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/vim-latex'
+<i class="fa fa-external-link-alt"></i>
+</a>Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/vim-template%27 title="https://gitee.com/fengzhenhua/vim-template'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/vim-template'
+<i class="fa fa-external-link-alt"></i>
+</a>Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/vim-markdown%27 title="https://gitee.com/fengzhenhua/vim-markdown'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/vim-markdown'
+<i class="fa fa-external-link-alt"></i>
+</a>Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/mathjax-support-for-mkdp%27 title="https://gitee.com/fengzhenhua/mathjax-support-for-mkdp'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/mathjax-support-for-mkdp'
+<i class="fa fa-external-link-alt"></i>
+</a>Plugin &lsquo;
+<a href=https://gitee.com/fengzhenhua/markdown-preview.vim%27 title="https://gitee.com/fengzhenhua/markdown-preview.vim'" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://gitee.com/fengzhenhua/markdown-preview.vim'
+<i class="fa fa-external-link-alt"></i>
+</a>call vundle#end() " required
+filetype plugin indent on " required
+" To ignore plugin indent changes, instead use:
+"
+" 简明帮助
+" :PluginList - 列出配置过的插件
+" :PluginInstall - 安装插件; 附加<code>!</code> 更新插件，或只用:PluginUpdate
+" :PluginSearch foo - 查找 foo; 附加<code>!</code> 刷新本地缓存
+" :PluginClean - 确认删除无用的插件; 附加<code>!</code>强制删除
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+&ldquo;##### Vundle end ###########
+"
+&ldquo;##### vim-latex/latex-suite ###########
+&ldquo;打开dtx文件自定义命令
+autocmd BufNewFile,BufRead <em>.dtx source ~/.vim/bundle/vim-latex/ftplugin/dtx.vim
+let g:Tex_Flavor=&lsquo;latex&rsquo;
+" 控制编译过程中的警告信息
+let g:Tex_IgnoredWarnings =
+'Underfull&rsquo;."\n&rdquo;.
+'Overfull&rsquo;."\n&rdquo;.
+'specifier changed to&rsquo;."\n&rdquo;.
+'You have requested&rsquo;."\n&rdquo;.
+'Missing number, treated as zero.&rsquo;."\n&rdquo;.
+'There were undefined references&rsquo;."\n&rdquo;.
+'Citation %.%# undefined&rsquo;."\n&rdquo;.
+"LaTeX hooks Warning&rdquo;
+let g:Tex_IgnoreLevel = 8
+let g:Tex_GotoError = 0
+" 控制编译方式和PDF浏览软件manjaro linux
+let g:Tex_DefaultTargetFormat = &lsquo;pdf&rsquo;
+let g:Tex_CompileRule_pdf = &lsquo;xelatex -synctex=1 -interaction=nonstopmode -file-line-error-style $</em>&rsquo;
+let g:Tex_ViewRule_pdf=&lsquo;evince&rsquo;
+&ldquo;##### vim-latex/latex-suite end ###########
+"
+&ldquo;##### vim-templates ###########
+" 自定义模板所在文件夹
+let g:templates_directory = &lsquo;</del>/.vim/templates&rsquo;
+let g:templates_user_variables = [[&lsquo;EMAIL&rsquo;, &lsquo;GetEmail&rsquo;],[&lsquo;AUTHOR&rsquo;, &lsquo;GetAuthor&rsquo;]]
+function GetEmail()
+return &lsquo;
+<a href=mailto:fengzhenhua@outlook.com title=fengzhenhua@outlook.com>fengzhenhua@outlook.com
+</a>&rsquo;
+endfunction
+function GetAuthor()
+return &lsquo;冯振华&rsquo;
+endfunction
+&ldquo;##### vim-templates end ###########
+"
+&ldquo;##### auto fcitx5 ###########
+let g:input_toggle = 1
+function! Fcitx2en()
+let s:input_status = system(&ldquo;fcitx5-remote&rdquo;)
+if s:input_status == 2
+let g:input_toggle = 1
+let l:a = system(&ldquo;fcitx5-remote -c&rdquo;)
+endif
+endfunction</p><p>function! Fcitx2zh()
+let s:input_status = system(&ldquo;fcitx5-remote&rdquo;)
+if s:input_status != 2 && g:input_toggle == 1
+let l:a = system(&ldquo;fcitx5-remote -o&rdquo;)
+let g:input_toggle = 0
+endif
+endfunction</p><p>set ttimeoutlen=150
+&ldquo;退出插入模式
+autocmd InsertLeave * call Fcitx2en()
+&ldquo;进入插入模式
+autocmd InsertEnter * call Fcitx2zh()
+&ldquo;##### auto fcitx end ######
+"
+" 键位绑定，方便使用vim编辑md文件时快速预览
+&ldquo;##### markdown-preview.vim ######
+nmap <silent><f8><plug>MarkdownPreview " 普通模式
+imap <silent><f8><plug>MarkdownPreview " 插入模式
+nmap <silent><f9><plug>StopMarkdownPreview " 普通模式
+imap <silent><f9><plug>StopMarkdownPreview " 插入模式
+&ldquo;##### markdown-preview.vim end ######
+{% endcode %}</p><p>{% note warning %}
+当vim启动时，它首先读取配置文件 <code>～/.vimrc</code> ,所以对于自己配置的插件，其配置内容应当写入此配置文件。比如对于 <code>vim-latex</code>的配置，之前是修改的文件
+<code>~/.vim/bundle/vim-latex/ftplugin/latex-suite/texrc</code> ,但是如果遇到插件升级时，则此文件会被覆盖，这样子又要重新设置，显然不是一个好的方法，同时此文件的开头也声明了不要直接修改此文件。所以最好的方法是参考<code>texrc</code>对需要修改的配置，加入到<code>~/.vimrc</code>中，这样可以避免每次升级或重装后进行修改。
+{% endnote %}</p><h2 id=使用latex编译文档时-latex-hooks-warning>使用latex编译文档时<code> LaTeX hooks Warning</code>
+<a class=header-anchor href=#%e4%bd%bf%e7%94%a8latex%e7%bc%96%e8%af%91%e6%96%87%e6%a1%a3%e6%97%b6-latex-hooks-warning></a></h2><p>2021年 12月 08日 星期三 12:08:58 CST 当我按照texlive.pdf 文档设置好<code>TexLive</code>后，编译了一份文档，但是会出现如下警告</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-3>3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-4>4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-5>5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-6>6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-7>7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-9-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-9-8>8</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>LaTeX hooks Warning: Generic hook &#39;package/after/&lt;name&gt;&#39; is deprecated.
+</span></span><span style=display:flex><span>(hooks)              Use hook &#39;package/&lt;name&gt;/after&#39; instead.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>LaTeX hooks Warning: Generic hook &#39;class/after/&lt;name&gt;&#39; is deprecated.
+</span></span><span style=display:flex><span>(hooks)              Use hook &#39;class/&lt;name&gt;/after&#39; instead.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>LaTeX hooks Warning: Generic hook &#39;include/after/&lt;name&gt;&#39; is deprecated.
+</span></span><span style=display:flex><span>(hooks)              Use hook &#39;include/&lt;name&gt;/after&#39; instead.</span></span></code></pre></td></tr></table></div></div><h3 id=解决方法一>解决方法一
+<a class=header-anchor href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95%e4%b8%80></a></h3><p>据
+<a href="https://tex.stackexchange.com/questions/623542/generic-hook-name-is-deprecated-warning-after-update#:~:text=LaTeX%20hooks%20Warning%3A%20Generic%20hook%20%27file%2Fafter%2F%3Cname%3E%27%20is%20deprecated.,had%20env%2F%3Cname%3E%2Fafter%20and%20file%2Fafter%2F%3Cname%3E%20which%20was%20simply%20confusing." title=tex.stackexchange.com rel="noopener external nofollow noreferrer" target=_blank class=exturl>tex.stackexchange.com
+<i class="fa fa-external-link-alt"></i>
+</a>介绍，此警告是无害的。它是由于最近LaTeX kernel的变动，同时这个警告会伴随<code>translations</code>的更新尽快得到解决。如果你真的想移除这个警告，将以下代码添加到文档的最前端，即可</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-10-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-10-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>\ExplSyntaxOn \msg_redirect_name:nnn { hooks } { generic-deprecated } { none } \ExplSyntaxOff</span></span></code></pre></td></tr></table></div></div><p>例如，在<code>通用课程表.tex</code>的前五行写为：</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-11-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-11-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-11-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-11-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-11-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-11-3>3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-11-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-11-4>4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-11-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-11-5>5</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>\ExplSyntaxOn \msg_redirect_name:nnn { hooks } { generic-deprecated } { none } \ExplSyntaxOff
+</span></span><span style=display:flex><span>\documentclass[12pt,a4paper,fontset = windows ]{ctexbook}
+</span></span><span style=display:flex><span>\usepackage{amsmath}
+</span></span><span style=display:flex><span>\usepackage{amsfonts}
+</span></span><span style=display:flex><span>\usepackage{amssymb}</span></span></code></pre></td></tr></table></div></div><h3 id=解决方法二>解决方法二
+<a class=header-anchor href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95%e4%ba%8c></a></h3><p>设置<code>vim-latex</code>插件，使其过滤掉这个由于<code>LaTeX kernel</code>的变动而造成的警告，通过打开<code>~/.vim/bundle/vim-latex/ftplugin/latex-suite/texrc</code>查找<code>warnings</code>便可以找到解决方法。此部分已经在<code>~/.vimrc</code>中做出了修改，因此这里仅列出对应的代码，实际操作中不必单独再修改<code>.vimrc</code>。</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-1> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-2> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-3> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-4> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-5> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-6> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-7> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-8> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-9><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-9> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-10><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-10>10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-12-11><a style=outline:none;text-decoration:none;color:inherit href=#hl-12-11>11</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>&#34; 控制编译过程中的警告信息
+</span></span><span style=display:flex><span>let g:Tex_IgnoredWarnings = 
+</span></span><span style=display:flex><span>	\&#39;Underfull&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;Overfull&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;specifier changed to&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;You have requested&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;Missing number, treated as zero.&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;There were undefined references&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#39;Citation %.%# undefined&#39;.&#34;\n&#34;.
+</span></span><span style=display:flex><span>	\&#34;LaTeX hooks Warning&#34;
+</span></span><span style=display:flex><span>let g:Tex_IgnoreLevel = 8</span></span></code></pre></td></tr></table></div></div><h2 id=manjaro-升级后出现无声音现像>Manjaro 升级后出现无声音现像
+<a class=header-anchor href=#manjaro-%e5%8d%87%e7%ba%a7%e5%90%8e%e5%87%ba%e7%8e%b0%e6%97%a0%e5%a3%b0%e9%9f%b3%e7%8e%b0%e5%83%8f></a></h2><p>之前也遇到过这个问题，但是系统又不能不升级，所以必须解决这个问题。经过长时间的百度得到方案，即新版Manjaro不知道什么原因，没有预装sof-firmware,在安装此软件后问题得到解决。2021年 12月 12日 星期日 15:50:58 CST</p><h2 id=关闭警告提示声音>关闭警告提示声音
+<a class=header-anchor href=#%e5%85%b3%e9%97%ad%e8%ad%a6%e5%91%8a%e6%8f%90%e7%a4%ba%e5%a3%b0%e9%9f%b3></a></h2><ol><li>消除vim中bash的滴滴声</li></ol><p>编辑<code>/etc/inputrc</code>文件,去除第二行的注释符号<code>#</code>,默认的设置如下
+{% code /etc/inputrc %}</p><h1 id=do-not-bell-on-tab-completion>do not bell on tab-completion
+<a class=header-anchor href=#do-not-bell-on-tab-completion></a></h1><p>#set bell-style none
+{% endcode %}</p><ol start=2><li>消除Vim中的滴滴声</li></ol><p>编辑<code>~/.vimrc</code>文件，添加 <code>set noeb vb t_vb=</code> 保存退出后立即生效。此已经在配置脚本中的<code>vimrc</code>做好了设置，使用脚本设置系统即可，不必再手动修改。</p><h2 id=gnome3默认快捷揵的设置>Gnome3默认快捷揵的设置
+<a class=header-anchor href=#gnome3%e9%bb%98%e8%ae%a4%e5%bf%ab%e6%8d%b7%e6%8f%b5%e7%9a%84%e8%ae%be%e7%bd%ae></a></h2><p>在升级Manjaro后发现默认快捷键的设定有所变动，不清楚Gnome3团队的意图，所以就自己经常用的快捷键重新改回。设置方法为在Gnome3桌面环境下，<code>右上角菜单</code>$\rightarrow$ <code>设置</code> $\rightarrow$ <code>键盘</code> $\downarrow$ <code>键盘快捷键</code></p><table><thead><tr><th style=text-align:center>操作</th><th style=text-align:center>默认快捷键</th><th style=text-align:center>通用快捷键</th></tr></thead><tbody><tr><td style=text-align:center>关闭窗口</td><td style=text-align:center>Super+Q</td><td style=text-align:center>Alt+F4</td></tr><tr><td style=text-align:center>最大化窗口</td><td style=text-align:center>禁用</td><td style=text-align:center>Super+$\uparrow$</td></tr></tbody></table><h2 id=配置neovim>配置neovim
+<a class=header-anchor href=#%e9%85%8d%e7%bd%aeneovim></a></h2><p>2022-02-22 我尝试了插件<code>UltiSnips</code>，按照网络上的教程，在vim中完美运行，但是在neovim中却报错，百度之后在
+<a href=https://gitee.com/houdunwang/nvim title=后盾人/nvim rel="noopener external nofollow noreferrer" target=_blank class=exturl>后盾人/nvim
+<i class="fa fa-external-link-alt"></i>
+</a>获得解答，这是因为没有安装好对应的依赖。安装完成后，Neovim 实现完美工作,如果有不明白的地方请详细参考上述网站获取解答。</p><p>{% code neovim %}</p><h1 id=安装环境需要的软件>安装环境需要的软件
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e7%8e%af%e5%a2%83%e9%9c%80%e8%a6%81%e7%9a%84%e8%bd%af%e4%bb%b6></a></h1><h1 id=mac>mac
+<a class=header-anchor href=#mac></a></h1><p>brew install node python3 yarn ranger python-pip</p><h1 id=manjaro>manjaro
+<a class=header-anchor href=#manjaro></a></h1><p>sudo pacman -Sy node python3 yarn ranger python-pip</p><h1 id=ubuntu>ubuntu
+<a class=header-anchor href=#ubuntu></a></h1><p>sudo apt install node python3 yarn ranger python-pip</p><h1 id=centos>centos
+<a class=header-anchor href=#centos></a></h1><p>sudo yum install node python3 yarn ranger python-pip</p><h1 id=neovim-需要的软件包>Neovim 需要的软件包
+<a class=header-anchor href=#neovim-%e9%9c%80%e8%a6%81%e7%9a%84%e8%bd%af%e4%bb%b6%e5%8c%85></a></h1><p>python -m pip install pynvim</p><p>pip3 install &ndash;user &ndash;upgrade neovim</p><p>pip3 install ranger-fm</p><p>{% endcode %}</p><p>{% pdf /PDF/manjaro.pdf %}</p><p>{% endtabs %}</p></div><footer class=post-footer><hr><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/vim%E6%A8%A1%E6%9D%BF%E7%9A%84%E4%BD%BF%E7%94%A8/ rel=next title=Vim模板的使用><i class="fa fa-chevron-left"></i> Vim模板的使用</a></div><div class="post-nav-prev post-nav-item"><a href=/post/linux%E5%92%8Cwindows%E4%B8%8B%E7%9A%84%E8%BE%93%E5%85%A5%E6%B3%95/ rel=prev title=Linux和Windows下的输入法>Linux和Windows下的输入法
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=i18n-translate class=i18n-translate><i class="fa fa-language"></i><div id=lang-select class=lang-select><div id=lang-selected class=selected-option><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=selected-language>简体中文</span>
+<i class="fa fa-chevron-down"></i></div><div id=lang-options class=lang-options><div class=lang-option lang-code=zh-cn lang-name=简体中文 lang-url=/post/manjaro%E9%85%8D%E7%BD%AE2021%E7%89%88/><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=lang-name>简体中文</span></div></div></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2022 - 2026
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>Zhen-Hua Feng</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.169.0 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.8.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script class=next-config data-name=page type=application/json>{"clipboard":{"js":{"alias":"clipboard","file":"dist/clipboard.min.js","name":"clipboard.js","version":"2.0.11"}},"comments":false,"expired":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-svg.js","name":"mathjax","version":"3.2.2"},"render":"mathjax"},"path":"manjaro%E9%85%8D%E7%BD%AE2021%E7%89%88","permalink":"https://fungzhenhua.github.io/post/manjaro%E9%85%8D%E7%BD%AE2021%E7%89%88/","title":"Manjaro配置2021版","toc":true}</script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/animejs/3.2.2/anime.min.js crossorigin=anonymous defer></script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.js crossorigin=anonymous defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#9400D3","enable":false,"save":"manual"},"copybtn":true,"darkmode":false,"hostname":"https://fungzhenhua.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"isMultiLang":true,"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"slideInRight","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","share":{"addtoany":{"js":"https://static.addtoany.com/menu/page.js","locale":"zh-CN","num":8},"enable":false},"sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"zstatic","router":{"home":"https://www.zstatic.net","logo":"https://www.zstatic.net/logo.png","name":"zstatic","type":"modern","url":"https://s4.zstatic.net/ajax/libs"}},"version":"4.8.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":false,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"@waline/client","file":"dist/waline.css","name":"waline","version":"2.15.8"},"js":{"alias":"@waline/client","file":"dist/waline.js","name":"waline","version":"2.15.8"}}}</script><script type=text/javascript src="/js/main.min.js?=1794040315" defer></script><script type=text/javascript src="/js/clipboard.min.js?=1794040315" defer></script><script type=text/javascript src="/js/math.min.js?=1794040315" defer></script></body></html>

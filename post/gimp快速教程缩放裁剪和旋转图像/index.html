@@ -1,0 +1,186 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#9400D3" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.169.0"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="GIMP快速教程：缩放、裁剪和旋转图像"><meta itemprop=description content><meta name=description content><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://fungzhenhua.github.io/"><meta itemprop=keywords content="Hugo,Linux,Hexo,Physics"><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.css><link rel=stylesheet href="/css/main.min.css?=1794040315"><style type=text/css>.post-footer hr:after{content:""}.flinks-list-footer hr:after{content:""}</style><link rel=stylesheet type=text/css href="/css/custom_style.css?=1794040315"><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return 0[0];const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),0[0]):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>GIMP快速教程：缩放、裁剪和旋转图像 - BNU-FZH</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BNU-FZH</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>fengzhenhua@outlook.com</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-导航"><a href=/%E5%AF%BC%E8%88%AA/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-paper-plane hvr-icon"></i>导航</a></li><li class="menu-item menu-item-软件"><a href=/%E8%BD%AF%E4%BB%B6/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-briefcase hvr-icon"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href=/%E6%94%B6%E8%97%8F/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href=/%E5%B7%A5%E4%BD%9C/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>工作</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><ul><li><a href=#软件安装>软件安装</a></li><li><a href=#目的>目的</a></li><li><a href=#调整图像的大小尺寸即缩放>调整图像的大小（尺寸），即缩放</a></li><li><a href=#修改-jpeg-文件的大小>修改 JPEG 文件的大小</a></li><li><a href=#裁剪图像>裁剪图像</a><ul><li><a href=#另一种方法>另一种方法</a></li></ul></li><li><a href=#旋转或翻转图像>旋转或翻转图像</a><ul><li><a href=#翻转图像>翻转图像</a></li><li><a href=#旋转图像>旋转图像</a></li></ul></li><li><a href=#总结>总结</a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><p class=site-author-name itemprop=name></p><div class=site-description itemprop=description></div></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href=https://www.zxxk.com/ title="学科资源 → https://www.zxxk.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+学科资源
+</a></span><span class=links-of-social-item><a href=https://zujuan.xkw.com/ title="组卷题库 → https://zujuan.xkw.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+组卷题库
+</a></span><span class=links-of-social-item><a href=http://192.168.1.14/ title="实验信息 → http://192.168.1.14/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+实验信息
+</a></span><span class=links-of-social-item><a href=https://www.yjzhixue.com title="智学阅卷 → https://www.yjzhixue.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+智学阅卷
+</a></span><span class=links-of-social-item><a href=https://chat.deepseek.com/ title="深度求索 → https://chat.deepseek.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+深度求索
+</a></span><span class=links-of-social-item><a href=https://www.tongyi.com/ title="通义千问 → https://www.tongyi.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+通义千问
+</a></span><span class=links-of-social-item><a href=https://www.scnet.cn/ui/chatbot/ title="国家超算 → https://www.scnet.cn/ui/chatbot/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+国家超算
+</a></span><span class=links-of-social-item><a href=https://yuanbao.tencent.com/chat title="腾讯元宝 → https://yuanbao.tencent.com/chat" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+腾讯元宝
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com title="必应搜索 → https://cn.bing.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+必应搜索
+</a></span><span class=links-of-social-item><a href=https://www.hao268.com title="网址之家 → https://www.hao268.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+网址之家
+</a></span><span class=links-of-social-item><a href=https://ac.scmor.com title="思谋学术 → https://ac.scmor.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+思谋学术
+</a></span><span class=links-of-social-item><a href=https://search.essclick.com title="爱思学术 → https://search.essclick.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+爱思学术
+</a></span><span class=links-of-social-item><a href=https://xmsoushu.com/ title="熊猫搜书 → https://xmsoushu.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+熊猫搜书
+</a></span><span class=links-of-social-item><a href=https://scholar.lanfanshu.cn/ title="番薯学术 → https://scholar.lanfanshu.cn/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+番薯学术
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com/translator title="必应翻译 → https://cn.bing.com/translator" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+必应翻译
+</a></span><span class=links-of-social-item><a href=https://fanyi.baidu.com/#zh/en title="百度翻译 → https://fanyi.baidu.com/#zh/en" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+百度翻译
+</a></span><span class=links-of-social-item><a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https://fanyi.youdao.com/?keyfrom=fanyi.logo" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+有道翻译
+</a></span><span class=links-of-social-item><a href=https://www.oxfordlearnersdictionaries.com/definition/english/ title="牛津翻译 → https://www.oxfordlearnersdictionaries.com/definition/english/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+牛津翻译
+</a></span><span class=links-of-social-item><a href=https://wx.qq.com title="网页微信 → https://wx.qq.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-weixin fa-fw hvr-icon"></i>
+网页微信
+</a></span><span class=links-of-social-item><a href=https://login.partner.microsoftonline.cn title="微软办公 → https://login.partner.microsoftonline.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软办公
+</a></span><span class=links-of-social-item><a href=https://mathsolver.microsoft.com title="微软数学 → https://mathsolver.microsoft.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软数学
+</a></span><span class=links-of-social-item><a href=https://www.mail.bnu.edu.cn title="师大邮箱 → https://www.mail.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+师大邮箱
+</a></span><span class=links-of-social-item><a href=https://mail.sina.com.cn title="新浪邮箱 → https://mail.sina.com.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+新浪邮箱
+</a></span><span class=links-of-social-item><a href=https://www.aliyundrive.com/sign/in title="阿里云盘 → https://www.aliyundrive.com/sign/in" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+阿里云盘
+</a></span><span class=links-of-social-item><a href=https://yun.139.com/w/#/ title="移动云盘 → https://yun.139.com/w/#/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+移动云盘
+</a></span><span class=links-of-social-item><a href=https://www.jianguoyun.com/d/login title="坚果网盘 → https://www.jianguoyun.com/d/login" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+坚果网盘
+</a></span><span class=links-of-social-item><a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https://efss.qloud.my/index.php/login?clear=1" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+Next云盘
+</a></span><span class=links-of-social-item><a href=https://www.123pan.com/ title="123 网盘 → https://www.123pan.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+123 网盘
+</a></span><span class=links-of-social-item><a href=https://annas-archive.org/ title="安娜档案 → https://annas-archive.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+安娜档案
+</a></span><span class=links-of-social-item><a href=https://book.sciencereading.cn title="科学文库 → https://book.sciencereading.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+科学文库
+</a></span><span class=links-of-social-item><a href=https://ylibrary.org/ title="Ylibrary → https://ylibrary.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Ylibrary
+</a></span><span class=links-of-social-item><a href=https://www.tboxn.com/sites/320.html title="Zlibrary → https://www.tboxn.com/sites/320.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Zlibrary
+</a></span><span class=links-of-social-item><a href=https://www.koushare.com title="蔻享官网 → https://www.koushare.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe-asia fa-fw hvr-icon"></i>
+蔻享官网
+</a></span><span class=links-of-social-item><a href=https://www.duolingo.cn title="多邻国官 → https://www.duolingo.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-school fa-fw hvr-icon"></i>
+多邻国官
+</a></span><span class=links-of-social-item><a href=https://www.bnu.edu.cn title="师大官网 → https://www.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+师大官网
+</a></span><span class=links-of-social-item><a href=https://one.bnu.edu.cn title="数字京师 → https://one.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+数字京师
+</a></span><span class=links-of-social-item><a href=https://www.runoob.com/font-awesome/fontawesome-icons-brand.html title="图站图标 → https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+图站图标
+</a></span><span class=links-of-social-item><a href=https://shields.io/badges title="项目微标 → https://shields.io/badges" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+项目微标
+</a></span><span class=links-of-social-item><a href=https://cpho.pku.edu.cn title="中国物理 → https://cpho.pku.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+中国物理
+</a></span><span class=links-of-social-item><a href=http://www.wlxh.sdu.edu.cn title="山东物理 → http://www.wlxh.sdu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+山东物理
+</a></span><span class=links-of-social-item><a href=https://www.jd.com/ title="京东购物 → https://www.jd.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+京东购物
+</a></span><span class=links-of-social-item><a href=https://www.taobao.com/ title="淘宝购物 → https://www.taobao.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+淘宝购物
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com title="LaTeXLiv → https://www.latexlive.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXLiv
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com/help title="LaTeXHel → https://www.latexlive.com/help" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXHel
+</a></span><span class=links-of-social-item><a href=https://p2t.breezedeus.com title="Pix2Text → https://p2t.breezedeus.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Pix2Text
+</a></span><span class=links-of-social-item><a href=https://simpletex.cn title="Simplete → https://simpletex.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Simplete</a></span></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-i18n-translate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><a href=https://github.com/fungzhenhua rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://fungzhenhua.github.io/post/gimp%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%E7%BC%A9%E6%94%BE%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content><meta itemprop=name content></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content><meta itemprop=description content></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="GIMP快速教程：缩放、裁剪和旋转图像"><meta itemprop=description content="{% note info %}
+本文翻译自 GIMP 官网，是 GIMP 教程的一部分。
+{% endnote %}
+软件安装
+
+
+Windows：
+
+
+
+    GIMP官网下载
+    
+    
+    
+
+双击exe文件安装
+
+
+Linux:
+
+Archlinux 或 Endeavor:
+
+
+
+
+1
+
+
+sudo pacman -S gimp 
+
+
+
+
+Debian 或 ubuntu:
+
+
+
+
+1
+
+
+sudo apt-get install gimp
+
+
+
+
+
+目的
+
+恭喜你！你在电脑上安装了 GIMP！GIMP 是一个非常强大的图像处理软件，但是不要被它吓到。即使你没有时间学习高级的电脑图形处理技能，GIMP 仍然可以是一个非常有用和方便的快速修改图像的工具。"></span><header class=post-header><h1 class=post-title itemprop="name headline">GIMP快速教程：缩放、裁剪和旋转图像</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="fas fa-solid fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2024-01-27 00:34:52 +08:00" itemprop="dateCreated datePublished" datetime="2024-01-27 00:34:52 +0800 CST">2024-01-27</time></span></div><div class=post-meta-items></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>{% note info %}
+本文翻译自 GIMP 官网，是 GIMP 教程的一部分。
+{% endnote %}</p><h3 id=软件安装>软件安装
+<a class=header-anchor href=#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85></a></h3><ol><li>Windows：<ul><li><a href=https://www.gimp.org/downloads/ title=GIMP官网下载 rel="noopener external nofollow noreferrer" target=_blank class=exturl>GIMP官网下载
+<i class="fa fa-external-link-alt"></i></a></li><li>双击<code>exe</code>文件安装</li></ul></li><li>Linux:<ul><li>Archlinux 或 Endeavor:</li></ul><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo pacman -S gimp </span></span></code></pre></td></tr></table></div></div><ul><li>Debian 或 ubuntu:</li></ul><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-1-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>sudo apt-get install gimp</span></span></code></pre></td></tr></table></div></div></li></ol><h3 id=目的>目的
+<a class=header-anchor href=#%e7%9b%ae%e7%9a%84></a></h3><p>恭喜你！你在电脑上安装了 GIMP！GIMP 是一个非常强大的图像处理软件，但是不要被它吓到。即使你没有时间学习高级的电脑图形处理技能，GIMP 仍然可以是一个非常有用和方便的快速修改图像的工具。</p><a id=more></a><p>我希望这些例子能帮助你解决那些需要对图像应用进行快速修改的小需求。希望这也能让你学习到 GIMP 更强大的图像编辑能力。</p><p>为了便于快速查看，我将在这篇快速教程中涵盖以下四个要点：</p><ul><li>更改图像的大小（尺寸），即缩放</li><li>更改 JPEG 的大小（文件大小）</li><li>剪裁图像</li><li>旋转或翻转图像</li></ul><p>为了与这个页面之前的版本保持保持一致，我将使用 NASA 提供的天文学家每日图像（APOD）中的一张图片。</p><p>为了跟随这些快速示例，你只需要知道如何找到你的图片并打开它：“文件File → 打开Open”。</p><h3 id=调整图像的大小尺寸即缩放>调整图像的大小（尺寸），即缩放
+<a class=header-anchor href=#%e8%b0%83%e6%95%b4%e5%9b%be%e5%83%8f%e7%9a%84%e5%a4%a7%e5%b0%8f%e5%b0%ba%e5%af%b8%e5%8d%b3%e7%bc%a9%e6%94%be></a></h3><p>你可能会遇到一个图像太大，不适合特定用途的问题（例如，嵌入网页、在线发布或包含在电子邮件中）。在这种情况下，你通常会希望将图像缩小到更小的尺寸，以便更好地满足你的需求。</p><p>在 GIMP 中轻松完成这个任务非常简单。</p><p>我们使用的图片是哈勃望远镜拍摄的马头星云红外成像图。</p><p>当你第一次在 GIMP 中打开图像时，很可能会发现图像被缩放，以便整个图像都能适合你的画布。对于这个示例，需要注意的是，GIMP 窗口顶部的窗口装饰会显示一些关于图像的信息。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095131t04z3ohb2nj3hkao.png alt=GIMP画布的视图，顶部显示窗口信息></p><p><em>GIMP画布的视图，顶部显示窗口信息</em></p><p>请注意，窗口顶部的信息显示了当前图像的像素尺寸（在这个例子中，像素尺寸为 1225×1280）。</p><p>要调整图像的大小到新的尺寸，我们只需要调用“缩放图像Scale Image”对话框：“图像Image → 缩放图像&mldr;Scale Image &mldr;”。</p><p>这将打开“缩放图像”对话框：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095132apzapdqq4qdezqpe.png alt=“缩放图像”对话框></p><p><em>“缩放图像”对话框</em></p><p>在“缩放图像”对话框中，你会发现一个_可以输入新宽度和高度的地方_。如果你知道所需图的新尺寸，可以在这里填写相应的值。</p><p>“宽度Width”和“高度Height”输入框右侧，你也会<strong>注意到一个小链</strong>。这个图标显示了宽度和高度值被相互锁定，这意味着改变一个值会导致另一个值的变化，以保持相同的宽高比（图像中不会出现奇怪的压缩或拉伸）。</p><p>例如，如果你想要将图像宽度调整到 600 像素，你可以在这个宽度输入框中输入这个值，高度将自动更改以保持图像的宽高比：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095132mj3qqadc03d000cl.png alt="调整大小到 600 像素"></p><p><em>调整大小到 600 像素</em></p><p>如你所见，在宽度一栏输入 600 像素后会自动将高度更改为 627 像素。</p><p>此外，我还展示了 “质量Quality” 选项下的不同选项。默认值是“立方Cubic”，但为了保持最佳质量，最好使用 “Sinc（Lanczos3）”。</p><p>如果你想使用不同类型的值（而不是像素大小）指定一个新的尺寸，可以通过点击“px”下拉菜单来更改输入值的类型：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095133rpho5p3i57ipv772.png alt=更改输入值类型></p><p><em>更改输入值类型</em></p><p>这种情况的一个常见用途是，如果你想要以原始尺寸的百分比指定一个新的尺寸。在这种情况下，你可以更改为“百分比percent”，然后在任何字段中输入 50 来将图像缩小一半。</p><p>一旦你缩放了图像，别忘了保存你所做的更改：选中 “文件File → 导出&mldr;Exprert &mldr;” 以新的文件名导出，或者 “文件File → 覆盖 {文件名}Overwrite {FILENAME}” 覆盖原始文件（谨慎使用）。</p><p>有关使用缩放图像的更多信息，你可以查看文档。</p><h3 id=修改-jpeg-文件的大小>修改 JPEG 文件的大小
+<a class=header-anchor href=#%e4%bf%ae%e6%94%b9-jpeg-%e6%96%87%e4%bb%b6%e7%9a%84%e5%a4%a7%e5%b0%8f></a></h3><p>你也可以在导出为 JPEG 等格式时修改图像的文件大小。JPEG 是一种<strong>有损</strong>压缩算法，这意味着在将图像保存为 JPEG 格式时，你将牺牲一些图像质量来获得较小的文件大小。</p><p>我使用已经将其调整为 200 像素宽（请参见上方）的“马头星云”图像，并使用不同级别的 JPEG 压缩将其导出，以比较 JPEG 压缩的效果：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095134ojh4wxcw4x76ro9c.png alt="比较不同级别的 JPEG 压缩"></p><p><em>比较不同级别的 JPEG 压缩</em></p><p>如你所见，即使在质量设置为 80 的情况下，图像的文件大小显著减少了 77％，而图像质量仍然相当合理。</p><p>当你完成任何正在进行的图像修改，并准备导出时，只需通过以下方式调用导出对话框：“文件 → 导出 …” 这将调用“导出图像Export Image”对话框：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095134xg2nff7df7wwdfnf.png alt=导出图像对话框></p><p><em>导出图像对话框</em></p><p>你可以在此_输入新的文件名_。如果文件名里包含扩展名（此时为 “.jpg”），GIMP 会尝试为你导出对应的文件格式。此处将图像导出为 JPEG 格式。</p><p>如果你需要将文件导出到不同的位置，也可以通过位置窗格导航到计算机上的新位置。当你准备好导出图像时，只需按“导出Expert”按钮。</p><p>这将调用“导出图像为 JPEGExport Image as JPEG”对话框，你可以在其中更改导出的质量：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095135x49x21090291dldl.png alt=从“导出为JPG”对话框中更改导出的质量></p><p><em>从“导出为JPG”对话框中更改导出的质量</em></p><p>现在你可以在此对话框中更改导出质量。如果你还勾选了“在图像窗口中显示预览Show preview in image window”选项，画布上的图像将更新以反映你输入的质量值。这也将启用“文件大小：File size:”信息，告诉你导出后的文件大小。你可能需要移动一些窗口才能在背景中查看画布上的预览。</p><p>当你对结果满意时，按“导出”按钮进行导出。</p><p>要查看有关导出不同图像格式的更多详细信息，请参阅手册中的“从 GIMP 中获取图像”。</p><h3 id=裁剪图像>裁剪图像
+<a class=header-anchor href=#%e8%a3%81%e5%89%aa%e5%9b%be%e5%83%8f></a></h3><p>有很多原因可能会使你想要裁剪图像。你可能想要删除无用的边框或信息，或者你可能希望最终图像的焦点集中在某些特定的细节上。</p><p>简而言之，裁剪就是一个将图像缩小到比你开始时小的操作：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095136xe1neeb1m85fei1o.png alt=原始图像（左），裁剪图像（右）></p><p><em>原始图像（左），裁剪图像（右）</em></p><p>裁剪图像的步骤非常简单。你可以通过工具面板使用裁剪工具：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095136avg0cgnzg4gzj93i.png alt=工具面板上的裁剪工具></p><p><em>工具面板上的裁剪工具</em></p><p>或者通过菜单访问裁剪工具：“工具Tools → 变换工具Transform Tools → 裁剪Crop”。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095136y7igdtvv2t21b1ti.png alt=GIMP裁剪工具光标></p><p><em>GIMP裁剪工具光标</em></p><p>一旦激活该工具，画布上的鼠标光标会改变,以表示正在使用裁剪工具。</p><p>现在你可以在画布上的任何位置单击鼠标，然后拖动鼠标到新位置以高亮显示初始选择区域以进行裁剪。在这个阶段，你不必担心精确度，因为在实际裁剪之前，你可以修改最终选区。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095659hzzn5c51cc6hq3ju.png alt=使用裁剪工具的第一步></p><p><em>使用裁剪工具的第一步</em></p><p>在选择要裁剪的区域后，你会发现选区仍然处于活动状态。在这一点上，将鼠标光标悬停在选区的任何四个角或边缘上都会改变鼠标光标，并高亮显示该区域，以对裁剪进行精调。</p><p>你可以点击并拖动任何一侧或一角来移动该部分的选区。</p><p>一旦你对裁剪区域满意，只需按键盘上的回车键即可提交裁剪。在你想从头开始或决定不裁剪时，可以按键盘上的 <code>Esc</code> 键退出操作。</p><p>有关在GIMP中裁剪的更多信息，请参阅文档。</p><h4 id=另一种方法>另一种方法
+<a class=header-anchor href=#%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%96%b9%e6%b3%95></a></h4><p>另一种裁剪图像的方法是首先使用矩形选择工具进行选择：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095136vfkuhca2tmh9hmfc.png alt="裁剪选区 矩形选择工具"></p><p><em>裁剪选区 矩形选择工具</em></p><p>或者通过菜单：“工具Tools → 选择工具Selection Tools → 矩形选择Rectangle Select”，然后你可以以与裁剪工具相同的方式高亮显示选区，并调整选区。一旦你有一个喜欢的选区，你就可以通过以下方式将图像裁剪到该选区的大小：“图像Image → 裁剪到选区Crop to Selection”。</p><h3 id=旋转或翻转图像>旋转或翻转图像
+<a class=header-anchor href=#%e6%97%8b%e8%bd%ac%e6%88%96%e7%bf%bb%e8%bd%ac%e5%9b%be%e5%83%8f></a></h3><p>可能有时你需要旋转图像。例如，你可能使用相机在垂直方向拍摄了图像，但是 GIMP 并没有自动旋转（GIMP 通常会为你自动处理，但并非总是如此）。</p><p>有时你也可能想翻转图像。这些命令都位于同一个菜单项下：“图像Image → 变换Transform”。</p><h4 id=翻转图像>翻转图像
+<a class=header-anchor href=#%e7%bf%bb%e8%bd%ac%e5%9b%be%e5%83%8f></a></h4><p>如果你想翻转你的图像，变换菜单提供了两种选项：水平翻转或垂直翻转。此操作将沿着指定的轴翻转（镜像）图像。例如，这里显示了在单个图像上应用的所有翻转操作：</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095137khhh5zu8sn0t0xtu.jpg alt=应用到基图像（左上角）的所有翻转></p><p><em>应用到基图像（左上角）的所有翻转</em></p><h4 id=旋转图像>旋转图像
+<a class=header-anchor href=#%e6%97%8b%e8%bd%ac%e5%9b%be%e5%83%8f></a></h4><p>变换菜单中的图像旋转限制为 90° 顺时针/逆时针或 180°。 不要误解这意味著 GIMP 不能执行任意角度旋转。任意旋转是针对每个图层进行处理的，而这里的图像旋转适用于整个图像。</p><p><img src=/imgs/img-lazy-loading.gif data-src=https://img.linux.net.cn/data/attachment/album/202311/10/095138bx9xfe10orf8l1g9.jpg alt="旋转示例：原始（左上角），顺时针旋转90°（右上角），逆时针旋转90°（左下角），180°（右下角）。 "></p><p><em>旋转示例：原始（左上角），顺时针旋转90°（右上角），逆时针旋转90°（左下角），180°（右下角）。</em></p><h3 id=总结>总结
+<a class=header-anchor href=#%e6%80%bb%e7%bb%93></a></h3><p>这里展示的简单示例只是冰山一角。然而，这些是许多没有学习太多图像处理知识的人经常进行的常见修改。希望这个教程对你有所帮助。 我鼓励你阅读其他教程，了解更高级的图像处理方法！</p><p><em>（题图：MJ/9bbe01ba-7cc1-49b1-91a6-2b3d13594503）</em></p><hr><p>via: 
+<a href=https://www.gimp.org/tutorials/GIMP_Quickies/ title=https://www.gimp.org/tutorials/GIMP_Quickies/ rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://www.gimp.org/tutorials/GIMP_Quickies/
+<i class="fa fa-external-link-alt"></i></a></p><p>作者：Pat David 译者：
+<a href=https://github.com/TimXiedada title=TimXiedada rel="noopener external nofollow noreferrer" target=_blank class=exturl>TimXiedada
+<i class="fa fa-external-link-alt"></i>
+</a> 编辑：
+<a href=https://github.com/wxy title=wxy rel="noopener external nofollow noreferrer" target=_blank class=exturl>wxy
+<i class="fa fa-external-link-alt"></i></a></p><p>本文由贡献者投稿至 
+<a href=https://github.com/LCTT/Articles/ title="Linux 中国公开投稿计划" rel="noopener external nofollow noreferrer" target=_blank class=exturl>Linux 中国公开投稿计划
+<i class="fa fa-external-link-alt"></i>
+</a>，采用 
+<a href=https://creativecommons.org/licenses/by-sa/4.0/deed.zh title="CC-BY-SA 协议" rel="noopener external nofollow noreferrer" target=_blank class=exturl>CC-BY-SA 协议
+<i class="fa fa-external-link-alt"></i>
+</a> 发布，
+<a href=https://linux.cn/article-16365-1.html title=Linux中国 rel="noopener external nofollow noreferrer" target=_blank class=exturl>Linux中国
+<i class="fa fa-external-link-alt"></i>
+</a> 荣誉推出</p></div><footer class=post-footer><hr><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/windows%E4%B8%8B%E5%A6%82%E4%BD%95%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85linux/ rel=next title="微软出品：《如何下载和安装 Linux》"><i class="fa fa-chevron-left"></i> 微软出品：《如何下载和安装 Linux》</a></div><div class="post-nav-prev post-nav-item"><a href=/post/u%E7%9B%98%E5%90%AF%E5%8A%A8bios%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/ rel=prev title=U盘启动BIOS设置教程>U盘启动BIOS设置教程
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=i18n-translate class=i18n-translate><i class="fa fa-language"></i><div id=lang-select class=lang-select><div id=lang-selected class=selected-option><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=selected-language>简体中文</span>
+<i class="fa fa-chevron-down"></i></div><div id=lang-options class=lang-options><div class=lang-option lang-code=zh-cn lang-name=简体中文 lang-url=/post/gimp%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%E7%BC%A9%E6%94%BE%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=lang-name>简体中文</span></div></div></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2022 - 2026
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>Zhen-Hua Feng</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.169.0 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.8.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script class=next-config data-name=page type=application/json>{"clipboard":{"js":{"alias":"clipboard","file":"dist/clipboard.min.js","name":"clipboard.js","version":"2.0.11"}},"comments":false,"expired":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-svg.js","name":"mathjax","version":"3.2.2"},"render":"mathjax"},"path":"gimp%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%E7%BC%A9%E6%94%BE%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F","permalink":"https://fungzhenhua.github.io/post/gimp%E5%BF%AB%E9%80%9F%E6%95%99%E7%A8%8B%E7%BC%A9%E6%94%BE%E8%A3%81%E5%89%AA%E5%92%8C%E6%97%8B%E8%BD%AC%E5%9B%BE%E5%83%8F/","title":"GIMP快速教程：缩放、裁剪和旋转图像","toc":true}</script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/animejs/3.2.2/anime.min.js crossorigin=anonymous defer></script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.js crossorigin=anonymous defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#9400D3","enable":false,"save":"manual"},"copybtn":true,"darkmode":false,"hostname":"https://fungzhenhua.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"isMultiLang":true,"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"slideInRight","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","share":{"addtoany":{"js":"https://static.addtoany.com/menu/page.js","locale":"zh-CN","num":8},"enable":false},"sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"zstatic","router":{"home":"https://www.zstatic.net","logo":"https://www.zstatic.net/logo.png","name":"zstatic","type":"modern","url":"https://s4.zstatic.net/ajax/libs"}},"version":"4.8.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":false,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"@waline/client","file":"dist/waline.css","name":"waline","version":"2.15.8"},"js":{"alias":"@waline/client","file":"dist/waline.js","name":"waline","version":"2.15.8"}}}</script><script type=text/javascript src="/js/main.min.js?=1794040315" defer></script><script type=text/javascript src="/js/clipboard.min.js?=1794040315" defer></script><script type=text/javascript src="/js/math.min.js?=1794040315" defer></script></body></html>

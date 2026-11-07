@@ -1,0 +1,171 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#9400D3" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.169.0"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="API是什么"><meta itemprop=description content><meta name=description content><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://fungzhenhua.github.io/"><meta itemprop=keywords content="Hugo,Linux,Hexo,Physics"><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.css><link rel=stylesheet href="/css/main.min.css?=1794040315"><style type=text/css>.post-footer hr:after{content:""}.flinks-list-footer hr:after{content:""}</style><link rel=stylesheet type=text/css href="/css/custom_style.css?=1794040315"><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return 0[0];const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),0[0]):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>API是什么 - BNU-FZH</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BNU-FZH</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>fengzhenhua@outlook.com</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-导航"><a href=/%E5%AF%BC%E8%88%AA/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-paper-plane hvr-icon"></i>导航</a></li><li class="menu-item menu-item-软件"><a href=/%E8%BD%AF%E4%BB%B6/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-briefcase hvr-icon"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href=/%E6%94%B6%E8%97%8F/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href=/%E5%B7%A5%E4%BD%9C/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>工作</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#api-的工作原理是什么>API 的工作原理是什么？</a><ul><li><a href=#api-发行政策>API 发行政策</a><ul><li><a href=#私有>私有</a></li><li><a href=#合作伙伴>合作伙伴</a></li><li><a href=#公共>公共</a></li></ul></li></ul></li><li><a href=#如何利用-api-实现创新>如何利用 API 实现创新？</a></li><li><a href=#api-简史>API 简史</a></li><li><a href=#远程-api>远程 API</a></li><li><a href=#soap-和-rest>SOAP 和 REST</a></li><li><a href=#soa-与微服务架构>SOA 与微服务架构</a></li><li><a href=#api-和-webhook>API 和 Webhook</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><p class=site-author-name itemprop=name></p><div class=site-description itemprop=description></div></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href=https://www.zxxk.com/ title="学科资源 → https://www.zxxk.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+学科资源
+</a></span><span class=links-of-social-item><a href=https://zujuan.xkw.com/ title="组卷题库 → https://zujuan.xkw.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+组卷题库
+</a></span><span class=links-of-social-item><a href=http://192.168.1.14/ title="实验信息 → http://192.168.1.14/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+实验信息
+</a></span><span class=links-of-social-item><a href=https://www.yjzhixue.com title="智学阅卷 → https://www.yjzhixue.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+智学阅卷
+</a></span><span class=links-of-social-item><a href=https://chat.deepseek.com/ title="深度求索 → https://chat.deepseek.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+深度求索
+</a></span><span class=links-of-social-item><a href=https://www.tongyi.com/ title="通义千问 → https://www.tongyi.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+通义千问
+</a></span><span class=links-of-social-item><a href=https://www.scnet.cn/ui/chatbot/ title="国家超算 → https://www.scnet.cn/ui/chatbot/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+国家超算
+</a></span><span class=links-of-social-item><a href=https://yuanbao.tencent.com/chat title="腾讯元宝 → https://yuanbao.tencent.com/chat" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+腾讯元宝
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com title="必应搜索 → https://cn.bing.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+必应搜索
+</a></span><span class=links-of-social-item><a href=https://www.hao268.com title="网址之家 → https://www.hao268.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+网址之家
+</a></span><span class=links-of-social-item><a href=https://ac.scmor.com title="思谋学术 → https://ac.scmor.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+思谋学术
+</a></span><span class=links-of-social-item><a href=https://search.essclick.com title="爱思学术 → https://search.essclick.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+爱思学术
+</a></span><span class=links-of-social-item><a href=https://xmsoushu.com/ title="熊猫搜书 → https://xmsoushu.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+熊猫搜书
+</a></span><span class=links-of-social-item><a href=https://scholar.lanfanshu.cn/ title="番薯学术 → https://scholar.lanfanshu.cn/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+番薯学术
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com/translator title="必应翻译 → https://cn.bing.com/translator" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+必应翻译
+</a></span><span class=links-of-social-item><a href=https://fanyi.baidu.com/#zh/en title="百度翻译 → https://fanyi.baidu.com/#zh/en" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+百度翻译
+</a></span><span class=links-of-social-item><a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https://fanyi.youdao.com/?keyfrom=fanyi.logo" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+有道翻译
+</a></span><span class=links-of-social-item><a href=https://www.oxfordlearnersdictionaries.com/definition/english/ title="牛津翻译 → https://www.oxfordlearnersdictionaries.com/definition/english/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+牛津翻译
+</a></span><span class=links-of-social-item><a href=https://wx.qq.com title="网页微信 → https://wx.qq.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-weixin fa-fw hvr-icon"></i>
+网页微信
+</a></span><span class=links-of-social-item><a href=https://login.partner.microsoftonline.cn title="微软办公 → https://login.partner.microsoftonline.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软办公
+</a></span><span class=links-of-social-item><a href=https://mathsolver.microsoft.com title="微软数学 → https://mathsolver.microsoft.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软数学
+</a></span><span class=links-of-social-item><a href=https://www.mail.bnu.edu.cn title="师大邮箱 → https://www.mail.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+师大邮箱
+</a></span><span class=links-of-social-item><a href=https://mail.sina.com.cn title="新浪邮箱 → https://mail.sina.com.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+新浪邮箱
+</a></span><span class=links-of-social-item><a href=https://www.aliyundrive.com/sign/in title="阿里云盘 → https://www.aliyundrive.com/sign/in" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+阿里云盘
+</a></span><span class=links-of-social-item><a href=https://yun.139.com/w/#/ title="移动云盘 → https://yun.139.com/w/#/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+移动云盘
+</a></span><span class=links-of-social-item><a href=https://www.jianguoyun.com/d/login title="坚果网盘 → https://www.jianguoyun.com/d/login" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+坚果网盘
+</a></span><span class=links-of-social-item><a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https://efss.qloud.my/index.php/login?clear=1" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+Next云盘
+</a></span><span class=links-of-social-item><a href=https://www.123pan.com/ title="123 网盘 → https://www.123pan.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+123 网盘
+</a></span><span class=links-of-social-item><a href=https://annas-archive.org/ title="安娜档案 → https://annas-archive.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+安娜档案
+</a></span><span class=links-of-social-item><a href=https://book.sciencereading.cn title="科学文库 → https://book.sciencereading.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+科学文库
+</a></span><span class=links-of-social-item><a href=https://ylibrary.org/ title="Ylibrary → https://ylibrary.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Ylibrary
+</a></span><span class=links-of-social-item><a href=https://www.tboxn.com/sites/320.html title="Zlibrary → https://www.tboxn.com/sites/320.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Zlibrary
+</a></span><span class=links-of-social-item><a href=https://www.koushare.com title="蔻享官网 → https://www.koushare.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe-asia fa-fw hvr-icon"></i>
+蔻享官网
+</a></span><span class=links-of-social-item><a href=https://www.duolingo.cn title="多邻国官 → https://www.duolingo.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-school fa-fw hvr-icon"></i>
+多邻国官
+</a></span><span class=links-of-social-item><a href=https://www.bnu.edu.cn title="师大官网 → https://www.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+师大官网
+</a></span><span class=links-of-social-item><a href=https://one.bnu.edu.cn title="数字京师 → https://one.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+数字京师
+</a></span><span class=links-of-social-item><a href=https://www.runoob.com/font-awesome/fontawesome-icons-brand.html title="图站图标 → https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+图站图标
+</a></span><span class=links-of-social-item><a href=https://shields.io/badges title="项目微标 → https://shields.io/badges" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+项目微标
+</a></span><span class=links-of-social-item><a href=https://cpho.pku.edu.cn title="中国物理 → https://cpho.pku.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+中国物理
+</a></span><span class=links-of-social-item><a href=http://www.wlxh.sdu.edu.cn title="山东物理 → http://www.wlxh.sdu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+山东物理
+</a></span><span class=links-of-social-item><a href=https://www.jd.com/ title="京东购物 → https://www.jd.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+京东购物
+</a></span><span class=links-of-social-item><a href=https://www.taobao.com/ title="淘宝购物 → https://www.taobao.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+淘宝购物
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com title="LaTeXLiv → https://www.latexlive.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXLiv
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com/help title="LaTeXHel → https://www.latexlive.com/help" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXHel
+</a></span><span class=links-of-social-item><a href=https://p2t.breezedeus.com title="Pix2Text → https://p2t.breezedeus.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Pix2Text
+</a></span><span class=links-of-social-item><a href=https://simpletex.cn title="Simplete → https://simpletex.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Simplete</a></span></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-i18n-translate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><a href=https://github.com/fungzhenhua rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://fungzhenhua.github.io/post/api%E6%98%AF%E4%BB%80%E4%B9%88/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content><meta itemprop=name content></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content><meta itemprop=description content></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="API是什么"><meta itemprop=description content="{% centerquote %}
+API（Application Programming Interface, 应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。   ——
+
+    百度百科(应用程序编程接口播报)
+    
+    
+    
+
+{% endcenterquote %}"></span><header class=post-header><h1 class=post-title itemprop="name headline">API是什么</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="fas fa-solid fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2024-07-27 20:03:40 +08:00" itemprop="dateCreated datePublished" datetime="2024-07-27 20:03:40 +0800 CST">2024-07-27</time></span></div><div class=post-meta-items></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>{% centerquote %}
+<code>API</code>（<code>Application Programming Interface</code>, 应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。 ——
+<a href=https://baike.baidu.com/item/%e5%ba%94%e7%94%a8%e7%a8%8b%e5%ba%8f%e7%bc%96%e7%a8%8b%e6%8e%a5%e5%8f%a3/3350958 title=百度百科(应用程序编程接口播报) rel="noopener external nofollow noreferrer" target=_blank class=exturl>百度百科(应用程序编程接口播报)
+<i class="fa fa-external-link-alt"></i>
+</a>{% endcenterquote %}</p><a id=more></a><h2 id=api-的工作原理是什么>API 的工作原理是什么？
+<a class=header-anchor href=#api-%e7%9a%84%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86%e6%98%af%e4%bb%80%e4%b9%88></a></h2><p>通过 API，您无需了解实施原理，也能将您的产品或服务与其他的互通。这样可以简化应用的开发，节省时间和成本。在您开发新的工具和产品，或
+<a href=https://www.redhat.com/zh/topics/management title=管理 rel="noopener external nofollow noreferrer" target=_blank class=exturl>管理
+<i class="fa fa-external-link-alt"></i>
+</a>现有工具和产品时，强大灵活的 API 可以帮助您简化
+<a href=https://www.redhat.com/zh/topics/api/what-is-api-design title=设计 rel="noopener external nofollow noreferrer" target=_blank class=exturl>设计
+<i class="fa fa-external-link-alt"></i>
+</a>、管理和使用，并带来更多创新机遇。</p><p>API 有时被视为合同，而合同文本则代表了各方之间的协议：如果一方以特定方式发送远程请求，该协议规定了另一方的软件将如何做出响应。</p><p>由于 API 简化了开发人员将新应用组件
+<a href=https://www.redhat.com/zh/topics/integration title=集成 rel="noopener external nofollow noreferrer" target=_blank class=exturl>集成
+<i class="fa fa-external-link-alt"></i>
+</a>到现有
+<a href=https://www.redhat.com/zh/topics/cloud-native-apps/what-is-an-application-architecture title=基础架构 rel="noopener external nofollow noreferrer" target=_blank class=exturl>基础架构
+<i class="fa fa-external-link-alt"></i>
+</a>中的方式，继而也对业务和 IT 团队之间的协作提供了帮助。随着数字市场日新月异，业务需求通常也会出现迅速变化，新的竞争对手利用新的应用即可改变整个行业。为了保持竞争力，支持快速开发和部署创新服务尤为重要。
+<a href=https://www.redhat.com/zh/topics/cloud-native-apps title=云原生应用 rel="noopener external nofollow noreferrer" target=_blank class=exturl>云原生应用
+<i class="fa fa-external-link-alt"></i>
+</a>开发是提高开发速度的一个明确办法，依赖于通过 API 连接
+<a href=https://www.redhat.com/zh/topics/microservices title=微服务 rel="noopener external nofollow noreferrer" target=_blank class=exturl>微服务
+<i class="fa fa-external-link-alt"></i>
+</a>应用架构。</p><p>API 是通过云原生应用开发来连接您自己的基础架构的一个简化方式，此外还支持您向客户和其他外部用户分享您的数据。公共 API 有着独特的商业价值，因其可以简化和扩展您与合作伙伴的联系方式，并有望支持您从数据中实现盈利（Google Maps API 便是其中一个广为人知的案例）。</p><p><img src=/imgs/img-lazy-loading.gif data-src="https://www.redhat.com/rhdc/managed-files/styles/wysiwyg_full_width/private/API-page-graphic.png?itok=RRsvST-_" alt=API的工作原理 title=API的工作原理></p><p>例如，我们假设有这样一家图书发行公司：该发行商可以提供一个
+<a href=https://www.redhat.com/zh/topics/cloud-native-apps/what-are-cloud-applications title=云应用 rel="noopener external nofollow noreferrer" target=_blank class=exturl>云应用
+<i class="fa fa-external-link-alt"></i>
+</a>，供书店店员查看书的库存情况。这款应用的开发成本高昂、有平台限制、开发周期较长，还需进行日常维护。</p><p>或者，该发行商也可以提供一个 API 来查询库存情况。这一方法有以下几个好处：</p><ul><li>API 可以帮助他们将所有库存相关信息汇集到一处，供客户方便地访问数据。</li><li>只要 API 的行为不发生变化，该图书发行商就能在不影响客户的情况下更改内部系统。</li><li>借助公开可用的 API，开发人员可为该图书发行商、图书销售商或第三方开发一个应用，帮助客户查找所需的图书。这样不仅能提高销量，还能带来其他的商机。</li></ul><p>简而言之，API 既能让您开放自己的资源访问权限，又能确保
+<a href=https://www.redhat.com/zh/topics/security title=安全性并让您继续握有控制权 rel="noopener external nofollow noreferrer" target=_blank class=exturl>安全性并让您继续握有控制权
+<i class="fa fa-external-link-alt"></i>
+</a>。如何以及向谁开放访问权限由您自己决定。
+<a href=https://www.redhat.com/zh/topics/security/api-security title="API 安全防护" rel="noopener external nofollow noreferrer" target=_blank class=exturl>API 安全防护
+<i class="fa fa-external-link-alt"></i>
+</a>离不开良好的 API 管理，其中包括对
+<a href=https://www.redhat.com/zh/topics/api/what-does-an-api-gateway-do title="API 网关" rel="noopener external nofollow noreferrer" target=_blank class=exturl>API 网关
+<i class="fa fa-external-link-alt"></i>
+</a>的使用。借助通联各种资源（包括传统系统和
+<a href=https://www.redhat.com/zh/topics/internet-of-things/what-is-iot title=物联网，IoT rel="noopener external nofollow noreferrer" target=_blank class=exturl>物联网，IoT
+<i class="fa fa-external-link-alt"></i>
+</a>）的分布式集成平台，您可以连接至 API 并创建使用 API 提供的数据或功能的应用。</p><h3 id=api-发行政策>API 发行政策
+<a class=header-anchor href=#api-%e5%8f%91%e8%a1%8c%e6%94%bf%e7%ad%96></a></h3><h4 id=私有>私有
+<a class=header-anchor href=#%e7%a7%81%e6%9c%89></a></h4><p>这类 API 仅供内部使用，能让公司最大限度地控制自己的 API。</p><h4 id=合作伙伴>合作伙伴
+<a class=header-anchor href=#%e5%90%88%e4%bd%9c%e4%bc%99%e4%bc%b4></a></h4><p>您会和特定的业务合作伙伴共享这类 API。它能在不影响质量的情况下带来额外收益。</p><h4 id=公共>公共
+<a class=header-anchor href=#%e5%85%ac%e5%85%b1></a></h4><p>这类 API 可供所有人使用。第三方可以使用这类 API 来开发应用，以便与您的 API 进行互动或实现某种创新。</p><h2 id=如何利用-api-实现创新>如何利用 API 实现创新？
+<a class=header-anchor href=#%e5%a6%82%e4%bd%95%e5%88%a9%e7%94%a8-api-%e5%ae%9e%e7%8e%b0%e5%88%9b%e6%96%b0></a></h2><p>通过向合作伙伴或公众提供您的 API，可以：</p><ul><li>创造新的收入渠道，或拓展现有收入渠道。</li><li>扩大您的品牌覆盖范围。</li><li>通过外部开发和协作，推动开放创新或提高效率。</li></ul><p>听上去还不错，对吗？但是，API 是如何做到上述几点的呢？</p><p>我们继续以刚才的那个图书发行公司为例。</p><p>假设该公司的某个合作伙伴开发了一个应用，可以帮助人们查找书店书架上的图书。这种体验的改进为书店带来了更多的客户（该发行商的客户），并拓展了现有的收入渠道。</p><p>或许会有第三方使用某个公共 API 来开发应用，以便人们直接从该发行商处（而非书店）购书。这样就能为该图书发行商打开新的收入渠道。</p><p>与特定合作伙伴或全世界共享 API 能带来积极的影响。除了自己公司的营销活动之外，每一个合作关系都能帮助您提高品牌辨识度。以公共 API 的形式向所有人开放技术，可以激励开发人员以您的 API 为中心构建应用生态系统。有更多的人使用您的技术，就意味着可能会有更多的人与您做生意。</p><p>公开技术可以带来意外之喜。有时，这些惊喜更会颠覆整个行业。对于这家图书发行公司而言，新形态的公司（比如图书出借服务）可能会完全改变他们的业务模式。借助合作伙伴和公共 API，您可以激发社区成员的创意（其人数远超您的内部开发团队）。各种奇思妙想会源源不断地涌现，公司只需明辨市场的变化情况并做好相应的准备。API 大有用处。</p><h2 id=api-简史>API 简史
+<a class=header-anchor href=#api-%e7%ae%80%e5%8f%b2></a></h2><p>API 概念的出现，始于计算机时代的初期，远远早于个人电脑诞生之前。当时，API 常被当作操作系统的库，而且基本上都在本地系统上运行，仅偶尔用于大型机之间传递消息。将近 30 年后，API 走出了它们的本地环境。到了 21 世纪初，API 成为了用于实现数据远程集成的一种重要技术。</p><h2 id=远程-api>远程 API
+<a class=header-anchor href=#%e8%bf%9c%e7%a8%8b-api></a></h2><p>远程 API 旨在通过通信网络进行互动。这里的_远程_是指 API 操控的资源不在提出请求的计算机上。由于互联网是应用最广泛的通信网络，所以大多数 API 都是基于 Web 标准来设计的。并非所有的远程 API 都是 Web API，但可以认为 Web API 都是远程 API。</p><p>Web API 通常会使用 HTTP 来传输请求消息，并提供响应消息的结构定义。这些响应消息通常都会以 XML 或 JSON 文件的形式来提供。XML 和 JSON 都是首选格式，因为它们会以易于其他应用操纵的方式来呈现数据。</p><h2 id=soap-和-rest>SOAP 和 REST
+<a class=header-anchor href=#soap-%e5%92%8c-rest></a></h2><p>随着 Web API 的不断普及，相应的协议规范也随之产生了，从而推动了信息交换的标准化：简单对象访问协议，简称 SOAP。使用 SOAP 设计的 API 会使用 XML 格式来收发消息，并通过 HTTP 或 SMTP 来接收请求。使用 SOAP 时，在不同环境中运行的应用或使用不同语言编写的应用能够更加轻松地共享信息。</p><p>相关的规范还有一个，即
+<a href=https://www.redhat.com/zh/topics/api/what-is-a-rest-api title=表述性状态传递（REST） rel="noopener external nofollow noreferrer" target=_blank class=exturl>表述性状态传递（REST）
+<i class="fa fa-external-link-alt"></i>
+</a>。遵循 REST 架构约束的 Web API 被称为 RESTful API。REST 与 SOAP 有着根本区别：SOAP 是一种协议，而 REST 是一种架构风格。这意味着 RESTful Web API 没有官方标准。正如 Roy Fielding 在论文“Architectural Styles and the Design of Network-based Software Architectures”（架构模式以及基于网络的软件架构的设计）中定义的那样，只要 API 符合 RESTful 系统的 6 个导向性约束，就算作 RESTful API：</p><ul><li>**客户端/服务器架构：**REST 架构由客户端、服务器和资源构成，通过 HTTP 来处理请求。</li><li>**无状态：**请求所经过的服务器上不会存储任何客户端内容。与会话状态相关的信息会存储在客户端上。</li><li>**可缓存性：**通过缓存，可免去客户端与服务器之间的某些交互。</li><li>**分层系统：**客户机与服务器之间的交互可以通过额外的层来进行调解。这些层可以提供额外的功能，如负载均衡、共享缓存或安全防护。</li><li>**按需代码（可选）：**服务器可通过传输可执行代码来扩展客户端的功能。</li><li>**统一接口：**这项约束是 RESTful API 的设计核心，共涵盖 4 个层面：<ul><li>**识别请求中的资源：**请求中的资源会被识别，并与返回给客户端的表示内容分离开来。</li><li>**通过不同的表示内容来操纵资源：**客户端会收到表示不同资源的文件。这些表示内容必须提供足够的信息，以便执行修改或删除操作。</li><li>**自描述消息：**返回给客户端的每个消息都包含充足的信息，用于指明客户端应该如何处理所收到的信息。</li><li>**将超媒体作为应用状态的引擎：**在访问某个资源后，REST 客户端应该能够通过超链接来发现当前可用的所有其他操作。</li></ul></li></ul><p>虽然看似有很多约束需要遵循，但是这些约束遵循起来要比遵循规定的协议容易得多。因此，RESTful API 现在变得比 SOAP 更为普及。</p><p>近年来，OpenAPI 规范已发展成为定义 REST API 的通用标准。OpenAPI 为开发人员提供了一种与语言无关的方式来构建 REST API 接口，从而最大程度减少不确定的因素，让用户安心工作。</p><p>另一个新兴的 API 标准是
+<a href=https://www.redhat.com/zh/topics/api/what-is-graphql title=GraphQL rel="noopener external nofollow noreferrer" target=_blank class=exturl>GraphQL
+<i class="fa fa-external-link-alt"></i>
+</a>，这是一种可替代 REST 的查询语言和服务器端运行时。GraphQL 可优先让客户端准确地获得所需的数据，没有任何冗多余。作为 REST 的替代方案，GraphQL 允许开发人员构建相应的请求，从而通过单个 API 调用从多个数据源中提取数据。</p><h2 id=soa-与微服务架构>SOA 与微服务架构
+<a class=header-anchor href=#soa-%e4%b8%8e%e5%be%ae%e6%9c%8d%e5%8a%a1%e6%9e%b6%e6%9e%84></a></h2><p>最常使用远程 API 的 2 种架构方案分别是：
+<a href=https://www.redhat.com/zh/topics/cloud-native-apps/what-is-service-oriented-architecture title=面向服务的架构（SOA） rel="noopener external nofollow noreferrer" target=_blank class=exturl>面向服务的架构（SOA）
+<i class="fa fa-external-link-alt"></i>
+</a>和微服务架构。在这 2 种方案中，SOA 的历史更为久远一些。最初，它是在单体式应用的基础上经过改进而形成的。虽然单个单体式应用也可以完成各种操作，但通过某种集成模式（如企业服务总线（ESB））在不同应用间实现松散耦合后，即可获得某些功能。</p><p>从大多数层面来看，SOA 都要比单体式架构更简单；但是，如果无法明确理解各种组件交互，SOA 也可能会进一步加剧整个环境的复杂性。这种复杂性的加剧会重新引发 SOA 想要解决的某些问题。</p><p>对于专用松散耦合服务的使用，微服务架构与 SOA 模式类似。但是，微服务架构会对传统架构进行进一步细分。在微服务架构中，服务会采用通用消息传递框架，如 RESTful API。它们会使用 RESTful API 来实现相互通信，且无需执行繁琐的数据转换处理或使用其他的集成层。使用 RESTful API 可以加速新功能和新更新的交付；甚至还可以说，是这类 API 促进了这种速度的提升。该架构中的每一个服务都呈离散状态。一个服务可以被取代、增强或丢弃，而不会影响架构中的任何其他服务。这种轻量级架构有助于优化分布式资源或云资源，而且能够支持个别服务的动态扩展。</p><h2 id=api-和-webhook>API 和 Webhook
+<a class=header-anchor href=#api-%e5%92%8c-webhook></a></h2><p>Webhook 是一种基于 HTTP 的回调函数，可在 2 个 API 之间实现轻量级的事件驱动通信。许多种类的应用使用 Webhook 来从其他应用接收少量数据，但 Webhook 也可用于在 GitOps 环境中触发自动化工作流。</p><p>Webhook 通常被称为逆向 API 或推送 API，因为它们让通信责任落在了服务器而不是客户端身上。不再是客户端发送 HTTP 请求来索取数据，直到服务器响应为止，而是服务器等到数据可用时向客户端发送一个 HTTP POST 请求。虽然有这样的昵称，但 Webhook 不是 API；两者相互配合。应用必须具有 API 才能使用 Webhook。</p></div><footer class=post-footer><hr><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/git%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/ rel=next title=GIT本地仓库关联远程仓库><i class="fa fa-chevron-left"></i> GIT本地仓库关联远程仓库</a></div><div class="post-nav-prev post-nav-item"><a href=/post/%E5%85%8D%E8%B4%B9%E5%BC%80%E6%BA%90%E7%9A%84%E7%A7%91%E7%A0%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7veusz/ rel=prev title=免费开源的科研绘图工具Veusz>免费开源的科研绘图工具Veusz
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=i18n-translate class=i18n-translate><i class="fa fa-language"></i><div id=lang-select class=lang-select><div id=lang-selected class=selected-option><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=selected-language>简体中文</span>
+<i class="fa fa-chevron-down"></i></div><div id=lang-options class=lang-options><div class=lang-option lang-code=zh-cn lang-name=简体中文 lang-url=/post/api%E6%98%AF%E4%BB%80%E4%B9%88/><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=lang-name>简体中文</span></div></div></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2022 - 2026
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>Zhen-Hua Feng</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.169.0 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.8.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script class=next-config data-name=page type=application/json>{"comments":false,"expired":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-svg.js","name":"mathjax","version":"3.2.2"},"render":"mathjax"},"path":"api%E6%98%AF%E4%BB%80%E4%B9%88","permalink":"https://fungzhenhua.github.io/post/api%E6%98%AF%E4%BB%80%E4%B9%88/","title":"API是什么","toc":true}</script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/animejs/3.2.2/anime.min.js crossorigin=anonymous defer></script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.js crossorigin=anonymous defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#9400D3","enable":false,"save":"manual"},"copybtn":true,"darkmode":false,"hostname":"https://fungzhenhua.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"isMultiLang":true,"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"slideInRight","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","share":{"addtoany":{"js":"https://static.addtoany.com/menu/page.js","locale":"zh-CN","num":8},"enable":false},"sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"zstatic","router":{"home":"https://www.zstatic.net","logo":"https://www.zstatic.net/logo.png","name":"zstatic","type":"modern","url":"https://s4.zstatic.net/ajax/libs"}},"version":"4.8.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":false,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"@waline/client","file":"dist/waline.css","name":"waline","version":"2.15.8"},"js":{"alias":"@waline/client","file":"dist/waline.js","name":"waline","version":"2.15.8"}}}</script><script type=text/javascript src="/js/main.min.js?=1794040315" defer></script><script type=text/javascript src="/js/math.min.js?=1794040315" defer></script></body></html>

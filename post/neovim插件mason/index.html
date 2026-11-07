@@ -1,0 +1,645 @@
+<!doctype html><html lang=zh-CN data-theme=light><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=theme-color content="#9400D3" media="(prefers-color-scheme: light)"><meta name=generator content="Hugo 0.169.0"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="Neovim插件Mason"><meta itemprop=description content><meta name=description content><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://fungzhenhua.github.io/"><meta itemprop=keywords content="Hugo,Linux,Hexo,Physics"><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/font-awesome/6.7.2/css/all.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.css><link rel=stylesheet href="/css/main.min.css?=1794040315"><style type=text/css>.post-footer hr:after{content:""}.flinks-list-footer hr:after{content:""}</style><link rel=stylesheet type=text/css href="/css/custom_style.css?=1794040315"><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return 0[0];const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),0[0]):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>Neovim插件Mason - BNU-FZH</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BNU-FZH</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>fengzhenhua@outlook.com</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about.html class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-导航"><a href=/%E5%AF%BC%E8%88%AA/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-paper-plane hvr-icon"></i>导航</a></li><li class="menu-item menu-item-软件"><a href=/%E8%BD%AF%E4%BB%B6/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-briefcase hvr-icon"></i>软件</a></li><li class="menu-item menu-item-收藏"><a href=/%E6%94%B6%E8%97%8F/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>收藏</a></li><li class="menu-item menu-item-工作"><a href=/%E5%B7%A5%E4%BD%9C/ class=hvr-icon-pulse rel=section><i class="fa fa-fa fa-folder hvr-icon"></i>工作</a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#how-to-use-installed-packages>How to use installed packages</a></li><li><a href=#screenshots>Screenshots</a></li></ul><ul><li><a href=#packer>Packer</a></li><li><a href=#vim-plug>vim-plug</a></li></ul><ul><li><a href=#extensions>Extensions</a></li></ul><ul><li><a href=#default-configuration>Default configuration</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><p class=site-author-name itemprop=name></p><div class=site-description itemprop=description></div></div><div class="links-of-social site-overview-item animated"><span class=links-of-social-item><a href=https://www.zxxk.com/ title="学科资源 → https://www.zxxk.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+学科资源
+</a></span><span class=links-of-social-item><a href=https://zujuan.xkw.com/ title="组卷题库 → https://zujuan.xkw.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+组卷题库
+</a></span><span class=links-of-social-item><a href=http://192.168.1.14/ title="实验信息 → http://192.168.1.14/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+实验信息
+</a></span><span class=links-of-social-item><a href=https://www.yjzhixue.com title="智学阅卷 → https://www.yjzhixue.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cloud fa-fw hvr-icon"></i>
+智学阅卷
+</a></span><span class=links-of-social-item><a href=https://chat.deepseek.com/ title="深度求索 → https://chat.deepseek.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+深度求索
+</a></span><span class=links-of-social-item><a href=https://www.tongyi.com/ title="通义千问 → https://www.tongyi.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+通义千问
+</a></span><span class=links-of-social-item><a href=https://www.scnet.cn/ui/chatbot/ title="国家超算 → https://www.scnet.cn/ui/chatbot/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+国家超算
+</a></span><span class=links-of-social-item><a href=https://yuanbao.tencent.com/chat title="腾讯元宝 → https://yuanbao.tencent.com/chat" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-brain fa-fw hvr-icon"></i>
+腾讯元宝
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com title="必应搜索 → https://cn.bing.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+必应搜索
+</a></span><span class=links-of-social-item><a href=https://www.hao268.com title="网址之家 → https://www.hao268.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-search fa-fw hvr-icon"></i>
+网址之家
+</a></span><span class=links-of-social-item><a href=https://ac.scmor.com title="思谋学术 → https://ac.scmor.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+思谋学术
+</a></span><span class=links-of-social-item><a href=https://search.essclick.com title="爱思学术 → https://search.essclick.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-graduation-cap fa-fw hvr-icon"></i>
+爱思学术
+</a></span><span class=links-of-social-item><a href=https://xmsoushu.com/ title="熊猫搜书 → https://xmsoushu.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+熊猫搜书
+</a></span><span class=links-of-social-item><a href=https://scholar.lanfanshu.cn/ title="番薯学术 → https://scholar.lanfanshu.cn/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+番薯学术
+</a></span><span class=links-of-social-item><a href=https://cn.bing.com/translator title="必应翻译 → https://cn.bing.com/translator" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+必应翻译
+</a></span><span class=links-of-social-item><a href=https://fanyi.baidu.com/#zh/en title="百度翻译 → https://fanyi.baidu.com/#zh/en" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+百度翻译
+</a></span><span class=links-of-social-item><a href="https://fanyi.youdao.com/?keyfrom=fanyi.logo" title="有道翻译 → https://fanyi.youdao.com/?keyfrom=fanyi.logo" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+有道翻译
+</a></span><span class=links-of-social-item><a href=https://www.oxfordlearnersdictionaries.com/definition/english/ title="牛津翻译 → https://www.oxfordlearnersdictionaries.com/definition/english/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-language fa-fw hvr-icon"></i>
+牛津翻译
+</a></span><span class=links-of-social-item><a href=https://wx.qq.com title="网页微信 → https://wx.qq.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fab fa-weixin fa-fw hvr-icon"></i>
+网页微信
+</a></span><span class=links-of-social-item><a href=https://login.partner.microsoftonline.cn title="微软办公 → https://login.partner.microsoftonline.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软办公
+</a></span><span class=links-of-social-item><a href=https://mathsolver.microsoft.com title="微软数学 → https://mathsolver.microsoft.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-file fa-fw hvr-icon"></i>
+微软数学
+</a></span><span class=links-of-social-item><a href=https://www.mail.bnu.edu.cn title="师大邮箱 → https://www.mail.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+师大邮箱
+</a></span><span class=links-of-social-item><a href=https://mail.sina.com.cn title="新浪邮箱 → https://mail.sina.com.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-envelope fa-fw hvr-icon"></i>
+新浪邮箱
+</a></span><span class=links-of-social-item><a href=https://www.aliyundrive.com/sign/in title="阿里云盘 → https://www.aliyundrive.com/sign/in" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+阿里云盘
+</a></span><span class=links-of-social-item><a href=https://yun.139.com/w/#/ title="移动云盘 → https://yun.139.com/w/#/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+移动云盘
+</a></span><span class=links-of-social-item><a href=https://www.jianguoyun.com/d/login title="坚果网盘 → https://www.jianguoyun.com/d/login" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+坚果网盘
+</a></span><span class=links-of-social-item><a href="https://efss.qloud.my/index.php/login?clear=1" title="Next云盘 → https://efss.qloud.my/index.php/login?clear=1" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+Next云盘
+</a></span><span class=links-of-social-item><a href=https://www.123pan.com/ title="123 网盘 → https://www.123pan.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-hdd fa-fw hvr-icon"></i>
+123 网盘
+</a></span><span class=links-of-social-item><a href=https://annas-archive.org/ title="安娜档案 → https://annas-archive.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+安娜档案
+</a></span><span class=links-of-social-item><a href=https://book.sciencereading.cn title="科学文库 → https://book.sciencereading.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+科学文库
+</a></span><span class=links-of-social-item><a href=https://ylibrary.org/ title="Ylibrary → https://ylibrary.org/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Ylibrary
+</a></span><span class=links-of-social-item><a href=https://www.tboxn.com/sites/320.html title="Zlibrary → https://www.tboxn.com/sites/320.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-book fa-fw hvr-icon"></i>
+Zlibrary
+</a></span><span class=links-of-social-item><a href=https://www.koushare.com title="蔻享官网 → https://www.koushare.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe-asia fa-fw hvr-icon"></i>
+蔻享官网
+</a></span><span class=links-of-social-item><a href=https://www.duolingo.cn title="多邻国官 → https://www.duolingo.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-school fa-fw hvr-icon"></i>
+多邻国官
+</a></span><span class=links-of-social-item><a href=https://www.bnu.edu.cn title="师大官网 → https://www.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+师大官网
+</a></span><span class=links-of-social-item><a href=https://one.bnu.edu.cn title="数字京师 → https://one.bnu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-university fa-fw hvr-icon"></i>
+数字京师
+</a></span><span class=links-of-social-item><a href=https://www.runoob.com/font-awesome/fontawesome-icons-brand.html title="图站图标 → https://www.runoob.com/font-awesome/fontawesome-icons-brand.html" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+图站图标
+</a></span><span class=links-of-social-item><a href=https://shields.io/badges title="项目微标 → https://shields.io/badges" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+项目微标
+</a></span><span class=links-of-social-item><a href=https://cpho.pku.edu.cn title="中国物理 → https://cpho.pku.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+中国物理
+</a></span><span class=links-of-social-item><a href=http://www.wlxh.sdu.edu.cn title="山东物理 → http://www.wlxh.sdu.edu.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa fa-flag fa-fw hvr-icon"></i>
+山东物理
+</a></span><span class=links-of-social-item><a href=https://www.jd.com/ title="京东购物 → https://www.jd.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+京东购物
+</a></span><span class=links-of-social-item><a href=https://www.taobao.com/ title="淘宝购物 → https://www.taobao.com/" rel=noopener class=hvr-icon-pulse target=_blank><i class="fa-solid fa-cart-shopping fa-fw hvr-icon"></i>
+淘宝购物
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com title="LaTeXLiv → https://www.latexlive.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXLiv
+</a></span><span class=links-of-social-item><a href=https://www.latexlive.com/help title="LaTeXHel → https://www.latexlive.com/help" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+LaTeXHel
+</a></span><span class=links-of-social-item><a href=https://p2t.breezedeus.com title="Pix2Text → https://p2t.breezedeus.com" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Pix2Text
+</a></span><span class=links-of-social-item><a href=https://simpletex.cn title="Simplete → https://simpletex.cn" rel=noopener class=hvr-icon-pulse target=_blank><i class="fas fa-globe fa-fw hvr-icon"></i>
+Simplete</a></span></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-i18n-translate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><a href=https://github.com/fungzhenhua rel="noopener external nofollow noreferrer" target=_blank title="Follow me on GitHub" class="exturl github-corner"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentColor" class="octo-body"/></svg></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://fungzhenhua.github.io/post/neovim%E6%8F%92%E4%BB%B6mason/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content><meta itemprop=name content></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content><meta itemprop=description content></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="Neovim插件Mason"><meta itemprop=description content='
+
+
+
+
+
+
+
+Portable package manager for Neovim that runs everywhere Neovim runs.
+Easily install and manage LSP servers, DAP servers, linters, and formatters.
+
+
+:help mason.nvim
+
+
+Latest version: v1.8.0 
+
+
+Table of Contents
+
+-   [Introduction](#introduction)
+-   [How to use installed packages](#how-to-use-installed-packages)
+-   [Screenshots](#screenshots)
+-   [Requirements](#requirements)
+-   [Installation](#installation)
+-   [Setup](#setup)
+-   [Extensions](#extensions)
+-   [Commands](#commands)
+-   [Registries](#registries)
+
+
+
+
+    Configuration
+    
+
+
+Introduction
+
+> [`:h mason-introduction`][help-mason-introduction]
+
+`mason.nvim` is a Neovim plugin that allows you to easily manage external editor tooling such as LSP servers, DAP servers,
+linters, and formatters through a single interface. It runs everywhere Neovim runs (across Linux, macOS, Windows, etc.),
+with only a small set of [external requirements](#requirements) needed.
+
+Packages are installed in Neovim&#39;s data directory ([`:h standard-path`][help-standard-path]) by default. Executables are
+linked to a single `bin/` directory, which `mason.nvim` will add to Neovim&#39;s PATH during setup, allowing seamless access
+from Neovim builtins (shell, terminal, etc.) as well as other 3rd party plugins.
+
+For a list of all available packages, see <https://mason-registry.dev/registry/list>.
+
+How to use installed packages
+
+> [`:h mason-how-to-use-packages`][help-mason-how-to-use-packages]
+
+Although many packages are perfectly usable out of the box through Neovim builtins, it is recommended to use other 3rd
+party plugins to further integrate these. The following plugins are recommended:
+
+-   LSP: [`lspconfig`][lspconfig] & [`mason-lspconfig.nvim`][mason-lspconfig.nvim]
+-   DAP: [`nvim-dap`][nvim-dap] & [`nvim-dap-ui`][nvim-dap-ui]
+-   Linters: [`null-ls.nvim`][null-ls.nvim] or [`nvim-lint`][nvim-lint]
+-   Formatters: [`null-ls.nvim`][null-ls.nvim] or [`formatter.nvim`][formatter.nvim]
+
+[formatter.nvim]: https://github.com/mhartington/formatter.nvim
+[lspconfig]: https://github.com/neovim/nvim-lspconfig
+[mason-lspconfig.nvim]: https://github.com/williamboman/mason-lspconfig.nvim
+[null-ls.nvim]: https://github.com/jose-elias-alvarez/null-ls.nvim
+[nvim-dap]: https://github.com/mfussenegger/nvim-dap
+[nvim-dap-ui]: https://github.com/rcarriga/nvim-dap-ui
+[nvim-lint]: https://github.com/mfussenegger/nvim-lint
+
+Screenshots
+
+|                                                                                                                                                        |                                                                                                                                                  |                                                                                                                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: |
+|           <img alt="Main window" src="https://user-images.githubusercontent.com/6705160/177617680-d62caf26-f253-4ace-ab57-4b590595adca.png">           |                 <img src="https://user-images.githubusercontent.com/6705160/177617684-6bb4c13f-1235-4ac9-829e-120b06f7437b.png">                 | <img alt="Language filter" src="https://user-images.githubusercontent.com/6705160/177617688-8f9ba225-00c8-495c-9c4c-b74240d6f280.png"> |
+| <img alt="LSP server configuration schema" src="https://user-images.githubusercontent.com/6705160/177617692-02c6ddde-a97e-42b4-bca4-4f4caf45d569.png"> | <img alt="Checking for new versions" src="https://user-images.githubusercontent.com/6705160/180648183-69077d10-8795-4da6-ba4d-57ecf0cb25c9.png"> |   <img alt="Help window" src="https://user-images.githubusercontent.com/6705160/180648292-136a0888-0fb6-4226-aa29-53bd3ffed400.png">   |
+
+Requirements
+
+> [`:h mason-requirements`][help-mason-requirements]
+
+`mason.nvim` relaxes the minimum requirements by attempting multiple different utilities (for example, `wget`,
+        `curl`, and `Invoke-WebRequest` are all perfect substitutes).
+The _minimum_ recommended requirements are:
+
+-   neovim `>= 0.7.0`
+-   For Unix systems:
+-   `git(1)`
+-   `curl(1)` or `wget(1)`
+-   `unzip(1)`
+
+
+
+GNU tar (tar(1) or gtar(1) depending on platform)
+
+gzip(1)
+For Windows systems:
+pwsh or powershell
+git
+GNU tar
+One of the following:
+
+
+    7zip
+    
+    
+    
+
+
+
+    peazip
+    
+    
+    
+
+
+
+    archiver
+    
+    
+    
+
+
+
+    winzip
+    
+    
+    
+
+
+
+    WinRAR
+    
+    
+    
+
+
+Note that mason.nvim will regularly shell out to external package managers, such as cargo and npm. Depending on
+your personal usage, some of these will also need to be installed. Refer to :checkhealth mason for a full list.
+
+'></span><header class=post-header><h1 class=post-title itemprop="name headline">Neovim插件Mason</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="fas fa-solid fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2023-10-06 14:21:41 +08:00" itemprop="dateCreated datePublished" datetime="2023-10-06 14:21:41 +0800 CST">2023-10-06</time></span></div><div class=post-meta-items></div></div></header><div class="post-body autonumber" itemprop=articleBody><img src=https://user-images.githubusercontent.com/6705160/177613416-0c0354d2-f431-40d8-87f0-21310f0bba0e.png alt=mason.nvim><p align=center>Portable package manager for Neovim that runs everywhere Neovim runs.<br>Easily install and manage LSP servers, DAP servers, linters, and formatters.<br></p><p align=center><code>:help mason.nvim</code></p><p align=center><sup>Latest version: v1.8.0</sup></p><h1 id=table-of-contents>Table of Contents
+<a class=header-anchor href=#table-of-contents></a></h1><pre><code>-   [Introduction](#introduction)
+-   [How to use installed packages](#how-to-use-installed-packages)
+-   [Screenshots](#screenshots)
+-   [Requirements](#requirements)
+-   [Installation](#installation)
+-   [Setup](#setup)
+-   [Extensions](#extensions)
+-   [Commands](#commands)
+-   [Registries](#registries)
+</code></pre><ul><li><a href=#configuration title=Configuration>Configuration</a></li></ul><h1 id=introduction>Introduction
+<a class=header-anchor href=#introduction></a></h1><pre><code>&gt; [`:h mason-introduction`][help-mason-introduction]
+
+`mason.nvim` is a Neovim plugin that allows you to easily manage external editor tooling such as LSP servers, DAP servers,
+linters, and formatters through a single interface. It runs everywhere Neovim runs (across Linux, macOS, Windows, etc.),
+with only a small set of [external requirements](#requirements) needed.
+
+Packages are installed in Neovim's data directory ([`:h standard-path`][help-standard-path]) by default. Executables are
+linked to a single `bin/` directory, which `mason.nvim` will add to Neovim's PATH during setup, allowing seamless access
+from Neovim builtins (shell, terminal, etc.) as well as other 3rd party plugins.
+
+For a list of all available packages, see &lt;https://mason-registry.dev/registry/list&gt;.
+</code></pre><h2 id=how-to-use-installed-packages>How to use installed packages
+<a class=header-anchor href=#how-to-use-installed-packages></a></h2><pre><code>&gt; [`:h mason-how-to-use-packages`][help-mason-how-to-use-packages]
+
+Although many packages are perfectly usable out of the box through Neovim builtins, it is recommended to use other 3rd
+party plugins to further integrate these. The following plugins are recommended:
+
+-   LSP: [`lspconfig`][lspconfig] &amp; [`mason-lspconfig.nvim`][mason-lspconfig.nvim]
+-   DAP: [`nvim-dap`][nvim-dap] &amp; [`nvim-dap-ui`][nvim-dap-ui]
+-   Linters: [`null-ls.nvim`][null-ls.nvim] or [`nvim-lint`][nvim-lint]
+-   Formatters: [`null-ls.nvim`][null-ls.nvim] or [`formatter.nvim`][formatter.nvim]
+
+[formatter.nvim]: https://github.com/mhartington/formatter.nvim
+[lspconfig]: https://github.com/neovim/nvim-lspconfig
+[mason-lspconfig.nvim]: https://github.com/williamboman/mason-lspconfig.nvim
+[null-ls.nvim]: https://github.com/jose-elias-alvarez/null-ls.nvim
+[nvim-dap]: https://github.com/mfussenegger/nvim-dap
+[nvim-dap-ui]: https://github.com/rcarriga/nvim-dap-ui
+[nvim-lint]: https://github.com/mfussenegger/nvim-lint
+</code></pre><h2 id=screenshots>Screenshots
+<a class=header-anchor href=#screenshots></a></h2><pre><code>|                                                                                                                                                        |                                                                                                                                                  |                                                                                                                                        |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------: |
+|           &lt;img alt=&quot;Main window&quot; src=&quot;https://user-images.githubusercontent.com/6705160/177617680-d62caf26-f253-4ace-ab57-4b590595adca.png&quot;&gt;           |                 &lt;img src=&quot;https://user-images.githubusercontent.com/6705160/177617684-6bb4c13f-1235-4ac9-829e-120b06f7437b.png&quot;&gt;                 | &lt;img alt=&quot;Language filter&quot; src=&quot;https://user-images.githubusercontent.com/6705160/177617688-8f9ba225-00c8-495c-9c4c-b74240d6f280.png&quot;&gt; |
+| &lt;img alt=&quot;LSP server configuration schema&quot; src=&quot;https://user-images.githubusercontent.com/6705160/177617692-02c6ddde-a97e-42b4-bca4-4f4caf45d569.png&quot;&gt; | &lt;img alt=&quot;Checking for new versions&quot; src=&quot;https://user-images.githubusercontent.com/6705160/180648183-69077d10-8795-4da6-ba4d-57ecf0cb25c9.png&quot;&gt; |   &lt;img alt=&quot;Help window&quot; src=&quot;https://user-images.githubusercontent.com/6705160/180648292-136a0888-0fb6-4226-aa29-53bd3ffed400.png&quot;&gt;   |
+</code></pre><h1 id=requirements>Requirements
+<a class=header-anchor href=#requirements></a></h1><pre><code>&gt; [`:h mason-requirements`][help-mason-requirements]
+
+`mason.nvim` relaxes the minimum requirements by attempting multiple different utilities (for example, `wget`,
+        `curl`, and `Invoke-WebRequest` are all perfect substitutes).
+The _minimum_ recommended requirements are:
+
+-   neovim `&gt;= 0.7.0`
+-   For Unix systems:
+-   `git(1)`
+-   `curl(1)` or `wget(1)`
+-   `unzip(1)`
+</code></pre><ul><li><p>GNU tar (<code>tar(1)</code> or <code>gtar(1)</code> depending on platform)</p><ul><li><code>gzip(1)</code></li><li>For Windows systems:</li><li>pwsh or powershell</li><li>git</li><li>GNU tar</li><li>One of the following:</li><li><a href=https://www.7-zip.org/ title=7zip rel="noopener external nofollow noreferrer" target=_blank class=exturl>7zip
+<i class="fa fa-external-link-alt"></i></a></li><li><a href=https://peazip.github.io/ title=peazip rel="noopener external nofollow noreferrer" target=_blank class=exturl>peazip
+<i class="fa fa-external-link-alt"></i></a></li><li><a href=https://github.com/mholt/archiver title=archiver rel="noopener external nofollow noreferrer" target=_blank class=exturl>archiver
+<i class="fa fa-external-link-alt"></i></a></li><li><a href=https://www.winzip.com/ title=winzip rel="noopener external nofollow noreferrer" target=_blank class=exturl>winzip
+<i class="fa fa-external-link-alt"></i></a></li><li><a href=https://www.win-rar.com/ title=WinRAR rel="noopener external nofollow noreferrer" target=_blank class=exturl>WinRAR
+<i class="fa fa-external-link-alt"></i></a></li></ul><p>Note that <code>mason.nvim</code> will regularly shell out to external package managers, such as <code>cargo</code> and <code>npm</code>. Depending on
+your personal usage, some of these will also need to be installed. Refer to <code>:checkhealth mason</code> for a full list.</p></li></ul><a id=more></a><h1 id=installation>Installation
+<a class=header-anchor href=#installation></a></h1><h2 id=packer><a href=https://github.com/wbthomason/packer.nvim title=Packer rel="noopener external nofollow noreferrer" target=_blank class=exturl>Packer
+<i class="fa fa-external-link-alt"></i>
+</a><a class=header-anchor href=#packer></a></h2><pre><code>```lua
+use {
+    &quot;williamboman/mason.nvim&quot;
+}
+</code></pre><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-3>3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-4>4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-5>5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-6>6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-0-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-7>7</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-fallback data-lang=fallback><span style=display:flex><span>
+</span></span><span style=display:flex><span>## [lazy.nvim](https://github.com/folke/lazy.nvim)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>```lua
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    &#34;williamboman/mason.nvim&#34;
+</span></span><span style=display:flex><span>}</span></span></code></pre></td></tr></table></div></div><h2 id=vim-plug><a href=https://github.com/junegunn/vim-plug title=vim-plug rel="noopener external nofollow noreferrer" target=_blank class=exturl>vim-plug
+<i class="fa fa-external-link-alt"></i>
+</a><a class=header-anchor href=#vim-plug></a></h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-1-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-vim data-lang=vim><span style=display:flex><span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;williamboman/mason.nvim&#39;</span></span></span></code></pre></td></tr></table></div></div><h1 id=setup>Setup
+<a class=header-anchor href=#setup></a></h1><blockquote><p>[<code>:h mason-quickstart</code>][help-mason-quickstart]</p></blockquote><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-2-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-2-1>1</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-lua data-lang=lua><span style=display:flex><span>require(<span style=color:#e6db74>&#34;mason&#34;</span>).setup()</span></span></code></pre></td></tr></table></div></div><p><code>mason.nvim</code> is optimized to load as little as possible during setup. Lazy-loading the plugin, or somehow deferring the
+setup, is not recommended.</p><p>Refer to the
+<a href=#configuration title=Configuration>Configuration
+</a>section for information about which settings are available.</p><h2 id=extensions>Extensions
+<a class=header-anchor href=#extensions></a></h2><p>Refer to the
+<a href=https://github.com/williamboman/mason.nvim/wiki/Extensions title=Wiki rel="noopener external nofollow noreferrer" target=_blank class=exturl>Wiki
+<i class="fa fa-external-link-alt"></i>
+</a>for a list of 3rd party extensions.</p><ul><li><a href=https://github.com/williamboman/mason-lspconfig.nvim title=mason-lspconfig.nvim rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>mason-lspconfig.nvim</code>
+<i class="fa fa-external-link-alt"></i>
+</a>- recommended for usage with <code>lspconfig</code></li></ul><h1 id=commands>Commands
+<a class=header-anchor href=#commands></a></h1><blockquote><p>[<code>:h mason-commands</code>][help-mason-commands]</p></blockquote><ul><li><code>:Mason</code> - opens a graphical status window</li><li><code>:MasonUpdate</code> - updates all managed registries</li><li><code>:MasonInstall &lt;package> ...</code> - installs/re-installs the provided packages</li><li><code>:MasonUninstall &lt;package> ...</code> - uninstalls the provided packages</li><li><code>:MasonUninstallAll</code> - uninstalls all packages</li><li><code>:MasonLog</code> - opens the <code>mason.nvim</code> log file in a new tab window</li></ul><h1 id=registries>Registries
+<a class=header-anchor href=#registries></a></h1><p>Mason&rsquo;s core package registry is located at
+<a href=https://github.com/mason-org/mason-registry title=mason-org/mason-registry rel="noopener external nofollow noreferrer" target=_blank class=exturl>mason-org/mason-registry
+<i class="fa fa-external-link-alt"></i>
+</a>.
+Before any packages can be used, the registry needs to be downloaded. This is done automatically for you when using the
+different Mason commands (e.g. <code>:MasonInstall</code>), but can also be done manually by using the <code>:MasonUpdate</code> command.</p><p>If you&rsquo;re utilizing Mason&rsquo;s Lua APIs to access packages, it&rsquo;s recommended to use the
+[<code>:h mason-registry.refresh()</code>][help-mason-registry-refresh] and/or [<code>:h mason-registry.update()</code>][help-mason-registry-update]
+functions to ensure you have the latest package information before retrieving packages.</p><h1 id=configuration>Configuration
+<a class=header-anchor href=#configuration></a></h1><blockquote><p>[<code>:h mason-settings</code>][help-mason-settings]</p></blockquote><p>You may optionally configure certain behavior of <code>mason.nvim</code> when calling the <code>.setup()</code> function. Refer to the
+<a href=#default-configuration title="default configuration">default configuration
+</a>for a list of all available settings.</p><p>Example:</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-1>1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-2>2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-3>3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-4>4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-5>5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-6>6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-7>7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-8>8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-3-9><a style=outline:none;text-decoration:none;color:inherit href=#hl-3-9>9</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-lua data-lang=lua><span style=display:flex><span>require(<span style=color:#e6db74>&#34;mason&#34;</span>).setup({
+</span></span><span style=display:flex><span>        ui <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        icons <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        package_installed <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;✓&#34;</span>,
+</span></span><span style=display:flex><span>        package_pending <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;➜&#34;</span>,
+</span></span><span style=display:flex><span>        package_uninstalled <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;✗&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        })</span></span></code></pre></td></tr></table></div></div><h2 id=default-configuration>Default configuration
+<a class=header-anchor href=#default-configuration></a></h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-1>  1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-2>  2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-3>  3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-4>  4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-5>  5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-6>  6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-7>  7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-8>  8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-9><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-9>  9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-10><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-10> 10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-11><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-11> 11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-12><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-12> 12</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-13><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-13> 13</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-14><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-14> 14</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-15><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-15> 15</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-16><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-16> 16</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-17><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-17> 17</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-18><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-18> 18</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-19><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-19> 19</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-20><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-20> 20</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-21><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-21> 21</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-22><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-22> 22</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-23><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-23> 23</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-24><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-24> 24</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-25><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-25> 25</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-26><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-26> 26</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-27><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-27> 27</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-28><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-28> 28</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-29><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-29> 29</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-30><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-30> 30</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-31><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-31> 31</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-32><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-32> 32</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-33><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-33> 33</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-34><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-34> 34</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-35><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-35> 35</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-36><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-36> 36</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-37><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-37> 37</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-38><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-38> 38</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-39><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-39> 39</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-40><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-40> 40</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-41><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-41> 41</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-42><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-42> 42</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-43><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-43> 43</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-44><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-44> 44</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-45><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-45> 45</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-46><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-46> 46</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-47><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-47> 47</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-48><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-48> 48</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-49><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-49> 49</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-50><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-50> 50</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-51><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-51> 51</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-52><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-52> 52</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-53><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-53> 53</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-54><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-54> 54</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-55><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-55> 55</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-56><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-56> 56</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-57><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-57> 57</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-58><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-58> 58</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-59><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-59> 59</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-60><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-60> 60</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-61><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-61> 61</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-62><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-62> 62</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-63><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-63> 63</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-64><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-64> 64</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-65><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-65> 65</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-66><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-66> 66</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-67><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-67> 67</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-68><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-68> 68</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-69><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-69> 69</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-70><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-70> 70</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-71><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-71> 71</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-72><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-72> 72</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-73><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-73> 73</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-74><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-74> 74</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-75><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-75> 75</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-76><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-76> 76</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-77><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-77> 77</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-78><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-78> 78</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-79><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-79> 79</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-80><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-80> 80</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-81><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-81> 81</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-82><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-82> 82</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-83><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-83> 83</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-84><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-84> 84</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-85><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-85> 85</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-86><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-86> 86</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-87><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-87> 87</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-88><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-88> 88</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-89><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-89> 89</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-90><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-90> 90</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-91><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-91> 91</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-92><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-92> 92</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-93><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-93> 93</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-94><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-94> 94</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-95><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-95> 95</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-96><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-96> 96</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-97><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-97> 97</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-98><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-98> 98</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-99><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-99> 99</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-100><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-100>100</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-101><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-101>101</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-102><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-102>102</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-103><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-103>103</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-104><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-104>104</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-105><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-105>105</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-106><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-106>106</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-107><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-107>107</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-108><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-108>108</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-109><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-109>109</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-110><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-110>110</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-111><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-111>111</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-112><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-112>112</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-113><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-113>113</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-114><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-114>114</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-115><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-115>115</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-116><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-116>116</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-117><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-117>117</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-118><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-118>118</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-119><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-119>119</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-120><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-120>120</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-121><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-121>121</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-122><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-122>122</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-123><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-123>123</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-124><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-124>124</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-125><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-125>125</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-126><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-126>126</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-127><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-127>127</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-128><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-128>128</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-129><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-129>129</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-130><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-130>130</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-131><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-131>131</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-132><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-132>132</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-133><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-133>133</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-134><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-134>134</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-135><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-135>135</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=hl-4-136><a style=outline:none;text-decoration:none;color:inherit href=#hl-4-136>136</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-lua data-lang=lua><span style=display:flex><span><span style=color:#75715e>---@class MasonSettings</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>local</span> DEFAULT_SETTINGS <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- The directory in which to install packages.</span>
+</span></span><span style=display:flex><span>        install_root_dir <span style=color:#f92672>=</span> path.concat { vim.fn.stdpath <span style=color:#e6db74>&#34;data&#34;</span>, <span style=color:#e6db74>&#34;mason&#34;</span> },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- Where Mason should put its bin location in your PATH. Can be one of:</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- - &#34;prepend&#34; (default, Mason&#39;s bin location is put first in PATH)</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- - &#34;append&#34; (Mason&#39;s bin location is put at the end of PATH)</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- - &#34;skip&#34; (doesn&#39;t modify PATH)</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@type &#39;&#34;prepend&#34;&#39; | &#39;&#34;append&#34;&#39; | &#39;&#34;skip&#34;&#39;</span>
+</span></span><span style=display:flex><span>        PATH <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;prepend&#34;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- Controls to which degree logs are written to the log file. It&#39;s useful to set this to vim.log.levels.DEBUG when</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- debugging issues with package installations.</span>
+</span></span><span style=display:flex><span>        log_level <span style=color:#f92672>=</span> vim.log.levels.INFO,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- Limit for the maximum amount of packages to be installed at the same time. Once this limit is reached, any further</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- packages that are requested to be installed will be put in a queue.</span>
+</span></span><span style=display:flex><span>        max_concurrent_installers <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- [Advanced setting]</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- The registries to source packages from. Accepts multiple entries. Should a package with the same name exist in</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- multiple registries, the registry listed first will be used.</span>
+</span></span><span style=display:flex><span>        registries <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;github:mason-org/mason-registry&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- The provider implementations to use for resolving supplementary package metadata (e.g., all available versions).</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- Accepts multiple entries, where later entries will be used as fallback should prior providers fail.</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>-- Builtin providers are:</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>--   - mason.providers.registry-api  - uses the https://api.mason-registry.dev API</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>--   - mason.providers.client        - uses only client-side tooling to resolve metadata</span>
+</span></span><span style=display:flex><span>        providers <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;mason.providers.registry-api&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;mason.providers.client&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    github <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- The template URL to use when downloading assets from GitHub.</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- The placeholders are the following (in order):</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- 1. The repository (e.g. &#34;rust-lang/rust-analyzer&#34;)</span>
+</span></span><span style=display:flex><span>                   <span style=color:#75715e>-- 2. The release version (e.g. &#34;v0.3.0&#34;)</span>
+</span></span><span style=display:flex><span>                   <span style=color:#75715e>-- 3. The asset name (e.g. &#34;rust-analyzer-v0.3.0-x86_64-unknown-linux-gnu.tar.gz&#34;)</span>
+</span></span><span style=display:flex><span>                   download_url_template <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://github.com/%s/releases/download/%s/%s&#34;</span>,
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    pip <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- Whether to upgrade pip to the latest version in the virtual environment before installing packages.</span>
+</span></span><span style=display:flex><span>            upgrade_pip <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- These args will be added to `pip install` calls. Note that setting extra args might impact intended behavior</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- and is not recommended.</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>--</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- Example: { &#34;--proxy&#34;, &#34;https://proxyserver&#34; }</span>
+</span></span><span style=display:flex><span>        install_args <span style=color:#f92672>=</span> {},
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ui <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- Whether to automatically check for new versions when opening the :Mason window.</span>
+</span></span><span style=display:flex><span>            check_outdated_packages_on_open <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.</span>
+</span></span><span style=display:flex><span>            border <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;none&#34;</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- Width of the window. Accepts:</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- - Integer greater than 1 for fixed width.</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- - Float in the range of 0-1 for a percentage of screen width.</span>
+</span></span><span style=display:flex><span>            width <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.8</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- Height of the window. Accepts:</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- - Integer greater than 1 for fixed height.</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e>-- - Float in the range of 0-1 for a percentage of screen height.</span>
+</span></span><span style=display:flex><span>            height <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.9</span>,
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        icons <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- The list icon to use for installed packages.</span>
+</span></span><span style=display:flex><span>                package_installed <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;◍&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- The list icon to use for packages that are installing, or queued for installation.</span>
+</span></span><span style=display:flex><span>                package_pending <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;◍&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- The list icon to use for packages that are not installed.</span>
+</span></span><span style=display:flex><span>                package_uninstalled <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;◍&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        keymaps <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to expand a package</span>
+</span></span><span style=display:flex><span>                toggle_package_expand <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&lt;CR&gt;&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to install the package under the current cursor position</span>
+</span></span><span style=display:flex><span>                install_package <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;i&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to reinstall/update the package under the current cursor position</span>
+</span></span><span style=display:flex><span>                update_package <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;u&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to check for new version for the package under the current cursor position</span>
+</span></span><span style=display:flex><span>                check_package_version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;c&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to update all installed packages</span>
+</span></span><span style=display:flex><span>                update_all_packages <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;U&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to check which installed packages are outdated</span>
+</span></span><span style=display:flex><span>                check_outdated_packages <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;C&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to uninstall a package</span>
+</span></span><span style=display:flex><span>                uninstall_package <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;X&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to cancel a package installation</span>
+</span></span><span style=display:flex><span>                cancel_installation <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&lt;C-c&gt;&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.0.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to apply language filter</span>
+</span></span><span style=display:flex><span>                apply_language_filter <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&lt;C-f&gt;&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.1.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to toggle viewing package installation log</span>
+</span></span><span style=display:flex><span>                toggle_package_install_log <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&lt;CR&gt;&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#75715e>---@since 1.8.0</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>-- Keymap to toggle the help view</span>
+</span></span><span style=display:flex><span>                toggle_help <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;g?&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>    },
+</span></span><span style=display:flex><span>}</span></span></code></pre></td></tr></table></div></div></div><footer class=post-footer><hr><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/sed%E5%91%BD%E4%BB%A4%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%96%E9%83%A8%E5%8F%98%E9%87%8F/ rel=next title=sed命令中使用外部变量><i class="fa fa-chevron-left"></i> sed命令中使用外部变量</a></div><div class="post-nav-prev post-nav-item"><a href=/post/neovim%E6%8F%92%E4%BB%B6nvim-treesitter/ rel=prev title=neovim插件（nvim-treesitter）>neovim插件（nvim-treesitter）
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=i18n-translate class=i18n-translate><i class="fa fa-language"></i><div id=lang-select class=lang-select><div id=lang-selected class=selected-option><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=selected-language>简体中文</span>
+<i class="fa fa-chevron-down"></i></div><div id=lang-options class=lang-options><div class=lang-option lang-code=zh-cn lang-name=简体中文 lang-url=/post/neovim%E6%8F%92%E4%BB%B6mason/><span class="flag-icon flag-icon-zh-cn"></span>
+<span class=lang-name>简体中文</span></div></div></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2022 - 2026
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>Zhen-Hua Feng</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.169.0 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.8.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script class=next-config data-name=page type=application/json>{"clipboard":{"js":{"alias":"clipboard","file":"dist/clipboard.min.js","name":"clipboard.js","version":"2.0.11"}},"comments":false,"expired":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-svg.js","name":"mathjax","version":"3.2.2"},"render":"mathjax"},"path":"neovim%E6%8F%92%E4%BB%B6mason","permalink":"https://fungzhenhua.github.io/post/neovim%E6%8F%92%E4%BB%B6mason/","title":"Neovim插件Mason","toc":true}</script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/animejs/3.2.2/anime.min.js crossorigin=anonymous defer></script><script type=text/javascript src=https://s4.zstatic.net/ajax/libs/viewerjs/1.11.6/viewer.min.js crossorigin=anonymous defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#9400D3","enable":false,"save":"manual"},"copybtn":true,"darkmode":false,"hostname":"https://fungzhenhua.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"isMultiLang":true,"lang":"zh-CN","lazyload":false,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"slideInRight","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","share":{"addtoany":{"js":"https://static.addtoany.com/menu/page.js","locale":"zh-CN","num":8},"enable":false},"sidebar":{"display":"post","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"zstatic","router":{"home":"https://www.zstatic.net","logo":"https://www.zstatic.net/logo.png","name":"zstatic","type":"modern","url":"https://s4.zstatic.net/ajax/libs"}},"version":"4.8.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":false,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"@waline/client","file":"dist/waline.css","name":"waline","version":"2.15.8"},"js":{"alias":"@waline/client","file":"dist/waline.js","name":"waline","version":"2.15.8"}}}</script><script type=text/javascript src="/js/main.min.js?=1794040315" defer></script><script type=text/javascript src="/js/clipboard.min.js?=1794040315" defer></script><script type=text/javascript src="/js/math.min.js?=1794040315" defer></script></body></html>
