@@ -1,0 +1,44 @@
+/** Custom style defined file **/
+
+.mydefined {
+  font-size: 0.65em;
+  color: #ed6c24;
+}
+
+.custom-footer {
+  color: #ed6c24;
+}
+
+.custom-head5 {
+  font-size: 1.2em;
+  color: #ed6c24;
+  font-weight: bold;
+}
+
+/* 隐藏文章底部的虚线分割线 */
+.post-footer hr {
+    display: none !important;
+}
+
+!important/* 隐藏多语言翻译按钮（地球图标） */
+#goto-il8n-translate {
+    display: none !important;
+}
+
+/* 隐藏暗黑模式切换按钮（日月图标，推测ID/类名，若不准可补充检查） */
+#theme-switch,
+.dark-mode-toggle,
+.theme-switcher,
+.tool-buttons .button:not(#goto-il8n-translate) {
+    display: none !important;
+}
+
+/* 隐藏 ID 为 i18n-translate 的语言切换器 */
+#i18n-translate {
+  display: none !important;
+}
+
+/* 控制表头隐藏与加黑 */
+table.plain-header thead th {
+  font-weight: normal;
+}
